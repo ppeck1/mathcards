@@ -1,0 +1,188 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:chaos-theory:equilibrium", "id": "math:example:chaos-theory:equilibrium", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:chaos-theory", "example_id": "math:example:chaos-theory:equilibrium", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a"}, "purpose": "Explore how a deterministic nonlinear rule responds to nearby starting values.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a", "status": "draft", "title": "A calm setting of the same rule", "topics": ["mathematics", "dynamics", "modeling", "sensitivity to initial conditions", "logistic map"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# A calm setting of the same rule
+
+Parent card: math:concept:chaos-theory; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:chaos-theory; revision 0.1.0-draft. Setting: Explore how a deterministic nonlinear rule responds to nearby starting values. Expression: $x_{n+1}=rx_n(1-x_n),\quad D_n=|z_n-x_n|$. Conditions required for a defined value (a case may test their violation): Use a fixed rate and two starting values in [0,1]. The recurrence is a stipulated deterministic discrete model, not measured population data. Fractional generations linearly interpolate neighboring samples for display. Scope: Controls: rate 2.5–4, seed 0.01–0.99, perturbation 0.000001–0.01 and generation 0–36. Some rates give periodic or convergent behavior; the whole slider is not a chaotic regime.
+
+Case unit math:example:chaos-theory:equilibrium. Setting: Original constructed teaching scenario; stipulated quantities are not measurements. Inputs: {"delta": 0.0001, "generation": 1, "rate": 2.5, "seed": 0.6}. Result: {"exact": "0.000050025 normalized units"}. Limits: A one-step calculation alone does not classify the long-run attractor.
+
+## Complete worked case
+
+- id: math:example:chaos-theory:equilibrium
+- title: A calm setting of the same rule
+- role: counterexample
+- question: At rate 2.5, start at 0.6 and 0.6001. Does the first gap have to grow?
+- setting: Original constructed teaching scenario; stipulated quantities are not measurements.
+- assumptions:
+  - Use a fixed rate and two starting values in [0,1].
+  - The recurrence is a stipulated deterministic discrete model, not measured population data.
+  - Fractional generations linearly interpolate neighboring samples for display.
+- inputs:
+  - rate: 2.5
+  - seed: 0.6
+  - delta: 0.0001
+  - generation: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: 2.5(0.6)(0.4)=0.6
+    - reason: The first starting value is a fixed point.
+  - Item:
+    - index: 2
+    - expression: 2.5(0.6001)(0.3999)=0.599949975
+    - reason: The neighboring value moves just below it.
+  - Item:
+    - index: 3
+    - expression: |0.599949975−0.6|=0.000050025
+    - reason: The one-step gap is smaller than 0.0001.
+- result:
+  - exact: 0.000050025 normalized units
+- interpretation: Nonlinear rules can have calm parameter regimes. A chaos label does not make every setting chaotic.
+- independent check:
+  - method: Use the difference identity.
+  - expected: |2.5δ(1−2s−δ)|=0.000050025.
+- limits: A one-step calculation alone does not classify the long-run attractor.
+- preset:
+  - rate: 2.5
+  - seed: 0.6
+  - delta: 0.0001
+  - generation: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: draft
+  - external source refs:
+- conditions to check:
+  - Use a fixed rate and two starting values in [0,1].
+  - The recurrence is a stipulated deterministic discrete model, not measured population data.
+  - Fractional generations linearly interpolate neighboring samples for display.
+
+## Written exploration recipe
+
+- component id: chaos-theory-visual-model
+- renderer id: chaos-theory-visual-model
+- renderer version: 1.0.0
+- model id: chaos-theory-visual-model
+- model revision: 1.0.0
+- expression id: ast:chaos-theory:expression
+- interaction status: implemented
+- description: Two colored traces and a gap marker use the same evaluated generation; fractional generation joins neighboring samples.
+- controls:
+  - Item:
+    - id: rate
+    - type: number
+    - default: 3.8
+    - min: 2.5
+    - max: 4
+    - slider min: 2.5
+    - slider max: 4
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer.
+  - Item:
+    - id: seed
+    - type: number
+    - default: 0.35
+    - min: 0.01
+    - max: 0.99
+    - slider min: 0.01
+    - slider max: 0.99
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer.
+  - Item:
+    - id: delta
+    - type: number
+    - default: 0.0001
+    - min: 1e-06
+    - max: 0.01
+    - slider min: 1e-06
+    - slider max: 0.01
+    - slider step: 1e-06
+    - text input policy: Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer.
+  - Item:
+    - id: generation
+    - type: number
+    - default: 12
+    - min: 0
+    - max: 36
+    - slider min: 0
+    - slider max: 36
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer.
+- expected cases:
+  - Item:
+    - input:
+      - rate: 3.8
+      - seed: 0.35
+      - delta: 0.0001
+      - generation: 12
+    - output: 0.02644158410711872
+  - Item:
+    - input:
+      - rate: 3.8
+      - seed: 0.35
+      - delta: 0.0001
+      - generation: 0
+    - output: 9.999999999998899e-05
+  - Item:
+    - input:
+      - rate: 3.8
+      - seed: 0.35
+      - delta: 0.0001
+      - generation: 1
+    - output: 0.00011396200000002299
+  - Item:
+    - input:
+      - rate: 3.8
+      - seed: 0.35
+      - delta: 0.0001
+      - generation: 0.5
+    - output: 0.00010698099999995048
+  - Item:
+    - input:
+      - rate: 2.5
+      - seed: 0.6
+      - delta: 0.0001
+      - generation: 1
+    - output: 5.00250000000646e-05
+  - Item:
+    - input:
+      - rate: 4
+      - seed: 0.99
+      - delta: 0.01
+      - generation: 36
+    - output: 0.35336619198049213
+  - Item:
+    - input:
+      - rate: 4.1
+      - seed: 0.35
+      - delta: 0.0001
+      - generation: 12
+    - status: invalid_parameters
+- compute: For each seed s and s+δ, iterate F(x)=r*x*(1-x) floor(generation) times. At fraction f linearly interpolate that sample and its next sample. Output is the absolute difference of the two interpolated values.
+- numeric tolerance: 1e-10
+- invariants:
+  - At generation zero output equals delta.
+  - For rates at most 4 and starts in[0,1], every mathematical iterate stays in[0,1].
+  - Both traces use the same rate and generation.
+- limits:
+  - Floating-point roundoff can affect later iterates of sensitive systems.
+  - A finite trace does not prove chaos; periodic windows occur among high rates.
+  - Fractional generation is a declared visual convention, not a continuous population trajectory.
+- fallback: Read the same substituted formula, worked steps and labeled static scene with motion paused.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:mit:logistic-dynamics. [MIT Press Open Encyclopedia of Cognitive Science, Complex Dynamical Systems](https://oecs.mit.edu/pub/00hsw4x2/release/1/). Locator: Nonlinearity, attractors, and chaos; logistic recurrence and sensitive dependence. Verification: Definition-level mathematics inspected2026-10-23 via the official publisher or university page. This supports definitions, not historical priority, independent mathematical review or the original constructed applications.. Rights: Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied.

@@ -1,0 +1,14 @@
+{
+  "name": "math-cards",
+  "version": "0.22.0",
+  "private": true,
+  "description": "Offline Mathematical Expression Atlas",
+  "scripts": {
+    "build": "python3 tools/build.py",
+    "test": "node --test tests/*.test.mjs",
+    "check": "python3 tools/check.py"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

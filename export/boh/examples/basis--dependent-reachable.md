@@ -1,0 +1,288 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:basis:dependent-reachable", "id": "math:example:basis:dependent-reachable", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:basis", "example_id": "math:example:basis:dependent-reachable", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "7e57ce90202c446bd3a7e7f95245948f7949d5d3461b967de1ef13fb4e88e258"}, "purpose": "Keep a point fixed while changing the directions used to describe it.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "7e57ce90202c446bd3a7e7f95245948f7949d5d3461b967de1ef13fb4e88e258", "status": "draft", "title": "Repeated directions give nonunique instructions", "topics": ["mathematics", "linear-algebra", "geometry", "basis vectors", "coordinates in a basis", "change of coordinates", "oblique basis"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Repeated directions give nonunique instructions
+
+Parent card: math:concept:basis; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:basis; revision 0.1.0-draft. Setting: Real vector spaces with an explicit two-dimensional coordinate model. Expression: $\mathcal{B}=(u,v),\quad B=\begin{pmatrix}a&b\\c&d\end{pmatrix},\quad z=B\binom{r}{s};\quad \det(B)\ne0\Rightarrow [z]_{\mathcal{B}}=\binom{(dx-by)/(ad-bc)}{(ay-cx)/(ad-bc)}.$. Conditions required for a defined value (a case may test their violation): The ordered candidate directions are u=(a,c) and v=(b,d), the columns of B=[[a,b],[c,d]]. The pair is a basis of R² exactly when det(B)=ad-bc is nonzero; it need not be perpendicular or have unit length. For a nonzero determinant, each target (x,y) has one coefficient pair (r,s) satisfying r*u+s*v=(x,y). A dependent pair is valid model input but is not a basis of the plane. Its target equation can have infinitely many solutions or no solution. Physical coordinates use one compatible coordinate system and units; basis coefficients describe multiples of the declared directions. Scope: The general notion of a basis applies to vector spaces and subspaces beyond the real plane. This live model tests exactly two ordered real plane directions and a target vector, with bounded entries and target components. The coefficient results are not artificially restricted to the slider bounds and can grow large near dependence. The bounded control box is not itself a vector space. The exact zero determinant case is classified separately from a nearby nonzero determinant; finite-precision numerical range can still prevent a displayed unique result. No arbitrary-dimension solver or full change-of-basis matrix between two arbitrary bases is implemented.
+
+Case unit math:example:basis:dependent-reachable. Setting: Original constructed teaching scenario; values and rules are stipulated, not measured. Inputs: {"a": 1, "b": 2, "c": 1, "d": 2, "x": 3, "y": 3}. Result: {"exact": "Valid dependent configuration; infinitely many solutions; unique-coordinate outputs are unavailable"}. Limits: A single nonzero direction can be a basis of this line, but the redundant two-vector pair is not a basis.
+
+## Complete worked case
+
+- id: math:example:basis:dependent-reachable
+- title: Repeated directions give nonunique instructions
+- role: applied_model
+- question: The candidate arrows are u=(1,1) cm and v=(2,2) cm. Can they reach target (3,3) cm uniquely?
+- setting: Original constructed teaching scenario; values and rules are stipulated, not measured.
+- assumptions:
+  - A drawing uses the standard coordinate axes, with one grid unit representing one centimetre.
+  - The two declared basis arrows are written as matrix columns, not rows.
+  - The target stays at its stated location while its coefficient labels may change with the candidate basis.
+- inputs:
+  - x: 3
+  - y: 3
+  - a: 1
+  - b: 2
+  - c: 1
+  - d: 2
+- steps:
+  - Item:
+    - index: 1
+    - expression: det(B)=1*2-2*1=0
+    - reason: The candidate pair is dependent and is not a basis of the plane.
+  - Item:
+    - index: 2
+    - expression: r+2s=3 in both coordinate equations
+    - reason: One equation is repeated rather than giving an independent condition.
+  - Item:
+    - index: 3
+    - expression: (r,s)=(3,0) and (1,1) both reach (3,3) cm
+    - reason: There is no unique coordinate pair; infinitely many coefficient pairs work.
+- result:
+  - exact: Valid dependent configuration; infinitely many solutions; unique-coordinate outputs are unavailable
+- interpretation: The point is reachable, but its description by this redundant pair is not unique.
+- independent check:
+  - method: Parametric family
+  - expected: For every real t, (r,s)=(3-2t,t) gives (r+2s,r+2s)=(3,3).
+- limits: A single nonzero direction can be a basis of this line, but the redundant two-vector pair is not a basis.
+- preset:
+  - x: 3
+  - y: 3
+  - a: 1
+  - b: 2
+  - c: 1
+  - d: 2
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - A drawing uses the standard coordinate axes, with one grid unit representing one centimetre.
+  - The two declared basis arrows are written as matrix columns, not rows.
+  - The target stays at its stated location while its coefficient labels may change with the candidate basis.
+
+## Written exploration recipe
+
+- component id: basis-visual-model
+- renderer id: basis-visual-model
+- renderer version: 1.0.0
+- model id: basis-visual-model
+- model revision: 1
+- expression id: ast:basis:expression
+- interaction status: implemented
+- description: Keep the standard target arrow fixed, deform the candidate grid and reconstruct it from its coefficient arrows when the pair is independent. Dependent line/zero spans retain an explicit solution classification; the Graph varies target x.
+- controls:
+  - Item:
+    - id: x
+    - type: number
+    - default: 3
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: y
+    - type: number
+    - default: 2
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: a
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: b
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: c
+    - type: number
+    - default: 0
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: d
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+- expected cases:
+  - Item:
+    - input:
+      - x: 3
+      - y: 2
+      - a: 1
+      - b: 1
+      - c: 0
+      - d: 1
+    - output: 1.0
+  - Item:
+    - input:
+      - x: -2
+      - y: 3
+      - a: 1
+      - b: 0
+      - c: 0
+      - d: 1
+    - output: -2.0
+  - Item:
+    - input:
+      - x: 2
+      - y: 2
+      - a: 2
+      - b: 0
+      - c: 0
+      - d: 1
+    - output: 1.0
+  - Item:
+    - input:
+      - x: 1
+      - y: 2
+      - a: 0
+      - b: -1
+      - c: 1
+      - d: 0
+    - output: 2.0
+  - Item:
+    - input:
+      - x: 1
+      - y: 0
+      - a: 1
+      - b: 1
+      - c: 1
+      - d: 1.015625
+    - output: 65
+  - Item:
+    - input:
+      - x: 3
+      - y: 3
+      - a: 1
+      - b: 2
+      - c: 1
+      - d: 2
+    - output: null
+    - status: valid
+    - exact display: Infinitely many solutions in a line span; rank 1.
+  - Item:
+    - input:
+      - x: 3
+      - y: 2
+      - a: 1
+      - b: 2
+      - c: 1
+      - d: 2
+    - output: null
+    - status: valid
+    - exact display: No solution: target is outside the line span; rank 1.
+  - Item:
+    - input:
+      - x: 0
+      - y: 0
+      - a: 0
+      - b: 0
+      - c: 0
+      - d: 0
+    - output: null
+    - status: valid
+    - exact display: Infinitely many solutions: every coefficient pair reaches zero; rank 0.
+  - Item:
+    - input:
+      - x: 1
+      - y: 0
+      - a: 0
+      - b: 0
+      - c: 0
+      - d: 0
+    - output: null
+    - status: valid
+    - exact display: No solution: zero columns cannot reach a nonzero target; rank 0.
+  - Item:
+    - input:
+      - x: 1
+      - y: 1
+      - a: 0
+      - b: 1
+      - c: 0
+      - d: 1
+    - output: null
+    - status: valid
+    - exact display: Infinitely many solutions: zero first column leaves its coefficient free; rank 1.
+  - Item:
+    - input:
+      - x: 3
+      - y: 2
+      - a: 2.1
+      - b: 1
+      - c: 0
+      - d: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - x: 3.1
+      - y: 2
+      - a: 1
+      - b: 1
+      - c: 0
+      - d: 1
+    - status: invalid_parameters
+- compute: determinant=a*d-b*c. If determinant!=0, output=r=(d*x-b*y)/determinant and s=(a*y-c*x)/determinant; reconstruct (a*r+b*s,c*r+d*s). If determinant=0, output/r/s are null and the model distinguishes infinite_solutions from no_solution. rank is 2 for nonzero determinant, 1 for a nonzero dependent pair, otherwise 0. Nonfinite computed coordinates use solutionStatus=numeric_range, not fabricated finite coefficients.
+- numeric tolerance: 1e-10
+- invariants:
+  - The ordered candidate directions are u=(a,c) and v=(b,d), the columns of B=[[a,b],[c,d]].
+  - The pair is a basis of R² exactly when det(B)=ad-bc is nonzero; it need not be perpendicular or have unit length.
+  - For a nonzero determinant, each target (x,y) has one coefficient pair (r,s) satisfying r*u+s*v=(x,y).
+  - A dependent pair is valid model input but is not a basis of the plane. Its target equation can have infinitely many solutions or no solution.
+  - Physical coordinates use one compatible coordinate system and units; basis coefficients describe multiples of the declared directions.
+- limits:
+  - Exactly two candidate real plane directions and one target; no arbitrary-size solver.
+  - The candidate pair is a basis of the plane only when its determinant is nonzero.
+  - Primary Graph output is coefficient r; a nonunique or numerically unavailable coefficient is a gap, not zero.
+  - Near-dependent directions can require large coefficients and are sensitive to finite precision.
+- fallback: Pause and read the labeled scene, current values, evaluated samples and original worked steps. A distinct Graph view remains available.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:gatech:determinants-volumes. [Georgia Tech Interactive Linear Algebra, 4.3 Determinants and Volumes](https://textbooks.math.gatech.edu/ila/determinants-volumes.html). Locator: Determinant magnitude as parallelogram area; zero-area collapse; signed orientation. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports vocabulary and conditions, not historical priority or independent review of the original scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.
+
+- Source ID: source:gatech:basis-dimension. [Georgia Tech Interactive Linear Algebra, 2.7 Basis and Dimension](https://textbooks.math.gatech.edu/ila/dimension.html). Locator: Subsection 2.7.1 Basis of a Subspace: spanning and independence requirements; plane basis criterion. Verification: Definition-level mathematics inspected 2026-10-26 on the official university textbook page. Supports definitions and conditions, not historical priority, independent review or the original constructed scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.
+
+- Source ID: source:gatech:basis-coordinates. [Georgia Tech Interactive Linear Algebra, 2.8 Bases as Coordinate Systems](https://textbooks.math.gatech.edu/ila/bases-as-coord-systems.html). Locator: Fact and proof of unique coordinates in a basis; coordinate-vector definition and solving the coordinate equation. Verification: Definition-level mathematics inspected 2026-10-26 on the official university textbook page. Supports definitions and conditions, not historical priority, independent review or the original constructed scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.

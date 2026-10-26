@@ -1,0 +1,18 @@
+{
+  "repository": "https://github.com/ppeck1/Bag-of-Holding",
+  "commit": "aa3d4fcae554a5d39bde0aa7dba1f7ab584854b5",
+  "license": "MIT; see LICENSE",
+  "purpose": "Static metadata compatibility checks only",
+  "files": [
+    {
+      "path": "metadata_contract.py",
+      "upstream_path": "app/core/metadata_contract.py",
+      "sha256": "a0ef14931ae87a128391331107e4789088c413cc224b9a006062407b6693fe4c"
+    },
+    {
+      "path": "rubrix.py",
+      "upstream_path": "app/core/rubrix.py",
+      "sha256": "f52382ae68b25221a96714bee77ba08424655cbd203f9f9bc55e6460289c1b2a"
+    }
+  ]
+}

@@ -1,0 +1,2333 @@
+{
+  "authority_policy": "draft/supporting/non_authoritative",
+  "boh_source_pin": "aa3d4fcae554a5d39bde0aa7dba1f7ab584854b5",
+  "card_count": 38,
+  "contract_version": "0.2.0",
+  "document_count": 232,
+  "documents": [
+    {
+      "card_id": "math:concept:basis",
+      "document_id": "math:concept:basis",
+      "example_id": null,
+      "file_sha256": "6157bd9cb3128a4c5dd97fbb27617c5282872f3b0c89f89f8e135b453e79fb48",
+      "path": "boh/cards/basis.md",
+      "size_bytes": 36802,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "7e57ce90202c446bd3a7e7f95245948f7949d5d3461b967de1ef13fb4e88e258"
+    },
+    {
+      "card_id": "math:concept:basis",
+      "document_id": "math:example:basis:oblique",
+      "example_id": "math:example:basis:oblique",
+      "file_sha256": "41761d6d37ad95cf0bce6c80eec5821b64ed9c47d86386c5bac0410c271e39b4",
+      "path": "boh/examples/basis--oblique.md",
+      "size_bytes": 13414,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "7e57ce90202c446bd3a7e7f95245948f7949d5d3461b967de1ef13fb4e88e258"
+    },
+    {
+      "card_id": "math:concept:basis",
+      "document_id": "math:example:basis:scaled-grid",
+      "example_id": "math:example:basis:scaled-grid",
+      "file_sha256": "7b5b21b251246b6b0b163a657805e5700dbfcde06b65d7677836b9ded3b3a5a5",
+      "path": "boh/examples/basis--scaled-grid.md",
+      "size_bytes": 13367,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "7e57ce90202c446bd3a7e7f95245948f7949d5d3461b967de1ef13fb4e88e258"
+    },
+    {
+      "card_id": "math:concept:basis",
+      "document_id": "math:example:basis:rotated-grid",
+      "example_id": "math:example:basis:rotated-grid",
+      "file_sha256": "b6c5fca82cf9ee195a2d9022f3b6911adb09adadf3637c4627186a4850fd1c07",
+      "path": "boh/examples/basis--rotated-grid.md",
+      "size_bytes": 13429,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "7e57ce90202c446bd3a7e7f95245948f7949d5d3461b967de1ef13fb4e88e258"
+    },
+    {
+      "card_id": "math:concept:basis",
+      "document_id": "math:example:basis:dependent-reachable",
+      "example_id": "math:example:basis:dependent-reachable",
+      "file_sha256": "6c7e8ac9ff8dee1d040af2ff24db01c4c691400839ef9878d471688eb7bd4060",
+      "path": "boh/examples/basis--dependent-reachable.md",
+      "size_bytes": 13703,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "7e57ce90202c446bd3a7e7f95245948f7949d5d3461b967de1ef13fb4e88e258"
+    },
+    {
+      "card_id": "math:concept:basis",
+      "document_id": "math:example:basis:dependent-unreachable",
+      "example_id": "math:example:basis:dependent-unreachable",
+      "file_sha256": "379f15b7c9a0dfcef5e99f8cdfa3b40c95302b00a04d5ddbc19e118bc5d5199e",
+      "path": "boh/examples/basis--dependent-unreachable.md",
+      "size_bytes": 13678,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "7e57ce90202c446bd3a7e7f95245948f7949d5d3461b967de1ef13fb4e88e258"
+    },
+    {
+      "card_id": "math:concept:bayes-theorem",
+      "document_id": "math:concept:bayes-theorem",
+      "example_id": null,
+      "file_sha256": "986ed80c6cff521c2c1f756089afff9bb81f0095218af92959ab4fd33b6a9bbf",
+      "path": "boh/cards/bayes-theorem.md",
+      "size_bytes": 23236,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b"
+    },
+    {
+      "card_id": "math:concept:bayes-theorem",
+      "document_id": "math:example:bayes-theorem:balanced-flags",
+      "example_id": "math:example:bayes-theorem:balanced-flags",
+      "file_sha256": "7785c1d4635030ce8aaeff163f262d9694e97d401d8710b84e2db6baa269db81",
+      "path": "boh/examples/bayes-theorem--balanced-flags.md",
+      "size_bytes": 8147,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b"
+    },
+    {
+      "card_id": "math:concept:bayes-theorem",
+      "document_id": "math:example:bayes-theorem:rare",
+      "example_id": "math:example:bayes-theorem:rare",
+      "file_sha256": "10331cc5ce2ee8d20864beaf93e5ba2f0650655f5a4ee6503c7bda3ee59300a5",
+      "path": "boh/examples/bayes-theorem--rare.md",
+      "size_bytes": 7940,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b"
+    },
+    {
+      "card_id": "math:concept:bayes-theorem",
+      "document_id": "math:example:bayes-theorem:common",
+      "example_id": "math:example:bayes-theorem:common",
+      "file_sha256": "77f5d915790a1f9580c55ad027e025880b1097610bdd06942fe0389c1605f111",
+      "path": "boh/examples/bayes-theorem--common.md",
+      "size_bytes": 7890,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b"
+    },
+    {
+      "card_id": "math:concept:bayes-theorem",
+      "document_id": "math:example:bayes-theorem:cleaner",
+      "example_id": "math:example:bayes-theorem:cleaner",
+      "file_sha256": "0a39e8d35c6c3b9e3e42e854dcc706934cba69348eb0349caa94f048498a259b",
+      "path": "boh/examples/bayes-theorem--cleaner.md",
+      "size_bytes": 7898,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b"
+    },
+    {
+      "card_id": "math:concept:bayes-theorem",
+      "document_id": "math:example:bayes-theorem:uninformative",
+      "example_id": "math:example:bayes-theorem:uninformative",
+      "file_sha256": "0054a8829fe7237b8391a60323a40d2335ae5d42e1ed48bd5ec7cdde0eea1c99",
+      "path": "boh/examples/bayes-theorem--uninformative.md",
+      "size_bytes": 7909,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b"
+    },
+    {
+      "card_id": "math:concept:chain-rule",
+      "document_id": "math:concept:chain-rule",
+      "example_id": null,
+      "file_sha256": "e88fab7498561c2031c310e0251f4cb9f35fc3dd33d448310bbe64312dc096cc",
+      "path": "boh/cards/chain-rule.md",
+      "size_bytes": 33367,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "72b5e13ae51a696ac51929631f21a4c3817ad4f07c10b87a888d595ed4934b77"
+    },
+    {
+      "card_id": "math:concept:chain-rule",
+      "document_id": "math:example:chain-rule:panel-area",
+      "example_id": "math:example:chain-rule:panel-area",
+      "file_sha256": "e6f2be833bcb37763318a99ab1bca262a2e9e45d49af9cdbdc8d14bb09b30cd9",
+      "path": "boh/examples/chain-rule--panel-area.md",
+      "size_bytes": 10709,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "72b5e13ae51a696ac51929631f21a4c3817ad4f07c10b87a888d595ed4934b77"
+    },
+    {
+      "card_id": "math:concept:chain-rule",
+      "document_id": "math:example:chain-rule:gentler-calibration",
+      "example_id": "math:example:chain-rule:gentler-calibration",
+      "file_sha256": "6f4473445fee16000cd988032a4a7b58ad87876f545630e79144907aaf20aafd",
+      "path": "boh/examples/chain-rule--gentler-calibration.md",
+      "size_bytes": 10595,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "72b5e13ae51a696ac51929631f21a4c3817ad4f07c10b87a888d595ed4934b77"
+    },
+    {
+      "card_id": "math:concept:chain-rule",
+      "document_id": "math:example:chain-rule:fixed-side",
+      "example_id": "math:example:chain-rule:fixed-side",
+      "file_sha256": "8d3d6fe56ca81dbc177232cef97b55bbc231d4602cd6f0a32101a8360af6ecb6",
+      "path": "boh/examples/chain-rule--fixed-side.md",
+      "size_bytes": 10643,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "72b5e13ae51a696ac51929631f21a4c3817ad4f07c10b87a888d595ed4934b77"
+    },
+    {
+      "card_id": "math:concept:chain-rule",
+      "document_id": "math:example:chain-rule:reversed-setting",
+      "example_id": "math:example:chain-rule:reversed-setting",
+      "file_sha256": "bea59240d97b0856feba0c39bdd325338b952acae9e9738e78bb4dd3925497b0",
+      "path": "boh/examples/chain-rule--reversed-setting.md",
+      "size_bytes": 10570,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "72b5e13ae51a696ac51929631f21a4c3817ad4f07c10b87a888d595ed4934b77"
+    },
+    {
+      "card_id": "math:concept:chain-rule",
+      "document_id": "math:example:chain-rule:zero-outer-slope",
+      "example_id": "math:example:chain-rule:zero-outer-slope",
+      "file_sha256": "4b89be31455a26f7854aa9bfc9f9ec68213a798c06cdd13cd9cc1ce101e3d1c9",
+      "path": "boh/examples/chain-rule--zero-outer-slope.md",
+      "size_bytes": 10834,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "72b5e13ae51a696ac51929631f21a4c3817ad4f07c10b87a888d595ed4934b77"
+    },
+    {
+      "card_id": "math:concept:chaos-theory",
+      "document_id": "math:concept:chaos-theory",
+      "example_id": null,
+      "file_sha256": "dce956932b565cf3ebcc45117c0604770a0cebddb52c0a1fbd6f6a4646692dd6",
+      "path": "boh/cards/chaos-theory.md",
+      "size_bytes": 24347,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a"
+    },
+    {
+      "card_id": "math:concept:chaos-theory",
+      "document_id": "math:example:chaos-theory:two-counts",
+      "example_id": "math:example:chaos-theory:two-counts",
+      "file_sha256": "6a8ef8a18fc37cd78f89789164144ba0cd21fda71e8eafdaae62b78462df788f",
+      "path": "boh/examples/chaos-theory--two-counts.md",
+      "size_bytes": 8688,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a"
+    },
+    {
+      "card_id": "math:concept:chaos-theory",
+      "document_id": "math:example:chaos-theory:twelve",
+      "example_id": "math:example:chaos-theory:twelve",
+      "file_sha256": "34bf9b9b32e1c15521c6daf596dc62eb7ae7d8f48703626032570038638ad968",
+      "path": "boh/examples/chaos-theory--twelve.md",
+      "size_bytes": 8768,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a"
+    },
+    {
+      "card_id": "math:concept:chaos-theory",
+      "document_id": "math:example:chaos-theory:initial",
+      "example_id": "math:example:chaos-theory:initial",
+      "file_sha256": "736797dca2ea11b89ca8dbd24b121df224a63de929f33e50d1ed81bd6d46b6b2",
+      "path": "boh/examples/chaos-theory--initial.md",
+      "size_bytes": 8271,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a"
+    },
+    {
+      "card_id": "math:concept:chaos-theory",
+      "document_id": "math:example:chaos-theory:equilibrium",
+      "example_id": "math:example:chaos-theory:equilibrium",
+      "file_sha256": "4f7771e24dfab3bf11893f46ed84f3c02242d7aa65e5c950e96cd5c4755cbeec",
+      "path": "boh/examples/chaos-theory--equilibrium.md",
+      "size_bytes": 8508,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a"
+    },
+    {
+      "card_id": "math:concept:chaos-theory",
+      "document_id": "math:example:chaos-theory:between",
+      "example_id": "math:example:chaos-theory:between",
+      "file_sha256": "ba2a1f4c94666b2b2f08c238bd6c433fddc17696d7187e7261afefa65e6b3e80",
+      "path": "boh/examples/chaos-theory--between.md",
+      "size_bytes": 8639,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a"
+    },
+    {
+      "card_id": "math:concept:complex-multiplication",
+      "document_id": "math:concept:complex-multiplication",
+      "example_id": null,
+      "file_sha256": "4222f3d364fa74f598b52dab563be9c0862363c201d5335016beb6bb467b8567",
+      "path": "boh/cards/complex-multiplication.md",
+      "size_bytes": 21785,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e"
+    },
+    {
+      "card_id": "math:concept:complex-multiplication",
+      "document_id": "math:example:complex-multiplication:turn-grow",
+      "example_id": "math:example:complex-multiplication:turn-grow",
+      "file_sha256": "bcd075d4dcdea27c1acb9b96e8bcc7160e20e1f524249247c2ec210cc4a206f9",
+      "path": "boh/examples/complex-multiplication--turn-grow.md",
+      "size_bytes": 7320,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e"
+    },
+    {
+      "card_id": "math:concept:complex-multiplication",
+      "document_id": "math:example:complex-multiplication:identity",
+      "example_id": "math:example:complex-multiplication:identity",
+      "file_sha256": "7efde44ed65f3d36e767bcfce3bdffa171fdd00db64db35a574db662648e46a6",
+      "path": "boh/examples/complex-multiplication--identity.md",
+      "size_bytes": 7345,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e"
+    },
+    {
+      "card_id": "math:concept:complex-multiplication",
+      "document_id": "math:example:complex-multiplication:quarter-turn",
+      "example_id": "math:example:complex-multiplication:quarter-turn",
+      "file_sha256": "c150e73680f71da7220a2c0d594643cf5de41c7dec31c095b877e5e4aea4cc49",
+      "path": "boh/examples/complex-multiplication--quarter-turn.md",
+      "size_bytes": 7325,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e"
+    },
+    {
+      "card_id": "math:concept:complex-multiplication",
+      "document_id": "math:example:complex-multiplication:half-turn",
+      "example_id": "math:example:complex-multiplication:half-turn",
+      "file_sha256": "7e994423bf0135dd98c3537894fb7efff813e9ad9e23544452d6b4a82696a6e7",
+      "path": "boh/examples/complex-multiplication--half-turn.md",
+      "size_bytes": 7308,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e"
+    },
+    {
+      "card_id": "math:concept:complex-multiplication",
+      "document_id": "math:example:complex-multiplication:collapse",
+      "example_id": "math:example:complex-multiplication:collapse",
+      "file_sha256": "71de8dcf649924d6550294bfeaa59aa6d02c5264fd7ecd49c8db089b6e89ea9e",
+      "path": "boh/examples/complex-multiplication--collapse.md",
+      "size_bytes": 7414,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e"
+    },
+    {
+      "card_id": "math:concept:computational-complexity",
+      "document_id": "math:concept:computational-complexity",
+      "example_id": null,
+      "file_sha256": "2eab1f957f02c0659d854d1c8cad73e550a6785e5a92aad01f108093464e2712",
+      "path": "boh/cards/computational-complexity.md",
+      "size_bytes": 34071,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "1586421533748ce86c77e5bdb00145adbc5f65d01ab7a14782e45013534f0512"
+    },
+    {
+      "card_id": "math:concept:computational-complexity",
+      "document_id": "math:example:computational-complexity:inspection-batch",
+      "example_id": "math:example:computational-complexity:inspection-batch",
+      "file_sha256": "cd2a61f4f81482daafc7adb3d3453ddca4393b96a50da7e936eaa0c343b19997",
+      "path": "boh/examples/computational-complexity--inspection-batch.md",
+      "size_bytes": 11215,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "1586421533748ce86c77e5bdb00145adbc5f65d01ab7a14782e45013534f0512"
+    },
+    {
+      "card_id": "math:concept:computational-complexity",
+      "document_id": "math:example:computational-complexity:faster-inspection",
+      "example_id": "math:example:computational-complexity:faster-inspection",
+      "file_sha256": "0c13362fbdfe34fd0d96fd699c06ef5e8b01bceebc1b155bb46813e18d0dee62",
+      "path": "boh/examples/computational-complexity--faster-inspection.md",
+      "size_bytes": 11256,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "1586421533748ce86c77e5bdb00145adbc5f65d01ab7a14782e45013534f0512"
+    },
+    {
+      "card_id": "math:concept:computational-complexity",
+      "document_id": "math:example:computational-complexity:double-input",
+      "example_id": "math:example:computational-complexity:double-input",
+      "file_sha256": "943cdc6a316d067d91217ea868f428b7c754a9199ac9839c4b85b837a3f146f3",
+      "path": "boh/examples/computational-complexity--double-input.md",
+      "size_bytes": 11222,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "1586421533748ce86c77e5bdb00145adbc5f65d01ab7a14782e45013534f0512"
+    },
+    {
+      "card_id": "math:concept:computational-complexity",
+      "document_id": "math:example:computational-complexity:slower-inspection",
+      "example_id": "math:example:computational-complexity:slower-inspection",
+      "file_sha256": "a46da413f72af9e6905466bf583e92862c57d3b6733b715419b30191a8aa023d",
+      "path": "boh/examples/computational-complexity--slower-inspection.md",
+      "size_bytes": 11206,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "1586421533748ce86c77e5bdb00145adbc5f65d01ab7a14782e45013534f0512"
+    },
+    {
+      "card_id": "math:concept:computational-complexity",
+      "document_id": "math:example:computational-complexity:larger-model",
+      "example_id": "math:example:computational-complexity:larger-model",
+      "file_sha256": "c365902737b0511cd7c13ce9ee89bcabaaa8101b3b19241d63888187fdea9e72",
+      "path": "boh/examples/computational-complexity--larger-model.md",
+      "size_bytes": 11255,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "1586421533748ce86c77e5bdb00145adbc5f65d01ab7a14782e45013534f0512"
+    },
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:concept:derivative",
+      "example_id": null,
+      "file_sha256": "0413c206413eeacbf43772a536d23ad7a99515aa89b914c2b5ec443ddc53779d",
+      "path": "boh/cards/derivative.md",
+      "size_bytes": 21900,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "da1b98043fa01d001465a389beebd95ed3e8aec9aa5e6a20175abcf2843aca31"
+    },
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:example:derivative:cubic",
+      "example_id": "math:example:derivative:cubic",
+      "file_sha256": "b68ea590138c37c8c8d7f57fe18853a2f5399e5a0e8772d33d5c0157e9a6cbff",
+      "path": "boh/examples/derivative--cubic.md",
+      "size_bytes": 6459,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "da1b98043fa01d001465a389beebd95ed3e8aec9aa5e6a20175abcf2843aca31"
+    },
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:example:derivative:secant",
+      "example_id": "math:example:derivative:secant",
+      "file_sha256": "eb3439e4571efd11915efcc5b08790a7d1990aca5fa00903854d571cec8b648d",
+      "path": "boh/examples/derivative--secant.md",
+      "size_bytes": 6498,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "da1b98043fa01d001465a389beebd95ed3e8aec9aa5e6a20175abcf2843aca31"
+    },
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:example:derivative:motion",
+      "example_id": "math:example:derivative:motion",
+      "file_sha256": "595b2700b68d590c77459c3a2e4fbb9072173ca14d03ae4c3a0c70bbe02c7ca6",
+      "path": "boh/examples/derivative--motion.md",
+      "size_bytes": 6882,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "da1b98043fa01d001465a389beebd95ed3e8aec9aa5e6a20175abcf2843aca31"
+    },
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:example:derivative:image-scale",
+      "example_id": "math:example:derivative:image-scale",
+      "file_sha256": "073de556cc56ca13f1f0eff95276e30a8e7fcfe5b8fd305e0840ac3053f2a26a",
+      "path": "boh/examples/derivative--image-scale.md",
+      "size_bytes": 7119,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "da1b98043fa01d001465a389beebd95ed3e8aec9aa5e6a20175abcf2843aca31"
+    },
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:example:derivative:corner",
+      "example_id": "math:example:derivative:corner",
+      "file_sha256": "58b52296022b6cf9c8ad29ed7016622fb2d8dee9faadf509229ab5f1c967ee46",
+      "path": "boh/examples/derivative--corner.md",
+      "size_bytes": 6618,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "da1b98043fa01d001465a389beebd95ed3e8aec9aa5e6a20175abcf2843aca31"
+    },
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:example:derivative:zero-step",
+      "example_id": "math:example:derivative:zero-step",
+      "file_sha256": "e6ba1dd5d9d4e7c248d061d44307d82726a30f4aa317e600dca562d1a26a624e",
+      "path": "boh/examples/derivative--zero-step.md",
+      "size_bytes": 6530,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "da1b98043fa01d001465a389beebd95ed3e8aec9aa5e6a20175abcf2843aca31"
+    },
+    {
+      "card_id": "math:concept:determinant",
+      "document_id": "math:concept:determinant",
+      "example_id": null,
+      "file_sha256": "ccd466e4754ca15273d813b1bbdfabf7f1b229539969530e25505400622af380",
+      "path": "boh/cards/determinant.md",
+      "size_bytes": 24879,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "56e5a0f7ef35112f273462520e55d1f86cb83af8ffbcabe1487528b933b259a7"
+    },
+    {
+      "card_id": "math:concept:determinant",
+      "document_id": "math:example:determinant:print-tile",
+      "example_id": "math:example:determinant:print-tile",
+      "file_sha256": "10873f9668866c6812f47d94e23fa45254885bdad6409786989424f186b5a229",
+      "path": "boh/examples/determinant--print-tile.md",
+      "size_bytes": 8438,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "56e5a0f7ef35112f273462520e55d1f86cb83af8ffbcabe1487528b933b259a7"
+    },
+    {
+      "card_id": "math:concept:determinant",
+      "document_id": "math:example:determinant:shear",
+      "example_id": "math:example:determinant:shear",
+      "file_sha256": "8d2a324bb7c2120fa442b74d886f6ec8e937c5f94ac4088d78bfeb364f92a53e",
+      "path": "boh/examples/determinant--shear.md",
+      "size_bytes": 8370,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "56e5a0f7ef35112f273462520e55d1f86cb83af8ffbcabe1487528b933b259a7"
+    },
+    {
+      "card_id": "math:concept:determinant",
+      "document_id": "math:example:determinant:mirror",
+      "example_id": "math:example:determinant:mirror",
+      "file_sha256": "809a8ce464bdb3fbabcf5658c04de5df7d45dae6e053d84d728708d0e4e016f9",
+      "path": "boh/examples/determinant--mirror.md",
+      "size_bytes": 8419,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "56e5a0f7ef35112f273462520e55d1f86cb83af8ffbcabe1487528b933b259a7"
+    },
+    {
+      "card_id": "math:concept:determinant",
+      "document_id": "math:example:determinant:general",
+      "example_id": "math:example:determinant:general",
+      "file_sha256": "3d77bda66ea773e430ba4ed9427346671a8ffce6588563abcee851b6a70e7963",
+      "path": "boh/examples/determinant--general.md",
+      "size_bytes": 8452,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "56e5a0f7ef35112f273462520e55d1f86cb83af8ffbcabe1487528b933b259a7"
+    },
+    {
+      "card_id": "math:concept:determinant",
+      "document_id": "math:example:determinant:collapse",
+      "example_id": "math:example:determinant:collapse",
+      "file_sha256": "703dccacf30e687ebcc5287364f1bdbd7e2589443d77e4d03d897d0472cace63",
+      "path": "boh/examples/determinant--collapse.md",
+      "size_bytes": 8400,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "56e5a0f7ef35112f273462520e55d1f86cb83af8ffbcabe1487528b933b259a7"
+    },
+    {
+      "card_id": "math:concept:directional-derivative",
+      "document_id": "math:concept:directional-derivative",
+      "example_id": null,
+      "file_sha256": "b716201477c02f251aca79a9fb1290b56df5e020ad48c5d4a276e44d69f317d4",
+      "path": "boh/cards/directional-derivative.md",
+      "size_bytes": 36124,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8f4dec0217e00395bdf1d7d96ad7f9ca8f8a3c2a64dc029ca9b385756a55f1b"
+    },
+    {
+      "card_id": "math:concept:directional-derivative",
+      "document_id": "math:example:directional-derivative:westward",
+      "example_id": "math:example:directional-derivative:westward",
+      "file_sha256": "d97a4d73d0dfa23bd0f89b4e9a6599b5782b52a4bc0733a47f11f4868a94caa7",
+      "path": "boh/examples/directional-derivative--westward.md",
+      "size_bytes": 11046,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8f4dec0217e00395bdf1d7d96ad7f9ca8f8a3c2a64dc029ca9b385756a55f1b"
+    },
+    {
+      "card_id": "math:concept:directional-derivative",
+      "document_id": "math:example:directional-derivative:northward",
+      "example_id": "math:example:directional-derivative:northward",
+      "file_sha256": "995a15557460c0adea2641ec974ec58823103f6cb64f4a7dad32efe79037380e",
+      "path": "boh/examples/directional-derivative--northward.md",
+      "size_bytes": 11017,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8f4dec0217e00395bdf1d7d96ad7f9ca8f8a3c2a64dc029ca9b385756a55f1b"
+    },
+    {
+      "card_id": "math:concept:directional-derivative",
+      "document_id": "math:example:directional-derivative:diagonal",
+      "example_id": "math:example:directional-derivative:diagonal",
+      "file_sha256": "cb149c1f178f1a4d865b7f449ad5e8f992dffe9c5cf191ace5325b4366f1d1f1",
+      "path": "boh/examples/directional-derivative--diagonal.md",
+      "size_bytes": 11083,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8f4dec0217e00395bdf1d7d96ad7f9ca8f8a3c2a64dc029ca9b385756a55f1b"
+    },
+    {
+      "card_id": "math:concept:directional-derivative",
+      "document_id": "math:example:directional-derivative:level-direction",
+      "example_id": "math:example:directional-derivative:level-direction",
+      "file_sha256": "750b5d13eebe6a8661855d5e659ad5cd4f517418d5c3d73d6fe399b33baa2529",
+      "path": "boh/examples/directional-derivative--level-direction.md",
+      "size_bytes": 11189,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8f4dec0217e00395bdf1d7d96ad7f9ca8f8a3c2a64dc029ca9b385756a55f1b"
+    },
+    {
+      "card_id": "math:concept:directional-derivative",
+      "document_id": "math:example:directional-derivative:flat-sketch",
+      "example_id": "math:example:directional-derivative:flat-sketch",
+      "file_sha256": "b1f7cf815ff69c49d77f5d9c1fe42e69471703d67aa7326614de96c2cc7d0909",
+      "path": "boh/examples/directional-derivative--flat-sketch.md",
+      "size_bytes": 11092,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8f4dec0217e00395bdf1d7d96ad7f9ca8f8a3c2a64dc029ca9b385756a55f1b"
+    },
+    {
+      "card_id": "math:concept:exponential-change",
+      "document_id": "math:concept:exponential-change",
+      "example_id": null,
+      "file_sha256": "d6a376e1b3fede0cb4bec082328fab152181b2366a2b074a8163f50a9f738503",
+      "path": "boh/cards/exponential-change.md",
+      "size_bytes": 23023,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "7330ceb72bcb2b0d3ba38a120de01e72a056f5a8fff581b877a4fb4b2fca1d33"
+    },
+    {
+      "card_id": "math:concept:exponential-change",
+      "document_id": "math:example:exponential-change:resize",
+      "example_id": "math:example:exponential-change:resize",
+      "file_sha256": "539ed9a08fb228022d942f11880eb5c778286c47a5cc997f81fd972eb55b1178",
+      "path": "boh/examples/exponential-change--resize.md",
+      "size_bytes": 8817,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "7330ceb72bcb2b0d3ba38a120de01e72a056f5a8fff581b877a4fb4b2fca1d33"
+    },
+    {
+      "card_id": "math:concept:exponential-change",
+      "document_id": "math:example:exponential-change:no-passes",
+      "example_id": "math:example:exponential-change:no-passes",
+      "file_sha256": "be9193858bb3ec7ae717a6b7bccee8ad921c8b2e9d3300bc7483daa31efb4249",
+      "path": "boh/examples/exponential-change--no-passes.md",
+      "size_bytes": 8246,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "7330ceb72bcb2b0d3ba38a120de01e72a056f5a8fff581b877a4fb4b2fca1d33"
+    },
+    {
+      "card_id": "math:concept:exponential-change",
+      "document_id": "math:example:exponential-change:halves",
+      "example_id": "math:example:exponential-change:halves",
+      "file_sha256": "ac1d2d999debdc1f0ede0d18c40d43a1114c858a5c592c7b570a80eefaea0a02",
+      "path": "boh/examples/exponential-change--halves.md",
+      "size_bytes": 8224,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "7330ceb72bcb2b0d3ba38a120de01e72a056f5a8fff581b877a4fb4b2fca1d33"
+    },
+    {
+      "card_id": "math:concept:exponential-change",
+      "document_id": "math:example:exponential-change:growth",
+      "example_id": "math:example:exponential-change:growth",
+      "file_sha256": "5141c60595c33820abeac34ab118e90d78503a759b91b72e606a20a1a3d68d36",
+      "path": "boh/examples/exponential-change--growth.md",
+      "size_bytes": 8328,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "7330ceb72bcb2b0d3ba38a120de01e72a056f5a8fff581b877a4fb4b2fca1d33"
+    },
+    {
+      "card_id": "math:concept:exponential-change",
+      "document_id": "math:example:exponential-change:identity",
+      "example_id": "math:example:exponential-change:identity",
+      "file_sha256": "dfb583f0dbbfad9d7d18b98861be3517366e6003d90801829627ead8ab7aa62d",
+      "path": "boh/examples/exponential-change--identity.md",
+      "size_bytes": 8301,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "7330ceb72bcb2b0d3ba38a120de01e72a056f5a8fff581b877a4fb4b2fca1d33"
+    },
+    {
+      "card_id": "math:concept:exponentiation",
+      "document_id": "math:concept:exponentiation",
+      "example_id": null,
+      "file_sha256": "b0574c411b7d1442a02f8439ac3d66e3e4dedbf5ba20d6760a1518d4c03f9bd7",
+      "path": "boh/cards/exponentiation.md",
+      "size_bytes": 26444,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d894e4f8287c7f109f646108acc85758be3324d89b60947638467d794133c533"
+    },
+    {
+      "card_id": "math:concept:exponentiation",
+      "document_id": "math:example:exponentiation:digital-zoom",
+      "example_id": "math:example:exponentiation:digital-zoom",
+      "file_sha256": "6cbe4c73e69761fc74a02caf04e96f335338e03a05c9681f850663decf09a90f",
+      "path": "boh/examples/exponentiation--digital-zoom.md",
+      "size_bytes": 9370,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d894e4f8287c7f109f646108acc85758be3324d89b60947638467d794133c533"
+    },
+    {
+      "card_id": "math:concept:exponentiation",
+      "document_id": "math:example:exponentiation:poster-area",
+      "example_id": "math:example:exponentiation:poster-area",
+      "file_sha256": "75491a93702776d66e8a1470243b128d0c82c700ebbaac9d3aeb5729de562148",
+      "path": "boh/examples/exponentiation--poster-area.md",
+      "size_bytes": 9156,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d894e4f8287c7f109f646108acc85758be3324d89b60947638467d794133c533"
+    },
+    {
+      "card_id": "math:concept:exponentiation",
+      "document_id": "math:example:exponentiation:nested-copy",
+      "example_id": "math:example:exponentiation:nested-copy",
+      "file_sha256": "74e5da8bbfad0f284e23f1be34b9ff4ca215c36cb638d4f666bc929489401abe",
+      "path": "boh/examples/exponentiation--nested-copy.md",
+      "size_bytes": 9145,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d894e4f8287c7f109f646108acc85758be3324d89b60947638467d794133c533"
+    },
+    {
+      "card_id": "math:concept:exponentiation",
+      "document_id": "math:example:exponentiation:undo-zoom",
+      "example_id": "math:example:exponentiation:undo-zoom",
+      "file_sha256": "3c11ae1329540832d19f1ba2cdb0a11cdf67415904282d4999b32eda35a56ee6",
+      "path": "boh/examples/exponentiation--undo-zoom.md",
+      "size_bytes": 9204,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d894e4f8287c7f109f646108acc85758be3324d89b60947638467d794133c533"
+    },
+    {
+      "card_id": "math:concept:exponentiation",
+      "document_id": "math:example:exponentiation:recover-side",
+      "example_id": "math:example:exponentiation:recover-side",
+      "file_sha256": "40e7ca3b7e258bca2df2635e5334acd0129a6d2957dc6092cf8be4cfd3f3f5d4",
+      "path": "boh/examples/exponentiation--recover-side.md",
+      "size_bytes": 9217,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d894e4f8287c7f109f646108acc85758be3324d89b60947638467d794133c533"
+    },
+    {
+      "card_id": "math:concept:fractal-geometry",
+      "document_id": "math:concept:fractal-geometry",
+      "example_id": null,
+      "file_sha256": "c9f30654dae40b61a7669d605a9b0afd49e08e42c6f66adc97467e7accbd267e",
+      "path": "boh/cards/fractal-geometry.md",
+      "size_bytes": 22518,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "664a7e9a33b7b2dff115e0b3f6c4143e0f4912b3c535de2a2934fc8ea5768cd2"
+    },
+    {
+      "card_id": "math:concept:fractal-geometry",
+      "document_id": "math:example:fractal-geometry:wire",
+      "example_id": "math:example:fractal-geometry:wire",
+      "file_sha256": "ff10ea148e8716359bd753948e0be2180755cff86cc14b09bac79b5277dc4642",
+      "path": "boh/examples/fractal-geometry--wire.md",
+      "size_bytes": 8138,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "664a7e9a33b7b2dff115e0b3f6c4143e0f4912b3c535de2a2934fc8ea5768cd2"
+    },
+    {
+      "card_id": "math:concept:fractal-geometry",
+      "document_id": "math:example:fractal-geometry:first",
+      "example_id": "math:example:fractal-geometry:first",
+      "file_sha256": "338bf13fa443ca7ecd0e95808df6d986daa067fbf9bd37870c26a55ba2b91468",
+      "path": "boh/examples/fractal-geometry--first.md",
+      "size_bytes": 7841,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "664a7e9a33b7b2dff115e0b3f6c4143e0f4912b3c535de2a2934fc8ea5768cd2"
+    },
+    {
+      "card_id": "math:concept:fractal-geometry",
+      "document_id": "math:example:fractal-geometry:start",
+      "example_id": "math:example:fractal-geometry:start",
+      "file_sha256": "9509e17325d2fa3c0441de58fc2ff90008fdf93622a78d8517f4566090ce0e4e",
+      "path": "boh/examples/fractal-geometry--start.md",
+      "size_bytes": 7812,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "664a7e9a33b7b2dff115e0b3f6c4143e0f4912b3c535de2a2934fc8ea5768cd2"
+    },
+    {
+      "card_id": "math:concept:fractal-geometry",
+      "document_id": "math:example:fractal-geometry:larger",
+      "example_id": "math:example:fractal-geometry:larger",
+      "file_sha256": "1329184d924fd55f72d4c21ac8b4fb71872d8f1b367dbb0d62d58ec05023277d",
+      "path": "boh/examples/fractal-geometry--larger.md",
+      "size_bytes": 7908,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "664a7e9a33b7b2dff115e0b3f6c4143e0f4912b3c535de2a2934fc8ea5768cd2"
+    },
+    {
+      "card_id": "math:concept:fractal-geometry",
+      "document_id": "math:example:fractal-geometry:morph",
+      "example_id": "math:example:fractal-geometry:morph",
+      "file_sha256": "94d85d33b516a519eafe1e5449e159dd6c9c70e229c12ae00ad6e683f9f3bed1",
+      "path": "boh/examples/fractal-geometry--morph.md",
+      "size_bytes": 8334,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "664a7e9a33b7b2dff115e0b3f6c4143e0f4912b3c535de2a2934fc8ea5768cd2"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:concept:function-composition",
+      "example_id": null,
+      "file_sha256": "54f3bdcb5cdda2867a150a7ac095dbe7fc7f6a9e72de3d2b2604c25397945545",
+      "path": "boh/cards/function-composition.md",
+      "size_bytes": 23827,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "83b04da6ca8db7e34cca2c2bd280e07016296080b83d0f060c6791e9708c1ee3"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:example:composition:numeric",
+      "example_id": "math:example:composition:numeric",
+      "file_sha256": "2c813ce4d43d6323fa298c017b75ee1f5ac3847b5aefa88d62fcb5c0c321533f",
+      "path": "boh/examples/function-composition--numeric.md",
+      "size_bytes": 6998,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "83b04da6ca8db7e34cca2c2bd280e07016296080b83d0f060c6791e9708c1ee3"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:example:composition:finite",
+      "example_id": "math:example:composition:finite",
+      "file_sha256": "b19b95fac77c73490d5a344d6dd4c1a401af53de747e6f54fba2b70ce3b6a9b7",
+      "path": "boh/examples/function-composition--finite.md",
+      "size_bytes": 7088,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "83b04da6ca8db7e34cca2c2bd280e07016296080b83d0f060c6791e9708c1ee3"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:example:composition:geometry",
+      "example_id": "math:example:composition:geometry",
+      "file_sha256": "b6711ba6db0b5925bd3ecfe374b2128ce02799aa440257f2647c110193568fbd",
+      "path": "boh/examples/function-composition--geometry.md",
+      "size_bytes": 7170,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "83b04da6ca8db7e34cca2c2bd280e07016296080b83d0f060c6791e9708c1ee3"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:example:composition:calibration",
+      "example_id": "math:example:composition:calibration",
+      "file_sha256": "deb8c12d7eb30986fc2e2daacb00504b940bc8a857b3490f50e37bb914e24a37",
+      "path": "boh/examples/function-composition--calibration.md",
+      "size_bytes": 7318,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "83b04da6ca8db7e34cca2c2bd280e07016296080b83d0f060c6791e9708c1ee3"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:example:composition:restricted-domain",
+      "example_id": "math:example:composition:restricted-domain",
+      "file_sha256": "320af545102069d764aea33b17552323c6c1add7af46c62568de9855a1b47259",
+      "path": "boh/examples/function-composition--restricted-domain.md",
+      "size_bytes": 7269,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "83b04da6ca8db7e34cca2c2bd280e07016296080b83d0f060c6791e9708c1ee3"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:example:composition:type-mismatch",
+      "example_id": "math:example:composition:type-mismatch",
+      "file_sha256": "b123290b5f8e25b7c1627e8a71ad8eea17e3a6f2e42fea143c48c58e1fc18115",
+      "path": "boh/examples/function-composition--type-mismatch.md",
+      "size_bytes": 7167,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "83b04da6ca8db7e34cca2c2bd280e07016296080b83d0f060c6791e9708c1ee3"
+    },
+    {
+      "card_id": "math:concept:function",
+      "document_id": "math:concept:function",
+      "example_id": null,
+      "file_sha256": "d901065c1d8bf3d127026ff8908e52d25d712f51bb5e4bc9cdd66c48d7e447a5",
+      "path": "boh/cards/function.md",
+      "size_bytes": 25750,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "009b5e7e15ceb8acae26c225bd20c9d044024763bdde67f31ac0f8863004e4cc"
+    },
+    {
+      "card_id": "math:concept:function",
+      "document_id": "math:example:function:sensor",
+      "example_id": "math:example:function:sensor",
+      "file_sha256": "40b23b48a353948eaf7cde4f2d2b0444ffb51736ff272359f2bbbdcbe3eb7e52",
+      "path": "boh/examples/function--sensor.md",
+      "size_bytes": 9022,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "009b5e7e15ceb8acae26c225bd20c9d044024763bdde67f31ac0f8863004e4cc"
+    },
+    {
+      "card_id": "math:concept:function",
+      "document_id": "math:example:function:delivery",
+      "example_id": "math:example:function:delivery",
+      "file_sha256": "726cf9830263261514394fa20c3684514f822be85cd2ed2b2143b3b014f771a3",
+      "path": "boh/examples/function--delivery.md",
+      "size_bytes": 8892,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "009b5e7e15ceb8acae26c225bd20c9d044024763bdde67f31ac0f8863004e4cc"
+    },
+    {
+      "card_id": "math:concept:function",
+      "document_id": "math:example:function:cooling",
+      "example_id": "math:example:function:cooling",
+      "file_sha256": "dd90be7986f461fdf9f50c460d268997954776f41695faa589381c00c1544f6e",
+      "path": "boh/examples/function--cooling.md",
+      "size_bytes": 8923,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "009b5e7e15ceb8acae26c225bd20c9d044024763bdde67f31ac0f8863004e4cc"
+    },
+    {
+      "card_id": "math:concept:function",
+      "document_id": "math:example:function:offset-coordinate",
+      "example_id": "math:example:function:offset-coordinate",
+      "file_sha256": "5170b179b2067f5a2897e3285f386e099d36e7bb9c0cc62adf14100ca5a038e1",
+      "path": "boh/examples/function--offset-coordinate.md",
+      "size_bytes": 8960,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "009b5e7e15ceb8acae26c225bd20c9d044024763bdde67f31ac0f8863004e4cc"
+    },
+    {
+      "card_id": "math:concept:function",
+      "document_id": "math:example:function:constant",
+      "example_id": "math:example:function:constant",
+      "file_sha256": "2651acbc50e69002134ce67a210b035f3ecb38340fff2b59cee40b67d84edabd",
+      "path": "boh/examples/function--constant.md",
+      "size_bytes": 8869,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "009b5e7e15ceb8acae26c225bd20c9d044024763bdde67f31ac0f8863004e4cc"
+    },
+    {
+      "card_id": "math:concept:gradient-descent",
+      "document_id": "math:concept:gradient-descent",
+      "example_id": null,
+      "file_sha256": "0846d7db9fdeafa8b3fe665380c847be8dfb618a93fce3d78fb61d8104545395",
+      "path": "boh/cards/gradient-descent.md",
+      "size_bytes": 42193,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "6fb24fc7cef5310f0a1c562084c6de1177f735dc856a8e764697d450865afe91"
+    },
+    {
+      "card_id": "math:concept:gradient-descent",
+      "document_id": "math:example:gradient-descent:calibration",
+      "example_id": "math:example:gradient-descent:calibration",
+      "file_sha256": "960c115baaefcaf6397b41d4b9574507c6700834bcebf39c57a9b307203d9d86",
+      "path": "boh/examples/gradient-descent--calibration.md",
+      "size_bytes": 14047,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "6fb24fc7cef5310f0a1c562084c6de1177f735dc856a8e764697d450865afe91"
+    },
+    {
+      "card_id": "math:concept:gradient-descent",
+      "document_id": "math:example:gradient-descent:one-update",
+      "example_id": "math:example:gradient-descent:one-update",
+      "file_sha256": "3e62d14727d13d97aa7d41417960b207dd3fbd97eb1ef06bea2235950b7b836e",
+      "path": "boh/examples/gradient-descent--one-update.md",
+      "size_bytes": 13937,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "6fb24fc7cef5310f0a1c562084c6de1177f735dc856a8e764697d450865afe91"
+    },
+    {
+      "card_id": "math:concept:gradient-descent",
+      "document_id": "math:example:gradient-descent:zero-step",
+      "example_id": "math:example:gradient-descent:zero-step",
+      "file_sha256": "7dcf949ababdc20a3938a8e48f4df679b377a1e6c014db089b733593d3053648",
+      "path": "boh/examples/gradient-descent--zero-step.md",
+      "size_bytes": 13921,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "6fb24fc7cef5310f0a1c562084c6de1177f735dc856a8e764697d450865afe91"
+    },
+    {
+      "card_id": "math:concept:gradient-descent",
+      "document_id": "math:example:gradient-descent:stability-boundary",
+      "example_id": "math:example:gradient-descent:stability-boundary",
+      "file_sha256": "7383c80215f1202b237d0dfc984d4ebf39ecd78d592329c4c90f147f5edef7fc",
+      "path": "boh/examples/gradient-descent--stability-boundary.md",
+      "size_bytes": 14101,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "6fb24fc7cef5310f0a1c562084c6de1177f735dc856a8e764697d450865afe91"
+    },
+    {
+      "card_id": "math:concept:gradient-descent",
+      "document_id": "math:example:gradient-descent:oversized-step",
+      "example_id": "math:example:gradient-descent:oversized-step",
+      "file_sha256": "1c12e0d6ce528c84a663f8e925766e817672e72f5cc5dce6145ab036f6176a4d",
+      "path": "boh/examples/gradient-descent--oversized-step.md",
+      "size_bytes": 14068,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "6fb24fc7cef5310f0a1c562084c6de1177f735dc856a8e764697d450865afe91"
+    },
+    {
+      "card_id": "math:concept:gradient",
+      "document_id": "math:concept:gradient",
+      "example_id": null,
+      "file_sha256": "a0e15b57d89ee04806237f9bd4af7a55042787b3a819fb863760866c98d30fc3",
+      "path": "boh/cards/gradient.md",
+      "size_bytes": 39010,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "b5849d69b0f0d60ba7a793c5bfebaafbc5f5b863b220132be51e770f09a66352"
+    },
+    {
+      "card_id": "math:concept:gradient",
+      "document_id": "math:example:gradient:steepest-climb",
+      "example_id": "math:example:gradient:steepest-climb",
+      "file_sha256": "27481901e566214f8f7fc98e4d7aabe309787bfba3325ae49be5fa252667b03b",
+      "path": "boh/examples/gradient--steepest-climb.md",
+      "size_bytes": 13426,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "b5849d69b0f0d60ba7a793c5bfebaafbc5f5b863b220132be51e770f09a66352"
+    },
+    {
+      "card_id": "math:concept:gradient",
+      "document_id": "math:example:gradient:changed-direction",
+      "example_id": "math:example:gradient:changed-direction",
+      "file_sha256": "0dbe8cee7ad5024ea0f62d148886f267b839b07d584886791339752079b15983",
+      "path": "boh/examples/gradient--changed-direction.md",
+      "size_bytes": 13261,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "b5849d69b0f0d60ba7a793c5bfebaafbc5f5b863b220132be51e770f09a66352"
+    },
+    {
+      "card_id": "math:concept:gradient",
+      "document_id": "math:example:gradient:hilltop",
+      "example_id": "math:example:gradient:hilltop",
+      "file_sha256": "c8c03a186cea49a79329f9aa19091c5d301d3f1f694c84155a4b23cdef9fd1c7",
+      "path": "boh/examples/gradient--hilltop.md",
+      "size_bytes": 13108,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "b5849d69b0f0d60ba7a793c5bfebaafbc5f5b863b220132be51e770f09a66352"
+    },
+    {
+      "card_id": "math:concept:gradient",
+      "document_id": "math:example:gradient:saddle",
+      "example_id": "math:example:gradient:saddle",
+      "file_sha256": "0a2643384da0fdeac8ad07e42512cd6a837a0c0ed8f88f49af98a8600956c91b",
+      "path": "boh/examples/gradient--saddle.md",
+      "size_bytes": 13194,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "b5849d69b0f0d60ba7a793c5bfebaafbc5f5b863b220132be51e770f09a66352"
+    },
+    {
+      "card_id": "math:concept:gradient",
+      "document_id": "math:example:gradient:flat-field",
+      "example_id": "math:example:gradient:flat-field",
+      "file_sha256": "c40047507a9e1466fc5b2e9491c6b65ffb8dc91d388d1464f58bc756a4ba18cf",
+      "path": "boh/examples/gradient--flat-field.md",
+      "size_bytes": 13187,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "b5849d69b0f0d60ba7a793c5bfebaafbc5f5b863b220132be51e770f09a66352"
+    },
+    {
+      "card_id": "math:concept:graph-theory",
+      "document_id": "math:concept:graph-theory",
+      "example_id": null,
+      "file_sha256": "f810aa15f43957458eb6d868f66c01f8719f88cfd05b94dd92a34692a1dd8859",
+      "path": "boh/cards/graph-theory.md",
+      "size_bytes": 20413,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "670b31cc641355b27889581c93acb6fade7b91b757e4a44746e7e6e3f8c0e755"
+    },
+    {
+      "card_id": "math:concept:graph-theory",
+      "document_id": "math:example:graph-theory:four",
+      "example_id": "math:example:graph-theory:four",
+      "file_sha256": "40bde6b467acc8e95894b061f89afa50ca0c4c8a286aeec4d660b4225eb9738e",
+      "path": "boh/examples/graph-theory--four.md",
+      "size_bytes": 6855,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "670b31cc641355b27889581c93acb6fade7b91b757e4a44746e7e6e3f8c0e755"
+    },
+    {
+      "card_id": "math:concept:graph-theory",
+      "document_id": "math:example:graph-theory:quick",
+      "example_id": "math:example:graph-theory:quick",
+      "file_sha256": "6339f00d55f59b3202e5651c3fe747608ee55c1f7e884776f10178fe5f815583",
+      "path": "boh/examples/graph-theory--quick.md",
+      "size_bytes": 6673,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "670b31cc641355b27889581c93acb6fade7b91b757e4a44746e7e6e3f8c0e755"
+    },
+    {
+      "card_id": "math:concept:graph-theory",
+      "document_id": "math:example:graph-theory:two",
+      "example_id": "math:example:graph-theory:two",
+      "file_sha256": "1ecad3e450386845205bd12c23b97d324ed9cab467561418ae5b345f2b033a07",
+      "path": "boh/examples/graph-theory--two.md",
+      "size_bytes": 6618,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "670b31cc641355b27889581c93acb6fade7b91b757e4a44746e7e6e3f8c0e755"
+    },
+    {
+      "card_id": "math:concept:graph-theory",
+      "document_id": "math:example:graph-theory:tie",
+      "example_id": "math:example:graph-theory:tie",
+      "file_sha256": "ad7990993a244148bbcc297b05fe26e75f17c439eb8b5d646edcd3e8c1e75741",
+      "path": "boh/examples/graph-theory--tie.md",
+      "size_bytes": 6775,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "670b31cc641355b27889581c93acb6fade7b91b757e4a44746e7e6e3f8c0e755"
+    },
+    {
+      "card_id": "math:concept:graph-theory",
+      "document_id": "math:example:graph-theory:very-slow",
+      "example_id": "math:example:graph-theory:very-slow",
+      "file_sha256": "cdc04c35bcfa5bddd92169b659ff1df52b51fe0bb5f7e159a0d65d0be4055255",
+      "path": "boh/examples/graph-theory--very-slow.md",
+      "size_bytes": 6673,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "670b31cc641355b27889581c93acb6fade7b91b757e4a44746e7e6e3f8c0e755"
+    },
+    {
+      "card_id": "math:concept:inner-product",
+      "document_id": "math:concept:inner-product",
+      "example_id": null,
+      "file_sha256": "694e7100d66b5597efaf72a1810699419e87d8259cf517397dca4c8d8ee30bf2",
+      "path": "boh/cards/inner-product.md",
+      "size_bytes": 25691,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "45117d44ea92003034cdfc68107859375ffa91f15957efe776fbc07f8a7db4fb"
+    },
+    {
+      "card_id": "math:concept:inner-product",
+      "document_id": "math:example:inner-product:features",
+      "example_id": "math:example:inner-product:features",
+      "file_sha256": "e392bd9fdb7f1616454d9ea78ed6695fa98a07f87ecad22e60446185f6967793",
+      "path": "boh/examples/inner-product--features.md",
+      "size_bytes": 8663,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "45117d44ea92003034cdfc68107859375ffa91f15957efe776fbc07f8a7db4fb"
+    },
+    {
+      "card_id": "math:concept:inner-product",
+      "document_id": "math:example:inner-product:right-angle",
+      "example_id": "math:example:inner-product:right-angle",
+      "file_sha256": "d275f7873bedd0bd59b6751de808bf947c03ab16c84cd75ba57daa385bfebed4",
+      "path": "boh/examples/inner-product--right-angle.md",
+      "size_bytes": 8492,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "45117d44ea92003034cdfc68107859375ffa91f15957efe776fbc07f8a7db4fb"
+    },
+    {
+      "card_id": "math:concept:inner-product",
+      "document_id": "math:example:inner-product:opposed",
+      "example_id": "math:example:inner-product:opposed",
+      "file_sha256": "a88ae83a398fdd1196f071b9d1cb6e175732adb30bf8f213fe95bf7b159a4aaa",
+      "path": "boh/examples/inner-product--opposed.md",
+      "size_bytes": 8481,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "45117d44ea92003034cdfc68107859375ffa91f15957efe776fbc07f8a7db4fb"
+    },
+    {
+      "card_id": "math:concept:inner-product",
+      "document_id": "math:example:inner-product:work",
+      "example_id": "math:example:inner-product:work",
+      "file_sha256": "03cf22f1f5ff39d103b3bfe31d18f45a1e267b8e7366b18e2c459633e25868dd",
+      "path": "boh/examples/inner-product--work.md",
+      "size_bytes": 8681,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "45117d44ea92003034cdfc68107859375ffa91f15957efe776fbc07f8a7db4fb"
+    },
+    {
+      "card_id": "math:concept:inner-product",
+      "document_id": "math:example:inner-product:zero-reference",
+      "example_id": "math:example:inner-product:zero-reference",
+      "file_sha256": "3ccf158cef345ce6cf8d2d58cc980495a97912f0b8cab4c2ff3694839dac3d35",
+      "path": "boh/examples/inner-product--zero-reference.md",
+      "size_bytes": 8580,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "45117d44ea92003034cdfc68107859375ffa91f15957efe776fbc07f8a7db4fb"
+    },
+    {
+      "card_id": "math:concept:integral-accumulation",
+      "document_id": "math:concept:integral-accumulation",
+      "example_id": null,
+      "file_sha256": "5ddcfdcca5c66f64575df9276ada450c7e130079be96c510d933df517012d865",
+      "path": "boh/cards/integral-accumulation.md",
+      "size_bytes": 20584,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a00202611d82b03f7cf7593076caee9fb6c2b00e583e7d3e592dc597e895afc5"
+    },
+    {
+      "card_id": "math:concept:integral-accumulation",
+      "document_id": "math:example:integral-accumulation:cart",
+      "example_id": "math:example:integral-accumulation:cart",
+      "file_sha256": "b23be541f60fd2da11001d752fde3b43bbc7edcdc4b8b90c53b83bde06f3330c",
+      "path": "boh/examples/integral-accumulation--cart.md",
+      "size_bytes": 7020,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a00202611d82b03f7cf7593076caee9fb6c2b00e583e7d3e592dc597e895afc5"
+    },
+    {
+      "card_id": "math:concept:integral-accumulation",
+      "document_id": "math:example:integral-accumulation:half-time",
+      "example_id": "math:example:integral-accumulation:half-time",
+      "file_sha256": "b6c0b925c1ac3a672586182061874a3be165aa6b92df0262afb33428f4280dcd",
+      "path": "boh/examples/integral-accumulation--half-time.md",
+      "size_bytes": 6948,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a00202611d82b03f7cf7593076caee9fb6c2b00e583e7d3e592dc597e895afc5"
+    },
+    {
+      "card_id": "math:concept:integral-accumulation",
+      "document_id": "math:example:integral-accumulation:gentle",
+      "example_id": "math:example:integral-accumulation:gentle",
+      "file_sha256": "ddef2ae07c12895c608608a25deb9fb106c4dab30bcff3a3b202a08afb4a79a2",
+      "path": "boh/examples/integral-accumulation--gentle.md",
+      "size_bytes": 6953,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a00202611d82b03f7cf7593076caee9fb6c2b00e583e7d3e592dc597e895afc5"
+    },
+    {
+      "card_id": "math:concept:integral-accumulation",
+      "document_id": "math:example:integral-accumulation:zero",
+      "example_id": "math:example:integral-accumulation:zero",
+      "file_sha256": "0f6811db482ad0ca25abefeaa2c23bf54cfec2e2a57a2e919954ba087cd355d0",
+      "path": "boh/examples/integral-accumulation--zero.md",
+      "size_bytes": 6918,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a00202611d82b03f7cf7593076caee9fb6c2b00e583e7d3e592dc597e895afc5"
+    },
+    {
+      "card_id": "math:concept:integral-accumulation",
+      "document_id": "math:example:integral-accumulation:not-rest",
+      "example_id": "math:example:integral-accumulation:not-rest",
+      "file_sha256": "a6f33eb196b0e430f3a4d92ec2b6043238231615944c461d05924fcc32b4ec04",
+      "path": "boh/examples/integral-accumulation--not-rest.md",
+      "size_bytes": 7197,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a00202611d82b03f7cf7593076caee9fb6c2b00e583e7d3e592dc597e895afc5"
+    },
+    {
+      "card_id": "math:concept:limit",
+      "document_id": "math:concept:limit",
+      "example_id": null,
+      "file_sha256": "da9d93fc8011fa0af0a241e20d6f8e4ed89ab4f9c409ef62676a3fa809f1134e",
+      "path": "boh/cards/limit.md",
+      "size_bytes": 30101,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "9b83b7b709a42d89209c83955ad1b4a3d4721ad5edc807bab121143b29078802"
+    },
+    {
+      "card_id": "math:concept:limit",
+      "document_id": "math:example:limit:signal-seam",
+      "example_id": "math:example:limit:signal-seam",
+      "file_sha256": "ce3e2b05aadcbd9207de84da01af86ad842e87edce3cacd0b3f2881902e6479e",
+      "path": "boh/examples/limit--signal-seam.md",
+      "size_bytes": 10055,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "9b83b7b709a42d89209c83955ad1b4a3d4721ad5edc807bab121143b29078802"
+    },
+    {
+      "card_id": "math:concept:limit",
+      "document_id": "math:example:limit:negative-seam",
+      "example_id": "math:example:limit:negative-seam",
+      "file_sha256": "8f3661e2c948a2bd79a9f84f47efcf33f1dbc92421126af6ba8c5470ef265552",
+      "path": "boh/examples/limit--negative-seam.md",
+      "size_bytes": 9787,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "9b83b7b709a42d89209c83955ad1b4a3d4721ad5edc807bab121143b29078802"
+    },
+    {
+      "card_id": "math:concept:limit",
+      "document_id": "math:example:limit:tighter-probes",
+      "example_id": "math:example:limit:tighter-probes",
+      "file_sha256": "f91b93064e0b388d4aa73c79eccf964c4b34b119686a2b3549c0bc56cb09c024",
+      "path": "boh/examples/limit--tighter-probes.md",
+      "size_bytes": 9893,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "9b83b7b709a42d89209c83955ad1b4a3d4721ad5edc807bab121143b29078802"
+    },
+    {
+      "card_id": "math:concept:limit",
+      "document_id": "math:example:limit:switch-jump",
+      "example_id": "math:example:limit:switch-jump",
+      "file_sha256": "61746ca5fead12948fc1c29ed14d0fb8e575514053faa114ba31f29e68a7f5ea",
+      "path": "boh/examples/limit--switch-jump.md",
+      "size_bytes": 9975,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "9b83b7b709a42d89209c83955ad1b4a3d4721ad5edc807bab121143b29078802"
+    },
+    {
+      "card_id": "math:concept:limit",
+      "document_id": "math:example:limit:persistent-jump",
+      "example_id": "math:example:limit:persistent-jump",
+      "file_sha256": "ba54794b076707d23b6abdbdb7b1fde8bebd3391253944bf0baa9c48b25212b8",
+      "path": "boh/examples/limit--persistent-jump.md",
+      "size_bytes": 9871,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "9b83b7b709a42d89209c83955ad1b4a3d4721ad5edc807bab121143b29078802"
+    },
+    {
+      "card_id": "math:concept:linear-combination",
+      "document_id": "math:concept:linear-combination",
+      "example_id": null,
+      "file_sha256": "7d552ed5fbb482069294b067a2be7592a4df0e57b755b0a93a47a150369f3a64",
+      "path": "boh/cards/linear-combination.md",
+      "size_bytes": 30979,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "3c79aa673327310b25ea05763896cb3f48bf3270e5223bee391b2efd868c8e3b"
+    },
+    {
+      "card_id": "math:concept:linear-combination",
+      "document_id": "math:example:linear-combination:camera-move",
+      "example_id": "math:example:linear-combination:camera-move",
+      "file_sha256": "dc01de999244967c4169f1dd14da3a6fdd12cc7d9328831f9fb287b8da61706c",
+      "path": "boh/examples/linear-combination--camera-move.md",
+      "size_bytes": 11175,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "3c79aa673327310b25ea05763896cb3f48bf3270e5223bee391b2efd868c8e3b"
+    },
+    {
+      "card_id": "math:concept:linear-combination",
+      "document_id": "math:example:linear-combination:reverse",
+      "example_id": "math:example:linear-combination:reverse",
+      "file_sha256": "1b08ab8ef0d09613e16690ffeb3a431a0207f57a079ca1aff2bd156e69b53fbd",
+      "path": "boh/examples/linear-combination--reverse.md",
+      "size_bytes": 11013,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "3c79aa673327310b25ea05763896cb3f48bf3270e5223bee391b2efd868c8e3b"
+    },
+    {
+      "card_id": "math:concept:linear-combination",
+      "document_id": "math:example:linear-combination:cancellation",
+      "example_id": "math:example:linear-combination:cancellation",
+      "file_sha256": "921836798bad902a4964c3882f8b9d82648660be8c68290e427e2258f1d6ae30",
+      "path": "boh/examples/linear-combination--cancellation.md",
+      "size_bytes": 11057,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "3c79aa673327310b25ea05763896cb3f48bf3270e5223bee391b2efd868c8e3b"
+    },
+    {
+      "card_id": "math:concept:linear-combination",
+      "document_id": "math:example:linear-combination:fractional-blend",
+      "example_id": "math:example:linear-combination:fractional-blend",
+      "file_sha256": "4ca5f3cb3a7bef86ad214ef70f25fb80a77cf4e712b05dcc5f9602b1f55183b5",
+      "path": "boh/examples/linear-combination--fractional-blend.md",
+      "size_bytes": 11166,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "3c79aa673327310b25ea05763896cb3f48bf3270e5223bee391b2efd868c8e3b"
+    },
+    {
+      "card_id": "math:concept:linear-combination",
+      "document_id": "math:example:linear-combination:parallel",
+      "example_id": "math:example:linear-combination:parallel",
+      "file_sha256": "f7ad744bbd81ec92e26772746e31d85dc5628cf8715f1e5b4645e40fc0bfe978",
+      "path": "boh/examples/linear-combination--parallel.md",
+      "size_bytes": 11384,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "3c79aa673327310b25ea05763896cb3f48bf3270e5223bee391b2efd868c8e3b"
+    },
+    {
+      "card_id": "math:concept:linear-model",
+      "document_id": "math:concept:linear-model",
+      "example_id": null,
+      "file_sha256": "a017a289c54625a4119d171310b3600291bcad88b6690e3ba0adbbe5e1ee10fc",
+      "path": "boh/cards/linear-model.md",
+      "size_bytes": 20453,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa"
+    },
+    {
+      "card_id": "math:concept:linear-model",
+      "document_id": "math:example:linear-model:filling",
+      "example_id": "math:example:linear-model:filling",
+      "file_sha256": "b7874a643403b3b3a738494f45d4ebc6ef0415a73706ea08df472bfb5c9e0719",
+      "path": "boh/examples/linear-model--filling.md",
+      "size_bytes": 7375,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa"
+    },
+    {
+      "card_id": "math:concept:linear-model",
+      "document_id": "math:example:linear-model:start",
+      "example_id": "math:example:linear-model:start",
+      "file_sha256": "accac5808f11abca8016325f4b989ced06ef57727ce5e71a95f37ea2568cb003",
+      "path": "boh/examples/linear-model--start.md",
+      "size_bytes": 7266,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa"
+    },
+    {
+      "card_id": "math:concept:linear-model",
+      "document_id": "math:example:linear-model:closed-tap",
+      "example_id": "math:example:linear-model:closed-tap",
+      "file_sha256": "50823581c464c50bcc22cc513311fa1ae3b30a8ce8ea925c7b909f8448f97550",
+      "path": "boh/examples/linear-model--closed-tap.md",
+      "size_bytes": 7294,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa"
+    },
+    {
+      "card_id": "math:concept:linear-model",
+      "document_id": "math:example:linear-model:target",
+      "example_id": "math:example:linear-model:target",
+      "file_sha256": "9979c5c116fd30b394ec419cc6cbfe0148cd546c2b8df0337183269557be0b9e",
+      "path": "boh/examples/linear-model--target.md",
+      "size_bytes": 7455,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa"
+    },
+    {
+      "card_id": "math:concept:linear-model",
+      "document_id": "math:example:linear-model:negative-time",
+      "example_id": "math:example:linear-model:negative-time",
+      "file_sha256": "5a04ef06324f0dadfcc5910dabc3eb6247cdc53b640139664b4e46a0d47891aa",
+      "path": "boh/examples/linear-model--negative-time.md",
+      "size_bytes": 7446,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa"
+    },
+    {
+      "card_id": "math:concept:matrix-linear-map",
+      "document_id": "math:concept:matrix-linear-map",
+      "example_id": null,
+      "file_sha256": "3b9f0883068b7e0cfa3b787a3f32436b2526399ddccddd7c9c51f61985c18766",
+      "path": "boh/cards/matrix-linear-map.md",
+      "size_bytes": 28705,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "782e6406444daaaf964188af17f7de85cc2934bb3423d3b51a2c14ea13942802"
+    },
+    {
+      "card_id": "math:concept:matrix-linear-map",
+      "document_id": "math:example:matrix-linear-map:shear",
+      "example_id": "math:example:matrix-linear-map:shear",
+      "file_sha256": "4aeb4592a90b6584a9536450e427eabda27296e2e6831f31da37fc1e42439c3f",
+      "path": "boh/examples/matrix-linear-map--shear.md",
+      "size_bytes": 9719,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "782e6406444daaaf964188af17f7de85cc2934bb3423d3b51a2c14ea13942802"
+    },
+    {
+      "card_id": "math:concept:matrix-linear-map",
+      "document_id": "math:example:matrix-linear-map:stretch",
+      "example_id": "math:example:matrix-linear-map:stretch",
+      "file_sha256": "41a1aff73d6fb3c08f0bcc094be19e907dd602bfd7549d75fb4afac73164a51f",
+      "path": "boh/examples/matrix-linear-map--stretch.md",
+      "size_bytes": 9758,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "782e6406444daaaf964188af17f7de85cc2934bb3423d3b51a2c14ea13942802"
+    },
+    {
+      "card_id": "math:concept:matrix-linear-map",
+      "document_id": "math:example:matrix-linear-map:rotation",
+      "example_id": "math:example:matrix-linear-map:rotation",
+      "file_sha256": "a795c2bfb1b0d85cdd40b6f179bcb923546501e99abb514e64188e358566f934",
+      "path": "boh/examples/matrix-linear-map--rotation.md",
+      "size_bytes": 9738,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "782e6406444daaaf964188af17f7de85cc2934bb3423d3b51a2c14ea13942802"
+    },
+    {
+      "card_id": "math:concept:matrix-linear-map",
+      "document_id": "math:example:matrix-linear-map:reflection",
+      "example_id": "math:example:matrix-linear-map:reflection",
+      "file_sha256": "aa6e26da504853c41fbc59f063622f19b3ebf2458696e76f1ac9f7047c04ad6d",
+      "path": "boh/examples/matrix-linear-map--reflection.md",
+      "size_bytes": 9728,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "782e6406444daaaf964188af17f7de85cc2934bb3423d3b51a2c14ea13942802"
+    },
+    {
+      "card_id": "math:concept:matrix-linear-map",
+      "document_id": "math:example:matrix-linear-map:collapse",
+      "example_id": "math:example:matrix-linear-map:collapse",
+      "file_sha256": "92bcce94f26ff67289d46f274ac9bbb73b92be5ff68efbbd9f04817ca2ab0f11",
+      "path": "boh/examples/matrix-linear-map--collapse.md",
+      "size_bytes": 9741,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "782e6406444daaaf964188af17f7de85cc2934bb3423d3b51a2c14ea13942802"
+    },
+    {
+      "card_id": "math:concept:matrix-product",
+      "document_id": "math:concept:matrix-product",
+      "example_id": null,
+      "file_sha256": "5166716fe8ae6b0a9e9799db781bcc5d9c767ddb9034d32e0cdcb13307bd4482",
+      "path": "boh/cards/matrix-product.md",
+      "size_bytes": 36554,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "758bf405067700f2e981905833d3baa3200e56cd83864ae6717e7d45aac40cce"
+    },
+    {
+      "card_id": "math:concept:matrix-product",
+      "document_id": "math:example:matrix-product:vertical-then-horizontal",
+      "example_id": "math:example:matrix-product:vertical-then-horizontal",
+      "file_sha256": "17ed5e25e075c9b43b556a8ec2be51d39fc7eed1c189fc8d79c551d85d302dee",
+      "path": "boh/examples/matrix-product--vertical-then-horizontal.md",
+      "size_bytes": 12132,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "758bf405067700f2e981905833d3baa3200e56cd83864ae6717e7d45aac40cce"
+    },
+    {
+      "card_id": "math:concept:matrix-product",
+      "document_id": "math:example:matrix-product:horizontal-then-vertical",
+      "example_id": "math:example:matrix-product:horizontal-then-vertical",
+      "file_sha256": "c6bebe3cce299d109b5919e42905b0e7704264e5a333a6d0c0746748f0b7cca5",
+      "path": "boh/examples/matrix-product--horizontal-then-vertical.md",
+      "size_bytes": 12127,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "758bf405067700f2e981905833d3baa3200e56cd83864ae6717e7d45aac40cce"
+    },
+    {
+      "card_id": "math:concept:matrix-product",
+      "document_id": "math:example:matrix-product:identity-step",
+      "example_id": "math:example:matrix-product:identity-step",
+      "file_sha256": "7c523e6bc14683d6400ef8957fc011c72415b8ea07a642b2ccdc60a15e081541",
+      "path": "boh/examples/matrix-product--identity-step.md",
+      "size_bytes": 11962,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "758bf405067700f2e981905833d3baa3200e56cd83864ae6717e7d45aac40cce"
+    },
+    {
+      "card_id": "math:concept:matrix-product",
+      "document_id": "math:example:matrix-product:opposite-directions",
+      "example_id": "math:example:matrix-product:opposite-directions",
+      "file_sha256": "159c51857a867d4e2efc2c41653826b485d5e0866f8ce6ce6ad9dd666ba828af",
+      "path": "boh/examples/matrix-product--opposite-directions.md",
+      "size_bytes": 12111,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "758bf405067700f2e981905833d3baa3200e56cd83864ae6717e7d45aac40cce"
+    },
+    {
+      "card_id": "math:concept:matrix-product",
+      "document_id": "math:example:matrix-product:origin-agreement",
+      "example_id": "math:example:matrix-product:origin-agreement",
+      "file_sha256": "b6a6bb0eecc4308b33b1acd96d2f47cdd7f37a30626d6ac5d314552e457c35e0",
+      "path": "boh/examples/matrix-product--origin-agreement.md",
+      "size_bytes": 12180,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "758bf405067700f2e981905833d3baa3200e56cd83864ae6717e7d45aac40cce"
+    },
+    {
+      "card_id": "math:concept:partial-derivative",
+      "document_id": "math:concept:partial-derivative",
+      "example_id": null,
+      "file_sha256": "1dcbb93ac8c2a28b47f60f4bb1e28e36f18ac94e70a29ffccfea9853d0a7462c",
+      "path": "boh/cards/partial-derivative.md",
+      "size_bytes": 36388,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "58f75439113edc3c9a5d4d8532195fc60265999828af628b479d9bd40068d388"
+    },
+    {
+      "card_id": "math:concept:partial-derivative",
+      "document_id": "math:example:partial-derivative:eastward-slope",
+      "example_id": "math:example:partial-derivative:eastward-slope",
+      "file_sha256": "dcb3d276494f6dec7a907cf475c65dfdfb10bf97f4fb6a012da465743e31263e",
+      "path": "boh/examples/partial-derivative--eastward-slope.md",
+      "size_bytes": 12111,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "58f75439113edc3c9a5d4d8532195fc60265999828af628b479d9bd40068d388"
+    },
+    {
+      "card_id": "math:concept:partial-derivative",
+      "document_id": "math:example:partial-derivative:west-side",
+      "example_id": "math:example:partial-derivative:west-side",
+      "file_sha256": "f17435dae45e95a236b41e5f6cc8fcf91cff1fecf58c1848d93ccbf8549f1b72",
+      "path": "boh/examples/partial-derivative--west-side.md",
+      "size_bytes": 11932,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "58f75439113edc3c9a5d4d8532195fc60265999828af628b479d9bd40068d388"
+    },
+    {
+      "card_id": "math:concept:partial-derivative",
+      "document_id": "math:example:partial-derivative:flat-east",
+      "example_id": "math:example:partial-derivative:flat-east",
+      "file_sha256": "6fe93a5e2844ab280a14da9eff81846d88b96a33d830ac8579cbc4708509b478",
+      "path": "boh/examples/partial-derivative--flat-east.md",
+      "size_bytes": 12074,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "58f75439113edc3c9a5d4d8532195fc60265999828af628b479d9bd40068d388"
+    },
+    {
+      "card_id": "math:concept:partial-derivative",
+      "document_id": "math:example:partial-derivative:north-curvature",
+      "example_id": "math:example:partial-derivative:north-curvature",
+      "file_sha256": "bca4add2f58b8d78fcaefadba9512cd17768b579d18a1b1b45110d75ee4fd4df",
+      "path": "boh/examples/partial-derivative--north-curvature.md",
+      "size_bytes": 12151,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "58f75439113edc3c9a5d4d8532195fc60265999828af628b479d9bd40068d388"
+    },
+    {
+      "card_id": "math:concept:partial-derivative",
+      "document_id": "math:example:partial-derivative:raise-datum",
+      "example_id": "math:example:partial-derivative:raise-datum",
+      "file_sha256": "aee42e06e558f2dddf438fcfe3656c73662113ba8491fb0f93d59ab141d0c176",
+      "path": "boh/examples/partial-derivative--raise-datum.md",
+      "size_bytes": 12000,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "58f75439113edc3c9a5d4d8532195fc60265999828af628b479d9bd40068d388"
+    },
+    {
+      "card_id": "math:concept:population-sample",
+      "document_id": "math:concept:population-sample",
+      "example_id": null,
+      "file_sha256": "b1948bc4f8e3f47edc1e1269132d8b3da8ed7b053c9d9ec1869c9a0b9846f3f5",
+      "path": "boh/cards/population-sample.md",
+      "size_bytes": 36828,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"
+    },
+    {
+      "card_id": "math:concept:population-sample",
+      "document_id": "math:example:population-sample:heavy-window",
+      "example_id": "math:example:population-sample:heavy-window",
+      "file_sha256": "22dd1aafd4ed1599fd5ca2b79f4cc5baff2ba94ddcb429e3af8c99c25c1468be",
+      "path": "boh/examples/population-sample--heavy-window.md",
+      "size_bytes": 11971,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"
+    },
+    {
+      "card_id": "math:concept:population-sample",
+      "document_id": "math:example:population-sample:change-one-crate",
+      "example_id": "math:example:population-sample:change-one-crate",
+      "file_sha256": "67c9f635b61aafacf125f6a9d56b11ca91d66139fdd7c2d9f07fd121055589cf",
+      "path": "boh/examples/population-sample--change-one-crate.md",
+      "size_bytes": 11950,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"
+    },
+    {
+      "card_id": "math:concept:population-sample",
+      "document_id": "math:example:population-sample:full-census",
+      "example_id": "math:example:population-sample:full-census",
+      "file_sha256": "9aaac817a6478685dd31492e5ae9dbea35be44fe43d610e494706cda2d6765d7",
+      "path": "boh/examples/population-sample--full-census.md",
+      "size_bytes": 11952,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"
+    },
+    {
+      "card_id": "math:concept:population-sample",
+      "document_id": "math:example:population-sample:outside-window",
+      "example_id": "math:example:population-sample:outside-window",
+      "file_sha256": "766ef9f8b1852027c5b157aa12edf820e5d05a161ef2372b52f2db39f8010b60",
+      "path": "boh/examples/population-sample--outside-window.md",
+      "size_bytes": 11980,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"
+    },
+    {
+      "card_id": "math:concept:population-sample",
+      "document_id": "math:example:population-sample:wraparound",
+      "example_id": "math:example:population-sample:wraparound",
+      "file_sha256": "04dab08bb9a7b0e5535fdafaa4ae6a4d5e6cf5a2592695196100e3f8af04dde3",
+      "path": "boh/examples/population-sample--wraparound.md",
+      "size_bytes": 11995,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"
+    },
+    {
+      "card_id": "math:concept:probability",
+      "document_id": "math:concept:probability",
+      "example_id": null,
+      "file_sha256": "20a1f1cc3d20fc60d59278d628e8892284ec54539399c8e2fec2800d6400df08",
+      "path": "boh/cards/probability.md",
+      "size_bytes": 19664,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e72fd40b0d1c76a4fb4fe45d452c4a63c7aa809043ffb0295ec49e119d35ea49"
+    },
+    {
+      "card_id": "math:concept:probability",
+      "document_id": "math:example:probability:seeds",
+      "example_id": "math:example:probability:seeds",
+      "file_sha256": "a458ca279d6ac9bf92c3f2c579d00e774fb007ada8dc3f35cc8db651760ca56f",
+      "path": "boh/examples/probability--seeds.md",
+      "size_bytes": 6792,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e72fd40b0d1c76a4fb4fe45d452c4a63c7aa809043ffb0295ec49e119d35ea49"
+    },
+    {
+      "card_id": "math:concept:probability",
+      "document_id": "math:example:probability:rare",
+      "example_id": "math:example:probability:rare",
+      "file_sha256": "754deb117b24f55dd10af329e2e86dea7737eb3cb6b5eddd364d81a92eaa5238",
+      "path": "boh/examples/probability--rare.md",
+      "size_bytes": 6702,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e72fd40b0d1c76a4fb4fe45d452c4a63c7aa809043ffb0295ec49e119d35ea49"
+    },
+    {
+      "card_id": "math:concept:probability",
+      "document_id": "math:example:probability:none",
+      "example_id": "math:example:probability:none",
+      "file_sha256": "ae213049299162e54c2f4a100a9fa0ded357d3de81c48654e165923de9325553",
+      "path": "boh/examples/probability--none.md",
+      "size_bytes": 6525,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e72fd40b0d1c76a4fb4fe45d452c4a63c7aa809043ffb0295ec49e119d35ea49"
+    },
+    {
+      "card_id": "math:concept:probability",
+      "document_id": "math:example:probability:all",
+      "example_id": "math:example:probability:all",
+      "file_sha256": "31f47fe73b668129b6b76c5a578af9ce341627ec8e53bbe496664bd743df38c0",
+      "path": "boh/examples/probability--all.md",
+      "size_bytes": 6435,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e72fd40b0d1c76a4fb4fe45d452c4a63c7aa809043ffb0295ec49e119d35ea49"
+    },
+    {
+      "card_id": "math:concept:probability",
+      "document_id": "math:example:probability:batch",
+      "example_id": "math:example:probability:batch",
+      "file_sha256": "e4fb1aacff5c6773c5431af91281db3916360cc57b712ee404bb93c369ef4f54",
+      "path": "boh/examples/probability--batch.md",
+      "size_bytes": 6619,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e72fd40b0d1c76a4fb4fe45d452c4a63c7aa809043ffb0295ec49e119d35ea49"
+    },
+    {
+      "card_id": "math:concept:pythagorean-theorem",
+      "document_id": "math:concept:pythagorean-theorem",
+      "example_id": null,
+      "file_sha256": "e68a7cbf804fe2c8d8ff692c05088de8c2ba99cc5ae001619f1cf2098bd1e72f",
+      "path": "boh/cards/pythagorean-theorem.md",
+      "size_bytes": 20538,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "ac1e67d388ba02ee7e4504a7c53de6b4cb71b24ddc38690b21a0058867a35eb0"
+    },
+    {
+      "card_id": "math:concept:pythagorean-theorem",
+      "document_id": "math:example:pythagorean-theorem:brace",
+      "example_id": "math:example:pythagorean-theorem:brace",
+      "file_sha256": "b2716f9e8842bcce585acfb3277fe14a95884d3233bd312c96ce998563d33d5c",
+      "path": "boh/examples/pythagorean-theorem--brace.md",
+      "size_bytes": 6999,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "ac1e67d388ba02ee7e4504a7c53de6b4cb71b24ddc38690b21a0058867a35eb0"
+    },
+    {
+      "card_id": "math:concept:pythagorean-theorem",
+      "document_id": "math:example:pythagorean-theorem:small",
+      "example_id": "math:example:pythagorean-theorem:small",
+      "file_sha256": "cf2be5ca87044f2bcaee5bda74e7bbfaa5f1c210aa6a8c7c4d036b7100163682",
+      "path": "boh/examples/pythagorean-theorem--small.md",
+      "size_bytes": 6813,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "ac1e67d388ba02ee7e4504a7c53de6b4cb71b24ddc38690b21a0058867a35eb0"
+    },
+    {
+      "card_id": "math:concept:pythagorean-theorem",
+      "document_id": "math:example:pythagorean-theorem:square",
+      "example_id": "math:example:pythagorean-theorem:square",
+      "file_sha256": "1551a0800837a84425d0c7d0e0ac751ee2f40876f7b226502db61b059f50e977",
+      "path": "boh/examples/pythagorean-theorem--square.md",
+      "size_bytes": 6854,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "ac1e67d388ba02ee7e4504a7c53de6b4cb71b24ddc38690b21a0058867a35eb0"
+    },
+    {
+      "card_id": "math:concept:pythagorean-theorem",
+      "document_id": "math:example:pythagorean-theorem:swap",
+      "example_id": "math:example:pythagorean-theorem:swap",
+      "file_sha256": "0527585d5afc4030ccb6109b9276098732fbe881b884e33e1c035bb91cddfe84",
+      "path": "boh/examples/pythagorean-theorem--swap.md",
+      "size_bytes": 6737,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "ac1e67d388ba02ee7e4504a7c53de6b4cb71b24ddc38690b21a0058867a35eb0"
+    },
+    {
+      "card_id": "math:concept:pythagorean-theorem",
+      "document_id": "math:example:pythagorean-theorem:not-right",
+      "example_id": "math:example:pythagorean-theorem:not-right",
+      "file_sha256": "40d99e25b630fed6ea042e15f2ea02deeefc3bd1bf4c8a4e17dc6489f9932fcb",
+      "path": "boh/examples/pythagorean-theorem--not-right.md",
+      "size_bytes": 7299,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "ac1e67d388ba02ee7e4504a7c53de6b4cb71b24ddc38690b21a0058867a35eb0"
+    },
+    {
+      "card_id": "math:concept:quadratic-optimization",
+      "document_id": "math:concept:quadratic-optimization",
+      "example_id": null,
+      "file_sha256": "53fad554497bbbf28dedc538a6865980e1edaae1d8c7c86c759150da5d7f5e51",
+      "path": "boh/cards/quadratic-optimization.md",
+      "size_bytes": 20313,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e59e9b22a364320551279e9641e54c6cf61d86545d16812137a43803d4fd8f3d"
+    },
+    {
+      "card_id": "math:concept:quadratic-optimization",
+      "document_id": "math:example:quadratic-optimization:square",
+      "example_id": "math:example:quadratic-optimization:square",
+      "file_sha256": "d68726609cdd6f1be23965478762829d6761c2091654ec73be8dbe2b6d5a5b26",
+      "path": "boh/examples/quadratic-optimization--square.md",
+      "size_bytes": 6928,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e59e9b22a364320551279e9641e54c6cf61d86545d16812137a43803d4fd8f3d"
+    },
+    {
+      "card_id": "math:concept:quadratic-optimization",
+      "document_id": "math:example:quadratic-optimization:narrow",
+      "example_id": "math:example:quadratic-optimization:narrow",
+      "file_sha256": "17eb3ce8f5c92d25c906be8ec8cf352b10489a63ddffac458c924332dcbad450",
+      "path": "boh/examples/quadratic-optimization--narrow.md",
+      "size_bytes": 6910,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e59e9b22a364320551279e9641e54c6cf61d86545d16812137a43803d4fd8f3d"
+    },
+    {
+      "card_id": "math:concept:quadratic-optimization",
+      "document_id": "math:example:quadratic-optimization:swap",
+      "example_id": "math:example:quadratic-optimization:swap",
+      "file_sha256": "46e33029c881b99bcda56a3f59218571e273384722629f4c4076fe256054ad85",
+      "path": "boh/examples/quadratic-optimization--swap.md",
+      "size_bytes": 6805,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e59e9b22a364320551279e9641e54c6cf61d86545d16812137a43803d4fd8f3d"
+    },
+    {
+      "card_id": "math:concept:quadratic-optimization",
+      "document_id": "math:example:quadratic-optimization:larger",
+      "example_id": "math:example:quadratic-optimization:larger",
+      "file_sha256": "18e41a9aacfc166bc2efa1c02ca94e522c54e09d5be5125e12bc4e5b7c4084d5",
+      "path": "boh/examples/quadratic-optimization--larger.md",
+      "size_bytes": 6862,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e59e9b22a364320551279e9641e54c6cf61d86545d16812137a43803d4fd8f3d"
+    },
+    {
+      "card_id": "math:concept:quadratic-optimization",
+      "document_id": "math:example:quadratic-optimization:wall",
+      "example_id": "math:example:quadratic-optimization:wall",
+      "file_sha256": "7f09bfade120131e21a698a2192558d9478805ceed4358a10aaf51a28d473034",
+      "path": "boh/examples/quadratic-optimization--wall.md",
+      "size_bytes": 7212,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e59e9b22a364320551279e9641e54c6cf61d86545d16812137a43803d4fd8f3d"
+    },
+    {
+      "card_id": "math:concept:ratio-scale",
+      "document_id": "math:concept:ratio-scale",
+      "example_id": null,
+      "file_sha256": "4571df0785ba47ed8d3a61f80193e6c6d8e4e11b613ac6262407d74cb5786881",
+      "path": "boh/cards/ratio-scale.md",
+      "size_bytes": 20734,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "2a2775d4ca990ce872160e6a390f481729c970c8cd8e4013c84e82bc2a22470a"
+    },
+    {
+      "card_id": "math:concept:ratio-scale",
+      "document_id": "math:example:ratio-scale:dinner",
+      "example_id": "math:example:ratio-scale:dinner",
+      "file_sha256": "e67a611b0948d3ae7f3cde7fcf1b0173ccc038698d32ef68efd53752b0ae204f",
+      "path": "boh/examples/ratio-scale--dinner.md",
+      "size_bytes": 7623,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "2a2775d4ca990ce872160e6a390f481729c970c8cd8e4013c84e82bc2a22470a"
+    },
+    {
+      "card_id": "math:concept:ratio-scale",
+      "document_id": "math:example:ratio-scale:small-batch",
+      "example_id": "math:example:ratio-scale:small-batch",
+      "file_sha256": "7646545714a534fe93e97116038caab0dd7a536f02bff221b6bda7e9ec859378",
+      "path": "boh/examples/ratio-scale--small-batch.md",
+      "size_bytes": 7487,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "2a2775d4ca990ce872160e6a390f481729c970c8cd8e4013c84e82bc2a22470a"
+    },
+    {
+      "card_id": "math:concept:ratio-scale",
+      "document_id": "math:example:ratio-scale:fractional-portion",
+      "example_id": "math:example:ratio-scale:fractional-portion",
+      "file_sha256": "da38e1134c65c1cf00166567798c9a9bb349d9d05148bcff58b936c75a52d5ee",
+      "path": "boh/examples/ratio-scale--fractional-portion.md",
+      "size_bytes": 7641,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "2a2775d4ca990ce872160e6a390f481729c970c8cd8e4013c84e82bc2a22470a"
+    },
+    {
+      "card_id": "math:concept:ratio-scale",
+      "document_id": "math:example:ratio-scale:zero-ingredient",
+      "example_id": "math:example:ratio-scale:zero-ingredient",
+      "file_sha256": "94bcd27815d464758a34906692711d55347c7da09231644207e0204651a8505b",
+      "path": "boh/examples/ratio-scale--zero-ingredient.md",
+      "size_bytes": 7572,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "2a2775d4ca990ce872160e6a390f481729c970c8cd8e4013c84e82bc2a22470a"
+    },
+    {
+      "card_id": "math:concept:ratio-scale",
+      "document_id": "math:example:ratio-scale:zero-reference",
+      "example_id": "math:example:ratio-scale:zero-reference",
+      "file_sha256": "6806b2280e46ba503df24a89aa5437dc8a6056e3f9b445002618fa43b416253e",
+      "path": "boh/examples/ratio-scale--zero-reference.md",
+      "size_bytes": 7624,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "2a2775d4ca990ce872160e6a390f481729c970c8cd8e4013c84e82bc2a22470a"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:concept:real-logarithm",
+      "example_id": null,
+      "file_sha256": "277a89cce0cb03b8b68c9334ef9463a1b7dab1dfe208ddcb94adb6309ac82ba9",
+      "path": "boh/cards/real-logarithm.md",
+      "size_bytes": 22639,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "6ca6dce7c59c287ebd573cb640c7b6df9136b54f1499905d882286c70300e0f2"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:minimal",
+      "example_id": "math:example:log:minimal",
+      "file_sha256": "e5fd21165ffc54a8f6f8a04a01925344178018f5ca64a425382a53f26805a9ce",
+      "path": "boh/examples/real-logarithm--minimal.md",
+      "size_bytes": 6508,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "6ca6dce7c59c287ebd573cb640c7b6df9136b54f1499905d882286c70300e0f2"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:plot",
+      "example_id": "math:example:log:plot",
+      "file_sha256": "66a754fd5ff096692ce0fbd3813b077481bb4c2501ff73fb31b3facf9b7098c9",
+      "path": "boh/examples/real-logarithm--plot.md",
+      "size_bytes": 7196,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "6ca6dce7c59c287ebd573cb640c7b6df9136b54f1499905d882286c70300e0f2"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:photography",
+      "example_id": "math:example:log:photography",
+      "file_sha256": "032a91a1e9c76a61d20ed98c3fd3f2cef6e570f4694b1b0ff4e8b83391d42097",
+      "path": "boh/examples/real-logarithm--photography.md",
+      "size_bytes": 7394,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "6ca6dce7c59c287ebd573cb640c7b6df9136b54f1499905d882286c70300e0f2"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:binary-tree",
+      "example_id": "math:example:log:binary-tree",
+      "file_sha256": "f517258d649b981677f1fdb2096869e91de010bcf58f7efdd1c324beb63cf7c7",
+      "path": "boh/examples/real-logarithm--binary-tree.md",
+      "size_bytes": 7341,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "6ca6dce7c59c287ebd573cb640c7b6df9136b54f1499905d882286c70300e0f2"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:decreasing-base",
+      "example_id": "math:example:log:decreasing-base",
+      "file_sha256": "9b520e8de24bd15f2b0a0313825f47337a1d5a38b6e148a1778cd335ef27e3db",
+      "path": "boh/examples/real-logarithm--decreasing-base.md",
+      "size_bytes": 6715,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "6ca6dce7c59c287ebd573cb640c7b6df9136b54f1499905d882286c70300e0f2"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:invalid-domain",
+      "example_id": "math:example:log:invalid-domain",
+      "file_sha256": "eb3fde10035375976b0623b9d710d1eb8808ca3530b5cda8bbf222948dcc0e2c",
+      "path": "boh/examples/real-logarithm--invalid-domain.md",
+      "size_bytes": 7205,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "6ca6dce7c59c287ebd573cb640c7b6df9136b54f1499905d882286c70300e0f2"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:sum-fallacy",
+      "example_id": "math:example:log:sum-fallacy",
+      "file_sha256": "1579245e66c677ffe32f93293d8ed92a9e3df7889355292fa10e16822241f844",
+      "path": "boh/examples/real-logarithm--sum-fallacy.md",
+      "size_bytes": 7005,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "6ca6dce7c59c287ebd573cb640c7b6df9136b54f1499905d882286c70300e0f2"
+    },
+    {
+      "card_id": "math:concept:resonance",
+      "document_id": "math:concept:resonance",
+      "example_id": null,
+      "file_sha256": "451deb3b5b2d4e173654de2581562389737075a354201910849e05d91faf95d5",
+      "path": "boh/cards/resonance.md",
+      "size_bytes": 23656,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "271210a3a2f60502ae321429ae14859a48ffb58bd0471d890f1ed8f184e46eca"
+    },
+    {
+      "card_id": "math:concept:resonance",
+      "document_id": "math:example:resonance:matching",
+      "example_id": "math:example:resonance:matching",
+      "file_sha256": "bd3ff81bfa03fe984fb0ee6d3e77d64a461ac09b64cd55225c4c70ac6f583c31",
+      "path": "boh/examples/resonance--matching.md",
+      "size_bytes": 7925,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "271210a3a2f60502ae321429ae14859a48ffb58bd0471d890f1ed8f184e46eca"
+    },
+    {
+      "card_id": "math:concept:resonance",
+      "document_id": "math:example:resonance:less-damping",
+      "example_id": "math:example:resonance:less-damping",
+      "file_sha256": "2a7006e171e1514d34520aa6f6c54cba7140a882278d30466bad8b787d712eef",
+      "path": "boh/examples/resonance--less-damping.md",
+      "size_bytes": 7791,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "271210a3a2f60502ae321429ae14859a48ffb58bd0471d890f1ed8f184e46eca"
+    },
+    {
+      "card_id": "math:concept:resonance",
+      "document_id": "math:example:resonance:more-damping",
+      "example_id": "math:example:resonance:more-damping",
+      "file_sha256": "d42cea11716c0c8ed4a20d971b048a419cc57efe831ac52c7c173a4b27b4a758",
+      "path": "boh/examples/resonance--more-damping.md",
+      "size_bytes": 7882,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "271210a3a2f60502ae321429ae14859a48ffb58bd0471d890f1ed8f184e46eca"
+    },
+    {
+      "card_id": "math:concept:resonance",
+      "document_id": "math:example:resonance:high-frequency",
+      "example_id": "math:example:resonance:high-frequency",
+      "file_sha256": "fc8171cd680606d5071f0c01cc36a98f89fbeb2a6cf104efcd1073f18043fa4a",
+      "path": "boh/examples/resonance--high-frequency.md",
+      "size_bytes": 7978,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "271210a3a2f60502ae321429ae14859a48ffb58bd0471d890f1ed8f184e46eca"
+    },
+    {
+      "card_id": "math:concept:resonance",
+      "document_id": "math:example:resonance:peak",
+      "example_id": "math:example:resonance:peak",
+      "file_sha256": "bd2071d381af426a998e84544db14ad91bffa7fbe48e195eebee6c05156b76bf",
+      "path": "boh/examples/resonance--peak.md",
+      "size_bytes": 8321,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "271210a3a2f60502ae321429ae14859a48ffb58bd0471d890f1ed8f184e46eca"
+    },
+    {
+      "card_id": "math:concept:set",
+      "document_id": "math:concept:set",
+      "example_id": null,
+      "file_sha256": "6164eb09d4231e355b53aef46f6a20f79a3261dcab26ca3f42cb6e8fcdaf2c7a",
+      "path": "boh/cards/set.md",
+      "size_bytes": 33220,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d3558c55e262328e50cf7861d28d1e86b3d09ae611571caf28636c83322b7a95"
+    },
+    {
+      "card_id": "math:concept:set",
+      "document_id": "math:example:set:both-rules",
+      "example_id": "math:example:set:both-rules",
+      "file_sha256": "b340cd166bffb98635b10d4ebf7adf4f41d8aac4e2c3f241658121a4badb6ce9",
+      "path": "boh/examples/set--both-rules.md",
+      "size_bytes": 10698,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d3558c55e262328e50cf7861d28d1e86b3d09ae611571caf28636c83322b7a95"
+    },
+    {
+      "card_id": "math:concept:set",
+      "document_id": "math:example:set:raise-clearance",
+      "example_id": "math:example:set:raise-clearance",
+      "file_sha256": "90023b785919cb28372835b95a1f625fb9a58d1f00f2a382e3d10e31291000fb",
+      "path": "boh/examples/set--raise-clearance.md",
+      "size_bytes": 10674,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d3558c55e262328e50cf7861d28d1e86b3d09ae611571caf28636c83322b7a95"
+    },
+    {
+      "card_id": "math:concept:set",
+      "document_id": "math:example:set:either-rule",
+      "example_id": "math:example:set:either-rule",
+      "file_sha256": "56297f649720bb77944e46b9498ad95eb31343677f11a5f9f2046db1cbd98861",
+      "path": "boh/examples/set--either-rule.md",
+      "size_bytes": 10693,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d3558c55e262328e50cf7861d28d1e86b3d09ae611571caf28636c83322b7a95"
+    },
+    {
+      "card_id": "math:concept:set",
+      "document_id": "math:example:set:ordered-removal",
+      "example_id": "math:example:set:ordered-removal",
+      "file_sha256": "5106018964e8fa213e2bcb13de1be3b10e271fb1c1241cc4ea3810331cf16f2c",
+      "path": "boh/examples/set--ordered-removal.md",
+      "size_bytes": 10734,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d3558c55e262328e50cf7861d28d1e86b3d09ae611571caf28636c83322b7a95"
+    },
+    {
+      "card_id": "math:concept:set",
+      "document_id": "math:example:set:exact-boundary",
+      "example_id": "math:example:set:exact-boundary",
+      "file_sha256": "7e013e728fb648c7c6c840c364e6b8537f3c6c6281192211317a22f7555ffc28",
+      "path": "boh/examples/set--exact-boundary.md",
+      "size_bytes": 10705,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d3558c55e262328e50cf7861d28d1e86b3d09ae611571caf28636c83322b7a95"
+    },
+    {
+      "card_id": "math:concept:signed-accumulation",
+      "document_id": "math:concept:signed-accumulation",
+      "example_id": null,
+      "file_sha256": "6d8ccb916ecfe93e85408efefe05ad0b75b08a3b0dae5d59722a378ff1a138e5",
+      "path": "boh/cards/signed-accumulation.md",
+      "size_bytes": 35524,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "e77cdd1fe1db0abc58c3307d803eb1145575db6b51467c209ca345fa49cce194"
+    },
+    {
+      "card_id": "math:concept:signed-accumulation",
+      "document_id": "math:example:signed-accumulation:out-and-back",
+      "example_id": "math:example:signed-accumulation:out-and-back",
+      "file_sha256": "1554542549011c333733ea6af85d93d18193bb7f1e1205f405bc5427349b394a",
+      "path": "boh/examples/signed-accumulation--out-and-back.md",
+      "size_bytes": 11795,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "e77cdd1fe1db0abc58c3307d803eb1145575db6b51467c209ca345fa49cce194"
+    },
+    {
+      "card_id": "math:concept:signed-accumulation",
+      "document_id": "math:example:signed-accumulation:forward",
+      "example_id": "math:example:signed-accumulation:forward",
+      "file_sha256": "c3d1d654fd07f75288d20ec4395dd70c4f8abf57e09e85e94591062b2acc0f1f",
+      "path": "boh/examples/signed-accumulation--forward.md",
+      "size_bytes": 11355,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "e77cdd1fe1db0abc58c3307d803eb1145575db6b51467c209ca345fa49cce194"
+    },
+    {
+      "card_id": "math:concept:signed-accumulation",
+      "document_id": "math:example:signed-accumulation:backward",
+      "example_id": "math:example:signed-accumulation:backward",
+      "file_sha256": "56e6044792f47ecab78a4eae50169b33993890c056b591d94c3a0e5b6c86f19e",
+      "path": "boh/examples/signed-accumulation--backward.md",
+      "size_bytes": 11491,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "e77cdd1fe1db0abc58c3307d803eb1145575db6b51467c209ca345fa49cce194"
+    },
+    {
+      "card_id": "math:concept:signed-accumulation",
+      "document_id": "math:example:signed-accumulation:reverse-to-home",
+      "example_id": "math:example:signed-accumulation:reverse-to-home",
+      "file_sha256": "0ddd4ceca6eb3a779683ffda9110199daac48f35f18754eebf8bbab8d17d2a5c",
+      "path": "boh/examples/signed-accumulation--reverse-to-home.md",
+      "size_bytes": 11495,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "e77cdd1fe1db0abc58c3307d803eb1145575db6b51467c209ca345fa49cce194"
+    },
+    {
+      "card_id": "math:concept:signed-accumulation",
+      "document_id": "math:example:signed-accumulation:unequal-return",
+      "example_id": "math:example:signed-accumulation:unequal-return",
+      "file_sha256": "0ec5cfba54e92b9399aad94b8ad69f0618c205521069423aca8b77d80bd41409",
+      "path": "boh/examples/signed-accumulation--unequal-return.md",
+      "size_bytes": 11596,
+      "source_revision": "0.1.1-draft",
+      "source_sha256": "e77cdd1fe1db0abc58c3307d803eb1145575db6b51467c209ca345fa49cce194"
+    },
+    {
+      "card_id": "math:concept:tangent-plane",
+      "document_id": "math:concept:tangent-plane",
+      "example_id": null,
+      "file_sha256": "3f8aafa61319ae0360c2054112672b8c660496dbc65b4da488d33a47360a282f",
+      "path": "boh/cards/tangent-plane.md",
+      "size_bytes": 39032,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "caee5799e2708633f7bb47816b32353d78d5e3c917779268f13dd2b9e4a0f088"
+    },
+    {
+      "card_id": "math:concept:tangent-plane",
+      "document_id": "math:example:tangent-plane:nearby-height",
+      "example_id": "math:example:tangent-plane:nearby-height",
+      "file_sha256": "1874f393f851424495b311ba4c4d14fc8de8152379719d0f1e2a9b3f26c34f53",
+      "path": "boh/examples/tangent-plane--nearby-height.md",
+      "size_bytes": 12754,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "caee5799e2708633f7bb47816b32353d78d5e3c917779268f13dd2b9e4a0f088"
+    },
+    {
+      "card_id": "math:concept:tangent-plane",
+      "document_id": "math:example:tangent-plane:half-offsets",
+      "example_id": "math:example:tangent-plane:half-offsets",
+      "file_sha256": "bb27b636fdaf3bdbbe9d7d61996c7a8a5a4c0b1663e7c59840c04160216f2039",
+      "path": "boh/examples/tangent-plane--half-offsets.md",
+      "size_bytes": 12736,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "caee5799e2708633f7bb47816b32353d78d5e3c917779268f13dd2b9e4a0f088"
+    },
+    {
+      "card_id": "math:concept:tangent-plane",
+      "document_id": "math:example:tangent-plane:reverse-offsets",
+      "example_id": "math:example:tangent-plane:reverse-offsets",
+      "file_sha256": "2db3da44b1aee5db1855ea46e6b21e12e4fbd4e9facf06f3daf6aad4175d9412",
+      "path": "boh/examples/tangent-plane--reverse-offsets.md",
+      "size_bytes": 12720,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "caee5799e2708633f7bb47816b32353d78d5e3c917779268f13dd2b9e4a0f088"
+    },
+    {
+      "card_id": "math:concept:tangent-plane",
+      "document_id": "math:example:tangent-plane:constant-sketch",
+      "example_id": "math:example:tangent-plane:constant-sketch",
+      "file_sha256": "e036f244c92f990ea4c3354573b4701266dc6daed0c6377694c07d01dc7c5db7",
+      "path": "boh/examples/tangent-plane--constant-sketch.md",
+      "size_bytes": 12646,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "caee5799e2708633f7bb47816b32353d78d5e3c917779268f13dd2b9e4a0f088"
+    },
+    {
+      "card_id": "math:concept:tangent-plane",
+      "document_id": "math:example:tangent-plane:saddle-sketch",
+      "example_id": "math:example:tangent-plane:saddle-sketch",
+      "file_sha256": "9b60230c482fa490c81264b5a1fdb0b2a7866f2ae09ca0090deffc1f898af667",
+      "path": "boh/examples/tangent-plane--saddle-sketch.md",
+      "size_bytes": 12708,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "caee5799e2708633f7bb47816b32353d78d5e3c917779268f13dd2b9e4a0f088"
+    },
+    {
+      "card_id": "math:concept:vector-rotation",
+      "document_id": "math:concept:vector-rotation",
+      "example_id": null,
+      "file_sha256": "87f53975b3e0aa5d7cbb055aa9b33bf7714255e19a467277c147df38d2bf2829",
+      "path": "boh/cards/vector-rotation.md",
+      "size_bytes": 20480,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "5da0caf147fe5b055476a594ee66924ff0273e1aa91bdef4858a1c16053b166d"
+    },
+    {
+      "card_id": "math:concept:vector-rotation",
+      "document_id": "math:example:vector-rotation:boom",
+      "example_id": "math:example:vector-rotation:boom",
+      "file_sha256": "c22671a4523a9930f6a6fc8d4b72b8e4a12da36fe94ee2e991feaab7127585ff",
+      "path": "boh/examples/vector-rotation--boom.md",
+      "size_bytes": 7090,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "5da0caf147fe5b055476a594ee66924ff0273e1aa91bdef4858a1c16053b166d"
+    },
+    {
+      "card_id": "math:concept:vector-rotation",
+      "document_id": "math:example:vector-rotation:vertical",
+      "example_id": "math:example:vector-rotation:vertical",
+      "file_sha256": "05ae09036645d24a09f25a2021a4065d18926f2480d96810f018056f4e367a70",
+      "path": "boh/examples/vector-rotation--vertical.md",
+      "size_bytes": 6924,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "5da0caf147fe5b055476a594ee66924ff0273e1aa91bdef4858a1c16053b166d"
+    },
+    {
+      "card_id": "math:concept:vector-rotation",
+      "document_id": "math:example:vector-rotation:left",
+      "example_id": "math:example:vector-rotation:left",
+      "file_sha256": "59d8872f2ac2afa5883af725d3c44da14ac1783db1f9ea77093291b47039eb15",
+      "path": "boh/examples/vector-rotation--left.md",
+      "size_bytes": 6945,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "5da0caf147fe5b055476a594ee66924ff0273e1aa91bdef4858a1c16053b166d"
+    },
+    {
+      "card_id": "math:concept:vector-rotation",
+      "document_id": "math:example:vector-rotation:return",
+      "example_id": "math:example:vector-rotation:return",
+      "file_sha256": "5ee397efcf7d149bd9f9e5b584ceaf7cb1a76ae75f36558e904cd37716a5ffdc",
+      "path": "boh/examples/vector-rotation--return.md",
+      "size_bytes": 6904,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "5da0caf147fe5b055476a594ee66924ff0273e1aa91bdef4858a1c16053b166d"
+    },
+    {
+      "card_id": "math:concept:vector-rotation",
+      "document_id": "math:example:vector-rotation:longer",
+      "example_id": "math:example:vector-rotation:longer",
+      "file_sha256": "4ca676a46da907569a9a41eb642f0f67c69dd95b27d71a8e2562546f26e1f03a",
+      "path": "boh/examples/vector-rotation--longer.md",
+      "size_bytes": 7009,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "5da0caf147fe5b055476a594ee66924ff0273e1aa91bdef4858a1c16053b166d"
+    },
+    {
+      "card_id": "math:concept:vector",
+      "document_id": "math:concept:vector",
+      "example_id": null,
+      "file_sha256": "ebc1c82cfaa312e635927fe2a97b0ba5a9b4146aa986ec70c353d8449b79dfe1",
+      "path": "boh/cards/vector.md",
+      "size_bytes": 22351,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1"
+    },
+    {
+      "card_id": "math:concept:vector",
+      "document_id": "math:example:vector:robot",
+      "example_id": "math:example:vector:robot",
+      "file_sha256": "f1fdaffab86e55b16e14405252f99432fc0d0d556d3fef221d9a1f369d30cd8f",
+      "path": "boh/examples/vector--robot.md",
+      "size_bytes": 7149,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1"
+    },
+    {
+      "card_id": "math:concept:vector",
+      "document_id": "math:example:vector:return",
+      "example_id": "math:example:vector:return",
+      "file_sha256": "545abfcf6ce806b63d3dd2b47eb8d4fe4e5686d16bd6b05ef2b07246f634f9a6",
+      "path": "boh/examples/vector--return.md",
+      "size_bytes": 7121,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1"
+    },
+    {
+      "card_id": "math:concept:vector",
+      "document_id": "math:example:vector:axis",
+      "example_id": "math:example:vector:axis",
+      "file_sha256": "d394e6843a7a8b659c289041b5966f652fa3743e5569b705e961f020f81d4b10",
+      "path": "boh/examples/vector--axis.md",
+      "size_bytes": 7099,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1"
+    },
+    {
+      "card_id": "math:concept:vector",
+      "document_id": "math:example:vector:diagonal",
+      "example_id": "math:example:vector:diagonal",
+      "file_sha256": "367a40c29ab88ee1ba073379efcfe50e32e1a446c1c977a84729ffbc2e0ed503",
+      "path": "boh/examples/vector--diagonal.md",
+      "size_bytes": 7128,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1"
+    },
+    {
+      "card_id": "math:concept:vector",
+      "document_id": "math:example:vector:zero",
+      "example_id": "math:example:vector:zero",
+      "file_sha256": "3ef8eef8794be6a0dff0218994c75e3fdfed1720df4dd2fd3a420b77019edf44",
+      "path": "boh/examples/vector--zero.md",
+      "size_bytes": 7158,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1"
+    },
+    {
+      "card_id": "math:concept:wave-interference",
+      "document_id": "math:concept:wave-interference",
+      "example_id": null,
+      "file_sha256": "36877a197c55bf5666eda0e5d70bd07c6c5bf1c92b5e14ac0b788aea5930692c",
+      "path": "boh/cards/wave-interference.md",
+      "size_bytes": 21240,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a5e276ffd764355d3d8d133ef93322818fc3cb6b9d4ae1a0a2d0d57261f70477"
+    },
+    {
+      "card_id": "math:concept:wave-interference",
+      "document_id": "math:example:wave-interference:sound",
+      "example_id": "math:example:wave-interference:sound",
+      "file_sha256": "0bd2919a5f2774b9b5e42a995111a631ff0fe5a57906073ad48f54b5ca58a7c0",
+      "path": "boh/examples/wave-interference--sound.md",
+      "size_bytes": 7481,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a5e276ffd764355d3d8d133ef93322818fc3cb6b9d4ae1a0a2d0d57261f70477"
+    },
+    {
+      "card_id": "math:concept:wave-interference",
+      "document_id": "math:example:wave-interference:aligned",
+      "example_id": "math:example:wave-interference:aligned",
+      "file_sha256": "eb43c2f60b0dae11e13412d70f435ef4cd940c3cd6cd7472094e68caa0f4b749",
+      "path": "boh/examples/wave-interference--aligned.md",
+      "size_bytes": 7084,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a5e276ffd764355d3d8d133ef93322818fc3cb6b9d4ae1a0a2d0d57261f70477"
+    },
+    {
+      "card_id": "math:concept:wave-interference",
+      "document_id": "math:example:wave-interference:cancel",
+      "example_id": "math:example:wave-interference:cancel",
+      "file_sha256": "6a928abe7e60ebd91cd7345453937ec804f5963646537d5d0f71c38dc75b8b8e",
+      "path": "boh/examples/wave-interference--cancel.md",
+      "size_bytes": 7306,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a5e276ffd764355d3d8d133ef93322818fc3cb6b9d4ae1a0a2d0d57261f70477"
+    },
+    {
+      "card_id": "math:concept:wave-interference",
+      "document_id": "math:example:wave-interference:quieter",
+      "example_id": "math:example:wave-interference:quieter",
+      "file_sha256": "08f5c77c1674db265b897353bdea2b4dcfbe5db4e8d2b28d81f10f2052c40fe7",
+      "path": "boh/examples/wave-interference--quieter.md",
+      "size_bytes": 7249,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a5e276ffd764355d3d8d133ef93322818fc3cb6b9d4ae1a0a2d0d57261f70477"
+    },
+    {
+      "card_id": "math:concept:wave-interference",
+      "document_id": "math:example:wave-interference:full-cycle",
+      "example_id": "math:example:wave-interference:full-cycle",
+      "file_sha256": "1618679b6a596feba87f8966b274488df9cddc70de3f2f3fbce2eb12dfce6d99",
+      "path": "boh/examples/wave-interference--full-cycle.md",
+      "size_bytes": 7277,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a5e276ffd764355d3d8d133ef93322818fc3cb6b9d4ae1a0a2d0d57261f70477"
+    }
+  ],
+  "exporter_version": "0.2.0",
+  "hash_policy": "source_sha256=sorted compact card JSON; file_sha256=generated full UTF-8 bytes",
+  "interaction_policy": "inert textual recipes only; app owns execution",
+  "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0"
+}

@@ -1,0 +1,340 @@
+{
+  "scope": "Static BOH metadata lint only; no intake/index/retrieval runtime exercised.",
+  "boh_commit": "aa3d4fcae554a5d39bde0aa7dba1f7ab584854b5",
+  "validators": [
+    "app/core/rubrix.py",
+    "app/core/metadata_contract.py"
+  ],
+  "selftest": {
+    "positive": {
+      "path": "representative_header",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:concept:derivative",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    "negative_invalid_type_rejected": true,
+    "negative_errors": [
+      "LINT_INVALID_TYPE: 'math_concept' not in {'log', 'canon', 'reference', 'person', 'event', 'project', 'ledger', 'note'}"
+    ]
+  },
+  "file_count": 22,
+  "files": [
+    {
+      "path": "export/boh/cards/derivative.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:concept:derivative",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/cards/function-composition.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:concept:function-composition",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/cards/real-logarithm.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:concept:real-logarithm",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/derivative--corner.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:derivative:corner",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/derivative--cubic.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:derivative:cubic",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/derivative--image-scale.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:derivative:image-scale",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/derivative--motion.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:derivative:motion",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/derivative--secant.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:derivative:secant",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/derivative--zero-step.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:derivative:zero-step",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/function-composition--calibration.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:composition:calibration",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/function-composition--finite.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:composition:finite",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/function-composition--geometry.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:composition:geometry",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/function-composition--numeric.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:composition:numeric",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/function-composition--restricted-domain.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:composition:restricted-domain",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/function-composition--type-mismatch.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:composition:type-mismatch",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/real-logarithm--binary-tree.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:log:binary-tree",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/real-logarithm--decreasing-base.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:log:decreasing-base",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/real-logarithm--invalid-domain.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:log:invalid-domain",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/real-logarithm--minimal.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:log:minimal",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/real-logarithm--photography.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:log:photography",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/real-logarithm--plot.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:log:plot",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    },
+    {
+      "path": "export/boh/examples/real-logarithm--sum-fallacy.md",
+      "boh_lint_errors": [],
+      "exporter_policy_errors": [],
+      "pass": true,
+      "identity": "math:example:log:sum-fallacy",
+      "extracted_posture": {
+        "status": "draft",
+        "canonical_layer": "supporting",
+        "authority_state": "non_authoritative",
+        "review_state": "none",
+        "document_class": "reference"
+      }
+    }
+  ],
+  "pass": true
+}

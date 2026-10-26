@@ -1,0 +1,26 @@
+.workspace-linker { margin: 0 0 28px; padding: 22px 24px; border: 1px solid #d4dfd4; border-radius: 16px; background: #f4f7f0; }
+.workspace-link-heading { display: flex; gap: 18px; align-items: center; justify-content: space-between; }
+.workspace-link-heading .eyebrow { margin: 0 0 7px; font-size: 9px; }
+.workspace-link-heading h2 { margin: 0; font-size: 21px; font-family: Georgia, serif; font-weight: 400; }
+.workspace-link-mode { font-size: 11px; color: #697866; }
+.workspace-link-intro { font-size: 13px; line-height: 1.6; margin: 12px 0 16px; color: #596a58; }
+.workspace-link-fields { display: grid; grid-template-columns: 110px minmax(0,1fr) minmax(0,1fr) auto; align-items: end; gap: 14px; }
+.workspace-link-fields label { display: grid; gap: 7px; font-size: 11px; font-weight: 600; }
+.workspace-link-fields select { width: 100%; min-width: 0; min-height: 42px; padding: 10px 12px; border: 1px solid #d4dcd0; border-radius: 8px; font-family: inherit; font-size: 12px; font-weight: 400; color: #314535; background: #fff; }
+.workspace-link-fields select:focus-visible { outline: 2px solid #789e78; outline-offset: 2px; }
+.workspace-link-actions { display: flex; gap: 8px; }
+.workspace-link-actions .button { margin: 0; min-height: 41px; }
+.workspace-link-actions [hidden] { display: none; }
+.workspace-link-reading { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-top: 19px; font-size: 13px; font-variant-numeric: tabular-nums; line-height: 1.7; }
+.workspace-link-reading > span:first-child { color: #216675; }
+.workspace-link-reading > span:last-child { color: #70531c; }
+.workspace-link-status { margin: 9px 0 0; font-size: 12px; line-height: 1.6; color: #55644f; }
+.workspace-linker[data-link-state="blocked"] { border-color: #cfb181; background: #fbf5e8; }
+.workspace-linker[data-link-state="blocked"] .workspace-link-status { color: #805721; }
+.workspace-link-meaning { margin-top: 12px; color: #65725e; font-size: 12px; line-height: 1.75; }
+.workspace-link-meaning summary { cursor: pointer; }
+.work-link-badge { margin: -3px 0 12px; padding: 9px 12px; border-left: 2px solid #7d9f79; background: #edf3e8; color: #52664c; font-size: 11px; line-height: 1.5; }
+.work-link-badge[data-link-phase="blocked"] { border-color: #c49a4d; background: #faf2e2; color: #805721; }
+.work-link-badge[hidden] { display: none; }
+@media(max-width:800px) { .workspace-link-fields { grid-template-columns: 105px minmax(0,1fr); } .workspace-link-actions { align-self: end; } }
+@media(max-width:500px) { .workspace-linker { padding: 19px 16px; } .workspace-link-heading { align-items: start; flex-direction: column; gap: 9px; } .workspace-link-fields { grid-template-columns: minmax(0,1fr); gap: 12px; } .workspace-link-fields select { min-height: 42px; } .workspace-link-reading { gap: 5px; flex-direction: column; align-items: start; } .workspace-link-fields .button { min-width: 120px; } }

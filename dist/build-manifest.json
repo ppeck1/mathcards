@@ -1,0 +1,12 @@
+{
+  "application_version": "0.22.0",
+  "boh_documents": 232,
+  "boh_scope": "Static metadata only. Live ingestion and retrieval unverified.",
+  "canonical_content_sha256": "c8246b2845b4b5e9585629b8d8b755f6e9c0f70e79b4a823bff6e3561ae7c3a6",
+  "cards": 38,
+  "examples": 194,
+  "index_sha256": "6a8fbc4e0986767cea2b1cb010dad5a1f98f43d442f6811610c4258a4797872e",
+  "offline": "All app code and content are embedded in index.html.",
+  "review_status": "Draft specimens; historical research and independent review remain incomplete.",
+  "schema_version": "0.1.0"
+}

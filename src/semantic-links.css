@@ -1,0 +1,6 @@
+/* A steady selection cue. Mathematical fill colors and dimensions stay intact. */
+.visual-scene [data-semantic-active=true]{opacity:1}
+.visual-scene text[data-semantic-active=true],.visual-scene [data-semantic-active=true]>text{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+.visual-scene :is(path,line,rect,circle)[data-semantic-active=true],.visual-scene g[data-semantic-active=true]>:is(path,line,rect,circle){stroke-width:3px}
+.life-scene .story-cue[data-semantic-active=true],.life-scene .story-cue:has([data-semantic-active=true]){opacity:1}
+.note-compatibility{padding:12px;border-left:3px solid var(--teal);background:var(--soft);font-size:13px;line-height:1.7;overflow-wrap:anywhere}

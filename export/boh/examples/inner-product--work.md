@@ -1,0 +1,205 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:inner-product:work", "id": "math:example:inner-product:work", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:inner-product", "example_id": "math:example:inner-product:work", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.1-draft", "upstream_content_sha256": "45117d44ea92003034cdfc68107859375ffa91f15957efe776fbc07f8a7db4fb"}, "purpose": "Measure how real vectors align and follow the scalar into a signed projection.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "45117d44ea92003034cdfc68107859375ffa91f15957efe776fbc07f8a7db4fb", "status": "draft", "title": "Matching force and displacement components", "topics": ["mathematics", "linear-algebra", "geometry", "Euclidean inner product", "scalar product", "projection"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
+---
+
+# Matching force and displacement components
+
+Parent card: math:concept:inner-product; revision 0.1.1-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:inner-product; revision 0.1.1-draft. Setting: Finite real two-dimensional Euclidean coordinates. Expression: $u\cdot v=u_xv_x+u_yv_y,\quad\operatorname{proj}_u(v)=\frac{u\cdot v}{u\cdot u}u\ (u\ne0).$. Conditions required for a defined value (a case may test their violation): Use corresponding real Euclidean components in the same axis order. The dot product is a scalar and may be positive, zero or negative. Projection onto u needs nonzero u; an angle needs both vectors nonzero. Scope: Only the standard real dot product for four components in [-4,4] is executable. Zero vectors keep the dot product defined while auxiliary projections/angles can be null. Physical examples require compatible component/product units.
+
+Case unit math:example:inner-product:work. Setting: Original constructed teaching scenario; values and rules are stipulated, not measured. Inputs: {"ux": 3, "uy": 1, "vx": 2, "vy": 1}. Result: {"exact": "7 J"}. Limits: The force is constant. Variable force needs an appropriate integral; the generic scene uses abstract component scales.
+
+## Complete worked case
+
+- id: math:example:inner-product:work
+- title: Matching force and displacement components
+- role: applied_model
+- question: A constant force u=(3,1) N acts through v=(2,1) m. How much work is done?
+- setting: Original constructed teaching scenario; values and rules are stipulated, not measured.
+- assumptions:
+  - The standard real Euclidean dot product is used in two dimensions.
+  - Corresponding components share consistent axes; each product carries its declared product unit.
+  - Projection is of v onto u; its formula requires u to be nonzero.
+- inputs:
+  - ux: 3
+  - uy: 1
+  - vx: 2
+  - vy: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: W=u·v=3*2+1*1
+    - reason: Multiply each force component by the matching displacement.
+  - Item:
+    - index: 2
+    - expression: W=7 N m=7 J
+    - reason: Add the two work contributions with their product units.
+- result:
+  - exact: 7 J
+- interpretation: The two axes contribute 6 J and 1 J. Force-arrow and displacement-arrow lengths do not share one physical unit.
+- independent check:
+  - method: Component work check
+  - expected: Horizontal work is 3 N times 2 m; vertical work is 1 N times 1 m, totaling 7 J.
+- limits: The force is constant. Variable force needs an appropriate integral; the generic scene uses abstract component scales.
+- preset:
+  - ux: 3
+  - uy: 1
+  - vx: 2
+  - vy: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - The standard real Euclidean dot product is used in two dimensions.
+  - Corresponding components share consistent axes; each product carries its declared product unit.
+  - Projection is of v onto u; its formula requires u to be nonzero.
+
+## Written exploration recipe
+
+- component id: inner-product-visual-model
+- renderer id: inner-product-visual-model
+- renderer version: 1.0.0
+- model id: inner-product-visual-model
+- model revision: 1
+- expression id: ast:inner-product:expression
+- interaction status: implemented
+- description: Two arrows show the projection of v onto u, while signed component products lead to one scalar. The Graph varies one component and fixes the others.
+- controls:
+  - Item:
+    - id: ux
+    - type: number
+    - default: 3
+    - min: -4
+    - max: 4
+    - slider min: -4
+    - slider max: 4
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+  - Item:
+    - id: uy
+    - type: number
+    - default: 0
+    - min: -4
+    - max: 4
+    - slider min: -4
+    - slider max: 4
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+  - Item:
+    - id: vx
+    - type: number
+    - default: 2
+    - min: -4
+    - max: 4
+    - slider min: -4
+    - slider max: 4
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+  - Item:
+    - id: vy
+    - type: number
+    - default: 2
+    - min: -4
+    - max: 4
+    - slider min: -4
+    - slider max: 4
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+- expected cases:
+  - Item:
+    - input:
+      - ux: 3
+      - uy: 0
+      - vx: 2
+      - vy: 2
+    - output: 6
+  - Item:
+    - input:
+      - ux: 3
+      - uy: 0
+      - vx: 2
+      - vy: 0
+    - output: 6
+  - Item:
+    - input:
+      - ux: 3
+      - uy: 0
+      - vx: 0
+      - vy: 2
+    - output: 0
+  - Item:
+    - input:
+      - ux: 3
+      - uy: 0
+      - vx: -2
+      - vy: 0
+    - output: -6
+  - Item:
+    - input:
+      - ux: 0
+      - uy: 0
+      - vx: 2
+      - vy: 2
+    - output: 0
+  - Item:
+    - input:
+      - ux: 3
+      - uy: 0
+      - vx: 0
+      - vy: 0
+    - output: 0
+  - Item:
+    - input:
+      - ux: -4
+      - uy: 4
+      - vx: 4
+      - vy: 4
+    - output: 0
+  - Item:
+    - input:
+      - ux: 1.5
+      - uy: -0.5
+      - vx: 2
+      - vy: 3
+    - output: 1.5
+  - Item:
+    - input:
+      - ux: 4.1
+      - uy: 0
+      - vx: 2
+      - vy: 2
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - ux: 3
+      - uy: 0
+      - vx: 2
+      - vy: -4.1
+    - status: invalid_parameters
+- compute: output=dot=ux*vx+uy*vy; uNorm=hypot(ux,uy); vNorm=hypot(vx,vy); projection=dot/uNorm and projectionFactor=dot/uNorm² when uNorm>0, otherwise null; projectionX=projectionFactor*ux; projectionY=projectionFactor*uy; both projection components are null when uNorm=0; angle requires both norms positive.
+- numeric tolerance: 1e-10
+- invariants:
+  - Use corresponding real Euclidean components in the same axis order.
+  - The dot product is a scalar and may be positive, zero or negative.
+  - Projection onto u needs nonzero u; an angle needs both vectors nonzero.
+- limits:
+  - Only the standard real Euclidean dot product in two dimensions is implemented.
+  - Zero vectors keep the dot product defined but can make angles/projections undefined.
+  - A dot score is not normalized similarity or probability without further conditions.
+- fallback: Pause and read the labeled scene, current values, evaluated samples and original worked steps. A distinct Graph view remains available.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openstax:dot-product. [Calculus Volume 3, 2.3 The Dot Product](https://openstax.org/books/calculus-volume-3/pages/2-3-the-dot-product). Locator: Real dot product; angle of nonzero vectors; scalar/vector projection; constant-force work. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports vocabulary and conditions, not historical priority or independent review of the original scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.

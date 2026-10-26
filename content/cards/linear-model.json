@@ -1,0 +1,641 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:linear-model",
+  "slug": "linear-model",
+  "type": "concept",
+  "title": "Linear models",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-23T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived; independent review pending",
+    "history": "source gap; no priority assertions",
+    "interaction": "implemented; numerical fixtures are not independent mathematical review"
+  },
+  "source_policy": "Definition-level references support the mathematics. Applications and stories are original constructed scenarios, not measurements or historical events. Historical claims require claim-level sources before publication.",
+  "aliases": [
+    "constant-rate model",
+    "affine model",
+    "starting amount plus rate"
+  ],
+  "branches": [
+    "functions",
+    "change",
+    "modeling"
+  ],
+  "expressive_job": [
+    "model",
+    "scale"
+  ],
+  "purpose": "Combine a starting amount with a constant rate of change.",
+  "meaning": "Separate what is already there from what accumulates. Every extra minute adds the same volume, so the graph is a straight line.",
+  "prerequisites": {
+    "required": [
+      "math:concept:variable"
+    ],
+    "helpful": [
+      "math:concept:unit-dimension"
+    ],
+    "depth": [
+      "math:concept:model-assumption"
+    ]
+  },
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the concept and notation with specialist sources before adding historical attribution."
+    ],
+    "reader_text": "Historical account not yet sourced. Everyday scenarios are constructed examples, not historical anecdotes."
+  },
+  "connections": [
+    {
+      "target": "math:concept:derivative",
+      "type": "constant_rate_case",
+      "conditions": "Consider an interior point of a continuous-time interval with fixed rate.",
+      "reason": "The derivative dV/dt is r.",
+      "target_status": "available",
+      "evidence_status": "local_derivation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:exponential-change",
+      "type": "compared_with",
+      "conditions": "Compare equal input increments with model parameters fixed.",
+      "reason": "A constant additive increment differs from a constant multiplicative factor.",
+      "target_status": "available",
+      "evidence_status": "local_derivation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:linear-model:filling",
+      "title": "Five minutes at the tap",
+      "role": "applied_model",
+      "question": "A tank starts with 20 L. A tap adds 4 L each minute. How much is in it after five minutes?",
+      "setting": "Constructed tank model with no outflow and sufficient capacity during the interval.",
+      "assumptions": [
+        "Constructed tank model with no outflow and sufficient capacity during the interval."
+      ],
+      "inputs": {
+        "initial_L": 20,
+        "rate_L_per_min": 4,
+        "time_min": 5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "Added volume=(4 L/min)(5 min)=20 L",
+          "reason": "Rate times time gives volume; minutes cancel."
+        },
+        {
+          "index": 2,
+          "expression": "V(5)=20 L+20 L=40 L",
+          "reason": "Add the water already present."
+        }
+      ],
+      "result": {
+        "exact": "40 L"
+      },
+      "interpretation": "At this time the new water equals the starting water, so the total has doubled.",
+      "independent_check": {
+        "method": "Count five equal one-minute additions.",
+        "expected": "20+4+4+4+4+4=40 L."
+      },
+      "limits": "Flow is stipulated as constant; a real tap and tank capacity need measurement.",
+      "preset": {
+        "initial": 20,
+        "rate": 4,
+        "time": 5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Elapsed time is nonnegative and measured in minutes.",
+        "The stipulated inflow is constant and nonnegative; there is no outflow during the interval.",
+        "Initial volume and rate have compatible units; the tank has enough capacity for the result."
+      ]
+    },
+    {
+      "id": "math:example:linear-model:start",
+      "title": "Before the tap runs",
+      "role": "boundary",
+      "question": "What does the formula predict exactly when the timer starts?",
+      "setting": "Constructed tank model with no outflow and sufficient capacity during the interval.",
+      "assumptions": [
+        "Constructed tank model with no outflow and sufficient capacity during the interval."
+      ],
+      "inputs": {
+        "initial_L": 20,
+        "rate_L_per_min": 4,
+        "time_min": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "rt=(4 L/min)(0 min)=0 L",
+          "reason": "No time has passed."
+        },
+        {
+          "index": 2,
+          "expression": "V(0)=20 L+0 L=20 L",
+          "reason": "Read the initial value."
+        }
+      ],
+      "result": {
+        "exact": "20 L"
+      },
+      "interpretation": "The intercept is the amount present at the start, not an extra flow contribution.",
+      "independent_check": {
+        "method": "Check the story before any addition.",
+        "expected": "The tank initially contains 20 L."
+      },
+      "limits": "Time zero is included; negative elapsed time is outside this story.",
+      "preset": {
+        "initial": 20,
+        "rate": 4,
+        "time": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Elapsed time is nonnegative and measured in minutes.",
+        "The stipulated inflow is constant and nonnegative; there is no outflow during the interval.",
+        "Initial volume and rate have compatible units; the tank has enough capacity for the result."
+      ]
+    },
+    {
+      "id": "math:example:linear-model:closed-tap",
+      "title": "Close the tap",
+      "role": "structural",
+      "question": "What happens to 20 L when inflow is zero for five minutes?",
+      "setting": "Constructed tank model with no outflow and sufficient capacity during the interval.",
+      "assumptions": [
+        "Constructed tank model with no outflow and sufficient capacity during the interval."
+      ],
+      "inputs": {
+        "initial_L": 20,
+        "rate_L_per_min": 0,
+        "time_min": 5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "rt=(0 L/min)(5 min)=0 L",
+          "reason": "A zero rate adds no water."
+        },
+        {
+          "index": 2,
+          "expression": "V(5)=20 L",
+          "reason": "Keep the initial amount."
+        }
+      ],
+      "result": {
+        "exact": "20 L"
+      },
+      "interpretation": "A straight line can be horizontal: the zero-rate case is constant.",
+      "independent_check": {
+        "method": "Compare two times.",
+        "expected": "V(0)=20 L and V(5)=20 L."
+      },
+      "limits": "No outflow or evaporation is included; closing an actual tap alone does not ensure constant volume.",
+      "preset": {
+        "initial": 20,
+        "rate": 0,
+        "time": 5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Elapsed time is nonnegative and measured in minutes.",
+        "The stipulated inflow is constant and nonnegative; there is no outflow during the interval.",
+        "Initial volume and rate have compatible units; the tank has enough capacity for the result."
+      ]
+    },
+    {
+      "id": "math:example:linear-model:target",
+      "title": "When will it reach 52 L?",
+      "role": "inverse_problem",
+      "question": "At 4 L/min from an initial 20 L, how long until the tank holds 52 L?",
+      "setting": "Constructed tank model with no outflow and sufficient capacity during the interval.",
+      "assumptions": [
+        "Constructed tank model with no outflow and sufficient capacity during the interval."
+      ],
+      "inputs": {
+        "initial_L": 20,
+        "rate_L_per_min": 4,
+        "target_L": 52
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "52 L−20 L=32 L",
+          "reason": "Remove the starting amount to find the required addition."
+        },
+        {
+          "index": 2,
+          "expression": "t=(32 L)/(4 L/min)=8 min",
+          "reason": "Divide required addition by rate."
+        },
+        {
+          "index": 3,
+          "expression": "V(8)=20 L+(4 L/min)(8 min)=52 L",
+          "reason": "Substitute to check."
+        }
+      ],
+      "result": {
+        "exact": "8 min"
+      },
+      "interpretation": "Solving backward reveals the waiting time under the same assumptions.",
+      "independent_check": {
+        "method": "Use the rate equation independently.",
+        "expected": "(52−20)/8=4 L/min."
+      },
+      "limits": "The tank must hold 52 L. At zero inflow the higher target cannot be reached.",
+      "preset": {
+        "initial": 20,
+        "rate": 4,
+        "time": 8
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Elapsed time is nonnegative and measured in minutes.",
+        "The stipulated inflow is constant and nonnegative; there is no outflow during the interval.",
+        "Initial volume and rate have compatible units; the tank has enough capacity for the result."
+      ]
+    },
+    {
+      "id": "math:example:linear-model:negative-time",
+      "title": "Before this story starts",
+      "role": "boundary",
+      "question": "Should the filling model interpret −1 minute as elapsed time?",
+      "setting": "Constructed tank model with no outflow and sufficient capacity during the interval.",
+      "assumptions": [
+        "Constructed tank model with no outflow and sufficient capacity during the interval."
+      ],
+      "inputs": {
+        "initial_L": 20,
+        "rate_L_per_min": 4,
+        "time_min": -1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "20+4(−1)=16 L in the algebraic extension.",
+          "reason": "An expression can have a value outside a physical model."
+        },
+        {
+          "index": 2,
+          "expression": "Elapsed time t≥0 is required.",
+          "reason": "Reject this input as a tank-story prediction."
+        }
+      ],
+      "result": {
+        "exact": "Outside the elapsed-time model"
+      },
+      "interpretation": "A formula value is not automatically a meaningful physical prediction.",
+      "independent_check": {
+        "method": "Check the declared domain.",
+        "expected": "−1 is not in [0,∞)."
+      },
+      "limits": "The renderer rejects the parameter; a pre-start extrapolation is not an observed volume.",
+      "preset": null,
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Elapsed time is nonnegative and measured in minutes.",
+        "The stipulated inflow is constant and nonnegative; there is no outflow during the interval.",
+        "Initial volume and rate have compatible units; the tank has enough capacity for the result."
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "claim": "Equal time intervals add equal water volumes.",
+      "status": "algebraic identity",
+      "conditions": "Fixed rate and both times inside the modeled interval.",
+      "derivation": "V(t+Δt)−V(t)=rΔt."
+    },
+    {
+      "claim": "Changing initial volume shifts every predicted volume by the same amount.",
+      "status": "algebraic derivation",
+      "conditions": "Fixed rate and time.",
+      "derivation": "(V₀+δ)+rt−(V₀+rt)=δ."
+    }
+  ],
+  "prompts": [
+    {
+      "prompt": "Which part came from the tap?",
+      "answer": "Only rt is added water. V₀ was already present before the timer started."
+    },
+    {
+      "prompt": "Does double the time mean double the total water?",
+      "answer": "It doubles the added water, but the starting amount is counted once. Total volume is proportional to time only when V₀=0."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "symbolic",
+      "description": "V(t)=V₀+rt with liters and minutes."
+    },
+    {
+      "kind": "geometric",
+      "description": "A tank distinguishes initial water from added water with a labeled scale."
+    },
+    {
+      "kind": "story",
+      "description": "Fill from 20 L at 4 L/min; solve forward for volume or backward for time."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Predict a tank volume after five minutes.",
+      "mapping": "20 L+(4 L/min)(5 min)=40 L.",
+      "limitations": "Constant inflow, no outflow and sufficient capacity are assumed.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:linear-model:filling"
+    },
+    {
+      "context": "Find waiting time for a target volume.",
+      "mapping": "At nonzero rate, t=(target−initial)/rate; (52−20)/4=8 min.",
+      "limitations": "The target is at least the initial volume; capacity and flow assumptions still apply.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:linear-model:target"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:linear-functions"
+  ],
+  "review_gaps": [
+    "Independent mathematics and editorial review pending.",
+    "Historical research incomplete; no priority or invention claim implied."
+  ],
+  "change_log": [
+    "0.1.0-draft: original applications, typed expression tree, bounded interactive model and numerical fixtures."
+  ],
+  "definition": {
+    "setting": "An affine quantity model for nonnegative elapsed time; illustrated by a tank with constant inflow.",
+    "formal_latex": "V(t)=V_0+rt,\\qquad t\\geq0.",
+    "signature": {
+      "t": "elapsed time in minutes",
+      "V_0": "initial water volume in liters",
+      "r": "constant inflow in liters per minute",
+      "V": "water volume in liters"
+    },
+    "conditions": [
+      "Elapsed time is nonnegative and measured in minutes.",
+      "The stipulated inflow is constant and nonnegative; there is no outflow during the interval.",
+      "Initial volume and rate have compatible units; the tank has enough capacity for the result."
+    ],
+    "domain_notes": "General affine functions may have negative inputs or slopes. This tank renderer uses initial 0–100 L, inflow 0–20 L/min and time 0–12 min. With nonzero V₀ the function is affine; some algebra texts call every straight-line function linear.",
+    "proof_status": "A stipulated constant-rate model: add initial volume and rate multiplied by elapsed time.",
+    "source_refs": [
+      "source:openstax:linear-functions"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "V of t equals V zero plus r times t",
+    "expression_latex": "V(t)=V_0+rt",
+    "formation_rule": "Multiply rate by elapsed time to get added volume; add initial volume with the same unit.",
+    "precedence": "Multiply rt before adding V₀.",
+    "symbols": [
+      {
+        "token": "V(t)",
+        "role": "volume after elapsed time",
+        "type": "Volume[L]"
+      },
+      {
+        "token": "V₀",
+        "role": "initial volume",
+        "type": "Volume[L]"
+      },
+      {
+        "token": "r",
+        "role": "inflow per minute",
+        "type": "VolumeRate[L/min]"
+      },
+      {
+        "token": "t",
+        "role": "elapsed time",
+        "type": "Time[min]"
+      }
+    ],
+    "ast": {
+      "id": "ast:linear-model:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:initial",
+          "kind": "variable",
+          "symbol": "V₀",
+          "type": "Volume[L]",
+          "scope_ref": "scope:linear-model"
+        },
+        {
+          "id": "n:rate",
+          "kind": "variable",
+          "symbol": "r",
+          "type": "VolumeRate[L/min]",
+          "scope_ref": "scope:linear-model"
+        },
+        {
+          "id": "n:time",
+          "kind": "variable",
+          "symbol": "t",
+          "type": "Time[min]",
+          "scope_ref": "scope:linear-model"
+        },
+        {
+          "id": "n:added",
+          "kind": "multiply",
+          "arguments": [
+            "n:rate",
+            "n:time"
+          ],
+          "type": "Volume[L]"
+        },
+        {
+          "id": "n:output",
+          "kind": "add",
+          "arguments": [
+            "n:initial",
+            "n:added"
+          ],
+          "type": "Volume[L]"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:linear-model",
+          "kind": "modelExpression",
+          "free_variables": [
+            "V₀",
+            "r",
+            "t"
+          ],
+          "domain_condition": "t≥0, V₀≥0, r≥0 in this filling model"
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "20 L + 4 L/min",
+        "status": "type_error",
+        "reason": "Volume and volume per minute cannot be added without a time factor."
+      },
+      {
+        "input": "V(−2 min) as elapsed time",
+        "status": "outside_model_domain",
+        "reason": "The story starts at time zero; negative elapsed time is outside its domain."
+      }
+    ],
+    "ast_coverage": "The tree models the right-hand quantity. The output label, function declaration, physical assumptions and rounding conventions are explicit metadata.",
+    "output_symbol_bindings": {
+      "V(t)": "output"
+    }
+  },
+  "interactive": {
+    "component_id": "linear-model-tank",
+    "renderer_id": "linear-model-tank",
+    "renderer_version": "1",
+    "model_id": "linear-model-tank",
+    "model_revision": "1",
+    "expression_id": "ast:linear-model:expression",
+    "interaction_status": "implemented",
+    "description": "Fill a tank continuously from a starting level; label added water, inflow, elapsed time and total volume.",
+    "controls": [
+      {
+        "id": "initial",
+        "type": "number",
+        "default": 20,
+        "min": 0,
+        "max": 100,
+        "slider_min": 0,
+        "slider_max": 100,
+        "slider_step": 1,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      },
+      {
+        "id": "rate",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 20,
+        "slider_min": 0,
+        "slider_max": 20,
+        "slider_step": 0.1,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      },
+      {
+        "id": "time",
+        "type": "number",
+        "default": 5,
+        "min": 0,
+        "max": 12,
+        "slider_min": 0,
+        "slider_max": 12,
+        "slider_step": 0.1,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "initial": 20,
+          "rate": 4,
+          "time": 5
+        },
+        "output": 40
+      },
+      {
+        "input": {
+          "initial": 20,
+          "rate": 4,
+          "time": 0
+        },
+        "output": 20
+      },
+      {
+        "input": {
+          "initial": 20,
+          "rate": 0,
+          "time": 5
+        },
+        "output": 20
+      },
+      {
+        "input": {
+          "initial": 20,
+          "rate": 4,
+          "time": 8
+        },
+        "output": 52
+      },
+      {
+        "input": {
+          "initial": 0,
+          "rate": 4,
+          "time": 2.5
+        },
+        "output": 10
+      },
+      {
+        "input": {
+          "initial": 100,
+          "rate": 20,
+          "time": 12
+        },
+        "output": 340
+      },
+      {
+        "input": {
+          "initial": 20,
+          "rate": 4,
+          "time": -1
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "output = initial + rate * time. Volume is not clamped to a decorative boundary; all values retain their units.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "At time zero, output equals initial.",
+      "At zero rate, output remains initial.",
+      "Output minus initial equals rate multiplied by time."
+    ],
+    "limits": [
+      "The controls define a finite illustrative window, not the full mathematical domain.",
+      "Shape size and accessible numeric output use the same validated parameters. Display interpolation is not an observation.",
+      "Invalid parameters produce an explicit failure, never a stale valid result."
+    ],
+    "fallback": "Read the formula, substituted values, worked steps and labeled output without animation.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  }
+}

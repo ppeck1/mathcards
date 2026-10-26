@@ -1,0 +1,587 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:complex-multiplication",
+  "slug": "complex-multiplication",
+  "type": "concept",
+  "title": "Complex numbers & transformations",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-23T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived; independent review pending",
+    "history": "source gap; no priority assertions",
+    "interaction": "implemented; numerical fixtures are not independent mathematical review"
+  },
+  "source_policy": "Definition-level references support the mathematics. Applications and stories are original constructed scenarios, not measurements or historical events. Historical claims require claim-level sources before publication.",
+  "aliases": [
+    "complex multiplication",
+    "rotation and scale"
+  ],
+  "branches": [
+    "number-arithmetic",
+    "modeling"
+  ],
+  "expressive_job": [
+    "model",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Use one complex multiplication to rotate and scale a point in the plane.",
+  "meaning": "A multiplier changes both coordinates together. Its modulus scales length and its argument turns the vector.",
+  "prerequisites": {
+    "required": [
+      "math:concept:variable"
+    ],
+    "helpful": [
+      "math:concept:function"
+    ],
+    "depth": [
+      "math:concept:model-assumption"
+    ]
+  },
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the concept and notation with specialist sources before adding historical attribution."
+    ],
+    "reader_text": "Historical account not yet sourced. Everyday scenarios are constructed examples, not historical anecdotes."
+  },
+  "connections": [],
+  "examples": [
+    {
+      "id": "math:example:complex-multiplication:turn-grow",
+      "title": "Transform a layout point",
+      "role": "applied_model",
+      "question": "Where does z=2+i land after multiplying by 1+i?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use the complex plane with i²=−1 and fixed input z=2+i.",
+        "The real and imaginary coordinates share the same chosen unit.",
+        "A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+      ],
+      "inputs": {
+        "real": 1,
+        "imag": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "(2+i)(1+i)=2+2i+i+i²",
+          "reason": "Distribute the multiplication."
+        },
+        {
+          "index": 2,
+          "expression": "i²=−1; product=1+3i",
+          "reason": "Collect the real and imaginary terms."
+        }
+      ],
+      "result": {
+        "exact": "1 + 3i"
+      },
+      "interpretation": "The new coordinates are (1,3); horizontal coordinate alone is 1.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "|2+i||1+i|=√5√2=√10=|1+3i|."
+      },
+      "limits": "The transformation is about the origin.",
+      "preset": {
+        "real": 1,
+        "imag": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use the complex plane with i²=−1 and fixed input z=2+i.",
+        "The real and imaginary coordinates share the same chosen unit.",
+        "A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+      ]
+    },
+    {
+      "id": "math:example:complex-multiplication:identity",
+      "title": "Leave the point in place",
+      "role": "structural",
+      "question": "What does multiplying by 1 do?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use the complex plane with i²=−1 and fixed input z=2+i.",
+        "The real and imaginary coordinates share the same chosen unit.",
+        "A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+      ],
+      "inputs": {
+        "real": 1,
+        "imag": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "(2+i)(1+0i)=2+i",
+          "reason": "The multiplier is the multiplicative identity."
+        },
+        {
+          "index": 2,
+          "expression": "(Re,Im)=(2,1)",
+          "reason": "The original coordinates remain unchanged."
+        }
+      ],
+      "result": {
+        "exact": "2 + i"
+      },
+      "interpretation": "A unit multiplier with zero angle changes neither size nor angle.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "The multiplier modulus is 1 and its argument is 0."
+      },
+      "limits": "This statement concerns multiplication, not adding 1.",
+      "preset": {
+        "real": 1,
+        "imag": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use the complex plane with i²=−1 and fixed input z=2+i.",
+        "The real and imaginary coordinates share the same chosen unit.",
+        "A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+      ]
+    },
+    {
+      "id": "math:example:complex-multiplication:quarter-turn",
+      "title": "Rotate by a quarter turn",
+      "role": "applied_model",
+      "question": "What is (2+i)i?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use the complex plane with i²=−1 and fixed input z=2+i.",
+        "The real and imaginary coordinates share the same chosen unit.",
+        "A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+      ],
+      "inputs": {
+        "real": 0,
+        "imag": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "(2+i)i=2i+i²",
+          "reason": "Distribute the imaginary multiplier."
+        },
+        {
+          "index": 2,
+          "expression": "product=−1+2i",
+          "reason": "Use i²=−1."
+        }
+      ],
+      "result": {
+        "exact": "−1 + 2i"
+      },
+      "interpretation": "Multiplication by i rotates the vector 90° counterclockwise without changing its length.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "(2,1) maps to (−1,2), and both squared lengths equal 5."
+      },
+      "limits": "Positive imaginary direction is upward.",
+      "preset": {
+        "real": 0,
+        "imag": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use the complex plane with i²=−1 and fixed input z=2+i.",
+        "The real and imaginary coordinates share the same chosen unit.",
+        "A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+      ]
+    },
+    {
+      "id": "math:example:complex-multiplication:half-turn",
+      "title": "Turn the graphic around",
+      "role": "applied_model",
+      "question": "What is the result of multiplying 2+i by −1?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use the complex plane with i²=−1 and fixed input z=2+i.",
+        "The real and imaginary coordinates share the same chosen unit.",
+        "A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+      ],
+      "inputs": {
+        "real": -1,
+        "imag": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "(2+i)(−1)=−2−i",
+          "reason": "Negate both coordinates."
+        },
+        {
+          "index": 2,
+          "expression": "(Re,Im)=(−2,−1)",
+          "reason": "The product points in the opposite direction."
+        }
+      ],
+      "result": {
+        "exact": "−2 − i"
+      },
+      "interpretation": "A half turn preserves the vector’s length.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "(−2)²+(−1)²=5=2²+1²."
+      },
+      "limits": "The fixed center of rotation is the origin.",
+      "preset": {
+        "real": -1,
+        "imag": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use the complex plane with i²=−1 and fixed input z=2+i.",
+        "The real and imaginary coordinates share the same chosen unit.",
+        "A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+      ]
+    },
+    {
+      "id": "math:example:complex-multiplication:collapse",
+      "title": "A zero multiplier",
+      "role": "boundary",
+      "question": "Does multiplying by zero define a rotation angle?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use the complex plane with i²=−1 and fixed input z=2+i.",
+        "The real and imaginary coordinates share the same chosen unit.",
+        "A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+      ],
+      "inputs": {
+        "real": 0,
+        "imag": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "(2+i)0=0",
+          "reason": "Both product coordinates collapse to zero."
+        },
+        {
+          "index": 2,
+          "expression": "|0|=0; arg(0) is undefined",
+          "reason": "A point at the origin has no direction."
+        }
+      ],
+      "result": {
+        "exact": "0; no defined product argument"
+      },
+      "interpretation": "The algebra remains defined even though rotation language no longer identifies an angle.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "Both real and imaginary formulas give zero."
+      },
+      "limits": "Do not report an arbitrary angle for the zero multiplier.",
+      "preset": {
+        "real": 0,
+        "imag": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use the complex plane with i²=−1 and fixed input z=2+i.",
+        "The real and imaginary coordinates share the same chosen unit.",
+        "A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "claim": "A multiplier changes both coordinates together. Its modulus scales length and its argument turns the vector.",
+      "status": "algebraic derivation",
+      "conditions": "Use the complex plane with i²=−1 and fixed input z=2+i.; The real and imaginary coordinates share the same chosen unit.; A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument.",
+      "derivation": "realPart=2*real-imag; imagPart=real+2*imag; multiplierModulus=hypot(real,imag); modulus=hypot(realPart,imagPart); output=realPart. The output is one coordinate, not the whole complex result."
+    }
+  ],
+  "prompts": [
+    {
+      "prompt": "Which assumptions make this expression meaningful?",
+      "answer": "Use the complex plane with i²=−1 and fixed input z=2+i. The real and imaginary coordinates share the same chosen unit. A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+    },
+    {
+      "prompt": "What does the changing shape measure?",
+      "answer": "The cyan multiplier changes the gold product point; violet component arrows expose where both product coordinates come from."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "symbolic",
+      "description": "realPart=2*real-imag; imagPart=real+2*imag; multiplierModulus=hypot(real,imag); modulus=hypot(realPart,imagPart); output=realPart. The output is one coordinate, not the whole complex result."
+    },
+    {
+      "kind": "geometric",
+      "description": "The cyan multiplier changes the gold product point; violet component arrows expose where both product coordinates come from."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Transform a layout point",
+      "mapping": "The new coordinates are (1,3); horizontal coordinate alone is 1.",
+      "limitations": "The transformation is about the origin.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:complex-multiplication:turn-grow"
+    },
+    {
+      "context": "Leave the point in place",
+      "mapping": "A unit multiplier with zero angle changes neither size nor angle.",
+      "limitations": "This statement concerns multiplication, not adding 1.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:complex-multiplication:identity"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:complex-polar"
+  ],
+  "review_gaps": [
+    "Independent mathematics and editorial review pending.",
+    "Historical research incomplete; no priority or invention claim implied."
+  ],
+  "change_log": [
+    "0.1.0-draft: original applications, explicit model assumptions, bounded visual model and numerical fixtures."
+  ],
+  "definition": {
+    "setting": "Use one complex multiplication to rotate and scale a point in the plane.",
+    "formal_latex": "(2+i)(u+iv)=(2u-v)+i(u+2v)",
+    "signature": {
+      "real": "real part u of the multiplier",
+      "imag": "imaginary part v of the multiplier",
+      "realPart": "horizontal coordinate of the product",
+      "imagPart": "vertical coordinate of the product"
+    },
+    "conditions": [
+      "Use the complex plane with i²=−1 and fixed input z=2+i.",
+      "The real and imaginary coordinates share the same chosen unit.",
+      "A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+    ],
+    "domain_notes": "The interactive controls restrict each parameter to its declared finite interval. A zero multiplier, available in the lab, collapses the point and does not have a defined rotation angle.",
+    "proof_status": "This draft gives the model and worked algebra. Animated shapes and numerical checks illustrate the stated relation; they are not independent mathematical review.",
+    "source_refs": [
+      "source:openstax:complex-polar"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Use one complex multiplication to rotate and scale a point in the plane.",
+    "expression_latex": "(2+i)(u+iv)=(2u-v)+i(u+2v)",
+    "formation_rule": "realPart=2*real-imag; imagPart=real+2*imag; multiplierModulus=hypot(real,imag); modulus=hypot(realPart,imagPart); output=realPart. The output is one coordinate, not the whole complex result.",
+    "precedence": "Follow parentheses and function applications; products precede sums. Angle units and iteration conventions are explicit.",
+    "symbols": [
+      {
+        "token": "real",
+        "role": "real part u of the multiplier",
+        "type": "Real quantity in declared setting"
+      },
+      {
+        "token": "imag",
+        "role": "imaginary part v of the multiplier",
+        "type": "Real quantity in declared setting"
+      },
+      {
+        "token": "realPart",
+        "role": "horizontal coordinate of the product",
+        "type": "Real quantity in declared setting"
+      },
+      {
+        "token": "imagPart",
+        "role": "vertical coordinate of the product",
+        "type": "Real quantity in declared setting"
+      }
+    ],
+    "ast": {
+      "id": "ast:complex-multiplication:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:real",
+          "kind": "variable",
+          "symbol": "real",
+          "type": "Real",
+          "scope_ref": "scope:complex-multiplication"
+        },
+        {
+          "id": "n:imag",
+          "kind": "variable",
+          "symbol": "imag",
+          "type": "Real",
+          "scope_ref": "scope:complex-multiplication"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "ref": "realPart=2*real-imag; imagPart=real+2*imag; multiplierModulus=hypot(real,imag); modulus=hypot(realPart,imagPart); output=realPart. The output is one coordinate, not the whole complex result.",
+          "type": "Curried declared controls → primary output"
+        },
+        {
+          "id": "n:partial0",
+          "kind": "apply",
+          "function": "n:rule",
+          "argument": "n:real",
+          "type": "Remaining declared controls → primary output"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "function": "n:partial0",
+          "argument": "n:imag",
+          "type": "Real"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:complex-multiplication",
+          "kind": "modelExpression",
+          "free_variables": [
+            "real",
+            "imag"
+          ],
+          "domain_condition": "Use the complex plane with i²=−1 and fixed input z=2+i.; The real and imaginary coordinates share the same chosen unit.; A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "A parameter outside the declared control interval",
+        "status": "outside_model_domain",
+        "reason": "Reject the experiment instead of drawing a plausible but unrelated answer."
+      },
+      {
+        "input": "Treat a display interpolation as an extra physical observation",
+        "status": "model_mismatch",
+        "reason": "Continuous transitions explain the chosen model; they do not add measured evidence."
+      }
+    ],
+    "ast_coverage": "The tree models the primary output through named mathematical helper functions, whose definitions and parameter dependencies are stated in compute and the signature. It is structural metadata, not arbitrary TeX execution or a general proof checker.",
+    "output_symbol_bindings": {
+      "primary displayed result": "output"
+    }
+  },
+  "interactive": {
+    "component_id": "complex-multiplication-visual-model",
+    "renderer_id": "complex-multiplication-visual-model",
+    "renderer_version": "1.0.0",
+    "model_id": "complex-multiplication-visual-model",
+    "model_revision": "1.0.0",
+    "expression_id": "ast:complex-multiplication:expression",
+    "interaction_status": "implemented",
+    "description": "The cyan multiplier changes the gold product point; violet component arrows expose where both product coordinates come from.",
+    "controls": [
+      {
+        "id": "real",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "slider_min": -2,
+        "slider_max": 2,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      },
+      {
+        "id": "imag",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "slider_min": -2,
+        "slider_max": 2,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "real": 1,
+          "imag": 1
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "real": 1,
+          "imag": 0
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "real": 0,
+          "imag": 1
+        },
+        "output": -1
+      },
+      {
+        "input": {
+          "real": -1,
+          "imag": 0
+        },
+        "output": -2
+      },
+      {
+        "input": {
+          "real": 0,
+          "imag": 0
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "real": 2,
+          "imag": -2
+        },
+        "output": 6
+      },
+      {
+        "input": {
+          "real": 3,
+          "imag": 1
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "realPart=2*real-imag; imagPart=real+2*imag; multiplierModulus=hypot(real,imag); modulus=hypot(realPart,imagPart); output=realPart. The output is one coordinate, not the whole complex result.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Use the complex plane with i²=−1 and fixed input z=2+i.",
+      "The real and imaginary coordinates share the same chosen unit.",
+      "A nonzero multiplier rotates and scales; multiplier zero collapses the point to the origin and has no defined argument."
+    ],
+    "limits": [
+      "The input point is fixed at 2 + i; the multiplier’s real part stays 1 in this story.",
+      "Coordinates use a flat complex plane with a common arbitrary grid unit.",
+      "The displayed primary number is the horizontal coordinate; both coordinates are needed to locate the product.",
+      "A zero multiplier, available in the lab, collapses the point and does not have a defined rotation angle."
+    ],
+    "fallback": "Read the same substituted formula, worked steps and labeled static scene with motion paused.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  }
+}

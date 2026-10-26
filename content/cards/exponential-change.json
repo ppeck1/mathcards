@@ -1,0 +1,662 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:exponential-change",
+  "slug": "exponential-change",
+  "type": "concept",
+  "title": "Exponential change",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-23T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived; independent review pending",
+    "history": "source gap; no priority assertions",
+    "interaction": "implemented; numerical fixtures are not independent mathematical review"
+  },
+  "source_policy": "Definition-level references support the mathematics. Applications and stories are original constructed scenarios, not measurements or historical events. Historical claims require claim-level sources before publication.",
+  "aliases": [
+    "repeated scaling",
+    "geometric change",
+    "exponential decay and growth"
+  ],
+  "branches": [
+    "functions",
+    "scale",
+    "change",
+    "modeling"
+  ],
+  "expressive_job": [
+    "model",
+    "scale"
+  ],
+  "purpose": "Track a quantity that changes by the same factor at every step.",
+  "meaning": "Apply a scale factor to the current value again and again. The percentage stays the same while absolute change depends on the current size.",
+  "prerequisites": {
+    "required": [
+      "math:concept:exponentiation"
+    ],
+    "helpful": [
+      "math:concept:unit-dimension"
+    ],
+    "depth": [
+      "math:concept:model-assumption"
+    ]
+  },
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the concept and notation with specialist sources before adding historical attribution."
+    ],
+    "reader_text": "Historical account not yet sourced. Everyday scenarios are constructed examples, not historical anecdotes."
+  },
+  "connections": [
+    {
+      "target": "math:concept:real-logarithm",
+      "type": "inverse_problem",
+      "conditions": "Positive width ratios and q≠1.",
+      "reason": "The interpolated pass value solves n=log_q(W/W₀); an actual operation count still needs integer interpretation.",
+      "target_status": "available",
+      "evidence_status": "local_derivation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:linear-model",
+      "type": "compared_with",
+      "conditions": "Fixed parameters and equal input increments.",
+      "reason": "A multiplicative model preserves ratios; an additive model preserves differences.",
+      "target_status": "available",
+      "evidence_status": "local_derivation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:exponential-change:resize",
+      "title": "Three smaller previews",
+      "role": "applied_model",
+      "question": "A 1200 px photo is resized to 80% of its current width three times. What ideal width remains?",
+      "setting": "Constructed ideal image-width model; completed passes are integers and rounding is postponed until export.",
+      "assumptions": [
+        "Constructed ideal image-width model; completed passes are integers and rounding is postponed until export."
+      ],
+      "inputs": {
+        "initial_width_px": 1200,
+        "factor_per_pass": 0.8,
+        "completed_passes": 3
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "W(1)=1200 × 0.8=960 px",
+          "reason": "Keep 80% of the current width."
+        },
+        {
+          "index": 2,
+          "expression": "W(2)=960 × 0.8=768 px",
+          "reason": "Use the new width."
+        },
+        {
+          "index": 3,
+          "expression": "W(3)=768 × 0.8=614.4 px",
+          "reason": "Apply the factor a third time."
+        },
+        {
+          "index": 4,
+          "expression": "Round 614.4 to 614 px for a nearest-integer export.",
+          "reason": "Apply the stated final rounding policy after the ideal calculation."
+        }
+      ],
+      "result": {
+        "exact": "614.4 px ideal; 614 px after final nearest-integer rounding"
+      },
+      "interpretation": "The retained fraction is 0.8³=0.512, or 51.2% of the starting width.",
+      "independent_check": {
+        "method": "Multiply the factor first, then the width.",
+        "expected": "0.8³=0.512; 1200 × 0.512=614.4."
+      },
+      "limits": "This predicts width, not detail or file size. Rounding after each real resize can give a different final width.",
+      "preset": {
+        "initial": 1200,
+        "factor": 0.8,
+        "time": 3
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The initial width is positive and the same positive scale factor is applied at each completed pass.",
+        "Completed resize passes are nonnegative integers. Fractional inputs show declared geometric interpolation, not a fractionally executed operation.",
+        "The model tracks ideal width; a real raster image has integer dimensions and needs an explicit rounding policy."
+      ]
+    },
+    {
+      "id": "math:example:exponential-change:no-passes",
+      "title": "Keep the original",
+      "role": "boundary",
+      "question": "What is the width before any resize pass?",
+      "setting": "Constructed ideal image-width model; completed passes are integers and rounding is postponed until export.",
+      "assumptions": [
+        "Constructed ideal image-width model; completed passes are integers and rounding is postponed until export."
+      ],
+      "inputs": {
+        "initial_width_px": 1200,
+        "factor_per_pass": 0.8,
+        "completed_passes": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "0.8⁰=1",
+          "reason": "Zero passes apply the identity multiplier."
+        },
+        {
+          "index": 2,
+          "expression": "W(0)=1200 × 1=1200 px",
+          "reason": "Keep the initial width."
+        }
+      ],
+      "result": {
+        "exact": "1200 px"
+      },
+      "interpretation": "The initial value is the output at zero passes.",
+      "independent_check": {
+        "method": "Use the empty sequence of operations.",
+        "expected": "No resize changes the initial 1200 px width."
+      },
+      "limits": "Zero passes is valid; it differs from a zero scale factor.",
+      "preset": {
+        "initial": 1200,
+        "factor": 0.8,
+        "time": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The initial width is positive and the same positive scale factor is applied at each completed pass.",
+        "Completed resize passes are nonnegative integers. Fractional inputs show declared geometric interpolation, not a fractionally executed operation.",
+        "The model tracks ideal width; a real raster image has integer dimensions and needs an explicit rounding policy."
+      ]
+    },
+    {
+      "id": "math:example:exponential-change:halves",
+      "title": "Half, then half again",
+      "role": "minimal",
+      "question": "What happens to an 800 px width after two halvings?",
+      "setting": "Constructed ideal image-width model; completed passes are integers and rounding is postponed until export.",
+      "assumptions": [
+        "Constructed ideal image-width model; completed passes are integers and rounding is postponed until export."
+      ],
+      "inputs": {
+        "initial_width_px": 800,
+        "factor_per_pass": 0.5,
+        "completed_passes": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "800 × 0.5=400 px",
+          "reason": "Keep half on the first pass."
+        },
+        {
+          "index": 2,
+          "expression": "400 × 0.5=200 px",
+          "reason": "Keep half of the remaining width."
+        }
+      ],
+      "result": {
+        "exact": "200 px"
+      },
+      "interpretation": "Two halvings retain a quarter, not zero.",
+      "independent_check": {
+        "method": "Use the exponent form.",
+        "expected": "800 × (1/2)²=800/4=200."
+      },
+      "limits": "Equal percentages remove unequal pixel counts: 400 px, then 200 px.",
+      "preset": {
+        "initial": 800,
+        "factor": 0.5,
+        "time": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The initial width is positive and the same positive scale factor is applied at each completed pass.",
+        "Completed resize passes are nonnegative integers. Fractional inputs show declared geometric interpolation, not a fractionally executed operation.",
+        "The model tracks ideal width; a real raster image has integer dimensions and needs an explicit rounding policy."
+      ]
+    },
+    {
+      "id": "math:example:exponential-change:growth",
+      "title": "Enlarge the preview",
+      "role": "structural",
+      "question": "What ideal width follows two enlargements by 1.25 from 800 px?",
+      "setting": "Constructed ideal image-width model; completed passes are integers and rounding is postponed until export.",
+      "assumptions": [
+        "Constructed ideal image-width model; completed passes are integers and rounding is postponed until export."
+      ],
+      "inputs": {
+        "initial_width_px": 800,
+        "factor_per_pass": 1.25,
+        "completed_passes": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "W(1)=800 × 1.25=1000 px",
+          "reason": "Increase by 25% of current width."
+        },
+        {
+          "index": 2,
+          "expression": "W(2)=1000 × 1.25=1250 px",
+          "reason": "Apply 25% to the larger width."
+        }
+      ],
+      "result": {
+        "exact": "1250 px"
+      },
+      "interpretation": "A factor above one gives growth; a factor between zero and one gives decay.",
+      "independent_check": {
+        "method": "Compute the combined multiplier.",
+        "expected": "1.25²=1.5625; 800 × 1.5625=1250."
+      },
+      "limits": "Larger dimensions do not recover lost detail; resampling is a separate model.",
+      "preset": {
+        "initial": 800,
+        "factor": 1.25,
+        "time": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The initial width is positive and the same positive scale factor is applied at each completed pass.",
+        "Completed resize passes are nonnegative integers. Fractional inputs show declared geometric interpolation, not a fractionally executed operation.",
+        "The model tracks ideal width; a real raster image has integer dimensions and needs an explicit rounding policy."
+      ]
+    },
+    {
+      "id": "math:example:exponential-change:identity",
+      "title": "A factor of one",
+      "role": "boundary",
+      "question": "What changes if each pass keeps 100% of the width?",
+      "setting": "Constructed ideal image-width model; completed passes are integers and rounding is postponed until export.",
+      "assumptions": [
+        "Constructed ideal image-width model; completed passes are integers and rounding is postponed until export."
+      ],
+      "inputs": {
+        "initial_width_px": 1200,
+        "factor_per_pass": 1,
+        "completed_passes": 3
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "1³=1",
+          "reason": "An identity factor stays one."
+        },
+        {
+          "index": 2,
+          "expression": "W(3)=1200 × 1=1200 px",
+          "reason": "The width stays fixed."
+        }
+      ],
+      "result": {
+        "exact": "1200 px"
+      },
+      "interpretation": "The q=1 boundary is constant, not nonconstant exponential growth or decay.",
+      "independent_check": {
+        "method": "Compare consecutive outputs.",
+        "expected": "W(0)=W(1)=W(2)=W(3)=1200 px."
+      },
+      "limits": "This comparison case is included; the usual nonconstant exponential definition excludes base one.",
+      "preset": {
+        "initial": 1200,
+        "factor": 1,
+        "time": 3
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The initial width is positive and the same positive scale factor is applied at each completed pass.",
+        "Completed resize passes are nonnegative integers. Fractional inputs show declared geometric interpolation, not a fractionally executed operation.",
+        "The model tracks ideal width; a real raster image has integer dimensions and needs an explicit rounding policy."
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "claim": "Each completed pass multiplies ideal width by the same factor.",
+      "status": "algebraic identity",
+      "conditions": "Initial width and positive factor fixed; n a nonnegative integer.",
+      "derivation": "W(n+1)/W(n)=(W₀qⁿ⁺¹)/(W₀qⁿ)=q."
+    },
+    {
+      "claim": "Equal percentage change does not mean equal absolute change.",
+      "status": "algebraic identity",
+      "conditions": "Compare successive outputs with fixed q.",
+      "derivation": "W(n+1)−W(n)=(q−1)W(n).",
+      "example_ref": "math:example:exponential-change:halves"
+    }
+  ],
+  "prompts": [
+    {
+      "prompt": "Why does a 20% reduction remove fewer pixels later?",
+      "answer": "The percentage applies to the current width, which is smaller after each pass."
+    },
+    {
+      "prompt": "Does 1.5 passes execute one and a half resizes?",
+      "answer": "No. It shows the interpolation W₀qˣ between integer-pass results. Completed operations remain whole numbers."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "symbolic",
+      "description": "W(n)=W₀qⁿ with a positive factor and integer-pass interpretation."
+    },
+    {
+      "kind": "geometric",
+      "description": "Nested photo frames mark whole passes while the live width follows an explicit interpolation."
+    },
+    {
+      "kind": "story",
+      "description": "Make three 80% previews from 1200 px, then apply a stated final rounding rule."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Predict repeated image-width reductions.",
+      "mapping": "1200 px × 0.8³=614.4 px ideal; final nearest-integer rounding gives 614 px.",
+      "limitations": "Completed passes are integers. Ideal width, raster rounding, quality and file size are separate.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:exponential-change:resize"
+    },
+    {
+      "context": "Compare percentage growth and decay.",
+      "mapping": "800 px × 1.25²=1250 px after two enlargements.",
+      "limitations": "Greater pixel dimensions do not imply additional image detail.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:exponential-change:growth"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:exponential-functions"
+  ],
+  "review_gaps": [
+    "Independent mathematics and editorial review pending.",
+    "Historical research incomplete; no priority or invention claim implied."
+  ],
+  "change_log": [
+    "0.1.0-draft: original applications, typed expression tree, bounded interactive model and numerical fixtures."
+  ],
+  "definition": {
+    "setting": "Repeated positive scaling and its explicit real-exponent interpolation.",
+    "formal_latex": "W(n)=W_0q^n,\\qquad W_0>0,\\quad q>0,\\quad n\\in\\{0,1,2,\\ldots\\}.",
+    "signature": {
+      "W_0": "positive initial image width in pixels",
+      "q": "positive dimensionless scale factor per pass",
+      "n": "completed resize passes",
+      "W": "ideal width before pixel rounding"
+    },
+    "conditions": [
+      "The initial width is positive and the same positive scale factor is applied at each completed pass.",
+      "Completed resize passes are nonnegative integers. Fractional inputs show declared geometric interpolation, not a fractionally executed operation.",
+      "The model tracks ideal width; a real raster image has integer dimensions and needs an explicit rounding policy."
+    ],
+    "domain_notes": "The interpolation W(x)=W₀qˣ is defined for real x≥0. Actual completed passes remain integers. The controls admit q=1 as the constant boundary case; a nonconstant exponential function has q≠1. Renderer bounds: width 1–2000 px, factor 0.25–2, pass coordinate 0–8.",
+    "proof_status": "Repeated multiplication yields the integer-step rule by induction; the real-exponent curve is an explicitly chosen interpolation.",
+    "source_refs": [
+      "source:openstax:exponential-functions"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "W of n equals W zero times q to the power n",
+    "expression_latex": "W(n)=W_0q^n",
+    "formation_rule": "Raise the dimensionless factor to the pass count; multiply by initial width.",
+    "precedence": "Evaluate qⁿ before multiplying by W₀. The expression (W₀q)ⁿ is different.",
+    "symbols": [
+      {
+        "token": "W(n)",
+        "role": "ideal width after n passes",
+        "type": "Length[px]"
+      },
+      {
+        "token": "W₀",
+        "role": "initial width",
+        "type": "PositiveLength[px]"
+      },
+      {
+        "token": "q",
+        "role": "scale factor per pass",
+        "type": "PositiveDimensionless"
+      },
+      {
+        "token": "n",
+        "role": "completed passes; fractions only for interpolation",
+        "type": "DimensionlessCount"
+      }
+    ],
+    "ast": {
+      "id": "ast:exponential-change:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:initial",
+          "kind": "variable",
+          "symbol": "W₀",
+          "type": "PositiveLength[px]",
+          "scope_ref": "scope:exponential-change"
+        },
+        {
+          "id": "n:factor",
+          "kind": "variable",
+          "symbol": "q",
+          "type": "PositiveDimensionless",
+          "scope_ref": "scope:exponential-change"
+        },
+        {
+          "id": "n:time",
+          "kind": "variable",
+          "symbol": "n",
+          "type": "DimensionlessCount",
+          "scope_ref": "scope:exponential-change"
+        },
+        {
+          "id": "n:power",
+          "kind": "power",
+          "arguments": [
+            "n:factor",
+            "n:time"
+          ],
+          "type": "PositiveDimensionless"
+        },
+        {
+          "id": "n:output",
+          "kind": "multiply",
+          "arguments": [
+            "n:initial",
+            "n:power"
+          ],
+          "type": "Length[px]"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:exponential-change",
+          "kind": "modelExpression",
+          "free_variables": [
+            "W₀",
+            "q",
+            "n"
+          ],
+          "domain_condition": "W₀>0, q>0, n≥0; completed passes have integer n"
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "1200 × (−0.8)^0.5",
+        "status": "undefined_in_setting",
+        "reason": "A negative factor does not give a real-valued scaling curve for all fractional inputs."
+      },
+      {
+        "input": "(1200 × 0.8)^3",
+        "status": "model_mismatch",
+        "reason": "This cubes the starting width too; repeated resizing requires 1200 × 0.8³."
+      }
+    ],
+    "ast_coverage": "The tree models the right-hand quantity. The output label, function declaration, physical assumptions and rounding conventions are explicit metadata.",
+    "output_symbol_bindings": {
+      "W(n)": "output"
+    }
+  },
+  "interactive": {
+    "component_id": "exponential-change-resize",
+    "renderer_id": "exponential-change-resize",
+    "renderer_version": "1",
+    "model_id": "exponential-change-resize",
+    "model_revision": "1",
+    "expression_id": "ast:exponential-change:expression",
+    "interaction_status": "implemented",
+    "description": "Resize a photo frame by a repeated factor; integer markers show completed passes and a smooth geometric interpolation joins them.",
+    "controls": [
+      {
+        "id": "initial",
+        "type": "number",
+        "default": 1200,
+        "min": 1,
+        "max": 2000,
+        "slider_min": 1,
+        "slider_max": 2000,
+        "slider_step": 10,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      },
+      {
+        "id": "factor",
+        "type": "number",
+        "default": 0.8,
+        "min": 0.25,
+        "max": 2,
+        "slider_min": 0.25,
+        "slider_max": 2,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      },
+      {
+        "id": "time",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 8,
+        "slider_min": 0,
+        "slider_max": 8,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "initial": 1200,
+          "factor": 0.8,
+          "time": 3
+        },
+        "output": 614.4
+      },
+      {
+        "input": {
+          "initial": 1200,
+          "factor": 0.8,
+          "time": 0
+        },
+        "output": 1200
+      },
+      {
+        "input": {
+          "initial": 800,
+          "factor": 0.5,
+          "time": 2
+        },
+        "output": 200
+      },
+      {
+        "input": {
+          "initial": 800,
+          "factor": 1.25,
+          "time": 2
+        },
+        "output": 1250
+      },
+      {
+        "input": {
+          "initial": 1200,
+          "factor": 1,
+          "time": 3
+        },
+        "output": 1200
+      },
+      {
+        "input": {
+          "initial": 1200,
+          "factor": 0.25,
+          "time": 0.5
+        },
+        "output": 600
+      },
+      {
+        "input": {
+          "initial": 1,
+          "factor": 2,
+          "time": 8
+        },
+        "output": 256
+      },
+      {
+        "input": {
+          "initial": 1200,
+          "factor": 0,
+          "time": 3
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "output = initial * factor ** time. Internal time is the displayed pass coordinate n. Integer n gives ideal completed-pass widths; fractional n is geometric interpolation. Keep model output unrounded and state pixel rounding separately.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "At zero passes, output equals initial width.",
+      "Consecutive completed-pass widths have ratio factor.",
+      "At factor one, output stays constant.",
+      "Fractional pass inputs are labeled as geometric interpolation, not completed operations."
+    ],
+    "limits": [
+      "The controls define a finite illustrative window, not the full mathematical domain.",
+      "Shape size and accessible numeric output use the same validated parameters. Display interpolation is not an observation.",
+      "Invalid parameters produce an explicit failure, never a stale valid result.",
+      "The smooth curve between passes is a display convention. Real operations have integer counts and raster dimensions need rounding."
+    ],
+    "fallback": "Read the formula, substituted values, worked steps and labeled output without animation.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  }
+}

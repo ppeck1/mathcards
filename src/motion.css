@@ -1,0 +1,20 @@
+/* Geometry is driven by one animation-frame clock, without a second CSS interpolation. */
+.visual-stage .visual-magnitude,
+.demo-scene .visual-magnitude,
+.life-scene .visual-magnitude,
+.visual-stage .spatial-volume polygon,
+.visual-stage .spatial-volume path { transition: none; }
+.visual-stage[data-dragging] [data-drag-param] { cursor: grabbing; }
+.visual-stage[data-following="true"] { --motion-active: 1; }
+/* Keep brightness steady. Traveling strokes and geometry provide the motion. */
+.flow-particle, .visual-particle, .scene-pulse, .journey-pulse { animation: none !important; }
+.life-scene text, .visual-stage text, .live-readout, .life-readout,
+.life-token, .life-token-value, .readout-stat strong { animation: none !important; transition: none !important; font-variant-numeric: tabular-nums lining-nums; }
+.lab[data-motion="interacting"] .flow-particle,
+.lab[data-motion="interacting"] .flow-stream,
+.lab[data-motion="interacting"] .visual-particle,
+.lab[data-motion="interacting"] .visual-flow,
+.lab[data-motion="interacting"] .scene-pulse { animation-play-state: running; }
+@media (prefers-reduced-motion: reduce) {
+  .visual-stage *, .visual-stage *::before, .visual-stage *::after { animation: none !important; transition: none !important; }
+}

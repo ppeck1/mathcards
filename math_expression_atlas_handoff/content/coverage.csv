@@ -1,0 +1,173 @@
+id,title,domain,status,wave,math_review,history_review,interactive_status
+math:concept:variable,Variable,language-foundations,planned,expansion,pending,pending,planned
+math:concept:constant,Constant,language-foundations,planned,expansion,pending,pending,planned
+math:concept:expression,Expression,language-foundations,planned,expansion,pending,pending,planned
+math:concept:equality,Equality,language-foundations,planned,expansion,pending,pending,planned
+math:concept:equivalence,Equivalence,language-foundations,planned,expansion,pending,pending,planned
+math:concept:set,Set,language-foundations,planned,expansion,pending,pending,planned
+math:concept:relation,Relation,language-foundations,planned,expansion,pending,pending,planned
+math:concept:function,Function,language-foundations,planned,first-eight,pending,pending,planned
+math:concept:quantifier,Quantifier,language-foundations,planned,expansion,pending,pending,planned
+math:concept:proof,Proof,language-foundations,planned,expansion,pending,pending,planned
+math:concept:natural-number,Natural Number,number-arithmetic,planned,expansion,pending,pending,planned
+math:concept:integer,Integer,number-arithmetic,planned,expansion,pending,pending,planned
+math:concept:rational-number,Rational Number,number-arithmetic,planned,expansion,pending,pending,planned
+math:concept:real-number,Real Number,number-arithmetic,planned,expansion,pending,pending,planned
+math:concept:complex-number,Complex Number,number-arithmetic,planned,expansion,pending,pending,planned
+math:concept:ratio,Ratio,number-arithmetic,planned,first-eight,pending,pending,planned
+math:concept:proportion,Proportion,number-arithmetic,planned,expansion,pending,pending,planned
+math:concept:absolute-value,Absolute Value,number-arithmetic,planned,expansion,pending,pending,planned
+math:concept:order,Order,number-arithmetic,planned,expansion,pending,pending,planned
+math:concept:infinity,Infinity,number-arithmetic,planned,expansion,pending,pending,planned
+math:concept:function-composition,Function Composition,algebra-functions,draft_specimen,first-eight,pending,pending,specified_not_implemented
+math:concept:domain-codomain,Domain Codomain,algebra-functions,planned,expansion,pending,pending,planned
+math:concept:inverse-function,Inverse Function,algebra-functions,planned,expansion,pending,pending,planned
+math:concept:polynomial,Polynomial,algebra-functions,planned,expansion,pending,pending,planned
+math:concept:equation,Equation,algebra-functions,planned,expansion,pending,pending,planned
+math:concept:inequality,Inequality,algebra-functions,planned,expansion,pending,pending,planned
+math:concept:linear-affine,Linear Affine,algebra-functions,planned,expansion,pending,pending,planned
+math:concept:exponentiation,Exponentiation,algebra-functions,planned,first-eight,pending,pending,planned
+math:concept:real-logarithm,Real Logarithm,algebra-functions,draft_specimen,first-eight,pending,pending,specified_not_implemented
+math:concept:piecewise-function,Piecewise Function,algebra-functions,planned,expansion,pending,pending,planned
+math:concept:point-line-plane,Point Line Plane,geometry,planned,expansion,pending,pending,planned
+math:concept:angle,Angle,geometry,planned,expansion,pending,pending,planned
+math:concept:euclidean-distance,Euclidean Distance,geometry,planned,expansion,pending,pending,planned
+math:concept:triangle,Triangle,geometry,planned,expansion,pending,pending,planned
+math:concept:circle,Circle,geometry,planned,expansion,pending,pending,planned
+math:concept:congruence,Congruence,geometry,planned,expansion,pending,pending,planned
+math:concept:similarity,Similarity,geometry,planned,expansion,pending,pending,planned
+math:concept:coordinate-system,Coordinate System,geometry,planned,expansion,pending,pending,planned
+math:concept:geometric-transformation,Geometric Transformation,geometry,planned,expansion,pending,pending,planned
+math:concept:non-euclidean-geometry,Non Euclidean Geometry,geometry,planned,expansion,pending,pending,planned
+math:concept:radian,Radian,trigonometry,planned,expansion,pending,pending,planned
+math:concept:sine-cosine,Sine Cosine,trigonometry,planned,expansion,pending,pending,planned
+math:concept:tangent-function,Tangent Function,trigonometry,planned,expansion,pending,pending,planned
+math:concept:unit-circle,Unit Circle,trigonometry,planned,expansion,pending,pending,planned
+math:concept:phase,Phase,trigonometry,planned,expansion,pending,pending,planned
+math:concept:amplitude,Amplitude,trigonometry,planned,expansion,pending,pending,planned
+math:concept:periodicity,Periodicity,trigonometry,planned,expansion,pending,pending,planned
+math:concept:trigonometric-identity,Trigonometric Identity,trigonometry,planned,expansion,pending,pending,planned
+math:concept:polar-coordinate,Polar Coordinate,trigonometry,planned,expansion,pending,pending,planned
+math:concept:fourier-series,Fourier Series,trigonometry,planned,expansion,pending,pending,planned
+math:concept:limit,Limit,calculus,planned,first-eight,pending,pending,planned
+math:concept:continuity,Continuity,calculus,planned,expansion,pending,pending,planned
+math:concept:derivative,Derivative,calculus,draft_specimen,first-eight,pending,pending,specified_not_implemented
+math:concept:chain-rule,Chain Rule,calculus,planned,expansion,pending,pending,planned
+math:concept:partial-derivative,Partial Derivative,calculus,planned,expansion,pending,pending,planned
+math:concept:gradient,Gradient,calculus,planned,expansion,pending,pending,planned
+math:concept:integral,Integral,calculus,planned,first-eight,pending,pending,planned
+math:concept:fundamental-theorem-calculus,Fundamental Theorem Calculus,calculus,planned,expansion,pending,pending,planned
+math:concept:series-convergence,Series Convergence,calculus,planned,expansion,pending,pending,planned
+math:concept:taylor-approximation,Taylor Approximation,calculus,planned,expansion,pending,pending,planned
+math:concept:vector,Vector,linear-algebra,planned,expansion,pending,pending,planned
+math:concept:vector-space,Vector Space,linear-algebra,planned,expansion,pending,pending,planned
+math:concept:basis,Basis,linear-algebra,planned,expansion,pending,pending,planned
+math:concept:linear-map,Linear Map,linear-algebra,planned,expansion,pending,pending,planned
+math:concept:matrix-linear-map,Matrix Linear Map,linear-algebra,planned,expansion,pending,pending,planned
+math:concept:matrix-product,Matrix Product,linear-algebra,planned,expansion,pending,pending,planned
+math:concept:determinant,Determinant,linear-algebra,planned,expansion,pending,pending,planned
+math:concept:rank,Rank,linear-algebra,planned,expansion,pending,pending,planned
+math:concept:eigenvalue-eigenvector,Eigenvalue Eigenvector,linear-algebra,planned,expansion,pending,pending,planned
+math:concept:singular-value-decomposition,Singular Value Decomposition,linear-algebra,planned,expansion,pending,pending,planned
+math:concept:sample-space,Sample Space,probability,planned,expansion,pending,pending,planned
+math:concept:event,Event,probability,planned,expansion,pending,pending,planned
+math:concept:probability-measure,Probability Measure,probability,planned,expansion,pending,pending,planned
+math:concept:conditional-probability,Conditional Probability,probability,planned,expansion,pending,pending,planned
+math:concept:independence,Independence,probability,planned,expansion,pending,pending,planned
+math:concept:bayes-rule,Bayes Rule,probability,planned,expansion,pending,pending,planned
+math:concept:random-variable,Random Variable,probability,planned,expansion,pending,pending,planned
+math:concept:expectation,Expectation,probability,planned,expansion,pending,pending,planned
+math:concept:variance,Variance,probability,planned,expansion,pending,pending,planned
+math:concept:probability-distribution,Probability Distribution,probability,planned,expansion,pending,pending,planned
+math:concept:population-sample,Population Sample,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:sampling-distribution,Sampling Distribution,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:estimator,Estimator,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:confidence-interval,Confidence Interval,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:likelihood,Likelihood,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:bayesian-inference,Bayesian Inference,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:regression,Regression,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:correlation,Correlation,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:causal-identification,Causal Identification,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:hypothesis-test,Hypothesis Test,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:counting-principle,Counting Principle,discrete-computation,planned,expansion,pending,pending,planned
+math:concept:permutation,Permutation,discrete-computation,planned,expansion,pending,pending,planned
+math:concept:combination,Combination,discrete-computation,planned,expansion,pending,pending,planned
+math:concept:graph,Graph,discrete-computation,planned,expansion,pending,pending,planned
+math:concept:path-cycle,Path Cycle,discrete-computation,planned,expansion,pending,pending,planned
+math:concept:tree,Tree,discrete-computation,planned,expansion,pending,pending,planned
+math:concept:recurrence,Recurrence,discrete-computation,planned,expansion,pending,pending,planned
+math:concept:algorithm,Algorithm,discrete-computation,planned,expansion,pending,pending,planned
+math:concept:computability,Computability,discrete-computation,planned,expansion,pending,pending,planned
+math:concept:computational-complexity,Computational Complexity,discrete-computation,planned,expansion,pending,pending,planned
+math:concept:divisibility,Divisibility,number-theory,planned,expansion,pending,pending,planned
+math:concept:prime,Prime,number-theory,planned,expansion,pending,pending,planned
+math:concept:greatest-common-divisor,Greatest Common Divisor,number-theory,planned,expansion,pending,pending,planned
+math:concept:euclidean-algorithm,Euclidean Algorithm,number-theory,planned,expansion,pending,pending,planned
+math:concept:congruence-modulo,Congruence Modulo,number-theory,planned,expansion,pending,pending,planned
+math:concept:modular-arithmetic,Modular Arithmetic,number-theory,planned,expansion,pending,pending,planned
+math:concept:diophantine-equation,Diophantine Equation,number-theory,planned,expansion,pending,pending,planned
+math:concept:fermat-little-theorem,Fermat Little Theorem,number-theory,planned,expansion,pending,pending,planned
+math:concept:chinese-remainder-theorem,Chinese Remainder Theorem,number-theory,planned,expansion,pending,pending,planned
+math:concept:continued-fraction,Continued Fraction,number-theory,planned,expansion,pending,pending,planned
+math:concept:binary-operation,Binary Operation,abstract-structure,planned,expansion,pending,pending,planned
+math:concept:group,Group,abstract-structure,planned,expansion,pending,pending,planned
+math:concept:group-action,Group Action,abstract-structure,planned,expansion,pending,pending,planned
+math:concept:symmetry,Symmetry,abstract-structure,planned,expansion,pending,pending,planned
+math:concept:invariant,Invariant,abstract-structure,planned,expansion,pending,pending,planned
+math:concept:ring,Ring,abstract-structure,planned,expansion,pending,pending,planned
+math:concept:field,Field,abstract-structure,planned,expansion,pending,pending,planned
+math:concept:homomorphism,Homomorphism,abstract-structure,planned,expansion,pending,pending,planned
+math:concept:isomorphism,Isomorphism,abstract-structure,planned,expansion,pending,pending,planned
+math:concept:duality,Duality,abstract-structure,planned,expansion,pending,pending,planned
+math:concept:open-set,Open Set,topology-space,planned,expansion,pending,pending,planned
+math:concept:topological-space,Topological Space,topology-space,planned,expansion,pending,pending,planned
+math:concept:topological-continuity,Topological Continuity,topology-space,planned,expansion,pending,pending,planned
+math:concept:homeomorphism,Homeomorphism,topology-space,planned,expansion,pending,pending,planned
+math:concept:connectedness,Connectedness,topology-space,planned,expansion,pending,pending,planned
+math:concept:compactness,Compactness,topology-space,planned,expansion,pending,pending,planned
+math:concept:metric-space,Metric Space,topology-space,planned,expansion,pending,pending,planned
+math:concept:manifold,Manifold,topology-space,planned,expansion,pending,pending,planned
+math:concept:dimension,Dimension,topology-space,planned,expansion,pending,pending,planned
+math:concept:homotopy,Homotopy,topology-space,planned,expansion,pending,pending,planned
+math:concept:discrete-difference,Discrete Difference,dynamics,planned,expansion,pending,pending,planned
+math:concept:differential-equation,Differential Equation,dynamics,planned,expansion,pending,pending,planned
+math:concept:initial-condition,Initial Condition,dynamics,planned,expansion,pending,pending,planned
+math:concept:phase-space,Phase Space,dynamics,planned,expansion,pending,pending,planned
+math:concept:equilibrium,Equilibrium,dynamics,planned,expansion,pending,pending,planned
+math:concept:stability,Stability,dynamics,planned,expansion,pending,pending,planned
+math:concept:feedback,Feedback,dynamics,planned,expansion,pending,pending,planned
+math:concept:bifurcation,Bifurcation,dynamics,planned,expansion,pending,pending,planned
+math:concept:chaos,Chaos,dynamics,planned,expansion,pending,pending,planned
+math:concept:sensitivity-initial-conditions,Sensitivity Initial Conditions,dynamics,planned,expansion,pending,pending,planned
+math:concept:objective-function,Objective Function,optimization,planned,expansion,pending,pending,planned
+math:concept:constraint,Constraint,optimization,planned,expansion,pending,pending,planned
+math:concept:feasible-set,Feasible Set,optimization,planned,expansion,pending,pending,planned
+math:concept:local-global-optimum,Local Global Optimum,optimization,planned,expansion,pending,pending,planned
+math:concept:convexity,Convexity,optimization,planned,expansion,pending,pending,planned
+math:concept:lagrange-multiplier,Lagrange Multiplier,optimization,planned,expansion,pending,pending,planned
+math:concept:linear-programming,Linear Programming,optimization,planned,expansion,pending,pending,planned
+math:concept:integer-programming,Integer Programming,optimization,planned,expansion,pending,pending,planned
+math:concept:gradient-descent,Gradient Descent,optimization,planned,expansion,pending,pending,planned
+math:concept:multiobjective-tradeoff,Multiobjective Tradeoff,optimization,planned,expansion,pending,pending,planned
+math:concept:unit-dimension,Unit Dimension,modeling-computation,planned,expansion,pending,pending,planned
+math:concept:dimensional-analysis,Dimensional Analysis,modeling-computation,planned,expansion,pending,pending,planned
+math:concept:scaling-law,Scaling Law,modeling-computation,planned,expansion,pending,pending,planned
+math:concept:model-assumption,Model Assumption,modeling-computation,planned,expansion,pending,pending,planned
+math:concept:measurement-error,Measurement Error,modeling-computation,planned,expansion,pending,pending,planned
+math:concept:uncertainty-propagation,Uncertainty Propagation,modeling-computation,planned,expansion,pending,pending,planned
+math:concept:numerical-approximation,Numerical Approximation,modeling-computation,planned,expansion,pending,pending,planned
+math:concept:conditioning,Conditioning,modeling-computation,planned,expansion,pending,pending,planned
+math:concept:roundoff-error,Roundoff Error,modeling-computation,planned,expansion,pending,pending,planned
+math:concept:model-validation,Model Validation,modeling-computation,planned,expansion,pending,pending,planned
+math:concept:information-content,Information Content,information,planned,expansion,pending,pending,planned
+math:concept:entropy,Entropy,information,planned,expansion,pending,pending,planned
+math:concept:conditional-entropy,Conditional Entropy,information,planned,expansion,pending,pending,planned
+math:concept:mutual-information,Mutual Information,information,planned,expansion,pending,pending,planned
+math:concept:relative-entropy,Relative Entropy,information,planned,expansion,pending,pending,planned
+math:concept:coding,Coding,information,planned,expansion,pending,pending,planned
+math:concept:compression,Compression,information,planned,expansion,pending,pending,planned
+math:concept:channel-capacity,Channel Capacity,information,planned,expansion,pending,pending,planned
+math:concept:error-correcting-code,Error Correcting Code,information,planned,expansion,pending,pending,planned
+math:concept:minimum-description-length,Minimum Description Length,information,planned,expansion,pending,pending,planned
+math:concept:category,Category,abstract-structure,planned,expansion,pending,pending,planned
+math:concept:complex-logarithm,Complex Logarithm,advanced-bridges,planned,expansion,pending,pending,planned

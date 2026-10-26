@@ -1,0 +1,233 @@
+{
+  "authority_policy": "draft/supporting/non_authoritative",
+  "boh_source_pin": "aa3d4fcae554a5d39bde0aa7dba1f7ab584854b5",
+  "card_count": 3,
+  "contract_version": "0.1.0",
+  "document_count": 22,
+  "documents": [
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:concept:derivative",
+      "example_id": null,
+      "file_sha256": "b75c59f08ec5bb689fdd573b9de15c0833d8c48a57416fc3b0ba7656530af6fa",
+      "path": "boh/cards/derivative.md",
+      "size_bytes": 21685,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d91cb6a6e64538826d03e861c8a9302243a1be83d9e10e87639273945d51dc7a"
+    },
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:example:derivative:cubic",
+      "example_id": "math:example:derivative:cubic",
+      "file_sha256": "6a36cd130028fbdc1d8f312021beff03d2ebb87e25cb33a2f35c9f39fdb71d59",
+      "path": "boh/examples/derivative--cubic.md",
+      "size_bytes": 6473,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d91cb6a6e64538826d03e861c8a9302243a1be83d9e10e87639273945d51dc7a"
+    },
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:example:derivative:secant",
+      "example_id": "math:example:derivative:secant",
+      "file_sha256": "de33533ea16bee73b6ac2d4bf8926f4fdbacb29dde41352f685d9f319fcde80c",
+      "path": "boh/examples/derivative--secant.md",
+      "size_bytes": 6512,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d91cb6a6e64538826d03e861c8a9302243a1be83d9e10e87639273945d51dc7a"
+    },
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:example:derivative:motion",
+      "example_id": "math:example:derivative:motion",
+      "file_sha256": "1a340e9755ccb0a115383c8570909f729fed582e1d5213ccfe72bd12700569bd",
+      "path": "boh/examples/derivative--motion.md",
+      "size_bytes": 6896,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d91cb6a6e64538826d03e861c8a9302243a1be83d9e10e87639273945d51dc7a"
+    },
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:example:derivative:image-scale",
+      "example_id": "math:example:derivative:image-scale",
+      "file_sha256": "a51b720d3840e45f46a73ba93928aebeef42832d05380c452e46d4d06beb2f7f",
+      "path": "boh/examples/derivative--image-scale.md",
+      "size_bytes": 7133,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d91cb6a6e64538826d03e861c8a9302243a1be83d9e10e87639273945d51dc7a"
+    },
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:example:derivative:corner",
+      "example_id": "math:example:derivative:corner",
+      "file_sha256": "a73d0547bda5d3af9ac01f37ccc970634d043839e54e234d6871a34415e004fd",
+      "path": "boh/examples/derivative--corner.md",
+      "size_bytes": 6632,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d91cb6a6e64538826d03e861c8a9302243a1be83d9e10e87639273945d51dc7a"
+    },
+    {
+      "card_id": "math:concept:derivative",
+      "document_id": "math:example:derivative:zero-step",
+      "example_id": "math:example:derivative:zero-step",
+      "file_sha256": "aa5daec1c27d1d3b4361e690e7965f2ea1688a4a59c68a6c3056c5a683ca6129",
+      "path": "boh/examples/derivative--zero-step.md",
+      "size_bytes": 6544,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "d91cb6a6e64538826d03e861c8a9302243a1be83d9e10e87639273945d51dc7a"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:concept:function-composition",
+      "example_id": null,
+      "file_sha256": "85d5df2833995db98e6c141fbd654b0d09d384cd578a3992a979e91cee142a2d",
+      "path": "boh/cards/function-composition.md",
+      "size_bytes": 23642,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e8c1d9dec9560bf8523d7f89c7db8e4084b28dae56d192fbefa13e60b05458e7"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:example:composition:numeric",
+      "example_id": "math:example:composition:numeric",
+      "file_sha256": "f52f06f2ec3aecbc6671e6a1063f50dc8cf22687e5b083b66a11b762b24fd805",
+      "path": "boh/examples/function-composition--numeric.md",
+      "size_bytes": 7012,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e8c1d9dec9560bf8523d7f89c7db8e4084b28dae56d192fbefa13e60b05458e7"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:example:composition:finite",
+      "example_id": "math:example:composition:finite",
+      "file_sha256": "2db503b52ce50ba93579f8d30772f7762c0df35e582d709dac5cd6ed132860b9",
+      "path": "boh/examples/function-composition--finite.md",
+      "size_bytes": 7102,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e8c1d9dec9560bf8523d7f89c7db8e4084b28dae56d192fbefa13e60b05458e7"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:example:composition:geometry",
+      "example_id": "math:example:composition:geometry",
+      "file_sha256": "6314dd692e98af7590f4a2a6b07ad12ea7f0f6431aebf5c521a420cf8de48d79",
+      "path": "boh/examples/function-composition--geometry.md",
+      "size_bytes": 7184,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e8c1d9dec9560bf8523d7f89c7db8e4084b28dae56d192fbefa13e60b05458e7"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:example:composition:calibration",
+      "example_id": "math:example:composition:calibration",
+      "file_sha256": "78f3b350e6ea5eec57cb84bbe5fcfef01649625200be66c3befdea22213de5c4",
+      "path": "boh/examples/function-composition--calibration.md",
+      "size_bytes": 7332,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e8c1d9dec9560bf8523d7f89c7db8e4084b28dae56d192fbefa13e60b05458e7"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:example:composition:restricted-domain",
+      "example_id": "math:example:composition:restricted-domain",
+      "file_sha256": "c3b9ecb9621f2d300c551f148dcb0f54be2a2f696319726e24a538dbef7c6280",
+      "path": "boh/examples/function-composition--restricted-domain.md",
+      "size_bytes": 7283,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e8c1d9dec9560bf8523d7f89c7db8e4084b28dae56d192fbefa13e60b05458e7"
+    },
+    {
+      "card_id": "math:concept:function-composition",
+      "document_id": "math:example:composition:type-mismatch",
+      "example_id": "math:example:composition:type-mismatch",
+      "file_sha256": "bf403344e05646893f680a75d73a91fd4026ea07fed217c5487d5187b1bb8d71",
+      "path": "boh/examples/function-composition--type-mismatch.md",
+      "size_bytes": 7181,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "e8c1d9dec9560bf8523d7f89c7db8e4084b28dae56d192fbefa13e60b05458e7"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:concept:real-logarithm",
+      "example_id": null,
+      "file_sha256": "f31e4cae523abf2fd078c849834142f7543a0e53041412a35052bb380e8e80df",
+      "path": "boh/cards/real-logarithm.md",
+      "size_bytes": 22469,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8733c614675efdbf30a1e32a85648b29d9f93092ffa67519e61a99640947fba"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:minimal",
+      "example_id": "math:example:log:minimal",
+      "file_sha256": "d882b8804daec3c668b3ec35832c695b5bfb3bb74dd10a5368e5685bc2a79b45",
+      "path": "boh/examples/real-logarithm--minimal.md",
+      "size_bytes": 6522,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8733c614675efdbf30a1e32a85648b29d9f93092ffa67519e61a99640947fba"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:plot",
+      "example_id": "math:example:log:plot",
+      "file_sha256": "04c4fc4a3d1503d96fbfdae70fa68638115248bebb5476c51d04ecb85fb533b3",
+      "path": "boh/examples/real-logarithm--plot.md",
+      "size_bytes": 7210,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8733c614675efdbf30a1e32a85648b29d9f93092ffa67519e61a99640947fba"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:photography",
+      "example_id": "math:example:log:photography",
+      "file_sha256": "8b049d45e238c678030ae4a55f5790883f4d8611ac4f9e715f00c4242c4faef5",
+      "path": "boh/examples/real-logarithm--photography.md",
+      "size_bytes": 7408,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8733c614675efdbf30a1e32a85648b29d9f93092ffa67519e61a99640947fba"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:binary-tree",
+      "example_id": "math:example:log:binary-tree",
+      "file_sha256": "ae7e5b01ac2b28efad6e0804ad57d4abac62f2d7305599ca38ed8e8f1dea8bba",
+      "path": "boh/examples/real-logarithm--binary-tree.md",
+      "size_bytes": 7355,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8733c614675efdbf30a1e32a85648b29d9f93092ffa67519e61a99640947fba"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:decreasing-base",
+      "example_id": "math:example:log:decreasing-base",
+      "file_sha256": "93a4c09b9f8409de5c22fa98265bff7442216a945db1d09254dd9b77331d4a75",
+      "path": "boh/examples/real-logarithm--decreasing-base.md",
+      "size_bytes": 6729,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8733c614675efdbf30a1e32a85648b29d9f93092ffa67519e61a99640947fba"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:invalid-domain",
+      "example_id": "math:example:log:invalid-domain",
+      "file_sha256": "15e80820622c01f65012421bc17d7db0e05ffffb2b009fb072eef5d8f95c6de6",
+      "path": "boh/examples/real-logarithm--invalid-domain.md",
+      "size_bytes": 7219,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8733c614675efdbf30a1e32a85648b29d9f93092ffa67519e61a99640947fba"
+    },
+    {
+      "card_id": "math:concept:real-logarithm",
+      "document_id": "math:example:log:sum-fallacy",
+      "example_id": "math:example:log:sum-fallacy",
+      "file_sha256": "e353b2226fe07404c30992ce143c3b8af20df5a0dca0cfc3aac9dfe200aee247",
+      "path": "boh/examples/real-logarithm--sum-fallacy.md",
+      "size_bytes": 7019,
+      "source_revision": "0.1.0-draft",
+      "source_sha256": "a8733c614675efdbf30a1e32a85648b29d9f93092ffa67519e61a99640947fba"
+    }
+  ],
+  "exporter_version": "0.1.0",
+  "hash_policy": "source_sha256=sorted compact card JSON; file_sha256=generated full UTF-8 bytes",
+  "interaction_policy": "inert textual recipes only; app owns execution",
+  "source_registry_sha256": "746031f19744ae35cf4e871007f17b1f1756a804461f932fa679f6ca7ad2dc86"
+}

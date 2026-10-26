@@ -1,0 +1,258 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:directional-derivative:northward", "id": "math:example:directional-derivative:northward", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:directional-derivative", "example_id": "math:example:directional-derivative:northward", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a8f4dec0217e00395bdf1d7d96ad7f9ca8f8a3c2a64dc029ca9b385756a55f1b"}, "purpose": "Turn a direction arrow and see how its two coordinate slopes combine.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a8f4dec0217e00395bdf1d7d96ad7f9ca8f8a3c2a64dc029ca9b385756a55f1b", "status": "draft", "title": "Point the same sensor north", "topics": ["mathematics", "calculus", "analysis", "geometry", "slope in a direction", "unit-direction derivative", "gradient dot direction"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Point the same sensor north
+
+Parent card: math:concept:directional-derivative; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:directional-derivative; revision 0.1.0-draft. Setting: Differentiable scalar fields near a point in the real plane, with compatible equally scaled Euclidean coordinates. Expression: $D_uF(x,y)=\nabla F(x,y)\cdot u=(2ax)\cos\theta+(2by)\sin\theta,\quad u=(\cos\theta,\sin\theta),\quad\|u\|=1.$. Conditions required for a defined value (a case may test their violation): The field is differentiable at the selected point and is defined on a neighborhood of it. The direction vector u has Euclidean norm one; the two coordinate axes use compatible equal scales. For the live family F=c+a*x²+b*y², both partial derivatives exist everywhere and equal 2ax and 2by. The degree-valued angle control is converted to radians before trigonometric evaluation. The primary output is a signed scalar directional slope, not the gradient vector, its norm or the field height. A zero directional derivative describes first-order behavior in that direction only; it does not classify the whole field. Scope: The general dot-product formula requires differentiability and a unit direction under the stated coordinate metric. The executable specimen uses only a bounded quadratic family without mixed terms. A 3D view represents its scalar height surface, not an additional independent input. The local slope does not predict a whole path or an exact finite elevation gain.
+
+Case unit math:example:directional-derivative:northward. Setting: Original constructed teaching scenario; values and rules are stipulated, not measured. Inputs: {"a": -0.5, "angleDegrees": 90, "b": -0.25, "c": 4, "x": 1, "y": 0.5}. Result: {"exact": "Directional slope −0.25 m/m"}. Limits: Equal coordinate scales and the same field point are required for the comparison.
+
+## Complete worked case
+
+- id: math:example:directional-derivative:northward
+- title: Point the same sensor north
+- role: applied_model
+- question: Without changing the field or point, what is the initial northward slope?
+- setting: Original constructed teaching scenario; values and rules are stipulated, not measured.
+- assumptions:
+  - This is an original constructed smooth height sketch, not measured terrain or navigation advice.
+  - Both horizontal coordinates and height use metres; the quadratic coefficients use inverse metres and the constant offset uses metres.
+  - Horizontal axes are perpendicular and equally scaled; derivatives are local quantities at the stated point.
+  - The chosen family is F(x,y)=c+a*x²+b*y²; its two coordinate partial derivatives are evaluated at the same point.
+- inputs:
+  - x: 1
+  - y: 0.5
+  - a: -0.5
+  - b: -0.25
+  - c: 4
+  - angleDegrees: 90
+- steps:
+  - Item:
+    - index: 1
+    - expression: θ=90 degrees
+    - reason: Convert the displayed degree measure before evaluating trigonometric components.
+  - Item:
+    - index: 2
+    - expression: u=(0,1); ∇F=(-1,-0.25)
+    - reason: Evaluate both partials at the same point and form a unit direction.
+  - Item:
+    - index: 3
+    - expression: DᵤF=(-1)(0)+(-0.25)(1)=-0.25 m/m
+    - reason: Take the scalar product of the gradient with that direction.
+- result:
+  - exact: Directional slope −0.25 m/m
+- interpretation: Turning the unit direction changes the directional slope while leaving the underlying gradient unchanged.
+- independent check:
+  - method: Independent line-derivative check
+  - expected: The northward derivative is exactly the y partial at the same point.
+- limits: Equal coordinate scales and the same field point are required for the comparison.
+- preset:
+  - x: 1
+  - y: 0.5
+  - a: -0.5
+  - b: -0.25
+  - c: 4
+  - angleDegrees: 90
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - This is an original constructed smooth height sketch, not measured terrain or navigation advice.
+  - Both horizontal coordinates and height use metres; the quadratic coefficients use inverse metres and the constant offset uses metres.
+  - Horizontal axes are perpendicular and equally scaled; derivatives are local quantities at the stated point.
+  - The chosen family is F(x,y)=c+a*x²+b*y²; its two coordinate partial derivatives are evaluated at the same point.
+
+## Written exploration recipe
+
+- component id: component:directional-derivative
+- renderer id: directional-derivative-visual-model
+- renderer version: 1
+- model id: directional-derivative-visual-model
+- model revision: 1
+- expression id: ast:directional-derivative:expression
+- interaction status: implemented
+- description: Turn the chosen unit direction on shared height contours. Two signed component products combine into one directional slope. Geometry, Graph and a genuine 3D surface use the same field and point.
+- controls:
+  - Item:
+    - id: x
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - step: 0.01
+  - Item:
+    - id: y
+    - type: number
+    - default: 0.5
+    - min: -2
+    - max: 2
+    - step: 0.01
+  - Item:
+    - id: a
+    - type: number
+    - default: -0.5
+    - min: -1
+    - max: 1
+    - step: 0.01
+  - Item:
+    - id: b
+    - type: number
+    - default: -0.25
+    - min: -1
+    - max: 1
+    - step: 0.01
+  - Item:
+    - id: c
+    - type: number
+    - default: 4
+    - min: 0
+    - max: 6
+    - step: 0.01
+  - Item:
+    - id: angleDegrees
+    - type: number
+    - default: 180
+    - min: -180
+    - max: 180
+    - step: 1
+- expected cases:
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - angleDegrees: 180
+    - output: 1.0
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - angleDegrees: 0
+    - output: -1.0
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - angleDegrees: 90
+    - output: -0.25
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - angleDegrees: -90
+    - output: 0.25
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - angleDegrees: 45
+    - output: -0.8838834764831844
+  - Item:
+    - input:
+      - x: 0
+      - y: 0
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - angleDegrees: 180
+    - output: 0.0
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: 0
+      - b: 0
+      - c: 4
+      - angleDegrees: 180
+    - output: 0.0
+  - Item:
+    - input:
+      - x: -2
+      - y: 2
+      - a: -1
+      - b: 1
+      - c: 4
+      - angleDegrees: -135
+    - output: -5.65685424949238
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 6
+      - angleDegrees: 180
+    - output: 1.0
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - angleDegrees: -180
+    - output: 1.0
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - angleDegrees: 181
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - x: 2.1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - angleDegrees: 180
+    - status: invalid_parameters
+- compute: angleRadians=angleDegrees*pi/180; directionX=cos(angleRadians); directionY=sin(angleRadians); height=c+a*x*x+b*y*y; partialX=2*a*x; partialY=2*b*y; directionalXTerm=partialX*directionX; directionalYTerm=partialY*directionY; output=directionalSlope=directionalXTerm+directionalYTerm.
+- numeric tolerance: 1e-10
+- invariants:
+  - The field is differentiable at the selected point and is defined on a neighborhood of it.
+  - The direction vector u has Euclidean norm one; the two coordinate axes use compatible equal scales.
+  - For the live family F=c+a*x²+b*y², both partial derivatives exist everywhere and equal 2ax and 2by.
+  - The degree-valued angle control is converted to radians before trigonometric evaluation.
+  - The primary output is a signed scalar directional slope, not the gradient vector, its norm or the field height.
+  - A zero directional derivative describes first-order behavior in that direction only; it does not classify the whole field.
+- limits:
+  - Only F=c+a*x²+b*y² and a planar unit direction; no imported terrain or symbolic differentiator.
+  - The scene arrow is a direction at the point, not a simulated route.
+  - The graph varies angleDegrees while the point and field coefficients stay fixed.
+- fallback: Pause to read the labeled inputs, intermediate calculations and output. The model-data table and original worked steps provide numeric alternatives to the scene.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openstax:gradient-directional. [Calculus Volume 3, 4.6 Directional Derivatives and the Gradient](https://openstax.org/books/calculus-volume-3/pages/4-6-directional-derivatives-and-the-gradient). Locator: Gradient definition; directional derivative for differentiable fields; maximum directional derivative and zero-gradient case. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.

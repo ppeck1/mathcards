@@ -1,0 +1,844 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:signed-accumulation",
+  "slug": "signed-accumulation",
+  "type": "concept",
+  "title": "Signed accumulation",
+  "revision": "0.1.1-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-26T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numerical fixtures are not independent mathematical review"
+  },
+  "source_policy": "Definition-level references support the mathematical vocabulary. All stories and worked quantities are original constructed teaching scenarios, not measurements or historical events. Historical priority and notation claims require separate claim-level evidence before publication.",
+  "aliases": [
+    "signed area",
+    "net displacement",
+    "Riemann-sum approximation"
+  ],
+  "branches": [
+    "calculus",
+    "modeling"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Add positive and negative contributions while keeping net change distinct from total activity.",
+  "meaning": "Area above zero adds to displacement; area below zero subtracts. The same motion can cover a long path and end where it began. Finite rectangles show an approximation beside the exact integral of a declared velocity law.",
+  "prerequisites": {
+    "required": [
+      "math:concept:function"
+    ],
+    "helpful": [
+      "math:concept:limit",
+      "math:concept:integral-accumulation"
+    ],
+    "depth": [
+      "math:concept:model-assumption"
+    ]
+  },
+  "definition": {
+    "setting": "A continuous affine velocity on [0,T]; a bounded specimen of signed definite integration.",
+    "formal_latex": "v(t)=v_0+rt,\\quad S(T)=\\int_0^T v(t)\\,dt=v_0T+\\frac12rT^2,\\quad D(T)=\\int_0^T|v(t)|\\,dt.\\quad L_n=\\sum_{i=0}^{n-1}v(i\\Delta t)\\Delta t,\\quad\\Delta t=T/n.",
+    "signature": {
+      "initial": "initial signed velocity v₀∈[−4,4] m/s",
+      "rate": "constant acceleration r∈[−2,2] m/s²",
+      "time": "elapsed T∈[0,6] s",
+      "partitions": "one of the exact strings 4, 8, 16, 32; converted to integer n",
+      "output": "exact netDisplacement S(T), in metres",
+      "positiveArea": "integral of max(v(t),0), a nonnegative magnitude",
+      "negativeArea": "integral of max(−v(t),0), a nonnegative magnitude",
+      "signedNegativeArea": "−negativeArea",
+      "distance": "positiveArea+negativeArea, in metres",
+      "leftSum": "finite left-endpoint signed sum L_n, in metres"
+    },
+    "conditions": [
+      "The velocity rule is affine and continuous throughout the integration interval.",
+      "Time is nonnegative; reversing direction is permitted and a zero crossing must split magnitude areas.",
+      "Net displacement equals positiveArea−negativeArea; total distance equals positiveArea+negativeArea.",
+      "Partition count is an allowed integer choice; changing it changes the approximation, not the underlying motion.",
+      "For time=0, all areas and finite sums are zero; for rate=0 use constant velocity without division by the rate."
+    ],
+    "domain_notes": "This model includes negative velocities and interior zero crossings, unlike the separate from-rest positive-acceleration specimen. It evaluates the integral analytically for a line; it is not a numerical integrator for arbitrary curves. Shape shading has units (m/s)×s=m, not square metres.",
+    "proof_status": "For the affine law integrate v₀+rt directly, or compute trapezoid signed area. Split at −v₀/r only if that time lies strictly inside the interval. Independent mathematical review pending.",
+    "source_refs": [
+      "source:openstax:definite-integral",
+      "source:openstax:net-change"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "the integral of velocity from zero to T",
+    "expression_latex": "S(T)=\\int_0^T(v_0+rt)\\,dt=v_0T+\\tfrac12rT^2",
+    "formation_rule": "Let n be the selected positive whole-number rectangle count; step=time/n; finalVelocity=initial+rate*time; output=netDisplacement=initial*time+0.5*rate*time*time. Integrate positive and negative pieces separately, splitting at t=−initial/rate only for an interior zero crossing. positiveArea>=0; negativeArea>=0; signedNegativeArea=−negativeArea; distance=positiveArea+negativeArea; netDisplacement=positiveArea−negativeArea. leftSum=netDisplacement−0.5*rate*time*time/n; rightSum=netDisplacement+0.5*rate*time*time/n; midpointSum=netDisplacement for this affine family. At time=0 all sums and areas are zero; at rate=0 use a constant line.",
+    "precedence": "Evaluate products and powers inside the affine velocity and antiderivative; sum signed rectangle contributions before comparing with the exact integral.",
+    "symbols": [
+      {
+        "token": "initial",
+        "role": "initial velocity v₀",
+        "type": "Declared real quantity or finite mode"
+      },
+      {
+        "token": "rate",
+        "role": "constant acceleration r",
+        "type": "Declared real quantity or finite mode"
+      },
+      {
+        "token": "time",
+        "role": "interval endpoint T",
+        "type": "Declared real quantity or finite mode"
+      },
+      {
+        "token": "partitions",
+        "role": "chosen integer rectangle count n",
+        "type": "Declared real quantity or finite mode"
+      },
+      {
+        "token": "S(T)",
+        "role": "exact net displacement",
+        "type": "Declared real quantity or finite mode"
+      },
+      {
+        "token": "D(T)",
+        "role": "total distance",
+        "type": "Declared real quantity or finite mode"
+      },
+      {
+        "token": "L_n",
+        "role": "finite left-endpoint approximation",
+        "type": "Declared real quantity or finite mode"
+      }
+    ],
+    "ast": {
+      "id": "ast:signed-accumulation:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:time",
+          "kind": "variable",
+          "symbol": "time",
+          "type": "Declared control",
+          "scope_ref": "scope:signed-accumulation:model"
+        },
+        {
+          "id": "n:initial",
+          "kind": "variable",
+          "symbol": "initial",
+          "type": "Declared control",
+          "scope_ref": "scope:signed-accumulation:model"
+        },
+        {
+          "id": "n:rate",
+          "kind": "variable",
+          "symbol": "rate",
+          "type": "Declared control",
+          "scope_ref": "scope:signed-accumulation:model"
+        },
+        {
+          "id": "n:partitions",
+          "kind": "variable",
+          "symbol": "partitions",
+          "type": "Declared control",
+          "scope_ref": "scope:signed-accumulation:model"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "ref": "n=Number(partitions); step=time/n; finalVelocity=initial+rate*time; output=netDisplacement=initial*time+0.5*rate*time*time. Integrate positive and negative pieces separately, splitting at t=−initial/rate only for an interior zero crossing. positiveArea>=0; negativeArea>=0; signedNegativeArea=−negativeArea; distance=positiveArea+negativeArea; netDisplacement=positiveArea−negativeArea. leftSum=netDisplacement−0.5*rate*time*time/n; rightSum=netDisplacement+0.5*rate*time*time/n; midpointSum=netDisplacement for this affine family. At time=0 all sums and areas are zero; at rate=0 use a constant line.",
+          "type": "Curried declared controls → primary output"
+        },
+        {
+          "id": "n:partial0",
+          "kind": "apply",
+          "function": "n:rule",
+          "argument": "n:time",
+          "type": "Remaining controls → primary output"
+        },
+        {
+          "id": "n:partial1",
+          "kind": "apply",
+          "function": "n:partial0",
+          "argument": "n:initial",
+          "type": "Remaining controls → primary output"
+        },
+        {
+          "id": "n:partial2",
+          "kind": "apply",
+          "function": "n:partial1",
+          "argument": "n:rate",
+          "type": "Remaining controls → primary output"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "function": "n:partial2",
+          "argument": "n:partitions",
+          "type": "Real or explicit undefined status"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:signed-accumulation:model",
+          "kind": "modelExpression",
+          "free_variables": [
+            "time",
+            "initial",
+            "rate",
+            "partitions"
+          ],
+          "domain_condition": "n=Number(partitions); step=time/n; finalVelocity=initial+rate*time; output=netDisplacement=initial*time+0.5*rate*time*time. Integrate positive and negative pieces separately, splitting at t=−initial/rate only for an interior zero crossing. positiveArea>=0; negativeArea>=0; signedNegativeArea=−negativeArea; distance=positiveArea+negativeArea; netDisplacement=positiveArea−negativeArea. leftSum=netDisplacement−0.5*rate*time*time/n; rightSum=netDisplacement+0.5*rate*time*time/n; midpointSum=netDisplacement for this affine family. At time=0 all sums and areas are zero; at rate=0 use a constant line."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Report the signed integral as total distance across a reversal",
+        "status": "quantity_mismatch",
+        "reason": "Total distance integrates speed |v| and adds magnitudes instead of canceling."
+      },
+      {
+        "input": "Treat 8 rectangles as the exact definition of an integral",
+        "status": "approximation_mismatch",
+        "reason": "The finite sum is an approximation; the integral is the limiting signed accumulation."
+      },
+      {
+        "input": "partitions=7.5",
+        "status": "invalid_parameters",
+        "reason": "A fractional rectangle count is not a permitted discrete choice."
+      }
+    ],
+    "ast_coverage": "This tree applies the explicitly named bounded model to its controls. It is structural metadata; it does not parse arbitrary formulas or establish a theorem. The formal definition is broader than the illustrated family.",
+    "output_symbol_bindings": {
+      "S(T)": "output",
+      "net displacement": "netDisplacement",
+      "positive contribution": "positiveArea",
+      "negative magnitude": "negativeArea",
+      "negative signed contribution": "signedNegativeArea",
+      "total distance": "distance",
+      "left sum": "leftSum",
+      "right sum": "rightSum",
+      "midpoint sum": "midpointSum",
+      "rectangle width": "step",
+      "end velocity": "finalVelocity"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Net displacement can be zero while total distance is positive.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "conditions": "Velocity changes sign with equal positive and negative area magnitudes.",
+      "derivation": "S=A₊−A₋=0 but D=A₊+A₋>0.",
+      "example_ref": "math:example:signed-accumulation:out-and-back"
+    },
+    {
+      "claim": "A left sum converges to the affine integral as the partition count grows.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "conditions": "Fixed finite T, initial and rate; uniform partitions.",
+      "derivation": "L_n=S−rT²/(2n), so |L_n−S|=|r|T²/(2n) tends to zero."
+    },
+    {
+      "claim": "For this affine family the midpoint sum is exact.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "conditions": "Uniform intervals and exact arithmetic.",
+      "derivation": "On each interval the midpoint velocity is the mean endpoint velocity, giving the exact trapezoid area."
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the development of this idea and its notation using specialist historical sources before adding attributions.",
+      "Distinguish an early use, later formalization and modern teaching convention; inspect evidence for each."
+    ],
+    "reader_text": "Historical account not yet sourced. These scenarios are constructed examples, not historical anecdotes."
+  },
+  "connections": [
+    {
+      "target": "math:concept:integral-accumulation",
+      "type": "supports",
+      "conditions": "Use compatible domains, units and the stated model assumptions.",
+      "reason": "The positive from-rest triangle is a special case without negative cancellation.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:limit",
+      "type": "supports",
+      "conditions": "Use compatible domains, units and the stated model assumptions.",
+      "reason": "Finite signed sums approach a definite integral as their maximum interval width tends to zero.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:derivative",
+      "type": "supports",
+      "conditions": "Use compatible domains, units and the stated model assumptions.",
+      "reason": "For continuous velocity the derivative of accumulated displacement recovers that velocity.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:signed-accumulation:out-and-back",
+      "title": "A cart returns home",
+      "role": "applied_model",
+      "question": "A cart starts at 2 m/s and slows by 1 m/s each second for 4 s, continuing backward after it stops. How can net motion be zero when it has moved?",
+      "setting": "Original constructed teaching scenario; quantities are stipulated, not measured.",
+      "assumptions": [
+        "Motion follows a single signed straight coordinate measured in metres, with time in seconds.",
+        "Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.",
+        "The initial position is zero; displacement and total distance are calculated separately.",
+        "A finite left-endpoint sum is an approximation; the exact integral follows from the affine velocity law."
+      ],
+      "inputs": {
+        "time": 4,
+        "initial": 2,
+        "rate": -1,
+        "partitions": "8"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v(t)=2−t; v(t)=0 at t=2 s",
+          "reason": "Locate the direction reversal before adding areas."
+        },
+        {
+          "index": 2,
+          "expression": "positive area=½×2×2=2 m; negative magnitude=½×2×2=2 m",
+          "reason": "Read the two velocity–time triangles with separate signs."
+        },
+        {
+          "index": 3,
+          "expression": "net=2−2=0 m; distance=2+2=4 m",
+          "reason": "Subtract signed contributions for displacement; add magnitudes for travel."
+        },
+        {
+          "index": 4,
+          "expression": "Δt=4/8=0.5 s; left sum=1 m; exact integral=0 m",
+          "reason": "Keep the finite approximation visibly distinct from the exact result."
+        }
+      ],
+      "result": {
+        "exact": "net 0 m; distance 4 m",
+        "net_displacement": 0,
+        "distance": 4,
+        "left_sum": 1
+      },
+      "interpretation": "The cart goes 2 m forward and then 2 m backward. A zero signed area means it returns to its start, not that it stayed still.",
+      "independent_check": {
+        "method": "Average velocity and symmetry",
+        "expected": "(v(0)+v(4))/2=(2−2)/2=0, giving net 0; the two congruent triangles each have area 2."
+      },
+      "limits": "The cart is permitted to reverse. A real controller might stop it at zero velocity; that would be a different model.",
+      "preset": {
+        "time": 4,
+        "initial": 2,
+        "rate": -1,
+        "partitions": "8"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Motion follows a single signed straight coordinate measured in metres, with time in seconds.",
+        "Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.",
+        "The initial position is zero; displacement and total distance are calculated separately.",
+        "A finite left-endpoint sum is an approximation; the exact integral follows from the affine velocity law."
+      ]
+    },
+    {
+      "id": "math:example:signed-accumulation:forward",
+      "title": "An accelerating forward cart",
+      "role": "applied_model",
+      "question": "A cart starts at 1 m/s and gains 1 m/s every second for 2 s. What displacement accumulates?",
+      "setting": "Original constructed teaching scenario; quantities are stipulated, not measured.",
+      "assumptions": [
+        "Motion follows a single signed straight coordinate measured in metres, with time in seconds.",
+        "Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.",
+        "The initial position is zero; displacement and total distance are calculated separately.",
+        "A finite left-endpoint sum is an approximation; the exact integral follows from the affine velocity law."
+      ],
+      "inputs": {
+        "time": 2,
+        "initial": 1,
+        "rate": 1,
+        "partitions": "4"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v(2)=1+1×2=3 m/s",
+          "reason": "Determine the final height of the velocity trapezoid."
+        },
+        {
+          "index": 2,
+          "expression": "net=1×2+½×1×2²=4 m",
+          "reason": "Add a rectangle and a triangle."
+        },
+        {
+          "index": 3,
+          "expression": "left sum=0.5×(1+1.5+2+2.5)=3.5 m",
+          "reason": "Use each interval’s left velocity once."
+        }
+      ],
+      "result": {
+        "exact": "net 4 m; distance 4 m",
+        "net_displacement": 4,
+        "distance": 4,
+        "left_sum": 3.5
+      },
+      "interpretation": "All velocities are positive, so net displacement and total distance agree. Four left rectangles underestimate this increasing line.",
+      "independent_check": {
+        "method": "Trapezoid area",
+        "expected": "Average velocity (1+3)/2=2 m/s times 2 s gives 4 m."
+      },
+      "limits": "Positive velocity throughout is what lets the integral equal total distance here.",
+      "preset": {
+        "time": 2,
+        "initial": 1,
+        "rate": 1,
+        "partitions": "4"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Motion follows a single signed straight coordinate measured in metres, with time in seconds.",
+        "Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.",
+        "The initial position is zero; displacement and total distance are calculated separately.",
+        "A finite left-endpoint sum is an approximation; the exact integral follows from the affine velocity law."
+      ]
+    },
+    {
+      "id": "math:example:signed-accumulation:backward",
+      "title": "Steady travel behind the origin",
+      "role": "applied_model",
+      "question": "A cart moves at −2 m/s for 3 s. What do the signed area and total distance mean?",
+      "setting": "Original constructed teaching scenario; quantities are stipulated, not measured.",
+      "assumptions": [
+        "Motion follows a single signed straight coordinate measured in metres, with time in seconds.",
+        "Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.",
+        "The initial position is zero; displacement and total distance are calculated separately.",
+        "A finite left-endpoint sum is an approximation; the exact integral follows from the affine velocity law."
+      ],
+      "inputs": {
+        "time": 3,
+        "initial": -2,
+        "rate": 0,
+        "partitions": "8"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v(t)=−2 m/s",
+          "reason": "The acceleration is zero, so the velocity graph is a horizontal line below zero."
+        },
+        {
+          "index": 2,
+          "expression": "net=−2×3=−6 m",
+          "reason": "Keep the negative direction when accumulating."
+        },
+        {
+          "index": 3,
+          "expression": "distance=|−2|×3=6 m",
+          "reason": "Travel length uses speed, the magnitude of velocity."
+        }
+      ],
+      "result": {
+        "exact": "net −6 m; distance 6 m",
+        "net_displacement": -6,
+        "distance": 6,
+        "left_sum": -6
+      },
+      "interpretation": "The cart ends 6 m behind the origin after travelling 6 m. A negative displacement is a direction, not a negative path length.",
+      "independent_check": {
+        "method": "Eight rectangles",
+        "expected": "Each interval is 3/8 s and contributes −2×3/8=−0.75 m; eight give −6 m exactly."
+      },
+      "limits": "The left sum is exact because velocity is constant, not because every finite partition is automatically exact.",
+      "preset": {
+        "time": 3,
+        "initial": -2,
+        "rate": 0,
+        "partitions": "8"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Motion follows a single signed straight coordinate measured in metres, with time in seconds.",
+        "Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.",
+        "The initial position is zero; displacement and total distance are calculated separately.",
+        "A finite left-endpoint sum is an approximation; the exact integral follows from the affine velocity law."
+      ]
+    },
+    {
+      "id": "math:example:signed-accumulation:reverse-to-home",
+      "title": "A cart first moves backward",
+      "role": "applied_model",
+      "question": "A cart starts at −2 m/s and accelerates forward at 1 m/s² for 4 s. Where does it end?",
+      "setting": "Original constructed teaching scenario; quantities are stipulated, not measured.",
+      "assumptions": [
+        "Motion follows a single signed straight coordinate measured in metres, with time in seconds.",
+        "Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.",
+        "The initial position is zero; displacement and total distance are calculated separately.",
+        "A finite left-endpoint sum is an approximation; the exact integral follows from the affine velocity law."
+      ],
+      "inputs": {
+        "time": 4,
+        "initial": -2,
+        "rate": 1,
+        "partitions": "16"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v(t)=−2+t; zero crossing at t=2 s",
+          "reason": "Identify the initial backward section and the later forward section."
+        },
+        {
+          "index": 2,
+          "expression": "negative magnitude=2 m; positive area=2 m",
+          "reason": "Separate the two congruent triangles by their side of zero."
+        },
+        {
+          "index": 3,
+          "expression": "net=−2+2=0 m; distance=2+2=4 m",
+          "reason": "Signed cancellation returns the cart to zero after real travel."
+        }
+      ],
+      "result": {
+        "exact": "net 0 m; distance 4 m",
+        "net_displacement": 0,
+        "distance": 4
+      },
+      "interpretation": "Changing the sign order changes the path even though the final displacement matches the other out-and-back case.",
+      "independent_check": {
+        "method": "Position values",
+        "expected": "s(t)=−2t+½t² gives s(2)=−2 m and s(4)=0 m; the path length is 2+2=4 m."
+      },
+      "limits": "A final net value alone cannot recover the order or amount of travel; inspect the signed curve.",
+      "preset": {
+        "time": 4,
+        "initial": -2,
+        "rate": 1,
+        "partitions": "16"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Motion follows a single signed straight coordinate measured in metres, with time in seconds.",
+        "Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.",
+        "The initial position is zero; displacement and total distance are calculated separately.",
+        "A finite left-endpoint sum is an approximation; the exact integral follows from the affine velocity law."
+      ]
+    },
+    {
+      "id": "math:example:signed-accumulation:unequal-return",
+      "title": "A shorter return leg",
+      "role": "applied_model",
+      "question": "A cart starts at 4 m/s and accelerates at −2 m/s² for 3 s. Does it get back to its starting point?",
+      "setting": "Original constructed teaching scenario; quantities are stipulated, not measured.",
+      "assumptions": [
+        "Motion follows a single signed straight coordinate measured in metres, with time in seconds.",
+        "Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.",
+        "The initial position is zero; displacement and total distance are calculated separately.",
+        "A finite left-endpoint sum is an approximation; the exact integral follows from the affine velocity law."
+      ],
+      "inputs": {
+        "time": 3,
+        "initial": 4,
+        "rate": -2,
+        "partitions": "32"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v(t)=4−2t=0 at t=2 s; v(3)=−2 m/s",
+          "reason": "The reversal occurs before the interval ends."
+        },
+        {
+          "index": 2,
+          "expression": "positive area=½×2×4=4 m; negative magnitude=½×1×2=1 m",
+          "reason": "The forward and backward triangles have different sizes."
+        },
+        {
+          "index": 3,
+          "expression": "net=4−1=3 m; distance=4+1=5 m",
+          "reason": "Signed cancellation is incomplete, leaving a positive displacement."
+        }
+      ],
+      "result": {
+        "exact": "net 3 m; distance 5 m",
+        "net_displacement": 3,
+        "distance": 5
+      },
+      "interpretation": "The cart finishes 3 m ahead of the origin after travelling 5 m. More rectangles refine the approximation but do not change this exact answer.",
+      "independent_check": {
+        "method": "Endpoint average",
+        "expected": "Average velocity (4+(−2))/2=1 m/s times 3 s gives net 3 m; splitting at t=2 gives distance 5 m."
+      },
+      "limits": "The endpoint-average shortcut gives the exact integral for an affine velocity, but total distance still requires the sign split.",
+      "preset": {
+        "time": 3,
+        "initial": 4,
+        "rate": -2,
+        "partitions": "32"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Motion follows a single signed straight coordinate measured in metres, with time in seconds.",
+        "Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.",
+        "The initial position is zero; displacement and total distance are calculated separately.",
+        "A finite left-endpoint sum is an approximation; the exact integral follows from the affine velocity law."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "signed-accumulation-visual-model",
+    "renderer_id": "signed-accumulation-visual-model",
+    "renderer_version": "1.0.0",
+    "model_id": "signed-accumulation-visual-model",
+    "model_revision": "1.0.0",
+    "expression_id": "ast:signed-accumulation:expression",
+    "interaction_status": "implemented",
+    "description": "Signed rectangles and two continuous shaded regions feed the same net displacement on a cart track; an independent distance label preserves travel that cancels in the net.",
+    "controls": [
+      {
+        "id": "time",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "slider_min": 0,
+        "slider_max": 6,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its domain message; do not clamp it or retain a stale result."
+      },
+      {
+        "id": "initial",
+        "type": "number",
+        "default": 2,
+        "min": -4,
+        "max": 4,
+        "slider_min": -4,
+        "slider_max": 4,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its domain message; do not clamp it or retain a stale result."
+      },
+      {
+        "id": "rate",
+        "type": "number",
+        "default": -1,
+        "min": -2,
+        "max": 2,
+        "slider_min": -2,
+        "slider_max": 2,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its domain message; do not clamp it or retain a stale result."
+      },
+      {
+        "id": "partitions",
+        "type": "enum",
+        "default": "8",
+        "values": [
+          "4",
+          "8",
+          "16",
+          "32"
+        ]
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "time": 4,
+          "initial": 2,
+          "rate": -1,
+          "partitions": "8"
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "time": 0,
+          "initial": 4,
+          "rate": -2,
+          "partitions": "4"
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "time": 6,
+          "initial": 4,
+          "rate": 2,
+          "partitions": "32"
+        },
+        "output": 60
+      },
+      {
+        "input": {
+          "time": 6,
+          "initial": -4,
+          "rate": -2,
+          "partitions": "16"
+        },
+        "output": -60
+      },
+      {
+        "input": {
+          "time": 3,
+          "initial": -2,
+          "rate": 0,
+          "partitions": "8"
+        },
+        "output": -6
+      },
+      {
+        "input": {
+          "time": 2,
+          "initial": 1,
+          "rate": 1,
+          "partitions": "4"
+        },
+        "output": 4
+      },
+      {
+        "input": {
+          "time": 3,
+          "initial": 4,
+          "rate": -2,
+          "partitions": "32"
+        },
+        "output": 3
+      },
+      {
+        "input": {
+          "time": 4,
+          "initial": -2,
+          "rate": 1,
+          "partitions": "16"
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "time": -1,
+          "initial": 2,
+          "rate": -1,
+          "partitions": "8"
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "time": 4,
+          "initial": 2,
+          "rate": -2.1,
+          "partitions": "8"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "n=Number(partitions); step=time/n; finalVelocity=initial+rate*time; output=netDisplacement=initial*time+0.5*rate*time*time. Integrate positive and negative pieces separately, splitting at t=−initial/rate only for an interior zero crossing. positiveArea>=0; negativeArea>=0; signedNegativeArea=−negativeArea; distance=positiveArea+negativeArea; netDisplacement=positiveArea−negativeArea. leftSum=netDisplacement−0.5*rate*time*time/n; rightSum=netDisplacement+0.5*rate*time*time/n; midpointSum=netDisplacement for this affine family. At time=0 all sums and areas are zero; at rate=0 use a constant line.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The velocity rule is affine and continuous throughout the integration interval.",
+      "Time is nonnegative; reversing direction is permitted and a zero crossing must split magnitude areas.",
+      "Net displacement equals positiveArea−negativeArea; total distance equals positiveArea+negativeArea.",
+      "Partition count is an allowed integer choice; changing it changes the approximation, not the underlying motion.",
+      "For time=0, all areas and finite sums are zero; for rate=0 use constant velocity without division by the rate."
+    ],
+    "limits": [
+      "The analytic law is constant acceleration on one axis; real friction, controller stops and acceleration changes require another module.",
+      "Finite rectangle count controls an approximation. It never changes the exact integral or the cart’s declared motion.",
+      "The midpoint sum is exact here because velocity is affine; that is not a general guarantee for curved velocity.",
+      "NegativeArea is stored as a positive magnitude; signedNegativeArea carries its negative sign."
+    ],
+    "fallback": "Pause motion and read the same labeled diagram, substitutions and original worked steps. The graph and exact numeric result remain available.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "If net displacement is zero, did the cart stay still?",
+      "answer": "Not necessarily. Equal forward and backward travel cancel in displacement but add to distance."
+    },
+    {
+      "prompt": "Does choosing 32 rectangles change the cart’s exact final position?",
+      "answer": "No. It refines the finite approximation while the same velocity rule fixes the exact integral."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "signed geometry",
+      "description": "Continuous regions above and below zero encode opposite contributions; finite left rectangles remain visually separate from the exact region."
+    },
+    {
+      "kind": "motion",
+      "description": "A cart follows exact integrated position, with a separate distance readout for accumulated travel."
+    },
+    {
+      "kind": "graph",
+      "description": "The velocity–time graph shows rates and signed areas; the net-displacement graph shows the accumulated result as time changes."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Out-and-back cart motion",
+      "mapping": "Integrate signed velocity to find the ending coordinate while separately integrating speed for travel length.",
+      "limitations": "Motion is one-dimensional with constant acceleration; a real stop controller is a different rule.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:signed-accumulation:out-and-back"
+    },
+    {
+      "context": "Backward conveyor travel",
+      "mapping": "A constant negative velocity accumulates negative displacement while total distance stays positive.",
+      "limitations": "The sign depends on the chosen axis; the path length is independent of that direction convention.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:signed-accumulation:backward"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:definite-integral",
+    "source:openstax:net-change"
+  ],
+  "review_gaps": [
+    "Independent mathematical and unit review is pending.",
+    "Historical development and notation are not yet researched.",
+    "The bounded visualization is an illustration, not a general expression engine or proof."
+  ],
+  "change_log": [
+    "0.1.0-draft: five original worked scenarios, explicit domains and failures, bounded model fixtures and shared modular playground bindings."
+  ]
+}

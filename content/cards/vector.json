@@ -1,0 +1,671 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:vector",
+  "slug": "vector",
+  "type": "concept",
+  "title": "Vectors",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-26T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numerical fixtures are not independent mathematical review"
+  },
+  "source_policy": "Definition-level references support the mathematical vocabulary. All stories and worked quantities are original constructed teaching scenarios, not measurements or historical events. Historical priority and notation claims require separate claim-level evidence before publication.",
+  "aliases": [
+    "component vector",
+    "Euclidean norm",
+    "magnitude and direction"
+  ],
+  "branches": [
+    "linear-algebra",
+    "geometry"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Describe displacement with signed components and separate direction from length.",
+  "meaning": "A plane vector has two ordered components. Its Euclidean norm is the straight-line magnitude. Many routes can share one net vector; the zero vector has magnitude zero but no direction.",
+  "prerequisites": {
+    "required": [
+      "math:concept:variable"
+    ],
+    "helpful": [
+      "math:concept:pythagorean-theorem"
+    ],
+    "depth": [
+      "math:concept:vector-space"
+    ]
+  },
+  "definition": {
+    "setting": "Finite real two-dimensional Euclidean coordinates.",
+    "formal_latex": "v=(x,y)\\in\\mathbb R^2,\\quad\\|v\\|=\\sqrt{x^2+y^2}.",
+    "signature": {
+      "x": "signed horizontal component in [-5,5]",
+      "y": "signed vertical component in [-5,5]",
+      "output": "nonnegative Euclidean norm",
+      "angleDegrees": "atan2(y,x) in degrees for a nonzero vector; null at zero"
+    },
+    "conditions": [
+      "Components share compatible units and an orthonormal frame.",
+      "Norm is nonnegative and is zero exactly when both components are zero.",
+      "A norm alone does not determine the vector direction."
+    ],
+    "domain_notes": "The live specimen has two real components in [-5,5] and the Euclidean norm. General vectors can belong to higher-dimensional or abstract spaces; routes and other metrics are not modeled.",
+    "proof_status": "Definition-level reference; worked properties are author-derived for stated assumptions. Independent mathematical review pending.",
+    "source_refs": [
+      "source:openstax:vectors-plane"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Vectors in real two-dimensional coordinates",
+    "expression_latex": "v=(x,y)\\in\\mathbb R^2,\\quad\\|v\\|=\\sqrt{x^2+y^2}.",
+    "formation_rule": "output=norm=hypot(x,y); xSquared=x*x; ySquared=y*y; angleDegrees=null at x=y=0, otherwise atan2(y,x) in degrees.",
+    "precedence": "Multiply corresponding entries before adding or subtracting. Ordered coordinates and matrix entries retain their stated positions.",
+    "symbols": [
+      {
+        "token": "x",
+        "role": "signed horizontal component",
+        "type": "Declared scalar, ordered component or derived quantity"
+      },
+      {
+        "token": "y",
+        "role": "signed vertical component",
+        "type": "Declared scalar, ordered component or derived quantity"
+      },
+      {
+        "token": "‖v‖",
+        "role": "Euclidean magnitude",
+        "type": "Declared scalar, ordered component or derived quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:vector:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:x",
+          "kind": "variable",
+          "symbol": "x",
+          "type": "Finite real control",
+          "scope_ref": "scope:vector:model"
+        },
+        {
+          "id": "n:y",
+          "kind": "variable",
+          "symbol": "y",
+          "type": "Finite real control",
+          "scope_ref": "scope:vector:model"
+        },
+        {
+          "id": "n:x2",
+          "kind": "multiply",
+          "arguments": [
+            "n:x",
+            "n:x"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:y2",
+          "kind": "multiply",
+          "arguments": [
+            "n:y",
+            "n:y"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:sum",
+          "kind": "add",
+          "arguments": [
+            "n:x2",
+            "n:y2"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:sqrt",
+          "kind": "functionRef",
+          "ref": "Nonnegative real square root",
+          "type": "Nonnegative real to nonnegative real"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "function": "n:sqrt",
+          "argument": "n:sum",
+          "type": "Nonnegative Euclidean norm"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:vector:model",
+          "kind": "modelExpression",
+          "free_variables": [
+            "x",
+            "y"
+          ],
+          "domain_condition": "output=norm=hypot(x,y); xSquared=x*x; ySquared=y*y; angleDegrees=null at x=y=0, otherwise atan2(y,x) in degrees."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Treat (3,4) as the scalar 3+4",
+        "status": "type_error",
+        "reason": "An ordered pair records two components; their sum is a different scalar."
+      },
+      {
+        "input": "Write ||(-3,-4)||=-5",
+        "status": "sign_error",
+        "reason": "Euclidean magnitude is nonnegative; the signs belong to the arrow components."
+      },
+      {
+        "input": "Assign the zero vector an eastward direction",
+        "status": "undefined_direction",
+        "reason": "A vector with zero length has no preferred direction."
+      }
+    ],
+    "ast_coverage": "The tree squares the two real components, adds them, and takes the nonnegative square root. The auxiliary direction angle is a separate named output. This is structural metadata, not an arbitrary-formula parser or general proof.",
+    "output_symbol_bindings": {
+      "‖v‖": "output",
+      "norm": "norm"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Negating a vector preserves its norm.",
+      "conditions": "Euclidean norm in the same orthonormal frame.",
+      "derivation": "(-x)²+(-y)²=x²+y².",
+      "status": "author-derived for stated conditions; independent review pending",
+      "example_ref": "math:example:vector:return"
+    },
+    {
+      "claim": "For real k, ||kv||=|k| ||v||.",
+      "conditions": "Real scalar and Euclidean norm.",
+      "derivation": "sqrt(k²(x²+y²))=|k|sqrt(x²+y²).",
+      "status": "author-derived for stated conditions; independent review pending",
+      "example_ref": "math:example:vector:diagonal"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the development of this idea and its notation using specialist historical sources before adding attributions.",
+      "Distinguish an early use, later formalization and modern teaching convention; inspect evidence for each."
+    ],
+    "reader_text": "Historical account not yet sourced. These scenarios are constructed examples, not historical anecdotes."
+  },
+  "connections": [
+    {
+      "target": "math:concept:pythagorean-theorem",
+      "type": "supports",
+      "conditions": "Orthonormal axes and compatible units.",
+      "reason": "The Euclidean norm sums perpendicular component squares.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:inner-product",
+      "type": "supports",
+      "conditions": "Standard real Euclidean dot product.",
+      "reason": "A vector dotted with itself gives its squared norm.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:matrix-linear-map",
+      "type": "supports",
+      "conditions": "Matrix and vector dimensions agree.",
+      "reason": "A matrix maps an input vector to an output vector.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:vector:robot",
+      "title": "A robot chooses the straight route",
+      "role": "applied_model",
+      "question": "A robot needs a net move of 3 m east and 4 m north. What is the straight-line distance?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "Perpendicular equal-scale coordinate axes share the same length unit.",
+        "The arrow records net displacement; components are signed.",
+        "Straight-line magnitude is distinct from distance traveled along a route."
+      ],
+      "inputs": {
+        "x": 3,
+        "y": 4
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v=(3,4) m",
+          "reason": "Record both signed components."
+        },
+        {
+          "index": 2,
+          "expression": "||v||=sqrt(3²+4²)=sqrt(25)=5 m",
+          "reason": "Use perpendicular components to obtain the Euclidean norm."
+        }
+      ],
+      "result": {
+        "exact": "5 m"
+      },
+      "interpretation": "The arrow joins start to destination. Traveling both floor edges instead would cover 7 m.",
+      "independent_check": {
+        "method": "Square check",
+        "expected": "A length of 5 m has squared length 25 m², agreeing with 9+16."
+      },
+      "limits": "Obstacles and real robot routes are excluded from this unobstructed grid model.",
+      "preset": {
+        "x": 3,
+        "y": 4
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Perpendicular equal-scale coordinate axes share the same length unit.",
+        "The arrow records net displacement; components are signed.",
+        "Straight-line magnitude is distinct from distance traveled along a route."
+      ]
+    },
+    {
+      "id": "math:example:vector:return",
+      "title": "A return move keeps its length",
+      "role": "applied_model",
+      "question": "A cart moves 3 m west and 4 m south. What is its displacement magnitude?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "Perpendicular equal-scale coordinate axes share the same length unit.",
+        "The arrow records net displacement; components are signed.",
+        "Straight-line magnitude is distinct from distance traveled along a route."
+      ],
+      "inputs": {
+        "x": -3,
+        "y": -4
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v=(-3,-4) m",
+          "reason": "Negative components reverse the corresponding directions."
+        },
+        {
+          "index": 2,
+          "expression": "||v||=sqrt((-3)²+(-4)²)=5 m",
+          "reason": "Component signs affect direction while the squared sum gives length."
+        }
+      ],
+      "result": {
+        "exact": "5 m"
+      },
+      "interpretation": "The southwest arrow has the same magnitude as its reversed northeast arrow.",
+      "independent_check": {
+        "method": "Negation check",
+        "expected": "The component-square sum is unchanged when both signs reverse."
+      },
+      "limits": "Magnitude alone cannot describe the destination or direction.",
+      "preset": {
+        "x": -3,
+        "y": -4
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Perpendicular equal-scale coordinate axes share the same length unit.",
+        "The arrow records net displacement; components are signed.",
+        "Straight-line magnitude is distinct from distance traveled along a route."
+      ]
+    },
+    {
+      "id": "math:example:vector:axis",
+      "title": "A single-axis camera move",
+      "role": "applied_model",
+      "question": "A drawing camera pans 5 units left with no vertical shift. How long is the move?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "Perpendicular equal-scale coordinate axes share the same length unit.",
+        "The arrow records net displacement; components are signed.",
+        "Straight-line magnitude is distinct from distance traveled along a route."
+      ],
+      "inputs": {
+        "x": -5,
+        "y": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v=(-5,0)",
+          "reason": "Zero vertical component means no vertical change."
+        },
+        {
+          "index": 2,
+          "expression": "||v||=sqrt(25+0)=5",
+          "reason": "A one-axis magnitude is the absolute nonzero component."
+        }
+      ],
+      "result": {
+        "exact": "5 coordinate units"
+      },
+      "interpretation": "Leftward motion has a negative coordinate but not a negative length.",
+      "independent_check": {
+        "method": "Absolute-value check",
+        "expected": "The nonzero component has absolute value |-5|=5."
+      },
+      "limits": "A coordinate scale is needed before the drawing units describe metres.",
+      "preset": {
+        "x": -5,
+        "y": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Perpendicular equal-scale coordinate axes share the same length unit.",
+        "The arrow records net displacement; components are signed.",
+        "Straight-line magnitude is distinct from distance traveled along a route."
+      ]
+    },
+    {
+      "id": "math:example:vector:diagonal",
+      "title": "A fractional marker adjustment",
+      "role": "applied_model",
+      "question": "A marker moves 1.5 mm right and 2 mm up. What is its net straight adjustment?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "Perpendicular equal-scale coordinate axes share the same length unit.",
+        "The arrow records net displacement; components are signed.",
+        "Straight-line magnitude is distinct from distance traveled along a route."
+      ],
+      "inputs": {
+        "x": 1.5,
+        "y": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "||v||²=1.5²+2²=6.25 mm²",
+          "reason": "The same metric applies to fractional components."
+        },
+        {
+          "index": 2,
+          "expression": "||v||=sqrt(6.25)=2.5 mm",
+          "reason": "Take the nonnegative square root."
+        }
+      ],
+      "result": {
+        "exact": "2.5 mm"
+      },
+      "interpretation": "Fractional components change the arrow continuously without rounding to grid steps.",
+      "independent_check": {
+        "method": "Scale check",
+        "expected": "This vector is half of (3,4), so its magnitude is half of 5."
+      },
+      "limits": "The ideal model excludes printer resolution and mechanical tolerance.",
+      "preset": {
+        "x": 1.5,
+        "y": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Perpendicular equal-scale coordinate axes share the same length unit.",
+        "The arrow records net displacement; components are signed.",
+        "Straight-line magnitude is distinct from distance traveled along a route."
+      ]
+    },
+    {
+      "id": "math:example:vector:zero",
+      "title": "No movement has no direction",
+      "role": "applied_model",
+      "question": "Both requested component moves are zero. What are the magnitude and direction?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "Perpendicular equal-scale coordinate axes share the same length unit.",
+        "The arrow records net displacement; components are signed.",
+        "Straight-line magnitude is distinct from distance traveled along a route."
+      ],
+      "inputs": {
+        "x": 0,
+        "y": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v=(0,0); ||v||=0",
+          "reason": "Start and destination coincide."
+        },
+        {
+          "index": 2,
+          "expression": "direction angle undefined",
+          "reason": "A zero-length vector has no preferred direction."
+        }
+      ],
+      "result": {
+        "exact": "Magnitude 0; direction undefined"
+      },
+      "interpretation": "Displaying an angle of zero would incorrectly choose the positive horizontal direction.",
+      "independent_check": {
+        "method": "Length check",
+        "expected": "The only nonnegative length whose square is 0²+0² is zero."
+      },
+      "limits": "The zero vector is valid; only its direction and normalization are undefined.",
+      "preset": {
+        "x": 0,
+        "y": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Perpendicular equal-scale coordinate axes share the same length unit.",
+        "The arrow records net displacement; components are signed.",
+        "Straight-line magnitude is distinct from distance traveled along a route."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "vector-visual-model",
+    "renderer_id": "vector-visual-model",
+    "renderer_version": "1.0.0",
+    "model_id": "vector-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:vector:expression",
+    "interaction_status": "implemented",
+    "description": "A component arrow follows x and y on a fixed scale; its component triangle leads to the Euclidean magnitude. The Graph follows magnitude as one component varies.",
+    "controls": [
+      {
+        "id": "x",
+        "type": "number",
+        "default": 3,
+        "min": -5,
+        "max": 5,
+        "slider_min": -5,
+        "slider_max": 5,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its domain message; do not clamp or retain a stale result."
+      },
+      {
+        "id": "y",
+        "type": "number",
+        "default": 4,
+        "min": -5,
+        "max": 5,
+        "slider_min": -5,
+        "slider_max": 5,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its domain message; do not clamp or retain a stale result."
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "x": 3,
+          "y": 4
+        },
+        "output": 5
+      },
+      {
+        "input": {
+          "x": 0,
+          "y": 0
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "x": -3,
+          "y": -4
+        },
+        "output": 5
+      },
+      {
+        "input": {
+          "x": -5,
+          "y": 0
+        },
+        "output": 5
+      },
+      {
+        "input": {
+          "x": 5,
+          "y": 5
+        },
+        "output": 7.0710678118654755
+      },
+      {
+        "input": {
+          "x": 1.5,
+          "y": 2
+        },
+        "output": 2.5
+      },
+      {
+        "input": {
+          "x": 1e-08,
+          "y": 0
+        },
+        "output": 1e-08
+      },
+      {
+        "input": {
+          "x": 4,
+          "y": 3
+        },
+        "output": 5
+      },
+      {
+        "input": {
+          "x": 5.1,
+          "y": 4
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "x": 3,
+          "y": -5.1
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "output=norm=hypot(x,y); xSquared=x*x; ySquared=y*y; angleDegrees=null at x=y=0, otherwise atan2(y,x) in degrees.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Components share compatible units and an orthonormal frame.",
+      "Norm is nonnegative and is zero exactly when both components are zero.",
+      "A norm alone does not determine the vector direction."
+    ],
+    "limits": [
+      "Bounded two-dimensional Euclidean vectors only.",
+      "Norm is not route length; stories declare units and physical assumptions.",
+      "The zero vector has no direction angle."
+    ],
+    "fallback": "Pause and read the labeled scene, current values, evaluated samples and original worked steps. A distinct Graph view remains available.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Does magnitude 5 determine one vector?",
+      "answer": "No. Many vectors, including (3,4) and (-3,-4), have magnitude 5."
+    },
+    {
+      "prompt": "Is the zero vector invalid?",
+      "answer": "No. Its components and magnitude are valid; its direction is undefined."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "A component arrow follows x and y on a fixed scale; its component triangle leads to the Euclidean magnitude. The Graph follows magnitude as one component varies."
+    },
+    {
+      "kind": "graph",
+      "description": "A numeric slice of the primary output as one declared input varies; the other controls stay fixed."
+    },
+    {
+      "kind": "substitution",
+      "description": "The same current values appear in the substituted calculation and in the scene."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Floor-robot displacement",
+      "mapping": "Signed east and north requests define the net arrow; its magnitude is the unobstructed straight-line length.",
+      "limitations": "Stipulated grid; obstacles and route planning excluded.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:vector:robot"
+    },
+    {
+      "context": "Print-marker adjustment",
+      "mapping": "Two perpendicular millimetre components define a net adjustment.",
+      "limitations": "Equipment tolerance is outside the ideal model.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:vector:diagonal"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:vectors-plane"
+  ],
+  "review_gaps": [
+    "Independent mathematical and unit review is pending.",
+    "Historical development and notation are not yet researched.",
+    "The bounded visualization is an illustration, not a general expression engine or proof."
+  ],
+  "change_log": [
+    "0.1.0-draft: five original scenarios, bounded two-dimensional fixtures, distinct Geometry/Graph views and linked modular story."
+  ]
+}

@@ -1,0 +1,270 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:linear-combination:reverse", "id": "math:example:linear-combination:reverse", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:linear-combination", "example_id": "math:example:linear-combination:reverse", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "3c79aa673327310b25ea05763896cb3f48bf3270e5223bee391b2efd868c8e3b"}, "purpose": "Build a new displacement from weighted copies of two vectors.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "3c79aa673327310b25ea05763896cb3f48bf3270e5223bee391b2efd868c8e3b", "status": "draft", "title": "Reverse one stored move", "topics": ["mathematics", "linear-algebra", "geometry", "weighted vector sum", "vector combination", "span of two vectors"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Reverse one stored move
+
+Parent card: math:concept:linear-combination; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:linear-combination; revision 0.1.0-draft. Setting: Real vector spaces with an explicit two-dimensional coordinate model. Expression: $w=ru+sv=(ru_x+sv_x,\;ru_y+sv_y),\quad r,s\in\mathbb{R}.$. Conditions required for a defined value (a case may test their violation): Vectors have the same coordinate dimension and compatible physical units; coefficients r and s are real, dimensionless scalars. Scale both components of each vector, then add corresponding components. The zero vector, zero coefficients and dependent vectors are valid inputs; no independence assumption is needed to form a linear combination. The formal span uses all real coefficients. Bounded sliders display only part of that span. Scope: The formal definition extends to finite sums of vectors in any real vector space. The live model combines exactly two real plane vectors, each component in [-3,3], with coefficients in [-2,2]. This bounded coefficient region is not the entire span and is not a vector space. Negative coefficients reverse directions. Physical vector components must use compatible units; the shared model itself uses abstract coordinates. No target-solving or arbitrary number of vectors is implemented.
+
+Case unit math:example:linear-combination:reverse. Setting: Original constructed teaching scenario; values and rules are stipulated, not measured. Inputs: {"r": -1, "s": 0, "ux": 2, "uy": 1, "vx": -1, "vy": 2}. Result: {"exact": "Displacement (-2,-1) m"}. Limits: Undoing a displacement is an ideal geometric statement, not a collision-free motion plan.
+
+## Complete worked case
+
+- id: math:example:linear-combination:reverse
+- title: Reverse one stored move
+- role: applied_model
+- question: How can the rig undo u=(2,1) m while ignoring its second move?
+- setting: Original constructed teaching scenario; values and rules are stipulated, not measured.
+- assumptions:
+  - The vectors are displacements on one fixed coordinate grid; one grid unit represents one metre.
+  - The two coefficients are dimensionless multipliers and may be negative or zero.
+  - Displacements add ideally; obstacles, travel time and a routed path length are not modeled.
+- inputs:
+  - ux: 2
+  - uy: 1
+  - vx: -1
+  - vy: 2
+  - r: -1
+  - s: 0
+- steps:
+  - Item:
+    - index: 1
+    - expression: (-1)u=(-2,-1); 0v=(0,0)
+    - reason: A negative scalar reverses direction; zero removes a contribution.
+  - Item:
+    - index: 2
+    - expression: w=(-2,-1) m
+    - reason: The result is the opposite of u.
+- result:
+  - exact: Displacement (-2,-1) m
+- interpretation: Negative coefficients have a geometric role and are not probabilities.
+- independent check:
+  - method: Cancellation check
+  - expected: u+w=(2,1)+(-2,-1)=(0,0), so the original displacement is undone.
+- limits: Undoing a displacement is an ideal geometric statement, not a collision-free motion plan.
+- preset:
+  - ux: 2
+  - uy: 1
+  - vx: -1
+  - vy: 2
+  - r: -1
+  - s: 0
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - The vectors are displacements on one fixed coordinate grid; one grid unit represents one metre.
+  - The two coefficients are dimensionless multipliers and may be negative or zero.
+  - Displacements add ideally; obstacles, travel time and a routed path length are not modeled.
+
+## Written exploration recipe
+
+- component id: linear-combination-visual-model
+- renderer id: linear-combination-visual-model
+- renderer version: 1.0.0
+- model id: linear-combination-visual-model
+- model revision: 1
+- expression id: ast:linear-combination:expression
+- interaction status: implemented
+- description: Scale two input arrows, add them head-to-tail and show both components of the resulting vector. The Graph varies coefficient r with every other setting fixed.
+- controls:
+  - Item:
+    - id: ux
+    - type: number
+    - default: 2
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: uy
+    - type: number
+    - default: 1
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: vx
+    - type: number
+    - default: -1
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: vy
+    - type: number
+    - default: 2
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: r
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: s
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+- expected cases:
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - vx: -1
+      - vy: 2
+      - r: 1
+      - s: 1
+    - output: 1
+  - Item:
+    - input:
+      - ux: 1
+      - uy: 0
+      - vx: 0
+      - vy: 1
+      - r: 2
+      - s: -2
+    - output: 2
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - vx: -1
+      - vy: 2
+      - r: -1
+      - s: 0
+    - output: -2
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - vx: 2
+      - vy: 1
+      - r: 1
+      - s: -1
+    - output: 0
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 0
+      - vx: 0
+      - vy: 2
+      - r: 0.5
+      - s: 1.5
+    - output: 1.0
+  - Item:
+    - input:
+      - ux: 1
+      - uy: 1
+      - vx: 2
+      - vy: 2
+      - r: 1
+      - s: 0.5
+    - output: 2.0
+  - Item:
+    - input:
+      - ux: 0
+      - uy: 0
+      - vx: 0
+      - vy: 0
+      - r: 2
+      - s: -2
+    - output: 0
+  - Item:
+    - input:
+      - ux: 3
+      - uy: -3
+      - vx: -3
+      - vy: 3
+      - r: 2
+      - s: -2
+    - output: 12
+  - Item:
+    - input:
+      - ux: 1
+      - uy: -2
+      - vx: 2
+      - vy: 1
+      - r: -0.5
+      - s: 0.25
+    - output: 0.0
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - vx: -1
+      - vy: 2
+      - r: 0
+      - s: 0
+    - output: 0
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - vx: -1
+      - vy: 2
+      - r: 2.1
+      - s: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - vx: -1
+      - vy: 3.1
+      - r: 1
+      - s: 1
+    - status: invalid_parameters
+- compute: output=combinedX=r*ux+s*vx; combinedY=r*uy+s*vy; firstX=r*ux; firstY=r*uy; secondX=s*vx; secondY=s*vy; norm=hypot(combinedX,combinedY); determinant=ux*vy-uy*vx.
+- numeric tolerance: 1e-10
+- invariants:
+  - Vectors have the same coordinate dimension and compatible physical units; coefficients r and s are real, dimensionless scalars.
+  - Scale both components of each vector, then add corresponding components.
+  - The zero vector, zero coefficients and dependent vectors are valid inputs; no independence assumption is needed to form a linear combination.
+  - The formal span uses all real coefficients. Bounded sliders display only part of that span.
+- limits:
+  - Exactly two real plane vectors; bounded components and weights.
+  - The formal span allows every real coefficient, beyond the displayed box.
+  - combinedX is the primary scalar output; the full vector is (combinedX,combinedY).
+- fallback: Pause and read the labeled scene, current values, evaluated samples and original worked steps. A distinct Graph view remains available.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openstax:vectors-plane. [Calculus Volume 3, 2.1 Vectors in the Plane](https://openstax.org/books/calculus-volume-3/pages/2-1-vectors-in-the-plane). Locator: Plane components, Euclidean magnitude, scalar multiplication and the zero vector. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports vocabulary and conditions, not historical priority or independent review of the original scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.
+
+- Source ID: source:gatech:spans. [Georgia Tech Interactive Linear Algebra, 2.2 Vector Equations and Spans](https://textbooks.math.gatech.edu/ila/spans.html). Locator: Subsection 2.2.1 Vector Equations; Subsection 2.2.2 Spans, the span definition and geometric span descriptions. Verification: Definition-level mathematics inspected 2026-10-26 on the official university textbook page. Supports definitions and conditions, not historical priority, independent review or the original constructed scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.

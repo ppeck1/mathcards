@@ -1,0 +1,610 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:vector-rotation",
+  "slug": "vector-rotation",
+  "type": "concept",
+  "title": "Vectors & rotation",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-23T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived; independent review pending",
+    "history": "source gap; no priority assertions",
+    "interaction": "implemented; numerical fixtures are not independent mathematical review"
+  },
+  "source_policy": "Definition-level references support the mathematics. Applications and stories are original constructed scenarios, not measurements or historical events. Historical claims require claim-level sources before publication.",
+  "aliases": [
+    "polar to Cartesian",
+    "vector components"
+  ],
+  "branches": [
+    "geometry",
+    "trigonometry",
+    "linear-algebra"
+  ],
+  "expressive_job": [
+    "model",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Turn a planar vector and follow its horizontal and vertical projections.",
+  "meaning": "A fixed-length arm sweeps around a circle while its two signed components stretch and reverse direction.",
+  "prerequisites": {
+    "required": [
+      "math:concept:variable"
+    ],
+    "helpful": [
+      "math:concept:function"
+    ],
+    "depth": [
+      "math:concept:model-assumption"
+    ]
+  },
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the concept and notation with specialist sources before adding historical attribution."
+    ],
+    "reader_text": "Historical account not yet sourced. Everyday scenarios are constructed examples, not historical anecdotes."
+  },
+  "connections": [],
+  "examples": [
+    {
+      "id": "math:example:vector-rotation:boom",
+      "title": "Position a rotating display arm",
+      "role": "applied_model",
+      "question": "A rigid 2 m display arm points 60° counterclockwise from the positive horizontal. Where is its tip?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use an orthonormal two-dimensional Cartesian coordinate system.",
+        "The angle is measured counterclockwise from positive x in degrees.",
+        "The radius is positive; rotation preserves distance from the origin."
+      ],
+      "inputs": {
+        "angle": 60,
+        "radius": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "θ=60°×π/180=π/3",
+          "reason": "Convert the control angle to radians for trig evaluation."
+        },
+        {
+          "index": 2,
+          "expression": "x=2cos(π/3)=1 m; y=2sin(π/3)=√3 m",
+          "reason": "Project the fixed arm onto each axis."
+        }
+      ],
+      "result": {
+        "exact": "(1,√3)m ≈(1,1.73205)m"
+      },
+      "interpretation": "Rotation changes the projections while preserving the arm length.",
+      "independent_check": {
+        "method": "Check the squared distance.",
+        "expected": "1²+(√3)²=4=2²."
+      },
+      "limits": "A planar rigid arm is assumed; joint constraints, load and thickness are excluded.",
+      "preset": {
+        "angle": 60,
+        "radius": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use an orthonormal two-dimensional Cartesian coordinate system.",
+        "The angle is measured counterclockwise from positive x in degrees.",
+        "The radius is positive; rotation preserves distance from the origin."
+      ]
+    },
+    {
+      "id": "math:example:vector-rotation:vertical",
+      "title": "Point straight up",
+      "role": "boundary",
+      "question": "What are the coordinates at 90° with radius 2?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use an orthonormal two-dimensional Cartesian coordinate system.",
+        "The angle is measured counterclockwise from positive x in degrees.",
+        "The radius is positive; rotation preserves distance from the origin."
+      ],
+      "inputs": {
+        "angle": 90,
+        "radius": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "cos 90°=0; sin 90°=1",
+          "reason": "Use the vertical direction."
+        },
+        {
+          "index": 2,
+          "expression": "x=0 m; y=2 m",
+          "reason": "The entire length projects vertically."
+        }
+      ],
+      "result": {
+        "exact": "(0,2)m"
+      },
+      "interpretation": "The x-component is zero even though the vector is not zero.",
+      "independent_check": {
+        "method": "Inspect a vertical segment from the origin.",
+        "expected": "It has zero horizontal displacement and length 2 m."
+      },
+      "limits": "Numerical cosine ofπ/2 may produce a tiny residue around zero.",
+      "preset": {
+        "angle": 90,
+        "radius": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use an orthonormal two-dimensional Cartesian coordinate system.",
+        "The angle is measured counterclockwise from positive x in degrees.",
+        "The radius is positive; rotation preserves distance from the origin."
+      ]
+    },
+    {
+      "id": "math:example:vector-rotation:left",
+      "title": "Turn to the left",
+      "role": "structural",
+      "question": "What is the horizontal component at 180°?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use an orthonormal two-dimensional Cartesian coordinate system.",
+        "The angle is measured counterclockwise from positive x in degrees.",
+        "The radius is positive; rotation preserves distance from the origin."
+      ],
+      "inputs": {
+        "angle": 180,
+        "radius": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "cos 180°=−1; sin 180°=0",
+          "reason": "The direction is opposite the positive x-axis."
+        },
+        {
+          "index": 2,
+          "expression": "x=−2 m; y=0 m",
+          "reason": "A signed component distinguishes left from right."
+        }
+      ],
+      "result": {
+        "exact": "(−2,0)m"
+      },
+      "interpretation": "A negative component indicates direction; the radius remains positive.",
+      "independent_check": {
+        "method": "Measure signed displacement.",
+        "expected": "Two meters left of the origin has x=−2."
+      },
+      "limits": "The reported primary output is x; y is shown as the second coordinate.",
+      "preset": {
+        "angle": 180,
+        "radius": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use an orthonormal two-dimensional Cartesian coordinate system.",
+        "The angle is measured counterclockwise from positive x in degrees.",
+        "The radius is positive; rotation preserves distance from the origin."
+      ]
+    },
+    {
+      "id": "math:example:vector-rotation:return",
+      "title": "Make a full turn",
+      "role": "structural",
+      "question": "Where does the tip return at 360°?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use an orthonormal two-dimensional Cartesian coordinate system.",
+        "The angle is measured counterclockwise from positive x in degrees.",
+        "The radius is positive; rotation preserves distance from the origin."
+      ],
+      "inputs": {
+        "angle": 360,
+        "radius": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "cos 360°=1; sin 360°=0",
+          "reason": "A full turn restores the initial direction."
+        },
+        {
+          "index": 2,
+          "expression": "x=2 m; y=0 m",
+          "reason": "The start and end positions coincide."
+        }
+      ],
+      "result": {
+        "exact": "(2,0)m"
+      },
+      "interpretation": "Angle may change by a full cycle without changing position.",
+      "independent_check": {
+        "method": "Compare with 0°.",
+        "expected": "The same radius on the positive horizontal has coordinates(2,0)."
+      },
+      "limits": "An endpoint position does not record how many turns occurred.",
+      "preset": {
+        "angle": 360,
+        "radius": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use an orthonormal two-dimensional Cartesian coordinate system.",
+        "The angle is measured counterclockwise from positive x in degrees.",
+        "The radius is positive; rotation preserves distance from the origin."
+      ]
+    },
+    {
+      "id": "math:example:vector-rotation:longer",
+      "title": "Reach farther at the same direction",
+      "role": "applied_model",
+      "question": "A 3 m arm points 30°. What are its projections?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use an orthonormal two-dimensional Cartesian coordinate system.",
+        "The angle is measured counterclockwise from positive x in degrees.",
+        "The radius is positive; rotation preserves distance from the origin."
+      ],
+      "inputs": {
+        "angle": 30,
+        "radius": 3
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "x=3cos 30°=3√3/2 m",
+          "reason": "Multiply radius by the horizontal directional factor."
+        },
+        {
+          "index": 2,
+          "expression": "y=3sin 30°=3/2 m",
+          "reason": "Use the corresponding vertical factor."
+        }
+      ],
+      "result": {
+        "exact": "(3√3/2,3/2)m ≈(2.59808,1.5)m"
+      },
+      "interpretation": "Scaling radius scales both coordinates without changing angle.",
+      "independent_check": {
+        "method": "Check length.",
+        "expected": "(3√3/2)²+(3/2)²=27/4+9/4=9."
+      },
+      "limits": "The construction is two-dimensional and assumes a fixed origin.",
+      "preset": {
+        "angle": 30,
+        "radius": 3
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use an orthonormal two-dimensional Cartesian coordinate system.",
+        "The angle is measured counterclockwise from positive x in degrees.",
+        "The radius is positive; rotation preserves distance from the origin."
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "claim": "Rotation preserves squared length.",
+      "status": "algebraic derivation",
+      "conditions": "Use the same positive radius for both components.",
+      "derivation": "x²+y²=r²(cos²θ+sin²θ)=r²."
+    },
+    {
+      "claim": "A full turn preserves position.",
+      "status": "algebraic derivation",
+      "conditions": "Compare angles differing by 360°.",
+      "derivation": "Sine and cosine have period 2π radians."
+    }
+  ],
+  "prompts": [
+    {
+      "prompt": "How can the horizontal number be negative?",
+      "answer": "It is a signed coordinate. Negative means the tip lies left of the origin; it is not a negative length."
+    },
+    {
+      "prompt": "What changes when radius changes?",
+      "answer": "Both projections scale by the radius ratio while the direction stays fixed."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "symbolic",
+      "description": "Convert degrees to radians, then multiply radius by cosine and sine."
+    },
+    {
+      "kind": "geometric",
+      "description": "A rotating arm, its horizontal and vertical projections, and angle arc share the same tip position."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Place the tip of an ideal rotating display arm.",
+      "mapping": "At r=2 m and 60°, the tip is(1,√3)m.",
+      "limitations": "This does not evaluate structural loading or safe reach.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:vector-rotation:boom"
+    },
+    {
+      "context": "Scale the reach of a geometric design.",
+      "mapping": "At 30° and r=3 m, coordinates are(3√3/2,3/2)m.",
+      "limitations": "A fixed planar pivot and rigid arm are stipulated.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:vector-rotation:longer"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:polar-coordinates"
+  ],
+  "review_gaps": [
+    "Independent mathematics and editorial review pending.",
+    "Historical research incomplete; no priority or invention claim implied."
+  ],
+  "change_log": [
+    "0.1.0-draft: original applications, explicit model assumptions, bounded visual model and numerical fixtures."
+  ],
+  "definition": {
+    "setting": "Turn a planar vector and follow its horizontal and vertical projections.",
+    "formal_latex": "x=r\\cos(\\theta\\pi/180),\\qquad y=r\\sin(\\theta\\pi/180)",
+    "signature": {
+      "r": "positive arm length in meters",
+      "θ": "angle in degrees counterclockwise from positive x",
+      "x": "signed horizontal tip coordinate in meters; primary output",
+      "y": "signed vertical tip coordinate in meters"
+    },
+    "conditions": [
+      "Use an orthonormal two-dimensional Cartesian coordinate system.",
+      "The angle is measured counterclockwise from positive x in degrees.",
+      "The radius is positive; rotation preserves distance from the origin."
+    ],
+    "domain_notes": "Angle 0–360°, radius 0.5–3 m. The primary numerical output is x; the scene also shows y. This parameterizes a rotated radius vector, not every possible affine transformation.",
+    "proof_status": "Resolve the radius with sine and cosine; use cos²θ+sin²θ=1 to verify length preservation.",
+    "source_refs": [
+      "source:openstax:polar-coordinates"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "The horizontal component is radius times cosine of the angle; the vertical component is radius times sine of the angle.",
+    "expression_latex": "x=r\\cos(\\theta\\pi/180),\\qquad y=r\\sin(\\theta\\pi/180)",
+    "formation_rule": "Convert angle to radians with theta=angle*pi/180. Output=radius*cos(theta); the vertical component is y=radius*sin(theta).",
+    "precedence": "Follow parentheses and function applications; products precede sums. Angle units and iteration conventions are explicit.",
+    "symbols": [
+      {
+        "token": "r",
+        "role": "positive arm length in meters",
+        "type": "Real quantity in declared setting"
+      },
+      {
+        "token": "θ",
+        "role": "angle in degrees counterclockwise from positive x",
+        "type": "Real quantity in declared setting"
+      },
+      {
+        "token": "x",
+        "role": "signed horizontal tip coordinate in meters; primary output",
+        "type": "Real quantity in declared setting"
+      },
+      {
+        "token": "y",
+        "role": "signed vertical tip coordinate in meters",
+        "type": "Real quantity in declared setting"
+      }
+    ],
+    "ast": {
+      "id": "ast:vector-rotation:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:angle",
+          "kind": "variable",
+          "symbol": "θ",
+          "type": "Angle[deg]",
+          "scope_ref": "scope:vector-rotation"
+        },
+        {
+          "id": "n:radius",
+          "kind": "variable",
+          "symbol": "r",
+          "type": "Length[m]",
+          "scope_ref": "scope:vector-rotation"
+        },
+        {
+          "id": "n:radians",
+          "kind": "functionRef",
+          "ref": "θ →θπ/180",
+          "type": "Angle[deg] → Angle[rad]"
+        },
+        {
+          "id": "n:cos",
+          "kind": "functionRef",
+          "ref": "cosine of radians",
+          "type": "Real → Real"
+        },
+        {
+          "id": "n:converted",
+          "kind": "apply",
+          "function": "n:radians",
+          "argument": "n:angle",
+          "type": "Angle[rad]"
+        },
+        {
+          "id": "n:projection",
+          "kind": "apply",
+          "function": "n:cos",
+          "argument": "n:converted",
+          "type": "Real"
+        },
+        {
+          "id": "n:output",
+          "kind": "multiply",
+          "arguments": [
+            "n:radius",
+            "n:projection"
+          ],
+          "type": "Length[m]"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:vector-rotation",
+          "kind": "modelExpression",
+          "free_variables": [
+            "r",
+            "θ",
+            "x",
+            "y"
+          ],
+          "domain_condition": "Use an orthonormal two-dimensional Cartesian coordinate system.; The angle is measured counterclockwise from positive x in degrees.; The radius is positive; rotation preserves distance from the origin."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "A parameter outside the declared control interval",
+        "status": "outside_model_domain",
+        "reason": "Reject the experiment instead of drawing a plausible but unrelated answer."
+      },
+      {
+        "input": "Treat a display interpolation as an extra physical observation",
+        "status": "model_mismatch",
+        "reason": "Continuous transitions explain the chosen model; they do not add measured evidence."
+      }
+    ],
+    "ast_coverage": "The tree models the primary output through named mathematical helper functions, whose definitions and parameter dependencies are stated in compute and the signature. It is structural metadata, not arbitrary TeX execution or a general proof checker.",
+    "output_symbol_bindings": {
+      "primary displayed result": "output"
+    }
+  },
+  "interactive": {
+    "component_id": "vector-rotation-visual-model",
+    "renderer_id": "vector-rotation-visual-model",
+    "renderer_version": "1.0.0",
+    "model_id": "vector-rotation-visual-model",
+    "model_revision": "1.0.0",
+    "expression_id": "ast:vector-rotation:expression",
+    "interaction_status": "implemented",
+    "description": "A rotating arm, its horizontal and vertical projections, and angle arc share the same tip position.",
+    "controls": [
+      {
+        "id": "angle",
+        "type": "number",
+        "default": 60,
+        "min": 0,
+        "max": 360,
+        "slider_min": 0,
+        "slider_max": 360,
+        "slider_step": 0.1,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      },
+      {
+        "id": "radius",
+        "type": "number",
+        "default": 2,
+        "min": 0.5,
+        "max": 3,
+        "slider_min": 0.5,
+        "slider_max": 3,
+        "slider_step": 0.05,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "angle": 60,
+          "radius": 2
+        },
+        "output": 1.0000000000000002
+      },
+      {
+        "input": {
+          "angle": 90,
+          "radius": 2
+        },
+        "output": 1.2246467991473532e-16
+      },
+      {
+        "input": {
+          "angle": 180,
+          "radius": 2
+        },
+        "output": -2.0
+      },
+      {
+        "input": {
+          "angle": 360,
+          "radius": 2
+        },
+        "output": 2.0
+      },
+      {
+        "input": {
+          "angle": 30,
+          "radius": 3
+        },
+        "output": 2.598076211353316
+      },
+      {
+        "input": {
+          "angle": 0,
+          "radius": 0.5
+        },
+        "output": 0.5
+      },
+      {
+        "input": {
+          "angle": 361,
+          "radius": 2
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Convert angle to radians with theta=angle*pi/180. Output=radius*cos(theta); the vertical component is y=radius*sin(theta).",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "x²+y²=radius² up to numerical rounding.",
+      "At 0° and 360°, output equals radius.",
+      "At 180°, output equals negative radius."
+    ],
+    "limits": [
+      "Only a planar rotation of a radius vector is modeled.",
+      "Trig values at exact quarter turns can have tiny floating-point residues.",
+      "The primary output is a signed x-coordinate; radius remains a positive length."
+    ],
+    "fallback": "Read the same substituted formula, worked steps and labeled static scene with motion paused.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  }
+}

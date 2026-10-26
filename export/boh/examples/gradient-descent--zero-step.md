@@ -1,0 +1,263 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:gradient-descent:zero-step", "id": "math:example:gradient-descent:zero-step", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:gradient-descent", "example_id": "math:example:gradient-descent:zero-step", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "6fb24fc7cef5310f0a1c562084c6de1177f735dc856a8e764697d450865afe91"}, "purpose": "Adjust a learning rate and follow exact gradient steps across an error landscape.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "6fb24fc7cef5310f0a1c562084c6de1177f735dc856a8e764697d450865afe91", "status": "draft", "title": "A zero step size leaves calibration unchanged", "topics": ["mathematics", "calculus", "optimization", "modeling", "steepest descent update", "learning rate", "iterative cost reduction"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# A zero step size leaves calibration unchanged
+
+Parent card: math:concept:gradient-descent; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:gradient-descent; revision 0.1.0-draft. Setting: Unconstrained minimization of a differentiable scalar objective. The executable specimen is a strictly convex quadratic with separate coordinate terms in two dimensionless calibration-error coordinates. Expression: $C(x,y)=\frac{ax^2+by^2}{2},\quad a>0,\ b>0,\quad x_{k+1}=x_k-\eta a x_k,\quad y_{k+1}=y_k-\eta b y_k.$. Conditions required for a defined value (a case may test their violation): The objective is the fixed strictly convex quadratic C(x,y)=(a*x²+b*y²)/2 with a,b positive. Its unique global minimizer is (0,0). The start point, positive coefficients and step size remain fixed during one run. The iteration control k is an integer from 0 to 16. No fractional gradient update or continuous-time interpretation is used. The coordinate updates are xNext=(1-stepSize*a)*x and yNext=(1-stepSize*b)*y. Each gradient is evaluated at the current iterate. For all starting points in this particular family, convergence requires both coordinate multipliers to have magnitude below one: 0<stepSize<2/max(a,b). Zero step size leaves every iterate unchanged. A boundary factor of -1 can oscillate, and an oversized factor can grow in magnitude. Changing the step size recomputes the exact discrete trajectory from the original start; the Graph plots cost after the selected whole number of iterations. Drawing limits and clipped path segments do not change the computed iterates or full numeric cost. At a nonzero gradient, the negative gradient is a descent direction; an oversized finite step can still raise the cost. The logarithmic display uses normalized dimensionless C>=0 and the natural logarithm ln(1+C); it changes only the Graph ordinate, not the objective value or update rule. Scope: General gradient descent can be applied to many differentiable objectives, but convergence and suitable step sizes require additional assumptions. This live demonstration has only C=(a*x²+b*y²)/2 with strictly positive coefficients, no constraints, stochastic noise, adaptive step selection, momentum or arbitrary machine-learning model. The exact multiplier condition is derived for this quadratic only. The primary sweep varies step size continuously at a fixed integer iteration count; the numbered path remains discrete.
+
+Case unit math:example:gradient-descent:zero-step. Setting: Original constructed teaching scenario; values and rules are stipulated, not measured. Inputs: {"a": 1, "b": 2, "iteration": 4, "startX": 2, "startY": 1.5, "stepSize": 0}. Result: {"exact": "Errors (2,1.5); cost 4.25 score units"}. Limits: The all-start convergence condition for this restricted positive quadratic is 0<η<2/max(a,b). A finite observed cost decrease does not prove convergence for a general objective.
+
+## Complete worked case
+
+- id: math:example:gradient-descent:zero-step
+- title: A zero step size leaves calibration unchanged
+- role: applied_model
+- question: Can repeated updates improve the score when the step size is zero?
+- setting: Original constructed teaching scenario; values and rules are stipulated, not measured.
+- assumptions:
+  - This is an original normalized calibration model, not measured equipment or a trained machine-learning system.
+  - The two settings are dimensionless signed errors relative to a stipulated zero-error target; C is a declared error score.
+  - The positive coefficients a and b stay fixed through each exact discrete run.
+  - Each iteration applies the full gradient at the current point with one fixed nonnegative step size; the displayed path is not a continuous-time differential equation.
+- inputs:
+  - startX: 2
+  - startY: 1.5
+  - a: 1
+  - b: 2
+  - stepSize: 0
+  - iteration: 4
+- steps:
+  - Item:
+    - index: 1
+    - expression: ∇C=(a*x,b*y); 1−ηa=1; 1−ηb=1
+    - reason: Differentiate the positive quadratic and identify the two exact coordinate multipliers.
+  - Item:
+    - index: 2
+    - expression: xₖ=2×(1)^4=2; yₖ=1.5×(1)^4=1.5
+    - reason: Apply exactly k whole gradient updates; the subscript counts discrete iterations.
+  - Item:
+    - index: 3
+    - expression: C(xₖ,yₖ)=(1×(2)²+2×(1.5)²)/2=4.25
+    - reason: Evaluate the original error score at that iterate, rather than calling the gradient norm the cost.
+- result:
+  - exact: Errors (2,1.5); cost 4.25 score units
+- interpretation: The update multiplies both errors by one. Repetition alone does not move the settings.
+- independent check:
+  - method: Independent repeated-update check
+  - expected: Starting from the stated pair, repeatedly subtract η times (a*x,b*y) for exactly k integer updates, then evaluate C.
+- limits: The all-start convergence condition for this restricted positive quadratic is 0<η<2/max(a,b). A finite observed cost decrease does not prove convergence for a general objective.
+- preset:
+  - startX: 2
+  - startY: 1.5
+  - a: 1
+  - b: 2
+  - stepSize: 0
+  - iteration: 4
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - This is an original normalized calibration model, not measured equipment or a trained machine-learning system.
+  - The two settings are dimensionless signed errors relative to a stipulated zero-error target; C is a declared error score.
+  - The positive coefficients a and b stay fixed through each exact discrete run.
+  - Each iteration applies the full gradient at the current point with one fixed nonnegative step size; the displayed path is not a continuous-time differential equation.
+
+## Written exploration recipe
+
+- component id: component:gradient-descent
+- renderer id: gradient-descent-visual-model
+- renderer version: 1
+- model id: gradient-descent-visual-model
+- model revision: 1
+- expression id: ast:gradient-descent:expression
+- interaction status: implemented
+- description: An error-score contour landscape shows numbered exact discrete iterates, the current gradient and the next adjustment. Sweeping step size recomputes the same fixed-length run; unstable steps remain numerically honest even when a path needs drawing limits.
+- controls:
+  - Item:
+    - id: startX
+    - type: number
+    - default: 2
+    - min: -2
+    - max: 2
+    - step: 0.01
+  - Item:
+    - id: startY
+    - type: number
+    - default: 1.5
+    - min: -2
+    - max: 2
+    - step: 0.01
+  - Item:
+    - id: a
+    - type: number
+    - default: 1
+    - min: 0.25
+    - max: 2
+    - step: 0.01
+  - Item:
+    - id: b
+    - type: number
+    - default: 2
+    - min: 0.25
+    - max: 2
+    - step: 0.01
+  - Item:
+    - id: stepSize
+    - type: number
+    - default: 0.4
+    - min: 0
+    - max: 1.5
+    - step: 0.01
+  - Item:
+    - id: iteration
+    - type: number
+    - default: 4
+    - min: 0
+    - max: 16
+    - step: 1
+- expected cases:
+  - Item:
+    - input:
+      - startX: 2
+      - startY: 1.5
+      - a: 1
+      - b: 2
+      - stepSize: 0.4
+      - iteration: 4
+    - output: 0.033598079999999995
+  - Item:
+    - input:
+      - startX: 2
+      - startY: 1.5
+      - a: 1
+      - b: 2
+      - stepSize: 0.4
+      - iteration: 0
+    - output: 4.25
+  - Item:
+    - input:
+      - startX: 2
+      - startY: 1.5
+      - a: 1
+      - b: 2
+      - stepSize: 0.4
+      - iteration: 1
+    - output: 0.8099999999999998
+  - Item:
+    - input:
+      - startX: 2
+      - startY: 1.5
+      - a: 1
+      - b: 2
+      - stepSize: 0.4
+      - iteration: 2
+    - output: 0.2628
+  - Item:
+    - input:
+      - startX: 2
+      - startY: 1.5
+      - a: 1
+      - b: 2
+      - stepSize: 0.4
+      - iteration: 16
+    - output: 1.5917322219892794e-07
+  - Item:
+    - input:
+      - startX: 2
+      - startY: 1.5
+      - a: 1
+      - b: 2
+      - stepSize: 0
+      - iteration: 4
+    - output: 4.25
+  - Item:
+    - input:
+      - startX: 2
+      - startY: 1.5
+      - a: 1
+      - b: 2
+      - stepSize: 1
+      - iteration: 4
+    - output: 2.25
+  - Item:
+    - input:
+      - startX: 2
+      - startY: 1.5
+      - a: 1
+      - b: 2
+      - stepSize: 1.5
+      - iteration: 4
+    - output: 576.0078125
+  - Item:
+    - input:
+      - startX: 2
+      - startY: 1.5
+      - a: 0.25
+      - b: 0.25
+      - stepSize: 1.5
+      - iteration: 16
+    - output: 2.2958874039497804e-07
+  - Item:
+    - input:
+      - startX: 0
+      - startY: 0
+      - a: 1
+      - b: 2
+      - stepSize: 0.4
+      - iteration: 4
+    - output: 0.0
+  - Item:
+    - input:
+      - startX: 2
+      - startY: 1.5
+      - a: 1
+      - b: 2
+      - stepSize: 0.4
+      - iteration: 2.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - startX: 2
+      - startY: 1.5
+      - a: 0
+      - b: 2
+      - stepSize: 0.4
+      - iteration: 4
+    - status: invalid_parameters
+- compute: contractionX=1-stepSize*a; contractionY=1-stepSize*b; currentX=startX*(contractionX^iteration); currentY=startY*(contractionY^iteration); partialX=a*currentX; partialY=b*currentY; output=cost=(a*currentX*currentX+b*currentY*currentY)/2; nextX=currentX-stepSize*partialX; nextY=currentY-stepSize*partialY.
+- numeric tolerance: 1e-10
+- invariants:
+  - The objective is the fixed strictly convex quadratic C(x,y)=(a*x²+b*y²)/2 with a,b positive. Its unique global minimizer is (0,0).
+  - The start point, positive coefficients and step size remain fixed during one run.
+  - The iteration control k is an integer from 0 to 16. No fractional gradient update or continuous-time interpretation is used.
+  - The coordinate updates are xNext=(1-stepSize*a)*x and yNext=(1-stepSize*b)*y. Each gradient is evaluated at the current iterate.
+  - For all starting points in this particular family, convergence requires both coordinate multipliers to have magnitude below one: 0<stepSize<2/max(a,b).
+  - Zero step size leaves every iterate unchanged. A boundary factor of -1 can oscillate, and an oversized factor can grow in magnitude.
+  - Changing the step size recomputes the exact discrete trajectory from the original start; the Graph plots cost after the selected whole number of iterations.
+  - Drawing limits and clipped path segments do not change the computed iterates or full numeric cost.
+- limits:
+  - Only a positive quadratic with separate coordinate terms with fixed coefficients and one fixed nonnegative step size.
+  - The primary Graph varies stepSize at fixed integer k; iteration is a manual whole-number control.
+  - At most sixteen completed updates are shown; finite progress does not prove convergence for a general objective.
+  - Large iterates can leave the fixed drawing frame; clipping affects the illustration, not the computed error score.
+- fallback: Pause to read the labeled inputs, intermediate calculations and output. The model-data table and original worked steps provide numeric alternatives to the scene.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openstax:gradient-directional. [Calculus Volume 3, 4.6 Directional Derivatives and the Gradient](https://openstax.org/books/calculus-volume-3/pages/4-6-directional-derivatives-and-the-gradient). Locator: Gradient definition; directional derivative for differentiable fields; maximum directional derivative and zero-gradient case. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.
+
+- Source ID: source:stanford:gradient-descent. [Stanford EE364a, Convex Optimization — Unconstrained Minimization](https://web.stanford.edu/class/ee364a/lectures/lectures_hd.pdf). Locator: Chapter 10 Unconstrained Minimization, slide 10–7 Gradient descent method: negative-gradient direction, step selection and update; earlier objective and convexity definitions. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports definitions and conditions, not independent review, historical priority or the original constructed scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.

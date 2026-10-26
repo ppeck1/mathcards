@@ -1,0 +1,281 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:tangent-plane:half-offsets", "id": "math:example:tangent-plane:half-offsets", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:tangent-plane", "example_id": "math:example:tangent-plane:half-offsets", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "caee5799e2708633f7bb47816b32353d78d5e3c917779268f13dd2b9e4a0f088"}, "purpose": "Move away from a known surface point and compare a local plane with the actual height.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "caee5799e2708633f7bb47816b32353d78d5e3c917779268f13dd2b9e4a0f088", "status": "draft", "title": "Halve both offsets and compare the signed error", "topics": ["mathematics", "calculus", "analysis", "geometry", "local plane approximation", "two-variable linear approximation", "surface linearization"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Halve both offsets and compare the signed error
+
+Parent card: math:concept:tangent-plane; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:tangent-plane; revision 0.1.0-draft. Setting: Differentiable scalar fields near a base point in the real plane. A plane in three-dimensional graph space is a local height model, not another independent input. Expression: $L(x+\Delta x,y+\Delta y)=F(x,y)+\frac{\partial F}{\partial x}(x,y)\Delta x+\frac{\partial F}{\partial y}(x,y)\Delta y,\quad F(x+\Delta x,y+\Delta y)\approx L(x+\Delta x,y+\Delta y).$. Conditions required for a defined value (a case may test their violation): The general scalar field is defined on a neighborhood of the base point and differentiable at that point; continuous first partials nearby are a sufficient condition. Hold the base point and field coefficients fixed while choosing the finite offsets Δx and Δy. For the live family F=c+a*x²+b*y², the local slopes are partialX=2*a*x and partialY=2*b*y. The predicted height is baseHeight+partialX*dx+partialY*dy. The actual target height is evaluated from the original field. Signed approximation error means actualHeight-predictedHeight; its sign is not discarded. For this particular quadratic the error is exactly a*dx²+b*dy². A general differentiable surface need not have that exact remainder. Scope: The general tangent-plane approximation requires differentiability at the base point. Existence of two partial derivatives at a point by itself is not sufficient. The executable family contains only quadratics with separate coordinate terms. The variables dx and dy are storage keys for finite chosen offsets Δx and Δy, not assertions that a finite move is infinitesimal. The exact quadratic remainder is specific to this family; no arbitrary error bound or symbolic surface engine is implemented.
+
+Case unit math:example:tangent-plane:half-offsets. Setting: Original constructed teaching scenario; values and rules are stipulated, not measured. Inputs: {"a": -0.5, "b": -0.25, "c": 4, "dx": 0.2, "dy": 0.1, "x": 1, "y": 0.5}. Result: {"exact": "Tangent prediction 3.2125 m; actual 3.19 m; signed error −0.0225 m"}. Limits: These exact error identities apply to the declared quadratic family. A tangent plane is a local approximation to a general differentiable surface.
+
+## Complete worked case
+
+- id: math:example:tangent-plane:half-offsets
+- title: Halve both offsets and compare the signed error
+- role: applied_model
+- question: How does moving only half as far in each coordinate change the tangent approximation error?
+- setting: Original constructed teaching scenario; values and rules are stipulated, not measured.
+- assumptions:
+  - This is an original constructed smooth height sketch, not measured terrain or navigation advice.
+  - Both horizontal coordinates and height use metres; the quadratic coefficients use inverse metres and the constant offset uses metres.
+  - Horizontal axes are perpendicular and equally scaled; derivatives are local quantities at the stated point.
+  - The chosen family is F(x,y)=c+a*x²+b*y²; its two coordinate partial derivatives are evaluated at the same point.
+- inputs:
+  - x: 1
+  - y: 0.5
+  - a: -0.5
+  - b: -0.25
+  - c: 4
+  - dx: 0.2
+  - dy: 0.1
+- steps:
+  - Item:
+    - index: 1
+    - expression: F(x,y)=3.4375; ∂F/∂x=−1; ∂F/∂y=−0.25
+    - reason: Evaluate height and both local slopes at the base point.
+  - Item:
+    - index: 2
+    - expression: L(x+Δx,y+Δy)=3.4375+(−1)(0.2)+(−0.25)(0.1)=3.2125 m
+    - reason: Add the two signed linear contributions to the known base height.
+  - Item:
+    - index: 3
+    - expression: F(x+Δx,y+Δy)=3.19 m; R=3.19−3.2125=−0.0225 m
+    - reason: Evaluate the original field at the target and retain actual minus predicted as a signed error.
+- result:
+  - exact: Tangent prediction 3.2125 m; actual 3.19 m; signed error −0.0225 m
+- interpretation: For this quadratic, halving both offsets quarters the exact approximation error.
+- independent check:
+  - method: Independent quadratic-remainder check
+  - expected: a*(Δx)²+b*(Δy)²=−0.0225 m, matching actual minus predicted.
+- limits: These exact error identities apply to the declared quadratic family. A tangent plane is a local approximation to a general differentiable surface.
+- preset:
+  - x: 1
+  - y: 0.5
+  - a: -0.5
+  - b: -0.25
+  - c: 4
+  - dx: 0.2
+  - dy: 0.1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - This is an original constructed smooth height sketch, not measured terrain or navigation advice.
+  - Both horizontal coordinates and height use metres; the quadratic coefficients use inverse metres and the constant offset uses metres.
+  - Horizontal axes are perpendicular and equally scaled; derivatives are local quantities at the stated point.
+  - The chosen family is F(x,y)=c+a*x²+b*y²; its two coordinate partial derivatives are evaluated at the same point.
+
+## Written exploration recipe
+
+- component id: component:tangent-plane
+- renderer id: tangent-plane-visual-model
+- renderer version: 1
+- model id: tangent-plane-visual-model
+- model revision: 1
+- expression id: ast:tangent-plane:expression
+- interaction status: implemented
+- description: A known surface point anchors a local tangent plane. Move the target offsets and compare the predicted point on the plane with the actual point on the same height surface, retaining their signed vertical error.
+- controls:
+  - Item:
+    - id: x
+    - type: number
+    - default: 1
+    - min: -1
+    - max: 1
+    - step: 0.01
+  - Item:
+    - id: y
+    - type: number
+    - default: 0.5
+    - min: -1
+    - max: 1
+    - step: 0.01
+  - Item:
+    - id: a
+    - type: number
+    - default: -0.5
+    - min: -1
+    - max: 1
+    - step: 0.01
+  - Item:
+    - id: b
+    - type: number
+    - default: -0.25
+    - min: -1
+    - max: 1
+    - step: 0.01
+  - Item:
+    - id: c
+    - type: number
+    - default: 4
+    - min: 0
+    - max: 6
+    - step: 0.01
+  - Item:
+    - id: dx
+    - type: number
+    - default: 0.4
+    - min: -1
+    - max: 1
+    - step: 0.01
+  - Item:
+    - id: dy
+    - type: number
+    - default: 0.2
+    - min: -1
+    - max: 1
+    - step: 0.01
+- expected cases:
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - dx: 0.4
+      - dy: 0.2
+    - output: 2.9875000000000003
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - dx: 0
+      - dy: 0
+    - output: 3.4375
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - dx: 0.2
+      - dy: 0.1
+    - output: 3.2125
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - dx: -0.4
+      - dy: -0.2
+    - output: 3.8874999999999997
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: 0
+      - b: 0
+      - c: 4
+      - dx: 0.4
+      - dy: 0.2
+    - output: 4.0
+  - Item:
+    - input:
+      - x: 0.5
+      - y: 0.5
+      - a: 0.5
+      - b: -0.5
+      - c: 4
+      - dx: 0.4
+      - dy: 0.2
+    - output: 4.1000000000000005
+  - Item:
+    - input:
+      - x: 1
+      - y: 1
+      - a: 1
+      - b: 1
+      - c: 6
+      - dx: 1
+      - dy: 1
+    - output: 12
+  - Item:
+    - input:
+      - x: -1
+      - y: -1
+      - a: -1
+      - b: -1
+      - c: 0
+      - dx: -1
+      - dy: -1
+    - output: -6
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - dx: 0
+      - dy: 0.5
+    - output: 3.3125
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 0
+      - dx: 0.4
+      - dy: 0.2
+    - output: -1.0125
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - dx: 1.1
+      - dy: 0.2
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - x: 1.1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+      - dx: 0.4
+      - dy: 0.2
+    - status: invalid_parameters
+- compute: baseHeight=height=c+a*x*x+b*y*y; partialX=2*a*x; partialY=2*b*y; targetX=x+dx; targetY=y+dy; linearXTerm=partialX*dx; linearYTerm=partialY*dy; output=predictedHeight=baseHeight+linearXTerm+linearYTerm; actualHeight=c+a*targetX*targetX+b*targetY*targetY; approximationError=actualHeight-predictedHeight.
+- numeric tolerance: 1e-10
+- invariants:
+  - The general scalar field is defined on a neighborhood of the base point and differentiable at that point; continuous first partials nearby are a sufficient condition.
+  - Hold the base point and field coefficients fixed while choosing the finite offsets Δx and Δy.
+  - For the live family F=c+a*x²+b*y², the local slopes are partialX=2*a*x and partialY=2*b*y.
+  - The predicted height is baseHeight+partialX*dx+partialY*dy. The actual target height is evaluated from the original field.
+  - Signed approximation error means actualHeight-predictedHeight; its sign is not discarded.
+  - For this particular quadratic the error is exactly a*dx²+b*dy². A general differentiable surface need not have that exact remainder.
+- limits:
+  - Only F=c+a*x²+b*y²; no arbitrary imported surfaces or symbolic linearization.
+  - Both the prediction and actual target height remain visible and distinct.
+  - The graph varies dx with dy and the base field fixed; it compares tangent prediction and exact target height.
+- fallback: Pause to read the labeled inputs, intermediate calculations and output. The model-data table and original worked steps provide numeric alternatives to the scene.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openstax:gradient-directional. [Calculus Volume 3, 4.6 Directional Derivatives and the Gradient](https://openstax.org/books/calculus-volume-3/pages/4-6-directional-derivatives-and-the-gradient). Locator: Gradient definition; directional derivative for differentiable fields; maximum directional derivative and zero-gradient case. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.
+
+- Source ID: source:openstax:tangent-planes-linear-approximations. [Calculus Volume 3, 4.4 Tangent Planes and Linear Approximations](https://openstax.org/books/calculus-volume-3/pages/4-4-tangent-planes-and-linear-approximations). Locator: Tangent-plane equation and differentiability; Linear Approximations, definition and equation 4.25; distinction between approximation and surface height. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports definitions and conditions, not independent review, historical priority or the original constructed scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.

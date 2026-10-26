@@ -1,0 +1,213 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:determinant:mirror", "id": "math:example:determinant:mirror", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:determinant", "example_id": "math:example:determinant:mirror", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "56e5a0f7ef35112f273462520e55d1f86cb83af8ffbcabe1487528b933b259a7"}, "purpose": "Read area scale, orientation reversal and collapse from one signed number.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "56e5a0f7ef35112f273462520e55d1f86cb83af8ffbcabe1487528b933b259a7", "status": "draft", "title": "A mirrored footprint has positive area", "topics": ["mathematics", "linear-algebra", "geometry", "signed area scale", "2 by 2 determinant", "orientation and collapse"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# A mirrored footprint has positive area
+
+Parent card: math:concept:determinant; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:determinant; revision 0.1.0-draft. Setting: Finite real two-dimensional Euclidean coordinates. Expression: $A=\begin{pmatrix}a&b\\c&d\end{pmatrix},\quad\det(A)=ad-bc,\quad\operatorname{area}(A[0,1]^2)=|\det(A)|.$. Conditions required for a defined value (a case may test their violation): Use a real square 2 by 2 matrix with fixed entry order. Geometric area is the absolute determinant, not negative material. The sign records preservation or reversal of ordered-axis orientation. Zero determinant is valid and means collapse and no unique inverse. Scope: This bounded real 2 by 2 specimen uses coefficients in [-3,3] and a unit-square reference. It does not calculate higher-dimensional determinants, arbitrary-region areas or a matrix inverse. The general determinant concept is broader.
+
+Case unit math:example:determinant:mirror. Setting: Original constructed teaching scenario; values and rules are stipulated, not measured. Inputs: {"a": -1, "b": 0, "c": 0, "d": 1}. Result: {"exact": "Determinant -1; area 1"}. Limits: Orientation is relative to the declared order of axes; area is nonnegative.
+
+## Complete worked case
+
+- id: math:example:determinant:mirror
+- title: A mirrored footprint has positive area
+- role: applied_model
+- question: For A=[[-1,0],[0,1]], what are determinant and area?
+- setting: Original constructed teaching scenario; values and rules are stipulated, not measured.
+- assumptions:
+  - A real square matrix uses row order [[a,b],[c,d]].
+  - Its columns are the images of the ordered unit-coordinate arrows.
+  - Geometric area is |det(A)|; the determinant sign describes orientation.
+- inputs:
+  - a: -1
+  - b: 0
+  - c: 0
+  - d: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: det(A)=(-1)*1-0*0=-1
+    - reason: The ordered axes reverse orientation.
+  - Item:
+    - index: 2
+    - expression: area=|-1|=1
+    - reason: The minus sign is not a negative amount of material.
+- result:
+  - exact: Determinant -1; area 1
+- interpretation: The reflected reference tile keeps its area while reversing handedness.
+- independent check:
+  - method: Double-reflection check
+  - expected: Applying the reflection twice gives the identity with determinant 1.
+- limits: Orientation is relative to the declared order of axes; area is nonnegative.
+- preset:
+  - a: -1
+  - b: 0
+  - c: 0
+  - d: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - A real square matrix uses row order [[a,b],[c,d]].
+  - Its columns are the images of the ordered unit-coordinate arrows.
+  - Geometric area is |det(A)|; the determinant sign describes orientation.
+
+## Written exploration recipe
+
+- component id: determinant-visual-model
+- renderer id: determinant-visual-model
+- renderer version: 1.0.0
+- model id: determinant-visual-model
+- model revision: 1
+- expression id: ast:determinant:expression
+- interaction status: implemented
+- description: Two scalar products unfold into a signed determinant. The same matrix stretches, reverses or collapses a unit square; the Graph follows determinant versus one coefficient.
+- controls:
+  - Item:
+    - id: a
+    - type: number
+    - default: 1
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+  - Item:
+    - id: b
+    - type: number
+    - default: 0
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+  - Item:
+    - id: c
+    - type: number
+    - default: 0
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+  - Item:
+    - id: d
+    - type: number
+    - default: 2
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+- expected cases:
+  - Item:
+    - input:
+      - a: 1
+      - b: 0
+      - c: 0
+      - d: 2
+    - output: 2
+  - Item:
+    - input:
+      - a: 1
+      - b: 0
+      - c: 0
+      - d: 1
+    - output: 1
+  - Item:
+    - input:
+      - a: 0
+      - b: 0
+      - c: 0
+      - d: 0
+    - output: 0
+  - Item:
+    - input:
+      - a: -1
+      - b: 0
+      - c: 0
+      - d: 1
+    - output: -1
+  - Item:
+    - input:
+      - a: 1
+      - b: 2
+      - c: 0
+      - d: 1
+    - output: 1
+  - Item:
+    - input:
+      - a: 2
+      - b: 1
+      - c: 1
+      - d: 2
+    - output: 3
+  - Item:
+    - input:
+      - a: 1
+      - b: 2
+      - c: 1
+      - d: 2
+    - output: 0
+  - Item:
+    - input:
+      - a: 3
+      - b: -3
+      - c: -3
+      - d: 3
+    - output: 0
+  - Item:
+    - input:
+      - a: 0.5
+      - b: -0.5
+      - c: 0.25
+      - d: 1
+    - output: 0.625
+  - Item:
+    - input:
+      - a: 1
+      - b: 3.1
+      - c: 0
+      - d: 2
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - a: 1
+      - b: 0
+      - c: 0
+      - d: -3.1
+    - status: invalid_parameters
+- compute: termAD=a*d; termBC=b*c; output=determinant=signedArea=termAD-termBC; area=abs(output); orientation=sign(output); inverseExists=(output!=0).
+- numeric tolerance: 1e-10
+- invariants:
+  - Use a real square 2 by 2 matrix with fixed entry order.
+  - Geometric area is the absolute determinant, not negative material.
+  - The sign records preservation or reversal of ordered-axis orientation.
+  - Zero determinant is valid and means collapse and no unique inverse.
+- limits:
+  - Real 2 by 2 determinants with bounded entries only.
+  - Signed determinant and unsigned area remain separate.
+  - Collapse is a valid state; no inverse is computed.
+- fallback: Pause and read the labeled scene, current values, evaluated samples and original worked steps. A distinct Graph view remains available.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:gatech:determinants-volumes. [Georgia Tech Interactive Linear Algebra, 4.3 Determinants and Volumes](https://textbooks.math.gatech.edu/ila/determinants-volumes.html). Locator: Determinant magnitude as parallelogram area; zero-area collapse; signed orientation. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports vocabulary and conditions, not historical priority or independent review of the original scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.

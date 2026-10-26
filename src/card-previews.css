@@ -1,0 +1,10 @@
+/* Dedicated illustrations retain their own aspect ratio at every card width. */
+.cards .card-tile { display: flex; flex-direction: column; }
+.cards .tile-art { height: auto; min-height: 0; aspect-ratio: 360 / 226; padding-top: 26px; background: #101e2b; overflow: hidden; border-right: 0; border-bottom: 1px solid #294352; }
+.cards .card-tile:nth-child(n) .tile-art { background: #101e2b; }
+.cards .tile-art > svg.card-illustration { display: block; width: 100%; height: 100%; }
+.cards .tile-index { top: 10px; left: 18px; right: 15px; max-width: none; color: #a2b7bd; font-size: 8px; line-height: 1.3; letter-spacing: .8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cards .tile-art text { font-variant-numeric: tabular-nums; }
+@media (max-width: 1050px) and (min-width: 761px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) and (min-width: 540px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cards .tile-content h3 { font-size: 23px; } }
+@media (max-width: 539px) { .cards { grid-template-columns: 1fr; } .cards .tile-art { aspect-ratio: 360 / 226; } }

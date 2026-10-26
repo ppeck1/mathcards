@@ -1,0 +1,256 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:gradient:steepest-climb", "id": "math:example:gradient:steepest-climb", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:gradient", "example_id": "math:example:gradient:steepest-climb", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "b5849d69b0f0d60ba7a793c5bfebaafbc5f5b863b220132be51e770f09a66352"}, "purpose": "Combine local slice slopes into a vector that points toward the steepest local increase.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "b5849d69b0f0d60ba7a793c5bfebaafbc5f5b863b220132be51e770f09a66352", "status": "draft", "title": "Combine two slice slopes into one local uphill direction", "topics": ["mathematics", "calculus", "analysis", "geometry", "gradient vector", "steepest local ascent", "gradient norm", "nabla"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Combine two slice slopes into one local uphill direction
+
+Parent card: math:concept:gradient; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:gradient; revision 0.1.0-draft. Setting: Differentiable real scalar fields on a neighborhood in the plane, using perpendicular equally scaled Euclidean coordinates. The executable specimen is a quadratic height field with a two-component gradient. Expression: $\nabla F(x,y)=\left(\frac{\partial F}{\partial x}(x,y),\frac{\partial F}{\partial y}(x,y)\right),\quad \|\nabla F\|=\sqrt{\left(\frac{\partial F}{\partial x}\right)^2+\left(\frac{\partial F}{\partial y}\right)^2}.\quad F(x,y)=c+ax^2+by^2\Rightarrow\nabla F=(2ax,2by).$. Conditions required for a defined value (a case may test their violation): The general scalar field is defined on a neighborhood of the point; a partial derivative differentiates one coordinate while holding other independent coordinates fixed. The live field is F(x,y)=c+a*x²+b*y², so all derivatives used here exist and are continuous. For the chosen field, partialX=2*a*x and partialY=2*b*y. They are evaluated at the current point, not at unrelated coordinates. Use perpendicular equally scaled horizontal axes and compatible coordinate units when comparing Euclidean gradient directions and magnitudes. The field must be differentiable at the point for the stated first-order directional-slope interpretation. For a nonzero gradient, normalization divides each component by the positive gradient norm. At zero norm both unit-direction components are null. A zero gradient alone does not classify a point as a maximum, minimum or flat field. Scope: The general gradient applies to differentiable scalar fields in real Euclidean spaces with an appropriate coordinate metric; partial derivatives alone do not automatically justify every geometric interpretation. The live model uses only F=c+a*x²+b*y² in two perpendicular equally scaled coordinates with bounded controls. A 3D surface is a view of this two-input scalar field, not a third independent field input. No symbolic gradient parser, arbitrary terrain, gradient-descent optimizer or global route planner is implemented. Height examples stipulate metre-based coordinate and coefficient units.
+
+Case unit math:example:gradient:steepest-climb. Setting: Original constructed teaching scenario; values and rules are stipulated, not measured. Inputs: {"a": -0.5, "b": -0.25, "c": 4, "x": 1, "y": 0.5}. Result: {"exact": "Gradient (-1,-0.25); norm √17/4; unit local uphill direction (-4/√17,-1/√17)"}. Limits: This is local first-order ascent on a stipulated field, not a globally optimal walking route or an empirical terrain measurement.
+
+## Complete worked case
+
+- id: math:example:gradient:steepest-climb
+- title: Combine two slice slopes into one local uphill direction
+- role: applied_model
+- question: At (1,0.5) m on F=4-0.5x²-0.25y², which horizontal direction gives the largest local height increase per metre?
+- setting: Original constructed teaching scenario; values and rules are stipulated, not measured.
+- assumptions:
+  - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
+  - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.
+  - The horizontal axes are perpendicular, equally scaled and use the same physical length unit.
+  - Each derivative holds the other independent coordinate and the chosen coefficients fixed.
+- inputs:
+  - x: 1
+  - y: 0.5
+  - a: -0.5
+  - b: -0.25
+  - c: 4
+- steps:
+  - Item:
+    - index: 1
+    - expression: ∂F/∂x=-1; ∂F/∂y=-0.25 m/m
+    - reason: The two partials are evaluated at the same point.
+  - Item:
+    - index: 2
+    - expression: ∇F=(-1,-0.25); ‖∇F‖=√17/4 m/m
+    - reason: The gradient vector combines the slopes; its norm is a separate scalar.
+  - Item:
+    - index: 3
+    - expression: Unit uphill direction=(-4/√17,-1/√17)
+    - reason: Divide the nonzero vector by its norm.
+- result:
+  - exact: Gradient (-1,-0.25); norm √17/4; unit local uphill direction (-4/√17,-1/√17)
+- interpretation: The first coordinate contributes more strongly, so the local uphill arrow points mostly west and slightly south.
+- independent check:
+  - method: Unit-direction dot-product check
+  - expected: The proposed unit vector has squared norm 16/17+1/17=1. Its dot product with the gradient is √17/4, the maximum directional slope.
+- limits: This is local first-order ascent on a stipulated field, not a globally optimal walking route or an empirical terrain measurement.
+- preset:
+  - x: 1
+  - y: 0.5
+  - a: -0.5
+  - b: -0.25
+  - c: 4
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
+  - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.
+  - The horizontal axes are perpendicular, equally scaled and use the same physical length unit.
+  - Each derivative holds the other independent coordinate and the chosen coefficients fixed.
+
+## Written exploration recipe
+
+- component id: gradient-visual-model
+- renderer id: gradient-visual-model
+- renderer version: 1.0.0
+- model id: gradient-visual-model
+- model revision: 1
+- expression id: ast:gradient:expression
+- interaction status: implemented
+- description: Use the same height contours and point as the partial-derivative module, now with both slope components, a distinct gradient arrow and its norm. A genuine 3D surface shares the analytic field; the Graph varies x and plots the scalar norm.
+- controls:
+  - Item:
+    - id: x
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: y
+    - type: number
+    - default: 0.5
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: a
+    - type: number
+    - default: -0.5
+    - min: -1
+    - max: 1
+    - slider min: -1
+    - slider max: 1
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: b
+    - type: number
+    - default: -0.25
+    - min: -1
+    - max: 1
+    - slider min: -1
+    - slider max: 1
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: c
+    - type: number
+    - default: 4
+    - min: 0
+    - max: 6
+    - slider min: 0
+    - slider max: 6
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+- expected cases:
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+    - output: 1.0307764064044151
+  - Item:
+    - input:
+      - x: -1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+    - output: 1.0307764064044151
+  - Item:
+    - input:
+      - x: 0
+      - y: 0
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+    - output: 0.0
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: 0
+      - b: 0
+      - c: 4
+    - output: 0.0
+  - Item:
+    - input:
+      - x: 0
+      - y: 0
+      - a: 0.5
+      - b: -0.5
+      - c: 4
+    - output: 0.0
+  - Item:
+    - input:
+      - x: 1
+      - y: 1
+      - a: -0.25
+      - b: -0.5
+      - c: 4
+    - output: 1.118033988749895
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 6
+    - output: 1.0307764064044151
+  - Item:
+    - input:
+      - x: 2
+      - y: -2
+      - a: 1
+      - b: 1
+      - c: 0
+    - output: 5.656854249492381
+  - Item:
+    - input:
+      - x: -2
+      - y: 1
+      - a: -1
+      - b: 0.5
+      - c: 4
+    - output: 4.123105625617661
+  - Item:
+    - input:
+      - x: 0.5
+      - y: -0.5
+      - a: 0.25
+      - b: -0.5
+      - c: 4
+    - output: 0.5590169943749475
+  - Item:
+    - input:
+      - x: 1
+      - y: 2.1
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: 1.1
+      - b: -0.25
+      - c: 4
+    - status: invalid_parameters
+- compute: output=gradientNorm; height=c+a*x*x+b*y*y; partialX=2*a*x; partialY=2*b*y; gradientNorm=hypot(partialX,partialY); unitGradientX=partialX/gradientNorm and unitGradientY=partialY/gradientNorm when gradientNorm>0, otherwise both null with directionStatus=undefined_direction.
+- numeric tolerance: 1e-10
+- invariants:
+  - The general scalar field is defined on a neighborhood of the point; a partial derivative differentiates one coordinate while holding other independent coordinates fixed.
+  - The live field is F(x,y)=c+a*x²+b*y², so all derivatives used here exist and are continuous.
+  - For the chosen field, partialX=2*a*x and partialY=2*b*y. They are evaluated at the current point, not at unrelated coordinates.
+  - Use perpendicular equally scaled horizontal axes and compatible coordinate units when comparing Euclidean gradient directions and magnitudes.
+  - The field must be differentiable at the point for the stated first-order directional-slope interpretation.
+  - For a nonzero gradient, normalization divides each component by the positive gradient norm. At zero norm both unit-direction components are null.
+  - A zero gradient alone does not classify a point as a maximum, minimum or flat field.
+- limits:
+  - Only the stated two-input real quadratic field and compatible Euclidean coordinate metric.
+  - The gradient is a vector. The primary Graph/output is its scalar norm as x varies at fixed other controls.
+  - At zero norm, the vector and scalar norm are valid zero values; the normalized gradient direction is unavailable.
+  - Direction is local first-order information, not a global best path or a classification of every stationary point.
+- fallback: Pause and read both signed gradient components, their nonnegative norm and the direction status. The norm graph and original worked steps remain available without the 3D surface.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openstax:partial-derivatives. [Calculus Volume 3, 4.3 Partial Derivatives](https://openstax.org/books/calculus-volume-3/pages/4-3-partial-derivatives). Locator: Definitions of partial derivatives; holding other independent inputs fixed; cross-section interpretations. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.
+
+- Source ID: source:openstax:gradient-directional. [Calculus Volume 3, 4.6 Directional Derivatives and the Gradient](https://openstax.org/books/calculus-volume-3/pages/4-6-directional-derivatives-and-the-gradient). Locator: Gradient definition; directional derivative for differentiable fields; maximum directional derivative and zero-gradient case. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.

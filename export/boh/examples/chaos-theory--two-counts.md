@@ -1,0 +1,188 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:chaos-theory:two-counts", "id": "math:example:chaos-theory:two-counts", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:chaos-theory", "example_id": "math:example:chaos-theory:two-counts", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a"}, "purpose": "Explore how a deterministic nonlinear rule responds to nearby starting values.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a", "status": "draft", "title": "Two nearly identical pond estimates", "topics": ["mathematics", "dynamics", "modeling", "sensitivity to initial conditions", "logistic map"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Two nearly identical pond estimates
+
+Parent card: math:concept:chaos-theory; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:chaos-theory; revision 0.1.0-draft. Setting: Explore how a deterministic nonlinear rule responds to nearby starting values. Expression: $x_{n+1}=rx_n(1-x_n),\quad D_n=|z_n-x_n|$. Conditions required for a defined value (a case may test their violation): Use a fixed rate and two starting values in [0,1]. The recurrence is a stipulated deterministic discrete model, not measured population data. Fractional generations linearly interpolate neighboring samples for display. Scope: Controls: rate 2.5–4, seed 0.01–0.99, perturbation 0.000001–0.01 and generation 0–36. Some rates give periodic or convergent behavior; the whole slider is not a chaotic regime.
+
+Case unit math:example:chaos-theory:two-counts. Setting: Original constructed teaching scenario; stipulated quantities are not measurements. Inputs: {"delta": 0.0001, "generation": 1, "rate": 3.8, "seed": 0.35}. Result: {"exact": "0.000113962 normalized units"}. Limits: This is an ideal discrete population model. It does not establish an ecological forecast or prove chaos.
+
+## Complete worked case
+
+- id: math:example:chaos-theory:two-counts
+- title: Two nearly identical pond estimates
+- role: applied_model
+- question: Two normalized pond-population estimates start at 0.35 and 0.3501. What is their one-generation gap at rate 3.8?
+- setting: Original constructed teaching scenario; stipulated quantities are not measurements.
+- assumptions:
+  - Use a fixed rate and two starting values in [0,1].
+  - The recurrence is a stipulated deterministic discrete model, not measured population data.
+  - Fractional generations linearly interpolate neighboring samples for display.
+- inputs:
+  - rate: 3.8
+  - seed: 0.35
+  - delta: 0.0001
+  - generation: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: x₁=3.8(0.35)(0.65)=0.8645
+    - reason: Apply the same nonlinear update to the first estimate.
+  - Item:
+    - index: 2
+    - expression: z₁=3.8(0.3501)(0.6499)=0.864613962
+    - reason: Keep the tiny initial difference in the second update.
+  - Item:
+    - index: 3
+    - expression: |z₁−x₁|=0.000113962
+    - reason: Compare both trajectories at the same generation.
+- result:
+  - exact: 0.000113962 normalized units
+- interpretation: The first gap is slightly larger than the initial 0.0001; later gaps need not increase at every step.
+- independent check:
+  - method: Expand the update difference.
+  - expected: rδ(1−2s−δ)=3.8(0.0001)(0.2999)=0.000113962.
+- limits: This is an ideal discrete population model. It does not establish an ecological forecast or prove chaos.
+- preset:
+  - rate: 3.8
+  - seed: 0.35
+  - delta: 0.0001
+  - generation: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: draft
+  - external source refs:
+- conditions to check:
+  - Use a fixed rate and two starting values in [0,1].
+  - The recurrence is a stipulated deterministic discrete model, not measured population data.
+  - Fractional generations linearly interpolate neighboring samples for display.
+
+## Written exploration recipe
+
+- component id: chaos-theory-visual-model
+- renderer id: chaos-theory-visual-model
+- renderer version: 1.0.0
+- model id: chaos-theory-visual-model
+- model revision: 1.0.0
+- expression id: ast:chaos-theory:expression
+- interaction status: implemented
+- description: Two colored traces and a gap marker use the same evaluated generation; fractional generation joins neighboring samples.
+- controls:
+  - Item:
+    - id: rate
+    - type: number
+    - default: 3.8
+    - min: 2.5
+    - max: 4
+    - slider min: 2.5
+    - slider max: 4
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer.
+  - Item:
+    - id: seed
+    - type: number
+    - default: 0.35
+    - min: 0.01
+    - max: 0.99
+    - slider min: 0.01
+    - slider max: 0.99
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer.
+  - Item:
+    - id: delta
+    - type: number
+    - default: 0.0001
+    - min: 1e-06
+    - max: 0.01
+    - slider min: 1e-06
+    - slider max: 0.01
+    - slider step: 1e-06
+    - text input policy: Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer.
+  - Item:
+    - id: generation
+    - type: number
+    - default: 12
+    - min: 0
+    - max: 36
+    - slider min: 0
+    - slider max: 36
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer.
+- expected cases:
+  - Item:
+    - input:
+      - rate: 3.8
+      - seed: 0.35
+      - delta: 0.0001
+      - generation: 12
+    - output: 0.02644158410711872
+  - Item:
+    - input:
+      - rate: 3.8
+      - seed: 0.35
+      - delta: 0.0001
+      - generation: 0
+    - output: 9.999999999998899e-05
+  - Item:
+    - input:
+      - rate: 3.8
+      - seed: 0.35
+      - delta: 0.0001
+      - generation: 1
+    - output: 0.00011396200000002299
+  - Item:
+    - input:
+      - rate: 3.8
+      - seed: 0.35
+      - delta: 0.0001
+      - generation: 0.5
+    - output: 0.00010698099999995048
+  - Item:
+    - input:
+      - rate: 2.5
+      - seed: 0.6
+      - delta: 0.0001
+      - generation: 1
+    - output: 5.00250000000646e-05
+  - Item:
+    - input:
+      - rate: 4
+      - seed: 0.99
+      - delta: 0.01
+      - generation: 36
+    - output: 0.35336619198049213
+  - Item:
+    - input:
+      - rate: 4.1
+      - seed: 0.35
+      - delta: 0.0001
+      - generation: 12
+    - status: invalid_parameters
+- compute: For each seed s and s+δ, iterate F(x)=r*x*(1-x) floor(generation) times. At fraction f linearly interpolate that sample and its next sample. Output is the absolute difference of the two interpolated values.
+- numeric tolerance: 1e-10
+- invariants:
+  - At generation zero output equals delta.
+  - For rates at most 4 and starts in[0,1], every mathematical iterate stays in[0,1].
+  - Both traces use the same rate and generation.
+- limits:
+  - Floating-point roundoff can affect later iterates of sensitive systems.
+  - A finite trace does not prove chaos; periodic windows occur among high rates.
+  - Fractional generation is a declared visual convention, not a continuous population trajectory.
+- fallback: Read the same substituted formula, worked steps and labeled static scene with motion paused.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:mit:logistic-dynamics. [MIT Press Open Encyclopedia of Cognitive Science, Complex Dynamical Systems](https://oecs.mit.edu/pub/00hsw4x2/release/1/). Locator: Nonlinearity, attractors, and chaos; logistic recurrence and sensitive dependence. Verification: Definition-level mathematics inspected2026-10-23 via the official publisher or university page. This supports definitions, not historical priority, independent mathematical review or the original constructed applications.. Rights: Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied.

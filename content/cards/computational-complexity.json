@@ -1,0 +1,727 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:computational-complexity",
+  "slug": "computational-complexity",
+  "type": "concept",
+  "title": "Computational complexity: a linear scan",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-26T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent mathematical review"
+  },
+  "source_policy": "Definition-level references support the mathematical vocabulary. Stories and worked quantities are originally authored constructed examples, not measurements or historical events. Historical priority and notation claims require separate evidence before publication.",
+  "aliases": [
+    "linear-time scan",
+    "algorithm cost model",
+    "operation count"
+  ],
+  "branches": [
+    "computation",
+    "discrete-mathematics",
+    "modeling"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Count a full scan and separate input size, cost per operation and modeled runtime.",
+  "meaning": "Computational complexity studies the resources required by algorithms as input size grows. This introductory specimen derives a linear operation count from a specified full scan, then assigns a constant cost per inspection. It keeps asymptotic growth, exact counts and modeled elapsed time separate.",
+  "prerequisites": {
+    "required": [
+      "math:concept:function"
+    ],
+    "helpful": [
+      "math:concept:linear-model",
+      "math:concept:set"
+    ],
+    "depth": [
+      "math:concept:algorithm"
+    ]
+  },
+  "definition": {
+    "setting": "Algorithm analysis with one declared basic operation: inspect each item once in a full scan. The display contains a bounded number of items, while the stated scan rule defines the general positive-integer family.",
+    "formal_latex": "w(n)=n,\\quad T(n)=c n,\\quad T(2n)=2c n,\\quad w(n)\\in O(n).",
+    "signature": {
+      "n,itemCount": "Positive integer number of items in [1,32].",
+      "c,costPerItem": "Fixed stipulated per-item cost in [0,10] milliseconds.",
+      "w(n),operationCount": "Exactly n inspections for the specified full scan.",
+      "T(n),totalTime": "Primary modeled time c*n in milliseconds.",
+      "2n,doubledCount": "Twice the item count, retained as a separate comparison.",
+      "T(2n),doubledTime": "Modeled time for twice the input at the same per-item cost.",
+      "O(n)": "An asymptotic upper-bound class, not a measured number."
+    },
+    "conditions": [
+      "The specified full-scan procedure visits every one of n items exactly once, for each positive integer input size n. One item inspection is the chosen basic operation.",
+      "The executable itemCount is an integer from 1 to 32. The conceptual operation-count family w(n)=n is defined for every positive integer n; the finite drawing is only a bounded demonstration.",
+      "A fixed stipulated cost c in [0,10] milliseconds per item gives model time T(n)=c*n. Setup, loop-control, memory, parallelism and changing per-item costs are outside this cost model.",
+      "For the doubled input the same fixed c gives 2n inspections and T(2n)=c*(2n)=2*T(n). A full scan does not stop early on a matching item.",
+      "The operation count w(n)=n has tight linear growth Θ(n), hence also the upper-bound class O(n). These are asymptotic classes, not numeric runtimes.",
+      "For each fixed c>0, the model time c*n also has tight linear growth. When c=0 the idealized model time is zero while the number of inspections is still n; zero time does not have a positive linear lower bound.",
+      "A formula derived from the specified procedure supports the growth statement. Observing a finite graph or a measured doubling ratio alone does not prove an asymptotic claim.",
+      "Milliseconds here are stipulated costs, not measured benchmarks or performance promises for a real device.",
+      "Under the stated fixed positive cost per inspection, this full scan is a linear-time algorithm; a zero modeled cost does not change its inspection count."
+    ],
+    "domain_notes": "The broader field includes many time and space models, worst-case and average-case questions, and classes of computational problems. This card analyzes only a full scan under a constant per-item cost assumption. It does not run a benchmark, analyze arbitrary code, compare machines, estimate hidden overhead, or infer O(n) from a short plot. The synthetic c=0 boundary remains valid arithmetic but is not a physical timing claim.",
+    "proof_status": "Definition-level references; restricted-family properties are author-derived. Independent mathematical review pending.",
+    "source_refs": [
+      "source:uw:algorithm-analysis"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Computational complexity: a linear scan",
+    "expression_latex": "w(n)=n,\\quad T(n)=c n,\\quad T(2n)=2c n,\\quad w(n)\\in O(n).",
+    "formation_rule": "operationCount=itemCount; doubledCount=2*itemCount; output=totalTime=costPerItem*operationCount; doubledTime=costPerItem*doubledCount. For this full-scan family, w(n)∈Θ(n); T(n)∈Θ(n) when c>0.",
+    "precedence": "Count the explicitly chosen item inspections first, then multiply by their fixed per-item time. Doubling n is distinct from doubling c, although either doubles this particular product.",
+    "symbols": [
+      {
+        "token": "n",
+        "role": "Number of items inspected in a full scan, stored as itemCount",
+        "type": "Positive integer input size"
+      },
+      {
+        "token": "c",
+        "role": "Stipulated fixed cost per item, stored as costPerItem",
+        "type": "Nonnegative milliseconds per inspection"
+      },
+      {
+        "token": "w(n)",
+        "role": "Number of chosen basic inspections",
+        "type": "Positive integer operation count"
+      },
+      {
+        "token": "T(n)",
+        "role": "Primary modeled total scan time",
+        "type": "Nonnegative time in milliseconds"
+      },
+      {
+        "token": "2n",
+        "role": "Doubled input size",
+        "type": "Positive integer count"
+      },
+      {
+        "token": "T(2n)",
+        "role": "Modeled time at the doubled input and same cost",
+        "type": "Nonnegative time in milliseconds"
+      },
+      {
+        "token": "O(n)",
+        "role": "Linear asymptotic upper-bound class for the specified scan",
+        "type": "Complexity class, not a scalar runtime"
+      }
+    ],
+    "ast": {
+      "id": "ast:computational-complexity:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:itemCount",
+          "kind": "variable",
+          "type": "Positive integer input size",
+          "symbol": "itemCount",
+          "scope_ref": "scope:computational-complexity:expression"
+        },
+        {
+          "id": "n:costPerItem",
+          "kind": "variable",
+          "type": "Nonnegative time per basic operation in milliseconds",
+          "symbol": "costPerItem",
+          "scope_ref": "scope:computational-complexity:expression"
+        },
+        {
+          "id": "n:output",
+          "kind": "multiply",
+          "type": "Nonnegative modeled total time in milliseconds",
+          "arguments": [
+            "n:costPerItem",
+            "n:itemCount"
+          ]
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:computational-complexity:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "itemCount",
+            "costPerItem"
+          ],
+          "domain_condition": "The specified full-scan procedure visits every one of n items exactly once, for each positive integer input size n. One item inspection is the chosen basic operation."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use 2.5 items in the full-scan count",
+        "status": "domain error",
+        "reason": "The input size counts distinct items and is a positive integer."
+      },
+      {
+        "input": "Call O(n) the measured number of milliseconds",
+        "status": "type error",
+        "reason": "An asymptotic upper-bound class differs from a scalar time under a chosen cost model."
+      },
+      {
+        "input": "Prove O(n) from a few points on the display",
+        "status": "evidence error",
+        "reason": "The class concerns arbitrarily large inputs; here the justification comes from the specified scan rule w(n)=n for the full family."
+      }
+    ],
+    "ast_coverage": "A narrow typed expression outline for the declared executable specimen. Function references name fixed finite selection/counting procedures; no general set parser, statistical inference engine or program analyzer is claimed.",
+    "output_symbol_bindings": {
+      "n": "itemCount",
+      "c": "costPerItem",
+      "w(n)": "operationCount",
+      "T(n)": "totalTime",
+      "2n": "doubledCount",
+      "T(2n)": "doubledTime"
+    }
+  },
+  "properties": [
+    {
+      "claim": "The specified full scan performs exactly n selected basic inspections.",
+      "conditions": "Apply one inspection to every input item, with no early stopping.",
+      "derivation": "Associate each distinct item with one and only one inspection. This gives w(n)=n for every positive integer n in the family.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "example_ref": "math:example:computational-complexity:inspection-batch"
+    },
+    {
+      "claim": "Doubling input size doubles modeled time at fixed c.",
+      "conditions": "Keep the per-item cost constant and use the same full scan.",
+      "derivation": "T(2n)=c*(2n)=2*(c*n)=2*T(n), including the synthetic c=0 case.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "example_ref": "math:example:computational-complexity:double-input"
+    },
+    {
+      "claim": "Changing c does not change the operation-count growth.",
+      "conditions": "Keep the inspection procedure fixed; use a finite nonnegative constant c for each run.",
+      "derivation": "w(n)=n remains a tight linear count. For c>0, T(n)=cn is also Θ(n); at c=0 only the modeled time is zero.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "example_ref": "math:example:computational-complexity:faster-inspection"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the development of this idea and its notation using specialist historical evidence before adding origin or priority claims.",
+      "Distinguish historical attribution from a modern teaching formulation."
+    ],
+    "reader_text": "Historical account not yet sourced. These are original constructed scenarios, not historical anecdotes."
+  },
+  "connections": [
+    {
+      "target": "math:concept:linear-model",
+      "type": "supports",
+      "conditions": "Treat input size as a discrete count and c as a fixed time per chosen operation.",
+      "reason": "A fixed cost per item produces a proportional total with zero initial overhead.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:set",
+      "type": "supports",
+      "conditions": "This is a declared basic-operation count, not a claim that every set implementation has the same runtime.",
+      "reason": "A simple candidate filter can use one membership inspection per item.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:population-sample",
+      "type": "supports",
+      "conditions": "The count concerns a selected visit or addition; division and other implementation work are separate.",
+      "reason": "Computing a full-population sum can visit each value once.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:computational-complexity:inspection-batch",
+      "title": "Model a full batch of label inspections",
+      "role": "applied_model",
+      "question": "How long does a full scan of twelve labels take at 2 ms per inspection?",
+      "setting": "Original constructed teaching scenario; quantities and rules are stipulated, not measured.",
+      "assumptions": [
+        "The inspected labels are original stipulated device-inspection tasks, not a timing benchmark.",
+        "The algorithm performs one selected basic inspection on every item and does not stop early.",
+        "Every chosen inspection is assigned the same fixed cost c; all other overhead is excluded.",
+        "The item count is a positive integer, and modeled time is expressed in milliseconds."
+      ],
+      "inputs": {
+        "itemCount": 12,
+        "costPerItem": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "w(n)=12; c=2 ms per inspection",
+          "reason": "Count one declared inspection per input item."
+        },
+        {
+          "index": 2,
+          "expression": "T(n)=2×12=24 ms",
+          "reason": "Multiply the count by the stipulated fixed cost, preserving units."
+        },
+        {
+          "index": 3,
+          "expression": "T(2n)=2×24=48 ms",
+          "reason": "Recompute the doubled-input comparison with the same per-item cost."
+        }
+      ],
+      "result": {
+        "exact": "T(n)=2×12=24 ms; T(2n)=2×24=48 ms"
+      },
+      "interpretation": "Twelve selected basic inspections cost 24 ms under the stipulated model. The doubled batch costs twice as much at the same cost per item.",
+      "independent_check": {
+        "method": "Independent enumeration or arithmetic check",
+        "expected": "Add c milliseconds once for each of the n inspections and compare that repeated sum with c*n. Repeat for 2n inspections without changing c."
+      },
+      "limits": "The exact product belongs to the declared constant-cost model. Actual program timing can include setup, loop control, memory effects, variable work and other operations; a finite display alone cannot establish asymptotic complexity.",
+      "preset": {
+        "itemCount": 12,
+        "costPerItem": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The inspected labels are original stipulated device-inspection tasks, not a timing benchmark.",
+        "The algorithm performs one selected basic inspection on every item and does not stop early.",
+        "Every chosen inspection is assigned the same fixed cost c; all other overhead is excluded.",
+        "The item count is a positive integer, and modeled time is expressed in milliseconds."
+      ]
+    },
+    {
+      "id": "math:example:computational-complexity:faster-inspection",
+      "title": "Change the per-label cost without changing the scan",
+      "role": "applied_model",
+      "question": "What changes if the same twelve inspections cost 1 ms each?",
+      "setting": "Original constructed teaching scenario; quantities and rules are stipulated, not measured.",
+      "assumptions": [
+        "The inspected labels are original stipulated device-inspection tasks, not a timing benchmark.",
+        "The algorithm performs one selected basic inspection on every item and does not stop early.",
+        "Every chosen inspection is assigned the same fixed cost c; all other overhead is excluded.",
+        "The item count is a positive integer, and modeled time is expressed in milliseconds."
+      ],
+      "inputs": {
+        "itemCount": 12,
+        "costPerItem": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "w(n)=12; c=1 ms per inspection",
+          "reason": "Count one declared inspection per input item."
+        },
+        {
+          "index": 2,
+          "expression": "T(n)=1×12=12 ms",
+          "reason": "Multiply the count by the stipulated fixed cost, preserving units."
+        },
+        {
+          "index": 3,
+          "expression": "T(2n)=1×24=24 ms",
+          "reason": "Recompute the doubled-input comparison with the same per-item cost."
+        }
+      ],
+      "result": {
+        "exact": "T(n)=1×12=12 ms; T(2n)=1×24=24 ms"
+      },
+      "interpretation": "Changing the constant cost changes modeled time, while the algorithm still performs twelve inspections and retains its linear operation-count family.",
+      "independent_check": {
+        "method": "Independent enumeration or arithmetic check",
+        "expected": "Add c milliseconds once for each of the n inspections and compare that repeated sum with c*n. Repeat for 2n inspections without changing c."
+      },
+      "limits": "The exact product belongs to the declared constant-cost model. Actual program timing can include setup, loop control, memory effects, variable work and other operations; a finite display alone cannot establish asymptotic complexity.",
+      "preset": {
+        "itemCount": 12,
+        "costPerItem": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The inspected labels are original stipulated device-inspection tasks, not a timing benchmark.",
+        "The algorithm performs one selected basic inspection on every item and does not stop early.",
+        "Every chosen inspection is assigned the same fixed cost c; all other overhead is excluded.",
+        "The item count is a positive integer, and modeled time is expressed in milliseconds."
+      ]
+    },
+    {
+      "id": "math:example:computational-complexity:double-input",
+      "title": "Double the batch with the same per-item cost",
+      "role": "applied_model",
+      "question": "What model time results from twenty-four labels at 2 ms each?",
+      "setting": "Original constructed teaching scenario; quantities and rules are stipulated, not measured.",
+      "assumptions": [
+        "The inspected labels are original stipulated device-inspection tasks, not a timing benchmark.",
+        "The algorithm performs one selected basic inspection on every item and does not stop early.",
+        "Every chosen inspection is assigned the same fixed cost c; all other overhead is excluded.",
+        "The item count is a positive integer, and modeled time is expressed in milliseconds."
+      ],
+      "inputs": {
+        "itemCount": 24,
+        "costPerItem": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "w(n)=24; c=2 ms per inspection",
+          "reason": "Count one declared inspection per input item."
+        },
+        {
+          "index": 2,
+          "expression": "T(n)=2×24=48 ms",
+          "reason": "Multiply the count by the stipulated fixed cost, preserving units."
+        },
+        {
+          "index": 3,
+          "expression": "T(2n)=2×48=96 ms",
+          "reason": "Recompute the doubled-input comparison with the same per-item cost."
+        }
+      ],
+      "result": {
+        "exact": "T(n)=2×24=48 ms; T(2n)=2×48=96 ms"
+      },
+      "interpretation": "The larger input doubles the count and modeled time relative to the twelve-label case. The equality follows from the specified full scan, not a measured trend.",
+      "independent_check": {
+        "method": "Independent enumeration or arithmetic check",
+        "expected": "Add c milliseconds once for each of the n inspections and compare that repeated sum with c*n. Repeat for 2n inspections without changing c."
+      },
+      "limits": "The exact product belongs to the declared constant-cost model. Actual program timing can include setup, loop control, memory effects, variable work and other operations; a finite display alone cannot establish asymptotic complexity.",
+      "preset": {
+        "itemCount": 24,
+        "costPerItem": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The inspected labels are original stipulated device-inspection tasks, not a timing benchmark.",
+        "The algorithm performs one selected basic inspection on every item and does not stop early.",
+        "Every chosen inspection is assigned the same fixed cost c; all other overhead is excluded.",
+        "The item count is a positive integer, and modeled time is expressed in milliseconds."
+      ]
+    },
+    {
+      "id": "math:example:computational-complexity:slower-inspection",
+      "title": "Double cost instead of input size",
+      "role": "applied_model",
+      "question": "What happens to twelve labels if each inspection takes 4 ms in the model?",
+      "setting": "Original constructed teaching scenario; quantities and rules are stipulated, not measured.",
+      "assumptions": [
+        "The inspected labels are original stipulated device-inspection tasks, not a timing benchmark.",
+        "The algorithm performs one selected basic inspection on every item and does not stop early.",
+        "Every chosen inspection is assigned the same fixed cost c; all other overhead is excluded.",
+        "The item count is a positive integer, and modeled time is expressed in milliseconds."
+      ],
+      "inputs": {
+        "itemCount": 12,
+        "costPerItem": 4
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "w(n)=12; c=4 ms per inspection",
+          "reason": "Count one declared inspection per input item."
+        },
+        {
+          "index": 2,
+          "expression": "T(n)=4×12=48 ms",
+          "reason": "Multiply the count by the stipulated fixed cost, preserving units."
+        },
+        {
+          "index": 3,
+          "expression": "T(2n)=4×24=96 ms",
+          "reason": "Recompute the doubled-input comparison with the same per-item cost."
+        }
+      ],
+      "result": {
+        "exact": "T(n)=4×12=48 ms; T(2n)=4×24=96 ms"
+      },
+      "interpretation": "The 48 ms product matches the larger-input example for a different reason: the count stays twelve while the assigned per-item cost doubles.",
+      "independent_check": {
+        "method": "Independent enumeration or arithmetic check",
+        "expected": "Add c milliseconds once for each of the n inspections and compare that repeated sum with c*n. Repeat for 2n inspections without changing c."
+      },
+      "limits": "The exact product belongs to the declared constant-cost model. Actual program timing can include setup, loop control, memory effects, variable work and other operations; a finite display alone cannot establish asymptotic complexity.",
+      "preset": {
+        "itemCount": 12,
+        "costPerItem": 4
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The inspected labels are original stipulated device-inspection tasks, not a timing benchmark.",
+        "The algorithm performs one selected basic inspection on every item and does not stop early.",
+        "Every chosen inspection is assigned the same fixed cost c; all other overhead is excluded.",
+        "The item count is a positive integer, and modeled time is expressed in milliseconds."
+      ]
+    },
+    {
+      "id": "math:example:computational-complexity:larger-model",
+      "title": "Inspect a larger batch at the display limit",
+      "role": "applied_model",
+      "question": "What time does the model assign to thirty-two inspections at 10 ms each?",
+      "setting": "Original constructed teaching scenario; quantities and rules are stipulated, not measured.",
+      "assumptions": [
+        "The inspected labels are original stipulated device-inspection tasks, not a timing benchmark.",
+        "The algorithm performs one selected basic inspection on every item and does not stop early.",
+        "Every chosen inspection is assigned the same fixed cost c; all other overhead is excluded.",
+        "The item count is a positive integer, and modeled time is expressed in milliseconds."
+      ],
+      "inputs": {
+        "itemCount": 32,
+        "costPerItem": 10
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "w(n)=32; c=10 ms per inspection",
+          "reason": "Count one declared inspection per input item."
+        },
+        {
+          "index": 2,
+          "expression": "T(n)=10×32=320 ms",
+          "reason": "Multiply the count by the stipulated fixed cost, preserving units."
+        },
+        {
+          "index": 3,
+          "expression": "T(2n)=10×64=640 ms",
+          "reason": "Recompute the doubled-input comparison with the same per-item cost."
+        }
+      ],
+      "result": {
+        "exact": "T(n)=10×32=320 ms; T(2n)=10×64=640 ms"
+      },
+      "interpretation": "The derived doubled-input comparison can contain 64 conceptual inspections even though the editable base-count control stops at 32. Neither product is a real benchmark.",
+      "independent_check": {
+        "method": "Independent enumeration or arithmetic check",
+        "expected": "Add c milliseconds once for each of the n inspections and compare that repeated sum with c*n. Repeat for 2n inspections without changing c."
+      },
+      "limits": "The exact product belongs to the declared constant-cost model. Actual program timing can include setup, loop control, memory effects, variable work and other operations; a finite display alone cannot establish asymptotic complexity.",
+      "preset": {
+        "itemCount": 32,
+        "costPerItem": 10
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The inspected labels are original stipulated device-inspection tasks, not a timing benchmark.",
+        "The algorithm performs one selected basic inspection on every item and does not stop early.",
+        "Every chosen inspection is assigned the same fixed cost c; all other overhead is excluded.",
+        "The item count is a positive integer, and modeled time is expressed in milliseconds."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:computational-complexity",
+    "renderer_id": "computational-complexity-visual-model",
+    "renderer_version": "1",
+    "model_id": "computational-complexity-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:computational-complexity:expression",
+    "interaction_status": "implemented",
+    "description": "Numbered work tiles show one inspection for each item. Separate fixed-input and doubled-input counts and time bars connect n and c to T(n)=cn; the asymptotic class remains explanatory text rather than a numeric value.",
+    "controls": [
+      {
+        "id": "itemCount",
+        "type": "number",
+        "default": 12,
+        "min": 1,
+        "max": 32,
+        "step": 1
+      },
+      {
+        "id": "costPerItem",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 10,
+        "step": 0.01
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "itemCount": 12,
+          "costPerItem": 2
+        },
+        "output": 24
+      },
+      {
+        "input": {
+          "itemCount": 12,
+          "costPerItem": 0
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "itemCount": 1,
+          "costPerItem": 2
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "itemCount": 32,
+          "costPerItem": 10
+        },
+        "output": 320
+      },
+      {
+        "input": {
+          "itemCount": 12,
+          "costPerItem": 1.25
+        },
+        "output": 15.0
+      },
+      {
+        "input": {
+          "itemCount": 24,
+          "costPerItem": 2
+        },
+        "output": 48
+      },
+      {
+        "input": {
+          "itemCount": 32,
+          "costPerItem": 0.1
+        },
+        "output": 3.2
+      },
+      {
+        "input": {
+          "itemCount": 8,
+          "costPerItem": 3
+        },
+        "output": 24
+      },
+      {
+        "input": {
+          "itemCount": 1,
+          "costPerItem": 0
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "itemCount": 16,
+          "costPerItem": 0.5
+        },
+        "output": 8.0
+      },
+      {
+        "input": {
+          "itemCount": 1.5,
+          "costPerItem": 2
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "itemCount": 12,
+          "costPerItem": -1
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "operationCount=itemCount; doubledCount=2*itemCount; output=totalTime=costPerItem*operationCount; doubledTime=costPerItem*doubledCount.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The specified full-scan procedure visits every one of n items exactly once, for each positive integer input size n. One item inspection is the chosen basic operation.",
+      "The executable itemCount is an integer from 1 to 32. The conceptual operation-count family w(n)=n is defined for every positive integer n; the finite drawing is only a bounded demonstration.",
+      "A fixed stipulated cost c in [0,10] milliseconds per item gives model time T(n)=c*n. Setup, loop-control, memory, parallelism and changing per-item costs are outside this cost model.",
+      "For the doubled input the same fixed c gives 2n inspections and T(2n)=c*(2n)=2*T(n). A full scan does not stop early on a matching item.",
+      "The operation count w(n)=n has tight linear growth Θ(n), hence also the upper-bound class O(n). These are asymptotic classes, not numeric runtimes."
+    ],
+    "limits": [
+      "Only a one-inspection-per-item full scan and a stipulated constant per-inspection cost.",
+      "No measured machine timing, early-stop search, nested scan or arbitrary program analysis.",
+      "Item count is discrete. Continuous motion varies c while recomputing exact n and 2n comparisons."
+    ],
+    "fallback": "Pause to read the labeled quantities. The model-data table, exact worked steps and searchable definitions provide numeric and textual alternatives to the scene.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Why not call a matching-item search the same full scan?",
+      "answer": "A search may stop before visiting all items. Its best, worst and average cases can differ; this declared procedure deliberately inspects every item."
+    },
+    {
+      "prompt": "Does zero assigned inspection time mean zero operations?",
+      "answer": "No. The synthetic boundary c=0 makes T(n)=0 in the arithmetic model, while w(n)=n still counts all inspections."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Numbered work tiles, distinct n and 2n inspection counts and modeled time bars connect the cost model to actual chosen basic operations."
+    },
+    {
+      "kind": "graph",
+      "description": "T(n) and T(2n) are plotted against continuous cost per item c at fixed integer n. The comparison changes the stipulated constant, not the algorithm or input count."
+    },
+    {
+      "kind": "substitution",
+      "description": "The input size, chosen operation count, per-operation time and total modeled time retain distinct quantities and units."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Workshop label inspection",
+      "mapping": "A full batch visits every label once under an assigned per-inspection time.",
+      "limitations": "Stipulated arithmetic cost model, not measured performance or a hardware recommendation.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:computational-complexity:inspection-batch"
+    },
+    {
+      "context": "Input-size comparison",
+      "mapping": "Doubling the batch demonstrates the exact proportional family derived from the procedure.",
+      "limitations": "The finite plotted range illustrates the formula; it does not supply a proof from timings.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:computational-complexity:double-input"
+    }
+  ],
+  "source_refs": [
+    "source:uw:algorithm-analysis"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and notation have not yet been researched.",
+    "This bounded teaching model does not replace the broader mathematical definition or independent proof."
+  ],
+  "change_log": [
+    "0.1.0-draft: five original worked cases, twelve numeric fixtures, a connected modular story and distinct Geometry/Graph views."
+  ]
+}

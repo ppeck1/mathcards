@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='6' y='6' width='28' height='28' rx='3' fill='%2322695d'/%3E%3C/svg%3E">
+<title>Module sandbox · Expression Atlas</title>
+<link rel="stylesheet" href="../src/styles.css">
+<link rel="stylesheet" href="../src/experience.css">
+<link rel="stylesheet" href="../src/studio.css">
+<link rel="stylesheet" href="../src/motion.css">
+<link rel="stylesheet" href="../src/life-story.css">
+<link rel="stylesheet" href="../src/calculation-flow.css">
+<link rel="stylesheet" href="../src/scene-inspector.css">
+<link rel="stylesheet" href="../src/semantic-links.css">
+<style>
+  main.module-sandbox { max-width: 1600px; }
+  .sandbox-intro { max-width: 80ch; margin-bottom: 30px; }
+  .sandbox-intro h1 { font-family: Georgia, serif; font-size: clamp(32px, 4vw, 48px); font-weight: 400; margin: 10px 0 18px; }
+  .sandbox-intro p { line-height: 1.8; }
+  .sandbox-panel-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+  .sandbox-panel-heading h2 { font-size: 18px; margin: 0; }
+  .sandbox-status { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .sandbox-notes { margin-top: 30px; max-width: 85ch; line-height: 1.8; }
+  .sandbox-notes code { overflow-wrap: anywhere; }
+  .sandbox-notes li + li { margin-top: 8px; }
+</style>
+<link rel="stylesheet" href="../src/model-data.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the module sandbox</a>
+<main id="main" class="module-sandbox" tabindex="-1">
+  <header class="sandbox-intro">
+    <a href="../START_HERE.html#workbench">← Expression Atlas workbench</a>
+    <p class="eyebrow">DEVELOPER EXAMPLE · SHARED PLAYGROUND HOST</p>
+    <h1>One module. Two independent places to play.</h1>
+    <p>The standalone <a href="growth-frame-module.js">growth frame module</a> registers alongside the thirty-eight installed topics. Both panels below use the existing playground’s controls, presets, motion, readable numbers, comparison pin, and focus view. The host needs no topic-specific edit.</p>
+    <p class="fine">This is trusted local JavaScript using the module contract, and a developer demonstration outside the canonical reviewed-card catalog. Notebook capture is disabled here because this page has no notebook integration.</p>
+  </header>
+  <div class="work-panels" aria-label="Two independent instances of the same module">
+    <section class="work-panel" aria-labelledby="sandbox-a-heading" data-sandbox-panel="a">
+      <div class="sandbox-panel-heading"><h2 id="sandbox-a-heading">Panel A · starts at q = 2</h2><output class="sandbox-status" data-sandbox-status="a">q = 2 · area = 4 · 0 local updates</output></div>
+      <div class="sandbox-mount"></div>
+    </section>
+    <section class="work-panel" aria-labelledby="sandbox-b-heading" data-sandbox-panel="b">
+      <div class="sandbox-panel-heading"><h2 id="sandbox-b-heading">Panel B · starts at q = 4</h2><output class="sandbox-status" data-sandbox-status="b">q = 4 · area = 16 · 0 local updates</output></div>
+      <div class="sandbox-mount"></div>
+    </section>
+  </div>
+  <section class="sandbox-notes" aria-labelledby="sandbox-contract-heading">
+    <h2 id="sandbox-contract-heading">What this proves</h2>
+    <ul>
+      <li>Move a control, drag a shape handle, choose a preset, or animate one panel. Its peer retains its own parameters and motion state.</li>
+      <li>Both squares use a fixed scale of 20 pixels per side unit, so their areas are directly comparable. Setting q to zero collapses the square without changing the scale.</li>
+      <li>The module supplies validation, evaluation, controls, sweeps, presets, a view, and structured readout data. The shared host owns interaction, animation scheduling, pacing, and cleanup.</li>
+      <li>Each mount has its own slot and SVG namespace. This example adds <code>growth-frame-sandbox</code> through <code>AtlasModules.register()</code>; it adds no branch to the host.</li>
+    </ul>
+    <p class="fine">The two small status lines count host change callbacks. They are diagnostics, not saved notes. The module itself creates no timer, animation loop, or event listener.</p>
+  </section>
+</main>
+<script src="../src/everyday.js"></script>
+<script src="../src/fractal-lens.js"></script>
+<script src="../src/chaos-trace.js"></script>
+<script src="../src/discovery.js"></script>
+<script src="../src/frontier.js"></script>
+<script src="../src/plot-view.js"></script>
+<script src="../src/foundations.js"></script>
+<script src="../src/linear-algebra.js"></script>
+<script src="../src/linear-workflows.js"></script>
+<script src="../src/calculus-fields.js"></script>
+<script src="../src/local-change.js"></script>
+<script src="../src/atlas-gaps.js"></script>
+<script src="../src/model-registry.js"></script>
+<script src="../src/models.js"></script>
+<script src="../src/catalog.js"></script>
+<script src="../src/notebook.js"></script>
+<script src="../src/visuals.js"></script>
+<script src="../src/spatial.js"></script>
+<script src="../src/module-graphs.js"></script>
+<script src="../src/life-stories.js"></script>
+<script src="../src/discovery-stories.js"></script>
+<script src="../src/frontier-stories.js"></script>
+<script src="../src/foundation-stories.js"></script>
+<script src="../src/linear-algebra-stories.js"></script>
+<script src="../src/linear-workflow-stories.js"></script>
+<script src="../src/calculus-field-stories.js"></script>
+<script src="../src/local-change-stories.js"></script>
+<script src="../src/atlas-gap-stories.js"></script>
+<script src="../src/story-library.js"></script>
+<script src="../src/experiments.js"></script>
+<script src="../src/scene-input.js"></script>
+<script src="../src/motion.js"></script>
+<script src="../src/readable-values.js"></script>
+<script src="../src/scene-inspector.js"></script>
+<script src="../src/module-registry.js"></script>
+<script src="../src/semantic-links.js"></script>
+<script src="../src/symbol-bindings.js"></script>
+<script src="../src/module-ports.js"></script>
+<script src="../src/playground-modules.js"></script>
+<script src="../src/model-data.js"></script>
+<script src="../src/playground.js"></script>
+<script src="../src/story-links.js"></script>
+<script src="../src/story-scenes.js"></script>
+<script src="../src/story-journey.js"></script>
+<script src="../src/calculation-flow.js"></script>
+<script src="../src/life-story.js"></script>
+<script src="growth-frame-module.js"></script>
+<script>
+(function () {
+  'use strict';
+  const moduleId = 'growth-frame-sandbox';
+  const panels = [
+    { name: 'a', parameters: { q: 2 }, updates: 0, mounted: false },
+    { name: 'b', parameters: { q: 4 }, updates: 0, mounted: false }
+  ];
+  for (const panel of panels) {
+    const section = document.querySelector('[data-sandbox-panel="' + panel.name + '"]');
+    const mount = section.querySelector('.sandbox-mount');
+    const status = section.querySelector('[data-sandbox-status]');
+    const pacer = AtlasReadableValues.createPacer();
+    mount.innerHTML = AtlasPlayground.markup(moduleId, panel.parameters, { slot: 'sandbox-' + panel.name });
+    const root = mount.querySelector('.lab');
+    const updateStatus = () => {
+      if (panel.mounted) panel.updates++;
+      if (!pacer.take({ settled: root.dataset.motion === 'paused' })) return;
+      const format = value => AtlasReadableValues.format(value, { settled: root.dataset.motion === 'paused' });
+      const result = AtlasModules.get(moduleId).evaluate(panel.parameters);
+      AtlasReadableValues.writeText(status, 'q = ' + format(panel.parameters.q) + ' · area = ' + format(result.output) + ' · ' + panel.updates + ' local updates');
+    };
+    panel.host = AtlasPlayground.mount(root, {
+      slug: moduleId, parameters: panel.parameters,
+      peerParameters: () => panels.map(peer => peer.parameters),
+      sharedScale: () => true,
+      onChange: updateStatus
+    });
+    panel.mounted = true;
+  }
+  window.addEventListener('pagehide', event => {
+    if (!event.persisted) for (const panel of panels) panel.host.destroy();
+  }, { once: true });
+})();
+</script>
+</body>
+</html>

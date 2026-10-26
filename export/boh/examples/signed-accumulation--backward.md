@@ -1,0 +1,218 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:signed-accumulation:backward", "id": "math:example:signed-accumulation:backward", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:signed-accumulation", "example_id": "math:example:signed-accumulation:backward", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.1-draft", "upstream_content_sha256": "e77cdd1fe1db0abc58c3307d803eb1145575db6b51467c209ca345fa49cce194"}, "purpose": "Add positive and negative contributions while keeping net change distinct from total activity.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "e77cdd1fe1db0abc58c3307d803eb1145575db6b51467c209ca345fa49cce194", "status": "draft", "title": "Steady travel behind the origin", "topics": ["mathematics", "calculus", "modeling", "signed area", "net displacement", "Riemann-sum approximation"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
+---
+
+# Steady travel behind the origin
+
+Parent card: math:concept:signed-accumulation; revision 0.1.1-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:signed-accumulation; revision 0.1.1-draft. Setting: A continuous affine velocity on [0,T]; a bounded specimen of signed definite integration. Expression: $v(t)=v_0+rt,\quad S(T)=\int_0^T v(t)\,dt=v_0T+\frac12rT^2,\quad D(T)=\int_0^T|v(t)|\,dt.\quad L_n=\sum_{i=0}^{n-1}v(i\Delta t)\Delta t,\quad\Delta t=T/n.$. Conditions required for a defined value (a case may test their violation): The velocity rule is affine and continuous throughout the integration interval. Time is nonnegative; reversing direction is permitted and a zero crossing must split magnitude areas. Net displacement equals positiveArea−negativeArea; total distance equals positiveArea+negativeArea. Partition count is an allowed integer choice; changing it changes the approximation, not the underlying motion. For time=0, all areas and finite sums are zero; for rate=0 use constant velocity without division by the rate. Scope: This model includes negative velocities and interior zero crossings, unlike the separate from-rest positive-acceleration specimen. It evaluates the integral analytically for a line; it is not a numerical integrator for arbitrary curves. Shape shading has units (m/s)×s=m, not square metres.
+
+Case unit math:example:signed-accumulation:backward. Setting: Original constructed teaching scenario; quantities are stipulated, not measured. Inputs: {"initial": -2, "partitions": "8", "rate": 0, "time": 3}. Result: {"distance": 6, "exact": "net −6 m; distance 6 m", "left_sum": -6, "net_displacement": -6}. Limits: The left sum is exact because velocity is constant, not because every finite partition is automatically exact.
+
+## Complete worked case
+
+- id: math:example:signed-accumulation:backward
+- title: Steady travel behind the origin
+- role: applied_model
+- question: A cart moves at −2 m/s for 3 s. What do the signed area and total distance mean?
+- setting: Original constructed teaching scenario; quantities are stipulated, not measured.
+- assumptions:
+  - Motion follows a single signed straight coordinate measured in metres, with time in seconds.
+  - Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.
+  - The initial position is zero; displacement and total distance are calculated separately.
+  - A finite left-endpoint sum is an approximation; the exact integral follows from the affine velocity law.
+- inputs:
+  - time: 3
+  - initial: -2
+  - rate: 0
+  - partitions: 8
+- steps:
+  - Item:
+    - index: 1
+    - expression: v(t)=−2 m/s
+    - reason: The acceleration is zero, so the velocity graph is a horizontal line below zero.
+  - Item:
+    - index: 2
+    - expression: net=−2×3=−6 m
+    - reason: Keep the negative direction when accumulating.
+  - Item:
+    - index: 3
+    - expression: distance=|−2|×3=6 m
+    - reason: Travel length uses speed, the magnitude of velocity.
+- result:
+  - exact: net −6 m; distance 6 m
+  - net displacement: -6
+  - distance: 6
+  - left sum: -6
+- interpretation: The cart ends 6 m behind the origin after travelling 6 m. A negative displacement is a direction, not a negative path length.
+- independent check:
+  - method: Eight rectangles
+  - expected: Each interval is 3/8 s and contributes −2×3/8=−0.75 m; eight give −6 m exactly.
+- limits: The left sum is exact because velocity is constant, not because every finite partition is automatically exact.
+- preset:
+  - time: 3
+  - initial: -2
+  - rate: 0
+  - partitions: 8
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - Motion follows a single signed straight coordinate measured in metres, with time in seconds.
+  - Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.
+  - The initial position is zero; displacement and total distance are calculated separately.
+  - A finite left-endpoint sum is an approximation; the exact integral follows from the affine velocity law.
+
+## Written exploration recipe
+
+- component id: signed-accumulation-visual-model
+- renderer id: signed-accumulation-visual-model
+- renderer version: 1.0.0
+- model id: signed-accumulation-visual-model
+- model revision: 1.0.0
+- expression id: ast:signed-accumulation:expression
+- interaction status: implemented
+- description: Signed rectangles and two continuous shaded regions feed the same net displacement on a cart track; an independent distance label preserves travel that cancels in the net.
+- controls:
+  - Item:
+    - id: time
+    - type: number
+    - default: 4
+    - min: 0
+    - max: 6
+    - slider min: 0
+    - slider max: 6
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp it or retain a stale result.
+  - Item:
+    - id: initial
+    - type: number
+    - default: 2
+    - min: -4
+    - max: 4
+    - slider min: -4
+    - slider max: 4
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp it or retain a stale result.
+  - Item:
+    - id: rate
+    - type: number
+    - default: -1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp it or retain a stale result.
+  - Item:
+    - id: partitions
+    - type: enum
+    - default: 8
+    - values:
+      - 4
+      - 8
+      - 16
+      - 32
+- expected cases:
+  - Item:
+    - input:
+      - time: 4
+      - initial: 2
+      - rate: -1
+      - partitions: 8
+    - output: 0
+  - Item:
+    - input:
+      - time: 0
+      - initial: 4
+      - rate: -2
+      - partitions: 4
+    - output: 0
+  - Item:
+    - input:
+      - time: 6
+      - initial: 4
+      - rate: 2
+      - partitions: 32
+    - output: 60
+  - Item:
+    - input:
+      - time: 6
+      - initial: -4
+      - rate: -2
+      - partitions: 16
+    - output: -60
+  - Item:
+    - input:
+      - time: 3
+      - initial: -2
+      - rate: 0
+      - partitions: 8
+    - output: -6
+  - Item:
+    - input:
+      - time: 2
+      - initial: 1
+      - rate: 1
+      - partitions: 4
+    - output: 4
+  - Item:
+    - input:
+      - time: 3
+      - initial: 4
+      - rate: -2
+      - partitions: 32
+    - output: 3
+  - Item:
+    - input:
+      - time: 4
+      - initial: -2
+      - rate: 1
+      - partitions: 16
+    - output: 0
+  - Item:
+    - input:
+      - time: -1
+      - initial: 2
+      - rate: -1
+      - partitions: 8
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - time: 4
+      - initial: 2
+      - rate: -2.1
+      - partitions: 8
+    - status: invalid_parameters
+- compute: n=Number(partitions); step=time/n; finalVelocity=initial+rate*time; output=netDisplacement=initial*time+0.5*rate*time*time. Integrate positive and negative pieces separately, splitting at t=−initial/rate only for an interior zero crossing. positiveArea>=0; negativeArea>=0; signedNegativeArea=−negativeArea; distance=positiveArea+negativeArea; netDisplacement=positiveArea−negativeArea. leftSum=netDisplacement−0.5*rate*time*time/n; rightSum=netDisplacement+0.5*rate*time*time/n; midpointSum=netDisplacement for this affine family. At time=0 all sums and areas are zero; at rate=0 use a constant line.
+- numeric tolerance: 1e-10
+- invariants:
+  - The velocity rule is affine and continuous throughout the integration interval.
+  - Time is nonnegative; reversing direction is permitted and a zero crossing must split magnitude areas.
+  - Net displacement equals positiveArea−negativeArea; total distance equals positiveArea+negativeArea.
+  - Partition count is an allowed integer choice; changing it changes the approximation, not the underlying motion.
+  - For time=0, all areas and finite sums are zero; for rate=0 use constant velocity without division by the rate.
+- limits:
+  - The analytic law is constant acceleration on one axis; real friction, controller stops and acceleration changes require another module.
+  - Finite rectangle count controls an approximation. It never changes the exact integral or the cart’s declared motion.
+  - The midpoint sum is exact here because velocity is affine; that is not a general guarantee for curved velocity.
+  - NegativeArea is stored as a positive magnitude; signedNegativeArea carries its negative sign.
+- fallback: Pause motion and read the same labeled diagram, substitutions and original worked steps. The graph and exact numeric result remain available.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openstax:net-change. [Calculus Volume 1, 5.4 Integration Formulas and the Net Change Theorem](https://openstax.org/books/calculus-volume-1/pages/5-4-integration-formulas-and-the-net-change-theorem). Locator: Net Change Theorem; velocity, displacement and distance distinction. Verification: Definition-level mathematics inspected 2026-10-23 via the official publisher or university page; original examples are not independently reviewed.. Rights: Reference only. Explanations, scenarios and worked examples are originally authored; no source exercise bank or prose copied.
+
+- Source ID: source:openstax:definite-integral. [Calculus Volume 1, 5.2 The Definite Integral](https://openstax.org/books/calculus-volume-1/pages/5-2-the-definite-integral). Locator: Definition and Notation; signed regular Riemann sums; integrability of continuous functions; net area. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher page. This supports definitions and domain conditions, not historical priority or independent review of the original worked scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.

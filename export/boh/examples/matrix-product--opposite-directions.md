@@ -1,0 +1,253 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:matrix-product:opposite-directions", "id": "math:example:matrix-product:opposite-directions", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:matrix-product", "example_id": "math:example:matrix-product:opposite-directions", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "758bf405067700f2e981905833d3baa3200e56cd83864ae6717e7d45aac40cce"}, "purpose": "Follow a point through two transformations and compare the result when their order changes.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "758bf405067700f2e981905833d3baa3200e56cd83864ae6717e7d45aac40cce", "status": "draft", "title": "Opposite shear signs still preserve area", "topics": ["mathematics", "linear-algebra", "geometry", "matrix multiplication", "composing matrix maps", "AB versus BA", "two shears"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Opposite shear signs still preserve area
+
+Parent card: math:concept:matrix-product; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:matrix-product; revision 0.1.0-draft. Setting: Real vector spaces with an explicit two-dimensional coordinate model. Expression: $(AB)_{ij}=\sum_{k=1}^{n}A_{ik}B_{kj},\quad (AB)z=A(Bz).\quad A=\begin{pmatrix}1&a\\0&1\end{pmatrix},\ B=\begin{pmatrix}1&0\\b&1\end{pmatrix};\quad AB=\begin{pmatrix}1+ab&a\\b&1\end{pmatrix},\ BA=\begin{pmatrix}1&a\\b&1+ab\end{pmatrix}.$. Conditions required for a defined value (a case may test their violation): Matrix multiplication requires compatible inner dimensions. In this live family both matrices are real 2 by 2 maps acting on column vectors. AB means apply B first, then A; BA means apply A first, then B. The live matrices are the two shears A=[[1,a],[0,1]] and B=[[1,0],[b,1]]; the control does not represent arbitrary matrices. Each shear and either product has determinant 1, preserving signed unit area; this does not imply length or angle preservation. Changing order need not change every input vector. Equality at one point, especially zero, does not prove AB=BA. Scope: In general an m by n matrix can multiply an n by p matrix, producing an m by p matrix. The live model is deliberately restricted to two real 2 by 2 shear families with bounded strengths and one bounded input point. It is not an arbitrary matrix calculator. Changing the order selects a discrete operation sequence; it does not continuously blend the matrices into a third operation. These area-preserving shears do not cover singular products or arbitrary scaling. Coordinate units are abstract unless a worked example declares compatible physical units.
+
+Case unit math:example:matrix-product:opposite-directions. Setting: Original constructed teaching scenario; values and rules are stipulated, not measured. Inputs: {"a": 1, "b": -1, "order": "B_then_A", "x": 1, "y": 1}. Result: {"exact": "Intermediate and final (1,0) cm; signed unit-area factor 1"}. Limits: Area preservation does not imply the corner length, all angles or all distances stay unchanged.
+
+## Complete worked case
+
+- id: math:example:matrix-product:opposite-directions
+- title: Opposite shear signs still preserve area
+- role: applied_model
+- question: Use a=1,b=-1 and B then A. Where does corner (1,1) cm go?
+- setting: Original constructed teaching scenario; values and rules are stipulated, not measured.
+- assumptions:
+  - An illustration is represented by points on one fixed plane grid; one grid unit represents one centimetre.
+  - Shear strengths a and b are dimensionless; the origin is fixed and no translation is added.
+  - The matrices act on column coordinates, and the rightmost matrix acts first.
+- inputs:
+  - a: 1
+  - b: -1
+  - x: 1
+  - y: 1
+  - order: B_then_A
+- steps:
+  - Item:
+    - index: 1
+    - expression: B(1,1)=(1,0) cm
+    - reason: The negative vertical shear shifts downward.
+  - Item:
+    - index: 2
+    - expression: A(1,0)=(1,0) cm
+    - reason: The second shear has zero y to contribute at this point.
+  - Item:
+    - index: 3
+    - expression: AB=[[0,1],[-1,1]]; det(AB)=0*1-1*(-1)=1
+    - reason: A zero matrix entry does not mean the map has collapsed.
+- result:
+  - exact: Intermediate and final (1,0) cm; signed unit-area factor 1
+- interpretation: The corner moves while the unit-square area is preserved.
+- independent check:
+  - method: Column area check
+  - expected: The product columns (0,-1) and (1,1) have determinant 0*1-1*(-1)=1.
+- limits: Area preservation does not imply the corner length, all angles or all distances stay unchanged.
+- preset:
+  - a: 1
+  - b: -1
+  - x: 1
+  - y: 1
+  - order: B_then_A
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - An illustration is represented by points on one fixed plane grid; one grid unit represents one centimetre.
+  - Shear strengths a and b are dimensionless; the origin is fixed and no translation is added.
+  - The matrices act on column coordinates, and the rightmost matrix acts first.
+
+## Written exploration recipe
+
+- component id: matrix-product-visual-model
+- renderer id: matrix-product-visual-model
+- renderer version: 1.0.0
+- model id: matrix-product-visual-model
+- model revision: 1
+- expression id: ast:matrix-product:expression
+- interaction status: implemented
+- description: Show the input, intermediate and final arrows, the two shear operations and the selected product. Compare the opposite-order endpoint while the same parameters feed the story and formula; the Graph varies horizontal strength a.
+- controls:
+  - Item:
+    - id: a
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: b
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: x
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: y
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: order
+    - type: enum
+    - default: B_then_A
+    - values:
+      - B_then_A
+      - A_then_B
+    - text input policy: Choose one of the two explicit operation orders; no fractional order is defined.
+- expected cases:
+  - Item:
+    - input:
+      - a: 1
+      - b: 1
+      - x: 1
+      - y: 1
+      - order: B_then_A
+    - output: 3
+  - Item:
+    - input:
+      - a: 1
+      - b: 1
+      - x: 1
+      - y: 1
+      - order: A_then_B
+    - output: 2
+  - Item:
+    - input:
+      - a: 0
+      - b: 0
+      - x: -2
+      - y: 2
+      - order: B_then_A
+    - output: -2
+  - Item:
+    - input:
+      - a: 0
+      - b: 1
+      - x: 1
+      - y: 1
+      - order: B_then_A
+    - output: 1
+  - Item:
+    - input:
+      - a: 1
+      - b: 0
+      - x: 1
+      - y: 1
+      - order: B_then_A
+    - output: 2
+  - Item:
+    - input:
+      - a: 1
+      - b: -1
+      - x: 1
+      - y: 1
+      - order: B_then_A
+    - output: 1
+  - Item:
+    - input:
+      - a: 1
+      - b: -1
+      - x: 1
+      - y: 1
+      - order: A_then_B
+    - output: 2
+  - Item:
+    - input:
+      - a: 2
+      - b: 2
+      - x: 2
+      - y: 2
+      - order: B_then_A
+    - output: 14
+  - Item:
+    - input:
+      - a: 0.5
+      - b: -0.5
+      - x: 2
+      - y: -2
+      - order: B_then_A
+    - output: 0.5
+  - Item:
+    - input:
+      - a: 2
+      - b: -2
+      - x: 0
+      - y: 0
+      - order: B_then_A
+    - output: 0
+  - Item:
+    - input:
+      - a: 2.1
+      - b: 1
+      - x: 1
+      - y: 1
+      - order: B_then_A
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - a: 1
+      - b: 1
+      - x: 2.1
+      - y: 1
+      - order: B_then_A
+    - status: invalid_parameters
+- compute: A=[[1,a],[0,1]], B=[[1,0],[b,1]]. B_then_A: intermediate=(x,b*x+y); final=(x+a*(b*x+y),b*x+y); product=[[1+a*b,a],[b,1]]. A_then_B: intermediate=(x+a*y,y); final=(x+a*y,b*(x+a*y)+y); product=[[1,a],[b,1+a*b]]. output=finalX; determinant=1. otherFinalX/Y are the opposite-order result; differenceX/Y=finalX/Y-otherFinalX/Y.
+- numeric tolerance: 1e-10
+- invariants:
+  - Matrix multiplication requires compatible inner dimensions. In this live family both matrices are real 2 by 2 maps acting on column vectors.
+  - AB means apply B first, then A; BA means apply A first, then B.
+  - The live matrices are the two shears A=[[1,a],[0,1]] and B=[[1,0],[b,1]]; the control does not represent arbitrary matrices.
+  - Each shear and either product has determinant 1, preserving signed unit area; this does not imply length or angle preservation.
+  - Changing order need not change every input vector. Equality at one point, especially zero, does not prove AB=BA.
+- limits:
+  - Only two specified real 2D shear families; no arbitrary matrix entries or dimensions.
+  - The order control is discrete. AB means B_then_A and BA means A_then_B.
+  - The complete endpoint has two coordinates; finalX alone is the primary numeric Graph slice.
+  - Both products preserve area and orientation but need not preserve lengths or angles.
+- fallback: Pause and read the labeled scene, current values, evaluated samples and original worked steps. A distinct Graph view remains available.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+- expression variants:
+  - B then A: ast:matrix-product:expression
+  - A then B: ast:matrix-product:A_then_B
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:mit:linear-transformations. [MIT OpenCourseWare 18.06SC, Linear Transformations and their Matrices](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/linear-transformations-and-their-matrices/). Locator: Session overview and linked lecture transcript: coordinate matrices map input vectors to output vectors. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports vocabulary and conditions, not historical priority or independent review of the original scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.
+
+- Source ID: source:gatech:matrix-multiplication. [Georgia Tech Interactive Linear Algebra, 3.4 Matrix Multiplication](https://textbooks.math.gatech.edu/ila/matrix-multiplication.html). Locator: Subsection 3.4.2 row-column multiplication and compatible dimensions; Subsection 3.4.3 composition and matrix multiplication; noncommutativity caveats. Verification: Definition-level mathematics inspected 2026-10-26 on the official university textbook page. Supports definitions and conditions, not historical priority, independent review or the original constructed scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.

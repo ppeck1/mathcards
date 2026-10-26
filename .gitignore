@@ -1,0 +1,47 @@
+# Local agent, machine and credential state.
+.openai/
+.codex/
+.agents/
+.aws/
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+
+# Dependencies and interpreter/tool caches.
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.coverage
+htmlcov/
+coverage/
+
+# Local QA captures, scratch files and operating-system metadata.
+qa-*
+*.log
+*.tmp
+*.temp
+*.bak
+~*
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ZIP history belongs in release assets rather than the source snapshot.
+*.zip
+
+# Publication working copies are staged separately when ready.
+/docs/publishing/
+
+# Intentionally retained: START_HERE.html, dist/, export/, examples/,
+# docs/ screenshots, and math_expression_atlas_handoff/ test fixtures.

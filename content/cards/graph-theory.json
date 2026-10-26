@@ -1,0 +1,542 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:graph-theory",
+  "slug": "graph-theory",
+  "type": "concept",
+  "title": "Graph theory & shortest paths",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-23T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived; independent review pending",
+    "history": "source gap; no priority assertions",
+    "interaction": "implemented; numerical fixtures are not independent mathematical review"
+  },
+  "source_policy": "Definition-level references support the mathematics. Applications and stories are original constructed scenarios, not measurements or historical events. Historical claims require claim-level sources before publication.",
+  "aliases": [
+    "weighted graph",
+    "route optimization"
+  ],
+  "branches": [
+    "discrete-computation",
+    "modeling"
+  ],
+  "expressive_job": [
+    "model",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Choose a route by summing edge weights rather than judging a drawing’s apparent lengths.",
+  "meaning": "Nodes are places and edges are available links. A changing bridge weight can switch which complete path is shortest.",
+  "prerequisites": {
+    "required": [
+      "math:concept:variable"
+    ],
+    "helpful": [
+      "math:concept:function"
+    ],
+    "depth": [
+      "math:concept:model-assumption"
+    ]
+  },
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the concept and notation with specialist sources before adding historical attribution."
+    ],
+    "reader_text": "Historical account not yet sourced. Everyday scenarios are constructed examples, not historical anecdotes."
+  },
+  "connections": [],
+  "examples": [
+    {
+      "id": "math:example:graph-theory:four",
+      "title": "A slow bridge",
+      "role": "applied_model",
+      "question": "Which route is shortest when bridge BC takes 4 min?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "The graph is undirected with positive edge weights.",
+        "Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.",
+        "Route weights add, and there are no access restrictions or congestion effects."
+      ],
+      "inputs": {
+        "bridge": 4
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "A–B–C–D = 3+4+2=9 min",
+          "reason": "Add all edges on the bridge route."
+        },
+        {
+          "index": 2,
+          "expression": "A–C–D = 6+2=8 min; A–B–D=10 min",
+          "reason": "Compare complete alternatives."
+        },
+        {
+          "index": 3,
+          "expression": "min(9,8,10)=8 min",
+          "reason": "Choose a route with the smallest total."
+        }
+      ],
+      "result": {
+        "exact": "8 min via A–C–D"
+      },
+      "interpretation": "A link that looks like a shortcut can take longer than a route avoiding it.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "The remaining simple route A–C–B–D takes 6+4+7=17 min, so it cannot improve 8."
+      },
+      "limits": "All links are available and walking times are additive.",
+      "preset": {
+        "bridge": 4
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The graph is undirected with positive edge weights.",
+        "Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.",
+        "Route weights add, and there are no access restrictions or congestion effects."
+      ]
+    },
+    {
+      "id": "math:example:graph-theory:quick",
+      "title": "A quick bridge",
+      "role": "applied_model",
+      "question": "What is the shortest time when BC takes 1 min?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "The graph is undirected with positive edge weights.",
+        "Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.",
+        "Route weights add, and there are no access restrictions or congestion effects."
+      ],
+      "inputs": {
+        "bridge": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "A–B–C–D=3+1+2=6 min",
+          "reason": "Use the fast bridge."
+        },
+        {
+          "index": 2,
+          "expression": "min(6,8,10)=6 min",
+          "reason": "Compare it with routes without the bridge."
+        }
+      ],
+      "result": {
+        "exact": "6 min via A–B–C–D"
+      },
+      "interpretation": "A third edge can still make a route shorter in time.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "The bridge saves 8−6=2 min compared with A–C–D."
+      },
+      "limits": "Fewest edges and least total weight are different goals.",
+      "preset": {
+        "bridge": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The graph is undirected with positive edge weights.",
+        "Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.",
+        "Route weights add, and there are no access restrictions or congestion effects."
+      ]
+    },
+    {
+      "id": "math:example:graph-theory:two",
+      "title": "A moderate bridge",
+      "role": "applied_model",
+      "question": "What changes when BC takes 2 min?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "The graph is undirected with positive edge weights.",
+        "Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.",
+        "Route weights add, and there are no access restrictions or congestion effects."
+      ],
+      "inputs": {
+        "bridge": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "Bridge route=3+2+2=7 min",
+          "reason": "Only the bridge term changes."
+        },
+        {
+          "index": 2,
+          "expression": "min(7,8,10)=7 min",
+          "reason": "The bridge route remains shortest."
+        }
+      ],
+      "result": {
+        "exact": "7 min via A–B–C–D"
+      },
+      "interpretation": "Increasing the bridge time by one minute raises the optimum by one minute in this region.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "For b<3, 5+b<8."
+      },
+      "limits": "The other edge weights remain fixed.",
+      "preset": {
+        "bridge": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The graph is undirected with positive edge weights.",
+        "Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.",
+        "Route weights add, and there are no access restrictions or congestion effects."
+      ]
+    },
+    {
+      "id": "math:example:graph-theory:tie",
+      "title": "The switching point",
+      "role": "boundary",
+      "question": "Which routes are shortest when BC takes 3 min?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "The graph is undirected with positive edge weights.",
+        "Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.",
+        "Route weights add, and there are no access restrictions or congestion effects."
+      ],
+      "inputs": {
+        "bridge": 3
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "A–B–C–D=3+3+2=8 min",
+          "reason": "Evaluate the bridge route."
+        },
+        {
+          "index": 2,
+          "expression": "A–C–D=6+2=8 min",
+          "reason": "Evaluate the alternative."
+        },
+        {
+          "index": 3,
+          "expression": "Both totals equal the minimum 8 min",
+          "reason": "Retain both equally good routes."
+        }
+      ],
+      "result": {
+        "exact": "8 min, with two shortest routes"
+      },
+      "interpretation": "A minimum value can be unique even when the minimizing route is not.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "Solve 5+b=8 to obtain b=3."
+      },
+      "limits": "Tie breaking does not change the optimum time.",
+      "preset": {
+        "bridge": 3
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The graph is undirected with positive edge weights.",
+        "Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.",
+        "Route weights add, and there are no access restrictions or congestion effects."
+      ]
+    },
+    {
+      "id": "math:example:graph-theory:very-slow",
+      "title": "Avoid a costly link",
+      "role": "applied_model",
+      "question": "What is the best time when the bridge takes 12 min?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "The graph is undirected with positive edge weights.",
+        "Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.",
+        "Route weights add, and there are no access restrictions or congestion effects."
+      ],
+      "inputs": {
+        "bridge": 12
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "Bridge route=3+12+2=17 min",
+          "reason": "Compute the now expensive candidate."
+        },
+        {
+          "index": 2,
+          "expression": "min(17,8,10)=8 min",
+          "reason": "The optimum avoids the bridge."
+        }
+      ],
+      "result": {
+        "exact": "8 min via A–C–D"
+      },
+      "interpretation": "A cost change on an unused edge need not change the shortest total.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "For every b>3, 5+b>8."
+      },
+      "limits": "No new links or restrictions are introduced.",
+      "preset": {
+        "bridge": 12
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The graph is undirected with positive edge weights.",
+        "Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.",
+        "Route weights add, and there are no access restrictions or congestion effects."
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "claim": "Nodes are places and edges are available links. A changing bridge weight can switch which complete path is shortest.",
+      "status": "algebraic derivation",
+      "conditions": "The graph is undirected with positive edge weights.; Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.; Route weights add, and there are no access restrictions or congestion effects.",
+      "derivation": "directDistance=8; bridgeDistance=5+bridge; shortestDistance=min(10,8,5+bridge); output=shortestDistance. The remaining simple path A-C-B-D has weight 13+bridge and is always dominated. route is A-B-C-D for bridge<3 and A-C-D for bridge>3; both tie at bridge=3."
+    }
+  ],
+  "prompts": [
+    {
+      "prompt": "Which assumptions make this expression meaningful?",
+      "answer": "The graph is undirected with positive edge weights. Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes. Route weights add, and there are no access restrictions or congestion effects."
+    },
+    {
+      "prompt": "What does the changing shape measure?",
+      "answer": "The cyan bridge weight changes one edge; violet path sums feed the gold shortest-route highlight and total."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "symbolic",
+      "description": "directDistance=8; bridgeDistance=5+bridge; shortestDistance=min(10,8,5+bridge); output=shortestDistance. The remaining simple path A-C-B-D has weight 13+bridge and is always dominated. route is A-B-C-D for bridge<3 and A-C-D for bridge>3; both tie at bridge=3."
+    },
+    {
+      "kind": "geometric",
+      "description": "The cyan bridge weight changes one edge; violet path sums feed the gold shortest-route highlight and total."
+    }
+  ],
+  "applications": [
+    {
+      "context": "A slow bridge",
+      "mapping": "A link that looks like a shortcut can take longer than a route avoiding it.",
+      "limitations": "All links are available and walking times are additive.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:graph-theory:four"
+    },
+    {
+      "context": "A quick bridge",
+      "mapping": "A third edge can still make a route shorter in time.",
+      "limitations": "Fewest edges and least total weight are different goals.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:graph-theory:quick"
+    }
+  ],
+  "source_refs": [
+    "source:cornell:shortest-paths"
+  ],
+  "review_gaps": [
+    "Independent mathematics and editorial review pending.",
+    "Historical research incomplete; no priority or invention claim implied."
+  ],
+  "change_log": [
+    "0.1.0-draft: original applications, explicit model assumptions, bounded visual model and numerical fixtures."
+  ],
+  "definition": {
+    "setting": "Choose a route by summing edge weights rather than judging a drawing’s apparent lengths.",
+    "formal_latex": "d(A,D)=\\min(3+7,6+2,3+b+2)=\\min(10,8,5+b)",
+    "signature": {
+      "bridge": "weight b of the B–C bridge, in walking minutes",
+      "shortestDistance": "minimum route weight from A to D in minutes"
+    },
+    "conditions": [
+      "The graph is undirected with positive edge weights.",
+      "Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.",
+      "Route weights add, and there are no access restrictions or congestion effects."
+    ],
+    "domain_notes": "The interactive controls restrict each parameter to its declared finite interval. At a tie, more than one route attains the same minimum; the optimum time remains continuous while route identity can switch.",
+    "proof_status": "This draft gives the model and worked algebra. Animated shapes and numerical checks illustrate the stated relation; they are not independent mathematical review.",
+    "source_refs": [
+      "source:cornell:shortest-paths"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Choose a route by summing edge weights rather than judging a drawing’s apparent lengths.",
+    "expression_latex": "d(A,D)=\\min(3+7,6+2,3+b+2)=\\min(10,8,5+b)",
+    "formation_rule": "directDistance=8; bridgeDistance=5+bridge; shortestDistance=min(10,8,5+bridge); output=shortestDistance. The remaining simple path A-C-B-D has weight 13+bridge and is always dominated. route is A-B-C-D for bridge<3 and A-C-D for bridge>3; both tie at bridge=3.",
+    "precedence": "Follow parentheses and function applications; products precede sums. Angle units and iteration conventions are explicit.",
+    "symbols": [
+      {
+        "token": "bridge",
+        "role": "weight b of the B–C bridge, in walking minutes",
+        "type": "Real quantity in declared setting"
+      },
+      {
+        "token": "shortestDistance",
+        "role": "minimum route weight from A to D in minutes",
+        "type": "Real quantity in declared setting"
+      }
+    ],
+    "ast": {
+      "id": "ast:graph-theory:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:bridge",
+          "kind": "variable",
+          "symbol": "bridge",
+          "type": "Real",
+          "scope_ref": "scope:graph-theory"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "ref": "directDistance=8; bridgeDistance=5+bridge; shortestDistance=min(10,8,5+bridge); output=shortestDistance. The remaining simple path A-C-B-D has weight 13+bridge and is always dominated. route is A-B-C-D for bridge<3 and A-C-D for bridge>3; both tie at bridge=3.",
+          "type": "Curried declared controls → primary output"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "function": "n:rule",
+          "argument": "n:bridge",
+          "type": "Real"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:graph-theory",
+          "kind": "modelExpression",
+          "free_variables": [
+            "bridge"
+          ],
+          "domain_condition": "The graph is undirected with positive edge weights.; Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.; Route weights add, and there are no access restrictions or congestion effects."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "A parameter outside the declared control interval",
+        "status": "outside_model_domain",
+        "reason": "Reject the experiment instead of drawing a plausible but unrelated answer."
+      },
+      {
+        "input": "Treat a display interpolation as an extra physical observation",
+        "status": "model_mismatch",
+        "reason": "Continuous transitions explain the chosen model; they do not add measured evidence."
+      }
+    ],
+    "ast_coverage": "The tree models the primary output through named mathematical helper functions, whose definitions and parameter dependencies are stated in compute and the signature. It is structural metadata, not arbitrary TeX execution or a general proof checker.",
+    "output_symbol_bindings": {
+      "primary displayed result": "output"
+    }
+  },
+  "interactive": {
+    "component_id": "graph-theory-visual-model",
+    "renderer_id": "graph-theory-visual-model",
+    "renderer_version": "1.0.0",
+    "model_id": "graph-theory-visual-model",
+    "model_revision": "1.0.0",
+    "expression_id": "ast:graph-theory:expression",
+    "interaction_status": "implemented",
+    "description": "The cyan bridge weight changes one edge; violet path sums feed the gold shortest-route highlight and total.",
+    "controls": [
+      {
+        "id": "bridge",
+        "type": "number",
+        "default": 4,
+        "min": 1,
+        "max": 12,
+        "slider_min": 1,
+        "slider_max": 12,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "bridge": 4
+        },
+        "output": 8
+      },
+      {
+        "input": {
+          "bridge": 1
+        },
+        "output": 6
+      },
+      {
+        "input": {
+          "bridge": 2
+        },
+        "output": 7
+      },
+      {
+        "input": {
+          "bridge": 3
+        },
+        "output": 8
+      },
+      {
+        "input": {
+          "bridge": 8
+        },
+        "output": 8
+      },
+      {
+        "input": {
+          "bridge": 12
+        },
+        "output": 8
+      },
+      {
+        "input": {
+          "bridge": 0
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "directDistance=8; bridgeDistance=5+bridge; shortestDistance=min(10,8,5+bridge); output=shortestDistance. The remaining simple path A-C-B-D has weight 13+bridge and is always dominated. route is A-B-C-D for bridge<3 and A-C-D for bridge>3; both tie at bridge=3.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The graph is undirected with positive edge weights.",
+      "Edges AB=3, BD=7, AC=6 and CD=2 stay fixed; only BC changes.",
+      "Route weights add, and there are no access restrictions or congestion effects."
+    ],
+    "limits": [
+      "Edges are undirected, available and have positive walking-time weights.",
+      "Edge weights add; waits, congestion, accessibility and uncertainty are excluded.",
+      "The network drawing is schematic: displayed edge length is not its time weight.",
+      "At a tie, more than one route attains the same minimum; the optimum time remains continuous while route identity can switch."
+    ],
+    "fallback": "Read the same substituted formula, worked steps and labeled static scene with motion paused.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  }
+}

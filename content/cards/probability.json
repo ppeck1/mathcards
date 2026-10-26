@@ -1,0 +1,545 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:probability",
+  "slug": "probability",
+  "type": "concept",
+  "title": "Probability & expectation",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-23T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived; independent review pending",
+    "history": "source gap; no priority assertions",
+    "interaction": "implemented; numerical fixtures are not independent mathematical review"
+  },
+  "source_policy": "Definition-level references support the mathematics. Applications and stories are original constructed scenarios, not measurements or historical events. Historical claims require claim-level sources before publication.",
+  "aliases": [
+    "binomial distribution",
+    "expected successes"
+  ],
+  "branches": [
+    "probability",
+    "modeling"
+  ],
+  "expressive_job": [
+    "model",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Connect a single success probability to the distribution of a six-trial count.",
+  "meaning": "One slider moves probability mass between seven possible counts. The mean marks the balance point of that distribution, not a guaranteed outcome.",
+  "prerequisites": {
+    "required": [
+      "math:concept:variable"
+    ],
+    "helpful": [
+      "math:concept:function"
+    ],
+    "depth": [
+      "math:concept:model-assumption"
+    ]
+  },
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the concept and notation with specialist sources before adding historical attribution."
+    ],
+    "reader_text": "Historical account not yet sourced. Everyday scenarios are constructed examples, not historical anecdotes."
+  },
+  "connections": [],
+  "examples": [
+    {
+      "id": "math:example:probability:seeds",
+      "title": "Six seeds in separate pots",
+      "role": "applied_model",
+      "question": "Suppose each of six seeds germinates independently with probability 0.5. What count should a grower expect on average?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use exactly six Bernoulli trials, each with two outcomes.",
+        "Trials are independent and share the same fixed success probability 0≤p≤1.",
+        "The output is expectation; the distribution describes possible integer outcomes."
+      ],
+      "inputs": {
+        "chance": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "E(Iᵢ)=1(0.5)+0(0.5)=0.5",
+          "reason": "Represent each pot with a success indicator."
+        },
+        {
+          "index": 2,
+          "expression": "E(X)=E(I₁+⋯+I₆)=6(0.5)=3",
+          "reason": "Add the expected contributions."
+        }
+      ],
+      "result": {
+        "exact": "3 expected germinations"
+      },
+      "interpretation": "The mean is an average over repeated six-pot batches, not a promise about one batch.",
+      "independent_check": {
+        "method": "Use the symmetric binomial distribution.",
+        "expected": "The probabilities for k and 6−k match, so the center of mass is 3."
+      },
+      "limits": "The probability and independence are stipulated. Shared soil, temperature or seed source can violate them.",
+      "preset": {
+        "chance": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use exactly six Bernoulli trials, each with two outcomes.",
+        "Trials are independent and share the same fixed success probability 0≤p≤1.",
+        "The output is expectation; the distribution describes possible integer outcomes."
+      ]
+    },
+    {
+      "id": "math:example:probability:rare",
+      "title": "A lower germination chance",
+      "role": "applied_model",
+      "question": "With p=0.25, what is the expected count and chance of no germination?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use exactly six Bernoulli trials, each with two outcomes.",
+        "Trials are independent and share the same fixed success probability 0≤p≤1.",
+        "The output is expectation; the distribution describes possible integer outcomes."
+      ],
+      "inputs": {
+        "chance": 0.25
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "E(X)=6(0.25)=1.5",
+          "reason": "Multiply the fixed number of trials by the success probability."
+        },
+        {
+          "index": 2,
+          "expression": "P(X=0)=(0.75)⁶=729/4096",
+          "reason": "All six independent failures must occur."
+        }
+      ],
+      "result": {
+        "exact": "1.5 expected successes; P(X=0)=729/4096 ≈0.177979"
+      },
+      "interpretation": "An expected count may be fractional although each realized count is an integer.",
+      "independent_check": {
+        "method": "Sum six Bernoulli means.",
+        "expected": "0.25+0.25+0.25+0.25+0.25+0.25=1.5."
+      },
+      "limits": "The displayed mean alone does not report the probability of a particular count.",
+      "preset": {
+        "chance": 0.25
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use exactly six Bernoulli trials, each with two outcomes.",
+        "Trials are independent and share the same fixed success probability 0≤p≤1.",
+        "The output is expectation; the distribution describes possible integer outcomes."
+      ]
+    },
+    {
+      "id": "math:example:probability:none",
+      "title": "No chance of success",
+      "role": "boundary",
+      "question": "What distribution appears when p=0?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use exactly six Bernoulli trials, each with two outcomes.",
+        "Trials are independent and share the same fixed success probability 0≤p≤1.",
+        "The output is expectation; the distribution describes possible integer outcomes."
+      ],
+      "inputs": {
+        "chance": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "P(X=0)=1",
+          "reason": "Every trial fails under this stipulated model."
+        },
+        {
+          "index": 2,
+          "expression": "E(X)=6(0)=0",
+          "reason": "All probability mass is at zero."
+        }
+      ],
+      "result": {
+        "exact": "0 expected successes"
+      },
+      "interpretation": "At this endpoint the count is certain.",
+      "independent_check": {
+        "method": "Inspect possible outcomes.",
+        "expected": "The sole positive-probability batch has six failures."
+      },
+      "limits": "Probability zero is a model input; it should not be inferred merely from a small sample.",
+      "preset": {
+        "chance": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use exactly six Bernoulli trials, each with two outcomes.",
+        "Trials are independent and share the same fixed success probability 0≤p≤1.",
+        "The output is expectation; the distribution describes possible integer outcomes."
+      ]
+    },
+    {
+      "id": "math:example:probability:all",
+      "title": "Certain success",
+      "role": "boundary",
+      "question": "What distribution appears when p=1?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use exactly six Bernoulli trials, each with two outcomes.",
+        "Trials are independent and share the same fixed success probability 0≤p≤1.",
+        "The output is expectation; the distribution describes possible integer outcomes."
+      ],
+      "inputs": {
+        "chance": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "P(X=6)=1",
+          "reason": "All trials succeed under this stipulated model."
+        },
+        {
+          "index": 2,
+          "expression": "E(X)=6(1)=6",
+          "reason": "The mean equals the only possible count."
+        }
+      ],
+      "result": {
+        "exact": "6 expected successes"
+      },
+      "interpretation": "The distribution collapses to its upper endpoint.",
+      "independent_check": {
+        "method": "Sum six certain indicators.",
+        "expected": "1+1+1+1+1+1=6."
+      },
+      "limits": "The certainty is stipulated, not a guarantee about real seeds.",
+      "preset": {
+        "chance": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use exactly six Bernoulli trials, each with two outcomes.",
+        "Trials are independent and share the same fixed success probability 0≤p≤1.",
+        "The output is expectation; the distribution describes possible integer outcomes."
+      ]
+    },
+    {
+      "id": "math:example:probability:batch",
+      "title": "Why not promise three?",
+      "role": "interpretation",
+      "question": "At p=0.5, how likely is exactly three successes in one batch?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "Use exactly six Bernoulli trials, each with two outcomes.",
+        "Trials are independent and share the same fixed success probability 0≤p≤1.",
+        "The output is expectation; the distribution describes possible integer outcomes."
+      ],
+      "inputs": {
+        "chance": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "C(6,3)=20",
+          "reason": "Choose which three of the six trials succeed."
+        },
+        {
+          "index": 2,
+          "expression": "P(X=3)=20(0.5)³(0.5)³=20/64=5/16",
+          "reason": "Each chosen success/failure arrangement has probability 1/64."
+        }
+      ],
+      "result": {
+        "exact": "P(X=3)=5/16=0.3125"
+      },
+      "interpretation": "The mean is 3, yet most batches do not have exactly 3 successes.",
+      "independent_check": {
+        "method": "Count all equally likely binary arrangements.",
+        "expected": "There are 2⁶=64 arrangements;20 have three successes."
+      },
+      "limits": "Equal arrangement probabilities require p=0.5 and independence.",
+      "preset": {
+        "chance": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use exactly six Bernoulli trials, each with two outcomes.",
+        "Trials are independent and share the same fixed success probability 0≤p≤1.",
+        "The output is expectation; the distribution describes possible integer outcomes."
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "claim": "The expected count is 6p.",
+      "status": "algebraic derivation",
+      "conditions": "Use six indicators each with success probability p.",
+      "derivation": "E(X)=ΣE(Iᵢ)=6p."
+    },
+    {
+      "claim": "The seven probabilities sum to 1.",
+      "status": "algebraic derivation",
+      "conditions": "Use the binomial model with 0≤p≤1.",
+      "derivation": "Σ C(6,k)pᵏ(1−p)^(6−k)=(p+(1−p))⁶=1."
+    }
+  ],
+  "prompts": [
+    {
+      "prompt": "Can 1.5 seeds germinate?",
+      "answer": "A realized count is an integer. An expected count of 1.5 is an average over repeated batches."
+    },
+    {
+      "prompt": "Do all six trials need to be independent for the mean formula?",
+      "answer": "Linearity gives 6p even without independence when the six marginal probabilities equal p. Independence is needed for the binomial distribution drawn here."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "symbolic",
+      "description": "A binomial probability rule describes the counts;6p locates their mean."
+    },
+    {
+      "kind": "geometric",
+      "description": "Seven bars change continuously with p; a mean marker moves from count 0 tocount 6."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Plan an ideal six-pot germination batch.",
+      "mapping": "Six independent chances of 0.5 give expected count 3.",
+      "limitations": "Real germination probabilities and dependencies require evidence.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:probability:seeds"
+    },
+    {
+      "context": "Read uncertainty beyond the mean.",
+      "mapping": "At p=0.5, exactly three successes has probability 5/16.",
+      "limitations": "A mean is not an assurance for one batch.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:probability:batch"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:binomial-distribution"
+  ],
+  "review_gaps": [
+    "Independent mathematics and editorial review pending.",
+    "Historical research incomplete; no priority or invention claim implied."
+  ],
+  "change_log": [
+    "0.1.0-draft: original applications, explicit model assumptions, bounded visual model and numerical fixtures."
+  ],
+  "definition": {
+    "setting": "Connect a single success probability to the distribution of a six-trial count.",
+    "formal_latex": "X\\sim\\operatorname{Binomial}(6,p),\\quad E[X]=6p",
+    "signature": {
+      "p": "success probability in each trial",
+      "X": "integer success count from 0 through 6",
+      "E[X]": "expected success count across repetitions"
+    },
+    "conditions": [
+      "Use exactly six Bernoulli trials, each with two outcomes.",
+      "Trials are independent and share the same fixed success probability 0≤p≤1.",
+      "The output is expectation; the distribution describes possible integer outcomes."
+    ],
+    "domain_notes": "The only adjustable parameter is chance=p. The seven bars show P(X=k)=C(6,k)pᵏ(1−p)^(6−k), with endpoint distributions handled directly.",
+    "proof_status": "Write X as a sum of six indicators and use linearity of expectation. Independence supplies the stated binomial distribution.",
+    "source_refs": [
+      "source:openstax:binomial-distribution"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "For six independent trials with success probability p, the expected count is six times p.",
+    "expression_latex": "X\\sim\\operatorname{Binomial}(6,p),\\quad E[X]=6p",
+    "formation_rule": "The only model parameter is chance=p; trial count is fixed at 6. Output=6*p. Distribution[k]=C(6,k)*p^k*(1-p)^(6-k) for k=0…6; handle p=0 and p=1 by point masses.",
+    "precedence": "Follow parentheses and function applications; products precede sums. Angle units and iteration conventions are explicit.",
+    "symbols": [
+      {
+        "token": "p",
+        "role": "success probability in each trial",
+        "type": "Real quantity in declared setting"
+      },
+      {
+        "token": "X",
+        "role": "integer success count from 0 through 6",
+        "type": "Real quantity in declared setting"
+      },
+      {
+        "token": "E[X]",
+        "role": "expected success count across repetitions",
+        "type": "Real quantity in declared setting"
+      }
+    ],
+    "ast": {
+      "id": "ast:probability:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:chance",
+          "kind": "variable",
+          "symbol": "p",
+          "type": "Probability",
+          "scope_ref": "scope:probability"
+        },
+        {
+          "id": "n:six",
+          "kind": "functionRef",
+          "ref": "p →6p",
+          "type": "Probability → ExpectedCount"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "function": "n:six",
+          "argument": "n:chance",
+          "type": "ExpectedCount"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:probability",
+          "kind": "modelExpression",
+          "free_variables": [
+            "p",
+            "X",
+            "E[X]"
+          ],
+          "domain_condition": "Use exactly six Bernoulli trials, each with two outcomes.; Trials are independent and share the same fixed success probability 0≤p≤1.; The output is expectation; the distribution describes possible integer outcomes."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "A parameter outside the declared control interval",
+        "status": "outside_model_domain",
+        "reason": "Reject the experiment instead of drawing a plausible but unrelated answer."
+      },
+      {
+        "input": "Treat a display interpolation as an extra physical observation",
+        "status": "model_mismatch",
+        "reason": "Continuous transitions explain the chosen model; they do not add measured evidence."
+      }
+    ],
+    "ast_coverage": "The tree models the primary output through named mathematical helper functions, whose definitions and parameter dependencies are stated in compute and the signature. It is structural metadata, not arbitrary TeX execution or a general proof checker.",
+    "output_symbol_bindings": {
+      "primary displayed result": "output"
+    }
+  },
+  "interactive": {
+    "component_id": "probability-visual-model",
+    "renderer_id": "probability-visual-model",
+    "renderer_version": "1.0.0",
+    "model_id": "probability-visual-model",
+    "model_revision": "1.0.0",
+    "expression_id": "ast:probability:expression",
+    "interaction_status": "implemented",
+    "description": "Seven bars change continuously with p; a mean marker moves from count 0 tocount 6.",
+    "controls": [
+      {
+        "id": "chance",
+        "type": "number",
+        "default": 0.5,
+        "min": 0,
+        "max": 1,
+        "slider_min": 0,
+        "slider_max": 1,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "chance": 0.5
+        },
+        "output": 3.0
+      },
+      {
+        "input": {
+          "chance": 0.25
+        },
+        "output": 1.5
+      },
+      {
+        "input": {
+          "chance": 0
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "chance": 1
+        },
+        "output": 6
+      },
+      {
+        "input": {
+          "chance": 0.8
+        },
+        "output": 4.800000000000001
+      },
+      {
+        "input": {
+          "chance": 0.3333333333333333
+        },
+        "output": 2.0
+      },
+      {
+        "input": {
+          "chance": 1.01
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "The only model parameter is chance=p; trial count is fixed at 6. Output=6*p. Distribution[k]=C(6,k)*p^k*(1-p)^(6-k) for k=0…6; handle p=0 and p=1 by point masses.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The output is between 0 and 6.",
+      "At p=0 only count 0 has probability 1; at p=1 only count 6 does.",
+      "The probability-weighted mean of the seven bars equals 6p."
+    ],
+    "limits": [
+      "No random trial is needed to draw this exact model distribution.",
+      "The expected count is not a guaranteed realized count.",
+      "The binomial distribution assumes independence and identical success probabilities."
+    ],
+    "fallback": "Read the same substituted formula, worked steps and labeled static scene with motion paused.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  }
+}

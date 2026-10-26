@@ -1,0 +1,428 @@
+{
+  "schema_version": "0.1.0",
+  "sources": [
+    {
+      "id": "source:openstax:composition",
+      "title": "Precalculus 2e, 1.4 Composition of Functions",
+      "url": "https://openstax.org/books/precalculus-2e/pages/1-4-composition-of-functions",
+      "kind": "textbook",
+      "locator": "Composition and domain sections",
+      "verification": "composition definition/domain inspected 2026-10-23; external reference, not independent review",
+      "rights": "Do not copy prose or exercises; verify edition license before reuse."
+    },
+    {
+      "id": "source:openstax:log",
+      "title": "Precalculus 2e, 4.3 Logarithmic Functions",
+      "url": "https://openstax.org/books/precalculus-2e/pages/4-3-logarithmic-functions",
+      "kind": "textbook",
+      "locator": "Definition of the Logarithmic Function",
+      "verification": "definition inspected 2026-10-23",
+      "rights": "Original explanations/examples in this package; no textbook exercise bank copied."
+    },
+    {
+      "id": "source:hmc:derivative",
+      "title": "Harvey Mudd College, Limit Definition of the Derivative",
+      "url": "https://math.hmc.edu/calculus/hmc-mathematics-calculus-online-tutorials/single-variable-calculus/limit-definition-of-the-derivative/",
+      "kind": "institutional_teaching",
+      "locator": "Definition and undefined-limit note",
+      "verification": "definition inspected 2026-10-23",
+      "rights": "Only definition-level reference; examples below are independently constructed."
+    },
+    {
+      "id": "source:mactutor:calculus-notation",
+      "title": "MacTutor, Earliest Uses of Symbols of Calculus",
+      "url": "https://mathshistory.st-andrews.ac.uk/Miller/mathsym/calculus/",
+      "kind": "scholarly_reference",
+      "locator": "Derivative paragraph; cites Cajori vol. 2 p. 204",
+      "verification": "secondary account inspected 2026-10-23; underlying manuscript not inspected",
+      "rights": "Brief paraphrase only; not a claim of original manuscript inspection."
+    },
+    {
+      "id": "source:mactutor:symbols",
+      "title": "MacTutor, Earliest Uses of Various Mathematical Symbols",
+      "url": "https://mathshistory.st-andrews.ac.uk/Miller/mathsym/",
+      "kind": "scholarly_reference",
+      "locator": "Functions, operations, calculus and written-source indexes",
+      "verification": "index inspected 2026-10-23; research route only",
+      "rights": "Research pointer, not evidence for a specific unresearched first-use claim."
+    },
+    {
+      "id": "source:openstax:proportions",
+      "title": "Prealgebra 2e, 6.5 Solve Proportions and their Applications",
+      "url": "https://openstax.org/books/prealgebra-2e/pages/6-5-solve-proportions-and-their-applications",
+      "kind": "textbook",
+      "locator": "Use the Definition of Proportion; denominator conditions and consistent units",
+      "verification": "Definition and domain conditions inspected 2026-10-23 via the official publisher page. This is not independent review of the package.",
+      "rights": "Reference only. Narrative, examples and explanations are originally authored; no exercise bank or source prose copied."
+    },
+    {
+      "id": "source:openstax:linear-functions",
+      "title": "College Algebra 2e, 4.1 Linear Functions",
+      "url": "https://openstax.org/books/college-algebra-2e/pages/4-1-linear-functions",
+      "kind": "textbook",
+      "locator": "Representing a Linear Function in Function Notation; Linear Function definition; Interpreting Slope as a Rate of Change",
+      "verification": "Definition and rate units inspected 2026-10-23 via the official publisher page. This is not independent review of the package.",
+      "rights": "Reference only. Narrative, examples and explanations are originally authored; no exercise bank or source prose copied."
+    },
+    {
+      "id": "source:openstax:exponential-functions",
+      "title": "College Algebra 2e, 6.1 Exponential Functions",
+      "url": "https://openstax.org/books/college-algebra-2e/pages/6-1-exponential-functions",
+      "kind": "textbook",
+      "locator": "Exponential Function definition; multiplicative change; base-one constant case",
+      "verification": "Definition and domain conditions inspected 2026-10-23 via the official publisher page. This is not independent review of the package.",
+      "rights": "Reference only. Narrative, examples and explanations are originally authored; no exercise bank or source prose copied."
+    },
+    {
+      "id": "source:nikon:exposure",
+      "title": "Nikon, A Basic Look at the Basics of Exposure",
+      "url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/a-basic-look-at-the-basics-of-exposure",
+      "kind": "manufacturer_education",
+      "locator": "Full-stop changes halve or double light",
+      "verification": "Root agent inspected official Nikon page 2026-10-23; definition-level photographic convention, not a calibrated scene model. This is not independent review of the package.",
+      "rights": "Reference only. Narrative, examples and explanations are originally authored; no exercise bank or source prose copied."
+    },
+    {
+      "id": "source:mit:logistic-dynamics",
+      "title": "MIT Press Open Encyclopedia of Cognitive Science, Complex Dynamical Systems",
+      "url": "https://oecs.mit.edu/pub/00hsw4x2/release/1/",
+      "kind": "university_reference",
+      "locator": "Nonlinearity, attractors, and chaos; logistic recurrence and sensitive dependence",
+      "verification": "Definition-level mathematics inspected2026-10-23 via the official publisher or university page. This supports definitions, not historical priority, independent mathematical review or the original constructed applications.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:koch-snowflake",
+      "title": "Calculus Volume2,5.2 Infinite Series",
+      "url": "https://openstax.org/books/calculus-volume-2/pages/5-2-infinite-series",
+      "kind": "textbook",
+      "locator": "Example5.8 Koch snowflake; segment count, segment length, perimeter and limiting distinction",
+      "verification": "Definition-level mathematics inspected2026-10-23 via the official publisher or university page. This supports definitions, not historical priority, independent mathematical review or the original constructed applications.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:cornell:fractal-constructions",
+      "title": "Cornell University Mathematics, The Math of Numb3rs409: Graphic",
+      "url": "https://pi.math.cornell.edu/~numb3rs/baker/409.html",
+      "kind": "university_education",
+      "locator": "Sierpinski triangle and Koch curve constructions; separate self-similar sets",
+      "verification": "Definition-level mathematics inspected2026-10-23 via the official publisher or university page. This supports definitions, not historical priority, independent mathematical review or the original constructed applications.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:wave-interference",
+      "title": "University Physics Volume1,16.5 Interference of Waves",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/16-5-interference-of-waves",
+      "kind": "textbook",
+      "locator": "Superposition of sinusoidal waves differing by a phase shift; equation16.13",
+      "verification": "Definition-level mathematics inspected2026-10-23 via the official publisher or university page. This supports definitions, not historical priority, independent mathematical review or the original constructed applications.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:binomial-distribution",
+      "title": "Introductory Statistics2e,4.3 Binomial Distribution",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/4-3-binomial-distribution",
+      "kind": "textbook",
+      "locator": "Fixed independent identical Bernoulli trials; count probabilities and mean np",
+      "verification": "Definition-level mathematics inspected2026-10-23 via the official publisher or university page. This supports definitions, not historical priority, independent mathematical review or the original constructed applications.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:polar-coordinates",
+      "title": "Precalculus2e,8.3 Polar Coordinates",
+      "url": "https://openstax.org/books/precalculus-2e/pages/8-3-polar-coordinates",
+      "kind": "textbook",
+      "locator": "Converting polar coordinates to rectangular coordinates: x=r cosθ and y=r sinθ",
+      "verification": "Definition-level mathematics inspected2026-10-23 via the official publisher or university page. This supports definitions, not historical priority, independent mathematical review or the original constructed applications.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:pythagorean-theorem",
+      "title": "Contemporary Mathematics,10.8 Right Triangle Trigonometry",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/10-8-right-triangle-trigonometry",
+      "kind": "textbook",
+      "locator": "Pythagorean theorem statement, right-angle conditions, distance and square-area relation",
+      "verification": "Definition-level mathematics inspected2026-10-23 via the official publisher or university page. This supports definitions, not historical priority, independent mathematical review or the original constructed applications.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:net-change",
+      "title": "Calculus Volume 1, 5.4 Integration Formulas and the Net Change Theorem",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/5-4-integration-formulas-and-the-net-change-theorem",
+      "kind": "textbook",
+      "locator": "Net Change Theorem; velocity, displacement and distance distinction",
+      "verification": "Definition-level mathematics inspected 2026-10-23 via the official publisher or university page; original examples are not independently reviewed.",
+      "rights": "Reference only. Explanations, scenarios and worked examples are originally authored; no source exercise bank or prose copied."
+    },
+    {
+      "id": "source:openstax:optimization",
+      "title": "Calculus Volume 1, 4.7 Applied Optimization Problems",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/4-7-applied-optimization-problems",
+      "kind": "textbook",
+      "locator": "Optimization under a perimeter constraint; positivity of dimensions",
+      "verification": "Definition-level mathematics inspected 2026-10-23 via the official publisher or university page; original examples are not independently reviewed.",
+      "rights": "Reference only. Explanations, scenarios and worked examples are originally authored; no source exercise bank or prose copied."
+    },
+    {
+      "id": "source:openstax:complex-polar",
+      "title": "Precalculus 2e, 8.5 Polar Form of Complex Numbers",
+      "url": "https://openstax.org/books/precalculus-2e/pages/8-5-polar-form-of-complex-numbers",
+      "kind": "textbook",
+      "locator": "Complex-plane coordinates; multiplication of moduli and addition of arguments",
+      "verification": "Definition-level mathematics inspected 2026-10-23 via the official publisher or university page; original examples are not independently reviewed.",
+      "rights": "Reference only. Explanations, scenarios and worked examples are originally authored; no source exercise bank or prose copied."
+    },
+    {
+      "id": "source:psu:bayes",
+      "title": "Penn State STAT 500, Lesson 2: Probability",
+      "url": "https://online.stat.psu.edu/stat500/Lesson02",
+      "kind": "institutional_teaching",
+      "locator": "Bayes’ theorem; total probability denominator",
+      "verification": "Bayes formula and total-probability denominator inspected 2026-10-23 in the official university page’s indexed excerpt; direct page retrieval was unavailable. Original examples are not independently reviewed.",
+      "rights": "Reference only. Explanations, scenarios and worked examples are originally authored; no source exercise bank or prose copied."
+    },
+    {
+      "id": "source:cornell:shortest-paths",
+      "title": "Cornell CS 2110, Lecture 23: Shortest Paths",
+      "url": "https://courses.cis.cornell.edu/courses/cs2110/2026sp/lectures/lec23/",
+      "kind": "institutional_teaching",
+      "locator": "Weighted shortest paths and additive path lengths",
+      "verification": "Definition-level mathematics inspected 2026-10-23 via the official publisher or university page; original examples are not independently reviewed.",
+      "rights": "Reference only. Explanations, scenarios and worked examples are originally authored; no source exercise bank or prose copied."
+    },
+    {
+      "id": "source:utexas:driven-oscillator",
+      "title": "University of Texas, Driven Damped Harmonic Oscillation",
+      "url": "https://farside.ph.utexas.edu/teaching/315/Waves/node15.html",
+      "kind": "institutional_teaching",
+      "locator": "Driven oscillator equation and steady amplitude, equation 2.51",
+      "verification": "Definition-level mathematics inspected 2026-10-23 via the official publisher or university page; original examples are not independently reviewed.",
+      "rights": "Reference only. Explanations, scenarios and worked examples are originally authored; no source exercise bank or prose copied."
+    },
+    {
+      "id": "source:openstax:function-notation",
+      "title": "Precalculus 2e, 1.1 Functions and Function Notation",
+      "url": "https://openstax.org/books/precalculus-2e/pages/1-1-functions-and-function-notation",
+      "kind": "textbook",
+      "locator": "Function definition; input, output, domain and range; evaluating functions",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher page. This supports definitions and domain conditions, not historical priority or independent review of the original worked scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:function-domain",
+      "title": "Precalculus 2e, 1.2 Domain and Range",
+      "url": "https://openstax.org/books/precalculus-2e/pages/1-2-domain-and-range",
+      "kind": "textbook",
+      "locator": "Finding the Domain of a Function Defined by an Equation; physical and mathematical restrictions",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher page. This supports definitions and domain conditions, not historical priority or independent review of the original worked scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:exponent-rules",
+      "title": "College Algebra 2e, 1.2 Exponents and Scientific Notation",
+      "url": "https://openstax.org/books/college-algebra-2e/pages/1-2-exponents-and-scientific-notation",
+      "kind": "textbook",
+      "locator": "Product rule; zero exponent; negative exponent; powers of products",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher page. This supports definitions and domain conditions, not historical priority or independent review of the original worked scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:positive-real-powers",
+      "title": "Precalculus 2e, 4.1 Exponential Functions",
+      "url": "https://openstax.org/books/precalculus-2e/pages/4-1-exponential-functions",
+      "kind": "textbook",
+      "locator": "Identifying Exponential Functions; positive base with real exponent; growth and decay; conventional exclusion of base 1 from nonconstant exponential functions",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher page. This supports definitions and domain conditions, not historical priority or independent review of the original worked scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:function-limits",
+      "title": "Calculus Volume 1, 2.2 The Limit of a Function",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/2-2-the-limit-of-a-function",
+      "kind": "textbook",
+      "locator": "Intuitive Definition of a Limit; one-sided and two-sided limits; function value versus nearby behavior",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher page. This supports definitions and domain conditions, not historical priority or independent review of the original worked scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:precise-limit",
+      "title": "Calculus Volume 1, 2.5 The Precise Definition of a Limit",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/2-5-the-precise-definition-of-a-limit",
+      "kind": "textbook",
+      "locator": "Quantifying Closeness; epsilon–delta definition; punctured input neighborhood",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher page. This supports definitions and domain conditions, not historical priority or independent review of the original worked scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:definite-integral",
+      "title": "Calculus Volume 1, 5.2 The Definite Integral",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/5-2-the-definite-integral",
+      "kind": "textbook",
+      "locator": "Definition and Notation; signed regular Riemann sums; integrability of continuous functions; net area",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher page. This supports definitions and domain conditions, not historical priority or independent review of the original worked scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:vectors-plane",
+      "title": "Calculus Volume 3, 2.1 Vectors in the Plane",
+      "url": "https://openstax.org/books/calculus-volume-3/pages/2-1-vectors-in-the-plane",
+      "kind": "textbook",
+      "locator": "Plane components, Euclidean magnitude, scalar multiplication and the zero vector",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports vocabulary and conditions, not historical priority or independent review of the original scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:dot-product",
+      "title": "Calculus Volume 3, 2.3 The Dot Product",
+      "url": "https://openstax.org/books/calculus-volume-3/pages/2-3-the-dot-product",
+      "kind": "textbook",
+      "locator": "Real dot product; angle of nonzero vectors; scalar/vector projection; constant-force work",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports vocabulary and conditions, not historical priority or independent review of the original scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:mit:linear-transformations",
+      "title": "MIT OpenCourseWare 18.06SC, Linear Transformations and their Matrices",
+      "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/linear-transformations-and-their-matrices/",
+      "kind": "institutional_teaching",
+      "locator": "Session overview and linked lecture transcript: coordinate matrices map input vectors to output vectors",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports vocabulary and conditions, not historical priority or independent review of the original scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:gatech:determinants-volumes",
+      "title": "Georgia Tech Interactive Linear Algebra, 4.3 Determinants and Volumes",
+      "url": "https://textbooks.math.gatech.edu/ila/determinants-volumes.html",
+      "kind": "institutional_teaching",
+      "locator": "Determinant magnitude as parallelogram area; zero-area collapse; signed orientation",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports vocabulary and conditions, not historical priority or independent review of the original scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:gatech:spans",
+      "title": "Georgia Tech Interactive Linear Algebra, 2.2 Vector Equations and Spans",
+      "url": "https://textbooks.math.gatech.edu/ila/spans.html",
+      "kind": "institutional_teaching",
+      "locator": "Subsection 2.2.1 Vector Equations; Subsection 2.2.2 Spans, the span definition and geometric span descriptions",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official university textbook page. Supports definitions and conditions, not historical priority, independent review or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:gatech:basis-dimension",
+      "title": "Georgia Tech Interactive Linear Algebra, 2.7 Basis and Dimension",
+      "url": "https://textbooks.math.gatech.edu/ila/dimension.html",
+      "kind": "institutional_teaching",
+      "locator": "Subsection 2.7.1 Basis of a Subspace: spanning and independence requirements; plane basis criterion",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official university textbook page. Supports definitions and conditions, not historical priority, independent review or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:gatech:basis-coordinates",
+      "title": "Georgia Tech Interactive Linear Algebra, 2.8 Bases as Coordinate Systems",
+      "url": "https://textbooks.math.gatech.edu/ila/bases-as-coord-systems.html",
+      "kind": "institutional_teaching",
+      "locator": "Fact and proof of unique coordinates in a basis; coordinate-vector definition and solving the coordinate equation",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official university textbook page. Supports definitions and conditions, not historical priority, independent review or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:gatech:matrix-multiplication",
+      "title": "Georgia Tech Interactive Linear Algebra, 3.4 Matrix Multiplication",
+      "url": "https://textbooks.math.gatech.edu/ila/matrix-multiplication.html",
+      "kind": "institutional_teaching",
+      "locator": "Subsection 3.4.2 row-column multiplication and compatible dimensions; Subsection 3.4.3 composition and matrix multiplication; noncommutativity caveats",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official university textbook page. Supports definitions and conditions, not historical priority, independent review or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:chain-rule",
+      "title": "Calculus Volume 1, 3.6 The Chain Rule",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/3-6-the-chain-rule",
+      "kind": "textbook",
+      "locator": "The Chain Rule theorem: derivative of a composition, compatible evaluation points and differentiability conditions",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:partial-derivatives",
+      "title": "Calculus Volume 3, 4.3 Partial Derivatives",
+      "url": "https://openstax.org/books/calculus-volume-3/pages/4-3-partial-derivatives",
+      "kind": "textbook",
+      "locator": "Definitions of partial derivatives; holding other independent inputs fixed; cross-section interpretations",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:gradient-directional",
+      "title": "Calculus Volume 3, 4.6 Directional Derivatives and the Gradient",
+      "url": "https://openstax.org/books/calculus-volume-3/pages/4-6-directional-derivatives-and-the-gradient",
+      "kind": "textbook",
+      "locator": "Gradient definition; directional derivative for differentiable fields; maximum directional derivative and zero-gradient case",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:tangent-planes-linear-approximations",
+      "title": "Calculus Volume 3, 4.4 Tangent Planes and Linear Approximations",
+      "url": "https://openstax.org/books/calculus-volume-3/pages/4-4-tangent-planes-and-linear-approximations",
+      "kind": "textbook",
+      "locator": "Tangent-plane equation and differentiability; Linear Approximations, definition and equation 4.25; distinction between approximation and surface height",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports definitions and conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:stanford:gradient-descent",
+      "title": "Stanford EE364a, Convex Optimization — Unconstrained Minimization",
+      "url": "https://web.stanford.edu/class/ee364a/lectures/lectures_hd.pdf",
+      "kind": "institutional_teaching",
+      "locator": "Chapter 10 Unconstrained Minimization, slide 10–7 Gradient descent method: negative-gradient direction, step selection and update; earlier objective and convexity definitions",
+      "verification": "Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports definitions and conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:basic-set-concepts",
+      "title": "Contemporary Mathematics, 1.1 Basic Set Concepts",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/1-1-basic-set-concepts",
+      "kind": "textbook",
+      "locator": "Sets, well-defined membership, roster notation, empty set and finite cardinality",
+      "verification": "Definition-level material inspected 2026-10-26 on the official publisher or university page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:two-set-operations",
+      "title": "Contemporary Mathematics, 1.4 Set Operations with Two Sets",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/1-4-set-operations-with-two-sets",
+      "kind": "textbook",
+      "locator": "Intersection, inclusive union, union cardinality; Tech Check explains ordered set difference",
+      "verification": "Definition-level material inspected 2026-10-26 on the official publisher or university page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:statistics-population-sample",
+      "title": "Introductory Statistics 2e, 1.1 Definitions of Statistics, Probability, and Key Terms",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/1-1-definitions-of-statistics-probability-and-key-terms",
+      "kind": "textbook",
+      "locator": "Population, sample, statistic, parameter, descriptive statistics versus inference",
+      "verification": "Definition-level material inspected 2026-10-26 on the official publisher or university page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:statistics-mean",
+      "title": "Introductory Statistics 2e, 2.5 Measures of the Center of the Data",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-5-measures-of-the-center-of-the-data",
+      "kind": "textbook",
+      "locator": "Arithmetic mean, sample-mean bar notation, population mean mu, sum divided by collection size",
+      "verification": "Definition-level material inspected 2026-10-26 on the official publisher or university page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:uw:algorithm-analysis",
+      "title": "University of Washington CSE 373, Algorithm Analysis I Study Guide",
+      "url": "https://courses.cs.washington.edu/courses/cse373/20wi/lectures/04-algo_analysis_1/guide/",
+      "kind": "institutional_teaching",
+      "locator": "Runtime and input size, choosing a cost model, exact operation counts, linear order of growth and Big Theta; paragraphs 7–24",
+      "verification": "Definition-level material inspected 2026-10-26 on the official publisher or university page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    }
+  ]
+}

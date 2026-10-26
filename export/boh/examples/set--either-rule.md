@@ -1,0 +1,197 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:set:either-rule", "id": "math:example:set:either-rule", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:set", "example_id": "math:example:set:either-rule", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "d3558c55e262328e50cf7861d28d1e86b3d09ae611571caf28636c83322b7a95"}, "purpose": "Choose membership rules and see exactly which objects remain in a set.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "d3558c55e262328e50cf7861d28d1e86b3d09ae611571caf28636c83322b7a95", "status": "draft", "title": "Keep candidates meeting either requirement", "topics": ["mathematics", "logic", "discrete-mathematics", "geometry", "finite set", "set operations", "membership rules"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Keep candidates meeting either requirement
+
+Parent card: math:concept:set; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:set; revision 0.1.0-draft. Setting: Finite sets of distinct labeled objects; the live universe consists of twelve candidate peg heights. Expression: $U=\{1,2,\ldots,12\},\quad A=\{u\in U:u\le a\},\quad B=\{u\in U:u\ge b\},\quad R\in\{A\cap B,A\cup B,A\setminus B\},\quad output=|R|.$. Conditions required for a defined value (a case may test their violation): The universal set is the fixed finite collection U={1,2,...,12}; each label denotes one distinct candidate peg with that height in centimetres. A contains the members u of U with u<=maxSize, and B contains the members u of U with u>=minSize. Both inequalities include equality. The chosen result R is intersection, union or ordered difference A∖B. Inclusive OR includes membership in either or both sets; difference removes B members from A. The primary output |R| is cardinality: a whole number of members, not the length of a continuous interval or the sum of peg heights. Continuous cutoff motion changes membership only when a fixed candidate height is crossed. A partially crossed drawing does not create a fraction of a member. At an exact shared integer cutoff the intersection can be a singleton with cardinality one; an empty set has cardinality zero. The finite-union identity is |A∪B|=|A|+|B|−|A∩B|, counting each distinct member once. Scope: General set theory includes finite and infinite sets and many kinds of objects. This specimen only filters the fixed twelve labeled heights. It is not a measure of interval length, a multiset with duplicate entries, or an automatic proof checker.
+
+Case unit math:example:set:either-rule. Setting: Original constructed teaching scenario; quantities and rules are stipulated, not measured. Inputs: {"maxSize": 3, "minSize": 8, "operation": "union"}. Result: {"exact": "|R|=8"}. Limits: These results describe a fixed finite candidate collection. They do not turn the full continuous interval of possible physical heights into twelve objects.
+
+## Complete worked case
+
+- id: math:example:set:either-rule
+- title: Keep candidates meeting either requirement
+- role: applied_model
+- question: With maximum 3 cm and minimum 8 cm, which pegs meet at least one rule?
+- setting: Original constructed teaching scenario; quantities and rules are stipulated, not measured.
+- assumptions:
+  - The candidate pegs are the distinct heights 1 through 12 cm.
+  - The two limits are inclusive and use the same centimetre scale.
+  - Membership is decided from the stated labels, not estimated from drawn overlap.
+  - The operation is fixed for each worked case; every counted peg appears once.
+- inputs:
+  - maxSize: 3
+  - minSize: 8
+  - operation: union
+- steps:
+  - Item:
+    - index: 1
+    - expression: A={1,2,3}; B={8,9,10,11,12}
+    - reason: List the members of the two sets from their predicates.
+  - Item:
+    - index: 2
+    - expression: R=A∪B={1,2,3,8,9,10,11,12}
+    - reason: Apply the operation specified by the question.
+  - Item:
+    - index: 3
+    - expression: |R|=8
+    - reason: Count distinct members rather than measuring the drawn band.
+- result:
+  - exact: |R|=8
+- interpretation: The union accepts either group. Pegs 4 through 7 meet neither rule and remain outside.
+- independent check:
+  - method: Independent enumeration or arithmetic check
+  - expected: Individually test each of the twelve labels against both inclusive rules, apply the selected Boolean condition, and tally the accepted labels.
+- limits: These results describe a fixed finite candidate collection. They do not turn the full continuous interval of possible physical heights into twelve objects.
+- preset:
+  - maxSize: 3
+  - minSize: 8
+  - operation: union
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - The candidate pegs are the distinct heights 1 through 12 cm.
+  - The two limits are inclusive and use the same centimetre scale.
+  - Membership is decided from the stated labels, not estimated from drawn overlap.
+  - The operation is fixed for each worked case; every counted peg appears once.
+
+## Written exploration recipe
+
+- component id: component:set
+- renderer id: set-visual-model
+- renderer version: 1
+- model id: set-visual-model
+- model revision: 1
+- expression id: ast:set:expression
+- interaction status: implemented
+- description: A row of twelve fixed objects is compared with two moving threshold bands. Membership marks and the selected result identify actual members; counts change at discrete inclusion boundaries.
+- controls:
+  - Item:
+    - id: maxSize
+    - type: number
+    - default: 7.5
+    - min: 0
+    - max: 12
+    - step: 0.01
+  - Item:
+    - id: minSize
+    - type: number
+    - default: 4
+    - min: 0
+    - max: 12
+    - step: 0.01
+  - Item:
+    - id: operation
+    - type: enum
+    - default: intersection
+    - values:
+      - intersection
+      - union
+      - difference
+- expected cases:
+  - Item:
+    - input:
+      - maxSize: 7.5
+      - minSize: 4
+      - operation: intersection
+    - output: 4
+  - Item:
+    - input:
+      - maxSize: 0
+      - minSize: 4
+      - operation: intersection
+    - output: 0
+  - Item:
+    - input:
+      - maxSize: 12
+      - minSize: 0
+      - operation: intersection
+    - output: 12
+  - Item:
+    - input:
+      - maxSize: 12
+      - minSize: 12
+      - operation: intersection
+    - output: 1
+  - Item:
+    - input:
+      - maxSize: 4
+      - minSize: 4
+      - operation: intersection
+    - output: 1
+  - Item:
+    - input:
+      - maxSize: 3.999
+      - minSize: 4
+      - operation: intersection
+    - output: 0
+  - Item:
+    - input:
+      - maxSize: 7.5
+      - minSize: 4
+      - operation: union
+    - output: 12
+  - Item:
+    - input:
+      - maxSize: 3
+      - minSize: 8
+      - operation: union
+    - output: 8
+  - Item:
+    - input:
+      - maxSize: 9
+      - minSize: 6
+      - operation: difference
+    - output: 5
+  - Item:
+    - input:
+      - maxSize: 12
+      - minSize: 12
+      - operation: difference
+    - output: 11
+  - Item:
+    - input:
+      - maxSize: 7.5
+      - minSize: -1
+      - operation: intersection
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - maxSize: 13
+      - minSize: 4
+      - operation: intersection
+    - status: invalid_parameters
+- compute: U={1,2,...,12}; A={u∈U:u<=maxSize}; B={u∈U:u>=minSize}; R=A∩B for intersection, A∪B for union, A∖B for difference; output=resultCount=|R|.
+- numeric tolerance: 1e-10
+- invariants:
+  - The universal set is the fixed finite collection U={1,2,...,12}; each label denotes one distinct candidate peg with that height in centimetres.
+  - A contains the members u of U with u<=maxSize, and B contains the members u of U with u>=minSize. Both inequalities include equality.
+  - The chosen result R is intersection, union or ordered difference A∖B. Inclusive OR includes membership in either or both sets; difference removes B members from A.
+  - The primary output |R| is cardinality: a whole number of members, not the length of a continuous interval or the sum of peg heights.
+  - Continuous cutoff motion changes membership only when a fixed candidate height is crossed. A partially crossed drawing does not create a fraction of a member.
+- limits:
+  - Only twelve fixed distinct candidates, without duplicate labels.
+  - Cutoffs move continuously, but membership and cardinality are discrete.
+  - The three operation choices are separate discrete mathematical states; no blend between intersection and union is used.
+- fallback: Pause to read the labeled quantities. The model-data table, exact worked steps and searchable definitions provide numeric and textual alternatives to the scene.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openstax:basic-set-concepts. [Contemporary Mathematics, 1.1 Basic Set Concepts](https://openstax.org/books/contemporary-mathematics/pages/1-1-basic-set-concepts). Locator: Sets, well-defined membership, roster notation, empty set and finite cardinality. Verification: Definition-level material inspected 2026-10-26 on the official publisher or university page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.. Rights: Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied.
+
+- Source ID: source:openstax:two-set-operations. [Contemporary Mathematics, 1.4 Set Operations with Two Sets](https://openstax.org/books/contemporary-mathematics/pages/1-4-set-operations-with-two-sets). Locator: Intersection, inclusive union, union cardinality; Tech Check explains ordered set difference. Verification: Definition-level material inspected 2026-10-26 on the official publisher or university page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.. Rights: Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied.

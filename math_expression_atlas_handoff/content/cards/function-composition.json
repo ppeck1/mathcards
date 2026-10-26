@@ -1,0 +1,756 @@
+{
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "review": {
+    "mathematics": "author-derived, not independently reviewed",
+    "history": "source gap",
+    "interaction": "specified, not implemented"
+  },
+  "source_policy": "Historical assertions require claim-level sources and locators before publication. These specimens make no historical priority or invention assertions.",
+  "id": "math:concept:function-composition",
+  "type": "concept",
+  "title": "Function composition",
+  "aliases": [
+    "composition of functions"
+  ],
+  "expressive_job": [
+    "compose",
+    "transform"
+  ],
+  "purpose": "Describe one transformation whose output becomes the input of another.",
+  "meaning": "In f composed with g, perform g first and then feed its result to f. Read the written expression from the innermost application outward.",
+  "prerequisites": {
+    "required": [
+      "math:concept:function"
+    ],
+    "helpful": [
+      "math:concept:domain-codomain"
+    ],
+    "depth": [
+      "math:concept:category"
+    ]
+  },
+  "definition": {
+    "setting": "Set-based functions, with an explicitly restricted domain for partial compositions.",
+    "formal_latex": "(f\\circ g)(x)=f(g(x)),\\quad x\\in D=\\{x\\in\\operatorname{dom}(g):g(x)\\in\\operatorname{dom}(f)\\}.",
+    "signature": {
+      "g": "A → B",
+      "f": "B → C",
+      "composite": "A → C when every g output is valid for f"
+    },
+    "conditions": [
+      "For a particular x, x must be in dom(g) and g(x) must be in dom(f).",
+      "A type checker must establish assignability or require an explicit domain guard; matching scalar-looking numbers is insufficient when their meanings/units differ."
+    ],
+    "domain_notes": "More generally f may have a different declared domain Df; composition is defined on inputs of g whose outputs lie in Df. The simple B match above is a sufficient standard case.",
+    "proof_status": "definition; examples are local derivations",
+    "source_refs": [
+      "source:openstax:composition"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "f composed with g, evaluated at x",
+    "expression_latex": "(f\\circ g)(x)=f(g(x))",
+    "formation_rule": "If x is an allowed argument of g and g(x) is an allowed argument of f, form Apply(f, Apply(g, x)).",
+    "precedence": "Parenthesized function application; g(x) is a complete operand of f. Composition order differs from ordinary left-to-right prose.",
+    "symbols": [
+      {
+        "token": "f",
+        "role": "outer function",
+        "type": "B → C"
+      },
+      {
+        "token": "g",
+        "role": "inner function",
+        "type": "A → B"
+      },
+      {
+        "token": "∘",
+        "role": "function composition operator",
+        "type": "(B → C) × (A → B) → (A → C)"
+      },
+      {
+        "token": "x",
+        "role": "input",
+        "type": "A"
+      }
+    ],
+    "ast": {
+      "id": "ast:composition:apply-f-after-g",
+      "root": "n:outer-apply",
+      "nodes": [
+        {
+          "id": "n:f",
+          "kind": "functionRef",
+          "ref": "f",
+          "type": "B → C"
+        },
+        {
+          "id": "n:g",
+          "kind": "functionRef",
+          "ref": "g",
+          "type": "A → B"
+        },
+        {
+          "id": "n:x",
+          "kind": "variable",
+          "symbol": "x",
+          "type": "A",
+          "scope_ref": "scope:composite-body"
+        },
+        {
+          "id": "n:inner-apply",
+          "kind": "apply",
+          "function": "n:g",
+          "argument": "n:x",
+          "type": "B"
+        },
+        {
+          "id": "n:outer-apply",
+          "kind": "apply",
+          "function": "n:f",
+          "argument": "n:inner-apply",
+          "type": "C"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:composite-body",
+          "kind": "functionBody",
+          "bound_variables": [
+            "x"
+          ],
+          "external_parameters": [
+            "f",
+            "g"
+          ],
+          "domain_condition": "x ∈ dom(g) and g(x) ∈ dom(f)"
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "f(,g(x))",
+        "status": "syntax_error",
+        "reason": "Missing operand."
+      },
+      {
+        "input": "rotate(length(\"tree\"))",
+        "status": "type_error",
+        "reason": "The declared rotation takes a 2D vector; length returns a natural number."
+      },
+      {
+        "input": "sqrt(3−4)",
+        "status": "undefined_in_setting",
+        "reason": "Real square root is undefined for a negative operand."
+      }
+    ],
+    "ast_coverage": "The AST models the core right-hand expression, not the complete displayed equality. Output symbols use the explicit output binding map. Do not infer a full formula AST or arbitrary TeX parsing.",
+    "output_symbol_bindings": {
+      "(f∘g)(x)": "output when order=f_after_g",
+      "(g∘f)(x)": "output when order=g_after_f"
+    },
+    "ast_variants": [
+      {
+        "id": "ast:composition:apply-g-after-f",
+        "root": "n:outer-apply",
+        "nodes": [
+          {
+            "id": "n:f",
+            "kind": "functionRef",
+            "ref": "f",
+            "type": "Real → Real"
+          },
+          {
+            "id": "n:g",
+            "kind": "functionRef",
+            "ref": "g",
+            "type": "Real → Real"
+          },
+          {
+            "id": "n:x",
+            "kind": "variable",
+            "symbol": "x",
+            "type": "Real",
+            "scope_ref": "scope:composite-body"
+          },
+          {
+            "id": "n:inner-apply",
+            "kind": "apply",
+            "function": "n:f",
+            "argument": "n:x",
+            "type": "Real"
+          },
+          {
+            "id": "n:outer-apply",
+            "kind": "apply",
+            "function": "n:g",
+            "argument": "n:inner-apply",
+            "type": "Real"
+          }
+        ],
+        "scopes": [
+          {
+            "id": "scope:composite-body",
+            "kind": "functionBody",
+            "bound_variables": [
+              "x"
+            ],
+            "external_parameters": [
+              "f",
+              "g"
+            ],
+            "domain_condition": "Numeric renderer only: f and g are real polynomial/affine functions; all finite inputs allowed subject to numeric overflow checks."
+          }
+        ]
+      }
+    ]
+  },
+  "properties": [
+    {
+      "claim": "Order can change the result.",
+      "status": "demonstrated by counterexample to commutativity",
+      "conditions": "Both orders must be defined for comparison.",
+      "example_ref": "math:example:composition:numeric"
+    },
+    {
+      "claim": "h\\circ(f\\circ g)=(h\\circ f)\\circ g",
+      "status": "short derivation",
+      "conditions": "All participating applications are defined; compare on the common valid domain.",
+      "derivation": "Both sides applied to x evaluate to h(f(g(x))). This changes grouping, not order."
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the evolution of function notation separately from the use of composition.",
+      "Find citable specialist/primary support before adding any first-use or attribution claim."
+    ],
+    "reader_text": "Historical account not yet sourced in this draft."
+  },
+  "connections": [
+    {
+      "target": "math:concept:matrix-linear-map",
+      "type": "applied_in",
+      "conditions": "Compatible vector spaces and matrix dimensions; translation requires an affine representation.",
+      "reason": "Successive linear maps are represented by ordered matrix multiplication.",
+      "target_status": "planned",
+      "evidence_status": "editorial_proposal",
+      "source_refs": []
+    },
+    {
+      "target": "external:concept:workflow",
+      "type": "personal_analogy_candidate",
+      "conditions": "Only when stage outputs and inputs can be mapped explicitly.",
+      "reason": "A staged process can resemble composition; this does not establish that every workflow is a mathematical function.",
+      "target_status": "external",
+      "evidence_status": "analogy_candidate",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:composition:numeric",
+      "role": "minimal",
+      "question": "Does the order matter for a square and an affine function?",
+      "setting": "Real-valued functions",
+      "inputs": {
+        "f": "f(u)=u²",
+        "g": "g(x)=2x+1",
+        "x": 3
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "g(3)=2·3+1=7",
+          "reason": "Apply the inner function."
+        },
+        {
+          "index": 2,
+          "expression": "f(7)=7²=49",
+          "reason": "Apply the outer function."
+        },
+        {
+          "index": 3,
+          "expression": "f(3)=9; g(9)=19",
+          "reason": "Compute the reversed order for comparison."
+        }
+      ],
+      "result": {
+        "exact": "(f∘g)(3)=49; (g∘f)(3)=19"
+      },
+      "interpretation": "These are two different composite functions.",
+      "independent_check": {
+        "method": "Expand the composite expressions directly.",
+        "expected": "(2·3+1)²=49; 2·3²+1=19"
+      },
+      "limits": "One differing input refutes commutativity for this pair; it does not imply no functions commute.",
+      "preset": {
+        "a": 1,
+        "b": 0,
+        "c": 0,
+        "m": 2,
+        "n": 1,
+        "x": 3
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "assumptions": [
+        "Real-valued functions"
+      ],
+      "title": "Does the order matter for a square and an affine function?",
+      "conditions_to_check": [
+        "For a particular x, x must be in dom(g) and g(x) must be in dom(f).",
+        "A type checker must establish assignability or require an explicit domain guard; matching scalar-looking numbers is insufficient when their meanings/units differ."
+      ]
+    },
+    {
+      "id": "math:example:composition:finite",
+      "role": "structural",
+      "question": "What happens when word length is followed by parity?",
+      "setting": "Finite strings → natural numbers → {even, odd}",
+      "inputs": {
+        "g": "g(word)=number of letters in the ASCII word",
+        "f": "f(n)=even if n is divisible by 2; odd otherwise",
+        "word": "tree"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "g(\"tree\")=4",
+          "reason": "Count four letters."
+        },
+        {
+          "index": 2,
+          "expression": "f(4)=even",
+          "reason": "Four is divisible by two."
+        }
+      ],
+      "result": {
+        "exact": "even"
+      },
+      "interpretation": "A composition need not return a number or have numerical inputs.",
+      "independent_check": {
+        "method": "Enumerate the letters t,r,e,e and pair them.",
+        "expected": "Two pairs; even."
+      },
+      "limits": "The string-counting convention must be specified. Byte length, code-point count and user-perceived letters can differ for other strings.",
+      "preset": null,
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "assumptions": [
+        "Finite strings → natural numbers → {even, odd}"
+      ],
+      "title": "What happens when word length is followed by parity?",
+      "conditions_to_check": [
+        "For a particular x, x must be in dom(g) and g(x) must be in dom(f).",
+        "A type checker must establish assignability or require an explicit domain guard; matching scalar-looking numbers is insufficient when their meanings/units differ."
+      ]
+    },
+    {
+      "id": "math:example:composition:geometry",
+      "role": "visual",
+      "question": "Compare rotate-then-translate with translate-then-rotate.",
+      "setting": "Points in R²; R(x,y)=(-y,x), T(x,y)=(x+1,y)",
+      "inputs": {
+        "point": [
+          1,
+          0
+        ],
+        "rotation": "90° counterclockwise about the origin",
+        "translation": [
+          1,
+          0
+        ]
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "R(1,0)=(0,1)",
+          "reason": "Rotate the point."
+        },
+        {
+          "index": 2,
+          "expression": "T(0,1)=(1,1)",
+          "reason": "Translate the rotated point."
+        },
+        {
+          "index": 3,
+          "expression": "T(1,0)=(2,0); R(2,0)=(0,2)",
+          "reason": "Reverse the order."
+        }
+      ],
+      "result": {
+        "exact": "(T∘R)(1,0)=(1,1); (R∘T)(1,0)=(0,2)"
+      },
+      "interpretation": "The order of spatial transformations is part of the expression.",
+      "independent_check": {
+        "method": "Substitute the original point into each expanded formula.",
+        "expected": "T(R(x,y))=(1−y,x); R(T(x,y))=(-y,x+1)."
+      },
+      "limits": "Translation is affine and is not a linear map of R². Do not label both stages linear.",
+      "preset": null,
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "assumptions": [
+        "Points in R²; R(x,y)=(-y,x), T(x,y)=(x+1,y)"
+      ],
+      "title": "Compare rotate-then-translate with translate-then-rotate.",
+      "conditions_to_check": [
+        "For a particular x, x must be in dom(g) and g(x) must be in dom(f).",
+        "A type checker must establish assignability or require an explicit domain guard; matching scalar-looking numbers is insufficient when their meanings/units differ."
+      ]
+    },
+    {
+      "id": "math:example:composition:calibration",
+      "role": "applied_model",
+      "question": "Convert a raw sensor reading to Celsius and then Fahrenheit.",
+      "setting": "An illustrative calibration model, not a measured device specification.",
+      "inputs": {
+        "raw_reading": 60,
+        "g": "C(r)=0.5r−10 degrees Celsius",
+        "f": "F(C)=1.8C+32 degrees Fahrenheit"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "C(60)=0.5·60−10=20 °C",
+          "reason": "Apply the stipulated calibration."
+        },
+        {
+          "index": 2,
+          "expression": "F(20)=1.8·20+32=68 °F",
+          "reason": "Convert the temperature reading."
+        }
+      ],
+      "result": {
+        "exact": "68 °F under the stated calibration"
+      },
+      "interpretation": "The composite gives a direct raw-reading-to-Fahrenheit transformation.",
+      "independent_check": {
+        "method": "Expand the composite before substitution.",
+        "expected": "F(C(r))=0.9r+14; at r=60, 68 °F."
+      },
+      "limits": "Calibration coefficients are hypothetical. Mathematical correctness cannot establish actual sensor accuracy, range, uncertainty or physical validity.",
+      "preset": null,
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "assumptions": [
+        "An illustrative calibration model, not a measured device specification."
+      ],
+      "title": "Convert a raw sensor reading to Celsius and then Fahrenheit.",
+      "conditions_to_check": [
+        "For a particular x, x must be in dom(g) and g(x) must be in dom(f).",
+        "A type checker must establish assignability or require an explicit domain guard; matching scalar-looking numbers is insufficient when their meanings/units differ."
+      ]
+    },
+    {
+      "id": "math:example:composition:restricted-domain",
+      "role": "boundary",
+      "question": "When is sqrt(x−4) a real-valued composition?",
+      "setting": "g:R→R, g(x)=x−4; f:[0,∞)→[0,∞), f(u)=sqrt(u)",
+      "inputs": {
+        "test_inputs": [
+          3,
+          8
+        ]
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "x−4≥0 ⇔ x≥4",
+          "reason": "Require the inner output to lie in the outer domain."
+        },
+        {
+          "index": 2,
+          "expression": "At x=3: g(3)=−1; f(−1) is undefined over R.",
+          "reason": "Evaluate the invalid case without inventing a value."
+        },
+        {
+          "index": 3,
+          "expression": "At x=8: g(8)=4; f(4)=2.",
+          "reason": "Evaluate a valid case."
+        }
+      ],
+      "result": {
+        "exact": "Domain [4,∞); x=3 undefined over R; x=8 gives 2"
+      },
+      "interpretation": "Composition may impose a stricter domain than the inner function alone.",
+      "independent_check": {
+        "method": "Square the valid output and compare with the inner output.",
+        "expected": "2²=4=8−4."
+      },
+      "limits": "Allowing complex outputs changes the mathematical setting and may require branch conventions. The interface must not switch settings silently.",
+      "preset": null,
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "assumptions": [
+        "g:R→R, g(x)=x−4; f:[0,∞)→[0,∞), f(u)=sqrt(u)"
+      ],
+      "title": "When is sqrt(x−4) a real-valued composition?",
+      "conditions_to_check": [
+        "For a particular x, x must be in dom(g) and g(x) must be in dom(f).",
+        "A type checker must establish assignability or require an explicit domain guard; matching scalar-looking numbers is insufficient when their meanings/units differ."
+      ]
+    },
+    {
+      "id": "math:example:composition:type-mismatch",
+      "role": "type_boundary",
+      "question": "Can a 2D rotation consume a word length?",
+      "setting": "Declared nominal types, with no implicit coercion.",
+      "inputs": {
+        "g": "String → Natural; word length",
+        "f": "R² → R²; rotate a vector",
+        "word": "tree"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "g(\"tree\")=4 ∈ Natural",
+          "reason": "The inner output is a natural number."
+        },
+        {
+          "index": 2,
+          "expression": "f expects a pair (x,y) ∈ R².",
+          "reason": "Compare declared types."
+        }
+      ],
+      "result": {
+        "status": "type_error",
+        "exact": "No composite in this declared signature."
+      },
+      "interpretation": "A numerical-looking output does not supply the missing vector.",
+      "independent_check": {
+        "method": "Inspect arity and component types.",
+        "expected": "One scalar cannot satisfy a pair-valued argument without an explicit additional map."
+      },
+      "limits": "An author could define an embedding n↦(n,0), but that is an extra function and changes the model.",
+      "preset": null,
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "assumptions": [
+        "Declared nominal types, with no implicit coercion."
+      ],
+      "title": "Can a 2D rotation consume a word length?",
+      "conditions_to_check": [
+        "For a particular x, x must be in dom(g) and g(x) must be in dom(f).",
+        "A type checker must establish assignability or require an explicit domain guard; matching scalar-looking numbers is insufficient when their meanings/units differ."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "function-composition-quadratic-affine",
+    "model_revision": "1",
+    "description": "Evaluate f(u)=a u²+b u+c and g(x)=m x+n in either order, showing intermediate values, ordered arrows, expression and result.",
+    "controls": [
+      {
+        "id": "a",
+        "type": "number",
+        "min": -5,
+        "max": 5,
+        "default": 1,
+        "step": 1
+      },
+      {
+        "id": "b",
+        "type": "number",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "step": 1
+      },
+      {
+        "id": "c",
+        "type": "number",
+        "min": -5,
+        "max": 5,
+        "default": 0,
+        "step": 1
+      },
+      {
+        "id": "m",
+        "type": "number",
+        "min": -5,
+        "max": 5,
+        "default": 2,
+        "step": 1
+      },
+      {
+        "id": "n",
+        "type": "number",
+        "min": -5,
+        "max": 5,
+        "default": 1,
+        "step": 1
+      },
+      {
+        "id": "x",
+        "type": "number",
+        "min": -10,
+        "max": 10,
+        "default": 3,
+        "step": 0.5
+      },
+      {
+        "id": "order",
+        "type": "enum",
+        "values": [
+          "f_after_g",
+          "g_after_f"
+        ],
+        "default": "f_after_g"
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "a": 1,
+          "b": 0,
+          "c": 0,
+          "m": 2,
+          "n": 1,
+          "x": 3,
+          "order": "f_after_g"
+        },
+        "intermediate": 7,
+        "output": 49
+      },
+      {
+        "input": {
+          "a": 1,
+          "b": 0,
+          "c": 0,
+          "m": 2,
+          "n": 1,
+          "x": 3,
+          "order": "g_after_f"
+        },
+        "intermediate": 9,
+        "output": 19
+      },
+      {
+        "input": {
+          "a": 0,
+          "b": 1,
+          "c": 0,
+          "m": 2,
+          "n": 1,
+          "x": 3,
+          "order": "f_after_g"
+        },
+        "intermediate": 7,
+        "output": 7
+      }
+    ],
+    "invariants": [
+      "Identity f(u)=u leaves g(x) unchanged in either order.",
+      "Output and intermediate values agree across expression, mapping arrows, table and accessible result."
+    ],
+    "limits": [
+      "This numeric module covers real quadratic f and affine g, not every mathematical function.",
+      "The structural, geometric and domain examples require separate registered views or static explanations.",
+      "General composition AST has abstract A/B/C types. The numeric renderer binds A=B=C=Real; reversed order is not automatically permitted in other typed settings."
+    ],
+    "fallback": "A worked expression, table of intermediate/output values and plain-language reading.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "parameters",
+      "order",
+      "result",
+      "viewport",
+      "note"
+    ],
+    "renderer_id": "function-composition-quadratic-affine",
+    "renderer_version": "1",
+    "model_id": "function-composition-quadratic-affine",
+    "expression_id": "ast:composition:apply-f-after-g",
+    "interaction_status": "specified_not_implemented",
+    "expression_variants": {
+      "f_after_g": "ast:composition:apply-f-after-g",
+      "g_after_f": "ast:composition:apply-g-after-f"
+    }
+  },
+  "prompts": [
+    {
+      "prompt": "Before switching order, predict whether the result changes. What would count as evidence?",
+      "answer": "Compute both ordered composites at the same input. A difference refutes equality of the two functions; agreement at one input does not prove equality."
+    },
+    {
+      "prompt": "What must be checked before connecting two transformations?",
+      "answer": "The particular inner output must be a valid outer input; for a full typed composition establish the needed domain/type compatibility."
+    }
+  ],
+  "schema_version": "0.1.0",
+  "slug": "function-composition",
+  "branches": [
+    "language",
+    "functions"
+  ],
+  "updated": "2026-10-23T00:00:00Z",
+  "representations": [
+    {
+      "kind": "symbolic",
+      "description": "(f\\circ g)(x)=f(g(x))"
+    },
+    {
+      "kind": "process",
+      "description": "Evaluate f(u)=a u²+b u+c and g(x)=m x+n in either order, showing intermediate values, ordered arrows, expression and result."
+    }
+  ],
+  "source_refs": [
+    "source:openstax:composition"
+  ],
+  "review_gaps": [
+    "Independent mathematical/editorial review pending.",
+    "Interactive model specified but application renderer not implemented.",
+    "Historical research incomplete; no priority claim implied."
+  ],
+  "change_log": [
+    "0.1.0-draft: authored specimen, parameters and expected results for implementation."
+  ],
+  "applications": [
+    {
+      "context": "What happens when word length is followed by parity?",
+      "mapping": "Finite strings → natural numbers → {even, odd}",
+      "limitations": "The string-counting convention must be specified. Byte length, code-point count and user-perceived letters can differ for other strings.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:composition:finite"
+    },
+    {
+      "context": "Compare rotate-then-translate with translate-then-rotate.",
+      "mapping": "Points in R²; R(x,y)=(-y,x), T(x,y)=(x+1,y)",
+      "limitations": "Translation is affine and is not a linear map of R². Do not label both stages linear.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:composition:geometry"
+    },
+    {
+      "context": "Convert a raw sensor reading to Celsius and then Fahrenheit.",
+      "mapping": "An illustrative calibration model, not a measured device specification.",
+      "limitations": "Calibration coefficients are hypothetical. Mathematical correctness cannot establish actual sensor accuracy, range, uncertainty or physical validity.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:composition:calibration"
+    }
+  ]
+}

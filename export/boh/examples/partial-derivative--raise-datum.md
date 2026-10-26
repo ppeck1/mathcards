@@ -1,0 +1,252 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:partial-derivative:raise-datum", "id": "math:example:partial-derivative:raise-datum", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:partial-derivative", "example_id": "math:example:partial-derivative:raise-datum", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "58f75439113edc3c9a5d4d8532195fc60265999828af628b479d9bd40068d388"}, "purpose": "Change one coordinate while holding the other fixed, and read the slope of that slice.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "58f75439113edc3c9a5d4d8532195fc60265999828af628b479d9bd40068d388", "status": "draft", "title": "Raise every height without changing the slopes", "topics": ["mathematics", "calculus", "analysis", "geometry", "partial differentiation", "slice derivative", "multivariable derivative", "cross-section slope"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Raise every height without changing the slopes
+
+Parent card: math:concept:partial-derivative; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:partial-derivative; revision 0.1.0-draft. Setting: Real scalar fields on an open neighborhood in the plane. Each partial differentiates one independent coordinate while the other stays fixed; the executable specimen is a differentiable quadratic height field. Expression: $\frac{\partial F}{\partial x}(x,y)=\lim_{h\to0}\frac{F(x+h,y)-F(x,y)}{h},\quad \frac{\partial F}{\partial y}(x,y)=\lim_{h\to0}\frac{F(x,y+h)-F(x,y)}{h}.\quad F(x,y)=c+ax^2+by^2,\quad \frac{\partial F}{\partial x}=2ax,\ \frac{\partial F}{\partial y}=2by.$. Conditions required for a defined value (a case may test their violation): The general scalar field is defined on a neighborhood of the point; a partial derivative differentiates one coordinate while holding other independent coordinates fixed. The live field is F(x,y)=c+a*x²+b*y², so all derivatives used here exist and are continuous. For the chosen field, partialX=2*a*x and partialY=2*b*y. They are evaluated at the current point, not at unrelated coordinates. Use perpendicular equally scaled horizontal axes and compatible coordinate units when comparing Euclidean gradient directions and magnitudes. The quotient definitions use a nonzero increment before taking its limit; they do not divide by zero. Existence of both partial derivatives at a point alone does not guarantee differentiability for an arbitrary field. Scope: The general definition applies to scalar functions with several independent inputs and requires the stated local domain and derivative limits. The live model is only the real quadratic family F=c+a*x²+b*y² with bounded controls. It has no mixed x*y term, so its first partial is independent of y in this particular family; general partial derivatives can depend on all coordinates. There is no symbolic differentiator, arbitrary surface import or numerical finite-difference estimator. Height stories use compatible metre-based coordinates and declared coefficient units.
+
+Case unit math:example:partial-derivative:raise-datum. Setting: Original constructed teaching scenario; values and rules are stipulated, not measured. Inputs: {"a": -0.5, "b": -0.25, "c": 6, "x": 1, "y": 0.5}. Result: {"exact": "Height 5.4375 m; unchanged partials (-1,-0.25) m/m"}. Limits: The example changes only the constant offset; changing a or b generally changes slopes.
+
+## Complete worked case
+
+- id: math:example:partial-derivative:raise-datum
+- title: Raise every height without changing the slopes
+- role: applied_model
+- question: Increase c from 4 m to 6 m at point (1,0.5) m, with a=-0.5 and b=-0.25. What changes?
+- setting: Original constructed teaching scenario; values and rules are stipulated, not measured.
+- assumptions:
+  - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
+  - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.
+  - The horizontal axes are perpendicular, equally scaled and use the same physical length unit.
+  - Each derivative holds the other independent coordinate and the chosen coefficients fixed.
+- inputs:
+  - x: 1
+  - y: 0.5
+  - a: -0.5
+  - b: -0.25
+  - c: 6
+- steps:
+  - Item:
+    - index: 1
+    - expression: F=6-0.5-0.0625=5.4375 m
+    - reason: Every point height rises by 2 m.
+  - Item:
+    - index: 2
+    - expression: ∂F/∂x=-1; ∂F/∂y=-0.25 m/m
+    - reason: The constant offset contributes zero to both derivatives.
+  - Item:
+    - index: 3
+    - expression: The tangent slopes match the original field
+    - reason: Changing the reference height does not tilt either slice.
+- result:
+  - exact: Height 5.4375 m; unchanged partials (-1,-0.25) m/m
+- interpretation: Height and local slope are different quantities.
+- independent check:
+  - method: Difference cancellation
+  - expected: [F(x+h,y)+2-(F(x,y)+2)]/h=[F(x+h,y)-F(x,y)]/h, so an added constant cancels from the derivative.
+- limits: The example changes only the constant offset; changing a or b generally changes slopes.
+- preset:
+  - x: 1
+  - y: 0.5
+  - a: -0.5
+  - b: -0.25
+  - c: 6
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
+  - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.
+  - The horizontal axes are perpendicular, equally scaled and use the same physical length unit.
+  - Each derivative holds the other independent coordinate and the chosen coefficients fixed.
+
+## Written exploration recipe
+
+- component id: partial-derivative-visual-model
+- renderer id: partial-derivative-visual-model
+- renderer version: 1.0.0
+- model id: partial-derivative-visual-model
+- model revision: 1
+- expression id: ast:partial-derivative:expression
+- interaction status: implemented
+- description: Show the selected point on height contours, its selected x slice and distinct coordinate slopes. Geometry and genuine 3D use the same field; the Graph varies x and plots the first partial at fixed y.
+- controls:
+  - Item:
+    - id: x
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: y
+    - type: number
+    - default: 0.5
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: a
+    - type: number
+    - default: -0.5
+    - min: -1
+    - max: 1
+    - slider min: -1
+    - slider max: 1
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: b
+    - type: number
+    - default: -0.25
+    - min: -1
+    - max: 1
+    - slider min: -1
+    - slider max: 1
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: c
+    - type: number
+    - default: 4
+    - min: 0
+    - max: 6
+    - slider min: 0
+    - slider max: 6
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+- expected cases:
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+    - output: -1.0
+  - Item:
+    - input:
+      - x: -1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+    - output: 1.0
+  - Item:
+    - input:
+      - x: 0
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+    - output: -0.0
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: 0
+      - b: -0.25
+      - c: 4
+    - output: 0
+  - Item:
+    - input:
+      - x: 1
+      - y: 1
+      - a: -0.5
+      - b: -1
+      - c: 4
+    - output: -1.0
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 6
+    - output: -1.0
+  - Item:
+    - input:
+      - x: 2
+      - y: -2
+      - a: 1
+      - b: 1
+      - c: 0
+    - output: 4
+  - Item:
+    - input:
+      - x: -2
+      - y: 0.5
+      - a: -1
+      - b: -0.25
+      - c: 4
+    - output: 4
+  - Item:
+    - input:
+      - x: 0.5
+      - y: 0.5
+      - a: 0.25
+      - b: -0.25
+      - c: 4
+    - output: 0.25
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: 0
+      - b: 0
+      - c: 4
+    - output: 0
+  - Item:
+    - input:
+      - x: 2.1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - x: 1
+      - y: 0.5
+      - a: -0.5
+      - b: -0.25
+      - c: 6.1
+    - status: invalid_parameters
+- compute: output=partialX=2*a*x; height=c+a*x*x+b*y*y; partialX=2*a*x; partialY=2*b*y; gradientNorm=hypot(partialX,partialY); unitGradientX=partialX/gradientNorm and unitGradientY=partialY/gradientNorm when gradientNorm>0, otherwise both null with directionStatus=undefined_direction.
+- numeric tolerance: 1e-10
+- invariants:
+  - The general scalar field is defined on a neighborhood of the point; a partial derivative differentiates one coordinate while holding other independent coordinates fixed.
+  - The live field is F(x,y)=c+a*x²+b*y², so all derivatives used here exist and are continuous.
+  - For the chosen field, partialX=2*a*x and partialY=2*b*y. They are evaluated at the current point, not at unrelated coordinates.
+  - Use perpendicular equally scaled horizontal axes and compatible coordinate units when comparing Euclidean gradient directions and magnitudes.
+  - The quotient definitions use a nonzero increment before taking its limit; they do not divide by zero.
+  - Existence of both partial derivatives at a point alone does not guarantee differentiability for an arbitrary field.
+- limits:
+  - Only the quadratic family c+a*x²+b*y², without mixed terms or arbitrary function input.
+  - Primary Graph output is partialX as x varies with other controls fixed; height and partialY remain separate results.
+  - The same scalar field can be shown as contours, coordinate slices or a genuine 3D surface; view state does not alter model parameters.
+- fallback: Pause and read the height and both coordinate partials. The fixed-y x-slice graph and original worked steps explain the same analytic derivative without requiring the 3D surface.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openstax:partial-derivatives. [Calculus Volume 3, 4.3 Partial Derivatives](https://openstax.org/books/calculus-volume-3/pages/4-3-partial-derivatives). Locator: Definitions of partial derivatives; holding other independent inputs fixed; cross-section interpretations. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.

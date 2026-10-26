@@ -1,0 +1,578 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:integral-accumulation",
+  "slug": "integral-accumulation",
+  "type": "concept",
+  "title": "Integrals & accumulation",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-23T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived; independent review pending",
+    "history": "source gap; no priority assertions",
+    "interaction": "implemented; numerical fixtures are not independent mathematical review"
+  },
+  "source_policy": "Definition-level references support the mathematics. Applications and stories are original constructed scenarios, not measurements or historical events. Historical claims require claim-level sources before publication.",
+  "aliases": [
+    "definite integral",
+    "area under a velocity curve"
+  ],
+  "branches": [
+    "calculus",
+    "modeling"
+  ],
+  "expressive_job": [
+    "model",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Recover a traveled distance by accumulating a changing velocity.",
+  "meaning": "Each thin time slice adds a little distance. The whole shaded area connects instantaneous speed to the cart’s position.",
+  "prerequisites": {
+    "required": [
+      "math:concept:variable"
+    ],
+    "helpful": [
+      "math:concept:function"
+    ],
+    "depth": [
+      "math:concept:model-assumption"
+    ]
+  },
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the concept and notation with specialist sources before adding historical attribution."
+    ],
+    "reader_text": "Historical account not yet sourced. Everyday scenarios are constructed examples, not historical anecdotes."
+  },
+  "connections": [],
+  "examples": [
+    {
+      "id": "math:example:integral-accumulation:cart",
+      "title": "A cart from rest",
+      "role": "applied_model",
+      "question": "How far does a cart travel in 4 s at constant acceleration 2 m/s²?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "The cart starts from rest at position zero.",
+        "Acceleration is constant and positive; motion remains along one forward axis.",
+        "Time is nonnegative and the stated units are consistent."
+      ],
+      "inputs": {
+        "time": 4,
+        "rate": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v(4)=2×4=8 m/s",
+          "reason": "Find the velocity at the end of the interval."
+        },
+        {
+          "index": 2,
+          "expression": "s(4)=½×4×8=16 m",
+          "reason": "Accumulate the triangular velocity–time area."
+        }
+      ],
+      "result": {
+        "exact": "16 m"
+      },
+      "interpretation": "The instantaneous final speed is 8 m/s; the accumulated distance is 16 m.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "Average velocity is (0+8)/2=4 m/s; 4 m/s × 4 s = 16 m."
+      },
+      "limits": "The cart starts from rest and acceleration remains constant.",
+      "preset": {
+        "time": 4,
+        "rate": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The cart starts from rest at position zero.",
+        "Acceleration is constant and positive; motion remains along one forward axis.",
+        "Time is nonnegative and the stated units are consistent."
+      ]
+    },
+    {
+      "id": "math:example:integral-accumulation:half-time",
+      "title": "Stop the clock earlier",
+      "role": "applied_model",
+      "question": "How far does the same cart move in 2 s?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "The cart starts from rest at position zero.",
+        "Acceleration is constant and positive; motion remains along one forward axis.",
+        "Time is nonnegative and the stated units are consistent."
+      ],
+      "inputs": {
+        "time": 2,
+        "rate": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v(2)=4 m/s",
+          "reason": "Use the same acceleration."
+        },
+        {
+          "index": 2,
+          "expression": "s(2)=½×2×4=4 m",
+          "reason": "The shorter interval reduces both triangle width and height."
+        }
+      ],
+      "result": {
+        "exact": "4 m"
+      },
+      "interpretation": "Halving the elapsed time quarters the traveled distance in this model.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "s(4)/s(2)=16/4=4=(4/2)²."
+      },
+      "limits": "The comparison keeps acceleration fixed.",
+      "preset": {
+        "time": 2,
+        "rate": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The cart starts from rest at position zero.",
+        "Acceleration is constant and positive; motion remains along one forward axis.",
+        "Time is nonnegative and the stated units are consistent."
+      ]
+    },
+    {
+      "id": "math:example:integral-accumulation:gentle",
+      "title": "A gentler test",
+      "role": "applied_model",
+      "question": "What distance accumulates in 6 s at 0.5 m/s²?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "The cart starts from rest at position zero.",
+        "Acceleration is constant and positive; motion remains along one forward axis.",
+        "Time is nonnegative and the stated units are consistent."
+      ],
+      "inputs": {
+        "time": 6,
+        "rate": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v(6)=0.5×6=3 m/s",
+          "reason": "Find the endpoint velocity."
+        },
+        {
+          "index": 2,
+          "expression": "s(6)=½×6×3=9 m",
+          "reason": "Measure the area under the increasing velocity line."
+        }
+      ],
+      "result": {
+        "exact": "9 m"
+      },
+      "interpretation": "Longer time can still give less distance when acceleration is lower.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "The mean velocity is 1.5 m/s, giving 9 m in 6 s."
+      },
+      "limits": "The acceleration is stipulated, not measured.",
+      "preset": {
+        "time": 6,
+        "rate": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The cart starts from rest at position zero.",
+        "Acceleration is constant and positive; motion remains along one forward axis.",
+        "Time is nonnegative and the stated units are consistent."
+      ]
+    },
+    {
+      "id": "math:example:integral-accumulation:zero",
+      "title": "At the start",
+      "role": "boundary",
+      "question": "What distance has accumulated at time zero?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "The cart starts from rest at position zero.",
+        "Acceleration is constant and positive; motion remains along one forward axis.",
+        "Time is nonnegative and the stated units are consistent."
+      ],
+      "inputs": {
+        "time": 0,
+        "rate": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "T=0 s",
+          "reason": "The integration interval has zero width."
+        },
+        {
+          "index": 2,
+          "expression": "s(0)=½×2×0²=0 m",
+          "reason": "No elapsed interval contributes distance."
+        }
+      ],
+      "result": {
+        "exact": "0 m"
+      },
+      "interpretation": "A nonzero acceleration does not imply a nonzero starting velocity or distance.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "The integral with identical lower and upper limits is zero."
+      },
+      "limits": "Initial position is defined as zero.",
+      "preset": {
+        "time": 0,
+        "rate": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The cart starts from rest at position zero.",
+        "Acceleration is constant and positive; motion remains along one forward axis.",
+        "Time is nonnegative and the stated units are consistent."
+      ]
+    },
+    {
+      "id": "math:example:integral-accumulation:not-rest",
+      "title": "Check the initial velocity",
+      "role": "counterexample",
+      "question": "A cart already moving at 3 m/s then accelerates at 2 m/s² for 4 s. Is 16 m its distance?",
+      "setting": "Original constructed teaching scenario; stipulated quantities are not measurements.",
+      "assumptions": [
+        "The cart starts from rest at position zero.",
+        "Acceleration is constant and positive; motion remains along one forward axis.",
+        "Time is nonnegative and the stated units are consistent."
+      ],
+      "inputs": {
+        "time": 4,
+        "rate": 2,
+        "initial_velocity": 3
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v(t)=3+2t",
+          "reason": "The stated start differs from rest."
+        },
+        {
+          "index": 2,
+          "expression": "s(4)=3×4+½×2×4²=28 m",
+          "reason": "Include the rectangular area below the initial velocity."
+        }
+      ],
+      "result": {
+        "exact": "Outside this rest-start model; comparison distance is 28 m"
+      },
+      "interpretation": "The omitted starting velocity contributes another 12 m.",
+      "independent_check": {
+        "method": "A separate algebraic rearrangement or frequency-table check.",
+        "expected": "Average velocity (3+11)/2=7 m/s for 4 s gives 28 m."
+      },
+      "limits": "This interactive model has no initial-velocity control.",
+      "preset": null,
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "draft",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The cart starts from rest at position zero.",
+        "Acceleration is constant and positive; motion remains along one forward axis.",
+        "Time is nonnegative and the stated units are consistent."
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "claim": "Each thin time slice adds a little distance. The whole shaded area connects instantaneous speed to the cart’s position.",
+      "status": "algebraic derivation",
+      "conditions": "The cart starts from rest at position zero.; Acceleration is constant and positive; motion remains along one forward axis.; Time is nonnegative and the stated units are consistent.",
+      "derivation": "distance=triangleArea=0.5*rate*time*time; velocity=rate*time; output=distance. The definite integral of v(t)=rate*t from 0 to time is the triangular area beneath the velocity line."
+    }
+  ],
+  "prompts": [
+    {
+      "prompt": "Which assumptions make this expression meaningful?",
+      "answer": "The cart starts from rest at position zero. Acceleration is constant and positive; motion remains along one forward axis. Time is nonnegative and the stated units are consistent."
+    },
+    {
+      "prompt": "What does the changing shape measure?",
+      "answer": "The cyan time cursor widens the shaded velocity triangle; its gold area determines the cart’s distance along the track."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "symbolic",
+      "description": "distance=triangleArea=0.5*rate*time*time; velocity=rate*time; output=distance. The definite integral of v(t)=rate*t from 0 to time is the triangular area beneath the velocity line."
+    },
+    {
+      "kind": "geometric",
+      "description": "The cyan time cursor widens the shaded velocity triangle; its gold area determines the cart’s distance along the track."
+    }
+  ],
+  "applications": [
+    {
+      "context": "A cart from rest",
+      "mapping": "The instantaneous final speed is 8 m/s; the accumulated distance is 16 m.",
+      "limitations": "The cart starts from rest and acceleration remains constant.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:integral-accumulation:cart"
+    },
+    {
+      "context": "Stop the clock earlier",
+      "mapping": "Halving the elapsed time quarters the traveled distance in this model.",
+      "limitations": "The comparison keeps acceleration fixed.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:integral-accumulation:half-time"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:net-change"
+  ],
+  "review_gaps": [
+    "Independent mathematics and editorial review pending.",
+    "Historical research incomplete; no priority or invention claim implied."
+  ],
+  "change_log": [
+    "0.1.0-draft: original applications, explicit model assumptions, bounded visual model and numerical fixtures."
+  ],
+  "definition": {
+    "setting": "Recover a traveled distance by accumulating a changing velocity.",
+    "formal_latex": "s(T)=\\int_0^T at\\,dt=\\frac12aT^2",
+    "signature": {
+      "time": "elapsed time T in seconds",
+      "rate": "constant acceleration a in metres per second squared",
+      "distance": "distance from rest in metres"
+    },
+    "conditions": [
+      "The cart starts from rest at position zero.",
+      "Acceleration is constant and positive; motion remains along one forward axis.",
+      "Time is nonnegative and the stated units are consistent."
+    ],
+    "domain_notes": "The interactive controls restrict each parameter to its declared finite interval. The illustration excludes power limits, friction, braking and measured motor behavior.",
+    "proof_status": "This draft gives the model and worked algebra. Animated shapes and numerical checks illustrate the stated relation; they are not independent mathematical review.",
+    "source_refs": [
+      "source:openstax:net-change"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Recover a traveled distance by accumulating a changing velocity.",
+    "expression_latex": "s(T)=\\int_0^T at\\,dt=\\frac12aT^2",
+    "formation_rule": "distance=triangleArea=0.5*rate*time*time; velocity=rate*time; output=distance. The definite integral of v(t)=rate*t from 0 to time is the triangular area beneath the velocity line.",
+    "precedence": "Follow parentheses and function applications; products precede sums. Angle units and iteration conventions are explicit.",
+    "symbols": [
+      {
+        "token": "time",
+        "role": "elapsed time T in seconds",
+        "type": "Real quantity in declared setting"
+      },
+      {
+        "token": "rate",
+        "role": "constant acceleration a in metres per second squared",
+        "type": "Real quantity in declared setting"
+      },
+      {
+        "token": "distance",
+        "role": "distance from rest in metres",
+        "type": "Real quantity in declared setting"
+      }
+    ],
+    "ast": {
+      "id": "ast:integral-accumulation:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:time",
+          "kind": "variable",
+          "symbol": "time",
+          "type": "Real",
+          "scope_ref": "scope:integral-accumulation"
+        },
+        {
+          "id": "n:rate",
+          "kind": "variable",
+          "symbol": "rate",
+          "type": "Real",
+          "scope_ref": "scope:integral-accumulation"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "ref": "distance=triangleArea=0.5*rate*time*time; velocity=rate*time; output=distance. The definite integral of v(t)=rate*t from 0 to time is the triangular area beneath the velocity line.",
+          "type": "Curried declared controls → primary output"
+        },
+        {
+          "id": "n:partial0",
+          "kind": "apply",
+          "function": "n:rule",
+          "argument": "n:time",
+          "type": "Remaining declared controls → primary output"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "function": "n:partial0",
+          "argument": "n:rate",
+          "type": "Real"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:integral-accumulation",
+          "kind": "modelExpression",
+          "free_variables": [
+            "time",
+            "rate"
+          ],
+          "domain_condition": "The cart starts from rest at position zero.; Acceleration is constant and positive; motion remains along one forward axis.; Time is nonnegative and the stated units are consistent."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "A parameter outside the declared control interval",
+        "status": "outside_model_domain",
+        "reason": "Reject the experiment instead of drawing a plausible but unrelated answer."
+      },
+      {
+        "input": "Treat a display interpolation as an extra physical observation",
+        "status": "model_mismatch",
+        "reason": "Continuous transitions explain the chosen model; they do not add measured evidence."
+      }
+    ],
+    "ast_coverage": "The tree models the primary output through named mathematical helper functions, whose definitions and parameter dependencies are stated in compute and the signature. It is structural metadata, not arbitrary TeX execution or a general proof checker.",
+    "output_symbol_bindings": {
+      "primary displayed result": "output"
+    }
+  },
+  "interactive": {
+    "component_id": "integral-accumulation-visual-model",
+    "renderer_id": "integral-accumulation-visual-model",
+    "renderer_version": "1.0.0",
+    "model_id": "integral-accumulation-visual-model",
+    "model_revision": "1.0.0",
+    "expression_id": "ast:integral-accumulation:expression",
+    "interaction_status": "implemented",
+    "description": "The cyan time cursor widens the shaded velocity triangle; its gold area determines the cart’s distance along the track.",
+    "controls": [
+      {
+        "id": "time",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "slider_min": 0,
+        "slider_max": 6,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      },
+      {
+        "id": "rate",
+        "type": "number",
+        "default": 2,
+        "min": 0.5,
+        "max": 4,
+        "slider_min": 0.5,
+        "slider_max": 4,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with an explicit error; never silently clamp or reuse a stale answer."
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "time": 4,
+          "rate": 2
+        },
+        "output": 16
+      },
+      {
+        "input": {
+          "time": 0,
+          "rate": 2
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "time": 2,
+          "rate": 2
+        },
+        "output": 4
+      },
+      {
+        "input": {
+          "time": 6,
+          "rate": 0.5
+        },
+        "output": 9
+      },
+      {
+        "input": {
+          "time": 3,
+          "rate": 4
+        },
+        "output": 18
+      },
+      {
+        "input": {
+          "time": 1.5,
+          "rate": 2
+        },
+        "output": 2.25
+      },
+      {
+        "input": {
+          "time": -1,
+          "rate": 2
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "distance=triangleArea=0.5*rate*time*time; velocity=rate*time; output=distance. The definite integral of v(t)=rate*t from 0 to time is the triangular area beneath the velocity line.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The cart starts from rest at position zero.",
+      "Acceleration is constant and positive; motion remains along one forward axis.",
+      "Time is nonnegative and the stated units are consistent."
+    ],
+    "limits": [
+      "Acceleration is a constant 2 m/s², initial velocity is zero, and motion stays forward on a straight track.",
+      "The shaded graph area has units seconds × metres per second = metres; it is not physical ground area.",
+      "The illustration excludes power limits, friction, braking and measured motor behavior."
+    ],
+    "fallback": "Read the same substituted formula, worked steps and labeled static scene with motion paused.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  }
+}

@@ -1,0 +1,917 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:linear-combination",
+  "slug": "linear-combination",
+  "type": "concept",
+  "title": "Linear combinations",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-26T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numerical fixtures are not independent mathematical review"
+  },
+  "source_policy": "Definition-level references support the mathematical vocabulary. All stories and worked quantities are original constructed teaching scenarios, not measurements or historical events. Historical priority and notation claims require separate claim-level evidence before publication.",
+  "aliases": [
+    "weighted vector sum",
+    "vector combination",
+    "span of two vectors"
+  ],
+  "branches": [
+    "linear-algebra",
+    "geometry"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Build a new displacement from weighted copies of two vectors.",
+  "meaning": "A linear combination scales vectors by real coefficients and adds them. Two independent plane directions span the whole plane when coefficients range over all real numbers; parallel or zero directions span less. The displayed coefficient box is only a finite part of that general construction.",
+  "prerequisites": {
+    "required": [
+      "math:concept:vector"
+    ],
+    "helpful": [
+      "math:concept:matrix-linear-map"
+    ],
+    "depth": [
+      "math:concept:basis"
+    ]
+  },
+  "definition": {
+    "setting": "Real vector spaces with an explicit two-dimensional coordinate model.",
+    "formal_latex": "w=ru+sv=(ru_x+sv_x,\\;ru_y+sv_y),\\quad r,s\\in\\mathbb{R}.",
+    "signature": {
+      "ux,uy,vx,vy": "Real vector components in [-3,3] on the same axes.",
+      "r,s": "Dimensionless real coefficients in [-2,2] in the UI; unrestricted real coefficients in the formal span.",
+      "combinedX,combinedY": "Components of the resulting vector w; combinedX is the primary numeric Graph output.",
+      "norm": "Nonnegative Euclidean length of w.",
+      "determinant": "u_x*v_y-u_y*v_x; nonzero means the pair spans the plane."
+    },
+    "conditions": [
+      "Vectors have the same coordinate dimension and compatible physical units; coefficients r and s are real, dimensionless scalars.",
+      "Scale both components of each vector, then add corresponding components.",
+      "The zero vector, zero coefficients and dependent vectors are valid inputs; no independence assumption is needed to form a linear combination.",
+      "The formal span uses all real coefficients. Bounded sliders display only part of that span."
+    ],
+    "domain_notes": "The formal definition extends to finite sums of vectors in any real vector space. The live model combines exactly two real plane vectors, each component in [-3,3], with coefficients in [-2,2]. This bounded coefficient region is not the entire span and is not a vector space. Negative coefficients reverse directions. Physical vector components must use compatible units; the shared model itself uses abstract coordinates. No target-solving or arbitrary number of vectors is implemented.",
+    "proof_status": "Definition-level reference; worked properties are author-derived for stated assumptions. Independent mathematical review pending.",
+    "source_refs": [
+      "source:gatech:spans",
+      "source:openstax:vectors-plane"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Linear combinations",
+    "expression_latex": "w=ru+sv=(ru_x+sv_x,\\;ru_y+sv_y),\\quad r,s\\in\\mathbb{R}.",
+    "formation_rule": "output=combinedX=r*ux+s*vx; combinedY=r*uy+s*vy; firstX=r*ux; firstY=r*uy; secondX=s*vx; secondY=s*vy; norm=hypot(combinedX,combinedY); determinant=ux*vy-uy*vx.",
+    "precedence": "Scale components before adding. Matrix products act on column vectors from right to left; an ordered pair retains its stated coordinate order.",
+    "symbols": [
+      {
+        "token": "ux",
+        "role": "Signed component of one input vector",
+        "type": "Real scalar component"
+      },
+      {
+        "token": "uy",
+        "role": "Signed component of one input vector",
+        "type": "Real scalar component"
+      },
+      {
+        "token": "vx",
+        "role": "Signed component of one input vector",
+        "type": "Real scalar component"
+      },
+      {
+        "token": "vy",
+        "role": "Signed component of one input vector",
+        "type": "Real scalar component"
+      },
+      {
+        "token": "r",
+        "role": "Weight of u",
+        "type": "Dimensionless real scalar"
+      },
+      {
+        "token": "s",
+        "role": "Weight of v",
+        "type": "Dimensionless real scalar"
+      },
+      {
+        "token": "wₓ",
+        "role": "Horizontal component of r*u+s*v",
+        "type": "Derived real scalar"
+      },
+      {
+        "token": "wᵧ",
+        "role": "Vertical component of r*u+s*v",
+        "type": "Derived real scalar"
+      }
+    ],
+    "ast": {
+      "id": "ast:linear-combination:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:ux",
+          "kind": "variable",
+          "symbol": "ux",
+          "type": "Finite real control",
+          "scope_ref": "scope:linear-combination:expression"
+        },
+        {
+          "id": "n:uy",
+          "kind": "variable",
+          "symbol": "uy",
+          "type": "Finite real control",
+          "scope_ref": "scope:linear-combination:expression"
+        },
+        {
+          "id": "n:vx",
+          "kind": "variable",
+          "symbol": "vx",
+          "type": "Finite real control",
+          "scope_ref": "scope:linear-combination:expression"
+        },
+        {
+          "id": "n:vy",
+          "kind": "variable",
+          "symbol": "vy",
+          "type": "Finite real control",
+          "scope_ref": "scope:linear-combination:expression"
+        },
+        {
+          "id": "n:r",
+          "kind": "variable",
+          "symbol": "r",
+          "type": "Finite real control",
+          "scope_ref": "scope:linear-combination:expression"
+        },
+        {
+          "id": "n:s",
+          "kind": "variable",
+          "symbol": "s",
+          "type": "Finite real control",
+          "scope_ref": "scope:linear-combination:expression"
+        },
+        {
+          "id": "n:firstX",
+          "kind": "multiply",
+          "arguments": [
+            "n:r",
+            "n:ux"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:secondX",
+          "kind": "multiply",
+          "arguments": [
+            "n:s",
+            "n:vx"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:firstY",
+          "kind": "multiply",
+          "arguments": [
+            "n:r",
+            "n:uy"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:secondY",
+          "kind": "multiply",
+          "arguments": [
+            "n:s",
+            "n:vy"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:combinedX",
+          "kind": "add",
+          "arguments": [
+            "n:firstX",
+            "n:secondX"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:combinedY",
+          "kind": "add",
+          "arguments": [
+            "n:firstY",
+            "n:secondY"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:pair",
+          "kind": "functionRef",
+          "ref": "Construct an ordered pair by supplying its first coordinate, then its second coordinate",
+          "type": "Real to (real to ordered real pair)"
+        },
+        {
+          "id": "n:first",
+          "kind": "apply",
+          "function": "n:pair",
+          "argument": "n:combinedX",
+          "type": "Real to ordered real pair"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "function": "n:first",
+          "argument": "n:combinedY",
+          "type": "Ordered real pair; primary scalar readout is its first coordinate"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:linear-combination:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "ux",
+            "uy",
+            "vx",
+            "vy",
+            "r",
+            "s"
+          ],
+          "domain_condition": "All controls satisfy their declared finite bounds; dependent or zero vectors remain allowed."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Add vectors with different dimensions or incompatible physical units",
+        "status": "type_error",
+        "reason": "Corresponding components must refer to compatible quantities in the same coordinate space."
+      },
+      {
+        "input": "Force r+s=1 as part of every linear combination",
+        "status": "unnecessary_condition",
+        "reason": "A general linear combination permits arbitrary real coefficients; affine/convex combinations add constraints."
+      },
+      {
+        "input": "Treat the slider box as the full span",
+        "status": "scope_error",
+        "reason": "The span uses all real coefficient values, not only the displayed finite range."
+      }
+    ],
+    "ast_coverage": "Both component sums and the full ordered vector appear in the AST. The primary scalar fixtures/Graph track combinedX, while scene and readouts retain combinedY. The span statement quantifies over all real coefficients; it is not a claim that a finite slider box is the whole span.",
+    "output_symbol_bindings": {
+      "wₓ": "combinedX",
+      "wᵧ": "combinedY"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Zero coefficients always give the zero vector.",
+      "conditions": "Both coefficients are zero.",
+      "derivation": "Each component is 0*u_component+0*v_component=0.",
+      "status": "author-derived for stated conditions; independent review pending"
+    },
+    {
+      "claim": "If v=2u, every combination is (r+2s)u and the pair cannot span the whole plane.",
+      "conditions": "Two plane vectors with v=2u.",
+      "derivation": "Factor r*u+s*(2*u)=(r+2*s)*u; all results stay in the one-dimensional span of u unless u is zero.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "example_ref": "math:example:linear-combination:parallel"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the development of this idea and its notation using specialist historical sources before adding attributions.",
+      "Distinguish an early use, later formalization and modern teaching convention; inspect evidence for each."
+    ],
+    "reader_text": "Historical account not yet sourced. These scenarios are constructed examples, not historical anecdotes."
+  },
+  "connections": [
+    {
+      "target": "math:concept:vector",
+      "type": "supports",
+      "conditions": "Vectors share a coordinate system and units.",
+      "reason": "Scaling and adding vector components constructs another vector.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:matrix-linear-map",
+      "type": "supports",
+      "conditions": "Use u and v as the two columns and (r,s) as the input.",
+      "reason": "A matrix-vector product is a linear combination of its columns.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:basis",
+      "type": "supports",
+      "conditions": "The two real plane vectors are independent.",
+      "reason": "A basis supplies unique coefficients for every target vector.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:linear-combination:camera-move",
+      "title": "Combine two camera moves",
+      "role": "applied_model",
+      "question": "A camera rig has move u=(2,1) m and move v=(-1,2) m. What is one copy of each?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "The vectors are displacements on one fixed coordinate grid; one grid unit represents one metre.",
+        "The two coefficients are dimensionless multipliers and may be negative or zero.",
+        "Displacements add ideally; obstacles, travel time and a routed path length are not modeled."
+      ],
+      "inputs": {
+        "ux": 2,
+        "uy": 1,
+        "vx": -1,
+        "vy": 2,
+        "r": 1,
+        "s": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "1u=(2,1); 1v=(-1,2)",
+          "reason": "Scale both displacement components by their coefficients."
+        },
+        {
+          "index": 2,
+          "expression": "w=(2-1,1+2)=(1,3) m",
+          "reason": "Add corresponding components."
+        }
+      ],
+      "result": {
+        "exact": "Displacement (1,3) m; length sqrt(10) m"
+      },
+      "interpretation": "Two moves combine into one displacement arrow; its length is not the sum of their path lengths.",
+      "independent_check": {
+        "method": "Endpoint construction",
+        "expected": "Starting at (2,1), translate by (-1,2) to arrive at (1,3); the straight endpoint distance squared is 1²+3²=10."
+      },
+      "limits": "The path via the intermediate point has length 2sqrt(5) m, distinct from the net displacement length.",
+      "preset": {
+        "ux": 2,
+        "uy": 1,
+        "vx": -1,
+        "vy": 2,
+        "r": 1,
+        "s": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The vectors are displacements on one fixed coordinate grid; one grid unit represents one metre.",
+        "The two coefficients are dimensionless multipliers and may be negative or zero.",
+        "Displacements add ideally; obstacles, travel time and a routed path length are not modeled."
+      ]
+    },
+    {
+      "id": "math:example:linear-combination:reverse",
+      "title": "Reverse one stored move",
+      "role": "applied_model",
+      "question": "How can the rig undo u=(2,1) m while ignoring its second move?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "The vectors are displacements on one fixed coordinate grid; one grid unit represents one metre.",
+        "The two coefficients are dimensionless multipliers and may be negative or zero.",
+        "Displacements add ideally; obstacles, travel time and a routed path length are not modeled."
+      ],
+      "inputs": {
+        "ux": 2,
+        "uy": 1,
+        "vx": -1,
+        "vy": 2,
+        "r": -1,
+        "s": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "(-1)u=(-2,-1); 0v=(0,0)",
+          "reason": "A negative scalar reverses direction; zero removes a contribution."
+        },
+        {
+          "index": 2,
+          "expression": "w=(-2,-1) m",
+          "reason": "The result is the opposite of u."
+        }
+      ],
+      "result": {
+        "exact": "Displacement (-2,-1) m"
+      },
+      "interpretation": "Negative coefficients have a geometric role and are not probabilities.",
+      "independent_check": {
+        "method": "Cancellation check",
+        "expected": "u+w=(2,1)+(-2,-1)=(0,0), so the original displacement is undone."
+      },
+      "limits": "Undoing a displacement is an ideal geometric statement, not a collision-free motion plan.",
+      "preset": {
+        "ux": 2,
+        "uy": 1,
+        "vx": -1,
+        "vy": 2,
+        "r": -1,
+        "s": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The vectors are displacements on one fixed coordinate grid; one grid unit represents one metre.",
+        "The two coefficients are dimensionless multipliers and may be negative or zero.",
+        "Displacements add ideally; obstacles, travel time and a routed path length are not modeled."
+      ]
+    },
+    {
+      "id": "math:example:linear-combination:cancellation",
+      "title": "Two commands cancel",
+      "role": "applied_model",
+      "question": "The two stored moves are both (2,1) m. What does one copy minus one copy do?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "The vectors are displacements on one fixed coordinate grid; one grid unit represents one metre.",
+        "The two coefficients are dimensionless multipliers and may be negative or zero.",
+        "Displacements add ideally; obstacles, travel time and a routed path length are not modeled."
+      ],
+      "inputs": {
+        "ux": 2,
+        "uy": 1,
+        "vx": 2,
+        "vy": 1,
+        "r": 1,
+        "s": -1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "w=1(2,1)-1(2,1)",
+          "reason": "Both command vectors are identical."
+        },
+        {
+          "index": 2,
+          "expression": "w=(0,0) m",
+          "reason": "Opposite coefficients cancel equal contributions."
+        }
+      ],
+      "result": {
+        "exact": "Zero displacement, with length 0 m and no direction angle"
+      },
+      "interpretation": "A nontrivial choice of coefficients can give zero when the vectors are dependent.",
+      "independent_check": {
+        "method": "Homogeneous relation",
+        "expected": "The nonzero coefficient pair (1,-1) satisfies r*u+s*v=0; the rig ends where it began."
+      },
+      "limits": "A zero net displacement does not imply the rig never moved.",
+      "preset": {
+        "ux": 2,
+        "uy": 1,
+        "vx": 2,
+        "vy": 1,
+        "r": 1,
+        "s": -1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The vectors are displacements on one fixed coordinate grid; one grid unit represents one metre.",
+        "The two coefficients are dimensionless multipliers and may be negative or zero.",
+        "Displacements add ideally; obstacles, travel time and a routed path length are not modeled."
+      ]
+    },
+    {
+      "id": "math:example:linear-combination:fractional-blend",
+      "title": "Blend partial and repeated moves",
+      "role": "applied_model",
+      "question": "Use u=(2,0) m and v=(0,2) m. Where do half of u and one-and-a-half of v end?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "The vectors are displacements on one fixed coordinate grid; one grid unit represents one metre.",
+        "The two coefficients are dimensionless multipliers and may be negative or zero.",
+        "Displacements add ideally; obstacles, travel time and a routed path length are not modeled."
+      ],
+      "inputs": {
+        "ux": 2,
+        "uy": 0,
+        "vx": 0,
+        "vy": 2,
+        "r": 0.5,
+        "s": 1.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "0.5u=(1,0); 1.5v=(0,3)",
+          "reason": "Real coefficients scale the two stored moves."
+        },
+        {
+          "index": 2,
+          "expression": "w=(1,3) m",
+          "reason": "Add the two scaled moves."
+        }
+      ],
+      "result": {
+        "exact": "Displacement (1,3) m"
+      },
+      "interpretation": "The weights sum to 2; an unrestricted linear combination need not be a weighted average.",
+      "independent_check": {
+        "method": "Axis check",
+        "expected": "The independent horizontal and vertical contributions are 1 m and 3 m, so the endpoint is (1,3)."
+      },
+      "limits": "This is not restricted to nonnegative weights summing to one, and does not model exposure blending or probabilities.",
+      "preset": {
+        "ux": 2,
+        "uy": 0,
+        "vx": 0,
+        "vy": 2,
+        "r": 0.5,
+        "s": 1.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The vectors are displacements on one fixed coordinate grid; one grid unit represents one metre.",
+        "The two coefficients are dimensionless multipliers and may be negative or zero.",
+        "Displacements add ideally; obstacles, travel time and a routed path length are not modeled."
+      ]
+    },
+    {
+      "id": "math:example:linear-combination:parallel",
+      "title": "Parallel commands cannot reach every point",
+      "role": "applied_model",
+      "question": "With u=(1,1) m and v=(2,2) m, what do r=1 and s=0.5 produce, and can any real weights reach (2,1) m?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "The vectors are displacements on one fixed coordinate grid; one grid unit represents one metre.",
+        "The two coefficients are dimensionless multipliers and may be negative or zero.",
+        "Displacements add ideally; obstacles, travel time and a routed path length are not modeled."
+      ],
+      "inputs": {
+        "ux": 1,
+        "uy": 1,
+        "vx": 2,
+        "vy": 2,
+        "r": 1,
+        "s": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "w=(r+2s,r+2s)",
+          "reason": "Both commands lie on the same line."
+        },
+        {
+          "index": 2,
+          "expression": "r=1,s=0.5 gives w=(2,2) m",
+          "reason": "The current combination lies on y=x."
+        },
+        {
+          "index": 3,
+          "expression": "(2,1) has unequal coordinates",
+          "reason": "No real coefficient pair can reach that off-line target."
+        }
+      ],
+      "result": {
+        "exact": "Current displacement (2,2) m; target (2,1) m lies outside the span"
+      },
+      "interpretation": "The full span is a line, even though both weights can vary.",
+      "independent_check": {
+        "method": "Coordinate invariant",
+        "expected": "Every combination has w_y-w_x=0; the proposed target has 1-2=-1, so it cannot be a combination."
+      },
+      "limits": "The live sliders show only a bounded portion of the line; this does not alter the full real-coefficient span.",
+      "preset": {
+        "ux": 1,
+        "uy": 1,
+        "vx": 2,
+        "vy": 2,
+        "r": 1,
+        "s": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The vectors are displacements on one fixed coordinate grid; one grid unit represents one metre.",
+        "The two coefficients are dimensionless multipliers and may be negative or zero.",
+        "Displacements add ideally; obstacles, travel time and a routed path length are not modeled."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "linear-combination-visual-model",
+    "renderer_id": "linear-combination-visual-model",
+    "renderer_version": "1.0.0",
+    "model_id": "linear-combination-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:linear-combination:expression",
+    "interaction_status": "implemented",
+    "description": "Scale two input arrows, add them head-to-tail and show both components of the resulting vector. The Graph varies coefficient r with every other setting fixed.",
+    "controls": [
+      {
+        "id": "ux",
+        "type": "number",
+        "default": 2,
+        "min": -3,
+        "max": 3,
+        "slider_min": -3,
+        "slider_max": 3,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its message; do not silently clamp or substitute a stale result."
+      },
+      {
+        "id": "uy",
+        "type": "number",
+        "default": 1,
+        "min": -3,
+        "max": 3,
+        "slider_min": -3,
+        "slider_max": 3,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its message; do not silently clamp or substitute a stale result."
+      },
+      {
+        "id": "vx",
+        "type": "number",
+        "default": -1,
+        "min": -3,
+        "max": 3,
+        "slider_min": -3,
+        "slider_max": 3,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its message; do not silently clamp or substitute a stale result."
+      },
+      {
+        "id": "vy",
+        "type": "number",
+        "default": 2,
+        "min": -3,
+        "max": 3,
+        "slider_min": -3,
+        "slider_max": 3,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its message; do not silently clamp or substitute a stale result."
+      },
+      {
+        "id": "r",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "slider_min": -2,
+        "slider_max": 2,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its message; do not silently clamp or substitute a stale result."
+      },
+      {
+        "id": "s",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "slider_min": -2,
+        "slider_max": 2,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its message; do not silently clamp or substitute a stale result."
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "vx": -1,
+          "vy": 2,
+          "r": 1,
+          "s": 1
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "ux": 1,
+          "uy": 0,
+          "vx": 0,
+          "vy": 1,
+          "r": 2,
+          "s": -2
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "vx": -1,
+          "vy": 2,
+          "r": -1,
+          "s": 0
+        },
+        "output": -2
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "vx": 2,
+          "vy": 1,
+          "r": 1,
+          "s": -1
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 0,
+          "vx": 0,
+          "vy": 2,
+          "r": 0.5,
+          "s": 1.5
+        },
+        "output": 1.0
+      },
+      {
+        "input": {
+          "ux": 1,
+          "uy": 1,
+          "vx": 2,
+          "vy": 2,
+          "r": 1,
+          "s": 0.5
+        },
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ux": 0,
+          "uy": 0,
+          "vx": 0,
+          "vy": 0,
+          "r": 2,
+          "s": -2
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "ux": 3,
+          "uy": -3,
+          "vx": -3,
+          "vy": 3,
+          "r": 2,
+          "s": -2
+        },
+        "output": 12
+      },
+      {
+        "input": {
+          "ux": 1,
+          "uy": -2,
+          "vx": 2,
+          "vy": 1,
+          "r": -0.5,
+          "s": 0.25
+        },
+        "output": 0.0
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "vx": -1,
+          "vy": 2,
+          "r": 0,
+          "s": 0
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "vx": -1,
+          "vy": 2,
+          "r": 2.1,
+          "s": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "vx": -1,
+          "vy": 3.1,
+          "r": 1,
+          "s": 1
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "output=combinedX=r*ux+s*vx; combinedY=r*uy+s*vy; firstX=r*ux; firstY=r*uy; secondX=s*vx; secondY=s*vy; norm=hypot(combinedX,combinedY); determinant=ux*vy-uy*vx.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Vectors have the same coordinate dimension and compatible physical units; coefficients r and s are real, dimensionless scalars.",
+      "Scale both components of each vector, then add corresponding components.",
+      "The zero vector, zero coefficients and dependent vectors are valid inputs; no independence assumption is needed to form a linear combination.",
+      "The formal span uses all real coefficients. Bounded sliders display only part of that span."
+    ],
+    "limits": [
+      "Exactly two real plane vectors; bounded components and weights.",
+      "The formal span allows every real coefficient, beyond the displayed box.",
+      "combinedX is the primary scalar output; the full vector is (combinedX,combinedY)."
+    ],
+    "fallback": "Pause and read the labeled scene, current values, evaluated samples and original worked steps. A distinct Graph view remains available.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Must the weights add to one?",
+      "answer": "No. That extra condition describes an affine combination; nonnegative weights adding to one describe a convex combination."
+    },
+    {
+      "prompt": "Do parallel vectors make the calculation undefined?",
+      "answer": "No. The sum remains defined, but its full span is at most a line."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Scale two input arrows, add them head-to-tail and show both components of the resulting vector. The Graph varies coefficient r with every other setting fixed."
+    },
+    {
+      "kind": "graph",
+      "description": "A numeric slice of the declared primary scalar output as one input varies; all other controls stay fixed. Missing unique results remain gaps, not zero values."
+    },
+    {
+      "kind": "substitution",
+      "description": "Current controls, intermediate calculations and labeled scene quantities follow one evaluated model."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Camera movement",
+      "mapping": "Two declared displacement commands add to one net displacement.",
+      "limitations": "Ideal compatible displacement units, without obstacles or time.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:linear-combination:camera-move"
+    },
+    {
+      "context": "Restricted motion directions",
+      "mapping": "Parallel commands keep every result on one line and cannot reach an off-line target.",
+      "limitations": "The full-span claim uses all real coefficients; sliders remain bounded.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:linear-combination:parallel"
+    }
+  ],
+  "source_refs": [
+    "source:gatech:spans",
+    "source:openstax:vectors-plane"
+  ],
+  "review_gaps": [
+    "Independent mathematical and unit review is pending.",
+    "Historical development and notation are not yet researched.",
+    "The bounded visualization is an illustration, not a general expression engine or proof."
+  ],
+  "change_log": [
+    "0.1.0-draft: five original scenarios, bounded real two-dimensional fixtures, distinct Geometry/Graph views and a linked modular story."
+  ]
+}

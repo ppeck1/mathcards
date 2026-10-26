@@ -1,0 +1,744 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:limit",
+  "slug": "limit",
+  "type": "concept",
+  "title": "Limit",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-26T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numerical fixtures are not independent mathematical review"
+  },
+  "source_policy": "Definition-level references support the mathematical vocabulary. All stories and worked quantities are original constructed teaching scenarios, not measurements or historical events. Historical priority and notation claims require separate claim-level evidence before publication.",
+  "aliases": [
+    "two-sided limit",
+    "one-sided approach",
+    "removable discontinuity"
+  ],
+  "branches": [
+    "calculus",
+    "analysis"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Separate where nearby values are heading from the value assigned at the point itself.",
+  "meaning": "A limit describes the output near a target input, with the target itself excluded. The two approaches must agree for a finite two-sided limit. The playground contrasts a missing point whose neighbors meet with a jump whose sides stay apart.",
+  "prerequisites": {
+    "required": [
+      "math:concept:function"
+    ],
+    "helpful": [
+      "math:concept:domain-codomain"
+    ],
+    "depth": [
+      "math:concept:model-assumption"
+    ]
+  },
+  "definition": {
+    "setting": "Finite real two-sided limits for a function defined on a punctured neighborhood of a; two explicitly known teaching families.",
+    "formal_latex": "\\lim_{x\\to a}f(x)=L\\iff\\forall\\varepsilon>0\\;\\exists\\delta>0:\\;0<|x-a|<\\delta\\Rightarrow|f(x)-L|<\\varepsilon.",
+    "signature": {
+      "a": "target input in [−2,2]",
+      "h": "positive finite probe distance in [0.001,1]",
+      "mode": "removable or jump",
+      "removable rule": "q_a(x)=(x²−a²)/(x−a)=x+a for x≠a; q_a(a) undefined; limit 2a",
+      "jump rule": "j_a(x)=a−1 for x<a, a for x=a, a+1 for x>a; unequal one-sided limits",
+      "output": "2a when the two-sided limit exists; otherwise explicit does_not_exist status"
+    },
+    "conditions": [
+      "The function must be defined arbitrarily close to a on both sides for this two-sided setting.",
+      "The implication excludes x=a; a limit does not assign or repair the center value.",
+      "A finite two-sided limit requires equal finite one-sided limits.",
+      "Probe distance is strictly positive; the specimen permits only h∈[0.001,1].",
+      "Finite probes illustrate the stated known rule; they cannot prove a limit for an arbitrary unknown function."
+    ],
+    "domain_notes": "The live removable family is undefined at x=a even after its formula simplifies away from a. The jump family is defined at x=a but has no two-sided limit. The UI’s smallest h is a display bound, not a mathematical smallest distance. Infinite limits and oscillatory cases are not implemented.",
+    "proof_status": "The epsilon–delta definition is referenced; removable-family proof uses |q_a(x)−2a|=|x−a| with δ=ε. Jump failure follows from unequal side limits. Independent review pending.",
+    "source_refs": [
+      "source:openstax:function-limits",
+      "source:openstax:precise-limit"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "the limit of f of x as x approaches a",
+    "expression_latex": "\\lim_{x\\to a}f(x)",
+    "formation_rule": "leftX=a−h; rightX=a+h. Removable: leftValue=2*a−h; rightValue=2*a+h; leftLimit=rightLimit=output=2*a; gap=2*h; limitExists=true; functionAtPoint=null; status=valid. Jump: leftValue=leftLimit=a−1; rightValue=rightLimit=a+1; gap=2; functionAtPoint=a; limitExists=false; output=null; status=does_not_exist. Probe values are not the one-sided limits.",
+    "precedence": "The approach x→a excludes x=a. In (x²−a²)/(x−a), factor before canceling and retain the excluded input.",
+    "symbols": [
+      {
+        "token": "a",
+        "role": "target input",
+        "type": "Declared real quantity or finite mode"
+      },
+      {
+        "token": "h",
+        "role": "distance of each finite probe from a",
+        "type": "Declared real quantity or finite mode"
+      },
+      {
+        "token": "mode",
+        "role": "the chosen removable or jump rule",
+        "type": "Declared real quantity or finite mode"
+      },
+      {
+        "token": "leftValue",
+        "role": "f(a−h), a finite probe",
+        "type": "Declared real quantity or finite mode"
+      },
+      {
+        "token": "rightValue",
+        "role": "f(a+h), a finite probe",
+        "type": "Declared real quantity or finite mode"
+      },
+      {
+        "token": "L",
+        "role": "the two-sided limit if it exists",
+        "type": "Declared real quantity or finite mode"
+      }
+    ],
+    "ast": {
+      "id": "ast:limit:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:mode",
+          "kind": "variable",
+          "symbol": "mode",
+          "type": "Declared control",
+          "scope_ref": "scope:limit:model"
+        },
+        {
+          "id": "n:a",
+          "kind": "variable",
+          "symbol": "a",
+          "type": "Declared control",
+          "scope_ref": "scope:limit:model"
+        },
+        {
+          "id": "n:h",
+          "kind": "variable",
+          "symbol": "h",
+          "type": "Declared control",
+          "scope_ref": "scope:limit:model"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "ref": "leftX=a−h; rightX=a+h. Removable: leftValue=2*a−h; rightValue=2*a+h; leftLimit=rightLimit=output=2*a; gap=2*h; limitExists=true; functionAtPoint=null; status=valid. Jump: leftValue=leftLimit=a−1; rightValue=rightLimit=a+1; gap=2; functionAtPoint=a; limitExists=false; output=null; status=does_not_exist. Probe values are not the one-sided limits.",
+          "type": "Curried declared controls → primary output"
+        },
+        {
+          "id": "n:partial0",
+          "kind": "apply",
+          "function": "n:rule",
+          "argument": "n:mode",
+          "type": "Remaining controls → primary output"
+        },
+        {
+          "id": "n:partial1",
+          "kind": "apply",
+          "function": "n:partial0",
+          "argument": "n:a",
+          "type": "Remaining controls → primary output"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "function": "n:partial1",
+          "argument": "n:h",
+          "type": "Real or explicit undefined status"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:limit:model",
+          "kind": "modelExpression",
+          "free_variables": [
+            "mode",
+            "a",
+            "h"
+          ],
+          "domain_condition": "leftX=a−h; rightX=a+h. Removable: leftValue=2*a−h; rightValue=2*a+h; leftLimit=rightLimit=output=2*a; gap=2*h; limitExists=true; functionAtPoint=null; status=valid. Jump: leftValue=leftLimit=a−1; rightValue=rightLimit=a+1; gap=2; functionAtPoint=a; limitExists=false; output=null; status=does_not_exist. Probe values are not the one-sided limits."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Replace the original quotient at x=a by the canceled rule",
+        "status": "domain_error",
+        "reason": "Cancellation is valid only when x−a≠0; the original center remains undefined."
+      },
+      {
+        "input": "Use the average of unequal one-sided limits as the limit",
+        "status": "does_not_exist",
+        "reason": "A two-sided limit must agree with both one-sided limits."
+      },
+      {
+        "input": "Use h=0 to evaluate a near-point probe",
+        "status": "invalid_parameters",
+        "reason": "The probe must remain away from the target; this bounded specimen requires h≥0.001."
+      }
+    ],
+    "ast_coverage": "This tree applies the explicitly named bounded model to its controls. It is structural metadata; it does not parse arbitrary formulas or establish a theorem. The formal definition is broader than the illustrated family.",
+    "output_symbol_bindings": {
+      "two-sided limit": "output",
+      "left probe": "leftValue",
+      "right probe": "rightValue",
+      "left one-sided limit": "leftLimit",
+      "right one-sided limit": "rightLimit",
+      "probe gap": "gap",
+      "actual center value": "functionAtPoint"
+    }
+  },
+  "properties": [
+    {
+      "claim": "A limit can exist when the function is undefined at the target.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "conditions": "For q_a and x≠a.",
+      "derivation": "q_a(x)=x+a implies |q_a(x)−2a|=|x−a|; δ=ε works.",
+      "example_ref": "math:example:limit:signal-seam"
+    },
+    {
+      "claim": "A function can be defined at a point but have no two-sided limit there.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "conditions": "The jump family has side limits a−1 and a+1.",
+      "derivation": "These limits differ by 2, independently of the actual center value a.",
+      "example_ref": "math:example:limit:switch-jump"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the development of this idea and its notation using specialist historical sources before adding attributions.",
+      "Distinguish an early use, later formalization and modern teaching convention; inspect evidence for each."
+    ],
+    "reader_text": "Historical account not yet sourced. These scenarios are constructed examples, not historical anecdotes."
+  },
+  "connections": [
+    {
+      "target": "math:concept:derivative",
+      "type": "supports",
+      "conditions": "Use compatible domains, units and the stated model assumptions.",
+      "reason": "A derivative is a particular limit of difference quotients, when it exists.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:signed-accumulation",
+      "type": "supports",
+      "conditions": "Use compatible domains, units and the stated model assumptions.",
+      "reason": "A definite integral can be defined as a limit of increasingly fine signed sums.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:function",
+      "type": "supports",
+      "conditions": "Use compatible domains, units and the stated model assumptions.",
+      "reason": "A limit describes nearby outputs of a declared function.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:limit:signal-seam",
+      "title": "Approaching a missing signal value",
+      "role": "applied_model",
+      "question": "A normalized signal uses q(x)=(x²−a²)/(x−a), but its record at x=a is missing. With a=1 and h=0.25, what do nearby readings suggest and what is the limit?",
+      "setting": "Original constructed teaching scenario; quantities are stipulated, not measured.",
+      "assumptions": [
+        "Coordinates and readings are dimensionless normalized teaching quantities.",
+        "The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.",
+        "h is a positive probe distance, not the point a itself and not a proof of all nearby behavior."
+      ],
+      "inputs": {
+        "mode": "removable",
+        "a": 1,
+        "h": 0.25
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "q(x)=(x−a)(x+a)/(x−a)=x+a, only when x≠a",
+          "reason": "Cancel a factor while retaining the original hole."
+        },
+        {
+          "index": 2,
+          "expression": "q(0.75)=1.75; q(1.25)=2.25",
+          "reason": "Probe on both sides at the same distance h."
+        },
+        {
+          "index": 3,
+          "expression": "lim[x→1]q(x)=2; q(1) remains undefined",
+          "reason": "Use q(x)−2=x−1 to establish the approach, separately from the missing center."
+        }
+      ],
+      "result": {
+        "exact": "limit 2; center undefined",
+        "limit_exists": true,
+        "function_at_point": "undefined"
+      },
+      "interpretation": "As the two probes close in, their readings approach the hollow marker at height 2. A missing point does not prevent a limit.",
+      "independent_check": {
+        "method": "Error identity",
+        "expected": "For x≠1, |q(x)−2|=|x−1|; choosing δ=ε works for every ε>0."
+      },
+      "limits": "The signal law is constructed to teach a removable discontinuity; finite samples alone would not prove this for an unknown signal.",
+      "preset": {
+        "mode": "removable",
+        "a": 1,
+        "h": 0.25
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Coordinates and readings are dimensionless normalized teaching quantities.",
+        "The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.",
+        "h is a positive probe distance, not the point a itself and not a proof of all nearby behavior."
+      ]
+    },
+    {
+      "id": "math:example:limit:negative-seam",
+      "title": "The same seam left of the origin",
+      "role": "applied_model",
+      "question": "Move the missing record to a=−1 and probe at distance h=0.1. What limit remains?",
+      "setting": "Original constructed teaching scenario; quantities are stipulated, not measured.",
+      "assumptions": [
+        "Coordinates and readings are dimensionless normalized teaching quantities.",
+        "The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.",
+        "h is a positive probe distance, not the point a itself and not a proof of all nearby behavior."
+      ],
+      "inputs": {
+        "mode": "removable",
+        "a": -1,
+        "h": 0.1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "q(x)=x−1 for x≠−1",
+          "reason": "The same cancellation works for a negative a."
+        },
+        {
+          "index": 2,
+          "expression": "q(−1.1)=−2.1; q(−0.9)=−1.9",
+          "reason": "Evaluate the left and right probes with their signs."
+        },
+        {
+          "index": 3,
+          "expression": "lim[x→−1]q(x)=−2",
+          "reason": "The nearby rule tends to 2a, regardless of the missing record."
+        }
+      ],
+      "result": {
+        "exact": "limit −2; center undefined"
+      },
+      "interpretation": "A limit can be negative. The two sides converge toward one height below the origin.",
+      "independent_check": {
+        "method": "Symmetry and error",
+        "expected": "The probe average is (−2.1−1.9)/2=−2, and each error is h=0.1."
+      },
+      "limits": "An average of two arbitrary sample values is not a general limit method; the exact identity q(x)=x+a supplies the justification.",
+      "preset": {
+        "mode": "removable",
+        "a": -1,
+        "h": 0.1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Coordinates and readings are dimensionless normalized teaching quantities.",
+        "The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.",
+        "h is a positive probe distance, not the point a itself and not a proof of all nearby behavior."
+      ]
+    },
+    {
+      "id": "math:example:limit:tighter-probes",
+      "title": "Resolve a small reading tolerance",
+      "role": "applied_model",
+      "question": "At a=0.5, use h=0.001. How close are the two displayed readings to the limiting reading?",
+      "setting": "Original constructed teaching scenario; quantities are stipulated, not measured.",
+      "assumptions": [
+        "Coordinates and readings are dimensionless normalized teaching quantities.",
+        "The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.",
+        "h is a positive probe distance, not the point a itself and not a proof of all nearby behavior."
+      ],
+      "inputs": {
+        "mode": "removable",
+        "a": 0.5,
+        "h": 0.001
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "q(a−h)=2a−h=0.999; q(a+h)=2a+h=1.001",
+          "reason": "Substitute the same tiny h into both sides."
+        },
+        {
+          "index": 2,
+          "expression": "L=2a=1; |q(a±h)−L|=0.001",
+          "reason": "Track each output’s error, not just the number of displayed digits."
+        },
+        {
+          "index": 3,
+          "expression": "right−left=2h=0.002",
+          "reason": "The finite probe gap shrinks with h."
+        }
+      ],
+      "result": {
+        "exact": "limit 1; each probe is 0.001 from it"
+      },
+      "interpretation": "The UI stops at a finite probe distance; the exact limit is justified by the rule beyond the slider’s resolution.",
+      "independent_check": {
+        "method": "General tolerance argument",
+        "expected": "Because |q(x)−1|=|x−0.5|, δ=ε ensures the output error is below ε whenever 0<|x−0.5|<δ."
+      },
+      "limits": "At h=0.001 the error equals 0.001, not less than it. A strict ε=0.001 band requires h<0.001, beyond this UI’s smallest probe.",
+      "preset": {
+        "mode": "removable",
+        "a": 0.5,
+        "h": 0.001
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Coordinates and readings are dimensionless normalized teaching quantities.",
+        "The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.",
+        "h is a positive probe distance, not the point a itself and not a proof of all nearby behavior."
+      ]
+    },
+    {
+      "id": "math:example:limit:switch-jump",
+      "title": "A switch changes the rule",
+      "role": "applied_model",
+      "question": "A normalized switch reports a−1 below its threshold, a+1 above it, and a exactly at it. For a=1, do the sides meet?",
+      "setting": "Original constructed teaching scenario; quantities are stipulated, not measured.",
+      "assumptions": [
+        "Coordinates and readings are dimensionless normalized teaching quantities.",
+        "The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.",
+        "h is a positive probe distance, not the point a itself and not a proof of all nearby behavior."
+      ],
+      "inputs": {
+        "mode": "jump",
+        "a": 1,
+        "h": 0.25
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "left reading=1−1=0; right reading=1+1=2",
+          "reason": "Use the separate branches on their correct sides."
+        },
+        {
+          "index": 2,
+          "expression": "left limit=0; right limit=2",
+          "reason": "Shrinking h does not change either branch’s height."
+        },
+        {
+          "index": 3,
+          "expression": "two-sided limit does not exist, although f(1)=1",
+          "reason": "A defined center value cannot make unequal one-sided limits equal."
+        }
+      ],
+      "result": {
+        "exact": "no two-sided limit; center value 1",
+        "limit_exists": false,
+        "function_at_point": 1
+      },
+      "interpretation": "The two hollow side markers stay two units apart; the filled center marker is a third, separate fact.",
+      "independent_check": {
+        "method": "Disjoint neighborhoods",
+        "expected": "The left and right limits differ by 2, so no common value can satisfy closeness to both for every tolerance."
+      },
+      "limits": "This switch is an idealized jump, not a measured transition. A real device may smooth or oscillate around its threshold.",
+      "preset": {
+        "mode": "jump",
+        "a": 1,
+        "h": 0.25
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Coordinates and readings are dimensionless normalized teaching quantities.",
+        "The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.",
+        "h is a positive probe distance, not the point a itself and not a proof of all nearby behavior."
+      ]
+    },
+    {
+      "id": "math:example:limit:persistent-jump",
+      "title": "Zooming cannot erase a jump",
+      "role": "applied_model",
+      "question": "Set the switch threshold to a=−1 and reduce h to 0.001. Does the smaller distance restore a two-sided limit?",
+      "setting": "Original constructed teaching scenario; quantities are stipulated, not measured.",
+      "assumptions": [
+        "Coordinates and readings are dimensionless normalized teaching quantities.",
+        "The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.",
+        "h is a positive probe distance, not the point a itself and not a proof of all nearby behavior."
+      ],
+      "inputs": {
+        "mode": "jump",
+        "a": -1,
+        "h": 0.001
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "left=−1−1=−2; right=−1+1=0",
+          "reason": "Compute the side heights, including signs."
+        },
+        {
+          "index": 2,
+          "expression": "gap=0−(−2)=2 for every h>0",
+          "reason": "A closer input does not make these output heights closer."
+        },
+        {
+          "index": 3,
+          "expression": "f(−1)=−1, but lim[x→−1]f(x) does not exist",
+          "reason": "Keep the actual center reading separate from both side limits."
+        }
+      ],
+      "result": {
+        "exact": "no two-sided limit; gap 2"
+      },
+      "interpretation": "Zooming reveals persistent separation. More digits or a slower animation cannot turn this discontinuity into convergence.",
+      "independent_check": {
+        "method": "Second probe distance",
+        "expected": "At h=0.5 the same sides are −2 and 0; the analytic branch rules keep the gap at 2."
+      },
+      "limits": "Two finite tests are illustrative; the branch definition, not the test count, establishes the unequal one-sided limits.",
+      "preset": {
+        "mode": "jump",
+        "a": -1,
+        "h": 0.001
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Coordinates and readings are dimensionless normalized teaching quantities.",
+        "The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.",
+        "h is a positive probe distance, not the point a itself and not a proof of all nearby behavior."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "limit-visual-model",
+    "renderer_id": "limit-visual-model",
+    "renderer_version": "1.0.0",
+    "model_id": "limit-visual-model",
+    "model_revision": "1.0.0",
+    "expression_id": "ast:limit:expression",
+    "interaction_status": "implemented",
+    "description": "Two finite probes travel toward the target while hollow side endpoints and a separate center marker distinguish a limit from an assigned function value.",
+    "controls": [
+      {
+        "id": "mode",
+        "type": "enum",
+        "default": "removable",
+        "values": [
+          "removable",
+          "jump"
+        ]
+      },
+      {
+        "id": "a",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "slider_min": -2,
+        "slider_max": 2,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its domain message; do not clamp it or retain a stale result."
+      },
+      {
+        "id": "h",
+        "type": "number",
+        "default": 0.25,
+        "min": 0.001,
+        "max": 1,
+        "slider_min": 0.001,
+        "slider_max": 1,
+        "slider_step": 0.001,
+        "text_input_policy": "Keep invalid input visible with its domain message; do not clamp it or retain a stale result."
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "mode": "removable",
+          "a": 1,
+          "h": 0.25
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "mode": "removable",
+          "a": -2,
+          "h": 1
+        },
+        "output": -4
+      },
+      {
+        "input": {
+          "mode": "removable",
+          "a": 2,
+          "h": 0.001
+        },
+        "output": 4
+      },
+      {
+        "input": {
+          "mode": "removable",
+          "a": 0,
+          "h": 0.1
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "mode": "removable",
+          "a": 0.5,
+          "h": 0.001
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "mode": "jump",
+          "a": 1,
+          "h": 0.25
+        },
+        "status": "does_not_exist"
+      },
+      {
+        "input": {
+          "mode": "jump",
+          "a": -2,
+          "h": 0.001
+        },
+        "status": "does_not_exist"
+      },
+      {
+        "input": {
+          "mode": "removable",
+          "a": 1,
+          "h": 0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "mode": "removable",
+          "a": 3,
+          "h": 0.25
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "leftX=a−h; rightX=a+h. Removable: leftValue=2*a−h; rightValue=2*a+h; leftLimit=rightLimit=output=2*a; gap=2*h; limitExists=true; functionAtPoint=null; status=valid. Jump: leftValue=leftLimit=a−1; rightValue=rightLimit=a+1; gap=2; functionAtPoint=a; limitExists=false; output=null; status=does_not_exist. Probe values are not the one-sided limits.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The function must be defined arbitrarily close to a on both sides for this two-sided setting.",
+      "The implication excludes x=a; a limit does not assign or repair the center value.",
+      "A finite two-sided limit requires equal finite one-sided limits.",
+      "Probe distance is strictly positive; the specimen permits only h∈[0.001,1].",
+      "Finite probes illustrate the stated known rule; they cannot prove a limit for an arbitrary unknown function."
+    ],
+    "limits": [
+      "Finite probes are illustrative; the exact declared branch rules establish these conclusions.",
+      "This module implements only two real one-sided patterns, not a general limit solver.",
+      "The removable center is undefined; the jump center is defined as a and is not substituted for either side limit."
+    ],
+    "fallback": "Pause motion and read the same labeled diagram, substitutions and original worked steps. The graph and exact numeric result remain available.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Does the removable rule’s hollow dot mean there is no limit?",
+      "answer": "No. The neighbors approach 2a while the original function remains undefined exactly at a."
+    },
+    {
+      "prompt": "If the jump’s center value sits halfway between its sides, is it the limit?",
+      "answer": "No. The sides approach different heights; the center value cannot resolve their disagreement."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "two-sided approach",
+      "description": "Separate colored probes show x=a−h and x=a+h and follow their corresponding readings."
+    },
+    {
+      "kind": "graph",
+      "description": "Hollow markers encode excluded side endpoints; a filled marker encodes an actual center value only in jump mode."
+    },
+    {
+      "kind": "tolerance",
+      "description": "For the removable rule the output error equals the input distance; shrinking h narrows both errors together."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Missing signal record",
+      "mapping": "The signal law is available near a missing record; its limit describes the nearby trend without filling in the record.",
+      "limitations": "The law is constructed and known; unknown measured data would require separate analysis.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:limit:signal-seam"
+    },
+    {
+      "context": "Threshold switch",
+      "mapping": "Two stipulated branches give different readings as the input approaches a threshold.",
+      "limitations": "An idealized jump omits device hysteresis, noise and finite transition width.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:limit:switch-jump"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:function-limits",
+    "source:openstax:precise-limit"
+  ],
+  "review_gaps": [
+    "Independent mathematical and unit review is pending.",
+    "Historical development and notation are not yet researched.",
+    "The bounded visualization is an illustration, not a general expression engine or proof."
+  ],
+  "change_log": [
+    "0.1.0-draft: five original worked scenarios, explicit domains and failures, bounded model fixtures and shared modular playground bindings."
+  ]
+}

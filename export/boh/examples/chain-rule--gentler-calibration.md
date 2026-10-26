@@ -1,0 +1,203 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:chain-rule:gentler-calibration", "id": "math:example:chain-rule:gentler-calibration", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:chain-rule", "example_id": "math:example:chain-rule:gentler-calibration", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "72b5e13ae51a696ac51929631f21a4c3817ad4f07c10b87a888d595ed4934b77"}, "purpose": "Follow a small change through an inner rule and an outer rule.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "72b5e13ae51a696ac51929631f21a4c3817ad4f07c10b87a888d595ed4934b77", "status": "draft", "title": "A gentler calibration changes the total sensitivity", "topics": ["mathematics", "calculus", "algebra", "analysis", "derivative of a composition", "composite sensitivity", "inner and outer derivatives"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# A gentler calibration changes the total sensitivity
+
+Parent card: math:concept:chain-rule; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:chain-rule; revision 0.1.0-draft. Setting: Real functions with compatible local domains: g is differentiable at x and f is differentiable at g(x). The executable specimen is a square after an affine rule, with bounded real controls. Expression: $h=f\circ g,\quad h(x)=f(g(x)),\quad h'(x)=f'(g(x))g'(x).\quad g(x)=ax+b,\ f(u)=u^2,\ u=g(x)\Rightarrow h'(x)=2(ax+b)a.$. Conditions required for a defined value (a case may test their violation): For the general chain rule, g is differentiable at x and f is differentiable at g(x), with the composition defined in the relevant neighborhood. The inner slope is evaluated at x; the outer slope is evaluated at the current inner value u=g(x). The restricted live family is g(x)=a*x+b and f(u)=u². Their composition h(x)=(a*x+b)² is differentiable for every real x. Derivative products describe local first-order sensitivity; a finite input change need not produce exactly derivative times that change. Physical story units are declared separately. A panel-side interpretation requires a positive finished side; signed polynomial inputs remain valid mathematics outside that interpretation. Scope: The general chain rule applies to differentiable compatible functions, beyond polynomials and beyond this one-variable example. The live UI is restricted to f(u)=u² and g(x)=a*x+b with bounded real controls. It is not a symbolic differentiator or an arbitrary function editor. Negative inner values remain valid polynomial inputs; a physical square-side story uses positive sides and compatible units. No finite-step quotient is substituted for the exact analytic derivative.
+
+Case unit math:example:chain-rule:gentler-calibration. Setting: Original constructed teaching scenario; values and rules are stipulated, not measured. Inputs: {"a": 0.5, "b": 1, "x": 2}. Result: {"exact": "Area 4 m²; local area sensitivity 2 m²/m"}. Limits: This comparison changes the calibration and input together; it does not isolate one empirical machine effect.
+
+## Complete worked case
+
+- id: math:example:chain-rule:gentler-calibration
+- title: A gentler calibration changes the total sensitivity
+- role: applied_model
+- question: Use a=0.5,b=1 m and x=2 m. What are the finished side, area and area sensitivity?
+- setting: Original constructed teaching scenario; values and rules are stipulated, not measured.
+- assumptions:
+  - A configured drawing tool maps a setting x measured in metres to a finished panel side u=a*x+b measured in metres.
+  - The calibration factor a is dimensionless and offset b is measured in metres; the outer rule f(u)=u² gives square area in m².
+  - Values and calibration rules are stipulated examples, not measurements of a real machine.
+  - A manufactured-panel interpretation uses u>0; the zero-side case is explicitly a limiting mathematical configuration.
+- inputs:
+  - x: 2
+  - a: 0.5
+  - b: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: u=0.5*2+1=2 m; h=2²=4 m²
+    - reason: The side follows the selected affine calibration.
+  - Item:
+    - index: 2
+    - expression: g′=0.5; f′(2)=4 m
+    - reason: The inner calibration halves the transmitted setting change.
+  - Item:
+    - index: 3
+    - expression: h′=4*0.5=2 m²/m
+    - reason: The total sensitivity combines both stages.
+- result:
+  - exact: Area 4 m²; local area sensitivity 2 m²/m
+- interpretation: A large outer slope alone does not determine the overall sensitivity.
+- independent check:
+  - method: Difference expansion
+  - expected: h(x)=0.25x²+x+1, so h′(2)=0.5*2+1=2.
+- limits: This comparison changes the calibration and input together; it does not isolate one empirical machine effect.
+- preset:
+  - x: 2
+  - a: 0.5
+  - b: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - A configured drawing tool maps a setting x measured in metres to a finished panel side u=a*x+b measured in metres.
+  - The calibration factor a is dimensionless and offset b is measured in metres; the outer rule f(u)=u² gives square area in m².
+  - Values and calibration rules are stipulated examples, not measurements of a real machine.
+  - A manufactured-panel interpretation uses u>0; the zero-side case is explicitly a limiting mathematical configuration.
+
+## Written exploration recipe
+
+- component id: chain-rule-visual-model
+- renderer id: chain-rule-visual-model
+- renderer version: 1.0.0
+- model id: chain-rule-visual-model
+- model revision: 1
+- expression id: ast:chain-rule:expression
+- interaction status: implemented
+- description: Show the input, calibrated inner value, outer square area and two local derivative factors. The final sensitivity multiplies the staged factors; the Graph plots the composite derivative as x varies, with the composite value retained as a separate readout.
+- controls:
+  - Item:
+    - id: x
+    - type: number
+    - default: 1
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: a
+    - type: number
+    - default: 2
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+  - Item:
+    - id: b
+    - type: number
+    - default: 1
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its message; do not silently clamp or substitute a stale result.
+- expected cases:
+  - Item:
+    - input:
+      - x: 1
+      - a: 2
+      - b: 1
+    - output: 12
+  - Item:
+    - input:
+      - x: 2
+      - a: 0.5
+      - b: 1
+    - output: 2.0
+  - Item:
+    - input:
+      - x: 3
+      - a: 0
+      - b: 2
+    - output: 0
+  - Item:
+    - input:
+      - x: 1
+      - a: -1
+      - b: 3
+    - output: -4
+  - Item:
+    - input:
+      - x: 1
+      - a: 1
+      - b: -1
+    - output: 0
+  - Item:
+    - input:
+      - x: 0
+      - a: 2
+      - b: 0
+    - output: 0
+  - Item:
+    - input:
+      - x: -2
+      - a: 2
+      - b: 0
+    - output: -16
+  - Item:
+    - input:
+      - x: 3
+      - a: 2
+      - b: 3
+    - output: 36
+  - Item:
+    - input:
+      - x: -3
+      - a: -2
+      - b: -3
+    - output: -12
+  - Item:
+    - input:
+      - x: 0.5
+      - a: -0.5
+      - b: 0.25
+    - output: -0.0
+  - Item:
+    - input:
+      - x: 3.1
+      - a: 2
+      - b: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - x: 1
+      - a: 2.1
+      - b: 1
+    - status: invalid_parameters
+- compute: innerValue=a*x+b; composedValue=innerValue*innerValue; innerDerivative=a; outerDerivative=2*innerValue; output=chainDerivative=outerDerivative*innerDerivative; expandedDerivative=2*a*a*x+2*a*b.
+- numeric tolerance: 1e-10
+- invariants:
+  - For the general chain rule, g is differentiable at x and f is differentiable at g(x), with the composition defined in the relevant neighborhood.
+  - The inner slope is evaluated at x; the outer slope is evaluated at the current inner value u=g(x).
+  - The restricted live family is g(x)=a*x+b and f(u)=u². Their composition h(x)=(a*x+b)² is differentiable for every real x.
+  - Derivative products describe local first-order sensitivity; a finite input change need not produce exactly derivative times that change.
+  - Physical story units are declared separately. A panel-side interpretation requires a positive finished side; signed polynomial inputs remain valid mathematics outside that interpretation.
+- limits:
+  - Only a square outer rule and an affine inner rule; no general symbolic parser.
+  - The primary scalar output is h′(x); the composite value h(x) remains a separate result.
+  - The polynomial model permits signed inner values, while the panel story declares its positive-side range and physical units.
+- fallback: Pause and read the inner value, composite value and two derivative factors, then inspect the evaluated derivative samples or the original worked steps. Geometry and Graph use the same analytic calculation.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openstax:chain-rule. [Calculus Volume 1, 3.6 The Chain Rule](https://openstax.org/books/calculus-volume-1/pages/3-6-the-chain-rule). Locator: The Chain Rule theorem: derivative of a composition, compatible evaluation points and differentiability conditions. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.

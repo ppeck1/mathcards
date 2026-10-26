@@ -1,0 +1,1013 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:basis",
+  "slug": "basis",
+  "type": "concept",
+  "title": "Bases and coordinates",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-26T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numerical fixtures are not independent mathematical review"
+  },
+  "source_policy": "Definition-level references support the mathematical vocabulary. All stories and worked quantities are original constructed teaching scenarios, not measurements or historical events. Historical priority and notation claims require separate claim-level evidence before publication.",
+  "aliases": [
+    "basis vectors",
+    "coordinates in a basis",
+    "change of coordinates",
+    "oblique basis"
+  ],
+  "branches": [
+    "linear-algebra",
+    "geometry"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Keep a point fixed while changing the directions used to describe it.",
+  "meaning": "A basis is an independent spanning collection. An ordered basis gives a vector one unique list of coefficients. In the plane, two independent arrows can be tilted, stretched or reversed and still describe every target. A dependent pair loses that unique coordinate description.",
+  "prerequisites": {
+    "required": [
+      "math:concept:vector",
+      "math:concept:linear-combination"
+    ],
+    "helpful": [
+      "math:concept:determinant",
+      "math:concept:matrix-linear-map"
+    ],
+    "depth": [
+      "math:concept:linear-map"
+    ]
+  },
+  "definition": {
+    "setting": "Real vector spaces with an explicit two-dimensional coordinate model.",
+    "formal_latex": "\\mathcal{B}=(u,v),\\quad B=\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix},\\quad z=B\\binom{r}{s};\\quad \\det(B)\\ne0\\Rightarrow [z]_{\\mathcal{B}}=\\binom{(dx-by)/(ad-bc)}{(ay-cx)/(ad-bc)}.",
+    "signature": {
+      "a,b,c,d": "Candidate direction columns u=(a,c), v=(b,d), entries in [-2,2].",
+      "x,y": "Standard-coordinate target in [-3,3].",
+      "r,s": "Unique basis coefficients only when the candidate pair is independent and finite arithmetic can represent the result; otherwise null.",
+      "determinant": "ad-bc; nonzero exactly when this pair is a basis of R².",
+      "rank,basisKind": "Rank 2/1/0 and plane/line/zero span classification of the candidate columns.",
+      "solutionStatus": "unique, infinite_solutions, no_solution or numeric_range; valid mathematical configurations need not have unique coordinates."
+    },
+    "conditions": [
+      "The ordered candidate directions are u=(a,c) and v=(b,d), the columns of B=[[a,b],[c,d]].",
+      "The pair is a basis of R² exactly when det(B)=ad-bc is nonzero; it need not be perpendicular or have unit length.",
+      "For a nonzero determinant, each target (x,y) has one coefficient pair (r,s) satisfying r*u+s*v=(x,y).",
+      "A dependent pair is valid model input but is not a basis of the plane. Its target equation can have infinitely many solutions or no solution.",
+      "Physical coordinates use one compatible coordinate system and units; basis coefficients describe multiples of the declared directions."
+    ],
+    "domain_notes": "The general notion of a basis applies to vector spaces and subspaces beyond the real plane. This live model tests exactly two ordered real plane directions and a target vector, with bounded entries and target components. The coefficient results are not artificially restricted to the slider bounds and can grow large near dependence. The bounded control box is not itself a vector space. The exact zero determinant case is classified separately from a nearby nonzero determinant; finite-precision numerical range can still prevent a displayed unique result. No arbitrary-dimension solver or full change-of-basis matrix between two arbitrary bases is implemented.",
+    "proof_status": "Definition-level reference; worked properties are author-derived for stated assumptions. Independent mathematical review pending.",
+    "source_refs": [
+      "source:gatech:basis-dimension",
+      "source:gatech:basis-coordinates",
+      "source:gatech:determinants-volumes"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Bases and coordinates",
+    "expression_latex": "\\mathcal{B}=(u,v),\\quad B=\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix},\\quad z=B\\binom{r}{s};\\quad \\det(B)\\ne0\\Rightarrow [z]_{\\mathcal{B}}=\\binom{(dx-by)/(ad-bc)}{(ay-cx)/(ad-bc)}.",
+    "formation_rule": "determinant=a*d-b*c. If determinant!=0, output=r=(d*x-b*y)/determinant and s=(a*y-c*x)/determinant; reconstruct (a*r+b*s,c*r+d*s). If determinant=0, output/r/s are null and the model distinguishes infinite_solutions from no_solution. rank is 2 for nonzero determinant, 1 for a nonzero dependent pair, otherwise 0. Nonfinite computed coordinates use solutionStatus=numeric_range, not fabricated finite coefficients.",
+    "precedence": "Scale components before adding. Matrix products act on column vectors from right to left; an ordered pair retains its stated coordinate order.",
+    "symbols": [
+      {
+        "token": "a",
+        "role": "Entry in the ordered candidate-direction matrix",
+        "type": "Real scalar"
+      },
+      {
+        "token": "b",
+        "role": "Entry in the ordered candidate-direction matrix",
+        "type": "Real scalar"
+      },
+      {
+        "token": "c",
+        "role": "Entry in the ordered candidate-direction matrix",
+        "type": "Real scalar"
+      },
+      {
+        "token": "d",
+        "role": "Entry in the ordered candidate-direction matrix",
+        "type": "Real scalar"
+      },
+      {
+        "token": "x",
+        "role": "Standard horizontal target component",
+        "type": "Real scalar"
+      },
+      {
+        "token": "y",
+        "role": "Standard vertical target component",
+        "type": "Real scalar"
+      },
+      {
+        "token": "r",
+        "role": "Coefficient of first candidate direction; unique only for an independent pair",
+        "type": "Derived real scalar or unavailable"
+      },
+      {
+        "token": "s",
+        "role": "Coefficient of second candidate direction; unique only for an independent pair",
+        "type": "Derived real scalar or unavailable"
+      },
+      {
+        "token": "det(B)",
+        "role": "Signed determinant of candidate-direction matrix",
+        "type": "Derived real scalar"
+      },
+      {
+        "token": "B",
+        "role": "Candidate-direction matrix [[a,b],[c,d]], with columns (a,c) and (b,d)",
+        "type": "Real 2 by 2 matrix"
+      }
+    ],
+    "ast": {
+      "id": "ast:basis:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:a",
+          "kind": "variable",
+          "symbol": "a",
+          "type": "Finite real control",
+          "scope_ref": "scope:basis:expression"
+        },
+        {
+          "id": "n:b",
+          "kind": "variable",
+          "symbol": "b",
+          "type": "Finite real control",
+          "scope_ref": "scope:basis:expression"
+        },
+        {
+          "id": "n:c",
+          "kind": "variable",
+          "symbol": "c",
+          "type": "Finite real control",
+          "scope_ref": "scope:basis:expression"
+        },
+        {
+          "id": "n:d",
+          "kind": "variable",
+          "symbol": "d",
+          "type": "Finite real control",
+          "scope_ref": "scope:basis:expression"
+        },
+        {
+          "id": "n:x",
+          "kind": "variable",
+          "symbol": "x",
+          "type": "Finite real control",
+          "scope_ref": "scope:basis:expression"
+        },
+        {
+          "id": "n:y",
+          "kind": "variable",
+          "symbol": "y",
+          "type": "Finite real control",
+          "scope_ref": "scope:basis:expression"
+        },
+        {
+          "id": "n:ad",
+          "kind": "multiply",
+          "arguments": [
+            "n:a",
+            "n:d"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:bc",
+          "kind": "multiply",
+          "arguments": [
+            "n:b",
+            "n:c"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:det",
+          "kind": "subtract",
+          "arguments": [
+            "n:ad",
+            "n:bc"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:dx",
+          "kind": "multiply",
+          "arguments": [
+            "n:d",
+            "n:x"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:by",
+          "kind": "multiply",
+          "arguments": [
+            "n:b",
+            "n:y"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:ay",
+          "kind": "multiply",
+          "arguments": [
+            "n:a",
+            "n:y"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:cx",
+          "kind": "multiply",
+          "arguments": [
+            "n:c",
+            "n:x"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:numR",
+          "kind": "subtract",
+          "arguments": [
+            "n:dx",
+            "n:by"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:numS",
+          "kind": "subtract",
+          "arguments": [
+            "n:ay",
+            "n:cx"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:r",
+          "kind": "divide",
+          "arguments": [
+            "n:numR",
+            "n:det"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:s",
+          "kind": "divide",
+          "arguments": [
+            "n:numS",
+            "n:det"
+          ],
+          "type": "Real scalar"
+        },
+        {
+          "id": "n:pair",
+          "kind": "functionRef",
+          "ref": "Construct an ordered pair by supplying its first coordinate, then its second coordinate",
+          "type": "Real to (real to ordered real pair)"
+        },
+        {
+          "id": "n:first",
+          "kind": "apply",
+          "function": "n:pair",
+          "argument": "n:r",
+          "type": "Real to ordered real pair"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "function": "n:first",
+          "argument": "n:s",
+          "type": "Ordered real pair; primary scalar readout is its first coordinate"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:basis:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "x",
+            "y"
+          ],
+          "domain_condition": "Unique-coordinate branch only: determinant=a*d-b*c is nonzero. Division nodes are not evaluated for a dependent candidate pair."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Read basis columns (a,c),(b,d) as the rows (a,b),(c,d)",
+        "status": "entry_order_error",
+        "reason": "The declared reconstruction is (a*r+b*s,c*r+d*s); switching rows and columns changes the problem."
+      },
+      {
+        "input": "Use the quotient formulas when ad-bc=0",
+        "status": "domain_error",
+        "reason": "The pair is dependent; classify consistency and nonuniqueness without division by zero."
+      },
+      {
+        "input": "Assume two different arrows always form a plane basis",
+        "status": "setting_error",
+        "reason": "Different arrows can still be scalar multiples; a plane basis needs independence."
+      }
+    ],
+    "ast_coverage": "The AST explicitly computes the determinant and both quotient formulas, then constructs the ordered coefficient pair. Its declared domain is the unique branch det(B)!=0. The total interactive model also classifies dependent configurations without evaluating those division nodes; null means no unique coordinates, not the zero vector. Rank and consistency classification are stated model metadata outside this arithmetic tree.",
+    "output_symbol_bindings": {
+      "r": "r",
+      "s": "s",
+      "det(B)": "determinant"
+    }
+  },
+  "properties": [
+    {
+      "claim": "A basis gives unique coefficients for each vector in its space.",
+      "conditions": "The candidate vectors span the space and are linearly independent.",
+      "derivation": "Existence comes from spanning. If two coefficient lists gave the same vector, subtracting them would give a zero linear combination; independence forces every difference coefficient to be zero.",
+      "status": "definition-level reference and author explanation; independent review pending",
+      "example_ref": "math:example:basis:oblique"
+    },
+    {
+      "claim": "A dependent pair can have reachable targets without unique coefficients and other targets that are unreachable.",
+      "conditions": "Two dependent columns in the real plane.",
+      "derivation": "The columns span at most one line. On that span, a nonzero dependence can be added to any solution; off that span, no solution exists.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "example_ref": "math:example:basis:dependent-reachable"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the development of this idea and its notation using specialist historical sources before adding attributions.",
+      "Distinguish an early use, later formalization and modern teaching convention; inspect evidence for each."
+    ],
+    "reader_text": "Historical account not yet sourced. These scenarios are constructed examples, not historical anecdotes."
+  },
+  "connections": [
+    {
+      "target": "math:concept:linear-combination",
+      "type": "supports",
+      "conditions": "Use the ordered candidate columns with coefficient pair (r,s).",
+      "reason": "Basis coordinates are the unique weights in a linear combination.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:determinant",
+      "type": "supports",
+      "conditions": "Two real plane directions are arranged as the columns of a 2 by 2 matrix.",
+      "reason": "A nonzero determinant tests independence and a full-plane span.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:matrix-linear-map",
+      "type": "supports",
+      "conditions": "Input basis coefficients are mapped to standard coordinates.",
+      "reason": "Reconstruction uses the same matrix-column rule; coordinate finding reverses it only when unique.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:basis:oblique",
+      "title": "Describe a point on an oblique drawing grid",
+      "role": "applied_model",
+      "question": "A drawing grid uses u=(1,0) cm and v=(1,1) cm. Which coefficients reach target (3,2) cm?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "A drawing uses the standard coordinate axes, with one grid unit representing one centimetre.",
+        "The two declared basis arrows are written as matrix columns, not rows.",
+        "The target stays at its stated location while its coefficient labels may change with the candidate basis."
+      ],
+      "inputs": {
+        "x": 3,
+        "y": 2,
+        "a": 1,
+        "b": 1,
+        "c": 0,
+        "d": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "det(B)=1*1-1*0=1",
+          "reason": "The two directions are independent, so every target has unique coordinates."
+        },
+        {
+          "index": 2,
+          "expression": "s=2; r+s=3, so r=1",
+          "reason": "Use the vertical equation, then the horizontal equation."
+        },
+        {
+          "index": 3,
+          "expression": "1(1,0)+2(1,1)=(3,2) cm",
+          "reason": "Reconstruct the target from its new coefficient labels."
+        }
+      ],
+      "result": {
+        "exact": "Basis coordinates (r,s)=(1,2)"
+      },
+      "interpretation": "The target is unchanged; its labels differ from the standard coordinates (3,2).",
+      "independent_check": {
+        "method": "Independent equation elimination",
+        "expected": "The vertical row is s=2; subtracting it from r+s=3 gives r=1."
+      },
+      "limits": "This is a change of coordinate description with a fixed origin, not a translated drawing.",
+      "preset": {
+        "x": 3,
+        "y": 2,
+        "a": 1,
+        "b": 1,
+        "c": 0,
+        "d": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A drawing uses the standard coordinate axes, with one grid unit representing one centimetre.",
+        "The two declared basis arrows are written as matrix columns, not rows.",
+        "The target stays at its stated location while its coefficient labels may change with the candidate basis."
+      ]
+    },
+    {
+      "id": "math:example:basis:scaled-grid",
+      "title": "Use a longer horizontal basis arrow",
+      "role": "applied_model",
+      "question": "Let u=(2,0) cm and v=(0,1) cm. What coefficients describe target (2,2) cm?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "A drawing uses the standard coordinate axes, with one grid unit representing one centimetre.",
+        "The two declared basis arrows are written as matrix columns, not rows.",
+        "The target stays at its stated location while its coefficient labels may change with the candidate basis."
+      ],
+      "inputs": {
+        "x": 2,
+        "y": 2,
+        "a": 2,
+        "b": 0,
+        "c": 0,
+        "d": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "det(B)=2",
+          "reason": "The candidate arrows form a plane basis."
+        },
+        {
+          "index": 2,
+          "expression": "2r=2; s=2, so (r,s)=(1,2)",
+          "reason": "A longer horizontal basis arrow needs a smaller horizontal coefficient."
+        },
+        {
+          "index": 3,
+          "expression": "1(2,0)+2(0,1)=(2,2) cm",
+          "reason": "Reconstruction confirms both components."
+        }
+      ],
+      "result": {
+        "exact": "Basis coordinates (1,2)"
+      },
+      "interpretation": "Basis coordinates count multiples of arrows; they are not always the standard coordinate components.",
+      "independent_check": {
+        "method": "Independent axis check",
+        "expected": "The target is one 2 cm horizontal arrow and two 1 cm vertical arrows."
+      },
+      "limits": "The coefficient r is dimensionless; its value depends on the declared basis-arrow length.",
+      "preset": {
+        "x": 2,
+        "y": 2,
+        "a": 2,
+        "b": 0,
+        "c": 0,
+        "d": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A drawing uses the standard coordinate axes, with one grid unit representing one centimetre.",
+        "The two declared basis arrows are written as matrix columns, not rows.",
+        "The target stays at its stated location while its coefficient labels may change with the candidate basis."
+      ]
+    },
+    {
+      "id": "math:example:basis:rotated-grid",
+      "title": "Label a point using turned axes",
+      "role": "applied_model",
+      "question": "Use u=(0,1) cm and v=(-1,0) cm. Which coefficients reach (1,2) cm?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "A drawing uses the standard coordinate axes, with one grid unit representing one centimetre.",
+        "The two declared basis arrows are written as matrix columns, not rows.",
+        "The target stays at its stated location while its coefficient labels may change with the candidate basis."
+      ],
+      "inputs": {
+        "x": 1,
+        "y": 2,
+        "a": 0,
+        "b": -1,
+        "c": 1,
+        "d": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "det(B)=0*0-(-1)*1=1",
+          "reason": "The turned arrows still form a basis."
+        },
+        {
+          "index": 2,
+          "expression": "-s=1; r=2, so (r,s)=(2,-1)",
+          "reason": "The second basis arrow points left, so its coefficient must be negative to reach positive x."
+        },
+        {
+          "index": 3,
+          "expression": "2(0,1)-1(-1,0)=(1,2) cm",
+          "reason": "The same target is reached on the turned grid."
+        }
+      ],
+      "result": {
+        "exact": "Basis coordinates (2,-1)"
+      },
+      "interpretation": "A negative coordinate indicates the opposite of that basis-arrow direction.",
+      "independent_check": {
+        "method": "Norm preservation for this particular basis",
+        "expected": "The two basis arrows are orthonormal, so sqrt(2²+(-1)²)=sqrt(1²+2²)=sqrt(5); the row equations also locate the target."
+      },
+      "limits": "Norm equality is special to this orthonormal basis and is not true of every basis.",
+      "preset": {
+        "x": 1,
+        "y": 2,
+        "a": 0,
+        "b": -1,
+        "c": 1,
+        "d": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A drawing uses the standard coordinate axes, with one grid unit representing one centimetre.",
+        "The two declared basis arrows are written as matrix columns, not rows.",
+        "The target stays at its stated location while its coefficient labels may change with the candidate basis."
+      ]
+    },
+    {
+      "id": "math:example:basis:dependent-reachable",
+      "title": "Repeated directions give nonunique instructions",
+      "role": "applied_model",
+      "question": "The candidate arrows are u=(1,1) cm and v=(2,2) cm. Can they reach target (3,3) cm uniquely?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "A drawing uses the standard coordinate axes, with one grid unit representing one centimetre.",
+        "The two declared basis arrows are written as matrix columns, not rows.",
+        "The target stays at its stated location while its coefficient labels may change with the candidate basis."
+      ],
+      "inputs": {
+        "x": 3,
+        "y": 3,
+        "a": 1,
+        "b": 2,
+        "c": 1,
+        "d": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "det(B)=1*2-2*1=0",
+          "reason": "The candidate pair is dependent and is not a basis of the plane."
+        },
+        {
+          "index": 2,
+          "expression": "r+2s=3 in both coordinate equations",
+          "reason": "One equation is repeated rather than giving an independent condition."
+        },
+        {
+          "index": 3,
+          "expression": "(r,s)=(3,0) and (1,1) both reach (3,3) cm",
+          "reason": "There is no unique coordinate pair; infinitely many coefficient pairs work."
+        }
+      ],
+      "result": {
+        "exact": "Valid dependent configuration; infinitely many solutions; unique-coordinate outputs are unavailable"
+      },
+      "interpretation": "The point is reachable, but its description by this redundant pair is not unique.",
+      "independent_check": {
+        "method": "Parametric family",
+        "expected": "For every real t, (r,s)=(3-2t,t) gives (r+2s,r+2s)=(3,3)."
+      },
+      "limits": "A single nonzero direction can be a basis of this line, but the redundant two-vector pair is not a basis.",
+      "preset": {
+        "x": 3,
+        "y": 3,
+        "a": 1,
+        "b": 2,
+        "c": 1,
+        "d": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A drawing uses the standard coordinate axes, with one grid unit representing one centimetre.",
+        "The two declared basis arrows are written as matrix columns, not rows.",
+        "The target stays at its stated location while its coefficient labels may change with the candidate basis."
+      ]
+    },
+    {
+      "id": "math:example:basis:dependent-unreachable",
+      "title": "A target falls outside the available directions",
+      "role": "applied_model",
+      "question": "Keep u=(1,1) cm and v=(2,2) cm, but ask for target (3,2) cm. Is there a coefficient pair?",
+      "setting": "Original constructed teaching scenario; values and rules are stipulated, not measured.",
+      "assumptions": [
+        "A drawing uses the standard coordinate axes, with one grid unit representing one centimetre.",
+        "The two declared basis arrows are written as matrix columns, not rows.",
+        "The target stays at its stated location while its coefficient labels may change with the candidate basis."
+      ],
+      "inputs": {
+        "x": 3,
+        "y": 2,
+        "a": 1,
+        "b": 2,
+        "c": 1,
+        "d": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "r+2s=3 and r+2s=2",
+          "reason": "The two target equations demand different values from the same left side."
+        },
+        {
+          "index": 2,
+          "expression": "Subtract the equations to obtain 0=1",
+          "reason": "The equations are inconsistent."
+        },
+        {
+          "index": 3,
+          "expression": "No coefficient pair exists",
+          "reason": "The model keeps the target visible and reports no solution, rather than outputting zero coordinates."
+        }
+      ],
+      "result": {
+        "exact": "Valid dependent configuration; no solution; unique-coordinate outputs are unavailable"
+      },
+      "interpretation": "Failure to reach this target differs from nonuniqueness for a target on the line.",
+      "independent_check": {
+        "method": "Span invariant",
+        "expected": "Every combination has equal x and y; target (3,2) does not."
+      },
+      "limits": "This does not mean matrix multiplication is undefined; it means this inverse coordinate problem has no solution.",
+      "preset": {
+        "x": 3,
+        "y": 2,
+        "a": 1,
+        "b": 2,
+        "c": 1,
+        "d": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A drawing uses the standard coordinate axes, with one grid unit representing one centimetre.",
+        "The two declared basis arrows are written as matrix columns, not rows.",
+        "The target stays at its stated location while its coefficient labels may change with the candidate basis."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "basis-visual-model",
+    "renderer_id": "basis-visual-model",
+    "renderer_version": "1.0.0",
+    "model_id": "basis-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:basis:expression",
+    "interaction_status": "implemented",
+    "description": "Keep the standard target arrow fixed, deform the candidate grid and reconstruct it from its coefficient arrows when the pair is independent. Dependent line/zero spans retain an explicit solution classification; the Graph varies target x.",
+    "controls": [
+      {
+        "id": "x",
+        "type": "number",
+        "default": 3,
+        "min": -3,
+        "max": 3,
+        "slider_min": -3,
+        "slider_max": 3,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its message; do not silently clamp or substitute a stale result."
+      },
+      {
+        "id": "y",
+        "type": "number",
+        "default": 2,
+        "min": -3,
+        "max": 3,
+        "slider_min": -3,
+        "slider_max": 3,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its message; do not silently clamp or substitute a stale result."
+      },
+      {
+        "id": "a",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "slider_min": -2,
+        "slider_max": 2,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its message; do not silently clamp or substitute a stale result."
+      },
+      {
+        "id": "b",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "slider_min": -2,
+        "slider_max": 2,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its message; do not silently clamp or substitute a stale result."
+      },
+      {
+        "id": "c",
+        "type": "number",
+        "default": 0,
+        "min": -2,
+        "max": 2,
+        "slider_min": -2,
+        "slider_max": 2,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its message; do not silently clamp or substitute a stale result."
+      },
+      {
+        "id": "d",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "slider_min": -2,
+        "slider_max": 2,
+        "slider_step": 0.01,
+        "text_input_policy": "Keep invalid input visible with its message; do not silently clamp or substitute a stale result."
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "x": 3,
+          "y": 2,
+          "a": 1,
+          "b": 1,
+          "c": 0,
+          "d": 1
+        },
+        "output": 1.0
+      },
+      {
+        "input": {
+          "x": -2,
+          "y": 3,
+          "a": 1,
+          "b": 0,
+          "c": 0,
+          "d": 1
+        },
+        "output": -2.0
+      },
+      {
+        "input": {
+          "x": 2,
+          "y": 2,
+          "a": 2,
+          "b": 0,
+          "c": 0,
+          "d": 1
+        },
+        "output": 1.0
+      },
+      {
+        "input": {
+          "x": 1,
+          "y": 2,
+          "a": 0,
+          "b": -1,
+          "c": 1,
+          "d": 0
+        },
+        "output": 2.0
+      },
+      {
+        "input": {
+          "x": 1,
+          "y": 0,
+          "a": 1,
+          "b": 1,
+          "c": 1,
+          "d": 1.015625
+        },
+        "output": 65
+      },
+      {
+        "input": {
+          "x": 3,
+          "y": 3,
+          "a": 1,
+          "b": 2,
+          "c": 1,
+          "d": 2
+        },
+        "output": null,
+        "status": "valid",
+        "exact_display": "Infinitely many solutions in a line span; rank 1."
+      },
+      {
+        "input": {
+          "x": 3,
+          "y": 2,
+          "a": 1,
+          "b": 2,
+          "c": 1,
+          "d": 2
+        },
+        "output": null,
+        "status": "valid",
+        "exact_display": "No solution: target is outside the line span; rank 1."
+      },
+      {
+        "input": {
+          "x": 0,
+          "y": 0,
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0
+        },
+        "output": null,
+        "status": "valid",
+        "exact_display": "Infinitely many solutions: every coefficient pair reaches zero; rank 0."
+      },
+      {
+        "input": {
+          "x": 1,
+          "y": 0,
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0
+        },
+        "output": null,
+        "status": "valid",
+        "exact_display": "No solution: zero columns cannot reach a nonzero target; rank 0."
+      },
+      {
+        "input": {
+          "x": 1,
+          "y": 1,
+          "a": 0,
+          "b": 1,
+          "c": 0,
+          "d": 1
+        },
+        "output": null,
+        "status": "valid",
+        "exact_display": "Infinitely many solutions: zero first column leaves its coefficient free; rank 1."
+      },
+      {
+        "input": {
+          "x": 3,
+          "y": 2,
+          "a": 2.1,
+          "b": 1,
+          "c": 0,
+          "d": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "x": 3.1,
+          "y": 2,
+          "a": 1,
+          "b": 1,
+          "c": 0,
+          "d": 1
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "determinant=a*d-b*c. If determinant!=0, output=r=(d*x-b*y)/determinant and s=(a*y-c*x)/determinant; reconstruct (a*r+b*s,c*r+d*s). If determinant=0, output/r/s are null and the model distinguishes infinite_solutions from no_solution. rank is 2 for nonzero determinant, 1 for a nonzero dependent pair, otherwise 0. Nonfinite computed coordinates use solutionStatus=numeric_range, not fabricated finite coefficients.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The ordered candidate directions are u=(a,c) and v=(b,d), the columns of B=[[a,b],[c,d]].",
+      "The pair is a basis of R² exactly when det(B)=ad-bc is nonzero; it need not be perpendicular or have unit length.",
+      "For a nonzero determinant, each target (x,y) has one coefficient pair (r,s) satisfying r*u+s*v=(x,y).",
+      "A dependent pair is valid model input but is not a basis of the plane. Its target equation can have infinitely many solutions or no solution.",
+      "Physical coordinates use one compatible coordinate system and units; basis coefficients describe multiples of the declared directions."
+    ],
+    "limits": [
+      "Exactly two candidate real plane directions and one target; no arbitrary-size solver.",
+      "The candidate pair is a basis of the plane only when its determinant is nonzero.",
+      "Primary Graph output is coefficient r; a nonunique or numerically unavailable coefficient is a gap, not zero.",
+      "Near-dependent directions can require large coefficients and are sensitive to finite precision."
+    ],
+    "fallback": "Pause and read the labeled scene, current values, evaluated samples and original worked steps. A distinct Graph view remains available.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Must a basis be perpendicular or made of unit arrows?",
+      "answer": "No. Independence and spanning are the requirements; length and angle can vary."
+    },
+    {
+      "prompt": "Does determinant zero mean every target has no solution?",
+      "answer": "No. Targets in the column span have infinitely many coefficient pairs; targets outside it have no solution."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Keep the standard target arrow fixed, deform the candidate grid and reconstruct it from its coefficient arrows when the pair is independent. Dependent line/zero spans retain an explicit solution classification; the Graph varies target x."
+    },
+    {
+      "kind": "graph",
+      "description": "A numeric slice of the declared primary scalar output as one input varies; all other controls stay fixed. Missing unique results remain gaps, not zero values."
+    },
+    {
+      "kind": "substitution",
+      "description": "Current controls, intermediate calculations and labeled scene quantities follow one evaluated model."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Drawing-grid coordinates",
+      "mapping": "An oblique grid describes a fixed target using unique multiples of two arrows.",
+      "limitations": "Fixed origin and compatible coordinate units; no translation.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:basis:oblique"
+    },
+    {
+      "context": "Restricted directions",
+      "mapping": "A repeated direction makes one target reachable nonuniquely and another unreachable.",
+      "limitations": "The redundant pair is not a plane basis, even when a target can be reached.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:basis:dependent-reachable"
+    }
+  ],
+  "source_refs": [
+    "source:gatech:basis-dimension",
+    "source:gatech:basis-coordinates",
+    "source:gatech:determinants-volumes"
+  ],
+  "review_gaps": [
+    "Independent mathematical and unit review is pending.",
+    "Historical development and notation are not yet researched.",
+    "The bounded visualization is an illustration, not a general expression engine or proof."
+  ],
+  "change_log": [
+    "0.1.0-draft: five original scenarios, bounded real two-dimensional fixtures, distinct Geometry/Graph views and a linked modular story."
+  ]
+}

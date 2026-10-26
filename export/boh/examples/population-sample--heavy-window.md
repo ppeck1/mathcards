@@ -1,0 +1,196 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:population-sample:heavy-window", "id": "math:example:population-sample:heavy-window", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:population-sample", "example_id": "math:example:population-sample:heavy-window", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"}, "purpose": "Compare a selected sample with the whole population and see how one changed value affects each mean.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5", "status": "draft", "title": "Inspect a deliberately heavy sample", "topics": ["mathematics", "statistics", "probability", "modeling", "sample mean", "population mean", "sample selection"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Inspect a deliberately heavy sample
+
+Parent card: math:concept:population-sample; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:population-sample; revision 0.1.0-draft. Setting: Descriptive statistics for a known finite population of twelve distinctly labeled crate weights. Selection is a deliberate cyclic window, not a random experiment. Expression: $\overline{x}=\frac{\sum_{i=1}^{n}x_i}{n},\quad \mu=\frac{\sum_{i=1}^{12}X_i}{12},\quad E=\overline{x}-\mu.$. Conditions required for a defined value (a case may test their violation): The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match. The highlighted data value lastValue is in [0,30] kg. Only that one measured-value placeholder changes; the other eleven stipulated values stay fixed. Sample size n is an integer from 1 to 12. Starting index s is zero-based, from 0 to 11, and selects n consecutive labels cyclically with wraparound, without replacement. The sample mean is sampleSum/n. The population mean is populationSum/12. Both are arithmetic means measured in kilograms; sums and counts are distinct quantities. The displayed mean difference E is sampleMean-populationMean, with its subtraction order and sign retained. This deliberately chosen contiguous window is not a simple random sample. No randomization, unbiased-estimator guarantee, confidence interval or sampling distribution is produced. A census uses all twelve distinct crate labels and makes the sample mean equal to this known finite-population mean. If the highlighted crate is outside the selected sample, changing it leaves the sample mean fixed while changing the population mean. Scope: The broader subject distinguishes descriptive summaries from statistical inference. This specimen has a known finite population and deterministic sample selection. It does not simulate random sampling, infer an unknown population mean, produce a confidence level, or implement sample variance. The ordering of the labeled crates does not imply that observations are independent random draws.
+
+Case unit math:example:population-sample:heavy-window. Setting: Original constructed teaching scenario; quantities and rules are stipulated, not measured. Inputs: {"lastValue": 14, "sampleSize": 4, "startIndex": 8}. Result: {"exact": "x̄=51/4=12.75; μ=129/12=10.75; E=12.75−10.75=2"}. Limits: A selected sample summary is descriptive here. Its proximity to the population mean does not prove random sampling, unbiasedness or a confidence interval.
+
+## Complete worked case
+
+- id: math:example:population-sample:heavy-window
+- title: Inspect a deliberately heavy sample
+- role: applied_model
+- question: What average comes from the last four crate labels, compared with all twelve?
+- setting: Original constructed teaching scenario; quantities and rules are stipulated, not measured.
+- assumptions:
+  - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
+  - Each crate has its own label, even when several weights are equal.
+  - A deterministic cyclic block of n distinct labels is selected from zero-based start s.
+  - Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population.
+- inputs:
+  - lastValue: 14
+  - sampleSize: 4
+  - startIndex: 8
+- steps:
+  - Item:
+    - index: 1
+    - expression: sample=(12,12,13,14); sampleSum=51
+    - reason: Resolve the selected labels and add the chosen weights.
+  - Item:
+    - index: 2
+    - expression: x̄=51/4=12.75; μ=129/12=10.75
+    - reason: Divide each sum by its own collection size.
+  - Item:
+    - index: 3
+    - expression: E=12.75−10.75=2
+    - reason: Subtract the known population mean from the sample statistic, retaining the sign.
+- result:
+  - exact: x̄=51/4=12.75; μ=129/12=10.75; E=12.75−10.75=2
+- interpretation: The chosen heavy block has a mean 2 kg above the known population mean; this selected window is not evidence of a random-sampling guarantee.
+- independent check:
+  - method: Independent enumeration or arithmetic check
+  - expected: List the selected crate indices explicitly, check that no label repeats, add their values, and independently add all twelve population values before taking both averages.
+- limits: A selected sample summary is descriptive here. Its proximity to the population mean does not prove random sampling, unbiasedness or a confidence interval.
+- preset:
+  - lastValue: 14
+  - sampleSize: 4
+  - startIndex: 8
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
+  - Each crate has its own label, even when several weights are equal.
+  - A deterministic cyclic block of n distinct labels is selected from zero-based start s.
+  - Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population.
+
+## Written exploration recipe
+
+- component id: component:population-sample
+- renderer id: population-sample-visual-model
+- renderer version: 1
+- model id: population-sample-visual-model
+- model revision: 1
+- expression id: ast:population-sample:expression
+- interaction status: implemented
+- description: Population bars retain all twelve distinct crate labels. Selected sample bars, separate sums and mean reference lines show how one highlighted weight affects the selected summary and full-population summary.
+- controls:
+  - Item:
+    - id: lastValue
+    - type: number
+    - default: 14
+    - min: 0
+    - max: 30
+    - step: 0.01
+  - Item:
+    - id: sampleSize
+    - type: number
+    - default: 4
+    - min: 1
+    - max: 12
+    - step: 1
+  - Item:
+    - id: startIndex
+    - type: number
+    - default: 8
+    - min: 0
+    - max: 11
+    - step: 1
+- expected cases:
+  - Item:
+    - input:
+      - lastValue: 14
+      - sampleSize: 4
+      - startIndex: 8
+    - output: 12.75
+  - Item:
+    - input:
+      - lastValue: 26
+      - sampleSize: 4
+      - startIndex: 8
+    - output: 15.75
+  - Item:
+    - input:
+      - lastValue: 14
+      - sampleSize: 12
+      - startIndex: 8
+    - output: 10.75
+  - Item:
+    - input:
+      - lastValue: 14
+      - sampleSize: 1
+      - startIndex: 11
+    - output: 14.0
+  - Item:
+    - input:
+      - lastValue: 14
+      - sampleSize: 1
+      - startIndex: 0
+    - output: 8.0
+  - Item:
+    - input:
+      - lastValue: 14
+      - sampleSize: 4
+      - startIndex: 10
+    - output: 11.0
+  - Item:
+    - input:
+      - lastValue: 0
+      - sampleSize: 4
+      - startIndex: 8
+    - output: 9.25
+  - Item:
+    - input:
+      - lastValue: 30
+      - sampleSize: 4
+      - startIndex: 8
+    - output: 16.75
+  - Item:
+    - input:
+      - lastValue: 26
+      - sampleSize: 4
+      - startIndex: 0
+    - output: 9.0
+  - Item:
+    - input:
+      - lastValue: 0
+      - sampleSize: 12
+      - startIndex: 8
+    - output: 9.583333333333334
+  - Item:
+    - input:
+      - lastValue: 14
+      - sampleSize: 2.5
+      - startIndex: 8
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastValue: 14
+      - sampleSize: 4
+      - startIndex: 12
+    - status: invalid_parameters
+- compute: populationSize=12; populationSum=115+lastValue; populationMean=populationSum/populationSize; choose sampleSize cyclic consecutive distinct labels starting at startIndex; sampleSum=∑xᵢ; output=sampleMean=sampleSum/sampleSize; meanError=sampleMean-populationMean.
+- numeric tolerance: 1e-10
+- invariants:
+  - The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match.
+  - The highlighted data value lastValue is in [0,30] kg. Only that one measured-value placeholder changes; the other eleven stipulated values stay fixed.
+  - Sample size n is an integer from 1 to 12. Starting index s is zero-based, from 0 to 11, and selects n consecutive labels cyclically with wraparound, without replacement.
+  - The sample mean is sampleSum/n. The population mean is populationSum/12. Both are arithmetic means measured in kilograms; sums and counts are distinct quantities.
+  - The displayed mean difference E is sampleMean-populationMean, with its subtraction order and sign retained.
+- limits:
+  - Twelve stipulated observations, not a measured dataset or probability distribution.
+  - Sample selection is deterministic and cyclic; it does not establish representativeness or unbiasedness.
+  - Sample size and starting index are discrete controls. Smooth motion varies only the highlighted value.
+- fallback: Pause to read the labeled quantities. The model-data table, exact worked steps and searchable definitions provide numeric and textual alternatives to the scene.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openstax:statistics-population-sample. [Introductory Statistics 2e, 1.1 Definitions of Statistics, Probability, and Key Terms](https://openstax.org/books/introductory-statistics-2e/pages/1-1-definitions-of-statistics-probability-and-key-terms). Locator: Population, sample, statistic, parameter, descriptive statistics versus inference. Verification: Definition-level material inspected 2026-10-26 on the official publisher or university page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.. Rights: Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied.
+
+- Source ID: source:openstax:statistics-mean. [Introductory Statistics 2e, 2.5 Measures of the Center of the Data](https://openstax.org/books/introductory-statistics-2e/pages/2-5-measures-of-the-center-of-the-data). Locator: Arithmetic mean, sample-mean bar notation, population mean mu, sum divided by collection size. Verification: Definition-level material inspected 2026-10-26 on the official publisher or university page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.. Rights: Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied.

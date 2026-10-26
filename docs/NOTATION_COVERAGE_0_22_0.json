@@ -1,0 +1,370 @@
+{
+  "scope": "Canonical formulas, worked mathematics, story math/units, generated scene/readout labels across declared control boundaries, and the reference examples/symbols themselves. No private records or UI icon crawl.",
+  "counts": {
+    "cards": 38,
+    "fields": 23794,
+    "occurrences": 39023,
+    "uniqueTokens": 916,
+    "resolved": 39023,
+    "unresolved": 0,
+    "formatting": 796,
+    "review": 0
+  },
+  "complete": true,
+  "indexEntries": 409,
+  "authoredEntries": 389,
+  "runtimeFields": 21602,
+  "referenceFields": 929,
+  "uiExclusions": [
+    {
+      "slug": "function",
+      "location": "default · geometry",
+      "text": "Input x = 2 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "function",
+      "location": "x=-5 · geometry",
+      "text": "Input x = −5 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "function",
+      "location": "x=5 · geometry",
+      "text": "Input x = 5 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "function",
+      "location": "x=0 · geometry",
+      "text": "Input x = 0 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "function",
+      "location": "x=0.000001 · geometry",
+      "text": "Input x = 0.000001 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "function",
+      "location": "a=-3 · geometry",
+      "text": "Input x = 2 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "function",
+      "location": "a=3 · geometry",
+      "text": "Input x = 2 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "function",
+      "location": "a=0 · geometry",
+      "text": "Input x = 2 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "function",
+      "location": "a=0.000001 · geometry",
+      "text": "Input x = 2 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "function",
+      "location": "b=-5 · geometry",
+      "text": "Input x = 2 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "function",
+      "location": "b=5 · geometry",
+      "text": "Input x = 2 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "function",
+      "location": "b=0 · geometry",
+      "text": "Input x = 2 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "function",
+      "location": "b=0.000001 · geometry",
+      "text": "Input x = 2 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "function",
+      "location": "all permitted zeros · geometry",
+      "text": "Input x = 0 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "exponentiation",
+      "location": "default · geometry",
+      "text": "Exponent e = 3 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "exponentiation",
+      "location": "exponent=-3 · geometry",
+      "text": "Exponent e = −3 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "exponentiation",
+      "location": "exponent=5 · geometry",
+      "text": "Exponent e = 5 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "exponentiation",
+      "location": "exponent=0 · geometry",
+      "text": "Exponent e = 0 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "exponentiation",
+      "location": "exponent=0.000001 · geometry",
+      "text": "Exponent e = 0.000001 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "exponentiation",
+      "location": "base=3 · geometry",
+      "text": "Exponent e = 3 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "exponentiation",
+      "location": "base=0.000001 · geometry",
+      "text": "Exponent e = 3 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "default · geometry",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "default · graph",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "h=0.001 · geometry",
+      "text": "Probe distance h = 0.001 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "h=0.001 · graph",
+      "text": "Probe distance h = 0.001 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "h=1 · geometry",
+      "text": "Probe distance h = 1 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "h=1 · graph",
+      "text": "Probe distance h = 1 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "a=-2 · geometry",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "a=-2 · graph",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "a=2 · geometry",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "a=2 · graph",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "a=0 · geometry",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "a=0 · graph",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "a=0.000001 · geometry",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "a=0.000001 · graph",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "mode=removable · geometry",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "mode=removable · graph",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "mode=jump · geometry",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "mode=jump · graph",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "all permitted zeros · geometry",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "limit",
+      "location": "all permitted zeros · graph",
+      "text": "Probe distance h = 0.25 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "default · geometry",
+      "text": "Elapsed time T = 4 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "time=0 · geometry",
+      "text": "Elapsed time T = 0 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "time=6 · geometry",
+      "text": "Elapsed time T = 6 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "time=0.000001 · geometry",
+      "text": "Elapsed time T = 0.000001 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "initial=-4 · geometry",
+      "text": "Elapsed time T = 4 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "initial=4 · geometry",
+      "text": "Elapsed time T = 4 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "initial=0 · geometry",
+      "text": "Elapsed time T = 4 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "initial=0.000001 · geometry",
+      "text": "Elapsed time T = 4 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "rate=-2 · geometry",
+      "text": "Elapsed time T = 4 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "rate=2 · geometry",
+      "text": "Elapsed time T = 4 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "rate=0 · geometry",
+      "text": "Elapsed time T = 4 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "rate=0.000001 · geometry",
+      "text": "Elapsed time T = 4 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "partitions=4 · geometry",
+      "text": "Elapsed time T = 4 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "partitions=8 · geometry",
+      "text": "Elapsed time T = 4 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "partitions=16 · geometry",
+      "text": "Elapsed time T = 4 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "partitions=32 · geometry",
+      "text": "Elapsed time T = 4 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    },
+    {
+      "slug": "signed-accumulation",
+      "location": "all permitted zeros · geometry",
+      "text": "Elapsed time T = 0 ↔",
+      "reason": "The foundations rail appends a horizontal-drag hint; this suffix is a gesture icon, not a logical relation."
+    }
+  ],
+  "review": [],
+  "unresolved": []
+}

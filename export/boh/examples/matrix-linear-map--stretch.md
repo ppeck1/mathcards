@@ -1,0 +1,250 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:matrix-linear-map:stretch", "id": "math:example:matrix-linear-map:stretch", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:matrix-linear-map", "example_id": "math:example:matrix-linear-map:stretch", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "782e6406444daaaf964188af17f7de85cc2934bb3423d3b51a2c14ea13942802"}, "purpose": "Transform a vector and its surrounding grid with the same matrix rule.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "782e6406444daaaf964188af17f7de85cc2934bb3423d3b51a2c14ea13942802", "status": "draft", "title": "Stretch a drawing in one direction", "topics": ["mathematics", "linear-algebra", "geometry", "matrix transformation", "2 by 2 matrix", "shear scale rotation reflection"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Stretch a drawing in one direction
+
+Parent card: math:concept:matrix-linear-map; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:matrix-linear-map; revision 0.1.0-draft. Setting: Finite real two-dimensional Euclidean coordinates. Expression: $T_A(x,y)=\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}ax+by\\cx+dy\end{pmatrix}.$. Conditions required for a defined value (a case may test their violation): Keep the declared matrix row order and column-vector input. The matrix and vector dimensions must agree. Linear maps fix zero and preserve vector addition and real scalar multiplication. The mapped unit-square area is |ad-bc|; zero determinant is a valid collapse. Scope: The formal matrix rule is defined on all of R². The UI restricts coefficients to [-2,2] and displayed input components to [-3,3]; this viewing box is not itself a vector space. No translation, nonlinear warp, arbitrary matrix dimensions or inverse computation is implemented. Singular matrices remain valid maps. Stories declare physical coordinate units separately.
+
+Case unit math:example:matrix-linear-map:stretch. Setting: Original constructed teaching scenario; values and rules are stipulated, not measured. Inputs: {"a": 2, "b": 0, "c": 0, "d": 1, "x": 1, "y": 2}. Result: {"exact": "Mapped point (2,2); unit-square area 2"}. Limits: The scale factors are dimensionless; physical coordinate units need a separate declaration.
+
+## Complete worked case
+
+- id: math:example:matrix-linear-map:stretch
+- title: Stretch a drawing in one direction
+- role: applied_model
+- question: For A=[[2,0],[0,1]], where does (1,2) go?
+- setting: Original constructed teaching scenario; values and rules are stipulated, not measured.
+- assumptions:
+  - A real 2 by 2 matrix acts on the column input (x,y).
+  - The origin is fixed; no translation is added.
+  - Matrix entries and input components obey their bounds; area uses a unit-square reference.
+- inputs:
+  - a: 2
+  - b: 0
+  - c: 0
+  - d: 1
+  - x: 1
+  - y: 2
+- steps:
+  - Item:
+    - index: 1
+    - expression: x'=2*1+0*2=2; y'=0*1+1*2=2
+    - reason: The first coordinate doubles while the second stays fixed.
+  - Item:
+    - index: 2
+    - expression: det(A)=2; unit-square area=2
+    - reason: The geometric area factor is the determinant magnitude.
+- result:
+  - exact: Mapped point (2,2); unit-square area 2
+- interpretation: Different coordinate directions can have different scale factors.
+- independent check:
+  - method: Rectangle check
+  - expected: The mapped unit square is a 2 by 1 rectangle, with area 2.
+- limits: The scale factors are dimensionless; physical coordinate units need a separate declaration.
+- preset:
+  - a: 2
+  - b: 0
+  - c: 0
+  - d: 1
+  - x: 1
+  - y: 2
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - A real 2 by 2 matrix acts on the column input (x,y).
+  - The origin is fixed; no translation is added.
+  - Matrix entries and input components obey their bounds; area uses a unit-square reference.
+
+## Written exploration recipe
+
+- component id: matrix-linear-map-visual-model
+- renderer id: matrix-linear-map-visual-model
+- renderer version: 1.0.0
+- model id: matrix-linear-map-visual-model
+- model revision: 1
+- expression id: ast:matrix-linear-map:expression
+- interaction status: implemented
+- description: The matrix moves an input arrow, basis arrows and unit square using one rule. Both output coordinates are shown; the Graph follows the first output coordinate with other settings fixed.
+- controls:
+  - Item:
+    - id: a
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+  - Item:
+    - id: b
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+  - Item:
+    - id: c
+    - type: number
+    - default: 0
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+  - Item:
+    - id: d
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - slider min: -2
+    - slider max: 2
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+  - Item:
+    - id: x
+    - type: number
+    - default: 1
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+  - Item:
+    - id: y
+    - type: number
+    - default: 1
+    - min: -3
+    - max: 3
+    - slider min: -3
+    - slider max: 3
+    - slider step: 0.01
+    - text input policy: Keep invalid input visible with its domain message; do not clamp or retain a stale result.
+- expected cases:
+  - Item:
+    - input:
+      - a: 1
+      - b: 1
+      - c: 0
+      - d: 1
+      - x: 1
+      - y: 1
+    - output: 2
+  - Item:
+    - input:
+      - a: 1
+      - b: 0
+      - c: 0
+      - d: 1
+      - x: -2
+      - y: 3
+    - output: -2
+  - Item:
+    - input:
+      - a: 0
+      - b: -1
+      - c: 1
+      - d: 0
+      - x: 1
+      - y: 2
+    - output: -2
+  - Item:
+    - input:
+      - a: -1
+      - b: 0
+      - c: 0
+      - d: 1
+      - x: 2
+      - y: 1
+    - output: -2
+  - Item:
+    - input:
+      - a: 1
+      - b: 2
+      - c: 0
+      - d: 0
+      - x: 1
+      - y: 1
+    - output: 3
+  - Item:
+    - input:
+      - a: 0
+      - b: 0
+      - c: 0
+      - d: 0
+      - x: 1
+      - y: 1
+    - output: 0
+  - Item:
+    - input:
+      - a: 2
+      - b: -2
+      - c: -2
+      - d: 2
+      - x: 3
+      - y: -3
+    - output: 12
+  - Item:
+    - input:
+      - a: 0.5
+      - b: 0.25
+      - c: -0.5
+      - d: 1
+      - x: 2
+      - y: -2
+    - output: 0.5
+  - Item:
+    - input:
+      - a: 2.1
+      - b: 1
+      - c: 0
+      - d: 1
+      - x: 1
+      - y: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - a: 1
+      - b: 1
+      - c: 0
+      - d: 1
+      - x: 3.1
+      - y: 1
+    - status: invalid_parameters
+- compute: output=mappedX=a*x+b*y; mappedY=c*x+d*y; determinant=signedArea=a*d-b*c; area=abs(determinant); inverseExists=(determinant!=0); inputNorm=hypot(x,y); mappedNorm=hypot(mappedX,mappedY).
+- numeric tolerance: 1e-10
+- invariants:
+  - Keep the declared matrix row order and column-vector input.
+  - The matrix and vector dimensions must agree.
+  - Linear maps fix zero and preserve vector addition and real scalar multiplication.
+  - The mapped unit-square area is |ad-bc|; zero determinant is a valid collapse.
+- limits:
+  - The formal rule is a real linear map on R²; the UI displays only bounded coefficients and inputs, without translation.
+  - The primary scalar Graph/readout is mappedX; the complete vector is (mappedX,mappedY).
+  - A zero determinant is a valid singular map; no inverse is computed.
+- fallback: Pause and read the labeled scene, current values, evaluated samples and original worked steps. A distinct Graph view remains available.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:mit:linear-transformations. [MIT OpenCourseWare 18.06SC, Linear Transformations and their Matrices](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/linear-transformations-and-their-matrices/). Locator: Session overview and linked lecture transcript: coordinate matrices map input vectors to output vectors. Verification: Definition-level mathematics inspected 2026-10-26 on the official publisher or university page. Supports vocabulary and conditions, not historical priority or independent review of the original scenarios.. Rights: Reference only. Explanations, stories and worked derivations are originally authored; no source prose or exercise bank copied.

@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/math-expression-atlas/workspace-v1.schema.json",
+  "title": "Private saved workspace backup v1",
+  "description": "Two ordered module slots and at most one explicit connection. This schema checks portable JSON structure; the installed module registry and workspace store check parameter, view, inspector and connection semantics. Private data is never included in canonical teaching exports by default.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "kind", "workspaces"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "kind": { "const": "math-atlas-workspace-backup" },
+    "workspaces": {
+      "type": "array",
+      "maxItems": 200,
+      "items": { "$ref": "#/$defs/workspace" }
+    }
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9:_-]*$"
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^(?!prototype$|constructor$)[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+    },
+    "versionText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^(?=.*\\S)[^\\u0000-\\u001f\\u007f]+$"
+    },
+    "finiteNumber": {
+      "type": "number",
+      "minimum": -1.7976931348623157e308,
+      "maximum": 1.7976931348623157e308
+    },
+    "jsonValue": {
+      "description": "Inert JSON data. The runtime additionally rejects nonfinite numbers, unsafe prototypes, accessors, hidden fields, cycles and nesting deeper than its saved-data budget.",
+      "anyOf": [
+        { "type": "null" },
+        { "type": "boolean" },
+        { "$ref": "#/$defs/finiteNumber" },
+        { "type": "string", "maxLength": 20000 },
+        {
+          "type": "array",
+          "maxItems": 1000,
+          "items": { "$ref": "#/$defs/jsonValue" }
+        },
+        { "$ref": "#/$defs/jsonObject" }
+      ]
+    },
+    "jsonObject": {
+      "type": "object",
+      "maxProperties": 100,
+      "propertyNames": {
+        "not": { "enum": ["__proto__", "prototype", "constructor"] }
+      },
+      "additionalProperties": { "$ref": "#/$defs/jsonValue" }
+    },
+    "slot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "module_id", "module_version", "parameters", "view", "camera", "baseline", "inspector"],
+      "properties": {
+        "id": { "enum": ["work-0", "work-1"] },
+        "module_id": { "$ref": "#/$defs/slug" },
+        "module_version": { "$ref": "#/$defs/versionText" },
+        "parameters": { "$ref": "#/$defs/jsonObject" },
+        "view": { "$ref": "#/$defs/slug" },
+        "camera": { "type": "number", "minimum": 0.15, "maximum": 1 },
+        "baseline": {
+          "description": "A complete comparison parameter set, or null when no comparison is pinned.",
+          "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/jsonObject" }]
+        },
+        "inspector": {
+          "description": "Optional module-owned viewing state, such as a fractal camera or repeated-edge comparison. Its actual fields are validated by the matching module version.",
+          "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/jsonObject" }]
+        }
+      }
+    },
+    "connection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceSlotId", "sourcePortId", "targetSlotId", "targetPortId"],
+      "properties": {
+        "sourceSlotId": { "enum": ["work-0", "work-1"] },
+        "sourcePortId": { "$ref": "#/$defs/identifier" },
+        "targetSlotId": { "enum": ["work-0", "work-1"] },
+        "targetPortId": { "$ref": "#/$defs/identifier" }
+      },
+      "oneOf": [
+        { "properties": { "sourceSlotId": { "const": "work-0" }, "targetSlotId": { "const": "work-1" } } },
+        { "properties": { "sourceSlotId": { "const": "work-1" }, "targetSlotId": { "const": "work-0" } } }
+      ]
+    },
+    "workspace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "kind", "id", "title", "created_at", "slots", "connection"],
+      "properties": {
+        "schema_version": { "const": "1.0.0" },
+        "kind": { "const": "math-atlas-workspace" },
+        "id": { "$ref": "#/$defs/identifier" },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "pattern": "^(?=.*\\S)[^\\u0000-\\u001f\\u007f]+$"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+        },
+        "slots": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            { "allOf": [{ "$ref": "#/$defs/slot" }, { "properties": { "id": { "const": "work-0" } } }] },
+            { "allOf": [{ "$ref": "#/$defs/slot" }, { "properties": { "id": { "const": "work-1" } } }] }
+          ],
+          "items": false
+        },
+        "connection": { "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/connection" }] }
+      }
+    }
+  }
+}

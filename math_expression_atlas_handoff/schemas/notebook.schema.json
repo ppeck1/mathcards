@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Portable personal notebook v0.1",
+  "description": "Private data; never part of public teaching export by default. IDs are opaque. Status does not certify proof.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "kind": {
+      "const": "math-atlas-notebook"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "enum": [
+              "observation",
+              "conjecture",
+              "tested_instance",
+              "supported_relationship",
+              "rejected",
+              "unresolved"
+            ]
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "snapshot": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "card_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "content_revision": {
+                "type": "string",
+                "minLength": 1
+              },
+              "expression_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "model_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "model_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "renderer_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "renderer_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "parameters": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": [
+                    "number",
+                    "string",
+                    "boolean"
+                  ]
+                }
+              },
+              "units": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "outputs": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "enum": [
+                        "exact",
+                        "approximate",
+                        "undefined",
+                        "outside-domain",
+                        "unsupported"
+                      ]
+                    },
+                    "representation": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "value": {
+                      "type": "number"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "method_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "tolerance": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ],
+                  "additionalProperties": false,
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "kind": {
+                            "const": "exact"
+                          }
+                        }
+                      },
+                      "then": {
+                        "required": [
+                          "representation"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "kind": {
+                            "const": "approximate"
+                          }
+                        }
+                      },
+                      "then": {
+                        "required": [
+                          "value",
+                          "method_id"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "kind": {
+                            "enum": [
+                              "undefined",
+                              "outside-domain",
+                              "unsupported"
+                            ]
+                          }
+                        }
+                      },
+                      "then": {
+                        "required": [
+                          "reason"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              "numeric_policy": {
+                "type": "string",
+                "minLength": 1
+              },
+              "viewport": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "number"
+                }
+              },
+              "seed": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "card_id",
+              "content_revision",
+              "expression_id",
+              "model_id",
+              "model_version",
+              "renderer_id",
+              "renderer_version",
+              "parameters",
+              "units",
+              "outputs",
+              "numeric_policy",
+              "viewport",
+              "seed"
+            ],
+            "additionalProperties": false
+          },
+          "connection": {
+            "type": "object",
+            "properties": {
+              "target_card_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "role_mapping": {
+                "type": "string"
+              },
+              "preserved_features": {
+                "type": "string"
+              },
+              "counterexample_attempt": {
+                "type": "string"
+              },
+              "unresolved_conditions": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "target_card_id",
+              "role_mapping",
+              "preserved_features",
+              "counterexample_attempt",
+              "unresolved_conditions"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "created_at",
+          "updated_at",
+          "status",
+          "text",
+          "snapshot"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "notes"
+  ],
+  "additionalProperties": false
+}

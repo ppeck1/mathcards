@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0",
+  "kind": "math-atlas-notebook",
+  "notes": [
+    {
+      "id": "fixture:note:composition-order",
+      "created_at": "2026-10-23T00:00:00Z",
+      "updated_at": "2026-10-23T00:00:00Z",
+      "status": "observation",
+      "text": "Synthetic schema fixture only: reversing these operations changed the result at the same input. This is not an actual personal note.",
+      "snapshot": {
+        "id": "fixture:snapshot:composition-order",
+        "card_id": "math:concept:function-composition",
+        "content_revision": "0.1.0-draft",
+        "expression_id": "ast:composition:apply-f-after-g",
+        "model_id": "function-composition-quadratic-affine",
+        "model_version": "1",
+        "renderer_id": "function-composition-quadratic-affine",
+        "renderer_version": "1",
+        "parameters": {
+          "a": 1,
+          "b": 0,
+          "c": 0,
+          "m": 2,
+          "n": 1,
+          "x": 3,
+          "order": "f_after_g"
+        },
+        "units": {
+          "x": null,
+          "output": null
+        },
+        "outputs": {
+          "intermediate": {
+            "kind": "exact",
+            "representation": "7"
+          },
+          "output": {
+            "kind": "exact",
+            "representation": "49"
+          }
+        },
+        "numeric_policy": "curated polynomial fixture; exact integer arithmetic",
+        "viewport": {},
+        "seed": null
+      },
+      "connection": {
+        "target_card_id": null,
+        "role_mapping": "Compare the same two functions in opposite orders.",
+        "preserved_features": "Same input and functions.",
+        "counterexample_attempt": "Identity f commutes with g; order effects are not universal.",
+        "unresolved_conditions": "Equality at one input cannot establish equal functions."
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "0.1.0",
+  "sources": [
+    {
+      "id": "source:openstax:composition",
+      "title": "Precalculus 2e, 1.4 Composition of Functions",
+      "url": "https://openstax.org/books/precalculus-2e/pages/1-4-composition-of-functions",
+      "kind": "textbook",
+      "locator": "Composition and domain sections",
+      "verification": "composition definition/domain inspected 2026-10-23; external reference, not independent review",
+      "rights": "Do not copy prose or exercises; verify edition license before reuse."
+    },
+    {
+      "id": "source:openstax:log",
+      "title": "Precalculus 2e, 4.3 Logarithmic Functions",
+      "url": "https://openstax.org/books/precalculus-2e/pages/4-3-logarithmic-functions",
+      "kind": "textbook",
+      "locator": "Definition of the Logarithmic Function",
+      "verification": "definition inspected 2026-10-23",
+      "rights": "Original explanations/examples in this package; no textbook exercise bank copied."
+    },
+    {
+      "id": "source:hmc:derivative",
+      "title": "Harvey Mudd College, Limit Definition of the Derivative",
+      "url": "https://math.hmc.edu/calculus/hmc-mathematics-calculus-online-tutorials/single-variable-calculus/limit-definition-of-the-derivative/",
+      "kind": "institutional_teaching",
+      "locator": "Definition and undefined-limit note",
+      "verification": "definition inspected 2026-10-23",
+      "rights": "Only definition-level reference; examples below are independently constructed."
+    },
+    {
+      "id": "source:mactutor:calculus-notation",
+      "title": "MacTutor, Earliest Uses of Symbols of Calculus",
+      "url": "https://mathshistory.st-andrews.ac.uk/Miller/mathsym/calculus/",
+      "kind": "scholarly_reference",
+      "locator": "Derivative paragraph; cites Cajori vol. 2 p. 204",
+      "verification": "secondary account inspected 2026-10-23; underlying manuscript not inspected",
+      "rights": "Brief paraphrase only; not a claim of original manuscript inspection."
+    },
+    {
+      "id": "source:mactutor:symbols",
+      "title": "MacTutor, Earliest Uses of Various Mathematical Symbols",
+      "url": "https://mathshistory.st-andrews.ac.uk/Miller/mathsym/",
+      "kind": "scholarly_reference",
+      "locator": "Functions, operations, calculus and written-source indexes",
+      "verification": "index inspected 2026-10-23; research route only",
+      "rights": "Research pointer, not evidence for a specific unresearched first-use claim."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "math-atlas-workspace-backup",
+  "workspaces": [
+    {
+      "schema_version": "1.0.0",
+      "kind": "math-atlas-workspace",
+      "id": "workspace:triangle-garden-example",
+      "title": "A triangle length becomes a garden width",
+      "created_at": "2026-10-26T12:00:00Z",
+      "slots": [
+        {
+          "id": "work-0",
+          "module_id": "pythagorean-theorem",
+          "module_version": "1",
+          "parameters": {
+            "a": 3,
+            "b": 4
+          },
+          "view": "geometry",
+          "camera": 0.65,
+          "baseline": null,
+          "inspector": null
+        },
+        {
+          "id": "work-1",
+          "module_id": "quadratic-optimization",
+          "module_version": "1",
+          "parameters": {
+            "width": 5,
+            "perimeter": 20
+          },
+          "view": "graph",
+          "camera": 0.65,
+          "baseline": {
+            "width": 4,
+            "perimeter": 20
+          },
+          "inspector": null
+        }
+      ],
+      "connection": {
+        "sourceSlotId": "work-0",
+        "sourcePortId": "output:output",
+        "targetSlotId": "work-1",
+        "targetPortId": "input:width"
+      }
+    }
+  ]
+}
