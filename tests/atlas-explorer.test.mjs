@@ -174,12 +174,10 @@ test('reduced motion lands on the selected area immediately and removes preferen
   assert.equal(listeners.size,1);view.destroy();assert.equal(listeners.size,0);
 });
 
-test('portrait camera fills the map height with an explicit locator and native access to every territory',()=>{
+test('portrait overview retains the complete map and a native full-name key for all eight territories',()=>{
   for(const width of [360,390,430]){
     const viewport={width,height:460},box=Explorer.fitCamera(Landscape.overviewBounds(),viewport,true);
-    assert.ok(Math.abs(box.width/box.height-width/460)<1e-9);
-    assert.equal(box.height,800);
-    assert.ok(box.width<1200,'Portrait overview has an explicit cropped camera rather than letterbox gaps');
+    assert.deepEqual(box,Landscape.overviewBounds(),'A portrait overview never crops fields');
     const area=Explorer.fitCamera(Landscape.boundsForTopic('change:calculus'),viewport);
     assert.ok(Math.abs(area.width/area.height-width/460)<1e-9);
   }
@@ -187,10 +185,13 @@ test('portrait camera fills the map height with an explicit locator and native a
   assert.ok(html.includes('class="world-find"'));
   assert.ok(html.includes('data-world-locator'));
   assert.ok(html.includes('data-world-interact aria-pressed="false"'));
+  const key=html.match(/<nav class="world-overview-key"[^>]*>([\s\S]*?)<\/nav>/)[1];
+  assert.equal((key.match(/data-world-region=/g)||[]).length,8);
+  for(const region of model.areas.regions)assert.ok(key.includes(region.title));
   assert.ok(html.includes('class="world-lessons"')===false,'Overview does not duplicate a long lesson list');
 });
 
-test('a wide overview retains the entire coast instead of cropping the northern and southern terrain',()=>{
+test('a wide overview retains the complete field map',()=>{
   const whole=Landscape.overviewBounds();
   for(const viewport of [{width:1200,height:600},{width:1022,height:527},{width:1600,height:800}])
     assert.deepEqual(Explorer.fitCamera(whole,viewport,true),whole);

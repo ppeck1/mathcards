@@ -6,6 +6,7 @@ from pathlib import Path
 import subprocess
 import sys
 import unittest
+from release import application_version
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -25,7 +26,8 @@ def main():
                               'documents':payload['file_count'],'boh_commit':payload['boh_commit'],
                               'scope':payload['scope']},indent=2))
         else: print(result.stdout.strip())
-    notation=subprocess.run(['node',str(ROOT/'tools/check_notation.cjs'),'--report','docs/NOTATION_COVERAGE_0_23_0.json'],cwd=ROOT,capture_output=True,text=True)
+    report_path='docs/NOTATION_COVERAGE_'+application_version(ROOT).replace('.','_')+'.json'
+    notation=subprocess.run(['node',str(ROOT/'tools/check_notation.cjs'),'--report',report_path],cwd=ROOT,capture_output=True,text=True)
     if notation.returncode:
         print(notation.stdout);print(notation.stderr,file=sys.stderr);return notation.returncode
     report=json.loads(notation.stdout)

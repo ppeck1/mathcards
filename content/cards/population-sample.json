@@ -4,7 +4,7 @@
   "slug": "population-sample",
   "type": "concept",
   "title": "Population and sample",
-  "revision": "0.2.0-draft",
+  "revision": "0.3.0-draft",
   "publication_status": "draft",
   "updated": "2026-10-26T00:00:00Z",
   "review": {
@@ -46,22 +46,22 @@
     "setting": "Descriptive statistics for a known finite population of twelve distinctly labeled crate weights. Selection is a deliberate cyclic window, not a random experiment.",
     "formal_latex": "\\overline{x}=\\frac{\\sum_{i=1}^{n}x_i}{n},\\quad \\mu=\\frac{\\sum_{i=1}^{12}X_i}{12},\\quad E=\\overline{x}-\\mu.",
     "signature": {
-      "x,lastValue": "Highlighted final crate weight in [0,30] kilograms.",
-      "n,sampleSize": "Integer number of selected crates in [1,12].",
-      "s,startIndex": "Zero-based cyclic starting index in [0,11].",
-      "N,populationSize": "Fixed population count twelve.",
-      "∑xᵢ,sampleSum": "Sum of the n selected crate weights.",
-      "∑Xᵢ,populationSum": "Sum of all twelve crate weights.",
-      "x̄,sampleMean": "Primary sample mean in kilograms.",
-      "μ,populationMean": "Known finite-population mean in kilograms.",
-      "E,meanError": "Sample mean minus population mean, in kilograms."
+      "x": "Mass of the changing last crate, from 0 to 30 kilograms.",
+      "n": "Integer number of selected crates in [1,12].",
+      "s": "Number of crates skipped before selection, an integer from 0 to 11.",
+      "N": "Fixed population count twelve.",
+      "∑xᵢ": "Sum of the n selected crate weights.",
+      "∑Xᵢ": "Sum of all twelve crate weights.",
+      "x̄": "Primary sample mean in kilograms.",
+      "μ": "Known finite-population mean in kilograms.",
+      "E": "Sample mean minus population mean, in kilograms."
     },
     "conditions": [
-      "The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match.",
-      "The highlighted data value lastValue is in [0,30] kg. Only that one measured-value placeholder changes; the other eleven stipulated values stay fixed.",
+      "The finite population is twelve labeled crate masses in kilograms: [8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13, x]. Different crates remain distinct even when their masses match.",
+      "The last crate has mass x, with 0 ≤ x ≤ 30 kg. Only x changes; the other eleven masses stay fixed.",
       "Sample size n is an integer from 1 to 12. Skip s crates (an integer from 0 to 11), then select n consecutive crates. Continue from crate 1 after crate 12 (wraparound), without selecting a crate twice.",
-      "The sample mean is sampleSum/n. The population mean is populationSum/12. Both are arithmetic means measured in kilograms; sums and counts are distinct quantities.",
-      "The displayed mean difference E is sampleMean-populationMean, with its subtraction order and sign retained.",
+      "The selected mean is x̄ = (∑xᵢ)/n. The population mean is μ = (∑Xᵢ)/12. Both means are measured in kilograms; totals and counts are different quantities.",
+      "The mean difference is E = x̄ − μ. A positive E means the selected crates have the higher average mass.",
       "This deliberately chosen contiguous window is not a simple random sample. No randomization, unbiased-estimator guarantee, confidence interval or sampling distribution is produced.",
       "A census uses all twelve distinct crate labels and makes the sample mean equal to this known finite-population mean.",
       "If the highlighted crate is outside the selected sample, changing it leaves the sample mean fixed while changing the population mean."
@@ -76,23 +76,23 @@
   "grammar": {
     "pronunciation": "Population and sample",
     "expression_latex": "\\overline{x}=\\frac{\\sum_{i=1}^{n}x_i}{n},\\quad \\mu=\\frac{\\sum_{i=1}^{12}X_i}{12},\\quad E=\\overline{x}-\\mu.",
-    "formation_rule": "populationSize=12; populationSum=115+lastValue; populationMean=populationSum/populationSize; choose sampleSize cyclic consecutive distinct labels starting at startIndex; sampleSum=∑xᵢ; output=sampleMean=sampleSum/sampleSize; meanError=sampleMean-populationMean.",
+    "formation_rule": "N = 12; ∑Xᵢ = 115 + x; μ = (115 + x)/12. Skip s crates and select n consecutive crates, continuing from crate 1 after crate 12. Then x̄ = (∑xᵢ)/n and E = x̄ − μ.",
     "precedence": "Choose the distinct crate labels first, add their weights once each, and divide by their positive count. Compute the full-population sum separately before comparing the two means.",
     "symbols": [
       {
         "token": "x",
-        "role": "Highlighted last-crate weight, stored as lastValue",
+        "role": "Mass of the changing last crate",
         "type": "Nonnegative real data value in kilograms"
       },
       {
         "token": "n",
-        "role": "Number of selected distinct crates, stored as sampleSize",
+        "role": "Number of selected distinct crates",
         "type": "Positive integer count"
       },
       {
         "token": "s",
-        "role": "Zero-based starting crate index, stored as startIndex",
-        "type": "Integer index from 0 to 11"
+        "role": "Number of crates skipped before selecting the sample",
+        "type": "Integer count from 0 to 11"
       },
       {
         "token": "N",
@@ -146,7 +146,7 @@
         {
           "id": "n:startIndex",
           "kind": "variable",
-          "type": "Zero-based integer label index",
+          "type": "Integer count of crates skipped",
           "symbol": "startIndex",
           "scope_ref": "scope:population-sample:expression"
         },
@@ -154,7 +154,7 @@
           "id": "n:populationRule",
           "kind": "functionRef",
           "type": "Real to ordered twelve-value population",
-          "ref": "Append lastValue to the fixed eleven crate weights [8,9,9,10,10,10,11,11,12,12,13]."
+          "ref": "Append mass x to the eleven fixed masses [8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]."
         },
         {
           "id": "n:population",
@@ -167,7 +167,7 @@
           "id": "n:sampleRule",
           "kind": "functionRef",
           "type": "Integer to index to population to selected value list",
-          "ref": "Given sampleSize, the number of crates to skip, and the population, select that many consecutive distinct crates, returning to crate 1 after the last."
+          "ref": "Select n consecutive distinct crates after skipping s crates; continue from crate 1 after the last."
         },
         {
           "id": "n:sizeRule",
@@ -222,7 +222,7 @@
             "sampleSize",
             "startIndex"
           ],
-          "domain_condition": "The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match."
+          "domain_condition": "The finite population is twelve labeled crate masses in kilograms: [8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13, x]. Different crates remain distinct even when their masses match."
         }
       ]
     },
@@ -338,7 +338,7 @@
       "steps": [
         {
           "index": 1,
-          "expression": "sample=(12,12,13,14); sampleSum=51",
+          "expression": "selected masses = (12,12,13,14); ∑xᵢ=51",
           "reason": "Resolve the selected labels and add the chosen weights."
         },
         {
@@ -398,7 +398,7 @@
       "steps": [
         {
           "index": 1,
-          "expression": "sample=(12,12,13,26); sampleSum=63",
+          "expression": "selected masses = (12,12,13,26); ∑xᵢ=63",
           "reason": "Resolve the selected labels and add the chosen weights."
         },
         {
@@ -458,7 +458,7 @@
       "steps": [
         {
           "index": 1,
-          "expression": "sampleSum=populationSum=141; n=N=12",
+          "expression": "∑xᵢ=∑Xᵢ=141; n=N=12",
           "reason": "Resolve the selected labels and add the chosen weights."
         },
         {
@@ -518,7 +518,7 @@
       "steps": [
         {
           "index": 1,
-          "expression": "sample=(8,9,9,10); sampleSum=36",
+          "expression": "selected masses = (8,9,9,10); ∑xᵢ=36",
           "reason": "Resolve the selected labels and add the chosen weights."
         },
         {
@@ -578,7 +578,7 @@
       "steps": [
         {
           "index": 1,
-          "expression": "sample=(13,14,8,9); sampleSum=44",
+          "expression": "selected masses = (13,14,8,9); ∑xᵢ=44",
           "reason": "Resolve the selected labels and add the chosen weights."
         },
         {
@@ -752,14 +752,14 @@
         "status": "invalid_parameters"
       }
     ],
-    "compute": "populationSize=12; populationSum=115+lastValue; populationMean=populationSum/populationSize; choose sampleSize cyclic consecutive distinct labels starting at startIndex; sampleSum=∑xᵢ; output=sampleMean=sampleSum/sampleSize; meanError=sampleMean-populationMean.",
+    "compute": "N = 12; ∑Xᵢ = 115 + x; μ = (115 + x)/12. Skip s crates and select n consecutive crates, continuing from crate 1 after crate 12. Then x̄ = (∑xᵢ)/n and E = x̄ − μ.",
     "numeric_tolerance": 1e-10,
     "invariants": [
-      "The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match.",
-      "The highlighted data value lastValue is in [0,30] kg. Only that one measured-value placeholder changes; the other eleven stipulated values stay fixed.",
+      "The finite population is twelve labeled crate masses in kilograms: [8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13, x]. Different crates remain distinct even when their masses match.",
+      "The last crate has mass x, with 0 ≤ x ≤ 30 kg. Only x changes; the other eleven masses stay fixed.",
       "Sample size n is an integer from 1 to 12. Skip s crates (an integer from 0 to 11), then select n consecutive crates. Continue from crate 1 after crate 12 (wraparound), without selecting a crate twice.",
-      "The sample mean is sampleSum/n. The population mean is populationSum/12. Both are arithmetic means measured in kilograms; sums and counts are distinct quantities.",
-      "The displayed mean difference E is sampleMean-populationMean, with its subtraction order and sign retained."
+      "The selected mean is x̄ = (∑xᵢ)/n. The population mean is μ = (∑Xᵢ)/12. Both means are measured in kilograms; totals and counts are different quantities.",
+      "The mean difference is E = x̄ − μ. A positive E means the selected crates have the higher average mass."
     ],
     "limits": [
       "Twelve stipulated observations, not a measured dataset or probability distribution.",

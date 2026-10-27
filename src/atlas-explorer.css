@@ -80,3 +80,18 @@
 @media(pointer:coarse){.world-touch-toggle{display:block}}
 @media(max-height:480px) and (orientation:landscape){.world-map-canvas .atlas-landscape-svg{height:65svh;min-height:160px}.world-camera-tools{display:flex}.world-locator,.world-touch-toggle{bottom:65px}}
 @media(prefers-reduced-motion:reduce){.atlas-explorer *{scroll-behavior:auto}}
+
+/* The complete overview is a flat field map, with a readable native key on phones. */
+.world-overview-key{display:none}
+.world-camera-bar{display:contents}
+.world-map[data-world-overview=true] .world-camera-bar{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:8px;margin-top:8px}
+.world-map[data-world-overview=true] .world-camera-tools{position:static;display:flex;gap:4px;padding:4px;background:#f4f1e7;border-color:#c7d1be}
+.world-map[data-world-overview=true] .world-locator{display:none}
+.world-map[data-world-overview=true] .world-touch-toggle{position:static;order:-1;margin-right:auto;min-height:44px}
+@media(max-width:760px){
+  .world-map[data-world-overview=true] .world-map-canvas .atlas-landscape-svg{height:auto;min-height:0;max-height:none;aspect-ratio:3/2}
+  .world-map[data-world-overview=true] .world-overview-key{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px;margin:8px 2px 0}
+  .world-overview-key button{display:flex;align-items:center;gap:7px;min-height:44px;border:0;border-bottom:1px solid #d6dfca;background:transparent;padding:8px 0;color:#263f38;font:500 12px/1.4 system-ui,sans-serif;text-align:left;cursor:pointer}
+  .world-overview-key button>span{flex:none;width:11px;height:11px;border:1px solid #7b8c75;border-radius:50%}
+  .world-map[data-world-overview=true] .world-map-status{font-size:11px}
+}

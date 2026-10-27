@@ -27,6 +27,19 @@
   }
   // Preserve definitions and identities; only a final numerical evaluation is approximate.
   function formulaLiteral(text,nextRole,moving){return moving&&['intermediate','output'].includes(nextRole)?text.replace(/=\s*$/,value=>value.replace('=','≈')):text;}
+  function presentation(story){
+    const compact=!!story.presentation?.compact;
+    return Object.freeze({compact,sceneReadout:compact,sceneControl:!compact,stepNavigation:!compact,timeline:!compact,replay:!compact});
+  }
+  function sceneOptions(story,width){return {view:story.view||'geometry',compact:Number.isFinite(width)&&width>0&&width<480,sceneControl:presentation(story).sceneControl};}
+  function markup(story,params,references=''){
+    const policy=presentation(story),compact=policy.compact;
+    const steps='<ol class="life-steps">'+story.steps.map((s,i)=>'<li><button type="button" data-step="'+i+'" aria-label="Show step '+(i+1)+': '+esc(s.title)+'"><span class="life-step-number">0'+(i+1)+'</span><strong>'+esc(s.title)+'</strong><span aria-hidden="true">↗</span></button><p data-body="'+i+'"></p><div class="life-formula" data-formula="'+i+'"></div></li>').join('')+'</ol>';
+    const answer='<div class="life-answer" aria-live="off">'+(compact?'':'<span class="life-answer-value"></span>')+'<span class="life-answer-note"></span></div>';
+    const worked=compact?'<details class="life-work"><summary>How the two averages change</summary>'+steps+answer+'</details>':steps+answer;
+    const variables=story.variables.map(v=>'<label class="life-variable">'+esc(v.label)+' <span><b data-variable-value="'+esc(v.key)+'"></b> '+esc(v.unit)+'</span><input type="range" data-story-param="'+esc(v.key)+'" min="'+v.min+'" max="'+v.max+'" step="any" value="'+params[v.key]+'" aria-label="'+esc(v.label)+'"></label>').join('');
+    return '<div class="life-heading"><p class="eyebrow">A REAL-WORLD STORY · TRY IT AS YOU READ</p><h2>'+esc(story.title)+'</h2>'+(compact?'':'<p>'+esc(story.summary)+'</p>')+'</div><div class="life-layout"><div class="life-copy"><p class="life-context">'+esc(story.context)+'</p><h3 class="life-question">'+esc(story.question)+'</h3>'+worked+'<details class="life-assumptions"><summary>What this story assumes</summary><ul>'+story.assumptions.map(a=>'<li>'+esc(a)+'</li>').join('')+'</ul><p class="fine">An illustrative scenario with chosen values.</p><p class="fine">References for the underlying rules:<br>'+references+'</p></details></div><div class="life-view"><div class="life-stage-wrap"><div class="life-stage-header"><span><i class="live-dot"></i> '+esc(story.eyebrow)+'</span><span data-running>READY TO PLAY</span></div><div class="life-scene"></div>'+(policy.sceneReadout?'':'<div class="life-readout"><span data-input></span><strong data-result></strong></div>')+'</div><div class="life-controls">'+variables+'<div class="life-playback"><button class="button" type="button" data-play>'+(compact?'Play change':'Play whole story')+' <span aria-hidden="true">▶</span></button>'+(policy.replay?'<button class="button secondary" type="button" data-replay>Start again ↺</button>':'')+(policy.timeline?'<span data-progress>0%</span>':'')+'</div>'+(policy.timeline?'<label class="life-timeline-label">Story timeline<input type="range" min="0" max="1" step="any" value="0" data-timeline aria-label="Story timeline"></label>':'')+'<p class="life-hint">'+esc(story.presentation?.controlHint||'Drag to follow the highlighted variable. Tap a colored value in the explanation to find its mark in the scene.')+'</p><div class="life-actions"><button class="text-link" type="button" data-explore>Explore these values in the playground ↓</button><button class="text-link" type="button" data-keep>Keep this moment ↗</button></div></div></div></div>';
+  }
   function mount(host,options){
     const story=options.story,slug=story.slug,timeline=story.timeline,variable=story.variables.find(v=>v.key===timeline.key),params=parametersAt(story,0);
     const controlBounds=Object.fromEntries(story.variables.map(({key,min,max,step})=>[key,{min,max,step}]));
@@ -38,24 +51,23 @@
     let activeStep=0,focus=story.steps[0].focus||'reference',followProgress=false,displaySettled=true,interacting=false;
     let playKind='whole',stepRun=null,selectedQuantity=null,calculation=null,inspector=null,semanticKeys=[];
     const unit=story.unit??(slug==='derivative'?'m/s':slug==='function-composition'?'m²':slug==='real-logarithm'?'stops':slug==='ratio-scale'?'g':slug==='linear-model'?'L':'px');
-    host.innerHTML='<div class="life-heading"><p class="eyebrow">A REAL-WORLD STORY · TRY IT AS YOU READ</p><h2>'+esc(story.title)+'</h2><p>'+esc(story.summary)+'</p></div><div class="life-layout"><div class="life-copy"><p class="life-context">'+esc(story.context)+'</p><h3 class="life-question">'+esc(story.question)+'</h3><ol class="life-steps">'+story.steps.map((s,i)=>'<li><button type="button" data-step="'+i+'" aria-label="Show step '+(i+1)+': '+esc(s.title)+'"><span class="life-step-number">0'+(i+1)+'</span><strong>'+esc(s.title)+'</strong><span aria-hidden="true">↗</span></button><p data-body="'+i+'"></p><div class="life-formula" data-formula="'+i+'"></div></li>').join('')+'</ol><div class="life-answer" aria-live="off"></div><details class="life-assumptions"><summary>What this story assumes</summary><ul>'+story.assumptions.map(a=>'<li>'+esc(a)+'</li>').join('')+'</ul><p class="fine">An illustrative scenario with chosen values.</p><p class="fine">References for the underlying rules:<br>'+references+'</p></details></div><div class="life-view"><div class="life-stage-wrap"><div class="life-stage-header"><span><i class="live-dot"></i> '+esc(story.eyebrow)+'</span><span data-running>READY TO PLAY</span></div><div class="life-scene"></div><div class="life-readout"><span data-input></span><strong data-result></strong></div></div><div class="life-controls"><div class="life-playback"><button class="button" type="button" data-play>Play whole story <span aria-hidden="true">▶</span></button><button class="button secondary" type="button" data-replay>Start again ↺</button><span data-progress>0%</span></div><label class="life-timeline-label">Story timeline<input type="range" min="0" max="1" step="any" value="0" data-timeline aria-label="Story timeline"></label>'+story.variables.map(v=>'<label class="life-variable">'+esc(v.label)+' <span><b data-variable-value="'+esc(v.key)+'"></b> '+esc(v.unit)+'</span><input type="range" data-story-param="'+esc(v.key)+'" min="'+v.min+'" max="'+v.max+'" step="any" value="'+params[v.key]+'" aria-label="'+esc(v.label)+'"></label>').join('')+'<p class="life-hint">Drag the glowing handle or the slider. Follow the numbers and the frame together.</p><div class="life-actions"><button class="text-link" type="button" data-explore>Explore these values in the playground ↓</button><button class="text-link" type="button" data-keep>Keep this moment ↗</button></div></div></div></div>';
+    host.innerHTML=markup(story,params,references);
     const scene=host.querySelector('.life-scene'),play=host.querySelector('[data-play]');
-    const compact=!!story.presentation?.compact;host.dataset.presentation=compact?'compact':'full';if(compact)host.querySelector('.life-timeline-label').hidden=true;
+    const policy=presentation(story),compact=policy.compact;host.dataset.presentation=compact?'compact':'full';
     const connection=document.createElement('div');connection.className='life-connection';
     connection.innerHTML='<div class="life-step-context"><span data-step-context></span><strong data-focus-title></strong></div><p data-focus-description></p><div class="life-link-keys" aria-label="Find a quantity in the scene">'+['reference','input','intermediate','output'].map(role=>'<button type="button" data-link-role="'+role+'" aria-pressed="false">'+esc(role==='input'?variable.symbol+' · '+link.variableLabel:role==='intermediate'?'The transformation':role==='output'?'The result':'The reference')+'</button>').join('')+'</div>';
-    scene.before(connection);
+    if(compact)host.querySelector('.life-work').insertBefore(connection,host.querySelector('.life-steps'));else scene.before(connection);
     const reader=document.createElement('details');reader.className='life-reader';reader.open=matchMedia('(max-width:760px)').matches;
     reader.innerHTML='<summary>Read this step</summary>'+story.steps.map((step,i)=>'<div class="life-reader-step" data-story-index="'+i+'" '+(i?'hidden':'')+'><p class="life-reader-body"></p><div class="life-reader-formula life-formula"></div></div>').join('');
     const legend=connection.querySelector('.life-link-keys'),keyFold=document.createElement('details');keyFold.className='life-key-fold';keyFold.innerHTML='<summary>Scene key</summary>';keyFold.append(legend);
     const stepNav=document.createElement('div');stepNav.className='life-step-nav';stepNav.innerHTML='<button type="button" data-step-back aria-label="Previous story step">← Back</button><button type="button" data-play-step>Show the start</button><button type="button" data-step-next aria-label="Next story step">Next →</button>';
     const counter=document.createElement('span');counter.className='life-reader-counter';
     const traceHost=document.createElement('div');
-    if(compact){const traceFold=document.createElement('details');traceFold.className='life-calculation-fold';traceFold.innerHTML='<summary>Follow each calculation</summary>';traceFold.append(traceHost);reader.hidden=true;connection.append(traceFold,counter,stepNav,keyFold);}
+    if(compact){reader.hidden=true;connection.append(traceHost,keyFold);}
     else connection.append(traceHost,reader,counter,stepNav,keyFold);
     calculation=Flow.mount(traceHost,{story,readable:Readable,quantityFor:key=>Links.quantityFor(slug,key),formatLiteral:formulaLiteral,reducedMotion:()=>media.matches,onPhase:stage=>{selectedQuantity=stage;focus=stage.role;paintLinks();}});
     const status=document.createElement('p');status.className='sr-only life-step-status';status.setAttribute('role','status');status.setAttribute('aria-live','polite');host.append(status);
-    host.querySelector('.life-hint').textContent='Drag to follow the highlighted variable. Tap a colored value in the explanation to find its mark in the scene.';
-    const readingHint=document.createElement('p');readingHint.className='life-reading-hint';readingHint.textContent='Rounded readings while moving. Pause for a closer look.';host.querySelector('.life-readout').after(readingHint);
+    const readingHint=document.createElement('p');readingHint.className='life-reading-hint';readingHint.textContent='Rounded readings while moving. Pause for a closer look.';if(!compact)host.querySelector('.life-readout').after(readingHint);
     const tokens=[],formulaText=[];
     function compile(node,template){
       node.replaceChildren();
@@ -70,7 +82,7 @@
     story.steps.forEach((step,i)=>{compile(host.querySelector('[data-body="'+i+'"]'),step.body);compile(host.querySelector('[data-formula="'+i+'"]'),step.formula);});
     const readerRows=Array.from(reader.querySelectorAll('.life-reader-step'));
     readerRows.forEach((row,i)=>{compile(row.querySelector('.life-reader-body'),story.steps[i].body);compile(row.querySelector('.life-reader-formula'),story.steps[i].formula);});
-    const answer=host.querySelector('.life-answer');answer.innerHTML='<span class="life-answer-value"></span><span class="life-answer-note"></span>';
+    const answer=host.querySelector('.life-answer');
     function focusInfo(){
       const step=story.steps[activeStep];
       if(selectedQuantity)return selectedQuantity;
@@ -97,24 +109,24 @@
       if(destroyed)return;display={...p};phase+=(meta.dt||0)/1000;
       if(followProgress){const index=Journey.stepAt(story,coordinate(p));if(index!==activeStep){activeStep=index;selectedQuantity=null;focus=story.steps[index].focus||Links.focusFor(slug,index).focus;if(playing)calculation?.begin({restart:true});}}
       const settled=!!meta.settled&&!playing&&!interacting,showText=pacer.take({settled,force:meta.forceText}),reading={settled};displaySettled=settled;
-      P.renderInto(scene,Scenes.render(slug,p,{id:'life-'+slug,view:story.view||'geometry',storyFocus:focus,compact:scene.clientWidth>0&&scene.clientWidth<480,controlBounds,...inspector?.viewOptions()}),{preserveText:!showText,formatText:text=>Readable.formatText(text,reading)});Motion.paintGradients(scene,p,phase,media.matches);paintLinks();
+      P.renderInto(scene,Scenes.render(slug,p,{id:'life-'+slug,...sceneOptions(story,scene.clientWidth),storyFocus:focus,controlBounds,...inspector?.viewOptions()}),{preserveText:!showText,formatText:text=>Readable.formatText(text,reading)});Motion.paintGradients(scene,p,phase,media.matches);paintLinks();
       if(!showText)return;
       inspector?.update(p,reading);
       const values=Scenes.values(slug,p);calculation?.update(values,reading);const current=Readable.format(Scenes.primaryValue(slug,p),reading)+' '+unit;
-      Readable.writeText(host.querySelector('[data-input]'),variable.symbol+(settled?' = ':' ≈ ')+Readable.format(p[variable.key],reading)+' '+variable.unit);
-      Readable.writeText(host.querySelector('[data-result]'),(settled?'':'≈ ')+current);
+      if(!policy.sceneReadout)Readable.writeText(host.querySelector('[data-input]'),variable.symbol+(settled?' = ':' ≈ ')+Readable.format(p[variable.key],reading)+' '+variable.unit);
+      if(!policy.sceneReadout)Readable.writeText(host.querySelector('[data-result]'),(settled?'':'≈ ')+current);
       tokens.forEach(token=>{const value=Readable.format(Object.hasOwn(values,token.key)?values[token.key]:undefined,token.quantity?.precision?{settled:true,precision:token.quantity.precision}:reading);Readable.writeText(token.value,value);const label=(token.quantity?.label||link.variableLabel)+' '+value+'. Show its place in the scene.';if(token.button.getAttribute('aria-label')!==label)token.button.setAttribute('aria-label',label);});
       formulaText.forEach(part=>{const value=formulaLiteral(part.text,part.nextRole,!settled);if(part.node.nodeValue!==value)part.node.nodeValue=value;});
-      Readable.writeText(answer.querySelector('.life-answer-value'),(settled?'Current reading: ':'Moving reading: ')+current);
-      Readable.writeText(answer.querySelector('.life-answer-note'),atGoal(p)?conclusionAt(p):'Move to the final story marker to check the original question.');answer.classList.toggle('is-solved',atGoal(p));
+      if(!compact)Readable.writeText(answer.querySelector('.life-answer-value'),(settled?'Current reading: ':'Moving reading: ')+current);
+      Readable.writeText(answer.querySelector('.life-answer-note'),atGoal(p)?conclusionAt(p):compact?'Set '+variable.label.toLowerCase()+' to '+format(story.parameters[variable.key])+' '+variable.unit+' to check the question.':'Move to the final story marker to check the original question.');answer.classList.toggle('is-solved',atGoal(p));
       story.variables.forEach(v=>Readable.writeText(host.querySelector('[data-variable-value="'+v.key+'"]'),Readable.format(p[v.key],v.precision?{settled:true,precision:v.precision}:reading)));
-      Readable.writeText(host.querySelector('[data-progress]'),Math.round(coordinate(p)*100)+'%');
+      if(policy.timeline)Readable.writeText(host.querySelector('[data-progress]'),Math.round(coordinate(p)*100)+'%');
     }
     const follower=Motion.createFollower({initial:params,onFrame:draw,reducedMotion:()=>media.matches,canInterpolate:(a,b)=>M.validateParams(slug,a).valid&&M.validateParams(slug,b).valid});
-    function sync(){progress=coordinate(params);host.querySelector('[data-timeline]').value=progress;story.variables.forEach(v=>host.querySelector('[data-story-param="'+v.key+'"]').value=params[v.key]);}
+    function sync(){progress=coordinate(params);if(policy.timeline)host.querySelector('[data-timeline]').value=progress;story.variables.forEach(v=>host.querySelector('[data-story-param="'+v.key+'"]').value=params[v.key]);}
     function update(next,immediate=false){Object.assign(params,next);sync();follower.setTarget(params,{immediate});}
     function announce(text){Readable.writeText(status,text);}
-    function stop(settle=true,cancelTrace=true){if(cancelTrace)calculation?.cancel();playing=false;if(clock!==null)cancelAnimationFrame(clock);clock=null;last=null;Readable.writeText(play,'Play whole story ▶');play.setAttribute('aria-pressed','false');Readable.writeText(host.querySelector('[data-running]'),'PAUSED · TAKE YOUR TIME');if(settle){interacting=false;follower.settle();}else paintLinks();}
+    function stop(settle=true,cancelTrace=true){if(cancelTrace)calculation?.cancel();playing=false;if(clock!==null)cancelAnimationFrame(clock);clock=null;last=null;Readable.writeText(play,compact?(progress>=1?'Replay change ▶':'Play change ▶'):'Play whole story ▶');play.setAttribute('aria-pressed','false');Readable.writeText(host.querySelector('[data-running]'),'PAUSED · TAKE YOUR TIME');if(settle){interacting=false;follower.settle();}else paintLinks();}
     function startClock(kind){calculation?.begin({restart:true});playKind=kind;playing=true;last=null;Readable.writeText(play,'Pause ❚❚');play.setAttribute('aria-pressed','true');Readable.writeText(host.querySelector('[data-running]'),kind==='step'?'PLAYING THIS STEP':'PLAYING THE WHOLE STORY');paintLinks();clock=requestAnimationFrame(tick);}
     function tick(now){
       if(!playing||destroyed)return;
@@ -157,9 +169,9 @@
     stepNav.querySelector('[data-play-step]').onclick=playStep;
     stepNav.querySelector('[data-step-back]').onclick=()=>chooseStep(Journey.nextIndex(story,activeStep,-1));
     stepNav.querySelector('[data-step-next]').onclick=()=>chooseStep(Journey.nextIndex(story,activeStep,1));
-    host.querySelector('[data-replay]').onclick=()=>chooseStep(0);
-    host.querySelector('[data-timeline]').oninput=ev=>{stop(false,false);calculation?.begin();stepRun=null;selectedQuantity=null;followProgress=true;update(frameAt(Number(ev.target.value)));};
-    function manual(key=variable.key){stop(false,false);if(!interacting)calculation?.begin();stepRun=null;selectedQuantity=Links.quantityFor(slug,key);followProgress=false;focus='input';}
+    if(policy.replay)host.querySelector('[data-replay]').onclick=()=>chooseStep(0);
+    if(policy.timeline)host.querySelector('[data-timeline]').oninput=ev=>{stop(false,false);calculation?.begin();stepRun=null;selectedQuantity=null;followProgress=true;update(frameAt(Number(ev.target.value)));};
+    function manual(key=variable.key){stop(false,false);if(!interacting)calculation?.begin();stepRun=null;const quantity=Links.quantityFor(slug,key);selectedQuantity=quantity?{...quantity,key}:null;followProgress=false;focus='input';}
     function endInteraction(){if(interacting){interacting=false;follower.settle();}}
     host.querySelectorAll('input[type=range]').forEach(input=>{input.onpointerdown=()=>{interacting=true;calculation?.begin({restart:true});};input.onchange=()=>{interacting=false;follower.settle();};});
     host.addEventListener('pointerup',endInteraction);host.addEventListener('pointercancel',endInteraction);
@@ -168,7 +180,7 @@
     const selectLink=event=>{
       const token=event.target.closest('[data-link-role]');if(!token||!host.contains(token))return;
       const row=token.closest('[data-body],[data-formula],[data-story-index]'),index=row?Number(row.dataset.body??row.dataset.formula??row.dataset.storyIndex):activeStep,key=token.dataset.tokenKey;
-      if(row&&!reader.contains(token)&&event.type==='click'&&matchMedia('(max-width:760px)').matches)connection.scrollIntoView({block:'start',behavior:media.matches?'instant':'smooth'});
+      if(row&&!reader.contains(token)&&event.type==='click'&&matchMedia('(max-width:760px)').matches)(compact?scene:connection).scrollIntoView({block:'start',behavior:media.matches?'instant':'smooth'});
       if(token.dataset.linkRole===focus&&index===activeStep&&selectedQuantity?.key===key)return;
       calculation?.cancel();if(playing)stop();if(index!==activeStep)stepRun=null;
       const quantity=key?Links.quantityFor(slug,key):null;selectedQuantity=quantity?{...quantity,key}:null;
@@ -188,5 +200,5 @@
     resize?.observe(scene);
     return {slug,slot:'life-'+slug,selectQuantities(keys){semanticKeys=Array.isArray(keys)?[...keys]:[];selectedQuantity=null;return globalThis.AtlasSemanticLinks.paint(scene,semanticKeys);},pause:()=>stop(),getParameters:()=>({...params}),destroy(){stop();destroyed=true;resize?.disconnect();calculation?.destroy();inspector?.destroy();follower.destroy();input.destroy();document.removeEventListener('visibilitychange',visibility);media.removeEventListener?.('change',reduced);host.removeEventListener('click',selectLink);host.removeEventListener('focusin',selectLink);host.removeEventListener('pointerup',endInteraction);host.removeEventListener('pointercancel',endInteraction);host.querySelectorAll('button,input').forEach(el=>{el.onclick=null;el.oninput=null;el.onchange=null;el.onpointerdown=null;});}};
   }
-  return Object.freeze({mount,parametersAt,formatTemplate,templateParts,tokenRole,formulaLiteral});
+  return Object.freeze({mount,markup,presentation,sceneOptions,parametersAt,formatTemplate,templateParts,tokenRole,formulaLiteral});
 });

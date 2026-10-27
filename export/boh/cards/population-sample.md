@@ -1,12 +1,12 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:population-sample", "id": "math:concept:population-sample", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:population-sample", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.2.0-draft", "upstream_content_sha256": "2afb0013ef968a735f7a88f4553895b1c56bc8fc8338a2afe4d28415dd6378dc"}, "purpose": "Compare a selected sample with the whole population and see how one changed value affects each mean.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "2afb0013ef968a735f7a88f4553895b1c56bc8fc8338a2afe4d28415dd6378dc", "status": "draft", "title": "Population and sample", "topics": ["mathematics", "statistics", "probability", "modeling", "sample mean", "population mean", "sample selection"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.2.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:population-sample", "id": "math:concept:population-sample", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:population-sample", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.3.0-draft", "upstream_content_sha256": "ef5808a5e30de8ddf6eb5c3503b0edd1e21f4db00a1ccb78782f287f50de33c7"}, "purpose": "Compare a selected sample with the whole population and see how one changed value affects each mean.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "ef5808a5e30de8ddf6eb5c3503b0edd1e21f4db00a1ccb78782f287f50de33c7", "status": "draft", "title": "Population and sample", "topics": ["mathematics", "statistics", "probability", "modeling", "sample mean", "population mean", "sample selection"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.3.0-draft"}
 ---
 
 # Population and sample
 
 Draft teaching specimen. A registered interactive renderer is available in the accompanying application; retained source fields describe the original specimen and its pending review.
 
-Definition unit math:concept:population-sample; revision 0.2.0-draft. Setting: Descriptive statistics for a known finite population of twelve distinctly labeled crate weights. Selection is a deliberate cyclic window, not a random experiment. Expression: $\overline{x}=\frac{\sum_{i=1}^{n}x_i}{n},\quad \mu=\frac{\sum_{i=1}^{12}X_i}{12},\quad E=\overline{x}-\mu.$. Conditions required for a defined value (a case may test their violation): The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match. The highlighted data value lastValue is in [0,30] kg. Only that one measured-value placeholder changes; the other eleven stipulated values stay fixed. Sample size n is an integer from 1 to 12. Skip s crates (an integer from 0 to 11), then select n consecutive crates. Continue from crate 1 after crate 12 (wraparound), without selecting a crate twice. The sample mean is sampleSum/n. The population mean is populationSum/12. Both are arithmetic means measured in kilograms; sums and counts are distinct quantities. The displayed mean difference E is sampleMean-populationMean, with its subtraction order and sign retained. This deliberately chosen contiguous window is not a simple random sample. No randomization, unbiased-estimator guarantee, confidence interval or sampling distribution is produced. A census uses all twelve distinct crate labels and makes the sample mean equal to this known finite-population mean. If the highlighted crate is outside the selected sample, changing it leaves the sample mean fixed while changing the population mean. Scope: The broader subject distinguishes descriptive summaries from statistical inference. This specimen has a known finite population and deterministic sample selection. It does not simulate random sampling, infer an unknown population mean, produce a confidence level, or implement sample variance. The ordering of the labeled crates does not imply that observations are independent random draws.
+Definition unit math:concept:population-sample; revision 0.3.0-draft. Setting: Descriptive statistics for a known finite population of twelve distinctly labeled crate weights. Selection is a deliberate cyclic window, not a random experiment. Expression: $\overline{x}=\frac{\sum_{i=1}^{n}x_i}{n},\quad \mu=\frac{\sum_{i=1}^{12}X_i}{12},\quad E=\overline{x}-\mu.$. Conditions required for a defined value (a case may test their violation): The finite population is twelve labeled crate masses in kilograms: [8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13, x]. Different crates remain distinct even when their masses match. The last crate has mass x, with 0 ≤ x ≤ 30 kg. Only x changes; the other eleven masses stay fixed. Sample size n is an integer from 1 to 12. Skip s crates (an integer from 0 to 11), then select n consecutive crates. Continue from crate 1 after crate 12 (wraparound), without selecting a crate twice. The selected mean is x̄ = (∑xᵢ)/n. The population mean is μ = (∑Xᵢ)/12. Both means are measured in kilograms; totals and counts are different quantities. The mean difference is E = x̄ − μ. A positive E means the selected crates have the higher average mass. This deliberately chosen contiguous window is not a simple random sample. No randomization, unbiased-estimator guarantee, confidence interval or sampling distribution is produced. A census uses all twelve distinct crate labels and makes the sample mean equal to this known finite-population mean. If the highlighted crate is outside the selected sample, changing it leaves the sample mean fixed while changing the population mean. Scope: The broader subject distinguishes descriptive summaries from statistical inference. This specimen has a known finite population and deterministic sample selection. It does not simulate random sampling, infer an unknown population mean, produce a confidence level, or implement sample variance. The ordering of the labeled crates does not imply that observations are independent random draws.
 
 ## Schema Version
 
@@ -30,7 +30,7 @@ Population and sample
 
 ## Revision
 
-0.2.0-draft
+0.3.0-draft
 
 ## Publication Status
 
@@ -91,21 +91,21 @@ A population is the complete collection under study, while a sample is a selecte
 - setting: Descriptive statistics for a known finite population of twelve distinctly labeled crate weights. Selection is a deliberate cyclic window, not a random experiment.
 - formal latex: \overline{x}=\frac{\sum_{i=1}^{n}x_i}{n},\quad \mu=\frac{\sum_{i=1}^{12}X_i}{12},\quad E=\overline{x}-\mu.
 - signature:
-  - x,lastValue: Highlighted final crate weight in [0,30] kilograms.
-  - n,sampleSize: Integer number of selected crates in [1,12].
-  - s,startIndex: Zero-based cyclic starting index in [0,11].
-  - N,populationSize: Fixed population count twelve.
-  - ∑xᵢ,sampleSum: Sum of the n selected crate weights.
-  - ∑Xᵢ,populationSum: Sum of all twelve crate weights.
-  - x̄,sampleMean: Primary sample mean in kilograms.
-  - μ,populationMean: Known finite-population mean in kilograms.
-  - E,meanError: Sample mean minus population mean, in kilograms.
+  - x: Mass of the changing last crate, from 0 to 30 kilograms.
+  - n: Integer number of selected crates in [1,12].
+  - s: Number of crates skipped before selection, an integer from 0 to 11.
+  - N: Fixed population count twelve.
+  - ∑xᵢ: Sum of the n selected crate weights.
+  - ∑Xᵢ: Sum of all twelve crate weights.
+  - x̄: Primary sample mean in kilograms.
+  - μ: Known finite-population mean in kilograms.
+  - E: Sample mean minus population mean, in kilograms.
 - conditions:
-  - The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match.
-  - The highlighted data value lastValue is in [0,30] kg. Only that one measured-value placeholder changes; the other eleven stipulated values stay fixed.
+  - The finite population is twelve labeled crate masses in kilograms: [8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13, x]. Different crates remain distinct even when their masses match.
+  - The last crate has mass x, with 0 ≤ x ≤ 30 kg. Only x changes; the other eleven masses stay fixed.
   - Sample size n is an integer from 1 to 12. Skip s crates (an integer from 0 to 11), then select n consecutive crates. Continue from crate 1 after crate 12 (wraparound), without selecting a crate twice.
-  - The sample mean is sampleSum/n. The population mean is populationSum/12. Both are arithmetic means measured in kilograms; sums and counts are distinct quantities.
-  - The displayed mean difference E is sampleMean-populationMean, with its subtraction order and sign retained.
+  - The selected mean is x̄ = (∑xᵢ)/n. The population mean is μ = (∑Xᵢ)/12. Both means are measured in kilograms; totals and counts are different quantities.
+  - The mean difference is E = x̄ − μ. A positive E means the selected crates have the higher average mass.
   - This deliberately chosen contiguous window is not a simple random sample. No randomization, unbiased-estimator guarantee, confidence interval or sampling distribution is produced.
   - A census uses all twelve distinct crate labels and makes the sample mean equal to this known finite-population mean.
   - If the highlighted crate is outside the selected sample, changing it leaves the sample mean fixed while changing the population mean.
@@ -119,21 +119,21 @@ A population is the complete collection under study, while a sample is a selecte
 
 - pronunciation: Population and sample
 - expression latex: \overline{x}=\frac{\sum_{i=1}^{n}x_i}{n},\quad \mu=\frac{\sum_{i=1}^{12}X_i}{12},\quad E=\overline{x}-\mu.
-- formation rule: populationSize=12; populationSum=115+lastValue; populationMean=populationSum/populationSize; choose sampleSize cyclic consecutive distinct labels starting at startIndex; sampleSum=∑xᵢ; output=sampleMean=sampleSum/sampleSize; meanError=sampleMean-populationMean.
+- formation rule: N = 12; ∑Xᵢ = 115 + x; μ = (115 + x)/12. Skip s crates and select n consecutive crates, continuing from crate 1 after crate 12. Then x̄ = (∑xᵢ)/n and E = x̄ − μ.
 - precedence: Choose the distinct crate labels first, add their weights once each, and divide by their positive count. Compute the full-population sum separately before comparing the two means.
 - symbols:
   - Item:
     - token: x
-    - role: Highlighted last-crate weight, stored as lastValue
+    - role: Mass of the changing last crate
     - type: Nonnegative real data value in kilograms
   - Item:
     - token: n
-    - role: Number of selected distinct crates, stored as sampleSize
+    - role: Number of selected distinct crates
     - type: Positive integer count
   - Item:
     - token: s
-    - role: Zero-based starting crate index, stored as startIndex
-    - type: Integer index from 0 to 11
+    - role: Number of crates skipped before selecting the sample
+    - type: Integer count from 0 to 11
   - Item:
     - token: N
     - role: Number of distinct crates in the finite population
@@ -177,14 +177,14 @@ A population is the complete collection under study, while a sample is a selecte
     - Item:
       - id: n:startIndex
       - kind: variable
-      - type: Zero-based integer label index
+      - type: Integer count of crates skipped
       - symbol: startIndex
       - scope ref: scope:population-sample:expression
     - Item:
       - id: n:populationRule
       - kind: functionRef
       - type: Real to ordered twelve-value population
-      - ref: Append lastValue to the fixed eleven crate weights [8,9,9,10,10,10,11,11,12,12,13].
+      - ref: Append mass x to the eleven fixed masses [8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13].
     - Item:
       - id: n:population
       - kind: apply
@@ -195,7 +195,7 @@ A population is the complete collection under study, while a sample is a selecte
       - id: n:sampleRule
       - kind: functionRef
       - type: Integer to index to population to selected value list
-      - ref: Given sampleSize, the number of crates to skip, and the population, select that many consecutive distinct crates, returning to crate 1 after the last.
+      - ref: Select n consecutive distinct crates after skipping s crates; continue from crate 1 after the last.
     - Item:
       - id: n:sizeRule
       - kind: apply
@@ -240,7 +240,7 @@ A population is the complete collection under study, while a sample is a selecte
         - lastValue
         - sampleSize
         - startIndex
-      - domain condition: The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match.
+      - domain condition: The finite population is twelve labeled crate masses in kilograms: [8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13, x]. Different crates remain distinct even when their masses match.
 - parse errors:
   - Item:
     - input: Divide a sample sum by zero selected observations
@@ -344,7 +344,7 @@ A population is the complete collection under study, while a sample is a selecte
   - steps:
     - Item:
       - index: 1
-      - expression: sample=(12,12,13,14); sampleSum=51
+      - expression: selected masses = (12,12,13,14); ∑xᵢ=51
       - reason: Resolve the selected labels and add the chosen weights.
     - Item:
       - index: 2
@@ -392,7 +392,7 @@ A population is the complete collection under study, while a sample is a selecte
   - steps:
     - Item:
       - index: 1
-      - expression: sample=(12,12,13,26); sampleSum=63
+      - expression: selected masses = (12,12,13,26); ∑xᵢ=63
       - reason: Resolve the selected labels and add the chosen weights.
     - Item:
       - index: 2
@@ -440,7 +440,7 @@ A population is the complete collection under study, while a sample is a selecte
   - steps:
     - Item:
       - index: 1
-      - expression: sampleSum=populationSum=141; n=N=12
+      - expression: ∑xᵢ=∑Xᵢ=141; n=N=12
       - reason: Resolve the selected labels and add the chosen weights.
     - Item:
       - index: 2
@@ -488,7 +488,7 @@ A population is the complete collection under study, while a sample is a selecte
   - steps:
     - Item:
       - index: 1
-      - expression: sample=(8,9,9,10); sampleSum=36
+      - expression: selected masses = (8,9,9,10); ∑xᵢ=36
       - reason: Resolve the selected labels and add the chosen weights.
     - Item:
       - index: 2
@@ -536,7 +536,7 @@ A population is the complete collection under study, while a sample is a selecte
   - steps:
     - Item:
       - index: 1
-      - expression: sample=(13,14,8,9); sampleSum=44
+      - expression: selected masses = (13,14,8,9); ∑xᵢ=44
       - reason: Resolve the selected labels and add the chosen weights.
     - Item:
       - index: 2
@@ -672,14 +672,14 @@ A population is the complete collection under study, while a sample is a selecte
       - sampleSize: 4
       - startIndex: 12
     - status: invalid_parameters
-- compute: populationSize=12; populationSum=115+lastValue; populationMean=populationSum/populationSize; choose sampleSize cyclic consecutive distinct labels starting at startIndex; sampleSum=∑xᵢ; output=sampleMean=sampleSum/sampleSize; meanError=sampleMean-populationMean.
+- compute: N = 12; ∑Xᵢ = 115 + x; μ = (115 + x)/12. Skip s crates and select n consecutive crates, continuing from crate 1 after crate 12. Then x̄ = (∑xᵢ)/n and E = x̄ − μ.
 - numeric tolerance: 1e-10
 - invariants:
-  - The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match.
-  - The highlighted data value lastValue is in [0,30] kg. Only that one measured-value placeholder changes; the other eleven stipulated values stay fixed.
+  - The finite population is twelve labeled crate masses in kilograms: [8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13, x]. Different crates remain distinct even when their masses match.
+  - The last crate has mass x, with 0 ≤ x ≤ 30 kg. Only x changes; the other eleven masses stay fixed.
   - Sample size n is an integer from 1 to 12. Skip s crates (an integer from 0 to 11), then select n consecutive crates. Continue from crate 1 after crate 12 (wraparound), without selecting a crate twice.
-  - The sample mean is sampleSum/n. The population mean is populationSum/12. Both are arithmetic means measured in kilograms; sums and counts are distinct quantities.
-  - The displayed mean difference E is sampleMean-populationMean, with its subtraction order and sign retained.
+  - The selected mean is x̄ = (∑xᵢ)/n. The population mean is μ = (∑Xᵢ)/12. Both means are measured in kilograms; totals and counts are different quantities.
+  - The mean difference is E = x̄ − μ. A positive E means the selected crates have the higher average mass.
 - limits:
   - Twelve stipulated observations, not a measured dataset or probability distribution.
   - Sample selection is deterministic and cyclic; it does not establish representativeness or unbiasedness.

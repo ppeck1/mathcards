@@ -81,11 +81,13 @@ test('identifiers, authored labels and descriptions remain inert and independent
   for(const ref of a.matchAll(/url\(#([^\)]+)\)/g))assert.ok(idsA.has(ref[1]));
 });
 
-test('baked relief remains independent of semantic targets, with no enclosure or pill artwork',()=>{
+test('flat field colors identify semantic territories without encoding invented elevation',()=>{
   const html=Landscape.render({regions,selectedRegion:'structures'});
-  assert.ok(html.includes('class="atlas-relief" aria-hidden="true" pointer-events="none"'));
-  assert.ok(html.includes('data:image/png;base64,'));
-  assert.ok(html.includes('class="atlas-contours"'));
+  assert.ok(html.includes('class="atlas-field-territories"'));
+  assert.doesNotMatch(html,/<image\b|<filter\b|data:image|atlas-relief|atlas-contours|elevation|mountain/i);
+  assert.ok(html.includes('Territory colors identify fields.'));
+  for(const region of regions)assert.match(Landscape.regionColor(region.id),/^#[a-f0-9]{6}$/i);
+  assert.equal(Landscape.regionColor('not-a-field'),'#e8ecdf');
   assert.ok(!html.includes('atlas-terrain-motif'));
   const topics=[...html.matchAll(/<g class="atlas-terrain-topic[^>]*>([\s\S]*?)<\/g>/g)];
   assert.equal(topics.length,24);
@@ -93,6 +95,21 @@ test('baked relief remains independent of semantic targets, with no enclosure or
     assert.ok(body.includes('class="atlas-marker-target" r="22"'),'A small marker has a 44 CSS pixel inverse-scaled target');
     assert.ok(!body.includes('<rect'),'No three rectangular topic-pill stacks');
     assert.ok(!body.includes('data-atlas-region='));
+  }
+});
+
+test('a phone overview shows all eight field names on the complete map without label collisions',()=>{
+  for(const width of [280,300,320,345,360,390,430]){
+    const viewport={width,height:width*2/3};
+    const labels=Landscape.labelLayout({regions,viewBox:Landscape.overviewBounds(),viewport});
+    assert.equal(labels.length,8);
+    assert.ok(labels.every(label=>label.visible),'All eight labels are visible at '+width+' px');
+    assert.deepEqual(new Set(labels.map(label=>label.text)),new Set(regions.map(region=>region.shortTitle)));
+    for(const label of labels){assert.equal(label.fontSize,13);assert.ok(label.box.x>=7&&label.box.y>=7&&label.box.x+label.box.width<=width-7&&label.box.y+label.box.height<=viewport.height-7);}
+    for(let i=0;i<labels.length;i++)for(let j=i+1;j<labels.length;j++){
+      const a=labels[i].box,b=labels[j].box;
+      assert.ok(a.x+a.width+6<=b.x||b.x+b.width+6<=a.x||a.y+a.height+5<=b.y||b.y+b.height+5<=a.y);
+    }
   }
 });
 

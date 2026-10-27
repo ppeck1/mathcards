@@ -25,7 +25,7 @@
       assumptions:['The twelve candidate heights are exactly the stipulated integers 1 through 12 cm; this is an original workshop teaching scenario.','A uses the inclusive test size<=a and B uses the inclusive test size>=b. Equality at either limit is admitted.','The story uses intersection. The playground can also compare union and A minus B, with the same fixed universe.','The result set and its cardinality are different objects. This finite example does not exhaust set theory or supply a general proof system.'],sourceRefs:['source:openstax:basic-set-concepts','source:openstax:two-set-operations']
     },
     {
-      id:'story:crate-sample-window',slug:'population-sample',scene:'twelve-crate-measurements',unit:'kg',title:'Do the last four crates represent all twelve?',eyebrow:'One crate · two averages',presentation:{compact:true},
+      id:'story:crate-sample-window',slug:'population-sample',scene:'twelve-crate-measurements',unit:'kg',title:'Do the last four crates represent all twelve?',eyebrow:'One crate · two averages',presentation:{compact:true,controlHint:'Move the mass slider. The outlined crate changes; both averages follow.'},
       summary:'Adjust one crate and compare the selected sample mean with the mean of all twelve crates.',
       context:'A packing team knows the masses of twelve crates: 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13 and x kilograms. A quick check uses the last four crates, chosen by position. Repack the last crate and watch two averages change: the selected four and the whole twelve.',
       question:'If the last crate is repacked to 26 kg, what are the last-four mean and the all-twelve mean, and how far apart are they?',

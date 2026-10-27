@@ -5,7 +5,29 @@ Field membership describes where an idea is useful in this edition; fields
 overlap. It is not a complete classification of mathematics, an account of the
 research frontier, or a sequence every learner must follow.
 
-## Continuous terrain and navigation preview (0.23.0)
+## Flat field navigation (0.24.0)
+
+The current Map view uses flat categorical territory colors. It has no relief
+image, contours, lake or elevation. The earlier decorative terrain did not
+represent a measured quantity and has been removed from the current renderer.
+The existing territory/area providers still own memberships, actual counts,
+availability, planned status and destinations. No height or surface area is
+assigned a new mathematical meaning.
+
+Overview always fits the complete 1200 × 800 world, including on phones. A
+phone overview keeps a landscape aspect ratio, shows all eight familiar short
+field labels and provides a two-column native full-name territory key with
+44 px targets. Its camera controls sit below the canvas. Territory and area
+views retain local focus, screen-sized semantic labels, readable lists,
+keyboard/touch navigation, reduced motion, browser history and scoped cleanup.
+
+The stable routes and Concept connections view remain unchanged. See the
+[flat atlas contract](FLAT_ATLAS.md) for module boundaries and targeted checks.
+
+## Historical terrain and navigation implementation (0.23.0)
+
+This section records the 0.23 implementation; the flat map above supersedes
+its relief rendering and portrait crop.
 
 The Landscape view now layers stable semantic navigation over a single baked
 relief surface. `atlas-terrain-recipe.json` and `tools/build_terrain.py` generate

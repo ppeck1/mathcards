@@ -20,11 +20,10 @@ preview commands. The offline entry points below remain available.
 
 ## Open the application
 
-The 0.23 preview adds a baked terrain atlas, build-time reference indexing,
-learner-oriented browse order and a quieter, responsive crate story. See the
-[terrain recipe and navigation contract](docs/TERRAIN_ATLAS.md) and
-[preview review](docs/BUILD_REVIEW_0_23_0.md). This preview branch does not deploy
-to the live demo until merged into `main`.
+Version 0.24 uses a flat topic map with all eight territories in the overview,
+one shared crate-comparison chart across screens, and one primary control per
+variable. See the [flat-map contract](docs/FLAT_ATLAS.md) and
+[current review](docs/BUILD_REVIEW_0_24_0.md).
 
 1. Extract this ZIP into a folder.
 2. Open **`START_HERE.html`** (or **`dist/index.html`**) in a modern browser such as Chrome, Edge, Firefox
@@ -549,7 +548,7 @@ Then visit `http://localhost:8080`. Stop the server with Ctrl+C.
 ## Build and verify
 
 The build uses Python 3.11's standard library and Node.js 22. Python builds the
-offline bundle and deterministic terrain; Node compiles the reference index
+offline bundle; Node compiles the reference index
 with the same JavaScript used by its runtime API. Run it after changing
 application source or canonical card records:
 
@@ -559,7 +558,10 @@ python3 tools/build.py
 
 This regenerates `src/catalog.js`, `src/math-index-data.js`, `dist/index.html`,
 its content-hash manifest, and all Markdown in `export/` from `content/`.
-Terrain is rebuilt when its recipe or generator changes. It never reads the notebook.
+The application version comes from `package.json`. The build stamps the catalog,
+manifest, footer and development asset tags, and the packager uses the same
+version for its ZIP filename. The archived 0.23 terrain generator is not part of
+the current map or runtime bundle. The build never reads the notebook.
 
 Node.js 22 runs the dependency-free model, navigation, reference and notebook checks:
 

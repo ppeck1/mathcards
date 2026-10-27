@@ -1,28 +1,29 @@
-/* Baked illustrative relief and authored navigation. No mathematical model or terrain clock. */
+/* Flat, categorical field navigation. No elevation, relief, or quantitative geography. */
 (function(root,factory){
   'use strict';const node=typeof module==='object'&&module.exports;
-  const api=factory(node?require('./atlas-terrain.js'):root.AtlasTerrain);
+  const api=factory();
   if(node)module.exports=api;root.AtlasLandscape=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(Terrain){
+})(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
   const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const finite=Number.isFinite,n=value=>finite(value)?Number(value.toFixed(4)):0;
-  const scope=value=>'atlas-terrain-'+Array.from(String(value??'overview')).map(c=>/^[A-Za-z0-9-]$/.test(c)?c:'_'+c.codePointAt(0).toString(16)+'_').join('');
+  const scope=value=>'atlas-map-'+Array.from(String(value??'overview')).map(c=>/^[A-Za-z0-9-]$/.test(c)?c:'_'+c.codePointAt(0).toString(16)+'_').join('');
   const count=value=>finite(value)&&value>=0?Math.floor(value):0;
   const world=Object.freeze({x:0,y:0,width:1200,height:800});
-  // Positions describe an editorial landscape, never difficulty or prerequisites.
+  // Stable editorial positions and categorical colors identify fields, not difficulty.
   const geography={
-    foundations:{anchor:[210,150],bounds:{x:65,y:65,width:345,height:285},color:'#a6bca7',topics:['mathematical-language','sets-and-proof','function-rules'],points:[[148,205],[220,255],[315,195]],path:'M75 100Q180 45 335 72Q391 116 390 204Q367 274 318 318Q187 336 79 290Q44 197 75 100Z'},
-    numbers:{anchor:[460,125],bounds:{x:305,y:48,width:315,height:260},color:'#b5aa8d',topics:['real-numbers','powers-and-logs','complex-numbers'],points:[[390,200],[485,230],[550,165]],path:'M335 72Q451 32 588 78Q637 150 601 235Q531 283 411 296Q355 248 373 187Q390 116 335 72Z'},
-    structures:{anchor:[465,340],bounds:{x:275,y:260,width:380,height:235},color:'#ad9ea4',topics:['algebraic-rules','linear-algebra','equations-and-optimization'],points:[[360,325],[450,405],[590,370]],path:'M318 318Q409 277 499 281Q567 262 623 283Q653 342 627 411Q561 463 466 472Q375 486 298 436Q272 375 318 318Z'},
-    spaces:{anchor:[190,465],bounds:{x:55,y:320,width:340,height:390},color:'#a2b1a3',topics:['geometry-and-measurement','vectors-and-transformations','fractals-and-spaces'],points:[[155,390],[250,520],[245,600]],path:'M79 290Q189 336 318 318Q272 375 298 436Q325 487 379 543Q378 629 311 696Q165 740 83 657Q40 519 57 412Z'},
-    change:{anchor:[565,638],bounds:{x:325,y:445,width:460,height:300},color:'#b3ac94',topics:['limits-and-continuity','calculus','dynamical-systems'],points:[[425,550],[570,520],[690,630]],path:'M298 436Q375 486 466 472Q561 463 627 411Q724 423 777 480Q770 547 793 612Q770 703 647 741Q451 764 311 696Q378 629 379 543Z'},
-    uncertainty:{anchor:[745,253],bounds:{x:575,y:70,width:330,height:290},color:'#9cb7ae',topics:['probability','bayesian-inference','statistics'],points:[[650,190],[820,190],[765,310]],path:'M588 78Q721 36 886 85Q939 178 907 266Q851 325 764 353Q683 366 623 283Q567 262 601 235Q637 150 588 78Z'},
-    computation:{anchor:[960,270],bounds:{x:850,y:110,width:310,height:330},color:'#a7b29e',topics:['graphs-and-networks','algorithms','linear-time-algorithms'],points:[[900,180],[1025,340],[980,390]],path:'M886 85Q1057 91 1134 175Q1192 270 1141 369Q1045 400 946 365Q905 319 907 266Q939 178 886 85Z'},
-    applications:{anchor:[940,560],bounds:{x:755,y:370,width:405,height:360},color:'#b9b995',topics:['growth-and-scale','optimization','physical-models'],points:[[840,460],[1025,485],[900,630]],path:'M764 353Q851 325 907 266Q905 319 946 365Q1045 400 1141 369Q1184 515 1127 657Q1020 754 869 739Q818 716 793 612Q770 547 777 480Q724 423 764 353Z'}
+    foundations:{anchor:[210,150],bounds:{x:65,y:65,width:345,height:285},color:'#d9e5d1',topics:['mathematical-language','sets-and-proof','function-rules'],points:[[148,205],[220,255],[315,195]],path:'M75 100Q180 45 335 72Q391 116 390 204Q367 274 318 318Q187 336 79 290Q44 197 75 100Z'},
+    numbers:{anchor:[460,125],bounds:{x:305,y:48,width:315,height:260},color:'#eee2c6',topics:['real-numbers','powers-and-logs','complex-numbers'],points:[[390,200],[485,230],[550,165]],path:'M335 72Q451 32 588 78Q637 150 601 235Q531 283 411 296Q355 248 373 187Q390 116 335 72Z'},
+    structures:{anchor:[465,340],bounds:{x:275,y:260,width:380,height:235},color:'#dfdbea',topics:['algebraic-rules','linear-algebra','equations-and-optimization'],points:[[360,325],[450,405],[590,370]],path:'M318 318Q409 277 499 281Q567 262 623 283Q653 342 627 411Q561 463 466 472Q375 486 298 436Q272 375 318 318Z'},
+    spaces:{anchor:[190,465],bounds:{x:55,y:320,width:340,height:390},color:'#d5e4e3',topics:['geometry-and-measurement','vectors-and-transformations','fractals-and-spaces'],points:[[155,390],[250,520],[245,600]],path:'M79 290Q189 336 318 318Q272 375 298 436Q325 487 379 543Q378 629 311 696Q165 740 83 657Q40 519 57 412Z'},
+    change:{anchor:[565,638],bounds:{x:325,y:445,width:460,height:300},color:'#e6d9d3',topics:['limits-and-continuity','calculus','dynamical-systems'],points:[[425,550],[570,520],[690,630]],path:'M298 436Q375 486 466 472Q561 463 627 411Q724 423 777 480Q770 547 793 612Q770 703 647 741Q451 764 311 696Q378 629 379 543Z'},
+    uncertainty:{anchor:[745,253],bounds:{x:575,y:70,width:330,height:290},color:'#d6e7db',topics:['probability','bayesian-inference','statistics'],points:[[650,190],[820,190],[765,310]],path:'M588 78Q721 36 886 85Q939 178 907 266Q851 325 764 353Q683 366 623 283Q567 262 601 235Q637 150 588 78Z'},
+    computation:{anchor:[960,270],bounds:{x:850,y:110,width:310,height:330},color:'#d9e2ec',topics:['graphs-and-networks','algorithms','linear-time-algorithms'],points:[[900,180],[1025,340],[980,390]],path:'M886 85Q1057 91 1134 175Q1192 270 1141 369Q1045 400 946 365Q905 319 907 266Q939 178 886 85Z'},
+    applications:{anchor:[940,560],bounds:{x:755,y:370,width:405,height:360},color:'#e8e6cc',topics:['growth-and-scale','optimization','physical-models'],points:[[840,460],[1025,485],[900,630]],path:'M764 353Q851 325 907 266Q905 319 946 365Q1045 400 1141 369Q1184 515 1127 657Q1020 754 869 739Q818 716 793 612Q770 547 777 480Q724 423 764 353Z'}
   };
   const keys=Object.freeze(Object.keys(geography));
   function overviewBounds(){return{...world};}
+  function regionColor(id){return typeof id==='string'&&Object.hasOwn(geography,id)?geography[id].color:'#e8ecdf';}
   function boundsForRegion(id){return typeof id==='string'&&Object.hasOwn(geography,id)?{...geography[id].bounds}:null;}
   function topicLocation(id){
     if(typeof id!=='string')return null;
@@ -59,17 +60,17 @@
     const box=camera(viewBox),size=viewport(dimensions),scale=scaleFor(box,size),offsetX=(size.width-box.width*scale)/2,offsetY=(size.height-box.height*scale)/2,candidates=[];
     for(const region of regions){
       if(!region||!Object.hasOwn(geography,region.id))continue;const geo=geography[region.id];
-      candidates.push({id:'region:'+region.id,x:geo.anchor[0],y:geo.anchor[1],text:region.title||region.shortTitle,kind:'region',priority:region.id===selectedRegion?80:50,selected:region.id===selectedRegion});
+      candidates.push({id:'region:'+region.id,x:geo.anchor[0],y:geo.anchor[1],text:!selectedRegion&&size.width<560?(region.shortTitle||region.title):(region.title||region.shortTitle),kind:'region',priority:region.id===selectedRegion?80:50,selected:region.id===selectedRegion});
       if(region.id===selectedRegion)for(const topic of region.topics||[]){const point=topicLocation(topic.id);if(point)candidates.push({id:'topic:'+topic.id,x:point.x,y:point.y,text:topic.shortTitle||topic.title,kind:'topic',priority:topic.id===selectedTopic?120:90,selected:topic.id===selectedTopic});}
     }
     if(selectedTopic){const topic=regions.flatMap(region=>region.topics||[]).find(item=>item.id===selectedTopic);for(const place of cardPlaces(topic))candidates.push({id:'card:'+place.card.slug,x:place.x,y:place.y,text:place.card.title,kind:'card',priority:70,selected:false});}
-    const taken=reservedBoxes(size),result=[];
+    const overview=!selectedRegion,smallOverview=overview&&size.width<560,taken=overview?[]:reservedBoxes(size),result=[];
     for(const label of candidates.sort((a,b)=>b.priority-a.priority||(a.id<b.id?-1:a.id>b.id?1:0))){
-      const fontSize=label.kind==='region'?18:label.kind==='card'?13:14,lines=candidateLines(label.text,label.kind==='region'?21:23),width=Math.max(...lines.map(line=>line.length))*fontSize*.54+8,height=lines.length*(fontSize+2)+4;
+      const fontSize=label.kind==='region'?(smallOverview?13:18):label.kind==='card'?13:14,lines=candidateLines(label.text,label.kind==='region'?21:23),width=Math.max(...lines.map(line=>line.length))*fontSize*.54+8,height=lines.length*(fontSize+2)+4;
       const px=(label.x-box.x)*scale+offsetX,py=(label.y-box.y)*scale+offsetY;
-      const positions=label.kind==='card'&&box.width>=520?[]:label.kind==='region'?[[0,-height/2],[0,14],[0,-height-20]]:[[0,-22-height],[0,18],[width/2+17,-height/2],[-width/2-17,-height/2]];
+      const positions=label.kind==='card'&&box.width>=520?[]:label.kind==='region'?[[0,-height/2],[0,14],[0,32],[0,-height-20],[0,52],[width/2+14,-height/2],[-width/2-14,-height/2]]:[[0,-22-height],[0,18],[width/2+17,-height/2],[-width/2-17,-height/2]];
       let placed=null;
-      for(const [dx,dy]of positions){const rect={x:px+dx-width/2,y:py+dy,width,height};if(rect.x<7||rect.y<7||rect.x+width>size.width-7||rect.y+height>size.height-7)continue;if(taken.some(other=>intersects(rect,other)))continue;placed={...rect,dx,dy};break;}
+      for(const [dx,dy]of positions){const rect={x:px+dx-width/2,y:py+dy,width,height};if(smallOverview)rect.x=Math.max(7,Math.min(rect.x,size.width-width-7));if(rect.x<7||rect.y<7||rect.x+width>size.width-7||rect.y+height>size.height-7)continue;if(taken.some(other=>intersects(rect,other)))continue;placed={...rect,dx:rect.x+width/2-px,dy};break;}
       if(placed)taken.push(placed);
       result.push({...label,lines,fontSize,visible:!!placed,box:placed?{x:placed.x,y:placed.y,width:placed.width,height:placed.height}:null,dx:placed?.dx||0,dy:placed?.dy||0});
     }
@@ -83,10 +84,10 @@
   }
   function render({regions=[],selectedRegion=null,selectedTopic=null,viewBox=null,viewport:dimensions=null,id='overview'}={}){
     const namespace=scope(id),box=camera(viewBox),size=viewport(dimensions),scale=scaleFor(box,size),valid=(Array.isArray(regions)?regions:[]).filter(region=>region&&Object.hasOwn(geography,region.id)),labels=labelLayout({regions:valid,selectedRegion,selectedTopic,viewBox:box,viewport:size});
-    const terrain=Terrain||{},shoreline=typeof terrain.shoreline==='string'?terrain.shoreline:'M70 100Q600 -30 1135 160Q1250 600 1050 730Q350 850 75 650Z',contours=Array.isArray(terrain.contours)?terrain.contours:[];
-    const selected=valid.flatMap(region=>region.topics||[]).find(topic=>topic.id===selectedTopic),title='An imagined landscape for exploring mathematics. Position and elevation are illustrative; fields overlap.';
-    return'<figure class="atlas-landscape"><svg class="atlas-landscape-svg" viewBox="'+[box.x,box.y,box.width,box.height].map(n).join(' ')+'" role="group" aria-labelledby="'+namespace+'-title '+namespace+'-description" xmlns="http://www.w3.org/2000/svg"><title id="'+namespace+'-title">A relief atlas of mathematics</title><desc id="'+namespace+'-description">'+title+' Select a territory to reveal its areas. Filled markers have available lessons; the panel also lists planned concepts.</desc><defs><clipPath id="'+namespace+'-land"><path d="'+esc(shoreline)+'" clip-rule="evenodd"/></clipPath></defs><rect x="-1200" y="-800" width="3600" height="2400" fill="#cedfe0"/><g class="atlas-relief" aria-hidden="true" pointer-events="none">'+(terrain.image?'<image href="'+esc(terrain.image)+'" x="0" y="0" width="1200" height="800"/>':'<path d="'+esc(shoreline)+'" fill="#dce2c3"/>')+'<g class="atlas-contours">'+contours.map(contour=>'<path d="'+esc(contour.path)+'" class="'+(contour.index?'index-contour':'')+'"/>').join('')+'</g><path class="atlas-shoreline" d="'+esc(shoreline)+'"/></g><g clip-path="url(#'+namespace+'-land)">'+valid.map(region=>regionTarget(region,region.id===selectedRegion)).join('')+'</g><g class="atlas-terrain-topics">'+valid.flatMap(region=>(region.topics||[]).map(topic=>topicTarget(topic,topic.id===selectedTopic,region.id===selectedRegion,scale))).join('')+'</g><g class="atlas-labels" aria-hidden="true" pointer-events="none">'+labels.map(label=>'<g data-terrain-label="'+esc(label.id)+'" data-terrain-anchor="'+label.x+' '+label.y+'" transform="translate('+label.x+' '+label.y+') scale('+n(1/scale)+')"'+(!label.visible?' display="none"':'')+'>'+textMarkup(label)+'</g>').join('')+'</g><g class="atlas-card-places">'+cardDestinations(selected,scale)+'</g></svg><figcaption>'+title+'</figcaption></figure>';
+    const selected=valid.flatMap(region=>region.topics||[]).find(topic=>topic.id===selectedTopic),title='Territory colors identify fields. Filled dots mark available lessons; fields overlap.';
+    return'<figure class="atlas-landscape"><svg class="atlas-landscape-svg" viewBox="'+[box.x,box.y,box.width,box.height].map(n).join(' ')+'" role="group" aria-labelledby="'+namespace+'-title '+namespace+'-description" xmlns="http://www.w3.org/2000/svg"><title id="'+namespace+'-title">A map of mathematics</title><desc id="'+namespace+'-description">'+title+' Select a territory to reveal its areas. The panel also lists planned concepts.</desc><rect x="-1200" y="-800" width="3600" height="2400" fill="#f4f1e7"/><g class="atlas-field-territories">'+valid.map(region=>regionTarget(region,region.id===selectedRegion)).join('')+'</g><g class="atlas-terrain-topics">'+valid.flatMap(region=>(region.topics||[]).map(topic=>topicTarget(topic,topic.id===selectedTopic,region.id===selectedRegion,scale))).join('')+'</g><g class="atlas-labels" aria-hidden="true" pointer-events="none">'+labels.map(label=>'<g data-terrain-label="'+esc(label.id)+'" data-terrain-anchor="'+label.x+' '+label.y+'" transform="translate('+label.x+' '+label.y+') scale('+n(1/scale)+')"'+(!label.visible?' display="none"':'')+'>'+textMarkup(label)+'</g>').join('')+'</g><g class="atlas-card-places">'+cardDestinations(selected,scale)+'</g></svg><figcaption>'+title+'</figcaption></figure>';
   }
+
   function updateView(svg,options={}){
     if(!svg)return;const box=camera(options.viewBox),size=viewport(options.viewport),scale=scaleFor(box,size);
     svg.setAttribute('viewBox',[box.x,box.y,box.width,box.height].map(n).join(' '));
@@ -97,6 +98,7 @@
       node.setAttribute('display',label.visible?'inline':'none');node.innerHTML=textMarkup(label);
     }
   }
-  function locator(viewBox){const box=camera(viewBox);return'<svg viewBox="0 0 1200 800" role="img" aria-label="Landscape locator. The brass frame marks the visible area."><path d="'+esc(Terrain?.shoreline||'')+'" fill="#bac6ab" fill-rule="evenodd"/><rect data-locator-frame x="'+n(box.x)+'" y="'+n(box.y)+'" width="'+n(box.width)+'" height="'+n(box.height)+'"/></svg>';}
-  return Object.freeze({render,updateView,labelLayout,reservedBoxes,locator,boundsForRegion,boundsForTopic,topicLocation,overviewBounds});
+  function locator(viewBox){const box=camera(viewBox);return'<svg viewBox="0 0 1200 800" role="img" aria-label="Map locator. The brass frame marks the visible area.">'+keys.map(id=>'<path d="'+geography[id].path+'" fill="'+geography[id].color+'"/>').join('')+'<rect data-locator-frame x="'+n(box.x)+'" y="'+n(box.y)+'" width="'+n(box.width)+'" height="'+n(box.height)+'"/></svg>';}
+
+  return Object.freeze({render,updateView,labelLayout,reservedBoxes,locator,regionColor,boundsForRegion,boundsForTopic,topicLocation,overviewBounds});
 });
