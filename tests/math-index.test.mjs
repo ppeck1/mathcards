@@ -7,6 +7,7 @@ import {createRequire} from 'node:module';
 const require=createRequire(import.meta.url);
 const Terms=require('../src/math-terms.js');
 const MathIndex=require('../src/math-index.js');
+const Notation=require('../src/math-notation.js');
 const cardDirectory=new URL('../content/cards/',import.meta.url);
 const cards=fs.readdirSync(cardDirectory).filter(name=>name.endsWith('.json')).map(name=>JSON.parse(fs.readFileSync(new URL(name,cardDirectory),'utf8')));
 const sources=JSON.parse(fs.readFileSync(new URL('../content/sources.json',import.meta.url),'utf8')).sources;
@@ -413,14 +414,15 @@ class Control{
   setAttribute(name,value){this.attributes[name]=value;}
   closest(){return this;}
   focus(){this.focused=true;}
+  scrollIntoView(){this.scrolls=(this.scrolls||0)+1;}
   querySelector(selector){this.lastFocusedEntry=new Control(this.host,{'data-index-entry':/data-index-entry="([^"]+)"/.exec(selector)?.[1]});return this.lastFocusedEntry;}
 }
 class Host{
-  constructor(){this.listeners=new Map();this.writes=0;this.nodes={};for(const name of ['search','category','list','detail','status','letters'])this.nodes[name]=new Control(this);this.modes=['all','symbols','az'].map(mode=>new Control(this,{'data-index-mode':mode}));this.letters=['','A','P'].map(letter=>new Control(this,{'data-index-letter':letter}));}
+  constructor(){this.listeners=new Map();this.writes=0;this.nodes={};for(const name of ['search','category','list','detail','status','letters','symbols'])this.nodes[name]=new Control(this);this.modes=['all','symbols','az'].map(mode=>new Control(this,{'data-index-mode':mode}));this.letters=['','A','P'].map(letter=>new Control(this,{'data-index-letter':letter}));this.symbolButtons=index.symbolCatalog().forms.map(form=>new Control(this,{'data-index-symbol':form.symbol}));}
   set innerHTML(value){this.html=value;this.writes++;}
   get innerHTML(){return this.html;}
   querySelector(selector){return this.nodes[/\[data-index-(\w+)\]/.exec(selector)?.[1]]||null;}
-  querySelectorAll(selector){return selector==='[data-index-mode]'?this.modes:this.letters;}
+  querySelectorAll(selector){return selector==='[data-index-mode]'?this.modes:selector==='[data-index-symbol]'?this.symbolButtons:this.letters;}
   contains(target){return target?.host===this;}
   addEventListener(type,fn){this.listeners.set(type,fn);}
   removeEventListener(type,fn){if(this.listeners.get(type)===fn)this.listeners.delete(type);}
@@ -452,4 +454,88 @@ test('mounted search keeps its input stable, recovers from no results and cleans
   view.destroy();view.destroy();
   assert.equal(host.listeners.size,0);
   assert.equal(view.select('addition'),false);
+});
+
+test('the visual catalog contains every declared form and every variant without duplicate buttons or lost owners',()=>{
+  const catalog=index.symbolCatalog(),forms=new Map(catalog.forms.map(form=>[form.symbol,form]));
+  assert.equal(catalog,index.symbolCatalog(),'the inert catalog projection is reused');
+  assert.ok(Object.isFrozen(catalog)&&Object.isFrozen(catalog.forms)&&Object.isFrozen(catalog.groups));
+  assert.equal(forms.size,catalog.forms.length);
+  for(const entry of index.entries)for(const symbol of entry.symbols){
+    assert.ok(forms.has(symbol),entry.id+' / '+symbol+' is visible');
+    assert.ok(forms.get(symbol).entryIds.includes(entry.id),symbol+' retains '+entry.id);
+  }
+  assert.deepEqual(new Set(catalog.groups.flatMap(group=>group.forms.map(form=>form.symbol))),new Set(forms.keys()),'grouping omits no form');
+  assert.equal(catalog.groups.reduce((sum,group)=>sum+group.forms.length,0),forms.size,'each form is grouped once');
+  for(const token of ['Σ','∑','δ','Δ','ϵ','ϑ','∂F/∂y','C(xₖ,yₖ)','ms/item','m² per unit setting','∑xᵢ','∑Xᵢ','W₀','V(t)'])assert.ok(forms.has(token),token);
+  assert.deepEqual(forms.get('μ').entryIds,['mu','population-mean']);
+  assert.deepEqual(forms.get('Σ').entryIds,['sigma-capital']);
+  assert.deepEqual(forms.get('∑').entryIds,['summation']);
+  const initial=index.markup({query:'no-matching-word-8907',category:'calculus',mode:'az',letter:'P'});
+  assert.equal((initial.match(/data-index-symbol="/g)||[]).length,forms.size,'filters never truncate the catalog');
+  assert.match(initial,/<details class="index-symbol-catalog" data-index-symbols>/,'the full catalog uses a closed native disclosure');
+  assert.ok(initial.includes('data-index-symbol="&lt;"'),'literal comparison signs are escaped in attributes');
+  assert.ok(!initial.includes('data-index-symbol="\\frac"'),'lookup commands are not presented as visible glyphs');
+});
+
+test('additional local forms include actual math while excluding prose, raw keys and TeX spellings',()=>{
+  const tokens=['W(n)','x₀','sin(t)','AB','leftValue','sampleSum/n','foo_bar','a prose note','\\frac{a}{b}'];
+  const local=MathIndex.hydrate({formatVersion:1,cardSlugs:['fixture'],entries:[{
+    ...index.get('function-notation'),symbols:['f(x)','sin'],category:'future-category',
+    usedBy:[{slug:'fixture',title:'Fixture',href:'#card/fixture',contexts:tokens.map(token=>({token,via:'grammar',meaning:'A locally declared quantity.',location:'Grammar'}))}]
+  }]});
+  const catalog=local.symbolCatalog(),forms=catalog.forms.map(form=>form.symbol);
+  assert.deepEqual(forms,['f(x)','sin','W(n)','x₀','sin(t)','AB']);
+  assert.equal(catalog.groups[0].id,'other','a future category cannot hide indexed forms');
+  for(const token of forms)assert.ok(local.search(token).some(entry=>entry.id==='function-notation'),token+' opens its owner');
+});
+
+test('every catalog button opens a search containing all of its actual definition owners',()=>{
+  for(const form of index.symbolCatalog().forms){
+    const hits=new Set(index.search(form.symbol).map(entry=>entry.id));
+    for(const id of form.entryIds)assert.ok(hits.has(id),form.symbol+' retains '+id);
+  }
+});
+
+test('new local catalog forms scope usage to their exact mathematics instead of every card using the general reader',()=>{
+  for(const [symbol,id,slug] of [['∑xᵢ','summation','population-sample'],['∑Xᵢ','summation','population-sample'],['b^(−x)','reciprocal','exponentiation']]){
+    assert.equal(index.isNotation(symbol),true,symbol+' is recognized as an exact local notation query');
+    assert.deepEqual(index.search(symbol).find(entry=>entry.id===id).usedBy.map(usage=>usage.slug),[slug]);
+  }
+  const declared=new Set(index.entries.flatMap(entry=>entry.symbols));
+  for(const form of index.symbolCatalog().forms.filter(form=>!declared.has(form.symbol))){
+    const normalized=Notation.normalize(form.symbol);
+    const actualCards=new Set(index.entries.flatMap(entry=>entry.usedBy.filter(usage=>usage.contexts.some(context=>['grammar','parameter','story'].includes(context.via)&&Notation.normalize(context.token)===normalized)).map(usage=>usage.slug)));
+    assert.ok(actualCards.size,form.symbol+' has an exact local declaration');
+    for(const entry of index.search(form.symbol))for(const usage of entry.usedBy){
+      assert.ok(actualCards.has(usage.slug),form.symbol+' does not borrow '+usage.slug+' through '+entry.id);
+      assert.ok(usage.contexts.length);
+      assert.ok(usage.contexts.every(context=>context.via!=='term'&&Notation.normalize(context.token)===normalized),form.symbol+' retains exact, non-prose evidence');
+    }
+  }
+});
+
+test('catalog selection clears stale filters, retains other meanings, marks the glyph and brings its definition into view',()=>{
+  const host=new Host(),navigation=[],view=index.mount(host,{query:'unlisted-search-591',category:'calculus',mode:'az',letter:'P',onNavigate:state=>navigation.push(state)});
+  host.nodes.symbols.open=true;
+  const omega=host.symbolButtons.find(button=>button.getAttribute('data-index-symbol')==='Ω');host.emit('click',omega);
+  assert.deepEqual(view.getState(),{query:'Ω',category:'all',mode:'all',letter:'',entryId:'sample-space'});
+  assert.match(host.nodes.list.innerHTML,/data-index-entry="sample-space"/);
+  assert.match(host.nodes.list.innerHTML,/data-index-entry="omega-capital"/);
+  assert.equal(host.nodes.symbols.open,false);
+  assert.equal(host.nodes.detail.focused,true);
+  assert.equal(host.nodes.detail.scrolls,1);
+  assert.equal(omega.getAttribute('aria-pressed'),'true');
+  assert.equal(navigation.at(-1).entryId,'sample-space','a selected form has a shareable definition route');
+  const sigma=host.symbolButtons.find(button=>button.getAttribute('data-index-symbol')==='Σ');host.emit('click',sigma);
+  assert.equal(view.getState().entryId,'sigma-capital');
+  assert.ok(!host.nodes.list.innerHTML.includes('data-index-entry="summation"'));
+  assert.equal(omega.getAttribute('aria-pressed'),'false');
+  const sum=host.symbolButtons.find(button=>button.getAttribute('data-index-symbol')==='∑');host.emit('click',sum);
+  assert.equal(view.getState().entryId,'summation');
+  assert.ok(!host.nodes.list.innerHTML.includes('data-index-entry="sigma-capital"'));
+  const scrolls=host.nodes.detail.scrolls;host.nodes.search.value='δ';host.emit('input',host.nodes.search);
+  assert.equal(view.getState().entryId,'delta-small');
+  assert.equal(host.nodes.detail.scrolls,scrolls,'typing never forces a new scroll');
+  view.destroy();
 });

@@ -1,9 +1,9 @@
-/* Flat, categorical field navigation. No elevation, relief, or quantitative geography. */
+/* Stable field navigation over a schematic surface of playable lesson counts. */
 (function(root,factory){
   'use strict';const node=typeof module==='object'&&module.exports;
-  const api=factory();
+  const api=factory(node?require('./atlas-topography.js'):root.AtlasTopography);
   if(node)module.exports=api;root.AtlasLandscape=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(){
+})(typeof globalThis!=='undefined'?globalThis:this,function(Topography){
   'use strict';
   const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const finite=Number.isFinite,n=value=>finite(value)?Number(value.toFixed(4)):0;
@@ -22,6 +22,8 @@
     applications:{anchor:[940,560],bounds:{x:755,y:370,width:405,height:360},color:'#e8e6cc',topics:['growth-and-scale','optimization','physical-models'],points:[[840,460],[1025,485],[900,630]],path:'M764 353Q851 325 907 266Q905 319 946 365Q1045 400 1141 369Q1184 515 1127 657Q1020 754 869 739Q818 716 793 612Q770 547 777 480Q724 423 764 353Z'}
   };
   const keys=Object.freeze(Object.keys(geography));
+  const summits={foundations:[205,232],numbers:[477,216],structures:[465,393],spaces:[220,555],change:[548,557],uncertainty:[750,156],computation:[1030,215],applications:[991,585]};
+  for(const key of keys)geography[key].peak=summits[key];
   function overviewBounds(){return{...world};}
   function regionColor(id){return typeof id==='string'&&Object.hasOwn(geography,id)?geography[id].color:'#e8ecdf';}
   function boundsForRegion(id){return typeof id==='string'&&Object.hasOwn(geography,id)?{...geography[id].bounds}:null;}
@@ -84,8 +86,8 @@
   }
   function render({regions=[],selectedRegion=null,selectedTopic=null,viewBox=null,viewport:dimensions=null,id='overview'}={}){
     const namespace=scope(id),box=camera(viewBox),size=viewport(dimensions),scale=scaleFor(box,size),valid=(Array.isArray(regions)?regions:[]).filter(region=>region&&Object.hasOwn(geography,region.id)),labels=labelLayout({regions:valid,selectedRegion,selectedTopic,viewBox:box,viewport:size});
-    const selected=valid.flatMap(region=>region.topics||[]).find(topic=>topic.id===selectedTopic),title='Territory colors identify fields. Filled dots mark available lessons; fields overlap.';
-    return'<figure class="atlas-landscape"><svg class="atlas-landscape-svg" viewBox="'+[box.x,box.y,box.width,box.height].map(n).join(' ')+'" role="group" aria-labelledby="'+namespace+'-title '+namespace+'-description" xmlns="http://www.w3.org/2000/svg"><title id="'+namespace+'-title">A map of mathematics</title><desc id="'+namespace+'-description">'+title+' Select a territory to reveal its areas. The panel also lists planned concepts.</desc><rect x="-1200" y="-800" width="3600" height="2400" fill="#f4f1e7"/><g class="atlas-field-territories">'+valid.map(region=>regionTarget(region,region.id===selectedRegion)).join('')+'</g><g class="atlas-terrain-topics">'+valid.flatMap(region=>(region.topics||[]).map(topic=>topicTarget(topic,topic.id===selectedTopic,region.id===selectedRegion,scale))).join('')+'</g><g class="atlas-labels" aria-hidden="true" pointer-events="none">'+labels.map(label=>'<g data-terrain-label="'+esc(label.id)+'" data-terrain-anchor="'+label.x+' '+label.y+'" transform="translate('+label.x+' '+label.y+') scale('+n(1/scale)+')"'+(!label.visible?' display="none"':'')+'>'+textMarkup(label)+'</g>').join('')+'</g><g class="atlas-card-places">'+cardDestinations(selected,scale)+'</g></svg><figcaption>'+title+'</figcaption></figure>';
+    const selected=valid.flatMap(region=>region.topics||[]).find(topic=>topic.id===selectedTopic),title=Topography.description(valid),terrain=Topography.render({regions:valid,geography,id:namespace,overview:!selectedRegion});
+    return'<figure class="atlas-landscape"><svg class="atlas-landscape-svg" viewBox="'+[box.x,box.y,box.width,box.height].map(n).join(' ')+'" role="group" aria-labelledby="'+namespace+'-title '+namespace+'-description" xmlns="http://www.w3.org/2000/svg"><title id="'+namespace+'-title">A map of mathematics</title><desc id="'+namespace+'-description">'+title+' Select a territory to reveal its areas. The panel also lists planned concepts.</desc><rect x="-1200" y="-800" width="3600" height="2400" fill="#f1eddf"/>'+terrain+'<g class="atlas-field-territories">'+valid.map(region=>regionTarget(region,region.id===selectedRegion)).join('')+'</g><g class="atlas-terrain-topics">'+valid.flatMap(region=>(region.topics||[]).map(topic=>topicTarget(topic,topic.id===selectedTopic,region.id===selectedRegion,scale))).join('')+'</g><g class="atlas-labels" aria-hidden="true" pointer-events="none">'+labels.map(label=>'<g data-terrain-label="'+esc(label.id)+'" data-terrain-anchor="'+label.x+' '+label.y+'" transform="translate('+label.x+' '+label.y+') scale('+n(1/scale)+')"'+(!label.visible?' display="none"':'')+'>'+textMarkup(label)+'</g>').join('')+'</g><g class="atlas-card-places">'+cardDestinations(selected,scale)+'</g></svg><figcaption>'+Topography.legend(valid)+'</figcaption></figure>';
   }
 
   function updateView(svg,options={}){

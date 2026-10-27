@@ -2,10 +2,10 @@
 .atlas-landscape-svg{display:block;width:100%;height:auto;aspect-ratio:3/2;font-family:system-ui,sans-serif;touch-action:pan-y;user-select:none}
 .atlas-editorial-territory{vector-effect:non-scaling-stroke}
 .atlas-terrain-region-hit,.atlas-terrain-topic,.atlas-card-destination{cursor:pointer;outline:none}
-.atlas-editorial-territory{fill-opacity:.86;stroke:#f4f1e7;stroke-width:2;transition:fill-opacity .15s,stroke .15s}
-.atlas-terrain-region-hit:hover .atlas-editorial-territory{fill-opacity:1}
-.atlas-terrain-region-hit.is-selected .atlas-editorial-territory{fill-opacity:1;stroke:#8f713d;stroke-opacity:.65;stroke-dasharray:3 5}
-.atlas-terrain-region-hit:focus-visible .atlas-editorial-territory{stroke:#263f38;stroke-width:3;stroke-dasharray:none;fill-opacity:1}
+.atlas-editorial-territory{fill-opacity:0;stroke:transparent;stroke-width:2;transition:fill-opacity .15s,stroke .15s;pointer-events:all}
+.atlas-terrain-region-hit:hover .atlas-editorial-territory{fill:#fffdf3;fill-opacity:.12;stroke:#5e7154;stroke-opacity:.7}
+.atlas-terrain-region-hit.is-selected .atlas-editorial-territory{fill-opacity:.08;stroke:#795d27;stroke-opacity:.9;stroke-dasharray:3 5}
+.atlas-terrain-region-hit:focus-visible .atlas-editorial-territory{stroke:#263f38;stroke-width:3;stroke-dasharray:none;fill-opacity:.15}
 .atlas-map-label{fill:#263f38;paint-order:stroke fill;stroke:#f4f1e7;stroke-width:4;stroke-linejoin:round;letter-spacing:.05px}
 .atlas-map-label.region-label{font-family:Georgia,serif;font-weight:600}
 .atlas-map-label.topic-label{font-weight:600}
@@ -21,5 +21,23 @@
 .atlas-card-destination:focus-visible circle:not(.atlas-marker-target){stroke:#263f38;stroke-width:3}
 .atlas-card-destination text{font-size:13px;fill:#263f38;stroke:#f4f1e7;stroke-width:3;paint-order:stroke fill}
 .atlas-landscape figcaption{background:#f4f1e7;color:#516358;font-size:11px;line-height:1.55;padding:10px 13px;border-top:1px solid #b5c5b7}
+.atlas-topography{pointer-events:none}
+.atlas-topography-coast-under{fill:none;stroke:#fffdf2;stroke-width:5;vector-effect:non-scaling-stroke}
+.atlas-topography-ground{stroke:none;fill-opacity:.84}
+.atlas-topography-step{fill:#687c58;stroke:none}
+.atlas-topography-contour{fill:none;stroke:#536247;stroke-width:.7;stroke-opacity:.72;vector-effect:non-scaling-stroke}
+.atlas-topography-contour.index-contour{stroke:#3f5139;stroke-width:1.2;stroke-opacity:.83}
+.atlas-topography-light{fill:none;stroke:#fffbe7;stroke-width:.65;stroke-opacity:.72;transform:translate(-1.2px,-1.7px);vector-effect:non-scaling-stroke}
+.atlas-topography-border{fill:none;stroke:#6e7b5e;stroke-width:.9;stroke-opacity:.62;vector-effect:non-scaling-stroke}
+.atlas-topography-summit path{fill:#f9f3d9;stroke:#334833;stroke-width:1.6;vector-effect:non-scaling-stroke}
+.atlas-topography-summit text{fill:#243f30;font:600 17px/1 system-ui,sans-serif;paint-order:stroke fill;stroke:#f8f3e3;stroke-width:4;stroke-linejoin:round}
+.atlas-topography-legend{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:3px 14px}
+.atlas-topography-legend strong{font-weight:600;color:#354f3b}
+.atlas-topography-legend strong>span{font-size:16px;margin-right:5px}
+.atlas-topography-legend>span{font-variant-numeric:tabular-nums}
+.atlas-topography-reading{margin-top:4px;font-size:10px}
+.atlas-topography-reading>summary{cursor:pointer;min-height:28px;display:list-item;list-style-position:inside;color:#4e644b}
+.atlas-topography-reading p{margin:3px 0 2px;max-width:760px;font-size:11px;line-height:1.65}
 @media(max-width:680px){.atlas-landscape{border-radius:11px}.atlas-landscape figcaption{font-size:10px;padding:8px 10px}}
+@media(max-width:760px){.atlas-topography-summit{display:none}.atlas-topography-contour{stroke-width:.6}.atlas-topography-contour.index-contour{stroke-width:.9}.atlas-topography-light{stroke-width:.4;stroke-opacity:.55}.atlas-topography-reading p{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.atlas-editorial-territory{transition:none}}

@@ -112,6 +112,34 @@
     const categoryList=categories.map(([id,title])=>freeze({id,title,count:entries.filter(entry=>entry.category===id).length})).filter(category=>category.count);
     const categoryIds=new Set(categoryList.map(item=>item.id));
     const rows=entries.map((entry,index)=>({entry,index,title:fold(entry.title),aliases:entry.aliases.map(fold),text:fold([entry.title,entry.definition,entry.readAs,...entry.aliases,...entry.symbols,...entry.usedBy.flatMap(usage=>usage.contexts.map(context=>context.meaning))].join(' '))}));
+    let cachedSymbols=null;
+    // This projection is prepared only when the reference is opened. It reads
+    // the inert index, never scans cards, and preserves literal case/variants.
+    function symbolCatalog(){
+      if(cachedSymbols)return cachedSymbols;
+      const forms=new Map();
+      const namedForms=new Set(entries.flatMap(entry=>entry.symbols).flatMap(symbol=>/^[A-Za-z]{2,}$/.test(symbol)?[symbol]:/^([A-Za-z]{2,})\(/.exec(symbol)?.slice(1)||[]));
+      function visibleLocal(token){
+        if(typeof token!=='string'||!token.length||/\s|\\/.test(token))return false;
+        if(/^[A-Za-z]+$/.test(token)&&token.length>1&&!/^[A-Z]{2,3}$/.test(token))return false;
+        // Extra forms use letter variables or already named mathematical
+        // functions. Prose, control keys and raw TeX commands stay out.
+        return(token.match(/[A-Za-z]+/g)||[]).every(word=>word.length===1||/^[A-Z]{2,3}$/.test(word)||namedForms.has(word));
+      }
+      for(const entry of entries){
+        const localForms=entry.usedBy.flatMap(usage=>usage.contexts.filter(context=>['grammar','parameter','story'].includes(context.via)).map(context=>context.token)).filter(visibleLocal);
+        for(const symbol of [...entry.symbols,...localForms]){
+          if(typeof symbol!=='string'||!symbol.length)continue;
+          if(!forms.has(symbol))forms.set(symbol,{symbol,category:entry.category,entryIds:[]});
+          const form=forms.get(symbol);if(!form.entryIds.includes(entry.id))form.entryIds.push(entry.id);
+        }
+      }
+      const all=[...forms.values()].map(form=>({...form,titles:form.entryIds.map(id=>byId.get(id).title)}));
+      const groups=categoryList.map(category=>({id:category.id,title:category.title,forms:all.filter(form=>form.category===category.id)})).filter(group=>group.forms.length);
+      const other=all.filter(form=>!categoryIds.has(form.category));if(other.length)groups.push({id:'other',title:'Other indexed notation',forms:other});
+      cachedSymbols=freeze({forms:all,groups,meanings:new Set(all.flatMap(form=>form.entryIds)).size});
+      return cachedSymbols;
+    }
     function get(id){return typeof id==='string'?byId.get(id)||null:null;}
     function search(query='',options={}){
       const raw=typeof query==='string'?query.trim().slice(0,240):'',q=fold(raw),category=categoryIds.has(options.category)?options.category:'all',mode=options.mode==='symbols'?'symbols':'all',letter=/^[A-Z]$/.test(options.letter||'')?options.letter:null;
@@ -132,7 +160,12 @@
       return{query,category,mode,letter,entryId:get(options.entryId)?.id||matches[0]?.id||null};
     }
     function scopedToken(query=''){const token=query.trim();return /^[A-Za-z]$/.test(token)||(/^[A-Z]{2,}$/.test(token)&&entries.some(entry=>entry.symbols.includes(token)));}
-    function notationQuery(query=''){const token=query.trim();return !!token&&(scopedToken(token)||token.startsWith('\\')||(Notation?.classify(token)||[]).length>0||entries.some(entry=>entry.symbols.includes(token)||entry.lookupAliases.includes(token)));}
+    function notationQuery(query=''){
+      const token=query.trim();
+      return !!token&&(scopedToken(token)||token.startsWith('\\')||(Notation?.classify(token)||[]).length>0||entries.some(entry=>
+        entry.symbols.includes(token)||entry.lookupAliases.includes(token)||entry.usedBy.some(usage=>usage.contexts.some(context=>localUse(context)&&context.token===token))
+      ));
+    }
     function usesFor(entry,query=''){
       const token=query.trim();if(!notationQuery(token))return entry.usedBy;
       const structured=(Notation?.classify(token)||[]).includes(entry.id),same=value=>Notation?Notation.normalize(value)===Notation.normalize(token):value===token;
@@ -165,14 +198,18 @@
       return'<article class="index-definition" aria-label="Definition"><p class="eyebrow">'+esc(category)+'</p><h2>'+esc(entry.title)+'</h2>'+(entry.symbols.length?'<div class="index-definition-symbols">'+entry.symbols.map(symbol=>'<span>'+esc(symbol)+'</span>').join('')+'</div>':'')+'<p class="index-read-as"><strong>Read as</strong> '+esc(entry.readAs)+'</p><p class="index-definition-text">'+esc(entry.definition)+'</p><div class="index-example"><span>Try reading this</span><p>'+esc(entry.example)+'</p></div><h3>Cards that use this <span>'+uses.length+'</span></h3>'+(uses.length?'<ul class="index-used-by">'+uses.map(usage=>'<li><a href="'+esc(usage.href)+'">'+esc(usage.title)+' <span aria-hidden="true">↗</span></a>'+usage.contexts.filter(localUse).map(context=>'<p><code>'+esc(context.token)+'</code> '+esc(context.meaning)+'</p>').join('')+(!usage.contexts.some(localUse)?'<p>'+esc(usage.contexts[0].location)+' · '+esc(usage.contexts[0].via==='formula'?'Used in the displayed mathematics.':'Named in this card’s explanation.')+'</p>':'')+'</li>').join('')+'</ul>':'<p class="index-no-use">'+(exactLetter?'No identified uses of '+esc(exactLetter)+' in the current cards yet.':'This entry is background reference; it has no identified use in the current cards yet.')+'</p>')+relatedMarkup(entry)+'<details class="index-sources"><summary>Definition sources</summary><ul>'+entry.sources.map(source=>'<li><a href="'+esc(source.url)+'" target="_blank" rel="noopener noreferrer">'+esc(source.title)+' ↗</a></li>').join('')+'</ul><p>Definitions are editorial learning aids. Card-specific meanings retain each draft card’s stated setting.</p></details><p class="fine">A symbol gets its precise meaning from its context. Check the card’s conditions, units and definitions.</p></article>';
     }
     function listMarkup(matches,selected,query=''){return matches.length?matches.map(entry=>'<button type="button" class="index-entry'+(entry.id===selected?' is-selected':'')+'" data-index-entry="'+esc(entry.id)+'" aria-pressed="'+(entry.id===selected)+'"><span class="index-entry-symbol" aria-hidden="true">'+esc(entry.symbols[0]||'Aa')+'</span><span><strong>'+esc(entry.title)+'</strong><small>'+esc(labelCategory(entry.category))+'</small></span><span class="index-entry-count">'+usesFor(entry,query).length+'</span></button>').join(''):'<p class="index-list-empty">No entries match this search.</p>';}
+    function symbolMarkup(query,id){
+      const catalog=symbolCatalog();
+      return'<details class="index-symbol-catalog" data-index-symbols><summary><span class="index-symbol-title">All symbols &amp; notation</span><span class="index-symbol-total">'+catalog.forms.length+' forms · '+catalog.meanings+' meanings</span><span class="index-symbol-preview" aria-hidden="true">'+catalog.forms.slice(0,6).map(form=>esc(form.symbol)).join(' ')+'</span></summary><p class="index-symbol-help">Every symbol and notation form in this index, including alternate forms and units. Choose one to open its definition. A small number marks symbols with several meanings.</p><div class="index-symbol-groups">'+catalog.groups.map(group=>'<section class="index-symbol-group" aria-labelledby="'+id+'-symbols-'+group.id+'"><h2 id="'+id+'-symbols-'+group.id+'">'+esc(group.title)+' <span>'+group.forms.length+'</span></h2><div class="index-symbol-grid">'+group.forms.map(form=>'<button type="button" data-index-symbol="'+esc(form.symbol)+'" aria-pressed="'+(query===form.symbol)+'" aria-label="Look up '+esc(form.symbol)+': '+esc(form.titles.join('; '))+'" title="'+esc(form.titles.join(' · '))+'"><span>'+esc(form.symbol)+'</span>'+(form.entryIds.length>1?'<small aria-hidden="true">'+form.entryIds.length+'</small>':'')+'</button>').join('')+'</div></section>').join('')+'</div></details>';
+    }
     function markup(options={}){
       const state=normalize(options),matches=search(state.query,state),id='math-index-'+String(options.id||'page').replace(/[^A-Za-z0-9_-]/g,'-');
-      return'<section class="math-index"><header class="index-heading"><div><p class="eyebrow">A reference you can follow</p><h1>Look up the language.</h1><p>From <strong>+</strong> to <strong>δ</strong>: read a symbol, learn a term, and open the cards that use it.</p></div><a href="#atlas">Explore the map ↗</a></header><div class="index-search-controls"><label for="'+id+'-query">Search definitions<input id="'+id+'-query" data-index-search type="search" value="'+esc(state.query)+'" maxlength="240" placeholder="Try +, delta, δ, coefficient, projection…" autocomplete="off"></label><label for="'+id+'-category">Field<select id="'+id+'-category" data-index-category aria-label="Filter definitions by field"><option value="all">All fields</option>'+categoryList.map(category=>'<option value="'+category.id+'"'+(category.id===state.category?' selected':'')+'>'+esc(category.title)+' ('+category.count+')</option>').join('')+'</select></label></div><div class="index-browse" role="group" aria-label="Browse definitions">'+[['all','All entries'],['symbols','Symbols & notation'],['az','A–Z']].map(([mode,title])=>'<button type="button" data-index-mode="'+mode+'" aria-pressed="'+(mode===state.mode)+'">'+title+'</button>').join('')+'<span>'+entries.length+' entries · a growing reference for this collection</span></div><div class="index-quick-symbols" aria-label="Common symbols">'+['+','−','×','÷','=','π','δ','Δ','ε','θ','∂','∫','Σ'].map(symbol=>'<button type="button" data-index-query="'+esc(symbol)+'" aria-label="Look up '+esc(symbol)+'">'+esc(symbol)+'</button>').join('')+'</div><div class="index-letters" data-index-letters'+(state.mode!=='az'?' hidden':'')+'>'+['',...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].map(letter=>'<button type="button" data-index-letter="'+letter+'" aria-pressed="'+(state.letter===letter)+'">'+(letter||'All')+'</button>').join('')+'</div><p class="index-result-status" data-index-status role="status" aria-live="polite">'+matches.length+' matching entries</p><div class="index-layout"><nav class="index-entry-list" data-index-list aria-label="Definition entries">'+listMarkup(matches,state.entryId,state.query)+'</nav><div class="index-detail" data-index-detail>'+detail(get(state.entryId),state.query)+'</div></div></section>';
+      return'<section class="math-index"><header class="index-heading"><div><p class="eyebrow">A reference you can follow</p><h1>Look up the language.</h1><p>From <strong>+</strong> to <strong>δ</strong>: read a symbol, learn a term, and open the cards that use it.</p></div><a href="#atlas">Explore the map ↗</a></header><div class="index-search-controls"><label for="'+id+'-query">Search definitions<input id="'+id+'-query" data-index-search type="search" value="'+esc(state.query)+'" maxlength="240" placeholder="Try +, delta, δ, coefficient, projection…" autocomplete="off"></label><label for="'+id+'-category">Field<select id="'+id+'-category" data-index-category aria-label="Filter definitions by field"><option value="all">All fields</option>'+categoryList.map(category=>'<option value="'+category.id+'"'+(category.id===state.category?' selected':'')+'>'+esc(category.title)+' ('+category.count+')</option>').join('')+'</select></label></div><div class="index-browse" role="group" aria-label="Browse definitions">'+[['all','All entries'],['symbols','Symbols & notation'],['az','A–Z']].map(([mode,title])=>'<button type="button" data-index-mode="'+mode+'" aria-pressed="'+(mode===state.mode)+'">'+title+'</button>').join('')+'<span>'+entries.length+' entries · a growing reference for this collection</span></div>'+symbolMarkup(state.query,id)+'<div class="index-letters" data-index-letters'+(state.mode!=='az'?' hidden':'')+'>'+['',...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].map(letter=>'<button type="button" data-index-letter="'+letter+'" aria-pressed="'+(state.letter===letter)+'">'+(letter||'All')+'</button>').join('')+'</div><p class="index-result-status" data-index-status role="status" aria-live="polite">'+matches.length+' matching entries</p><div class="index-layout"><nav class="index-entry-list" data-index-list aria-label="Definition entries">'+listMarkup(matches,state.entryId,state.query)+'</nav><div class="index-detail" data-index-detail tabindex="-1">'+detail(get(state.entryId),state.query)+'</div></div></section>';
     }
     function mount(host,options={}){
       if(!host||typeof host.addEventListener!=='function')throw new TypeError('Index mount needs a host element.');
       let state=normalize(options),destroyed=false;host.innerHTML=markup({...state,id:'mount-'+(++nextMount)});
-      const query=host.querySelector('[data-index-search]'),category=host.querySelector('[data-index-category]'),list=host.querySelector('[data-index-list]'),content=host.querySelector('[data-index-detail]'),status=host.querySelector('[data-index-status]'),letters=host.querySelector('[data-index-letters]');
+      const query=host.querySelector('[data-index-search]'),category=host.querySelector('[data-index-category]'),list=host.querySelector('[data-index-list]'),content=host.querySelector('[data-index-detail]'),status=host.querySelector('[data-index-status]'),letters=host.querySelector('[data-index-letters]'),symbols=host.querySelector('[data-index-symbols]');
       function paint(reason='entry'){
         if(destroyed)return;
         const matches=search(state.query,state);if(!matches.some(entry=>entry.id===state.entryId))state.entryId=matches[0]?.id||null;
@@ -180,24 +217,32 @@
         query.value=state.query;category.value=state.category;letters.hidden=state.mode!=='az';
         host.querySelectorAll('[data-index-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.getAttribute('data-index-mode')===state.mode)));
         host.querySelectorAll('[data-index-letter]').forEach(button=>button.setAttribute('aria-pressed',String(button.getAttribute('data-index-letter')===state.letter)));
+        host.querySelectorAll('[data-index-symbol]').forEach(button=>button.setAttribute('aria-pressed',String(button.getAttribute('data-index-symbol')===state.query)));
         options.onNavigate?.({...state,entryId:reason==='search'?null:state.entryId,reason});
       }
       function select(id){if(destroyed||!get(id))return false;state.entryId=id;content.innerHTML=detail(get(id),state.query);list.innerHTML=listMarkup(search(state.query,state),id,state.query);options.onNavigate?.({...state,reason:'entry'});return true;}
       function input(event){if(event.target!==query)return;state.query=query.value.slice(0,240);state.letter='';state.entryId=null;paint('search');}
       function change(event){if(event.target!==category)return;state.category=category.value;state.entryId=null;paint('filter');}
       function action(event){
-        const target=event.target?.closest?.('[data-index-entry],[data-index-mode],[data-index-query],[data-index-letter],[data-index-clear]');if(!target||!host.contains(target))return;
+        const target=event.target?.closest?.('[data-index-entry],[data-index-mode],[data-index-query],[data-index-symbol],[data-index-letter],[data-index-clear]');if(!target||!host.contains(target))return;
         event.preventDefault();
         if(target.hasAttribute('data-index-entry')){const id=target.getAttribute('data-index-entry');select(id);if(event.detail===0)list.querySelector('[data-index-entry="'+id+'"]')?.focus();}
         else if(target.hasAttribute('data-index-mode')){state.mode=target.getAttribute('data-index-mode');state.letter='';state.entryId=null;paint('filter');}
         else if(target.hasAttribute('data-index-letter')){state.letter=target.getAttribute('data-index-letter');state.entryId=null;paint('filter');}
+        else if(target.hasAttribute('data-index-symbol')){
+          state.query=target.getAttribute('data-index-symbol');state.category='all';state.mode='all';state.letter='';
+          const matches=search(state.query,state),form=symbolCatalog().forms.find(form=>form.symbol===state.query);state.entryId=form?.entryIds.find(id=>matches.some(entry=>entry.id===id))||null;paint('symbol');
+          // A selected definition must be reachable without scrolling past the
+          // entire palette, particularly on a phone. Reopening keeps its mark.
+          if(symbols)symbols.open=false;content.focus?.({preventScroll:true});content.scrollIntoView?.({block:'start',behavior:'auto'});
+        }
         else{state.query=target.hasAttribute('data-index-clear')?'':target.getAttribute('data-index-query');state.category='all';state.letter='';state.entryId=null;paint('search');query.focus();}
       }
       const keydown=event=>{if(event.target===query&&event.key==='Escape'){state.query='';state.letter='';state.entryId=null;paint('search');}};
       host.addEventListener('input',input);host.addEventListener('change',change);host.addEventListener('click',action);host.addEventListener('keydown',keydown);
       return Object.freeze({select,getState:()=>({...state}),destroy(){if(destroyed)return;destroyed=true;host.removeEventListener('input',input);host.removeEventListener('change',change);host.removeEventListener('click',action);host.removeEventListener('keydown',keydown);}});
     }
-    return Object.freeze({entries:freeze(entries),categories:freeze(categoryList),get,search,isNotation:notationQuery,forCard,markup,mount});
+    return Object.freeze({entries:freeze(entries),categories:freeze(categoryList),get,search,isNotation:notationQuery,forCard,symbolCatalog,markup,mount});
   }
   const create=input=>hydrate(compile(input));
   return Object.freeze({create,compile,hydrate});

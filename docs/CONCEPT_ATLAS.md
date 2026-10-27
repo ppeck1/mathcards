@@ -5,9 +5,26 @@ Field membership describes where an idea is useful in this edition; fields
 overlap. It is not a complete classification of mathematics, an account of the
 research frontier, or a sequence every learner must follow.
 
-## Flat field navigation (0.24.0)
+## Lesson-count topography (0.25.0)
 
-The current Map view uses flat categorical territory colors. It has no relief
+The current Map restores topographic contours and shading. A territory's summit
+height represents its deduplicated available lesson count. Schematic slopes
+descend to a zero-height border. A shared legend states the contour interval;
+the current interval is one lesson. Territories overlap in their memberships,
+so their summit counts should not be added to obtain the collection size.
+
+The new pure `atlas-topography.js` helper draws the surface below the existing
+navigation and labels. It does not add mathematical connections, difficulty
+levels or prerequisites. Planned records do not increase the elevation.
+
+All eight names remain visible in the full-world phone overview. Region/area
+routes, local camera focus, native territory key, Concept connections and
+history keep their existing contracts. See the
+[current review](BUILD_REVIEW_0_25_0.md).
+
+## Historical flat field navigation (0.24.0)
+
+The 0.24 Map view used flat categorical territory colors. It had no relief
 image, contours, lake or elevation. The earlier decorative terrain did not
 represent a measured quantity and has been removed from the current renderer.
 The existing territory/area providers still own memberships, actual counts,
@@ -26,7 +43,7 @@ The stable routes and Concept connections view remain unchanged. See the
 
 ## Historical terrain and navigation implementation (0.23.0)
 
-This section records the 0.23 implementation; the flat map above supersedes
+This section records the 0.23 implementation; the current topography supersedes
 its relief rendering and portrait crop.
 
 The Landscape view now layers stable semantic navigation over a single baked

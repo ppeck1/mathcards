@@ -1,3 +1,10 @@
+# 0.25.0 — a visual symbol catalog and meaningful topography
+
+- Replaced the thirteen-symbol shortcut row with a collapsible visual catalog derived from every indexed display form. Alternate forms, units and contextual notation open their definitions and preserve shared meanings.
+- Added a modular SVG topography renderer. Summit heights use actual deduplicated available lesson counts; contours and shading no longer rely on an invented relief image.
+- Retained the complete phone overview, readable territory labels, native key, local navigation and Concept connections.
+- Kept the prebuilt reference index, mathematical models and guided lesson controls intact. Updated the portfolio description and demo launch key.
+
 # 0.24.0 — one comparison, one control, a complete overview
 
 - Use the same large selected-versus-population chart on laptops and phones; keep the primary visualization above the fold on a 1366 × 768 laptop.
