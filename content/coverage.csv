@@ -7,7 +7,7 @@ math:concept:equivalence,Equivalence,language-foundations,planned,expansion,pend
 math:concept:set,Set,language-foundations,draft_specimen,expansion,pending,pending,implemented
 math:concept:relation,Relation,language-foundations,planned,expansion,pending,pending,planned
 math:concept:function,Function,language-foundations,draft_specimen,first-eight,pending,pending,implemented
-math:concept:quantifier,Quantifier,language-foundations,planned,expansion,pending,pending,planned
+math:concept:quantifier,Quantifier,language-foundations,draft_specimen,expansion,pending,pending,implemented
 math:concept:proof,Proof,language-foundations,planned,expansion,pending,pending,planned
 math:concept:natural-number,Natural Number,number-arithmetic,planned,expansion,pending,pending,planned
 math:concept:integer,Integer,number-arithmetic,planned,expansion,pending,pending,planned
@@ -134,7 +134,7 @@ math:concept:differential-equation,Differential Equation,dynamics,planned,expans
 math:concept:initial-condition,Initial Condition,dynamics,planned,expansion,pending,pending,planned
 math:concept:phase-space,Phase Space,dynamics,planned,expansion,pending,pending,planned
 math:concept:equilibrium,Equilibrium,dynamics,planned,expansion,pending,pending,planned
-math:concept:stability,Stability,dynamics,planned,expansion,pending,pending,planned
+math:concept:stability,Stability,dynamics,draft_specimen,expansion,pending,pending,implemented
 math:concept:feedback,Feedback,dynamics,planned,expansion,pending,pending,planned
 math:concept:bifurcation,Bifurcation,dynamics,planned,expansion,pending,pending,planned
 math:concept:chaos,Chaos,dynamics,planned,expansion,pending,pending,planned
@@ -191,3 +191,5 @@ math:concept:inner-product,Dot product,linear-algebra,draft_specimen,expansion,p
 math:concept:linear-combination,Linear Combinations,linear-algebra,draft_specimen,expansion,pending,pending,implemented
 math:concept:directional-derivative,Directional derivative,calculus,draft_specimen,expansion,pending,pending,implemented
 math:concept:tangent-plane,Tangent plane,calculus,draft_specimen,expansion,pending,pending,implemented
+math:concept:logical-connectives,Logical Connectives and Truth Tables,language-foundations,draft_specimen,book-expansion,pending,pending,implemented
+math:concept:cross-product,Cross Product and Oriented Area,linear-algebra,draft_specimen,book-expansion,pending,pending,implemented

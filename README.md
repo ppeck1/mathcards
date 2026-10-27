@@ -20,16 +20,23 @@ preview commands. The offline entry points below remain available.
 
 ## Open the application
 
-Version 0.26 deepens the thinner Chance and Computation areas with Conditional
-probability, Variance and standard deviation, and Recurrence relations. The
-collection has 41 draft concepts, 209 examples and 382 numeric fixtures. Each
-new lesson connects a workshop story to its formula and Geometry/Graph views
-through the existing controls and animation host.
+Version 0.27 begins the book-guided expansion with Logical connectives and truth
+tables, Universal and existential quantifiers, Cross product and oriented area,
+and Stability of an equilibrium. The collection has 45 draft concepts, 229
+examples and 430 numeric fixtures. Each new lesson connects an original workshop
+story to its formula and distinct Geometry/Graph views through the existing
+controls and animation host.
+
+The [book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) preserves all 214 topic IDs from
+the supplied matrix and separates introductions, precursors and planned work.
+The first four gateways prepare later proof, spatial-vector, tensor, topology
+and catastrophe lessons without treating finite models as complete theories.
 
 The complete collapsible symbol catalog and lesson-count topography remain.
 New indexed forms enter the visual catalog automatically; summit heights use
 the atlas's current availability. All eight territories still fit the phone
-overview. See the [current review](docs/BUILD_REVIEW_0_26_0.md).
+overview. The prepared index has 455 entries and 573 selectable notation forms.
+See the [current review](docs/BUILD_REVIEW_0_27_0.md).
 
 1. Extract this ZIP into a folder.
 2. Open **`START_HERE.html`** (or **`dist/index.html`**) in a modern browser such as Chrome, Edge, Firefox

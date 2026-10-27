@@ -14,10 +14,10 @@
   const texFunctions=new Set(['sin','cos','tan','sec','csc','cot','arcsin','arccos','arctan','ln','log','exp','det','dim','min','max','lim','arg','Re','Im','bmod','pmod']);
   Object.assign(named,{Pr:['probability'],span:['span'],tr:['matrix-trace'],ker:['kernel'],im:['image-of-map'],comp:['scalar-projection'],comp_u:['scalar-projection'],SD:['standard-deviation'],sd:['standard-deviation'],Bin:['binomial-distribution']});
   Object.assign(named,{D_uF:['directional-derivative']});
-  Object.assign(macros,{setminus:'∖',smallsetminus:'∖'});
+  Object.assign(macros,{setminus:'∖',smallsetminus:'∖',land:'∧',wedge:'∧',lor:'∨',vee:'∨',neg:'¬',lnot:'¬',leftrightarrow:'↔',top:'⊤',bot:'⊥',odot:'⊙',otimes:'⊗'});
   const glyphs={'+':['addition'],'-':['subtraction'],'−':['subtraction'],'×':['multiplication'],'·':['multiplication'],'⋅':['multiplication'],'*':['multiplication'],'÷':['division'],'/':['division'],'=':['equality'],'≠':['not-equal'],'<':['less-than'],'>':['greater-than'],'≤':['less-or-equal'],'≥':['greater-or-equal'],'≈':['approximately-equal'],'±':['plus-minus'],'%':['percent'],'√':['square-root'],'∞':['infinity'],'ℕ':['natural-number'],'ℤ':['integer'],'ℚ':['rational-number'],'ℝ':['real-number'],'ℂ':['complex-number'],'∈':['element'],'∉':['element'],'∀':['for-all'],'∃':['there-exists'],'⇒':['implication','logical-conditional'],'⇔':['if-and-only-if'],'∘':['composition'],'∑':['summation'],'∫':['integral','indefinite-integral'],'∬':['multiple-integral'],'∭':['multiple-integral'],'∮':['contour-integral'],'∂':['partial-derivative'],'∇':['gradient'],'⊥':['orthogonal'],'≡':['identity'],'∼':['distribution-notation'],'…':['ellipses'],'⋯':['ellipses'],'|':['vertical-bar'],'‖':['magnitude'],'′':['prime-mark'],'″':['higher-derivative','prime-mark'],'^':['superscript','exponent'],'_':['subscript'],'(':['grouping-parentheses'],')':['grouping-parentheses'],'[':['square-brackets'],']':['square-brackets'],'{':['curly-braces'],'}':['curly-braces'],'→':['right-arrow'],'↦':['maps-to'],'⌊':['floor'],'⌋':['floor'],'⌈':['ceiling'],'⌉':['ceiling'],'!':['factorial']};
   const vulgar={'½':'1/2','¼':'1/4','¾':'3/4','⅓':'1/3','⅔':'2/3','⅛':'1/8','⅜':'3/8','⅝':'5/8','⅞':'7/8'};
-  Object.assign(glyphs,{'∖':['set-difference'],'~':['distribution-notation'],'∩':['set-intersection'],'∪':['set-union']});
+  Object.assign(glyphs,{'∖':['set-difference'],'~':['distribution-notation'],'∩':['set-intersection'],'∪':['set-union'],'∧':['logical-and'],'∨':['logical-or'],'¬':['logical-not'],'↔':['if-and-only-if'],'⊤':['truth-constants'],'⊥':['orthogonal','truth-constants'],'⊙':['normal-direction-glyphs'],'⊗':['normal-direction-glyphs']});
   Object.assign(macros,{cap:'∩',cup:'∪',setminus:'∖',emptyset:'∅'});
   const mathLetter=c=>/[\u0370-\u03ff\u2100-\u214f]/u.test(c)||/\p{Script=Greek}/u.test(c)||(c.codePointAt(0)>=0x1d400&&c.codePointAt(0)<=0x1d7ff);
   function scriptRuns(value,characters,map,marker){let result='';for(let i=0;i<value.length;){const c=String.fromCodePoint(value.codePointAt(i));if(!characters.has(c)){result+=c;i+=c.length;continue;}let run='';while(i<value.length){const next=String.fromCodePoint(value.codePointAt(i));if(!characters.has(next))break;run+=map[next];i+=next.length;}result+=marker+(run.length===1?run:'{'+run+'}');}return result;}
@@ -43,6 +43,7 @@
     if(typeof query!=='string'||!query.trim())return[];if(options.kind==='unit')return unitIds(query);const raw=query.trim(),q=normalize(raw),result=[];const add=(...ids)=>result.push(...ids);
     if(Object.hasOwn(vulgar,raw)||/^[-+]?\d+\/\d+$/.test(q))add('fraction');
     if(q==='∃!')add('unique-exists');
+    if(/^[uv]×[uv]$/.test(q))add('cross-product');
     if(q==='x̅')add('sample-mean');if(q==='z̅')add('complex-conjugate');
     if(q==='σ^2')add('population-variance');
     if(/^v_(?:[nk]|[0-9]+|\{[nk][+-]1\})$/.test(q))add('sequence');
@@ -53,7 +54,7 @@
     if(/^lim_?\{?[\s\S]*→/.test(q))add('limit-arrow');
     if(/^[-+]?(?:\d+(?:\.\d*)?|\.\d+)[eE][-+]?\d+$/.test(q))add('scientific-notation');
     if(/^E(?:\[[\s\S]+\]|\([\s\S]+\))$/.test(q))add('expected-value');
-    if(/^P\([\s\S]+\)$/.test(q))add(q.includes('|')?'conditional-probability':'probability');
+    if(/^P\([\s\S]+\)$/.test(q)){if(options.slug==='quantifier')add('predicate');else {add(q.includes('|')?'conditional-probability':'probability');if(q==='P(x)'||/^P\([-+]?\d+(?:\.\d+)?\)$/.test(q))add('predicate');}}
     const costCall=/^C\(x(?:_(?:0|k|\{k\+1\}))?,y(?:_(?:0|k|\{k\+1\}))?\)$/.test(q);
     if(costCall)add('cost-function','function-notation');
     if(!costCall&&/^(?:C\([^,()]+,[^,()]+\)|(?:[A-Za-z0-9]+)![\s\S]*)$/.test(q))add(q.includes('!')?'factorial':'binomial-coefficient');
@@ -65,7 +66,7 @@
     if(/^d[A-Za-z]\/d[A-Za-z]$/.test(q)||/^d\/d[A-Za-z]$/.test(q))add('derivative','differential');
     if(/^d[A-Za-zθφ]$/.test(q))add('differential');
     if(/^‖[^‖]+‖$/.test(q)||/^\\lVert[\s\S]+\\rVert$/.test(raw.replace(/\s+/g,'')))add('magnitude');
-    if(/^\|[^|]+\|$/.test(q)){const body=q.slice(1,-1),setForm=/[∩∪∖∅]/.test(body),ambiguousSet=/^[ABUR]$/.test(body);if(setForm||ambiguousSet)add('cardinality');if(!setForm)add('absolute-value');if(/^\|[zw]+\|$/.test(q))add('complex-modulus');}
+    if(/^\|[^|]+\|$/.test(q)){const body=q.slice(1,-1),setForm=/[∩∪∖∅]/.test(body),ambiguousSet=/^[ABUR]$/.test(body);if(setForm||ambiguousSet)add('cardinality');if(!setForm)add(/^[uv]×[uv]$/.test(body)?'magnitude':'absolute-value');if(/^\|[zw]+\|$/.test(q))add('complex-modulus');}
     if(/^\[\[[\s\S]+\]\]$/.test(q)||/^\\begin\{(?:bmatrix|pmatrix|matrix|vmatrix|Vmatrix)\}/.test(q))add('matrix','column-vector');
     if(/^[[(][^,()[\]]+,[^,()[\]]+[)\]]$/.test(q)){
       if(q[0]==='('&&q.at(-1)===')')add('ordered-pair','open-interval');else if(q[0]==='['&&q.at(-1)===']')add('closed-interval','square-brackets');else add('half-open-interval');
@@ -97,6 +98,9 @@
     if(['unitless','dimensionless','× reference','ratio'].includes(unit))return unit==='ratio'?['ratio','dimensionless']:['dimensionless'];
     if(['population fraction','fraction','of capacity','probability','fraction of flagged items'].includes(unit))return['ratio','probability'];
     if(['generations','passes','levels','refinements'].includes(unit))return['iteration'];
+    if(unit==='truth value')return['truth-value'];
+    if(['step','steps','updates','completed updates'].includes(unit))return['iteration-index','iteration'];
+    if(unit==='deg')return['degree'];
     if(['round','rounds','completed rounds'].includes(unit))return['completed-rounds','iteration'];
     if(unit==='basis weights')return['weight','coordinate-vector'];
     if(unit==='normalized amplitude')return['declared-unit','dimensionless','amplitude'];if(unit==='expected seedlings')return['declared-unit','expected-value'];
@@ -128,11 +132,11 @@
     return freeze(fields);
   }
   function balanced(text,start,open,close){let depth=0;for(let i=start;i<text.length;i++){if(text[i]===open)depth++;else if(text[i]===close&&!--depth)return i+1;}return null;}
-  function extract(text,{kind='formula'}={}){
+  function extract(text,{kind='formula',slug}={}){
     if(typeof text!=='string')return[];const records=[];
-    const emit=(token,offset,type,extra={})=>records.push({token,kind:type,offset,end:offset+token.length,sourceKind:kind,entryIds:classify(token),...extra});
+    const emit=(token,offset,type,extra={})=>records.push({token,kind:type,offset,end:offset+token.length,sourceKind:kind,entryIds:classify(token,{slug}),...extra});
     if(kind==='unit'){const token=text.trim();if(token)emit(token,text.indexOf(token),'unit',{entryIds:unitIds(token)});return freeze(records);}
-    const children=(start,end)=>{if(end<=start)return;for(const child of extract(text.slice(start,end),{kind}))records.push({...child,offset:child.offset+start,end:child.end+start});};
+    const children=(start,end)=>{if(end<=start)return;for(const child of extract(text.slice(start,end),{kind,slug}))records.push({...child,offset:child.offset+start,end:child.end+start});};
     const delimiters=(open,close)=>{emit(text[open],open,'grouping');emit(text[close],close,'grouping');};
     for(let i=0;i<text.length;){const rest=text.slice(i),c=String.fromCodePoint(text.codePointAt(i));
       if(/\s/u.test(c)){i+=c.length;continue;}
@@ -145,7 +149,7 @@
       if(c==='\\'){
         const run=/^\\+/.exec(rest)[0];if(run.length>1){emit(run,i,run.length===2?'formatting':'invalid',{reason:run.length===2?'TeX row break':'Only a single command slash or a double row break is supported.'});i+=run.length;continue;}
         const command=/^\\([A-Za-z]+)/.exec(rest);
-        if(!command){const escape=rest.slice(0,2);if(/^\\[!,;: ]$/.test(escape))emit(escape,i,'formatting');else if(/^\\[{}_%#$&|]$/.test(escape))emit(escape,i,'symbol',{entryIds:escape==='\\|'?['magnitude']:classify(escape[1])});else emit(escape,i,'invalid',{reason:'A TeX slash must start a known command or escape.'});i+=escape.length;continue;}
+        if(!command){const escape=rest.slice(0,2);if(/^\\[!,;: ]$/.test(escape))emit(escape,i,'formatting');else if(/^\\[{}_%#$&|]$/.test(escape))emit(escape,i,'symbol',{entryIds:escape==='\\|'?['magnitude']:classify(escape[1],{slug})});else emit(escape,i,'invalid',{reason:'A TeX slash must start a known command or escape.'});i+=escape.length;continue;}
         const name=command[1],token=command[0];
         if(name==='exists'&&text[i+token.length]==='!'){emit(token+'!',i,'structured',{entryIds:['unique-exists']});i+=token.length+1;continue;}
         if(formatting.has(name)){
@@ -153,7 +157,7 @@
           if(text[cursor]==='{'){
             const end=balanced(text,cursor,'{','}');if(!end){emit(text.slice(cursor),cursor,'invalid',{reason:'Unclosed formatting argument.'});break;}
             if(['begin','end','hspace','vspace'].includes(name)){emit(text.slice(cursor,end),cursor,'formatting',{reason:'TeX layout argument'});i=end;continue;}
-            if(['mathbb','mathcal','operatorname'].includes(name)){const whole=text.slice(i,end),ids=classify(whole);if(ids.length)emit(whole,i,'structured',{entryIds:ids});else emit(whole,i,name==='operatorname'?'identifier':'symbol');if(name==='operatorname'&&/[\\+*/=<>\p{Sm}]/u.test(text.slice(cursor+1,end-1)))children(cursor+1,end-1);i=end;continue;}
+            if(['mathbb','mathcal','operatorname'].includes(name)){const whole=text.slice(i,end),ids=classify(whole,{slug});if(ids.length)emit(whole,i,'structured',{entryIds:ids});else emit(whole,i,name==='operatorname'?'identifier':'symbol');if(name==='operatorname'&&/[\\+*/=<>\p{Sm}]/u.test(text.slice(cursor+1,end-1)))children(cursor+1,end-1);i=end;continue;}
           }
           if(name==='mathbb'&&/[NRZQCE]/.test(text[cursor]||'')){const whole=text.slice(i,cursor+1);emit(whole,i,'structured');i=cursor+1;continue;}
           i+=token.length;continue;
@@ -167,6 +171,7 @@
       const scientific=/^[+−-]?(?:\d+(?:\.\d*)?|\.\d+)[eE][+−-]?\d+\b/.exec(rest);if(scientific){emit(scientific[0],i,'structured');i+=scientific[0].length;continue;}
       const fraction=/^[+−-]?\d+\/\d+(?!\d)/.exec(rest);if(fraction){emit(fraction[0],i,'structured');const slash=i+fraction[0].indexOf('/');emit('/',slash,'operator');i+=fraction[0].length;continue;}
       if(rest.startsWith('∃!')){emit('∃!',i,'structured');i+=2;continue;}
+      const vectorProduct=/^[uv]\s*×\s*[uv](?![A-Za-z0-9_])/.exec(rest);if(vectorProduct){emit(vectorProduct[0],i,'structured',{entryIds:['cross-product']});i+=vectorProduct[0].length;continue;}
       if(rest.startsWith('||')||c==='‖'){
         const delimiter=c==='‖'?'‖':'||',end=text.indexOf(delimiter,i+delimiter.length);if(end>=0){const token=text.slice(i,end+delimiter.length);emit(token,i,'structured');children(i+delimiter.length,end);i+=token.length;continue;}
       }
@@ -175,7 +180,7 @@
       }
       const functionStart=/^(?:[A-Za-z]['’′″]+|(?:E|P|C|O|Θ|[fghWVARdSvLTw]|AB|BA|T_A|Apply|Log|sin|cos|tan|sec|csc|cot|arcsin|arccos|arctan|log(?:_(?:[A-Za-z0-9]+|\{[^{}]+\}|\([^()]+\))|[₀-₉]+|\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)?|ln|exp|sqrt|abs|norm|hypot|atan2|floor|ceil|frac|det|rank|dim|min|max|argmin|argmax|arg|Re|Im|Var|Binomial|sign|sgn|proj)(?:['’′″]+)?)\s*[([]/.exec(rest);
       const nativeStart=/^([A-Za-z][A-Za-z0-9_]*)\s*[([]/.exec(rest),recognizedStart=functionStart||(nativeStart&&Object.hasOwn(named,nativeStart[1])?nativeStart:null);
-      if(recognizedStart){const open=rest[recognizedStart[0].length-1],start=i+recognizedStart[0].length-1,end=balanced(text,start,open,open==='('?')':']');if(end){const token=text.slice(i,end),ids=classify(token);if(ids.length){emit(token,i,'structured',{entryIds:ids});delimiters(start,end-1);children(start+1,end-1);i=end;continue;}}}
+      if(recognizedStart){const open=rest[recognizedStart[0].length-1],start=i+recognizedStart[0].length-1,end=balanced(text,start,open,open==='('?')':']');if(end){const token=text.slice(i,end),ids=classify(token,{slug});if(ids.length){emit(token,i,'structured',{entryIds:ids});delimiters(start,end-1);children(start+1,end-1);i=end;continue;}}}
       const decorated=/^[A-Za-zα-ωΑ-Ω][A-Za-z0-9α-ωΑ-Ω]*(?:_[A-Za-z0-9]|_\{[^{}]+\}|\^[A-Za-z0-9+-]|\^\{[^{}]+\}|[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]+)(?:[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]*)/.exec(rest);
       if(decorated&&!/[A-Za-z_]/.test(rest[decorated[0].length]||'')){emit(decorated[0],i,'structured');for(const match of decorated[0].matchAll(/\{([^{}]*)\}/g)){const start=i+match.index;delimiters(start,start+match[0].length-1);children(start+1,start+match[0].length-1);}i+=decorated[0].length;continue;}
       const compound=/^(?:m\/s(?:²|\^2)?|ms\/item|L\/min|km\/h|(?:cm|mm|m)[²³]|px)(?![\p{L}\p{N}_/])/u.exec(rest);if(compound){emit(compound[0],i,'unit',{entryIds:unitIds(compound[0])});i+=compound[0].length;continue;}
@@ -194,7 +199,7 @@
     for(const entry of byId.values())for(const token of [...(entry.symbols||[]),...(entry.lookupAliases||[]),...(entry.mathSymbols||[]),...(entry.tokens||[])])if(typeof token==='string'&&token.trim()){const key=normalize(token),ids=exact.get(key)||[];ids.push(entry.id);exact.set(key,ids);}
     const records=[],layout=[],review=[],allFields=[...cards.flatMap(card=>fieldsFor(card,stories).map(field=>({...field,slug:String(card.slug||'')}))),...fields.filter(field=>field&&typeof field.text==='string')];
     for(const field of allFields)if(field.kind!=='unit')for(const match of field.text.matchAll(/(?<![\\\w])([A-Za-z][A-Za-z0-9_]*)\(/g)){const name=match[1];if(name.length>1&&!Object.hasOwn(named,name)&&!/^log_(?:[A-Za-z0-9]*|\{[^{}]+\})$/.test(name)&&!/^log\d+$/.test(name)&&name!=='rx_n')review.push({slug:String(field.slug||''),location:field.location||'Declared runtime notation',token:name,offset:match.index,reason:'Adjacent plain callable needs an explicit mathematical reader or a reviewed prose exclusion.'});}
-    for(const field of allFields)for(const occurrence of extract(field.text,{kind:field.kind})){
+    for(const field of allFields)for(const occurrence of extract(field.text,{kind:field.kind,slug:field.slug})){
       const reference=field.reference===true||String(field.slug||'').startsWith('reference:');
       const record={slug:String(field.slug||''),location:field.location||'Declared runtime notation',text:field.text,...(reference?{reference:true}:{}),...(field.ownerEntryId?{ownerEntryId:field.ownerEntryId}:{}),...occurrence};
       if(record.kind==='formatting'){layout.push(record);continue;}

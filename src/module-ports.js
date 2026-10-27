@@ -12,6 +12,32 @@
   const port=(direction,key,label,type,unit,description)=>Object.freeze({id:direction+':'+key,label,direction,key,type,unit,description});
   const input=(...args)=>port('input',...args),output=(...args)=>port('output',...args);
   const definitions={
+    'logical-connectives':[
+      input('length','Panel length','length','cm','The measured length used by the proposition P: the length is at least six centimetres.'),
+      input('width','Panel width','length','cm','The measured width used by the proposition Q: the width is at least four centimetres.'),
+      output('output','Selected statement truth','truth-value','1','A classical truth value encoded internally as one for true or zero for false, not a probability or measured amount.')
+    ],
+    quantifier:[
+      input('threshold','Required strip length','length','cm','The lower length bound used by the predicate on the six explicitly listed strips.'),
+      output('output','Selected quantified claim truth','truth-value','1','One for true and zero for false over this fixed finite domain, not a proportion of successes.'),
+      output('qualifyingCount','Strips satisfying the predicate','count','item','The exact number of the six stated strips whose length meets the inclusive threshold.')
+    ],
+    'cross-product':[
+      input('uLength','First vector length','length','m','The nonnegative length of u on the positive horizontal axis.'),
+      input('vLength','Second vector length','length','m','The nonnegative length of v before its signed planar turn.'),
+      input('angle','Signed turn from u to v','angle','deg','A signed angle in the fixed right-handed coordinate frame.'),
+      output('output','Signed normal component','oriented-area-component','m2','The signed z component of u cross v; its sign gives orientation and its magnitude is parallelogram area.'),
+      output('normalComponent','Signed z component','oriented-area-component','m2','The directed normal-area component in the fixed right-handed frame.'),
+      output('area','Parallelogram area','area','m2','The nonnegative magnitude of the cross product in this planar family.')
+    ],
+    stability:[
+      input('initialError','Initial signed alignment error','displacement','cm','The initial signed displacement from the equilibrium at zero.'),
+      input('multiplier','Error multiplier per update','iteration-multiplier','1','The real multiplier of the previous signed error; it can reverse sign or amplify error.'),
+      input('steps','Completed correction updates','iteration-count','step','The whole number of repeated correction updates, including zero.'),
+      output('output','Current signed alignment error','displacement','cm','The signed displacement after the exact number of completed updates.'),
+      output('magnitude','Current error magnitude','length','cm','The nonnegative distance from equilibrium after the completed updates.'),
+      output('factorMagnitude','Multiplier magnitude','iteration-multiplier-magnitude','1','The absolute multiplier used to classify this linear rule independently of the starting displacement.')
+    ],
     'conditional-probability':[
       input('eventEnd','Inked interval endpoint','length','cm','The endpoint of event A on the stipulated 100 centimetre uniform strip.'),
       input('windowEnd','Known inspection interval endpoint','length','cm','The positive endpoint of conditioning event B; zero makes the ratio undefined.'),

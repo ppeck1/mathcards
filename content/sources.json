@@ -468,6 +468,60 @@
       "locator": "Recursive and explicit geometric-sequence formulas and repeated multiplication",
       "verification": "Definition-level material inspected 2026-10-27 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
       "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:statements-quantifiers",
+      "title": "Contemporary Mathematics, 2.1 Statements and Quantifiers",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/2-1-statements-and-quantifiers",
+      "kind": "textbook",
+      "locator": "Logical statements and truth values; all, some and none; negation of quantified claims",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher page. Supports definitions, not independent review, photographed-book coverage or the original workshop scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:compound-statements",
+      "title": "Contemporary Mathematics, 2.2 Compound Statements",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/2-2-compound-statements",
+      "kind": "textbook",
+      "locator": "Conjunction, inclusive disjunction, negation, material conditional and biconditional, Table 2.3",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher page. Supports definitions, not independent review, photographed-book coverage or the original workshop scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:truth-tables",
+      "title": "Contemporary Mathematics, 2.3 Constructing Truth Tables",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/2-3-constructing-truth-tables",
+      "kind": "textbook",
+      "locator": "Enumeration of the four two-proposition assignments; truth tables for negation, conjunction and inclusive disjunction",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher page. Supports definitions, not independent review, photographed-book coverage or the original workshop scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:cross-product",
+      "title": "Calculus Volume 3, 2.4 The Cross Product",
+      "url": "https://openstax.org/books/calculus-volume-3/pages/2-4-the-cross-product",
+      "kind": "textbook",
+      "locator": "Component definition, orthogonality and orientation; parallelogram area as the cross-product norm",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher page. Supports definitions, not independent review, photographed-book coverage or the original workshop scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:ucdavis:scalar-dynamics",
+      "title": "John K. Hunter, One Dimensional Dynamical Systems, Chapter 2",
+      "url": "https://www.math.ucdavis.edu/~hunter/m207/ch2.pdf",
+      "kind": "institutional_teaching",
+      "locator": "Section 2.12 Discrete Dynamical Systems, printed pages 28–29: the scalar linear recurrence, its exact powers, attraction, instability and the two unit-magnitude cases",
+      "verification": "Definition-level material inspected 2026-10-27 on the official university-hosted course notes. Supports the stated scalar recurrence and conditions, not independent review, structural-stability coverage or validation of a physical controller.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:tamu:structural-stability",
+      "title": "Texas A&M MATH 614, Dynamical Systems and Chaos, Lecture 10",
+      "url": "https://people.tamu.edu/~yvorobets/MATH614-2016A/Lect1-10web.pdf",
+      "kind": "institutional_teaching",
+      "locator": "Slides 9–10 of 13: structural stability, specified perturbations and topological conjugacy; distinction from a fixed rule's response to starting-state changes",
+      "verification": "Definition-level material inspected 2026-10-27 on the official university-hosted lecture. Supports the reference distinction, not a claim that the bounded equilibrium lesson implements structural-stability analysis.",
+      "rights": "Reference only. Explanations and scenarios are originally authored; no lecture prose or diagrams copied."
     }
   ]
 }

@@ -1041,7 +1041,11 @@
             "computational-complexity-visual-model",
             "conditional-probability-visual-model",
             "variance-visual-model",
-            "recurrence-visual-model"
+            "recurrence-visual-model",
+            "logical-connectives-visual-model",
+            "quantifier-visual-model",
+            "cross-product-visual-model",
+            "stability-visual-model"
           ]
         },
         "renderer_version": {

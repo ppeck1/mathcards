@@ -12,7 +12,7 @@ the common host lives in [src/playground.js](../src/playground.js). This first
 pass adapts the existing mathematical models, renderers, and stories rather than
 requiring their replacement.
 
-The installed application contains thirty-eight topic adapters. The separate
+The installed application contains forty-five topic adapters. The separate
 [module sandbox](../examples/module-sandbox.html), **One module. Two independent
 places to play.**, loads an additional module from
 [growth-frame-module.js](../examples/growth-frame-module.js). It renders
@@ -65,9 +65,9 @@ than replacing a running module.
 | `defaultView` | The ID of one of the declared views |
 
 Each declared view must be a distinct representation of the same module state.
-The thirty-eight installed topics supply Geometry and Graph. Composition,
+The forty-five installed topics supply Geometry and Graph. Composition,
 logarithm, derivative, partial derivatives, gradient, directional derivative and
-tangent plane also supply genuine 3D space, for 83 views: 38 Geometry, 38 Graph
+tangent plane also supply genuine 3D space, for 97 views: 45 Geometry, 45 Graph
 and seven Spatial. Do not offer another tab that
 silently returns identical geometry. `src/plot-view.js` supplies the pure
 coordinate-plot renderer; `src/module-graphs.js` describes the twelve newer
@@ -78,6 +78,12 @@ The four linear algebra modules similarly provide their pure Geometry and Graph
 views through `src/linear-algebra.js`, with practical narrative data in
 `src/linear-algebra-stories.js`. The shared host owns all animation and input;
 these providers start no independent clock.
+The probability/spread/recurrence provider lives in `src/data-iteration.js`.
+The next book-guided gateway lessons use `src/book-foundations.js` and
+`src/book-foundation-stories.js`: classical connectives, finite-domain
+quantifiers, planar cross products and scalar discrete equilibrium stability.
+Truth-valued outputs remain separate from probabilities, and finite truth
+steps and whole update counts never interpolate to invented mathematical states.
 The first three calculus modules use `src/calculus-fields.js` and
 `src/calculus-field-stories.js`; the field topics share one analytic evaluator.
 `src/local-change.js` and `src/local-change-stories.js` extend that sequence
@@ -110,7 +116,13 @@ Optional host metadata includes `expression`, `unit`, `setting`, `limits`,
 `readout`, `inspector`, `validateInspectorState`, `canInterpolate`, and `referenceWeight`; omit unsupported
 hooks instead of supplying a nonfunction value. The existing readout adapter
 returns `{ expression, stats: [{ label, value, note }], insight }` and receives
-the host formatter in its context. An optional replay descriptor declares a
+the host formatter in its context. The context also includes `baseline`, the
+evaluated pinned result or `null` when no comparison is pinned. A readout may
+return an optional `comparison: { baselineValue, change }` with two nonempty
+strings to describe a semantic comparison, such as `False → True` or
+`Unchanged`. The host uses it only while both results are valid; numeric and
+undefined-state comparisons retain their default formatting otherwise. String
+stat values are preserved by the shared formatter. An optional replay descriptor declares a
 bounded parameter path; the host still owns its clock and pause behavior.
 
 The registry copies and freezes definition metadata, rejects unsafe keys and

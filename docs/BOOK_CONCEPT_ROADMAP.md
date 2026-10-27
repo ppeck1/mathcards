@@ -1,0 +1,67 @@
+# Book-guided concept expansion
+
+The supplied twelve-page matrix contains 214 normalized topics and 217
+book-specific records: 51 for *About Vectors*, 54 for *What Is Mathematical
+Logic?*, 85 for *Structural Stability and Morphogenesis*, and 27 for the
+formal-logic strand of *Semantics: A Coursebook*. The user authorized using the
+books' scopes to choose and sequence lessons. The PDF adds stable topic IDs and
+more detailed scope than the summary CSV.
+
+[The full 214-row roadmap](BOOK_CONCEPT_ROADMAP.csv) preserves `MAT-001` through
+`MAT-214`, the topic labels, domains and four book-coverage columns. Book coverage
+is attributed to the supplied planning matrix. We have not independently
+reverified its edition, page or depth claims, and the PDF is not redistributed.
+`Not evidenced` retains its original absence-of-evidence meaning.
+
+## First build: four gateways
+
+| Lesson | Matrix connection | What changes in the scene | Boundary |
+|---|---|---|---|
+| Logical connectives and truth tables | MAT-190, 192, 198–199, 201, 208–209, 212–213 | Change a panel measurement; follow two predicates into a connective, active truth-table row and input-plane truth region | Classical two-valued logic; inclusive OR and material implication do not model all conversational meaning |
+| Universal and existential quantifiers | MAT-085; precursors for MAT-071, 084, 206, 214 | Move a minimum-length threshold across six known strips; follow each predicate outcome into every/some claims | One fixed finite nonempty domain; no arbitrary formula engine or infinite-domain proof |
+| Cross product and oriented area | MAT-005, 041–042; precursors for MAT-001, 004 | Turn one edge of a parallelogram; follow its sine into signed normal component and nonnegative area | A planar executable family in a fixed right-handed frame, within the general three-dimensional definition |
+| Stability of an equilibrium | Introductory links to MAT-139 and 144; preparation for MAT-140, 142–143, 150 and 166 | Change a correction multiplier; inspect signed errors after exact whole-number updates | Starting-state stability of one scalar linear discrete rule; structural stability, differential equations and fold catastrophes remain planned |
+
+Each lesson uses the same playground host, compact story layout, animation
+clock, readable-value pacing, comparison pins and private saved-state contract.
+Mathematics and scenes live in `book-foundations.js`; narrative lives in
+`book-foundation-stories.js`; canonical JSON owns definitions, original examples
+and numeric fixtures. Definitions and visible forms enter the prepared reference
+index and its visual symbol catalog.
+
+## Expansion sequence
+
+Stage labels group prerequisite streams. They are an editorial roadmap, not a
+claim that all earlier stages are required for every later topic.
+
+| Stream | Rows | Next useful modules | What must precede the advanced end |
+|---|---:|---|---|
+| 1 · Logic and language | 33 | Predicate arity and extensions; inference rules; equivalence; free/bound variables | Explicit domain, syntax and interpretation before arbitrary quantified arguments |
+| 2 · Vectors and mechanics | 41 | Located versus free vectors; torque; general spatial cross product; triple products | Shared coordinate frames, units, orientation and location-sensitive meaning |
+| 3 · Proof, models and computation | 30 | Formal proof; small finite structures; machine transitions; decidability | Separate truth from derivability and finite demonstrations from general theorems |
+| 4 · Tensors and coordinate laws | 9 | Coordinate changes; metric; index notation; contraction | Transformation behavior before treating tensors as arrays |
+| 5 · Infinite sets and foundations | 16 | Countability; Cantor's diagonal argument; ordinals | Actual proof structure before compactness, independence, forcing or incompleteness claims |
+| 6 · Topology and dynamics | 31 | Vector fields; continuous flows; basins; manifolds; structural stability | State space, neighborhood, continuity, smoothness and the specified type of perturbation |
+| 7 · Singularities and catastrophes | 21 | Fold first, then cusp and hysteresis; critical-point geometry | Equilibria, parameterized families, local derivatives and clear state/control axes |
+| 8 · Qualitative modeling and applications | 33 | Qualitative versus quantitative models; potentials; carefully bounded morphology examples | Distinguish a mathematical construction, a historical interpretation and empirically validated prediction |
+
+The CSV currently links 30 rows to draft introductions, 32 to precursors, and
+leaves 152 without a dedicated introduction or precursor link. These are
+topic-to-lesson links, not counts of independently reviewed or complete topics.
+All 214 rows still require scope review as expansion proceeds.
+
+## Rules for subsequent batches
+
+1. Select a small coherent prerequisite batch and update its roadmap rows.
+2. Define the bounded mathematical family and units before building its scene.
+3. Connect an original concrete story to formula quantities and actual marks.
+4. Provide distinct Geometry and Graph views; add Spatial only when useful.
+5. Add definitions and every introduced symbol with actual card-use links.
+6. Validate domains, invariants, boundary cases, notation, startup and responsive
+   behavior before publication. Keep independent mathematical, historical and
+   learning review visible in the editorial records.
+
+The matrix's book-specific catalog, chapter locators and confidence remain a
+research guide. The lessons use separately inspected primary mathematical
+sources and original prose and worked examples; they do not reproduce the
+books' exercise banks or imply edition-specific verification.

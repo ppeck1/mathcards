@@ -1,5 +1,6 @@
 """Parity and determinism checks for projections of the canonical records."""
 import copy
+import csv
 import importlib.util
 import json
 from pathlib import Path
@@ -35,9 +36,25 @@ class PipelineTests(unittest.TestCase):
         for card in catalog['cards']:
             source=json.loads((ROOT/'content/cards'/(card['slug']+'.json')).read_text(encoding='utf-8'))
             self.assertEqual(source,card)
-        self.assertEqual(len(catalog['cards']),41)
-        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),209)
-        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),382)
+        self.assertEqual(len(catalog['cards']),45)
+        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),229)
+        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),430)
+
+    def test_book_roadmap_preserves_topic_identity_and_honest_card_links(self):
+        with (ROOT/'docs/BOOK_CONCEPT_ROADMAP.csv').open(encoding='utf-8',newline='') as stream:
+            rows=list(csv.DictReader(stream))
+        self.assertEqual([row['topic_id'] for row in rows],['MAT-%03d'%n for n in range(1,215)])
+        self.assertEqual(sum(int(row['book_count']) for row in rows),217)
+        self.assertEqual({book:sum(row[book]!='Not evidenced' for row in rows) for book in ['AV','ML','SSM','SEM']},{'AV':51,'ML':54,'SSM':85,'SEM':27})
+        slugs={card['slug'] for card in load_catalog()['cards']}
+        for row in rows:
+            self.assertTrue(row['title'] and row['domain'] and row['scope_note'])
+            self.assertEqual(int(row['book_count']),sum(row[book]!='Not evidenced' for book in ['AV','ML','SSM','SEM']))
+            self.assertIn(row['lesson_status'],{'planned','planned-with-precursor','draft-introduction'})
+            self.assertTrue(set(filter(None,row['related_cards'].split(';')))<=slugs)
+        structural=next(row for row in rows if row['topic_id']=='MAT-150')
+        self.assertEqual(structural['lesson_status'],'planned-with-precursor')
+        self.assertIn('rule',structural['scope_note'])
 
     def test_catalog_inline_is_inert(self):
         payload={'cards':[{'title':'</script><img src=x onerror=alert(1)>'}]}
@@ -51,7 +68,7 @@ class PipelineTests(unittest.TestCase):
             a,b=Path(tmp)/'a',Path(tmp)/'b'
             ma,mb=build_export(a),build_export(b)
             self.assertEqual(ma,mb)
-            self.assertEqual(ma['document_count'],250)
+            self.assertEqual(ma['document_count'],274)
             for entry in ma['documents']:
                 self.assertEqual((a/entry['path']).read_bytes(),(b/entry['path']).read_bytes())
                 self.assertNotIn('notebook',entry['path'])

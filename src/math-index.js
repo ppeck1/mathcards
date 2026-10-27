@@ -40,7 +40,7 @@
       const mathSources=Notation?Notation.fieldsFor(card,stories):[{text:mathFields(card),kind:'tex',location:'Formula'}];
       const localBindings=new Map();
       for(const entry of work)if(entry.grammarCards?.includes(card.slug))for(const token of entry.tokens||entry.symbols){if(!/^(?:[A-Za-z]|\|[^|]+\|)$/.test(token))continue;const form=Notation?Notation.normalize(token):token,bound=localBindings.get(form)||new Set();bound.add(entry.id);localBindings.set(form,bound);}
-      return{card,localBindings,fields:readableFields(card),math:mathSources.filter(field=>field.kind!=='unit').map(field=>field.text).join('\n'),notation:Notation?mathSources.flatMap(field=>Notation.extract(field.text,{kind:field.kind}).filter(record=>!['formatting','invalid'].includes(record.kind)).map(record=>({...record,normalizedToken:Notation.normalize(record.token),location:field.location,sourceKind:field.kind}))):[],grammar:(card.grammar?.symbols||[]).filter(symbol=>symbol&&typeof symbol.token==='string')};
+      return{card,localBindings,fields:readableFields(card),math:mathSources.filter(field=>field.kind!=='unit').map(field=>field.text).join('\n'),notation:Notation?mathSources.flatMap(field=>Notation.extract(field.text,{kind:field.kind,slug:card.slug}).filter(record=>!['formatting','invalid'].includes(record.kind)).map(record=>({...record,normalizedToken:Notation.normalize(record.token),location:field.location,sourceKind:field.kind}))):[],grammar:(card.grammar?.symbols||[]).filter(symbol=>symbol&&typeof symbol.token==='string')};
     });
     function use(entry,card,context){
       let usage=entry.usedBy.find(item=>item.slug===card.slug);
@@ -58,6 +58,8 @@
       for(const info of cardInfo){
         const {card}=info;
         for(const symbol of info.grammar){
+          const preferred=info.localBindings.get(Notation?Notation.normalize(symbol.token):symbol.token);
+          if(preferred?.size&&!preferred.has(entry.id))continue;
           if(exactTokens.includes(symbol.token)&&(!entry.grammarCards||entry.grammarCards.includes(card.slug))){
             use(entry,card,{token:symbol.token,meaning:String(symbol.meaning||symbol.role||'Meaning is defined in this card.'),role:String(symbol.role||''),type:String(symbol.type||''),via:'grammar',location:'Grammar'});grammarCovered.get(card.slug).add(symbol.token);
           }
@@ -179,7 +181,7 @@
       if(matches.length||scopedToken(token))return matches;
       // A named compound form can also have a syntax reader (for example the
       // subscript in DᵤF). Keep that reader on cards actually declaring the form.
-      const owners=exactForm?entries.filter(candidate=>[...candidate.symbols,...candidate.lookupAliases].some(same)):[];
+      const owners=exactForm?entries.filter(candidate=>[...candidate.symbols,...candidate.lookupAliases].some(same)||candidate.usedBy.some(usage=>usage.contexts.some(context=>context.via!=='term'&&same(context.token)))):[];
       const ownerSlugs=new Set(owners.flatMap(candidate=>candidate.usedBy.filter(usage=>usage.contexts.some(context=>context.via!=='term'&&same(context.token))).map(usage=>usage.slug)));
       if(ownerSlugs.size)return entry.usedBy.filter(usage=>ownerSlugs.has(usage.slug)).map(usage=>({...usage,contexts:usage.contexts.filter(context=>context.via!=='term')})).filter(usage=>usage.contexts.length);
       // A concrete component such as d₄ may be declared by its indexed family

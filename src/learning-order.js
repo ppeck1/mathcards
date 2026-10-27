@@ -2,14 +2,14 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;root.AtlasLearningOrder=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
   const slugs=Object.freeze([
-    'ratio-scale','linear-model','function','set','exponentiation','function-composition',
+    'ratio-scale','linear-model','function','set','logical-connectives','quantifier','exponentiation','function-composition',
     'exponential-change','real-logarithm','quadratic-optimization','pythagorean-theorem',
-    'vector','vector-rotation','inner-product','linear-combination','basis',
+    'vector','vector-rotation','inner-product','cross-product','linear-combination','basis',
     'matrix-linear-map','determinant','matrix-product','complex-multiplication',
     'probability','conditional-probability','population-sample','variance','bayes-theorem','limit','derivative',
     'integral-accumulation','signed-accumulation','chain-rule','partial-derivative',
     'gradient','directional-derivative','tangent-plane','gradient-descent',
-    'wave-interference','resonance','graph-theory','computational-complexity','recurrence',
+    'wave-interference','resonance','graph-theory','computational-complexity','recurrence','stability',
     'chaos-theory','fractal-geometry'
   ]);
   const ranks=new Map(slugs.map((slug,i)=>[slug,i]));

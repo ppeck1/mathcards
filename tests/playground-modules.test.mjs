@@ -8,6 +8,7 @@ const require = createRequire(import.meta.url);
 const modules = require('../src/playground-modules.js');
 const models = require('../src/models.js');
 const expectedIds = [
+  'logical-connectives', 'quantifier', 'cross-product', 'stability',
   'conditional-probability', 'variance', 'recurrence',
   'set', 'population-sample', 'computational-complexity',
   'directional-derivative', 'tangent-plane', 'gradient-descent',
@@ -133,7 +134,7 @@ test('module readouts return structured data that a shared host can format and p
     for (const stat of readout.stats) {
       assert.equal(typeof stat.label, 'string');
       assert.equal(typeof stat.note, 'string');
-      assert.ok(stat.value === null || Number.isFinite(stat.value), module.id + ' / ' + stat.label);
+      assert.ok(stat.value === null || Number.isFinite(stat.value) || typeof stat.value === 'string' && stat.value.trim().length > 0, module.id + ' / ' + stat.label);
     }
     assert.deepEqual(parameters, module.defaults(), module.id + ' readout does not mutate parameters');
     assert.ok(Number.isFinite(module.referenceWeight(parameters, result)), module.id);
