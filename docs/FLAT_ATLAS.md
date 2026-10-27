@@ -1,4 +1,7 @@
-# Flat field atlas (0.24.0)
+# Flat field atlas (0.24.0 historical checkpoint)
+
+Version 0.25 retains the overview, labels and navigation contract described
+here, and adds count-based topography. See the [current review](BUILD_REVIEW_0_25_0.md).
 
 The atlas is navigation through the collection. Its colors identify mathematical
 fields; region outlines locate topic groups. Region area, location and height

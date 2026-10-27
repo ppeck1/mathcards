@@ -1,12 +1,12 @@
 {
-  "application_version": "0.24.0",
-  "atlas_presentation": "flat topic map; overview fits all territories",
+  "application_version": "0.25.0",
+  "atlas_presentation": "lesson-count topography; overview fits all territories",
   "boh_documents": 232,
   "boh_scope": "Static metadata only. Live ingestion and retrieval unverified.",
-  "canonical_content_sha256": "95985bfc7a83006a4a4db399aa381c9bed8e2c93f6d315d5f572a447f6da5943",
+  "canonical_content_sha256": "f6f418b365bb61f4ccb036e12c9d7bc6a28a155dbf35be5e5e4f8f82ac52fbb4",
   "cards": 38,
   "examples": 194,
-  "index_sha256": "f91b283ae49dfd63dbfc90e67207af7ff84975ba93f5fe929021f60a7a261342",
+  "index_sha256": "1a236e93973a08fd50633362502b868b09142f8cb4c63480670c23d0ae28f0ef",
   "offline": "All app code and content are embedded in index.html.",
   "review_status": "Draft specimens; historical research and independent review remain incomplete.",
   "schema_version": "0.1.0"

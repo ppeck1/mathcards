@@ -12,11 +12,12 @@ const atlas=Regions.create({cards,coverage});
 const regions=atlas.regions;
 const attributes=html=>Object.fromEntries([...html.matchAll(/([\w-]+)="([^"]*)"/g)].map(([,key,value])=>[key,value]));
 
-test('cartographic renderer loads as a pure offline provider without a document or clock',()=>{
-  const context=vm.createContext({});
+test('cartographic renderer composes a pure offline topography provider without a document or clock',()=>{
+  const context=vm.createContext({AtlasTopography:require('../src/atlas-topography.js')});
   vm.runInContext(fs.readFileSync(new URL('../src/atlas-landscape.js',import.meta.url),'utf8'),context);
-  assert.deepEqual(Object.keys(context),['AtlasLandscape']);
+  assert.deepEqual(Object.keys(context),['AtlasTopography','AtlasLandscape']);
   assert.equal(typeof context.AtlasLandscape.render,'function');
+  assert.match(context.AtlasLandscape.render({regions}),/data-highest-summit="13"/);
   assert.ok(Object.isFrozen(Landscape));
 });
 
@@ -81,11 +82,15 @@ test('identifiers, authored labels and descriptions remain inert and independent
   for(const ref of a.matchAll(/url\(#([^\)]+)\)/g))assert.ok(idsA.has(ref[1]));
 });
 
-test('flat field colors identify semantic territories without encoding invented elevation',()=>{
+test('field colors and count-based relief distinguish territory identity from lesson availability',()=>{
   const html=Landscape.render({regions,selectedRegion:'structures'});
   assert.ok(html.includes('class="atlas-field-territories"'));
-  assert.doesNotMatch(html,/<image\b|<filter\b|data:image|atlas-relief|atlas-contours|elevation|mountain/i);
+  assert.doesNotMatch(html,/<image\b|<filter\b|data:image|AtlasTerrain|atlas-terrain-motif/i);
   assert.ok(html.includes('Territory colors identify fields.'));
+  assert.ok(html.includes('Height = playable lessons'));
+  assert.ok(html.includes('data-contour-interval="1" data-highest-summit="13"'));
+  assert.equal((html.match(/data-summit-height=/g)||[]).length,8);
+  assert.equal((html.match(/data-contour-level=/g)||[]).length,55);
   for(const region of regions)assert.match(Landscape.regionColor(region.id),/^#[a-f0-9]{6}$/i);
   assert.equal(Landscape.regionColor('not-a-field'),'#e8ecdf');
   assert.ok(!html.includes('atlas-terrain-motif'));

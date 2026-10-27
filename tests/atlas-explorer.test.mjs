@@ -187,7 +187,7 @@ test('portrait overview retains the complete map and a native full-name key for 
   assert.ok(html.includes('data-world-interact aria-pressed="false"'));
   const key=html.match(/<nav class="world-overview-key"[^>]*>([\s\S]*?)<\/nav>/)[1];
   assert.equal((key.match(/data-world-region=/g)||[]).length,8);
-  for(const region of model.areas.regions)assert.ok(key.includes(region.title));
+  for(const region of model.areas.regions){assert.ok(key.includes(region.title));assert.ok(key.includes('class="world-territory-count">'+region.availableCount+' <span class="world-sr-only">playable lessons</span>'));}
   assert.ok(html.includes('class="world-lessons"')===false,'Overview does not duplicate a long lesson list');
 });
 
