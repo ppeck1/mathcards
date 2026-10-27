@@ -2,9 +2,9 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;root.AtlasLearningOrder=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
   const slugs=Object.freeze([
-    'ratio-scale','linear-model','function','set','logical-connectives','quantifier','exponentiation','function-composition',
+    'ratio-scale','linear-model','function','set','logical-connectives','quantifier','relation','equivalence','inference','exponentiation','function-composition',
     'exponential-change','real-logarithm','quadratic-optimization','pythagorean-theorem',
-    'vector','vector-rotation','inner-product','cross-product','linear-combination','basis',
+    'vector','vector-rotation','inner-product','cross-product','torque','linear-combination','basis',
     'matrix-linear-map','determinant','matrix-product','complex-multiplication',
     'probability','conditional-probability','population-sample','variance','bayes-theorem','limit','derivative',
     'integral-accumulation','signed-accumulation','chain-rule','partial-derivative',

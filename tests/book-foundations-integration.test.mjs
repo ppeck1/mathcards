@@ -74,7 +74,7 @@ test('new vocabulary and literal symbols resolve to their declared card roles wi
   }
   const uses=(query,id)=>index.search(query).find(entry=>entry.id===id)?.usedBy.map(use=>use.slug)||[];
   assert.deepEqual(uses('P(x)','predicate'),['quantifier']);assert.deepEqual(uses('P(x)','probability'),[]);
-  assert.deepEqual(uses('P','proposition'),['logical-connectives']);assert.ok(!uses('P','perimeter').includes('logical-connectives'));
+  assert.deepEqual(uses('P','proposition'),['inference','logical-connectives','equivalence']);assert.ok(!uses('P','perimeter').includes('logical-connectives'));
   assert.deepEqual(uses('h','predicate-threshold'),['quantifier']);assert.ok(!uses('h','increment').includes('quantifier'));
   assert.deepEqual(uses('w_z','normal-component'),['cross-product']);assert.deepEqual(uses('eₙ','alignment-error'),['stability']);
   assert.deepEqual(uses('P(A|B)','conditional-probability'),['conditional-probability']);

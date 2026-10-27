@@ -12,6 +12,39 @@
   const port=(direction,key,label,type,unit,description)=>Object.freeze({id:direction+':'+key,label,direction,key,type,unit,description});
   const input=(...args)=>port('input',...args),output=(...args)=>port('output',...args);
   const definitions={
+    relation:[
+      input('threshold','Required combined length','length','cm','The inclusive lower bound for the total length of an ordered pair of independently selected strips.'),
+      output('output','Qualifying ordered pair count','count','pair','The exact number of satisfying ordered pairs among the thirty-six stated choices, not a probability.'),
+      output('pairCount','Qualifying ordered pairs','count','pair','The number of pairs in the current finite binary relation.')
+    ],
+    equivalence:[
+      input('length','Panel length','length','cm','The measurement assigned to x in proposition P.'),
+      input('width','Panel width','length','cm','The measurement assigned to y in proposition Q.'),
+      output('output','Current left formula truth','truth-value','1','The truth value of the left formula under the selected assignment, encoded as one or zero; separate from global equivalence.'),
+      output('leftTruth','Current left formula truth','truth-value','1','The current truth value of the left comparison formula.'),
+      output('rightTruth','Current right formula truth','truth-value','1','The current truth value of the right comparison formula.'),
+      output('equivalent','Global formula equivalence','formula-equivalence','1','Whether the two formulas agree on every one of the four Boolean assignments, separate from the current formula truth.'),
+      output('mismatchCount','Mismatching truth assignments','count','assignment','How many of all four Boolean assignments make the two formulas differ.')
+    ],
+    inference:[
+      input('length','Panel length','length','cm','The measurement assigned to x in proposition P.'),
+      input('width','Panel width','length','cm','The measurement assigned to y in proposition Q.'),
+      output('output','Current conclusion truth','truth-value','1','The current conclusion truth value, encoded as one or zero; separate from validity of the argument pattern.'),
+      output('conclusionTruth','Current conclusion truth','truth-value','1','The conclusion truth under the selected assignment.'),
+      output('validArgument','Global argument validity','argument-validity','1','Whether every assignment with all premises true has the conclusion true, separate from the current conclusion truth.'),
+      output('counterexampleCount','Counterexample assignments','count','assignment','The number of all four assignments with every premise true and the conclusion false.')
+    ],
+    torque:[
+      input('arm','Pivot-to-application distance','length','m','The distance from pivot to force application, not generally the perpendicular moment arm.'),
+      input('force','Applied force magnitude','force','N','The nonnegative magnitude of the force vector in newtons.'),
+      input('angle','Signed force angle','angle','deg','The angle from the pivot-to-application vector to the applied force in the fixed right-handed plane.'),
+      output('output','Signed torque component','torque','N.m','The signed z component of torque about the stated pivot; the shared dimensions of energy do not make it energy.'),
+      output('magnitude','Torque magnitude','torque-magnitude','N.m','The nonnegative magnitude of the torque about the pivot.'),
+      output('forceX','Force along the arm','force','N','The signed force component parallel to the pivot-to-application direction.'),
+      output('forceY','Perpendicular force component','force','N','The signed component perpendicular to the pivot-to-application direction.'),
+      output('perpendicularForce','Perpendicular force','force','N','The signed force component that contributes to the planar torque.'),
+      output('momentArm','Perpendicular moment arm','length','m','The nonnegative perpendicular distance from the pivot to the line of action of the force.')
+    ],
     'logical-connectives':[
       input('length','Panel length','length','cm','The measured length used by the proposition P: the length is at least six centimetres.'),
       input('width','Panel width','length','cm','The measured width used by the proposition Q: the width is at least four centimetres.'),

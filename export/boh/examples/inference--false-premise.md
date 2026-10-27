@@ -1,0 +1,193 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:inference:false-premise", "id": "math:example:inference:false-premise", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:inference", "example_id": "math:example:inference:false-premise", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "f744c42328f5e0dd0c64beccbcf49ad7e9e162a27dabc37b4f2d4a969ac6f822", "source_revision": "0.1.0-draft", "upstream_content_sha256": "85fe9d892c4f7c9675d210beca244c0a1c2ede55cc687fb347ed4c031b14ec30"}, "purpose": "Follow current predicate truths through an argument’s premises and conclusion, then test its validity on every assignment.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "85fe9d892c4f7c9675d210beca244c0a1c2ede55cc687fb347ed4c031b14ec30", "status": "draft", "title": "Separate false premises from invalidity", "topics": ["mathematics", "language-foundations", "logic", "formal-semantics", "modus ponens", "modus tollens", "argument validity", "affirming the consequent", "semantic entailment"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Separate false premises from invalidity
+
+Parent card: math:concept:inference; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:inference; revision 0.1.0-draft. Setting: Semantic validity of three fixed classical propositional argument patterns with two independent atomic statements. Expression: $P\to Q,\ P\models Q;\qquad P\to Q,\ \neg Q\models\neg P.$. Conditions required for a defined value (a case may test their violation): Panel length x and width y independently range from zero to 12 cm. P means x≥6 cm and Q means y≥4 cm, with equality included. The premises and conclusion use classical truth-functional meanings. P→Q is material implication, which does not assert a cause or an empirical size law. A counterexample assignment must make every premise true and the conclusion false. A row with a false premise is not a counterexample to validity. A true current conclusion need not have been licensed by the stated premises. The module separately displays current premises, current conclusion and global argument validity. The complete four-row check establishes semantic validity for these propositional patterns. It is not a general formal proof system, theorem prover or empirical validation method. Scope: Semantic entailment means preservation of truth across all assignments satisfying the premises. This differs from deriving a formula inside a specified syntactic proof calculus. Every allowed P/Q assignment is represented in the table.
+
+Case unit math:example:inference:false-premise. Setting: An originally authored workshop scenario with stipulated quantities and rules. Inputs: {"argument": "modus-ponens", "length": 9, "width": 3}. Result: {"exact": "Premises hold=False; conclusion=False; valid=True; counterexamples=0"}. Limits: The current false conclusion does not by itself determine validity.
+
+## Complete worked case
+
+- id: math:example:inference:false-premise
+- title: Separate false premises from invalidity
+- role: applied_model
+- question: At x=9 cm and y=3 cm, does a false conclusion refute modus ponens?
+- setting: An originally authored workshop scenario with stipulated quantities and rules.
+- assumptions:
+  - Panel length x and width y independently range from zero to 12 cm. P means x≥6 cm and Q means y≥4 cm, with equality included.
+  - The premises and conclusion use classical truth-functional meanings. P→Q is material implication, which does not assert a cause or an empirical size law.
+- inputs:
+  - length: 9
+  - width: 3
+  - argument: modus-ponens
+- steps:
+  - Item:
+    - index: 1
+    - expression: P=True; Q=False; P→Q=False.
+    - reason: The selected panel violates the conditional premise.
+  - Item:
+    - index: 2
+    - expression: Not all premises hold; conclusion Q is False.
+    - reason: This is not a true-premises/false-conclusion assignment.
+  - Item:
+    - index: 3
+    - expression: The argument pattern remains valid.
+    - reason: A false premise prevents this row from being a validity counterexample.
+- result:
+  - exact: Premises hold=False; conclusion=False; valid=True; counterexamples=0
+- interpretation: The current argument cannot use a premise that is false on the selected assignment.
+- independent check:
+  - method: Separate logical or exact arithmetic check
+  - expected: The unique P=True,Q=False row has its conditional premise false.
+- limits: The current false conclusion does not by itself determine validity.
+- preset:
+  - length: 9
+  - width: 3
+  - argument: modus-ponens
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - Panel length x and width y independently range from zero to 12 cm. P means x≥6 cm and Q means y≥4 cm, with equality included.
+  - The premises and conclusion use classical truth-functional meanings. P→Q is material implication, which does not assert a cause or an empirical size law.
+
+## Written exploration recipe
+
+- component id: component:inference
+- renderer id: inference-visual-model
+- renderer version: 1
+- model id: inference-visual-model
+- model revision: 1
+- expression id: ast:inference:expression
+- interaction status: implemented
+- description: The measured panel supplies P and Q to two explicit premise boxes and a conclusion box. The complete argument table marks premise failures, licensed conclusions and genuine counterexamples separately.
+- controls:
+  - Item:
+    - id: length
+    - type: number
+    - default: 9
+    - min: 0
+    - max: 12
+    - step: 0.01
+  - Item:
+    - id: width
+    - type: number
+    - default: 5
+    - min: 0
+    - max: 12
+    - step: 0.01
+  - Item:
+    - id: argument
+    - type: enum
+    - default: modus-ponens
+    - values:
+      - modus-ponens
+      - modus-tollens
+      - affirming-consequent
+- expected cases:
+  - Item:
+    - input:
+      - length: 9
+      - width: 5
+      - argument: modus-ponens
+    - output: 1
+  - Item:
+    - input:
+      - length: 9
+      - width: 3
+      - argument: modus-ponens
+    - output: 0
+  - Item:
+    - input:
+      - length: 3
+      - width: 5
+      - argument: modus-ponens
+    - output: 1
+  - Item:
+    - input:
+      - length: 3
+      - width: 3
+      - argument: modus-tollens
+    - output: 1
+  - Item:
+    - input:
+      - length: 9
+      - width: 3
+      - argument: modus-tollens
+    - output: 0
+  - Item:
+    - input:
+      - length: 9
+      - width: 5
+      - argument: modus-tollens
+    - output: 0
+  - Item:
+    - input:
+      - length: 3
+      - width: 5
+      - argument: affirming-consequent
+    - output: 0
+  - Item:
+    - input:
+      - length: 9
+      - width: 5
+      - argument: affirming-consequent
+    - output: 1
+  - Item:
+    - input:
+      - length: 3
+      - width: 3
+      - argument: affirming-consequent
+    - output: 0
+  - Item:
+    - input:
+      - length: 6
+      - width: 4
+      - argument: modus-ponens
+    - output: 1
+  - Item:
+    - input:
+      - length: 9
+      - width: 5
+      - argument: deduce
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - length: 9
+      - width: -1
+      - argument: modus-ponens
+    - status: invalid_parameters
+- compute: Let P mean x≥6 cm and Q mean y≥4 cm. Modus ponens uses premises P→Q and P with conclusion Q. Modus tollens uses P→Q and ¬Q with conclusion ¬P. The invalid pattern affirming the consequent uses P→Q and Q with conclusion P. Enumerate all four assignments: validity means there is no row with all premises true and conclusion false.
+- numeric tolerance: 1e-10
+- invariants:
+  - Panel length x and width y independently range from zero to 12 cm. P means x≥6 cm and Q means y≥4 cm, with equality included.
+  - The premises and conclusion use classical truth-functional meanings. P→Q is material implication, which does not assert a cause or an empirical size law.
+  - A counterexample assignment must make every premise true and the conclusion false. A row with a false premise is not a counterexample to validity.
+  - A true current conclusion need not have been licensed by the stated premises. The module separately displays current premises, current conclusion and global argument validity.
+  - The complete four-row check establishes semantic validity for these propositional patterns. It is not a general formal proof system, theorem prover or empirical validation method.
+- limits:
+  - Only three stated propositional argument patterns are evaluated.
+  - Current predicate truth, premise satisfaction, conclusion truth and argument validity are distinct results.
+  - Semantic validity alone does not establish that real-world premises are true or that one event causes another.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openstax:truth-tables. [Contemporary Mathematics, 2.3 Constructing Truth Tables](https://openstax.org/books/contemporary-mathematics/pages/2-3-constructing-truth-tables). Locator: Enumeration of the four two-proposition assignments; truth tables for negation, conjunction and inclusive disjunction. Verification: Definition-level material inspected 2026-10-27 on the official publisher page. Supports definitions, not independent review, photographed-book coverage or the original workshop scenarios.. Rights: Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied.
+
+- Source ID: source:openstax:logical-arguments. [Contemporary Mathematics, 2.7 Logical Arguments](https://openstax.org/books/contemporary-mathematics/pages/2-7-logical-arguments). Locator: Validity and soundness; law of detachment, denying the consequent, and counterexamples to affirming the consequent. Verification: Definition-level material inspected 2026-10-27 on the official publisher or university teaching page. Supports definitions and stated conditions, not independent review, photographed-book coverage or the original constructed scenarios.. Rights: Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied.

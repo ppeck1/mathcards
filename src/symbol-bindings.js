@@ -9,6 +9,10 @@
   // Empty lists are deliberate: a binder, operator or random variable is not
   // automatically a current numerical value or a physical mark in the scene.
   const records = {
+    relation: {D:['domain'],x:[],y:[],h:['threshold'],R:['members'],'R(x,y)':['pairs'],'Rₕ':['members'],'Rₕ(x,y)':['pairs'],'D×D':['pairs'],'|R|':['pairCount'],'|Rₕ|':['pairCount']},
+    equivalence: {c:[],P:['pTruth'],Q:['qTruth'],x:['length'],y:['width'],'¬(P∧Q)':['formula:not-and'],'¬P∨¬Q':['formula:not-p-or-not-q'],'P→Q':['formula:implies'],'¬P∨Q':['formula:not-p-or-q'],'¬P∧¬Q':['formula:not-p-and-not-q'],'≡':['equivalent']},
+    inference: {a:[],P:['pTruth'],Q:['qTruth'],x:['length'],y:['width'],'P→Q':['conditionalTruth'],'¬P':['negatedP'],'¬Q':['negatedQ'],'⊨':['validArgument']},
+    torque: {r:['arm'],F:['force'],'θ':['angle'],'F_x':['forceX'],'F_y':['forceY'],'F⊥':['perpendicularForce'],'d⊥':['momentArm'],'τ_z':['output'],'|τ_z|':['magnitude'],'r⃗':['positionVector'],'F⃗':['forceVector'],'r⃗×F⃗':['torqueVector'],'r×F':['torqueVector'],'N·m':[]},
     'logical-connectives': {x:['length'],y:['width'],P:['pTruth'],Q:['qTruth'],'P∧Q':['output'],'P∨Q':['output'],'P→Q':['output'],'P↔Q':['output'],'¬P':['output'],'∧':[],'∨':[],'¬':[],'→':[],'↔':[]},
     quantifier: {h:['threshold'],D:['domain'],'P(x)':['outcomes'],x:[],'∀x∈D P(x)':['allTruth'],'∃x∈D P(x)':['someTruth'],'∀':[],'∃':[],'|{x∈D:P(x)}|':['qualifyingCount']},
     'cross-product': {u:['uX','uY'],v:['vX','vY'],'‖u‖':['uLength'],'‖v‖':['vLength'],'θ':['angle'],'sin(θ)':['sine'],w:['normalComponent'],'u×v':['normalComponent'],'w_z':['normalComponent'],'v_x':['vX'],'v_y':['vY'],'|u×v|':['area'],'wₓ':[],'wᵧ':[],A:['area'],'‖u×v‖':['area'],'×':[]},

@@ -33,6 +33,29 @@
   const caption = value => label(180, 184, value, C.ink, 17);
 
   const records = {
+    relation: {
+      title:'Predicates and relations',
+      describe:(p,r)=>`Independent left and right strip supplies both offer lengths 2, 4, 6, 8, 10 and 12 centimetres. Exactly ${r.pairCount} of the 36 ordered pairs meet the total requirement ${f(p.threshold)} cm. The distinguished pair (6,8) totals 14 cm and ${r.exampleTruth?'qualifies':'does not qualify'}. This is an exact count, not a probability.`,
+      draw:(p,r)=>[2,4,6,8,10,12].map((y,j)=>[2,4,6,8,10,12].map((x,i)=>rect(39+i*17,31+j*17,13,13,x+y>=p.threshold?C.mint:C.grid,(x===6&&y===8?'stroke="'+C.gold+'" stroke-width="2"':''))).join('')).join('')+label(90,152,'left × right choices',C.muted,12)+label(255,40,'TOTAL REQUIREMENT',C.muted,11)+label(255,67,f(p.threshold)+' cm',C.cyan,23)+quantity('output',r.output,label(255,109,r.output+' qualifying pairs',C.mint,20))+label(255,140,'of 36 ordered choices',C.muted,12)+caption('One property. Two ordered inputs.')
+    },
+    equivalence: {
+      title:'Logical equivalence',
+      describe:(p,r)=>`At panel length ${f(p.length)} cm and width ${f(p.width)} cm, P is ${r.pLabel} and Q is ${r.qLabel}. The current De Morgan formulas both have truth value ${r.leftLabel}. Across all four Boolean assignments, mismatch count is ${r.mismatchCount}; equivalence is a separate global result.`,
+      draw:(p,r)=>label(180,27,'P = '+r.pLabel+' · Q = '+r.qLabel,C.muted,13)+rect(27,44,139,77,C.cyan,'fill-opacity=".13" rx="7"')+rect(194,44,139,77,C.violet,'fill-opacity=".13" rx="7"')+label(96,71,'¬(P∧Q)',C.cyan,20)+quantity('output',r.output,label(96,103,r.leftLabel,C.ink,23))+label(263,71,'¬P∨¬Q',C.violet,20)+label(263,103,r.rightLabel,C.ink,23)+label(180,91,'≡',C.gold,27)+label(180,150,'All four assignments match',C.mint,19)+caption('Matching formulas, beyond one row.')
+    },
+    inference: {
+      title:'Inference rules and counterexamples',
+      describe:(p,r)=>`For the default modus ponens argument, P is ${r.pLabel} and Q is ${r.qLabel}. The conditional premise and P both hold, so the current conclusion Q is ${r.conclusionLabel}. Exhaustive evaluation of the four Boolean assignments finds ${r.counterexampleCount} counterexamples; current conclusion truth is separate from argument validity.`,
+      draw:(p,r)=>rect(23,30,143,94,C.cyan,'fill-opacity=".13" rx="7"')+label(95,52,'PREMISES',C.muted,11)+label(95,80,'P → Q: '+r.premise1Label,C.cyan,17)+label(95,107,'P: '+r.premise2Label,C.cyan,17)+arrow(176,77,203,77,C.gold)+label(270,52,'CONCLUSION',C.muted,11)+quantity('output',r.output,label(270,90,'Q: '+r.conclusionLabel,C.mint,23))+label(180,151,r.counterexampleCount+' counterexample rows',C.ink,18)+caption('True premises. A licensed conclusion.')
+    },
+    torque: {
+      title:'Torque about a pivot',
+      describe:(p,r)=>`A ${f(p.force)} newton force is applied ${f(p.arm)} metres from a pivot at signed angle ${f(p.angle)} degrees. Its perpendicular force component is ${f(r.perpendicularForce)} newtons, its perpendicular moment arm is ${f(r.momentArm)} metres, and the signed torque is ${f(r.output)} newton metres. Distance and force use distinct labeled scales. No door motion is simulated.`,
+      draw:(p,r)=>{
+        const pivot=[37,107],handle=[37+p.arm*112,107],tip=[handle[0]+r.forceX*4.5,handle[1]-r.forceY*4.5];
+        return line(...pivot,...handle,C.violet,'stroke-width="6"')+circle(...pivot,7,C.gold)+circle(...handle,4,C.violet)+arrow(...handle,...tip,C.cyan)+arrow(...handle,handle[0],handle[1]-r.perpendicularForce*4.5,C.orange)+label(83,133,'r = '+f(p.arm)+' m',C.violet,13)+label(156,45,'F = '+f(p.force)+' N',C.cyan,13)+label(83,158,'F⊥ = '+f(r.perpendicularForce)+' N',C.orange,13)+label(276,58,'SIGNED TORQUE',C.muted,11)+quantity('output',r.output,label(276,92,f(r.output)+' N·m',C.mint,25))+label(276,125,'d⊥ = '+f(r.momentArm)+' m',C.muted,13)+caption('Turn depends on perpendicular force.');
+      }
+    },
     'logical-connectives': {
       title:'Logical connectives and truth tables',
       describe:(p,r)=>`A workshop panel is ${f(p.length)} centimetres long and ${f(p.width)} centimetres wide. P requires length at least 6 cm; Q requires width at least 4 cm. At the default conjunction, P is ${r.pTruth?'true':'false'}, Q is ${r.qTruth?'true':'false'}, and P and Q is ${r.output?'true':'false'}. Truth values are not probabilities.`,

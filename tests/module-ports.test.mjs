@@ -42,7 +42,8 @@ test('ports have complete, unique, immutable metadata with stable identifiers',(
       assert.match(port.id,/^(input|output):[A-Za-z][A-Za-z0-9]*$/);
       assert.equal(port.id,port.direction+':'+port.key);
       assert.match(port.type,/^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/);
-      assert.match(port.unit,/^[A-Za-z0-9/]+$/);
+      // ASCII compound units use a dot for products and a slash for ratios.
+      assert.match(port.unit,/^[A-Za-z0-9]+(?:[/.][A-Za-z0-9]+)*$/);
       assert.ok(port.label.length>0&&port.description.length>20);
       assert.ok(Object.isFrozen(port));
       assert.throws(()=>{port.unit='invented';},TypeError);

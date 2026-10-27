@@ -51,9 +51,9 @@
 
 /* A compact lesson has one input and one comparison readout on every screen. */
 /* Keep readings legible while only the relevant shapes receive story emphasis. */
-.life-scene :is(.data-iteration-scene,.book-foundation-scene) .story-cue{opacity:1}
-.life-scene :is(.data-iteration-scene,.book-foundation-scene) .story-cue[data-story-active=false]>:is(rect,line,path,circle){opacity:.7}
-.life-scene :is(.data-iteration-scene,.book-foundation-scene) .story-cue[data-semantic-active=true]>:is(rect,line,path,circle){opacity:1}
+.life-scene :is(.data-iteration-scene,.book-foundation-scene,.reasoning-scene) .story-cue{opacity:1}
+.life-scene :is(.data-iteration-scene,.book-foundation-scene,.reasoning-scene) .story-cue[data-story-active=false]>:is(rect,line,path,circle){opacity:.7}
+.life-scene :is(.data-iteration-scene,.book-foundation-scene,.reasoning-scene) .story-cue[data-semantic-active=true]>:is(rect,line,path,circle){opacity:1}
 .life-story-host[data-presentation=compact]{margin-bottom:28px}
 .life-story-host[data-presentation=compact] .life-heading{margin-bottom:16px}
 .life-story-host[data-presentation=compact] .life-heading .eyebrow{display:none}

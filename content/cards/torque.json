@@ -1,0 +1,787 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:torque",
+  "slug": "torque",
+  "type": "concept",
+  "title": "Torque about a pivot",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-27T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "moment of a force",
+    "perpendicular lever arm",
+    "turning effect",
+    "signed torque"
+  ],
+  "branches": [
+    "applied-mathematics",
+    "mechanics",
+    "linear-algebra"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Turn a force at a fixed application point and follow its perpendicular component into signed torque about the pivot.",
+  "meaning": "The torque of a force about a chosen pivot is the cross product of its position vector with the force vector. Its perpendicular lever arm is the distance from the pivot to the force’s line of action. In the displayed plane, the signed normal component distinguishes turning senses, while its magnitude measures the turning effect without a sign.",
+  "prerequisites": {
+    "required": [
+      "math:concept:cross-product"
+    ],
+    "helpful": [
+      "math:concept:vector",
+      "math:concept:inner-product"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A planar force applied at a stated distance from a fixed pivot in a right-handed coordinate frame.",
+    "formal_latex": "\\vec{r}=(r,0,0)\\,\\mathrm m,\\quad\\vec{F}=(F\\cos\\theta,F\\sin\\theta,0)\\,\\mathrm N,\\quad\\vec{\\tau}=\\vec{r}\\times\\vec{F},\\quad\\tau_z=rF\\sin\\theta,\\quad d_\\perp=r|\\sin\\theta|.",
+    "signature": {
+      "r": "Pivot-to-application distance.",
+      "F": "Force magnitude.",
+      "θ": "Force orientation construction setting.",
+      "F_x": "Force component along the fixed x axis.",
+      "F_y": "Signed perpendicular force component.",
+      "F⊥": "Signed perpendicular force component.",
+      "d⊥": "Perpendicular moment-arm distance.",
+      "τ_z": "Signed normal component of torque.",
+      "|τ_z|": "Torque magnitude.",
+      "N·m": "Torque unit newton metre.",
+      "r⃗": "Position vector from pivot to application point.",
+      "F⃗": "Applied force vector.",
+      "r⃗×F⃗": "Torque vector formed from the ordered cross product."
+    },
+    "conditions": [
+      "The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.",
+      "The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction.",
+      "The signed perpendicular force is F⊥=F sinθ. The actual moment arm d⊥=r|sinθ| is the perpendicular distance to the force line of action when the force is nonzero; it generally differs from r. At zero force, the construction still supplies d⊥ but the zero force vector has no distinguished line of action.",
+      "The signed component τ_z=rF sinθ is in N·m. Positive z points out of the page and positive planar torque is counterclockwise. A zero torque has no distinguished normal direction.",
+      "Torque is a turning effect about a selected pivot. Although N·m has the same dimensional form as a joule, this torque value is not energy or work."
+    ],
+    "domain_notes": "The metre distance and Newton force have separate drawing scales. Arrows over r and F denote the position and force vectors; plain r and F in the scalar component formula denote their stated magnitudes. The model evaluates torque for the stated geometry; it does not integrate motion or account for friction, inertia or a force needed to open a real door.",
+    "proof_status": "Definition-level sources and original restricted-family arguments; independent review pending.",
+    "source_refs": [
+      "source:openstax:torque",
+      "source:openstax:cross-product"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Torque about a pivot",
+    "expression_latex": "\\vec{r}=(r,0,0)\\,\\mathrm m,\\quad\\vec{F}=(F\\cos\\theta,F\\sin\\theta,0)\\,\\mathrm N,\\quad\\vec{\\tau}=\\vec{r}\\times\\vec{F},\\quad\\tau_z=rF\\sin\\theta,\\quad d_\\perp=r|\\sin\\theta|.",
+    "formation_rule": "Let r be the nonnegative pivot-to-application distance and F the nonnegative force magnitude. In the fixed plane the position vector is (r,0,0) m and the force vector is (F cosθ,F sinθ,0) N. Their cross product has signed component τ_z=rF sinθ. The perpendicular lever arm is d⊥=r|sinθ| and the torque magnitude is |τ_z|=F d⊥.",
+    "precedence": "Resolve the force’s signed perpendicular component F⊥=F sinθ before multiplying by the application distance r. Take absolute value when reading torque magnitude or perpendicular lever-arm distance.",
+    "symbols": [
+      {
+        "token": "r",
+        "role": "Pivot-to-application distance",
+        "type": "Nonnegative metres"
+      },
+      {
+        "token": "F",
+        "role": "Force magnitude",
+        "type": "Nonnegative newtons"
+      },
+      {
+        "token": "θ",
+        "role": "Force orientation construction setting",
+        "type": "Degrees"
+      },
+      {
+        "token": "F_x",
+        "role": "Force component along the fixed x axis",
+        "type": "Newtons"
+      },
+      {
+        "token": "F_y",
+        "role": "Signed perpendicular force component",
+        "type": "Newtons"
+      },
+      {
+        "token": "F⊥",
+        "role": "Signed perpendicular force component",
+        "type": "Newtons"
+      },
+      {
+        "token": "d⊥",
+        "role": "Perpendicular moment-arm distance",
+        "type": "Nonnegative metres"
+      },
+      {
+        "token": "τ_z",
+        "role": "Signed normal component of torque",
+        "type": "Newton metres"
+      },
+      {
+        "token": "|τ_z|",
+        "role": "Torque magnitude",
+        "type": "Nonnegative newton metres"
+      },
+      {
+        "token": "r⃗×F⃗",
+        "role": "Cross product of the position and force vectors",
+        "type": "Torque vector"
+      },
+      {
+        "token": "N·m",
+        "role": "Torque unit newton metre",
+        "type": "Unit of torque"
+      },
+      {
+        "token": "r⃗",
+        "role": "Position vector from pivot to application point",
+        "type": "Vector in metres"
+      },
+      {
+        "token": "F⃗",
+        "role": "Applied force vector",
+        "type": "Vector in newtons"
+      }
+    ],
+    "ast": {
+      "id": "ast:torque:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:arm",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "r",
+          "scope_ref": "scope:torque:expression"
+        },
+        {
+          "id": "n:force",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "F",
+          "scope_ref": "scope:torque:expression"
+        },
+        {
+          "id": "n:angle",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "θ",
+          "scope_ref": "scope:torque:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried rule for the stated executable family",
+          "ref": "Let r be the nonnegative pivot-to-application distance and F the nonnegative force magnitude. In the fixed plane the position vector is (r,0,0) m and the force vector is (F cosθ,F sinθ,0) N. Their cross product has signed component τ_z=rF sinθ. The perpendicular lever arm is d⊥=r|sinθ| and the torque magnitude is |τ_z|=F d⊥."
+        },
+        {
+          "id": "n:bound-0",
+          "kind": "apply",
+          "type": "Partially applied declared rule",
+          "function": "n:rule",
+          "argument": "n:arm"
+        },
+        {
+          "id": "n:bound-1",
+          "kind": "apply",
+          "type": "Partially applied declared rule",
+          "function": "n:bound-0",
+          "argument": "n:force"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-1",
+          "argument": "n:angle"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:torque:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "r",
+            "F",
+            "θ"
+          ],
+          "domain_condition": "A planar force applied at a stated distance from a fixed pivot in a right-handed coordinate frame."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Call the application distance the perpendicular moment arm at every angle",
+        "status": "geometry error",
+        "reason": "The moment arm is r|sinθ|, which equals r only at a right angle for r>0."
+      },
+      {
+        "input": "Use the full force as its perpendicular component",
+        "status": "component error",
+        "reason": "Only F sinθ contributes to the signed planar torque."
+      },
+      {
+        "input": "Read torque in N·m as energy in joules",
+        "status": "quantity error",
+        "reason": "Equal dimensional form does not make the physical quantities identical."
+      }
+    ],
+    "ast_coverage": "A typed application outline of the fixed executable rule. Displayed logical formulas and vector notation have the meanings stated in the signature; this outline is not a general formula parser or proof calculus.",
+    "output_symbol_bindings": {
+      "r": "arm",
+      "F": "force",
+      "θ": "angle",
+      "F_x": "forceX",
+      "F_y": "forceY",
+      "F⊥": "perpendicularForce",
+      "d⊥": "momentArm",
+      "τ_z": "output",
+      "|τ_z|": "magnitude",
+      "r⃗": "positionVector",
+      "F⃗": "forceVector",
+      "r⃗×F⃗": "torqueVector"
+    }
+  },
+  "properties": [
+    {
+      "claim": "The largest torque magnitude for fixed r and F occurs at a right angle.",
+      "conditions": "Keep r,F≥0 fixed in the displayed planar family.",
+      "derivation": "|τ_z|=rF|sinθ|≤rF, with equality at ±90° when both magnitudes are positive.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:torque:perpendicular-pull"
+    },
+    {
+      "claim": "Application distance and moment arm generally differ.",
+      "conditions": "Use an oblique nonzero force and nonzero position vector.",
+      "derivation": "At 30°, d⊥=r/2, while r remains the full pivot-to-application distance.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:torque:angled-pull"
+    },
+    {
+      "claim": "Reversing the signed right angle reverses torque while preserving its magnitude.",
+      "conditions": "Use the same pivot, application distance and force magnitude.",
+      "derivation": "The sine changes sign and its absolute value remains one.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:torque:reverse-sense"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:cross-product",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "Torque applies the ordered vector product to a position vector and a force vector with different units.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:vector",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "Force and position each have directed components relative to the pivot frame.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:inner-product",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "Parallel and perpendicular components provide complementary views of a vector’s contribution.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:torque:angled-pull",
+      "title": "Separate distance from the actual moment arm",
+      "role": "applied_model",
+      "question": "At r=0.8 m, F=10 N and θ=30°, what torque acts about the pivot?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.",
+        "The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction."
+      ],
+      "inputs": {
+        "arm": 0.8,
+        "force": 10,
+        "angle": 30
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "F⊥=10 sin30°=5 N.",
+          "reason": "Resolve the signed perpendicular force."
+        },
+        {
+          "index": 2,
+          "expression": "τ_z=0.8×5=4 N·m.",
+          "reason": "Multiply by the pivot-to-application distance."
+        },
+        {
+          "index": 3,
+          "expression": "d⊥=0.8 sin30°=0.4 m.",
+          "reason": "Read the actual perpendicular lever arm separately."
+        }
+      ],
+      "result": {
+        "exact": "τ_z=4 N·m; d⊥=0.4 m"
+      },
+      "interpretation": "The positive normal is out of the page; the moment arm is half the application distance.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "F d⊥=10 N×0.4 m=4 N·m agrees with rF⊥."
+      },
+      "limits": "This is a turning effect about the stated pivot, not an energy or motion prediction.",
+      "preset": {
+        "arm": 0.8,
+        "force": 10,
+        "angle": 30
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.",
+        "The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction."
+      ]
+    },
+    {
+      "id": "math:example:torque:perpendicular-pull",
+      "title": "Turn the same force to a right angle",
+      "role": "applied_model",
+      "question": "What changes at θ=90° with the same point and force?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.",
+        "The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction."
+      ],
+      "inputs": {
+        "arm": 0.8,
+        "force": 10,
+        "angle": 90
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "F⊥=10 sin90°=10 N.",
+          "reason": "The entire force is perpendicular."
+        },
+        {
+          "index": 2,
+          "expression": "d⊥=0.8 m; τ_z=0.8×10=8 N·m.",
+          "reason": "The perpendicular moment arm equals the application distance here."
+        }
+      ],
+      "result": {
+        "exact": "τ_z=8 N·m; d⊥=0.8 m"
+      },
+      "interpretation": "This angle gives the largest magnitude for these fixed inputs.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "|sinθ|≤1 implies |τ_z|≤rF=8 N·m."
+      },
+      "limits": "The maximum is for the stipulated force magnitude and application distance.",
+      "preset": {
+        "arm": 0.8,
+        "force": 10,
+        "angle": 90
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.",
+        "The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction."
+      ]
+    },
+    {
+      "id": "math:example:torque:reverse-sense",
+      "title": "Reverse the planar turning sense",
+      "role": "applied_model",
+      "question": "What happens at θ=−90°?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.",
+        "The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction."
+      ],
+      "inputs": {
+        "arm": 0.8,
+        "force": 10,
+        "angle": -90
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "F⊥=−10 N.",
+          "reason": "The force points below the positive x axis."
+        },
+        {
+          "index": 2,
+          "expression": "τ_z=0.8×(−10)=−8 N·m.",
+          "reason": "The signed cross-product component reverses."
+        },
+        {
+          "index": 3,
+          "expression": "|τ_z|=8 N·m and d⊥=0.8 m.",
+          "reason": "Magnitude and moment-arm distance remain nonnegative."
+        }
+      ],
+      "result": {
+        "exact": "τ_z=−8 N·m; |τ_z|=8 N·m"
+      },
+      "interpretation": "The normal points into the page and the turning sense is clockwise in the stated frame.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "Changing the sign of sinθ reverses τ_z but not its absolute value."
+      },
+      "limits": "The sign depends on the stated pivot and orientation convention.",
+      "preset": {
+        "arm": 0.8,
+        "force": 10,
+        "angle": -90
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.",
+        "The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction."
+      ]
+    },
+    {
+      "id": "math:example:torque:along-handle",
+      "title": "Put the force line through the pivot",
+      "role": "applied_model",
+      "question": "What torque does a force at θ=0° produce?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.",
+        "The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction."
+      ],
+      "inputs": {
+        "arm": 0.8,
+        "force": 10,
+        "angle": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "F⊥=10 sin0°=0 N.",
+          "reason": "The force has no perpendicular component."
+        },
+        {
+          "index": 2,
+          "expression": "d⊥=0 m; τ_z=0 N·m.",
+          "reason": "Its line of action passes through the pivot."
+        }
+      ],
+      "result": {
+        "exact": "τ_z=0 N·m; d⊥=0 m"
+      },
+      "interpretation": "A nonzero force at a nonzero application distance can still produce zero torque.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "The two input vectors are parallel, so their cross product is zero."
+      },
+      "limits": "No zero torque normal direction is distinguished.",
+      "preset": {
+        "arm": 0.8,
+        "force": 10,
+        "angle": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.",
+        "The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction."
+      ]
+    },
+    {
+      "id": "math:example:torque:at-pivot",
+      "title": "Apply the force at the pivot",
+      "role": "applied_model",
+      "question": "What torque results when r=0?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.",
+        "The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction."
+      ],
+      "inputs": {
+        "arm": 0,
+        "force": 10,
+        "angle": 30
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "The position vector is zero.",
+          "reason": "The application point coincides with the pivot."
+        },
+        {
+          "index": 2,
+          "expression": "τ_z=0×10 sin30°=0 N·m; d⊥=0 m.",
+          "reason": "A force through the pivot has no moment arm."
+        }
+      ],
+      "result": {
+        "exact": "τ_z=0 N·m; d⊥=0 m"
+      },
+      "interpretation": "The orientation setting can still orient a nonzero force, but it gives the zero position vector no direction.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "The cross product of the zero vector with any force is zero."
+      },
+      "limits": "The construction angle is not a geometric angle from a zero vector.",
+      "preset": {
+        "arm": 0,
+        "force": 10,
+        "angle": 30
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.",
+        "The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:torque",
+    "renderer_id": "torque-visual-model",
+    "renderer_version": "1",
+    "model_id": "torque-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:torque:expression",
+    "interaction_status": "implemented",
+    "description": "A pivot and application-distance bracket use a metre scale. The force arrow and perpendicular component share a separate Newton scale. Signed torque and the perpendicular lever-arm construction remain labelled quantities.",
+    "controls": [
+      {
+        "id": "arm",
+        "type": "number",
+        "default": 0.8,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      {
+        "id": "force",
+        "type": "number",
+        "default": 10,
+        "min": 0,
+        "max": 20,
+        "step": 0.01
+      },
+      {
+        "id": "angle",
+        "type": "number",
+        "default": 30,
+        "min": -180,
+        "max": 180,
+        "step": 0.01
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "arm": 0.8,
+          "force": 10,
+          "angle": 30
+        },
+        "output": 4
+      },
+      {
+        "input": {
+          "arm": 0.8,
+          "force": 10,
+          "angle": 90
+        },
+        "output": 8
+      },
+      {
+        "input": {
+          "arm": 0.8,
+          "force": 10,
+          "angle": -90
+        },
+        "output": -8
+      },
+      {
+        "input": {
+          "arm": 0.8,
+          "force": 10,
+          "angle": 0
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "arm": 0.8,
+          "force": 10,
+          "angle": 180
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "arm": 0.8,
+          "force": 10,
+          "angle": -180
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "arm": 0,
+          "force": 10,
+          "angle": 30
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "arm": 0.8,
+          "force": 0,
+          "angle": 30
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "arm": 2,
+          "force": 20,
+          "angle": 90
+        },
+        "output": 40
+      },
+      {
+        "input": {
+          "arm": 1,
+          "force": 10,
+          "angle": 150
+        },
+        "output": 5
+      },
+      {
+        "input": {
+          "arm": 2.1,
+          "force": 10,
+          "angle": 30
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "arm": 0.8,
+          "force": 10,
+          "angle": 181
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Let r be the nonnegative pivot-to-application distance and F the nonnegative force magnitude. In the fixed plane the position vector is (r,0,0) m and the force vector is (F cosθ,F sinθ,0) N. Their cross product has signed component τ_z=rF sinθ. The perpendicular lever arm is d⊥=r|sinθ| and the torque magnitude is |τ_z|=F d⊥.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.",
+      "The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction.",
+      "The signed perpendicular force is F⊥=F sinθ. The actual moment arm d⊥=r|sinθ| is the perpendicular distance to the force line of action when the force is nonzero; it generally differs from r. At zero force, the construction still supplies d⊥ but the zero force vector has no distinguished line of action.",
+      "The signed component τ_z=rF sinθ is in N·m. Positive z points out of the page and positive planar torque is counterclockwise. A zero torque has no distinguished normal direction.",
+      "Torque is a turning effect about a selected pivot. Although N·m has the same dimensional form as a joule, this torque value is not energy or work."
+    ],
+    "limits": [
+      "This constructed planar statics calculation supplies a turning effect about a chosen pivot, not a simulation of door motion.",
+      "The pivot-to-application distance is not generally the perpendicular moment arm.",
+      "The drawing’s metre and Newton scales are distinct; torque in N·m is not a work or energy measurement."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Is r always the perpendicular lever arm?",
+      "answer": "No. At 30° the perpendicular moment arm is r sin30°=r/2. At 90° it equals r."
+    },
+    {
+      "prompt": "Does the computed torque tell how fast a real door rotates?",
+      "answer": "No. The module evaluates the turning effect of the stated force; motion needs additional information such as inertia and other forces."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "A pivot and application-distance bracket use a metre scale. The force arrow and perpendicular component share a separate Newton scale. Signed torque and the perpendicular lever-arm construction remain labelled quantities."
+    },
+    {
+      "kind": "graph",
+      "description": "Signed torque varies with force orientation on fixed degree and N·m axes. A separately labelled magnitude curve preserves the difference between turning sense and nonnegative strength."
+    },
+    {
+      "kind": "substitution",
+      "description": "Follow the declared inputs through the stated expression into the labelled result."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Constructed workshop example",
+      "mapping": "Turn a force at a fixed application point and follow its perpendicular component into signed torque about the pivot.",
+      "limitations": "This constructed planar statics calculation supplies a turning effect about a chosen pivot, not a simulation of door motion.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:torque:angled-pull"
+    },
+    {
+      "context": "Turn the same force to a right angle",
+      "mapping": "This angle gives the largest magnitude for these fixed inputs.",
+      "limitations": "The maximum is for the stipulated force magnitude and application distance.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:torque:perpendicular-pull"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:torque",
+    "source:openstax:cross-product"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.28.0: Added an original modular story, Geometry and Graph views, five worked examples and twelve numeric fixtures in the continuing book-scope sequence."
+  ]
+}

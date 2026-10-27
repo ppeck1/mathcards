@@ -32,11 +32,12 @@ test('symbol bindings load offline, remain immutable and reject unknown inputs',
 
 test('every mapped canonical grammar token resolves to an actual rendered quantity mark', () => {
   assert.equal(cards.length, Modules.list().length);
-  const textOnly = new Set(['function-composition:∘', 'real-logarithm:log', 'derivative:lim', 'probability:X','partial-derivative:h','computational-complexity:O(n)','recurrence:k','quantifier:x','stability:k']);
+  const textOnly = new Set(['function-composition:∘', 'real-logarithm:log', 'derivative:lim', 'probability:X','partial-derivative:h','computational-complexity:O(n)','recurrence:k','quantifier:x','stability:k','relation:x','relation:y','equivalence:c','inference:a','torque:N·m']);
   let mapped = 0, unmapped = 0;
   for (const card of cards) {
     const p = Models.defaults(card.slug);
-    const html = Visuals.render(card.slug, p) + Spatial.render(card.slug, p) + Scenes.render(card.slug, p, { storyFocus: 'input' });
+    const selections = [p, ...Modules.get(card.slug).controls.filter(control=>control.type==='select').flatMap(control=>control.options.map(option=>({...p,[control.key]:option.value})))];
+    const html = selections.map(parameters=>Visuals.render(card.slug, parameters) + Spatial.render(card.slug, parameters) + Scenes.render(card.slug, parameters, { storyFocus: 'input' })).join('');
     const present = quantityKeys(html);
     for (const { token } of card.grammar.symbols) {
       const keys = Symbols.keysFor(card.slug, token);
@@ -50,7 +51,7 @@ test('every mapped canonical grammar token resolves to an actual rendered quanti
       }
     }
   }
-  assert.equal(unmapped, 9);
+  assert.equal(unmapped, 14);
   assert.ok(mapped > 50);
 });
 

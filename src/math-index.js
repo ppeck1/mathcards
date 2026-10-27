@@ -39,7 +39,7 @@
     const cardInfo=validCards.map(card=>{
       const mathSources=Notation?Notation.fieldsFor(card,stories):[{text:mathFields(card),kind:'tex',location:'Formula'}];
       const localBindings=new Map();
-      for(const entry of work)if(entry.grammarCards?.includes(card.slug))for(const token of entry.tokens||entry.symbols){if(!/^(?:[A-Za-z]|\|[^|]+\|)$/.test(token))continue;const form=Notation?Notation.normalize(token):token,bound=localBindings.get(form)||new Set();bound.add(entry.id);localBindings.set(form,bound);}
+      for(const entry of work)if(entry.grammarCards?.includes(card.slug))for(const token of entry.tokens||entry.symbols){if(!/^(?:[A-Za-z]|\|[^|]+\||≡|⊨)$/.test(token))continue;const form=Notation?Notation.normalize(token):token,bound=localBindings.get(form)||new Set();bound.add(entry.id);localBindings.set(form,bound);}
       return{card,localBindings,fields:readableFields(card),math:mathSources.filter(field=>field.kind!=='unit').map(field=>field.text).join('\n'),notation:Notation?mathSources.flatMap(field=>Notation.extract(field.text,{kind:field.kind,slug:card.slug}).filter(record=>!['formatting','invalid'].includes(record.kind)).map(record=>({...record,normalizedToken:Notation.normalize(record.token),location:field.location,sourceKind:field.kind}))):[],grammar:(card.grammar?.symbols||[]).filter(symbol=>symbol&&typeof symbol.token==='string')};
     });
     function use(entry,card,context){
