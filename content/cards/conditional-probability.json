@@ -1,0 +1,745 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:conditional-probability",
+  "slug": "conditional-probability",
+  "type": "concept",
+  "title": "Conditional probability",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-27T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Bounded models, workshop stories and worked derivations are originally authored constructed examples. No production measurements or historical priority claims are presented.",
+  "aliases": [
+    "probability given an event",
+    "conditioning",
+    "restricted probability"
+  ],
+  "branches": [
+    "probability",
+    "sets",
+    "modeling"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Follow restricted outcomes into a conditional probability with a new denominator.",
+  "meaning": "Conditioning asks about one event after attention is restricted to another event of positive probability. Their intersection supplies the numerator; the conditioning event supplies the denominator. A uniform-location strip makes the lengths and the renormalization visible.",
+  "prerequisites": {
+    "required": [
+      "math:concept:set"
+    ],
+    "helpful": [
+      "math:concept:ratio-scale",
+      "math:concept:probability"
+    ],
+    "depth": [
+      "math:concept:bayes-theorem"
+    ]
+  },
+  "definition": {
+    "setting": "Conditional probability on a continuous uniform location model over one 100 cm strip.",
+    "formal_latex": "P(A\\mid B)=\\frac{P(A\\cap B)}{P(B)}=\\frac{\\min(a,b)}{b},\\quad P(A)=\\frac{a}{100},\\quad P(B)=\\frac{b}{100},\\quad b>0.",
+    "signature": {
+      "a": "Length of the inked prefix in centimetres.",
+      "b": "Positive inspection-window length in centimetres.",
+      "A": "Inked-location event.",
+      "B": "Known inspection-window event.",
+      "P(A)": "Original ink probability.",
+      "P(B)": "Positive window probability.",
+      "P(A∩B)": "Joint event probability.",
+      "P(A|B)": "Conditional ink probability given the window.",
+      "ℓ(A∩B)": "Overlap length in centimetres."
+    },
+    "conditions": [
+      "A location is chosen uniformly along a 100 cm strip. Probabilities of intervals equal their lengths divided by 100 cm.",
+      "The inked event A is the first a cm and inspection event B is the first b cm: 0≤a≤100 cm and 0<b≤100 cm.",
+      "The two intervals share their left endpoint, so their overlap length is min(a,b). This specimen does not realize every relationship between two events.",
+      "Conditioning divides the overlap probability by positive P(B); a zero-length conditioning window is excluded."
+    ],
+    "domain_notes": "Generally, P(A|B)=P(A∩B)/P(B) for P(B)>0. The first frame shares a physical length scale; the second explicitly normalizes B to unit probability. This does not alter P(A).",
+    "proof_status": "Definition-level sources; restricted-family properties are author-derived. Independent review pending.",
+    "source_refs": [
+      "source:openstax:conditional-probability",
+      "source:openstax:uniform-distribution"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Conditional probability",
+    "expression_latex": "P(A\\mid B)=\\frac{P(A\\cap B)}{P(B)}=\\frac{\\min(a,b)}{b},\\quad P(A)=\\frac{a}{100},\\quad P(B)=\\frac{b}{100},\\quad b>0.",
+    "formation_rule": "A and B are prefixes of the same 100 cm strip. P(A)=a/100; P(B)=b/100; P(A∩B)=min(a,b)/100. For b>0, P(A|B)=min(a,b)/b.",
+    "precedence": "Find the overlap before dividing by the positive window length.",
+    "symbols": [
+      {
+        "token": "a",
+        "role": "Inked-prefix length",
+        "type": "Nonnegative real length in centimetres"
+      },
+      {
+        "token": "b",
+        "role": "Inspection-prefix length",
+        "type": "Positive real length in centimetres"
+      },
+      {
+        "token": "A",
+        "role": "Inked-location event",
+        "type": "Event"
+      },
+      {
+        "token": "B",
+        "role": "Known window event",
+        "type": "Event"
+      },
+      {
+        "token": "P(A)",
+        "role": "Unconditional ink probability",
+        "type": "Probability"
+      },
+      {
+        "token": "P(B)",
+        "role": "Conditioning-event probability",
+        "type": "Positive probability"
+      },
+      {
+        "token": "P(A∩B)",
+        "role": "Joint event probability",
+        "type": "Probability"
+      },
+      {
+        "token": "P(A|B)",
+        "role": "Conditional ink probability",
+        "type": "Probability"
+      },
+      {
+        "token": "ℓ(A∩B)",
+        "role": "Overlap length",
+        "type": "Length in centimetres"
+      }
+    ],
+    "ast": {
+      "id": "ast:conditional-probability:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:eventEnd",
+          "kind": "variable",
+          "type": "Finite model input within its declared domain",
+          "symbol": "eventEnd",
+          "scope_ref": "scope:conditional-probability:expression"
+        },
+        {
+          "id": "n:windowEnd",
+          "kind": "variable",
+          "type": "Finite model input within its declared domain",
+          "symbol": "windowEnd",
+          "scope_ref": "scope:conditional-probability:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried scalar-input rule for the stated bounded family",
+          "ref": "A and B are prefixes of the same 100 cm strip. P(A)=a/100; P(B)=b/100; P(A∩B)=min(a,b)/100. For b>0, P(A|B)=min(a,b)/b."
+        },
+        {
+          "id": "n:bound-0",
+          "kind": "apply",
+          "type": "Partially applied declared rule",
+          "function": "n:rule",
+          "argument": "n:eventEnd"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Primary scalar result",
+          "function": "n:bound-0",
+          "argument": "n:windowEnd"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:conditional-probability:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "eventEnd",
+            "windowEnd"
+          ],
+          "domain_condition": "A location is chosen uniformly along a 100 cm strip. Probabilities of intervals equal their lengths divided by 100 cm."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Condition on a zero-length window",
+        "status": "domain error",
+        "reason": "The elementary ratio requires P(B)>0."
+      },
+      {
+        "input": "Use joint probability as conditional probability",
+        "status": "normalization error",
+        "reason": "The joint probability uses the full strip; conditioning uses only B."
+      },
+      {
+        "input": "Swap A and B without changing the denominator",
+        "status": "conditioning error",
+        "reason": "The two conditioning directions generally have different denominators."
+      }
+    ],
+    "ast_coverage": "A typed outline of the fixed executable rule. Named functions refer to the stated construction, not a general symbolic solver.",
+    "output_symbol_bindings": {
+      "a": "eventEnd",
+      "b": "windowEnd",
+      "A": "event:A",
+      "B": "event:B",
+      "P(A)": "eventProbability",
+      "P(B)": "givenProbability",
+      "P(A∩B)": "intersectionProbability",
+      "P(A|B)": "conditionalProbability",
+      "ℓ(A∩B)": "overlapLength"
+    }
+  },
+  "properties": [
+    {
+      "claim": "A full-strip window leaves P(A) unchanged.",
+      "conditions": "Use b=100 cm.",
+      "derivation": "B is the whole outcome space, so P(A∩B)=P(A) and P(B)=1.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:conditional-probability:whole-strip"
+    },
+    {
+      "claim": "A positive window contained in the ink gives conditional probability one.",
+      "conditions": "Use 0<b≤a≤100 cm.",
+      "derivation": "B⊆A implies A∩B=B, so the positive numerator and denominator are equal.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:conditional-probability:contained-window"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the development of this idea and its notation before adding origin or priority claims.",
+      "Distinguish historical attribution from a modern teaching formulation."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. These workshop scenarios are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:set",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated conditions.",
+      "reason": "Conditioning begins with an intersection of two events.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:probability",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated conditions.",
+      "reason": "The conditional result is a probability on restricted outcomes.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:bayes-theorem",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated conditions.",
+      "reason": "Bayes’ theorem relates opposite conditioning directions through their common joint probability.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:conditional-probability:inspection-window",
+      "title": "Read an inspection-window report",
+      "role": "applied_model",
+      "question": "What is the chance of ink after a report restricts the location to the first 40 cm?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "A location is chosen uniformly along a 100 cm strip. Probabilities of intervals equal their lengths divided by 100 cm.",
+        "The inked event A is the first a cm and inspection event B is the first b cm: 0≤a≤100 cm and 0<b≤100 cm.",
+        "The two intervals share their left endpoint, so their overlap length is min(a,b). This specimen does not realize every relationship between two events.",
+        "Conditioning divides the overlap probability by positive P(B); a zero-length conditioning window is excluded."
+      ],
+      "inputs": {
+        "eventEnd": 24,
+        "windowEnd": 40
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "P(A)=24/100=0.24; P(B)=40/100=0.4",
+          "reason": "Both event probabilities use the full strip."
+        },
+        {
+          "index": 2,
+          "expression": "P(A∩B)=24/100=0.24",
+          "reason": "All 24 cm of ink lie inside the window."
+        },
+        {
+          "index": 3,
+          "expression": "P(A|B)=0.24/0.4=24/40=3/5",
+          "reason": "Normalize the overlap within the positive window."
+        }
+      ],
+      "result": {
+        "exact": "P(A|B)=3/5=0.6"
+      },
+      "interpretation": "The reference set changes while the original inked length stays fixed.",
+      "independent_check": {
+        "method": "Separate exact arithmetic check",
+        "expected": "Directly compare the 24 cm overlap with the 40 cm window, without dividing rounded probabilities."
+      },
+      "limits": "Uniform location and shared-left-endpoint intervals are stipulated.",
+      "preset": {
+        "eventEnd": 24,
+        "windowEnd": 40
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A location is chosen uniformly along a 100 cm strip. Probabilities of intervals equal their lengths divided by 100 cm.",
+        "The inked event A is the first a cm and inspection event B is the first b cm: 0≤a≤100 cm and 0<b≤100 cm.",
+        "The two intervals share their left endpoint, so their overlap length is min(a,b). This specimen does not realize every relationship between two events.",
+        "Conditioning divides the overlap probability by positive P(B); a zero-length conditioning window is excluded."
+      ]
+    },
+    {
+      "id": "math:example:conditional-probability:whole-strip",
+      "title": "Keep the entire strip as the window",
+      "role": "applied_model",
+      "question": "Does a report naming the full strip change the original ink probability?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "A location is chosen uniformly along a 100 cm strip. Probabilities of intervals equal their lengths divided by 100 cm.",
+        "The inked event A is the first a cm and inspection event B is the first b cm: 0≤a≤100 cm and 0<b≤100 cm.",
+        "The two intervals share their left endpoint, so their overlap length is min(a,b). This specimen does not realize every relationship between two events.",
+        "Conditioning divides the overlap probability by positive P(B); a zero-length conditioning window is excluded."
+      ],
+      "inputs": {
+        "eventEnd": 24,
+        "windowEnd": 100
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "P(B)=100/100=1",
+          "reason": "The window covers every possible location."
+        },
+        {
+          "index": 2,
+          "expression": "P(A∩B)=24/100=0.24",
+          "reason": "Intersecting with the full strip leaves A unchanged."
+        },
+        {
+          "index": 3,
+          "expression": "P(A|B)=0.24/1=0.24",
+          "reason": "Conditioning on the whole outcome space preserves this probability."
+        }
+      ],
+      "result": {
+        "exact": "P(A|B)=6/25=0.24"
+      },
+      "interpretation": "The whole-strip report imposes no additional restriction.",
+      "independent_check": {
+        "method": "Separate exact arithmetic check",
+        "expected": "The inked fraction of the full 100 cm window is 24/100."
+      },
+      "limits": "This concerns the full-window event, not every possible report.",
+      "preset": {
+        "eventEnd": 24,
+        "windowEnd": 100
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A location is chosen uniformly along a 100 cm strip. Probabilities of intervals equal their lengths divided by 100 cm.",
+        "The inked event A is the first a cm and inspection event B is the first b cm: 0≤a≤100 cm and 0<b≤100 cm.",
+        "The two intervals share their left endpoint, so their overlap length is min(a,b). This specimen does not realize every relationship between two events.",
+        "Conditioning divides the overlap probability by positive P(B); a zero-length conditioning window is excluded."
+      ]
+    },
+    {
+      "id": "math:example:conditional-probability:contained-window",
+      "title": "Put the window entirely inside the ink",
+      "role": "applied_model",
+      "question": "Can a location in the first 12 cm miss an inked prefix of 24 cm?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "A location is chosen uniformly along a 100 cm strip. Probabilities of intervals equal their lengths divided by 100 cm.",
+        "The inked event A is the first a cm and inspection event B is the first b cm: 0≤a≤100 cm and 0<b≤100 cm.",
+        "The two intervals share their left endpoint, so their overlap length is min(a,b). This specimen does not realize every relationship between two events.",
+        "Conditioning divides the overlap probability by positive P(B); a zero-length conditioning window is excluded."
+      ],
+      "inputs": {
+        "eventEnd": 24,
+        "windowEnd": 12
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "min(24,12)=12 cm",
+          "reason": "The shorter prefix is entirely inked."
+        },
+        {
+          "index": 2,
+          "expression": "P(A∩B)=12/100=P(B)",
+          "reason": "The overlap and conditioning window coincide."
+        },
+        {
+          "index": 3,
+          "expression": "P(A|B)=0.12/0.12=1",
+          "reason": "Every location remaining after the report is inked."
+        }
+      ],
+      "result": {
+        "exact": "P(A|B)=1"
+      },
+      "interpretation": "The original ink probability remains 0.24 even though the conditioned probability is one.",
+      "independent_check": {
+        "method": "Separate exact arithmetic check",
+        "expected": "Check B⊆A; with positive P(B), the intersection is B."
+      },
+      "limits": "Containment does not establish independence.",
+      "preset": {
+        "eventEnd": 24,
+        "windowEnd": 12
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A location is chosen uniformly along a 100 cm strip. Probabilities of intervals equal their lengths divided by 100 cm.",
+        "The inked event A is the first a cm and inspection event B is the first b cm: 0≤a≤100 cm and 0<b≤100 cm.",
+        "The two intervals share their left endpoint, so their overlap length is min(a,b). This specimen does not realize every relationship between two events.",
+        "Conditioning divides the overlap probability by positive P(B); a zero-length conditioning window is excluded."
+      ]
+    },
+    {
+      "id": "math:example:conditional-probability:empty-ink",
+      "title": "Inspect a strip with no ink",
+      "role": "applied_model",
+      "question": "What happens when no part of the strip is inked but the inspection window is positive?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "A location is chosen uniformly along a 100 cm strip. Probabilities of intervals equal their lengths divided by 100 cm.",
+        "The inked event A is the first a cm and inspection event B is the first b cm: 0≤a≤100 cm and 0<b≤100 cm.",
+        "The two intervals share their left endpoint, so their overlap length is min(a,b). This specimen does not realize every relationship between two events.",
+        "Conditioning divides the overlap probability by positive P(B); a zero-length conditioning window is excluded."
+      ],
+      "inputs": {
+        "eventEnd": 0,
+        "windowEnd": 40
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "min(0,40)=0 cm",
+          "reason": "The inked event and overlap are empty."
+        },
+        {
+          "index": 2,
+          "expression": "P(A∩B)=0; P(B)=0.4",
+          "reason": "The conditioning event remains possible."
+        },
+        {
+          "index": 3,
+          "expression": "P(A|B)=0/0.4=0",
+          "reason": "A zero numerator is allowed with a positive denominator."
+        }
+      ],
+      "result": {
+        "exact": "P(A|B)=0"
+      },
+      "interpretation": "No allowed window location is inked.",
+      "independent_check": {
+        "method": "Separate exact arithmetic check",
+        "expected": "There are zero centimetres of overlap in a 40 cm window."
+      },
+      "limits": "Zero ink length differs from a zero conditioning-window length.",
+      "preset": {
+        "eventEnd": 0,
+        "windowEnd": 40
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A location is chosen uniformly along a 100 cm strip. Probabilities of intervals equal their lengths divided by 100 cm.",
+        "The inked event A is the first a cm and inspection event B is the first b cm: 0≤a≤100 cm and 0<b≤100 cm.",
+        "The two intervals share their left endpoint, so their overlap length is min(a,b). This specimen does not realize every relationship between two events.",
+        "Conditioning divides the overlap probability by positive P(B); a zero-length conditioning window is excluded."
+      ]
+    },
+    {
+      "id": "math:example:conditional-probability:longer-ink",
+      "title": "Read a different proof layout",
+      "role": "applied_model",
+      "question": "With 60 cm inked and an 80 cm window, what fraction of the window is inked?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "A location is chosen uniformly along a 100 cm strip. Probabilities of intervals equal their lengths divided by 100 cm.",
+        "The inked event A is the first a cm and inspection event B is the first b cm: 0≤a≤100 cm and 0<b≤100 cm.",
+        "The two intervals share their left endpoint, so their overlap length is min(a,b). This specimen does not realize every relationship between two events.",
+        "Conditioning divides the overlap probability by positive P(B); a zero-length conditioning window is excluded."
+      ],
+      "inputs": {
+        "eventEnd": 60,
+        "windowEnd": 80
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "ℓ(A∩B)=min(60,80)=60 cm",
+          "reason": "Find the common prefix length."
+        },
+        {
+          "index": 2,
+          "expression": "P(A∩B)=0.6; P(B)=0.8",
+          "reason": "Express both as full-strip probabilities."
+        },
+        {
+          "index": 3,
+          "expression": "P(A|B)=0.6/0.8=3/4",
+          "reason": "Use the inspection event as the new denominator."
+        }
+      ],
+      "result": {
+        "exact": "P(A|B)=3/4=0.75"
+      },
+      "interpretation": "Three quarters of the remaining possible locations are inked.",
+      "independent_check": {
+        "method": "Separate exact arithmetic check",
+        "expected": "Cancel the shared length scale in (60/100)/(80/100), giving 60/80."
+      },
+      "limits": "This fraction is not an estimate of a printer defect rate.",
+      "preset": {
+        "eventEnd": 60,
+        "windowEnd": 80
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A location is chosen uniformly along a 100 cm strip. Probabilities of intervals equal their lengths divided by 100 cm.",
+        "The inked event A is the first a cm and inspection event B is the first b cm: 0≤a≤100 cm and 0<b≤100 cm.",
+        "The two intervals share their left endpoint, so their overlap length is min(a,b). This specimen does not realize every relationship between two events.",
+        "Conditioning divides the overlap probability by positive P(B); a zero-length conditioning window is excluded."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:conditional-probability",
+    "renderer_id": "conditional-probability-visual-model",
+    "renderer_version": "1",
+    "model_id": "conditional-probability-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:conditional-probability:expression",
+    "interaction_status": "implemented",
+    "description": "The full proof strip shows both prefix intervals on one centimetre scale. A separately labeled normalized window shows the conditional overlap fraction.",
+    "controls": [
+      {
+        "id": "eventEnd",
+        "type": "number",
+        "default": 24,
+        "min": 0,
+        "max": 100,
+        "step": 0.01
+      },
+      {
+        "id": "windowEnd",
+        "type": "number",
+        "default": 40,
+        "min": 0,
+        "max": 100,
+        "step": 0.01,
+        "excluded": [
+          0
+        ]
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "eventEnd": 24,
+          "windowEnd": 40
+        },
+        "output": 0.6
+      },
+      {
+        "input": {
+          "eventEnd": 24,
+          "windowEnd": 100
+        },
+        "output": 0.24
+      },
+      {
+        "input": {
+          "eventEnd": 24,
+          "windowEnd": 12
+        },
+        "output": 1.0
+      },
+      {
+        "input": {
+          "eventEnd": 0,
+          "windowEnd": 40
+        },
+        "output": 0.0
+      },
+      {
+        "input": {
+          "eventEnd": 100,
+          "windowEnd": 40
+        },
+        "output": 1.0
+      },
+      {
+        "input": {
+          "eventEnd": 24,
+          "windowEnd": 24
+        },
+        "output": 1.0
+      },
+      {
+        "input": {
+          "eventEnd": 60,
+          "windowEnd": 80
+        },
+        "output": 0.75
+      },
+      {
+        "input": {
+          "eventEnd": 1,
+          "windowEnd": 100
+        },
+        "output": 0.01
+      },
+      {
+        "input": {
+          "eventEnd": 24,
+          "windowEnd": 0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "eventEnd": -1,
+          "windowEnd": 40
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "eventEnd": 24,
+          "windowEnd": 101
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "eventEnd": 101,
+          "windowEnd": 40
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "A and B are prefixes of the same 100 cm strip. P(A)=a/100; P(B)=b/100; P(A∩B)=min(a,b)/100. For b>0, P(A|B)=min(a,b)/b.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "A location is chosen uniformly along a 100 cm strip. Probabilities of intervals equal their lengths divided by 100 cm.",
+      "The inked event A is the first a cm and inspection event B is the first b cm: 0≤a≤100 cm and 0<b≤100 cm.",
+      "The two intervals share their left endpoint, so their overlap length is min(a,b). This specimen does not realize every relationship between two events.",
+      "Conditioning divides the overlap probability by positive P(B); a zero-length conditioning window is excluded."
+    ],
+    "limits": [
+      "Constructed uniform-location model with nested prefixes; no measured quality-control or defect-rate inference.",
+      "The normalized conditional frame has a different extent from the physical strip and is labeled accordingly.",
+      "A zero-probability conditioning event is rejected rather than silently assigned a probability."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Did the ink itself change when the window narrowed?",
+      "answer": "No. The inked length and its original probability remain fixed; the denominator changes."
+    },
+    {
+      "prompt": "Can the inspection window have length zero?",
+      "answer": "Not in the elementary ratio definition: that would make P(B)=0."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "The full proof strip shows both prefix intervals on one centimetre scale. A separately labeled normalized window shows the conditional overlap fraction."
+    },
+    {
+      "kind": "graph",
+      "description": "P(A|B) is plotted against positive window length b, using a fixed probability axis from zero to one. There is no defined point at b=0."
+    },
+    {
+      "kind": "substitution",
+      "description": "Follow the declared inputs through the stated formula into the displayed primary result."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Constructed workshop example",
+      "mapping": "Follow restricted outcomes into a conditional probability with a new denominator.",
+      "limitations": "Constructed uniform-location model with nested prefixes; no measured quality-control or defect-rate inference.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:conditional-probability:inspection-window"
+    },
+    {
+      "context": "Full-strip report",
+      "mapping": "A window covering the entire strip leaves the original ink probability unchanged.",
+      "limitations": "Constructed uniform-location model with nested prefixes; no measured quality-control or defect-rate inference.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:conditional-probability:whole-strip"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:conditional-probability",
+    "source:openstax:uniform-distribution"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and notation have not yet been researched.",
+    "The bounded teaching model does not replace the broader definition or a general theorem."
+  ],
+  "change_log": [
+    "0.1.0-draft: five original worked examples, twelve independently calculated fixtures, a compact connected story and shared Geometry/Graph views."
+  ]
+}

@@ -19,11 +19,10 @@ test('topography is a pure offline provider with no document, timer or archived 
 test('the real collection supplies exact deduplicated peaks and one contour per available lesson',()=>{
   require('../src/catalog.js');
   const regions=require('../src/atlas-regions.js').create(globalThis.AtlasCatalog).regions;
-  const expected={foundations:3,numbers:5,structures:13,spaces:5,change:13,uncertainty:3,computation:2,applications:11};
-  assert.deepEqual(Object.fromEntries(regions.map(item=>[item.id,item.availableCount])),expected);
-  assert.deepEqual(Topography.metrics(regions),{maximum:13,interval:1});
+  const expected=Object.fromEntries(regions.map(item=>[item.id,new Set(item.availableCards.map(card=>card.id)).size]));
+  assert.deepEqual(Topography.metrics(regions),{maximum:Math.max(...Object.values(expected)),interval:1});
   const landscape=require('../src/atlas-landscape.js').render({regions});
-  assert.equal((landscape.match(/data-contour-level=/g)||[]).length,55);
+  assert.equal((landscape.match(/data-contour-level=/g)||[]).length,Object.values(expected).reduce((sum,count)=>sum+count,0));
   for(const [id,height]of Object.entries(expected))assert.match(landscape,new RegExp('data-topography-region="'+id+'" data-summit-height="'+height+'"'));
   for(const item of regions)assert.equal(item.availableCount,new Set(item.availableCards.map(card=>card.id)).size);
 });

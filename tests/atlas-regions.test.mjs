@@ -22,7 +22,7 @@ test('region data loads offline without DOM, model evaluation, clocks or storage
 test('eight editorial territories expose three immutable named portions each and cover all available cards',()=>{
   assert.deepEqual(model.regions.map(region=>region.id),['foundations','numbers','structures','spaces','change','uncertainty','computation','applications']);
   assert.equal(model.topics.length,24);
-  assert.equal(model.availableCount,38);
+  assert.equal(model.availableCount,cards.length);
   assert.equal(new Set(model.topics.flatMap(topic=>topic.availableCards.map(card=>card.id))).size,cards.length);
   for(const region of model.regions){
     assert.equal(region.topics.length,3);assert.ok(Object.isFrozen(region)&&Object.isFrozen(region.topics));
@@ -76,7 +76,7 @@ test('projection owns its data, uses safe lookup, and permits empty or partial c
   const results=isolated.search('linear algorithms');results.pop();assert.equal(isolated.search('linear algorithms').length,3);
   for(const key of ['__proto__','constructor','toString',null,{}]){assert.equal(model.getRegion(key),null);assert.equal(model.getTopic(key),null);}
   assert.equal(Regions.create().availableCount,0);assert.equal(Regions.create().plannedCount,0);
-  assert.equal(Regions.create({cards}).availableCount,38);
+  assert.equal(Regions.create({cards}).availableCount,cards.length);
   assert.throws(()=>Regions.create({cards:{}}),TypeError);
   assert.throws(()=>Regions.create({cards:[cards[0],cards[0]]}),/Duplicate/);
   assert.throws(()=>Regions.create({coverage:[coverage[0],coverage[0]]}),/Duplicate/);

@@ -8,11 +8,12 @@ const Flow=require('../src/calculation-flow.js');
 const Stories=require('../src/story-library.js');
 const Scenes=require('../src/story-scenes.js');
 const Readable=require('../src/readable-values.js');
+const cardCount=fs.readdirSync(new URL('../content/cards/',import.meta.url)).filter(name=>name.endsWith('.json')).length;
 
-test('calculation descriptions load offline and resolve against all thirty-eight shared models',()=>{
+test('calculation descriptions load offline and resolve against all installed shared models',()=>{
   const context=vm.createContext({});vm.runInContext(fs.readFileSync(new URL('../src/calculation-flow.js',import.meta.url),'utf8'),context);
   assert.equal(typeof context.AtlasCalculationFlow.phaseAt,'function');
-  assert.equal(Stories.all().length,38);
+  assert.equal(Stories.all().length,cardCount);
   for(const story of Stories.all()){
     const stages=Flow.stages(story),values=Scenes.values(story.slug,story.parameters);
     assert.deepEqual(stages.map(s=>s.role),['input','intermediate','output']);

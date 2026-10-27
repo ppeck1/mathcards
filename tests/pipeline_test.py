@@ -35,9 +35,9 @@ class PipelineTests(unittest.TestCase):
         for card in catalog['cards']:
             source=json.loads((ROOT/'content/cards'/(card['slug']+'.json')).read_text(encoding='utf-8'))
             self.assertEqual(source,card)
-        self.assertEqual(len(catalog['cards']),38)
-        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),194)
-        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),346)
+        self.assertEqual(len(catalog['cards']),41)
+        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),209)
+        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),382)
 
     def test_catalog_inline_is_inert(self):
         payload={'cards':[{'title':'</script><img src=x onerror=alert(1)>'}]}
@@ -51,7 +51,7 @@ class PipelineTests(unittest.TestCase):
             a,b=Path(tmp)/'a',Path(tmp)/'b'
             ma,mb=build_export(a),build_export(b)
             self.assertEqual(ma,mb)
-            self.assertEqual(ma['document_count'],232)
+            self.assertEqual(ma['document_count'],250)
             for entry in ma['documents']:
                 self.assertEqual((a/entry['path']).read_bytes(),(b/entry['path']).read_bytes())
                 self.assertNotIn('notebook',entry['path'])

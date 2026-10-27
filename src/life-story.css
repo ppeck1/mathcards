@@ -50,6 +50,10 @@
 @media(max-width:760px){.life-reader .life-reader-body{font-size:14px;line-height:1.7}.life-reader .life-reader-formula{font-size:12px;padding:9px 10px}.life-step-nav{gap:6px}.life-step-nav button{font-size:12px;padding:9px 6px}.life-reader-step{padding-bottom:10px}}
 
 /* A compact lesson has one input and one comparison readout on every screen. */
+/* Keep readings legible while only the relevant shapes receive story emphasis. */
+.life-scene .data-iteration-scene .story-cue{opacity:1}
+.life-scene .data-iteration-scene .story-cue[data-story-active=false]>:is(rect,line,path,circle){opacity:.7}
+.life-scene .data-iteration-scene .story-cue[data-semantic-active=true]>:is(rect,line,path,circle){opacity:1}
 .life-story-host[data-presentation=compact]{margin-bottom:28px}
 .life-story-host[data-presentation=compact] .life-heading{margin-bottom:16px}
 .life-story-host[data-presentation=compact] .life-heading .eyebrow{display:none}

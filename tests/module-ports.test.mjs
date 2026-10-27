@@ -18,7 +18,7 @@ test('port metadata loads offline without a document, model library, or registry
   assert.equal(context.AtlasModulePorts.forModule('pythagorean-theorem').find(port=>port.key==='output').unit,'m');
 });
 
-test('all thirty-eight installed models declare every numeric input and real finite output keys',()=>{
+test('all installed models declare every numeric input and real finite output keys',()=>{
   for(const id of ids){
     const defaults=Models.defaults(id),result=Models.evaluate(id,defaults),ports=Ports.forModule(id);
     assert.ok(ports.length>0,id);

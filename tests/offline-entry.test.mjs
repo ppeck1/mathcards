@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 
-test('the editable offline entry loads all thirty-eight working model and story families in browser order',()=>{
+test('the editable offline entry loads all installed working model and story families in browser order',()=>{
   const index=fs.readFileSync(new URL('../src/index.html',import.meta.url),'utf8');
   const scripts=[...index.matchAll(/<script\s+src="([^"]+)"[^>]*data-development/g)].map(([,src])=>src.split('?')[0]);
   assert.ok(scripts.length>0);
@@ -18,7 +18,7 @@ test('the editable offline entry loads all thirty-eight working model and story 
   assert.equal(typeof context.AtlasFractalLens.comparison,'function');
   assert.equal(typeof context.AtlasChaosTrace.snapshot,'function');
   assert.equal(typeof context.AtlasSceneInspector.mount,'function');
-  assert.equal(context.AtlasModules.list().length,38);
+  assert.equal(context.AtlasModules.list().length,context.AtlasCatalog.cards.length);
   assert.equal(typeof context.AtlasPlotView.render,'function');
   assert.equal(typeof context.AtlasModuleGraphs.describe,'function');
   assert.equal(typeof context.AtlasModulePorts.forModule,'function');
@@ -39,10 +39,10 @@ test('the editable offline entry loads all thirty-eight working model and story 
   assert.equal(typeof context.AtlasPlayground.markup,'function');
   assert.equal(typeof context.AtlasModelData.sample,'function');
   assert.equal(typeof context.AtlasCardPreviews.render,'function');
-  assert.equal(context.AtlasCardPreviews.list().length,38);
+  assert.equal(context.AtlasCardPreviews.list().length,context.AtlasCatalog.cards.length);
   assert.equal(typeof context.AtlasConceptAtlas.create,'function');
   const atlas=context.AtlasConceptAtlas.create(context.AtlasCatalog);
-  assert.equal(atlas.nodes.length,38);
+  assert.equal(atlas.nodes.length,context.AtlasCatalog.cards.length);
   assert.equal(typeof context.AtlasExplorer.create,'function');
   assert.equal(typeof context.AtlasMathIndex.create,'function');
   assert.equal(typeof context.AtlasSearch.create,'function');
@@ -53,7 +53,7 @@ test('the editable offline entry loads all thirty-eight working model and story 
   assert.equal(typeof context.AtlasLandscape.render,'function');
   assert.equal(typeof context.AtlasRegions.create,'function');
   const landscape=context.AtlasExplorer.create(context.AtlasCatalog);
-  assert.equal(landscape.areas.availableCount,38);
+  assert.equal(landscape.areas.availableCount,context.AtlasCatalog.cards.length);
   assert.equal(landscape.areas.topics.length,24);
   assert.equal(landscape.stateFromPath([]).mode,'map');
   assert.equal(typeof context.AtlasSemanticLinks.paint,'function');
@@ -64,5 +64,5 @@ test('the editable offline entry loads all thirty-eight working model and story 
     assert.equal(context.AtlasStoryJourney.itinerary(story,story.steps.length-1).toProgress,1);
     assert.match(context.AtlasStoryScenes.render(story.slug,story.parameters,{storyFocus:'input'}),/data-story-part/);
   }
-  assert.equal(context.AtlasStoryLibrary.all().length,38);
+  assert.equal(context.AtlasStoryLibrary.all().length,context.AtlasCatalog.cards.length);
 });

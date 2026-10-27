@@ -9,6 +9,9 @@
   // Empty lists are deliberate: a binder, operator or random variable is not
   // automatically a current numerical value or a physical mark in the scene.
   const records = {
+    'conditional-probability': {a:['eventEnd'],b:['windowEnd'],A:['event:A'],B:['event:B'],'A∩B':['event:intersection'],'P(A)':['eventProbability'],'P(B)':['givenProbability'],'P(A∩B)':['intersectionProbability'],'P(A|B)':['conditionalProbability'],'ℓ(A∩B)':['overlapLength']},
+    variance: {x:['lastLength'],'xᵢ':['measurements'],'μ':['mean'],N:['count'],'∑xᵢ':['lengthSum'],'x−μ':['deviation4'],'(x−μ)²':['square4'],'xᵢ−μ':['deviations'],'dᵢ':['deviations'],'d₁':['deviation1'],'d₂':['deviation2'],'d₃':['deviation3'],'d₄':['deviation4'],'(xᵢ−μ)²':['squaredDeviations'],'∑(xᵢ−μ)²':['sumSquaredDeviations'],'σ²':['variance'],'σ':['standardDeviation']},
+    recurrence: {'v₀':['initial'],r:['retention'],d:['addition'],n:['rounds'],k:[],j:[],'vₖ':['values'],'vₖ₊₁':['values'],'vₙ':['output'],'vₙ₋₁':['previous'],'r vₙ₋₁':['retained']},
     set: {U:['set:U'],A:['set:A'],B:['set:B'],R:['set:R'],a:['maxSize'],b:['minSize'],'|A|':['countA'],'|B|':['countB'],'|R|':['resultCount'],'A∩B':['set:intersection'],'A∪B':['set:union'],'A∖B':['set:difference'],'|A∩B|':['intersectionCount'],'|A∪B|':['unionCount'],'|A∖B|':['differenceCount']},
     'population-sample': {x:['lastValue'],n:['sampleSize'],s:['startIndex'],N:['populationSize'],'∑xᵢ':['sampleSum'],'∑Xᵢ':['populationSum'],'x̄':['sampleMean'],'μ':['populationMean'],E:['meanError']},
     'computational-complexity': {n:['itemCount'],c:['costPerItem'],'T(n)':['totalTime'],'T(2n)':['doubledTime'],'2n':['doubledCount'],'w(n)':['operationCount'],'O(n)':[]},

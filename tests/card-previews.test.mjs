@@ -45,13 +45,13 @@ test('every installed concept has a dedicated, accessible, finite and noninterac
 test('the card library loads offline with the existing model helpers and escapes authored titles and IDs', () => {
   const context = vm.createContext({ AtlasModels: Models, AtlasDiscovery: Discovery });
   vm.runInContext(fs.readFileSync(new URL('../src/card-previews.js', import.meta.url), 'utf8'), context);
-  assert.equal(context.AtlasCardPreviews.list().length, 38);
+  assert.equal(context.AtlasCardPreviews.list().length, Modules.list().length);
   for (const slug of Previews.list()) assert.equal(context.AtlasCardPreviews.render(slug), Previews.render(slug));
   const html = Previews.render('function', { id: '"/><script>alert(1)</script>', title: '<img src=x onerror=alert(1)>' });
   assert.doesNotMatch(html, /<script|<img/);
   assert.match(html, /&lt;img src=x onerror=alert\(1\)&gt;/);
   assert.ok(Object.isFrozen(Previews));
-  const list = Previews.list(); list.pop(); assert.equal(Previews.list().length, 38);
+  const list = Previews.list(); list.pop(); assert.equal(Previews.list().length, Modules.list().length);
   for (const slug of ['constructor', '__proto__', 'unknown', null, {}]) {
     assert.equal(Previews.has(slug), false); assert.equal(Previews.render(slug), ''); assert.equal(Previews.description(slug), '');
   }

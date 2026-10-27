@@ -182,6 +182,15 @@
       const owners=exactForm?entries.filter(candidate=>[...candidate.symbols,...candidate.lookupAliases].some(same)):[];
       const ownerSlugs=new Set(owners.flatMap(candidate=>candidate.usedBy.filter(usage=>usage.contexts.some(context=>context.via!=='term'&&same(context.token))).map(usage=>usage.slug)));
       if(ownerSlugs.size)return entry.usedBy.filter(usage=>ownerSlugs.has(usage.slug)).map(usage=>({...usage,contexts:usage.contexts.filter(context=>context.via!=='term')})).filter(usage=>usage.contexts.length);
+      // A concrete component such as d₄ may be declared by its indexed family
+      // dᵢ. When that family has a named meaning, keep its syntax readers on
+      // the family's actual cards instead of borrowing every subscript use.
+      if(structured&&exactForm&&['subscript','superscript'].includes(entry.id)){
+        const readers=new Set(Notation?.classify(token)||[]);
+        const families=owners.filter(candidate=>candidate.id!==entry.id&&readers.has(candidate.id));
+        const familySlugs=new Set(families.flatMap(candidate=>candidate.usedBy.filter(usage=>usage.contexts.some(context=>context.via!=='term'&&(Notation?.classify(context.token)||[]).includes(candidate.id))).map(usage=>usage.slug)));
+        if(familySlugs.size)return entry.usedBy.filter(usage=>familySlugs.has(usage.slug)).map(usage=>({...usage,contexts:usage.contexts.filter(context=>context.via!=='term'&&(Notation?.classify(context.token)||[]).includes(entry.id))})).filter(usage=>usage.contexts.length);
+      }
       if(!structured)return matches;
       // A familiar form with different argument names still has a useful reader.
       // Keep evidence from that same notation family; never borrow prose substrings.

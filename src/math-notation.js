@@ -44,6 +44,9 @@
     if(Object.hasOwn(vulgar,raw)||/^[-+]?\d+\/\d+$/.test(q))add('fraction');
     if(q==='∃!')add('unique-exists');
     if(q==='x̅')add('sample-mean');if(q==='z̅')add('complex-conjugate');
+    if(q==='σ^2')add('population-variance');
+    if(/^v_(?:[nk]|[0-9]+|\{[nk][+-]1\})$/.test(q))add('sequence');
+    if(/^d_(?:i|[1-4])$/.test(q))add('deviation');
     if(/^O\([\s\S]+\)$/.test(q))add('big-o');if(/^Θ\([\s\S]+\)$/.test(q))add('big-theta');
     if(/^[A-Z]∖[A-Z]$/.test(q))add('set-difference');
     if(/^(?:[fgh]:)?(?:[ABCℕℤℚℝℂ](?:\^[0-9n])?)→(?:[ABCℕℤℚℝℂ](?:\^[0-9n])?)$/.test(q))add('function-arrow');
@@ -94,6 +97,7 @@
     if(['unitless','dimensionless','× reference','ratio'].includes(unit))return unit==='ratio'?['ratio','dimensionless']:['dimensionless'];
     if(['population fraction','fraction','of capacity','probability','fraction of flagged items'].includes(unit))return['ratio','probability'];
     if(['generations','passes','levels','refinements'].includes(unit))return['iteration'];
+    if(['round','rounds','completed rounds'].includes(unit))return['completed-rounds','iteration'];
     if(unit==='basis weights')return['weight','coordinate-vector'];
     if(unit==='normalized amplitude')return['declared-unit','dimensionless','amplitude'];if(unit==='expected seedlings')return['declared-unit','expected-value'];
     if(['reference areas','reference area units','reference square units','drawing units²','coordinate units²'].includes(unit))return['declared-unit','area'];

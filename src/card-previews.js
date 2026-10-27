@@ -33,6 +33,27 @@
   const caption = value => label(180, 184, value, C.ink, 17);
 
   const records = {
+    'conditional-probability': {
+      title:'Conditional probability',
+      describe:(p,r)=>`A uniformly sampled location lies on a 100 centimetre strip. Event A covers ${f(p.eventEnd)} centimetres and event B covers ${f(p.windowEnd)} centimetres. Their overlap is ${f(r.overlapLength)} centimetres. Restricting attention to B gives conditional probability ${f(r.output)}, while the unconditional probability of A remains ${f(r.eventProbability)}.`,
+      draw:(p,r)=>label(180,24,'KNOWN WINDOW B',C.muted,12)+rect(30,43,300,32,C.grid)+quantity('eventEnd',p.eventEnd,rect(30,43,p.eventEnd*3,32,C.gold,'fill-opacity=".55"'))+quantity('windowEnd',p.windowEnd,rect(30,43,p.windowEnd*3,32,'none','stroke="'+C.cyan+'" stroke-width="3"'))+label(180,99,'Within B: overlap / window',C.cyan,14)+rect(30,116,300,27,C.grid)+quantity('output',r.output,rect(30,116,300*r.output,27,C.mint))+quantity('eventProbability',r.eventProbability,label(180,164,'P(A|B) = '+f(r.output)+' · P(A) = '+f(r.eventProbability),C.mint,19))+caption('Restrict the denominator, keep the event.')
+    },
+    variance: {
+      title:'Variance and standard deviation',
+      describe:(p,r)=>`The four known strap lengths are 8, 10, 12 and ${f(p.lastLength)} centimetres. Their mean is ${f(r.mean)} centimetres. Their population variance is ${f(r.variance)} square centimetres, using denominator four, and standard deviation is ${f(r.standardDeviation)} centimetres. Each square uses the same area scale.`,
+      draw:(p,r)=>{
+        const lengths=r.measurements,squares=r.squaredDeviations,bottom=92;
+        return lengths.map((value,i)=>quantity(i===3?'lastLength':'measurement-'+i,value,rect(31+i*76,bottom-value*3,23,value*3,i===3?C.cyan:C.muted))).join('')+quantity('mean',r.mean,line(24,bottom-r.mean*3,316,bottom-r.mean*3,C.gold,'stroke-width="2"'))+squares.map((value,i)=>{const side=Math.sqrt(value)*3;return quantity('square-'+i,value,rect(43+i*76-side/2,143-side,side,side,C.violet,'fill-opacity=".45" data-area-scale="9"'));}).join('')+quantity('output',r.output,label(180,163,'σ² = '+f(r.variance)+' cm²',C.mint,22))+caption('Average squared distance from the mean.');
+      }
+    },
+    recurrence: {
+      title:'Recurrence relations',
+      describe:(p,r)=>`The reservoir begins with ${f(p.initial)} litres. Each round retains fraction ${f(p.retention)} and then adds ${f(p.addition)} litres. After ${p.rounds} complete rounds, the exact recurrence gives ${f(r.output)} litres. Points represent integer rounds.`,
+      draw:(p,r)=>{
+        const values=r.values||[p.initial],points=values.map((value,i)=>[34+i*292/12,142-value]);
+        return axis(34,34,326,142)+label(180,24,'KEEP A FRACTION, THEN REFILL',C.muted,12)+curve(points,C.grid,'stroke-width="2"')+points.map(([x,y],i)=>quantity('round-'+i,values[i],circle(x,y,4.5,i===points.length-1?C.mint:C.cyan))).join('')+quantity('output',r.output,label(180,165,'v'+p.rounds+' = '+f(r.output)+' L',C.mint,22))+caption('Exact rounds, one rule repeated.');
+      }
+    },
     set: {
       title:'Sets and membership',
       describe:(p,r)=>`The universe contains peg heights one through twelve. Set A admits ${r.countA} pegs at most ${f(p.maxSize)} centimetres tall; set B admits ${r.countB} pegs at least ${f(p.minSize)} centimetres tall. Their intersection contains ${r.resultIDs.join(', ')} and has cardinality ${r.output}. Set membership and its count are distinct.`,

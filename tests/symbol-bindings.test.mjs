@@ -6,6 +6,7 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const Symbols = require('../src/symbol-bindings.js');
 const Models = require('../src/models.js');
+const Modules = require('../src/playground-modules.js');
 const Visuals = require('../src/visuals.js');
 const Spatial = require('../src/spatial.js');
 const Scenes = require('../src/story-scenes.js');
@@ -30,8 +31,8 @@ test('symbol bindings load offline, remain immutable and reject unknown inputs',
 });
 
 test('every mapped canonical grammar token resolves to an actual rendered quantity mark', () => {
-  assert.equal(cards.length, 38);
-  const textOnly = new Set(['function-composition:∘', 'real-logarithm:log', 'derivative:lim', 'probability:X','partial-derivative:h','computational-complexity:O(n)']);
+  assert.equal(cards.length, Modules.list().length);
+  const textOnly = new Set(['function-composition:∘', 'real-logarithm:log', 'derivative:lim', 'probability:X','partial-derivative:h','computational-complexity:O(n)','recurrence:k']);
   let mapped = 0, unmapped = 0;
   for (const card of cards) {
     const p = Models.defaults(card.slug);
@@ -49,7 +50,7 @@ test('every mapped canonical grammar token resolves to an actual rendered quanti
       }
     }
   }
-  assert.equal(unmapped, 6);
+  assert.equal(unmapped, 7);
   assert.ok(mapped > 50);
 });
 

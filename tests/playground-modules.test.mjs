@@ -8,6 +8,7 @@ const require = createRequire(import.meta.url);
 const modules = require('../src/playground-modules.js');
 const models = require('../src/models.js');
 const expectedIds = [
+  'conditional-probability', 'variance', 'recurrence',
   'set', 'population-sample', 'computational-complexity',
   'directional-derivative', 'tangent-plane', 'gradient-descent',
   'chain-rule', 'partial-derivative', 'gradient',
@@ -30,7 +31,7 @@ const finiteScene = (html, label) => {
   assert.doesNotMatch(html, /(?:x|y|width|height|cx|cy|r|d|transform)="[^"]*undefined/, label);
 };
 
-test('all thirty-eight installed model families register through the same module contract', () => {
+test('all installed model families register through the same module contract', () => {
   assert.deepEqual(modules.list().map(module => module.id), expectedIds);
   for (const id of expectedIds) {
     const module = modules.get(id), instance = modules.createInstance(id, { slot: 'contract-' + id });

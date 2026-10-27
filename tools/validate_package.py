@@ -104,6 +104,27 @@ def checks(card, schema, source_ids, known):
     return errors
 
 def compute(model,p):
+    data_iteration_bounds={
+        'conditional-probability-visual-model':{'eventEnd':(0,100),'windowEnd':(0,100)},
+        'variance-visual-model':{'lastLength':(0,20)},
+        'recurrence-visual-model':{'initial':(0,40),'retention':(0,1),'addition':(0,5),'rounds':(0,12)},
+    }
+    if model in data_iteration_bounds:
+        bounds=data_iteration_bounds[model]
+        if set(p)!=set(bounds) or any(type(p[key]) not in (int,float) or not math.isfinite(p[key]) or not low<=p[key]<=high for key,(low,high) in bounds.items()):return {'status':'invalid_parameters'}
+        if model=='conditional-probability-visual-model':
+            if p['windowEnd']==0 or p['windowEnd']/100==0:return {'status':'invalid_parameters'}
+            # The complement of the uninked part within the reported window.
+            output=1-max(0,p['windowEnd']-p['eventEnd'])/p['windowEnd']
+        elif model=='variance-visual-model':
+            # Expanded quadratic, independent of the runtime deviation-square sum.
+            output=2+3*(p['lastLength']-10)**2/16
+        else:
+            if p['rounds']!=int(p['rounds']):return {'status':'invalid_parameters'}
+            n=int(p['rounds']);r=p['retention']
+            # Each refill contributes its own retained geometric factor.
+            output=math.fsum([p['initial']*r**n,*[p['addition']*r**j for j in range(n)]])
+        return {'status':'valid','output':output}
     gap_bounds={
         'set-visual-model':{'maxSize':(0,12),'minSize':(0,12)},
         'population-sample-visual-model':{'lastValue':(0,30),'sampleSize':(1,12),'startIndex':(0,11)},

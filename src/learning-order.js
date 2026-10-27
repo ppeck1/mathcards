@@ -6,10 +6,10 @@
     'exponential-change','real-logarithm','quadratic-optimization','pythagorean-theorem',
     'vector','vector-rotation','inner-product','linear-combination','basis',
     'matrix-linear-map','determinant','matrix-product','complex-multiplication',
-    'probability','population-sample','bayes-theorem','limit','derivative',
+    'probability','conditional-probability','population-sample','variance','bayes-theorem','limit','derivative',
     'integral-accumulation','signed-accumulation','chain-rule','partial-derivative',
     'gradient','directional-derivative','tangent-plane','gradient-descent',
-    'wave-interference','resonance','graph-theory','computational-complexity',
+    'wave-interference','resonance','graph-theory','computational-complexity','recurrence',
     'chaos-theory','fractal-geometry'
   ]);
   const ranks=new Map(slugs.map((slug,i)=>[slug,i]));

@@ -8,95 +8,97 @@
 <meta name="description" content="Explore mathematics as a language for expressing relationships. Offline interactive cards, experiments and a private notebook.">
 <title>Mathematical Expression Atlas</title>
 <!-- ATLAS_STYLES -->
-<link rel="stylesheet" href="styles.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="experience.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="studio.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="motion.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="life-story.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="calculation-flow.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="scene-inspector.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="semantic-links.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="workspace-panel.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="workspace-library.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="card-previews.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="model-data.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="concept-atlas.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="atlas-landscape.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="atlas-explorer.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="math-index.css?v=0.25.0" data-development>
-<link rel="stylesheet" href="atlas-search.css?v=0.25.0" data-development>
+<link rel="stylesheet" href="styles.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="experience.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="studio.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="motion.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="life-story.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="calculation-flow.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="scene-inspector.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="semantic-links.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="workspace-panel.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="workspace-library.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="card-previews.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="model-data.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="concept-atlas.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="atlas-landscape.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="atlas-explorer.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="math-index.css?v=0.26.0" data-development>
+<link rel="stylesheet" href="atlas-search.css?v=0.26.0" data-development>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar"><a class="brand" href="#explore" aria-label="Mathematical Expression Atlas home"><span class="brand-mark" aria-hidden="true">∑</span><span>EXPRESSION ATLAS<small>A field notebook for mathematics</small></span></a><nav aria-label="Main navigation"><a href="#explore" data-nav="explore">Explore</a><a href="#atlas" data-nav="atlas">Atlas</a><a href="#index" data-nav="index">Index</a><a href="#workbench" data-nav="workbench">Workbench</a><a href="#notebook" data-nav="notebook">Notebook <span id="note-count">0</span></a></nav><div data-site-search></div><span class="offline"><i></i> Works offline</span></header>
 <main id="main" tabindex="-1"></main>
-<footer class="footer"><span>MATHEMATICAL EXPRESSION ATLAS <b>·</b> <span data-application-version>0.25.0</span></span><span>Thirty-eight ideas. Look closer.</span></footer>
+<footer class="footer"><span>MATHEMATICAL EXPRESSION ATLAS <b>·</b> <span data-application-version>0.26.0</span></span><span>Forty-one ideas. Look closer.</span></footer>
 <dialog id="capture-dialog" aria-labelledby="capture-title"><form id="capture-form"><p class="eyebrow">Your own field notes</p><h2 id="capture-title">Keep this experiment</h2><p id="capture-context" class="muted"></p><label for="note-text">What did you notice?</label><textarea id="note-text" rows="4" maxlength="20000" placeholder="What changed? What stayed fixed? Where might this structure be useful?"></textarea><label for="note-status">How would you describe it?</label><select id="note-status"><option value="observation">Observation</option><option value="conjecture">Conjecture</option><option value="tested_instance">Tested instance</option><option value="unresolved">Unresolved</option><option value="rejected">Rejected</option><option value="supported_relationship">Supported relationship</option></select><details class="connection-fields"><summary class="fine">Add a possible connection (optional)</summary><label for="connection-target">Compare with</label><select id="connection-target"><option value="">No specific card</option></select><label for="connection-mapping">Which roles correspond?</label><textarea id="connection-mapping" rows="2" maxlength="20000"></textarea><label for="connection-preserved">What seems to be preserved?</label><textarea id="connection-preserved" rows="2" maxlength="20000"></textarea><label for="connection-counterexample">A counterexample to try</label><textarea id="connection-counterexample" rows="2" maxlength="20000"></textarea><label for="connection-unresolved">Conditions still unresolved</label><textarea id="connection-unresolved" rows="2" maxlength="20000"></textarea></details><p class="fine">Saved on this browser. Export a backup to keep a durable copy. A tested instance is not a proof.</p><p id="capture-error" role="alert"></p><div class="actions"><button type="button" class="button secondary" id="cancel-capture">Cancel</button><button class="button" type="submit">Save to notebook</button></div></form></dialog>
 <div id="toast" role="status" class="toast" hidden></div>
 <!-- ATLAS_SCRIPTS -->
-<script src="everyday.js?v=0.25.0" data-development></script>
-<script src="fractal-lens.js?v=0.25.0" data-development></script>
-<script src="chaos-trace.js?v=0.25.0" data-development></script>
-<script src="discovery.js?v=0.25.0" data-development></script>
-<script src="frontier.js?v=0.25.0" data-development></script>
-<script src="plot-view.js?v=0.25.0" data-development></script>
-<script src="foundations.js?v=0.25.0" data-development></script>
-<script src="linear-algebra.js?v=0.25.0" data-development></script>
-<script src="linear-workflows.js?v=0.25.0" data-development></script>
-<script src="calculus-fields.js?v=0.25.0" data-development></script>
-<script src="local-change.js?v=0.25.0" data-development></script>
-<script src="atlas-gaps.js?v=0.25.0" data-development></script>
-<script src="model-registry.js?v=0.25.0" data-development></script>
-<script src="models.js?v=0.25.0" data-development></script>
-<script src="catalog.js?v=0.25.0" data-development></script>
-<script src="notebook.js?v=0.25.0" data-development></script>
-<script src="visuals.js?v=0.25.0" data-development></script>
-<script src="spatial.js?v=0.25.0" data-development></script>
-<script src="module-graphs.js?v=0.25.0" data-development></script>
-<script src="life-stories.js?v=0.25.0" data-development></script>
-<script src="discovery-stories.js?v=0.25.0" data-development></script>
-<script src="frontier-stories.js?v=0.25.0" data-development></script>
-<script src="foundation-stories.js?v=0.25.0" data-development></script>
-<script src="linear-algebra-stories.js?v=0.25.0" data-development></script>
-<script src="linear-workflow-stories.js?v=0.25.0" data-development></script>
-<script src="calculus-field-stories.js?v=0.25.0" data-development></script>
-<script src="local-change-stories.js?v=0.25.0" data-development></script>
-<script src="atlas-gap-stories.js?v=0.25.0" data-development></script>
-<script src="story-library.js?v=0.25.0" data-development></script>
-<script src="experiments.js?v=0.25.0" data-development></script>
-<script src="scene-input.js?v=0.25.0" data-development></script>
-<script src="motion.js?v=0.25.0" data-development></script>
-<script src="readable-values.js?v=0.25.0" data-development></script>
-<script src="scene-inspector.js?v=0.25.0" data-development></script>
-<script src="module-registry.js?v=0.25.0" data-development></script>
-<script src="semantic-links.js?v=0.25.0" data-development></script>
-<script src="symbol-bindings.js?v=0.25.0" data-development></script>
-<script src="module-ports.js?v=0.25.0" data-development></script>
-<script src="playground-modules.js?v=0.25.0" data-development></script>
-<script src="model-data.js?v=0.25.0" data-development></script>
-<script src="playground.js?v=0.25.0" data-development></script>
-<script src="workspace-links.js?v=0.25.0" data-development></script>
-<script src="workspace-panel.js?v=0.25.0" data-development></script>
-<script src="workspace-store.js?v=0.25.0" data-development></script>
-<script src="workspace-runtime.js?v=0.25.0" data-development></script>
-<script src="workspace-library.js?v=0.25.0" data-development></script>
-<script src="story-links.js?v=0.25.0" data-development></script>
-<script src="story-scenes.js?v=0.25.0" data-development></script>
-<script src="story-journey.js?v=0.25.0" data-development></script>
-<script src="calculation-flow.js?v=0.25.0" data-development></script>
-<script src="life-story.js?v=0.25.0" data-development></script>
-<script src="card-previews.js?v=0.25.0" data-development></script>
-<script src="concept-atlas.js?v=0.25.0" data-development></script>
-<script src="atlas-regions.js?v=0.25.0" data-development></script>
-<script src="atlas-topography.js?v=0.25.0" data-development></script>
-<script src="atlas-landscape.js?v=0.25.0" data-development></script>
-<script src="atlas-explorer.js?v=0.25.0" data-development></script>
-<script src="math-terms.js?v=0.25.0" data-development></script>
-<script src="math-notation.js?v=0.25.0" data-development></script>
-<script src="math-index.js?v=0.25.0" data-development></script>
-<script src="math-index-data.js?v=0.25.0" data-development></script>
-<script src="atlas-search.js?v=0.25.0" data-development></script>
-<script src="learning-order.js?v=0.25.0" data-development></script>
-<script src="math-display.js?v=0.25.0" data-development></script>
-<script src="app.js?v=0.25.0" data-development></script>
+<script src="everyday.js?v=0.26.0" data-development></script>
+<script src="fractal-lens.js?v=0.26.0" data-development></script>
+<script src="chaos-trace.js?v=0.26.0" data-development></script>
+<script src="discovery.js?v=0.26.0" data-development></script>
+<script src="frontier.js?v=0.26.0" data-development></script>
+<script src="plot-view.js?v=0.26.0" data-development></script>
+<script src="foundations.js?v=0.26.0" data-development></script>
+<script src="linear-algebra.js?v=0.26.0" data-development></script>
+<script src="linear-workflows.js?v=0.26.0" data-development></script>
+<script src="calculus-fields.js?v=0.26.0" data-development></script>
+<script src="local-change.js?v=0.26.0" data-development></script>
+<script src="atlas-gaps.js?v=0.26.0" data-development></script>
+<script src="data-iteration.js?v=0.26.0" data-development></script>
+<script src="model-registry.js?v=0.26.0" data-development></script>
+<script src="models.js?v=0.26.0" data-development></script>
+<script src="catalog.js?v=0.26.0" data-development></script>
+<script src="notebook.js?v=0.26.0" data-development></script>
+<script src="visuals.js?v=0.26.0" data-development></script>
+<script src="spatial.js?v=0.26.0" data-development></script>
+<script src="module-graphs.js?v=0.26.0" data-development></script>
+<script src="life-stories.js?v=0.26.0" data-development></script>
+<script src="discovery-stories.js?v=0.26.0" data-development></script>
+<script src="frontier-stories.js?v=0.26.0" data-development></script>
+<script src="foundation-stories.js?v=0.26.0" data-development></script>
+<script src="linear-algebra-stories.js?v=0.26.0" data-development></script>
+<script src="linear-workflow-stories.js?v=0.26.0" data-development></script>
+<script src="calculus-field-stories.js?v=0.26.0" data-development></script>
+<script src="local-change-stories.js?v=0.26.0" data-development></script>
+<script src="atlas-gap-stories.js?v=0.26.0" data-development></script>
+<script src="data-iteration-stories.js?v=0.26.0" data-development></script>
+<script src="story-library.js?v=0.26.0" data-development></script>
+<script src="experiments.js?v=0.26.0" data-development></script>
+<script src="scene-input.js?v=0.26.0" data-development></script>
+<script src="motion.js?v=0.26.0" data-development></script>
+<script src="readable-values.js?v=0.26.0" data-development></script>
+<script src="scene-inspector.js?v=0.26.0" data-development></script>
+<script src="module-registry.js?v=0.26.0" data-development></script>
+<script src="semantic-links.js?v=0.26.0" data-development></script>
+<script src="symbol-bindings.js?v=0.26.0" data-development></script>
+<script src="module-ports.js?v=0.26.0" data-development></script>
+<script src="playground-modules.js?v=0.26.0" data-development></script>
+<script src="model-data.js?v=0.26.0" data-development></script>
+<script src="playground.js?v=0.26.0" data-development></script>
+<script src="workspace-links.js?v=0.26.0" data-development></script>
+<script src="workspace-panel.js?v=0.26.0" data-development></script>
+<script src="workspace-store.js?v=0.26.0" data-development></script>
+<script src="workspace-runtime.js?v=0.26.0" data-development></script>
+<script src="workspace-library.js?v=0.26.0" data-development></script>
+<script src="story-links.js?v=0.26.0" data-development></script>
+<script src="story-scenes.js?v=0.26.0" data-development></script>
+<script src="story-journey.js?v=0.26.0" data-development></script>
+<script src="calculation-flow.js?v=0.26.0" data-development></script>
+<script src="life-story.js?v=0.26.0" data-development></script>
+<script src="card-previews.js?v=0.26.0" data-development></script>
+<script src="concept-atlas.js?v=0.26.0" data-development></script>
+<script src="atlas-regions.js?v=0.26.0" data-development></script>
+<script src="atlas-topography.js?v=0.26.0" data-development></script>
+<script src="atlas-landscape.js?v=0.26.0" data-development></script>
+<script src="atlas-explorer.js?v=0.26.0" data-development></script>
+<script src="math-terms.js?v=0.26.0" data-development></script>
+<script src="math-notation.js?v=0.26.0" data-development></script>
+<script src="math-index.js?v=0.26.0" data-development></script>
+<script src="math-index-data.js?v=0.26.0" data-development></script>
+<script src="atlas-search.js?v=0.26.0" data-development></script>
+<script src="learning-order.js?v=0.26.0" data-development></script>
+<script src="math-display.js?v=0.26.0" data-development></script>
+<script src="app.js?v=0.26.0" data-development></script>
 </body></html>
