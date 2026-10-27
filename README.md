@@ -20,11 +20,16 @@ preview commands. The offline entry points below remain available.
 
 ## Open the application
 
-Version 0.25 adds a complete, collapsible visual symbol catalog below Index
-search and restores topographic definition to the map. Summit height represents
-the available lesson count in a territory. All eight territories still fit the
-phone overview. The shared crate chart and single guided control remain.
-See the [symbol and topography review](docs/BUILD_REVIEW_0_25_0.md).
+Version 0.26 deepens the thinner Chance and Computation areas with Conditional
+probability, Variance and standard deviation, and Recurrence relations. The
+collection has 41 draft concepts, 209 examples and 382 numeric fixtures. Each
+new lesson connects a workshop story to its formula and Geometry/Graph views
+through the existing controls and animation host.
+
+The complete collapsible symbol catalog and lesson-count topography remain.
+New indexed forms enter the visual catalog automatically; summit heights use
+the atlas's current availability. All eight territories still fit the phone
+overview. See the [current review](docs/BUILD_REVIEW_0_26_0.md).
 
 1. Extract this ZIP into a folder.
 2. Open **`START_HERE.html`** (or **`dist/index.html`**) in a modern browser such as Chrome, Edge, Firefox

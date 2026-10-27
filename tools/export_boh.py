@@ -138,8 +138,10 @@ def build(output=None):
     for name,raw in files.items():
         target=output/name
         if not target.resolve().is_relative_to(output.resolve()): raise ValueError('unsafe output path')
-        target.parent.mkdir(parents=True,exist_ok=True); target.write_bytes(raw)
-    old.write_text(json.dumps(manifest,ensure_ascii=False,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+        target.parent.mkdir(parents=True,exist_ok=True)
+        if not target.exists() or target.read_bytes()!=raw: target.write_bytes(raw)
+    manifest_text=json.dumps(manifest,ensure_ascii=False,indent=2,sort_keys=True)+'\n'
+    if not old.exists() or old.read_text(encoding='utf-8')!=manifest_text: old.write_text(manifest_text,encoding='utf-8')
     return manifest
 
 if __name__=='__main__':

@@ -1,3 +1,11 @@
+# 0.26.0 — conditioning, spread and repeated updates
+
+- Deepened thin atlas areas with Conditional probability, Variance and standard deviation, and Recurrence relations.
+- Added three independent bounded models, connected workshop stories, fifteen original worked examples and thirty-six independently checked numeric fixtures.
+- Added Geometry and Graph views through the shared playground. Conditioning shows a changed reference window, variance shows squared deviation areas, and recurrence preserves exact whole-round updates.
+- Extended definitions, local notation, typed ports, previews, learner ordering and atlas memberships together. The visual symbol catalog and topography update from their existing data providers.
+- Retained the simple guided layout with one primary variable control; additional inputs and views remain in the optional playground.
+
 # 0.25.0 — a visual symbol catalog and meaningful topography
 
 - Replaced the thirteen-symbol shortcut row with a collapsible visual catalog derived from every indexed display form. Alternate forms, units and contextual notation open their definitions and preserve shared meanings.

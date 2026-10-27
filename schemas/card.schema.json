@@ -1038,7 +1038,10 @@
             "gradient-descent-visual-model",
             "set-visual-model",
             "population-sample-visual-model",
-            "computational-complexity-visual-model"
+            "computational-complexity-visual-model",
+            "conditional-probability-visual-model",
+            "variance-visual-model",
+            "recurrence-visual-model"
           ]
         },
         "renderer_version": {

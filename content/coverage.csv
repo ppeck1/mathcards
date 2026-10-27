@@ -72,12 +72,12 @@ math:concept:singular-value-decomposition,Singular Value Decomposition,linear-al
 math:concept:sample-space,Sample Space,probability,planned,expansion,pending,pending,planned
 math:concept:event,Event,probability,planned,expansion,pending,pending,planned
 math:concept:probability-measure,Probability Measure,probability,planned,expansion,pending,pending,planned
-math:concept:conditional-probability,Conditional Probability,probability,planned,expansion,pending,pending,planned
+math:concept:conditional-probability,Conditional Probability,probability,draft_specimen,expansion,pending,pending,implemented
 math:concept:independence,Independence,probability,planned,expansion,pending,pending,planned
 math:concept:bayes-rule,Bayes Rule,probability,planned,expansion,pending,pending,planned
 math:concept:random-variable,Random Variable,probability,planned,expansion,pending,pending,planned
 math:concept:expectation,Expectation,probability,planned,expansion,pending,pending,planned
-math:concept:variance,Variance,probability,planned,expansion,pending,pending,planned
+math:concept:variance,Variance,probability,draft_specimen,expansion,pending,pending,implemented
 math:concept:probability-distribution,Probability Distribution,probability,planned,expansion,pending,pending,planned
 math:concept:population-sample,Population Sample,statistics-inference,draft_specimen,expansion,pending,pending,implemented
 math:concept:sampling-distribution,Sampling Distribution,statistics-inference,planned,expansion,pending,pending,planned
@@ -95,7 +95,7 @@ math:concept:combination,Combination,discrete-computation,planned,expansion,pend
 math:concept:graph,Graph,discrete-computation,planned,expansion,pending,pending,planned
 math:concept:path-cycle,Path Cycle,discrete-computation,planned,expansion,pending,pending,planned
 math:concept:tree,Tree,discrete-computation,planned,expansion,pending,pending,planned
-math:concept:recurrence,Recurrence,discrete-computation,planned,expansion,pending,pending,planned
+math:concept:recurrence,Recurrence,discrete-computation,draft_specimen,expansion,pending,pending,implemented
 math:concept:algorithm,Algorithm,discrete-computation,planned,expansion,pending,pending,planned
 math:concept:computability,Computability,discrete-computation,planned,expansion,pending,pending,planned
 math:concept:computational-complexity,Computational Complexity,discrete-computation,draft_specimen,expansion,pending,pending,implemented

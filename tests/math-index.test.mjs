@@ -34,8 +34,8 @@ test('finite set cardinality bars retain their declared meaning without relabeli
 
 test('sample means, indexed observations and population counts keep their exact statistical roles',()=>{
   for(const query of ['x̄','xbar','\\bar{x}','\\overline{x}']){const mean=index.search(query).find(e=>e.id==='sample-mean');assert.ok(mean,query);assert.deepEqual(mean.usedBy.map(u=>u.slug),['population-sample']);assert.ok(!index.search(query).some(e=>e.id==='complex-conjugate'));}
-  assert.deepEqual(index.search('μ').find(e=>e.id==='population-mean').usedBy.map(u=>u.slug),['population-sample']);
-  assert.deepEqual(index.search('N').find(e=>e.id==='population-size').usedBy.map(u=>u.slug),['population-sample']);
+  assert.deepEqual(index.search('μ').find(e=>e.id==='population-mean').usedBy.map(u=>u.slug),['population-sample','variance']);
+  assert.deepEqual(index.search('N').find(e=>e.id==='population-size').usedBy.map(u=>u.slug),['population-sample','variance']);
   assert.deepEqual(index.search('n').find(e=>e.id==='sample-size').usedBy.map(u=>u.slug),['population-sample']);
   assert.deepEqual(index.search('n').find(e=>e.id==='input-size').usedBy.map(u=>u.slug),['computational-complexity']);
   for(const token of ['∑xᵢ','∑Xᵢ'])assert.ok(index.search(token).find(e=>e.id==='summation').usedBy.some(u=>u.slug==='population-sample'));
@@ -261,7 +261,7 @@ test('local-change vocabulary follows the actual lesson explanations and preserv
 test('new local symbols and typed compound forms keep their actual card scopes',()=>{
   const use=(query,id)=>index.search(query).find(entry=>entry.id===id)?.usedBy.map(usage=>usage.slug);
   for(const [query,id,slugs] of [
-    ['η','step-size',['gradient-descent']],['k','iteration-index',['gradient-descent']],
+    ['η','step-size',['gradient-descent']],['k','iteration-index',['gradient-descent','recurrence']],
     ['R','approximation-error',['tangent-plane']],['L(x+Δx,y+Δy)','linear-approximation',['tangent-plane']],
     ['L(x+\\Delta x,y+\\Delta y)','linear-approximation',['tangent-plane']],
     ['C(xₖ,yₖ)','cost-function',['gradient-descent']],['C(x_k,y_k)','cost-function',['gradient-descent']],
@@ -498,9 +498,9 @@ test('every catalog button opens a search containing all of its actual definitio
 });
 
 test('new local catalog forms scope usage to their exact mathematics instead of every card using the general reader',()=>{
-  for(const [symbol,id,slug] of [['∑xᵢ','summation','population-sample'],['∑Xᵢ','summation','population-sample'],['b^(−x)','reciprocal','exponentiation']]){
+  for(const [symbol,id,slugs] of [['∑xᵢ','summation',['population-sample','variance']],['∑Xᵢ','summation',['population-sample']],['b^(−x)','reciprocal',['exponentiation']]]){
     assert.equal(index.isNotation(symbol),true,symbol+' is recognized as an exact local notation query');
-    assert.deepEqual(index.search(symbol).find(entry=>entry.id===id).usedBy.map(usage=>usage.slug),[slug]);
+    assert.deepEqual(index.search(symbol).find(entry=>entry.id===id).usedBy.map(usage=>usage.slug),slugs);
   }
   const declared=new Set(index.entries.flatMap(entry=>entry.symbols));
   for(const form of index.symbolCatalog().forms.filter(form=>!declared.has(form.symbol))){

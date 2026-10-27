@@ -17,7 +17,7 @@ test('cartographic renderer composes a pure offline topography provider without 
   vm.runInContext(fs.readFileSync(new URL('../src/atlas-landscape.js',import.meta.url),'utf8'),context);
   assert.deepEqual(Object.keys(context),['AtlasTopography','AtlasLandscape']);
   assert.equal(typeof context.AtlasLandscape.render,'function');
-  assert.match(context.AtlasLandscape.render({regions}),/data-highest-summit="13"/);
+  assert.match(context.AtlasLandscape.render({regions}),new RegExp('data-highest-summit="'+Math.max(...regions.map(region=>region.availableCount))+'"'));
   assert.ok(Object.isFrozen(Landscape));
 });
 
@@ -88,9 +88,9 @@ test('field colors and count-based relief distinguish territory identity from le
   assert.doesNotMatch(html,/<image\b|<filter\b|data:image|AtlasTerrain|atlas-terrain-motif/i);
   assert.ok(html.includes('Territory colors identify fields.'));
   assert.ok(html.includes('Height = playable lessons'));
-  assert.ok(html.includes('data-contour-interval="1" data-highest-summit="13"'));
+  assert.ok(html.includes('data-contour-interval="1" data-highest-summit="'+Math.max(...regions.map(region=>region.availableCount))+'"'));
   assert.equal((html.match(/data-summit-height=/g)||[]).length,8);
-  assert.equal((html.match(/data-contour-level=/g)||[]).length,55);
+  assert.equal((html.match(/data-contour-level=/g)||[]).length,regions.reduce((sum,region)=>sum+region.availableCount,0));
   for(const region of regions)assert.match(Landscape.regionColor(region.id),/^#[a-f0-9]{6}$/i);
   assert.equal(Landscape.regionColor('not-a-field'),'#e8ecdf');
   assert.ok(!html.includes('atlas-terrain-motif'));

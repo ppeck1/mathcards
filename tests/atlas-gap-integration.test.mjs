@@ -8,7 +8,7 @@ const cards=fs.readdirSync(new URL('../content/cards/',import.meta.url)).filter(
 test('all twenty-four map areas now lead to at least one actual lesson',()=>{
   const model=Regions.create({cards});assert.equal(model.topics.length,24);assert.ok(model.topics.every(t=>t.availableCount>0));
   for(const [area,slug]of [['foundations:sets-and-proof','set'],['uncertainty:statistics','population-sample'],['computation:linear-time-algorithms','computational-complexity']])assert.ok(model.getTopic(area).availableCards.some(c=>c.slug===slug));
-  assert.equal(model.availableCount,38);
+  assert.equal(model.availableCount,cards.length);
 });
 
 test('mean bars, conjugates and asymptotic classes preserve distinct mathematical readings',()=>{

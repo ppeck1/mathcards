@@ -20,7 +20,7 @@ test('explorer loads offline and composes the pure map and existing connection p
   vm.runInContext(fs.readFileSync(new URL('../src/atlas-explorer.js',import.meta.url),'utf8'),context);
   const browser=context.AtlasExplorer.create({cards,sources,coverage});
   assert.equal(browser.areas.regions.length,8);assert.equal(browser.areas.topics.length,24);
-  assert.equal(browser.connections.nodes.length,38);
+  assert.equal(browser.connections.nodes.length,cards.length);
   assert.deepEqual(JSON.parse(JSON.stringify(browser.stateFromPath([]))),model.stateFromPath([]));
 });
 

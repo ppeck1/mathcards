@@ -1,0 +1,853 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:recurrence",
+  "slug": "recurrence",
+  "type": "concept",
+  "title": "Recurrence relations",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-27T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Bounded models, workshop stories and worked derivations are originally authored constructed examples. No production measurements or historical priority claims are presented.",
+  "aliases": [
+    "recursive sequence",
+    "retain and refill",
+    "iterative update"
+  ],
+  "branches": [
+    "discrete-computation",
+    "sequences",
+    "modeling"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Follow a previous volume through retention and refill into the next exact completed-round state.",
+  "meaning": "A recurrence defines successive states from earlier ones and initial data. The workshop model separates retained old water from newly added water. Its numbered graph shows actual integer-round states instead of inventing fractional iterations.",
+  "prerequisites": {
+    "required": [
+      "math:concept:function"
+    ],
+    "helpful": [
+      "math:concept:exponential-change",
+      "math:concept:linear-model"
+    ],
+    "depth": [
+      "math:concept:chaos-theory",
+      "math:concept:gradient-descent"
+    ]
+  },
+  "definition": {
+    "setting": "A first-order affine recurrence for retained water followed by a fixed refill at discrete completed rounds.",
+    "formal_latex": "v_{k+1}=r v_k+d,\\quad v_n=r^n v_0+d\\sum_{j=0}^{n-1}r^j,\\quad n\\in\\{0,\\ldots,12\\}.",
+    "signature": {
+      "v₀": "Initial volume in litres.",
+      "r": "Fraction retained before each refill.",
+      "d": "Litres added after retention in each completed round.",
+      "n": "Whole number of completed rounds.",
+      "k": "Bound integer update index.",
+      "vₙ": "Volume after n completed rounds in litres.",
+      "vₙ₋₁": "Previous volume before the last completed round, for n>0.",
+      "r vₙ₋₁": "Retained contribution in the last completed round, for n>0."
+    },
+    "conditions": [
+      "Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.",
+      "Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.",
+      "The rule is vₖ₊₁=r vₖ+d for integer k≥0. Changing r smoothly recalculates exact integer-round states; it does not create fractional rounds.",
+      "At n=0 the result is v₀ and no last transition has occurred. Last-transition retained and added contributions are therefore zero.",
+      "Allowed states stay between zero and 100 L: retention cannot increase the current volume and twelve refills add at most 60 L to at most 40 L initially."
+    ],
+    "domain_notes": "A recurrence needs a stated rule and initial data. This executable family uses one previous state and an affine update. The finite geometric sum is empty at n=0. At r=1 the result is v₀+nd without division by 1−r.",
+    "proof_status": "Definition-level sources; restricted-family properties are author-derived. Independent review pending.",
+    "source_refs": [
+      "source:openstax:sequences",
+      "source:openstax:geometric-sequences"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Recurrence relations",
+    "expression_latex": "v_{k+1}=r v_k+d,\\quad v_n=r^n v_0+d\\sum_{j=0}^{n-1}r^j,\\quad n\\in\\{0,\\ldots,12\\}.",
+    "formation_rule": "Begin at v₀. For each integer k from zero to n−1, set vₖ₊₁=r vₖ+d. Equivalently, vₙ=rⁿv₀+d∑ from j=0 to n−1 of rʲ. At n=0 return v₀; at r=1 use vₙ=v₀+nd.",
+    "precedence": "Multiply the previous state by r before adding d; repeat the complete update exactly n times.",
+    "symbols": [
+      {
+        "token": "v₀",
+        "role": "Starting volume",
+        "type": "Litres"
+      },
+      {
+        "token": "r",
+        "role": "Retained fraction per completed round",
+        "type": "Unitless real fraction"
+      },
+      {
+        "token": "d",
+        "role": "Refill per completed round",
+        "type": "Litres"
+      },
+      {
+        "token": "n",
+        "role": "Completed round count",
+        "type": "Nonnegative integer"
+      },
+      {
+        "token": "k",
+        "role": "Update index",
+        "type": "Bound nonnegative integer"
+      },
+      {
+        "token": "vₙ",
+        "role": "Final completed-round volume",
+        "type": "Litres"
+      },
+      {
+        "token": "vₙ₋₁",
+        "role": "Previous volume for n>0",
+        "type": "Litres"
+      },
+      {
+        "token": "r vₙ₋₁",
+        "role": "Retained last-transition contribution for n>0",
+        "type": "Litres"
+      }
+    ],
+    "ast": {
+      "id": "ast:recurrence:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:initial",
+          "kind": "variable",
+          "type": "Finite model input within its declared domain",
+          "symbol": "initial",
+          "scope_ref": "scope:recurrence:expression"
+        },
+        {
+          "id": "n:retention",
+          "kind": "variable",
+          "type": "Finite model input within its declared domain",
+          "symbol": "retention",
+          "scope_ref": "scope:recurrence:expression"
+        },
+        {
+          "id": "n:addition",
+          "kind": "variable",
+          "type": "Finite model input within its declared domain",
+          "symbol": "addition",
+          "scope_ref": "scope:recurrence:expression"
+        },
+        {
+          "id": "n:rounds",
+          "kind": "variable",
+          "type": "Finite model input within its declared domain",
+          "symbol": "rounds",
+          "scope_ref": "scope:recurrence:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried scalar-input rule for the stated bounded family",
+          "ref": "Begin at v₀. For each integer k from zero to n−1, set vₖ₊₁=r vₖ+d. Equivalently, vₙ=rⁿv₀+d∑ from j=0 to n−1 of rʲ. At n=0 return v₀; at r=1 use vₙ=v₀+nd."
+        },
+        {
+          "id": "n:bound-0",
+          "kind": "apply",
+          "type": "Partially applied declared rule",
+          "function": "n:rule",
+          "argument": "n:initial"
+        },
+        {
+          "id": "n:bound-1",
+          "kind": "apply",
+          "type": "Partially applied declared rule",
+          "function": "n:bound-0",
+          "argument": "n:retention"
+        },
+        {
+          "id": "n:bound-2",
+          "kind": "apply",
+          "type": "Partially applied declared rule",
+          "function": "n:bound-1",
+          "argument": "n:addition"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Primary scalar result",
+          "function": "n:bound-2",
+          "argument": "n:rounds"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:recurrence:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "initial",
+            "retention",
+            "addition",
+            "rounds"
+          ],
+          "domain_condition": "Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Apply one update when n=0",
+        "status": "index error",
+        "reason": "Zero completed rounds means returning the initial state."
+      },
+      {
+        "input": "Use n=1.5 completed rounds",
+        "status": "domain error",
+        "reason": "The update index is discrete in this model."
+      },
+      {
+        "input": "Refill before retaining without changing the rule",
+        "status": "order error",
+        "reason": "r(vₖ+d) generally differs from r vₖ+d."
+      }
+    ],
+    "ast_coverage": "A typed outline of the fixed executable rule. Named functions refer to the stated construction, not a general symbolic solver.",
+    "output_symbol_bindings": {
+      "v₀": "initial",
+      "r": "retention",
+      "d": "addition",
+      "n": "rounds",
+      "vₙ": "output",
+      "vₙ₋₁": "previous",
+      "r vₙ₋₁": "retained"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Starting at 12 L preserves the state when r=3/4 and d=3 L.",
+      "conditions": "Keep the rule and those two parameters fixed.",
+      "derivation": "The rule maps 12 to (3/4)12+3=12, so every subsequent application repeats the same value.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:recurrence:fixed-volume"
+    },
+    {
+      "claim": "Full retention gives additive growth.",
+      "conditions": "Use r=1 and whole completed rounds.",
+      "derivation": "Each round adds d, yielding vₙ=v₀+nd.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:recurrence:full-retention"
+    },
+    {
+      "claim": "With zero refill the recurrence is geometric.",
+      "conditions": "Use d=0 and a fixed retained fraction.",
+      "derivation": "Each round multiplies by r, so n rounds produce rⁿv₀.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:recurrence:retain-only"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the development of this idea and its notation before adding origin or priority claims.",
+      "Distinguish historical attribution from a modern teaching formulation."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. These workshop scenarios are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:exponential-change",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated conditions.",
+      "reason": "Removing the refill leaves repeated multiplicative scaling.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:linear-model",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated conditions.",
+      "reason": "Full retention produces an equal additive increment per completed round.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:chaos-theory",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated conditions.",
+      "reason": "Both construct sequences from initial data; the chaos specimen uses a nonlinear rule.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:gradient-descent",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated conditions.",
+      "reason": "The optimizer also performs numbered state updates, using a gradient-based rule.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:recurrence:six-refills",
+      "title": "Follow six retain-and-refill rounds",
+      "role": "applied_model",
+      "question": "What remains after six rounds starting at 20 L, retaining three quarters, then adding 3 L?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.",
+        "Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.",
+        "The rule is vₖ₊₁=r vₖ+d for integer k≥0. Changing r smoothly recalculates exact integer-round states; it does not create fractional rounds.",
+        "At n=0 the result is v₀ and no last transition has occurred. Last-transition retained and added contributions are therefore zero.",
+        "Allowed states stay between zero and 100 L: retention cannot increase the current volume and twelve refills add at most 60 L to at most 40 L initially."
+      ],
+      "inputs": {
+        "initial": 20,
+        "retention": 0.75,
+        "addition": 3,
+        "rounds": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v₁=(3/4)20+3=18 L; v₂=(3/4)18+3=16.5 L",
+          "reason": "Apply the operations in the declared order."
+        },
+        {
+          "index": 2,
+          "expression": "v₅=1779/128 L; r v₅=5337/512 L",
+          "reason": "Find the previous volume and the part retained for round six."
+        },
+        {
+          "index": 3,
+          "expression": "v₆=5337/512+3=6873/512 L",
+          "reason": "Add the sixth refill after retaining the previous volume."
+        }
+      ],
+      "result": {
+        "exact": "v₆=6873/512 L=13.423828125 L"
+      },
+      "interpretation": "The six completed rounds leave about 13.424 L under the stated rule.",
+      "independent_check": {
+        "method": "Separate exact arithmetic check",
+        "expected": "The fixed value 12 satisfies (3/4)12+3=12. Therefore v₆=12+(20−12)(3/4)⁶=6873/512."
+      },
+      "limits": "This is a constructed model, not a prediction of real reservoir behavior.",
+      "preset": {
+        "initial": 20,
+        "retention": 0.75,
+        "addition": 3,
+        "rounds": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.",
+        "Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.",
+        "The rule is vₖ₊₁=r vₖ+d for integer k≥0. Changing r smoothly recalculates exact integer-round states; it does not create fractional rounds.",
+        "At n=0 the result is v₀ and no last transition has occurred. Last-transition retained and added contributions are therefore zero.",
+        "Allowed states stay between zero and 100 L: retention cannot increase the current volume and twelve refills add at most 60 L to at most 40 L initially."
+      ]
+    },
+    {
+      "id": "math:example:recurrence:zero-rounds",
+      "title": "Stop before the first round",
+      "role": "applied_model",
+      "question": "What belongs on screen before any round has been completed?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.",
+        "Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.",
+        "The rule is vₖ₊₁=r vₖ+d for integer k≥0. Changing r smoothly recalculates exact integer-round states; it does not create fractional rounds.",
+        "At n=0 the result is v₀ and no last transition has occurred. Last-transition retained and added contributions are therefore zero.",
+        "Allowed states stay between zero and 100 L: retention cannot increase the current volume and twelve refills add at most 60 L to at most 40 L initially."
+      ],
+      "inputs": {
+        "initial": 20,
+        "retention": 0.75,
+        "addition": 3,
+        "rounds": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n=0",
+          "reason": "No complete update has occurred."
+        },
+        {
+          "index": 2,
+          "expression": "vₙ=v₀=20 L",
+          "reason": "Return the starting volume unchanged."
+        },
+        {
+          "index": 3,
+          "expression": "last retained contribution=0 L; last added contribution=0 L",
+          "reason": "There is no last transition to decompose."
+        }
+      ],
+      "result": {
+        "exact": "v₀=20 L; no update"
+      },
+      "interpretation": "The planned refill remains d=3 L per future round, but no refill has occurred.",
+      "independent_check": {
+        "method": "Separate exact arithmetic check",
+        "expected": "The geometric sum has no terms, and r⁰v₀ equals v₀."
+      },
+      "limits": "Zero transition contributions do not mean that the future refill parameter is zero.",
+      "preset": {
+        "initial": 20,
+        "retention": 0.75,
+        "addition": 3,
+        "rounds": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.",
+        "Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.",
+        "The rule is vₖ₊₁=r vₖ+d for integer k≥0. Changing r smoothly recalculates exact integer-round states; it does not create fractional rounds.",
+        "At n=0 the result is v₀ and no last transition has occurred. Last-transition retained and added contributions are therefore zero.",
+        "Allowed states stay between zero and 100 L: retention cannot increase the current volume and twelve refills add at most 60 L to at most 40 L initially."
+      ]
+    },
+    {
+      "id": "math:example:recurrence:full-retention",
+      "title": "Keep all the water each round",
+      "role": "applied_model",
+      "question": "What happens when the retained fraction is one?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.",
+        "Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.",
+        "The rule is vₖ₊₁=r vₖ+d for integer k≥0. Changing r smoothly recalculates exact integer-round states; it does not create fractional rounds.",
+        "At n=0 the result is v₀ and no last transition has occurred. Last-transition retained and added contributions are therefore zero.",
+        "Allowed states stay between zero and 100 L: retention cannot increase the current volume and twelve refills add at most 60 L to at most 40 L initially."
+      ],
+      "inputs": {
+        "initial": 20,
+        "retention": 1,
+        "addition": 3,
+        "rounds": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "vₖ₊₁=vₖ+3 L",
+          "reason": "Full retention removes no volume."
+        },
+        {
+          "index": 2,
+          "expression": "v₆=20+6×3 L",
+          "reason": "Accumulate six refills."
+        },
+        {
+          "index": 3,
+          "expression": "v₆=38 L",
+          "reason": "Evaluate the additive total."
+        }
+      ],
+      "result": {
+        "exact": "v₆=38 L"
+      },
+      "interpretation": "The recurrence becomes additive growth at r=1.",
+      "independent_check": {
+        "method": "Separate exact arithmetic check",
+        "expected": "At r=1 the finite geometric sum contains six copies of one, giving 18 L of added water."
+      },
+      "limits": "Do not use a quotient with denominator 1−r at r=1.",
+      "preset": {
+        "initial": 20,
+        "retention": 1,
+        "addition": 3,
+        "rounds": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.",
+        "Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.",
+        "The rule is vₖ₊₁=r vₖ+d for integer k≥0. Changing r smoothly recalculates exact integer-round states; it does not create fractional rounds.",
+        "At n=0 the result is v₀ and no last transition has occurred. Last-transition retained and added contributions are therefore zero.",
+        "Allowed states stay between zero and 100 L: retention cannot increase the current volume and twelve refills add at most 60 L to at most 40 L initially."
+      ]
+    },
+    {
+      "id": "math:example:recurrence:fixed-volume",
+      "title": "Start at a value preserved by the rule",
+      "role": "applied_model",
+      "question": "What if the reservoir starts at 12 L with the usual retained fraction and refill?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.",
+        "Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.",
+        "The rule is vₖ₊₁=r vₖ+d for integer k≥0. Changing r smoothly recalculates exact integer-round states; it does not create fractional rounds.",
+        "At n=0 the result is v₀ and no last transition has occurred. Last-transition retained and added contributions are therefore zero.",
+        "Allowed states stay between zero and 100 L: retention cannot increase the current volume and twelve refills add at most 60 L to at most 40 L initially."
+      ],
+      "inputs": {
+        "initial": 12,
+        "retention": 0.75,
+        "addition": 3,
+        "rounds": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "(3/4)12+3=12 L",
+          "reason": "Verify that one update preserves the proposed fixed value."
+        },
+        {
+          "index": 2,
+          "expression": "v₀=12 L implies v₁=12 L",
+          "reason": "The rule returns the same state."
+        },
+        {
+          "index": 3,
+          "expression": "vₙ=12 L at each subsequent integer round",
+          "reason": "The same preserving identity applies again after every update."
+        }
+      ],
+      "result": {
+        "exact": "v₆=12 L"
+      },
+      "interpretation": "A state satisfying r v+d=v is fixed by this recurrence.",
+      "independent_check": {
+        "method": "Separate exact arithmetic check",
+        "expected": "In vₙ=12+(v₀−12)(3/4)ⁿ, the second term vanishes for v₀=12."
+      },
+      "limits": "The algebraic preserving identity supports this recurrence argument; equal plotted points alone are not a general proof.",
+      "preset": {
+        "initial": 12,
+        "retention": 0.75,
+        "addition": 3,
+        "rounds": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.",
+        "Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.",
+        "The rule is vₖ₊₁=r vₖ+d for integer k≥0. Changing r smoothly recalculates exact integer-round states; it does not create fractional rounds.",
+        "At n=0 the result is v₀ and no last transition has occurred. Last-transition retained and added contributions are therefore zero.",
+        "Allowed states stay between zero and 100 L: retention cannot increase the current volume and twelve refills add at most 60 L to at most 40 L initially."
+      ]
+    },
+    {
+      "id": "math:example:recurrence:retain-only",
+      "title": "Remove the refill",
+      "role": "applied_model",
+      "question": "What remains after six rounds if the refill amount is zero?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.",
+        "Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.",
+        "The rule is vₖ₊₁=r vₖ+d for integer k≥0. Changing r smoothly recalculates exact integer-round states; it does not create fractional rounds.",
+        "At n=0 the result is v₀ and no last transition has occurred. Last-transition retained and added contributions are therefore zero.",
+        "Allowed states stay between zero and 100 L: retention cannot increase the current volume and twelve refills add at most 60 L to at most 40 L initially."
+      ],
+      "inputs": {
+        "initial": 20,
+        "retention": 0.75,
+        "addition": 0,
+        "rounds": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "vₖ₊₁=(3/4)vₖ",
+          "reason": "The additive term vanishes."
+        },
+        {
+          "index": 2,
+          "expression": "v₆=20(3/4)⁶ L",
+          "reason": "Apply the retained fraction six times."
+        },
+        {
+          "index": 3,
+          "expression": "v₆=3645/1024 L",
+          "reason": "Evaluate the exact power before rounding."
+        }
+      ],
+      "result": {
+        "exact": "v₆=3645/1024 L=3.5595703125 L"
+      },
+      "interpretation": "This special case is repeated multiplicative scaling.",
+      "independent_check": {
+        "method": "Separate exact arithmetic check",
+        "expected": "The initial and six updated values are 20,15,11.25,8.4375,6.328125,4.74609375,3.5595703125 L."
+      },
+      "limits": "The model does not define values at fractional rounds.",
+      "preset": {
+        "initial": 20,
+        "retention": 0.75,
+        "addition": 0,
+        "rounds": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.",
+        "Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.",
+        "The rule is vₖ₊₁=r vₖ+d for integer k≥0. Changing r smoothly recalculates exact integer-round states; it does not create fractional rounds.",
+        "At n=0 the result is v₀ and no last transition has occurred. Last-transition retained and added contributions are therefore zero.",
+        "Allowed states stay between zero and 100 L: retention cannot increase the current volume and twelve refills add at most 60 L to at most 40 L initially."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:recurrence",
+    "renderer_id": "recurrence-visual-model",
+    "renderer_version": "1",
+    "model_id": "recurrence-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:recurrence:expression",
+    "interaction_status": "implemented",
+    "description": "The previous volume, retained part and refill form one visible transition on a fixed 0 to 100 litre scale. Zero completed rounds is labeled as no update.",
+    "controls": [
+      {
+        "id": "initial",
+        "type": "number",
+        "default": 20,
+        "min": 0,
+        "max": 40,
+        "step": 0.01
+      },
+      {
+        "id": "retention",
+        "type": "number",
+        "default": 0.75,
+        "min": 0,
+        "max": 1,
+        "step": 0.01
+      },
+      {
+        "id": "addition",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 5,
+        "step": 0.01
+      },
+      {
+        "id": "rounds",
+        "type": "number",
+        "default": 6,
+        "min": 0,
+        "max": 12,
+        "step": 1
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "initial": 20,
+          "retention": 0.75,
+          "addition": 3,
+          "rounds": 6
+        },
+        "output": 13.423828125
+      },
+      {
+        "input": {
+          "initial": 20,
+          "retention": 0.75,
+          "addition": 3,
+          "rounds": 0
+        },
+        "output": 20.0
+      },
+      {
+        "input": {
+          "initial": 20,
+          "retention": 0.75,
+          "addition": 3,
+          "rounds": 1
+        },
+        "output": 18.0
+      },
+      {
+        "input": {
+          "initial": 20,
+          "retention": 0.75,
+          "addition": 3,
+          "rounds": 2
+        },
+        "output": 16.5
+      },
+      {
+        "input": {
+          "initial": 20,
+          "retention": 1,
+          "addition": 3,
+          "rounds": 6
+        },
+        "output": 38.0
+      },
+      {
+        "input": {
+          "initial": 20,
+          "retention": 0,
+          "addition": 3,
+          "rounds": 6
+        },
+        "output": 3.0
+      },
+      {
+        "input": {
+          "initial": 20,
+          "retention": 0.75,
+          "addition": 0,
+          "rounds": 6
+        },
+        "output": 3.5595703125
+      },
+      {
+        "input": {
+          "initial": 0,
+          "retention": 0.75,
+          "addition": 3,
+          "rounds": 6
+        },
+        "output": 9.8642578125
+      },
+      {
+        "input": {
+          "initial": 12,
+          "retention": 0.75,
+          "addition": 3,
+          "rounds": 6
+        },
+        "output": 12.0
+      },
+      {
+        "input": {
+          "initial": 20,
+          "retention": 0.75,
+          "addition": 3,
+          "rounds": 12
+        },
+        "output": 12.253410816192627
+      },
+      {
+        "input": {
+          "initial": 20,
+          "retention": 0.75,
+          "addition": 3,
+          "rounds": 1.5
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "initial": 20,
+          "retention": 1.1,
+          "addition": 3,
+          "rounds": 6
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Begin at v₀. For each integer k from zero to n−1, set vₖ₊₁=r vₖ+d. Equivalently, vₙ=rⁿv₀+d∑ from j=0 to n−1 of rʲ. At n=0 return v₀; at r=1 use vₙ=v₀+nd.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.",
+      "Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.",
+      "The rule is vₖ₊₁=r vₖ+d for integer k≥0. Changing r smoothly recalculates exact integer-round states; it does not create fractional rounds.",
+      "At n=0 the result is v₀ and no last transition has occurred. Last-transition retained and added contributions are therefore zero.",
+      "Allowed states stay between zero and 100 L: retention cannot increase the current volume and twelve refills add at most 60 L to at most 40 L initially."
+    ],
+    "limits": [
+      "Constructed fixed-fraction reservoir bookkeeping; no measured equipment behavior or capacity prediction.",
+      "Only this first-order affine family is executable; the card is not a general recurrence solver.",
+      "Round counts are integers and joining segments do not define fractional-round states."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Why does the operation order matter?",
+      "answer": "Retaining then refilling gives r v+d. Refilling first gives r(v+d), which also reduces the new refill."
+    },
+    {
+      "prompt": "Can a completed-round count be 1.5?",
+      "answer": "Not in this model: each round is one whole application of the stated rule."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "The previous volume, retained part and refill form one visible transition on a fixed 0 to 100 litre scale. Zero completed rounds is labeled as no update."
+    },
+    {
+      "kind": "graph",
+      "description": "Exact volume points at integer completed rounds use fixed round and litre axes. Joining segments guide the eye without defining fractional-round values."
+    },
+    {
+      "kind": "substitution",
+      "description": "Follow the declared inputs through the stated formula into the displayed primary result."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Constructed workshop example",
+      "mapping": "Follow a previous volume through retention and refill into the next exact completed-round state.",
+      "limitations": "Constructed fixed-fraction reservoir bookkeeping; no measured equipment behavior or capacity prediction.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:recurrence:six-refills"
+    },
+    {
+      "context": "Reservoir fixed volume",
+      "mapping": "Start at a volume preserved by retention followed by refill and check the preserving identity.",
+      "limitations": "Constructed fixed-fraction reservoir bookkeeping; no measured equipment behavior or capacity prediction.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:recurrence:fixed-volume"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:sequences",
+    "source:openstax:geometric-sequences"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and notation have not yet been researched.",
+    "The bounded teaching model does not replace the broader definition or a general theorem."
+  ],
+  "change_log": [
+    "0.1.0-draft: five original worked examples, twelve independently calculated fixtures, a compact connected story and shared Geometry/Graph views."
+  ]
+}

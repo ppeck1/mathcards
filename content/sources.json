@@ -423,6 +423,51 @@
       "locator": "Runtime and input size, choosing a cost model, exact operation counts, linear order of growth and Big Theta; paragraphs 7–24",
       "verification": "Definition-level material inspected 2026-10-26 on the official publisher or university page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
       "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:conditional-probability",
+      "title": "Introductory Statistics 2e, 3.1 Terminology",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/3-1-terminology",
+      "kind": "textbook",
+      "locator": "Events, intersections and conditional probability with positive conditioning-event probability",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:uniform-distribution",
+      "title": "Introductory Statistics 2e, 5.2 The Uniform Distribution",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/5-2-the-uniform-distribution",
+      "kind": "textbook",
+      "locator": "Continuous uniform distributions and interval probabilities proportional to length",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:statistics-spread",
+      "title": "Introductory Statistics 2e, 2.7 Measures of the Spread of the Data",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+      "kind": "textbook",
+      "locator": "Population variance with denominator N, squared deviations and standard deviation as its square root",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:sequences",
+      "title": "Precalculus 2e, 11.1 Sequences and Their Notations",
+      "url": "https://openstax.org/books/precalculus-2e/pages/11-1-sequences-and-their-notations",
+      "kind": "textbook",
+      "locator": "Integer-indexed sequences, initial terms and recursive definitions",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:geometric-sequences",
+      "title": "Precalculus 2e, 11.3 Geometric Sequences",
+      "url": "https://openstax.org/books/precalculus-2e/pages/11-3-geometric-sequences",
+      "kind": "textbook",
+      "locator": "Recursive and explicit geometric-sequence formulas and repeated multiplication",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher page. Supports definitions and stated conditions, not independent review, historical priority or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
     }
   ]
 }

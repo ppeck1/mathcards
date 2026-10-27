@@ -12,6 +12,36 @@
   const port=(direction,key,label,type,unit,description)=>Object.freeze({id:direction+':'+key,label,direction,key,type,unit,description});
   const input=(...args)=>port('input',...args),output=(...args)=>port('output',...args);
   const definitions={
+    'conditional-probability':[
+      input('eventEnd','Inked interval endpoint','length','cm','The endpoint of event A on the stipulated 100 centimetre uniform strip.'),
+      input('windowEnd','Known inspection interval endpoint','length','cm','The positive endpoint of conditioning event B; zero makes the ratio undefined.'),
+      output('output','Conditional probability','probability','1','The probability of event A within the positive-probability conditioning event B.'),
+      output('conditionalProbability','Probability of A given B','probability','1','The overlap probability divided by the conditioning probability.'),
+      output('eventProbability','Unconditional probability of A','probability','1','The inked interval length divided by the full strip length, before conditioning.'),
+      output('givenProbability','Probability of conditioning event B','probability','1','The inspection interval length divided by the full 100 centimetre strip length.'),
+      output('intersectionProbability','Probability of both events','probability','1','The overlap length divided by the full strip length, not by the inspection window.'),
+      output('overlapLength','Overlap interval length','length','cm','The length common to the two nested intervals on the full physical strip.')
+    ],
+    variance:[
+      input('lastLength','Last strap length','length','cm','The one changing observation among four known strap lengths in centimetres.'),
+      output('output','Population variance','population-variance','cm2','The mean squared deviation of all four declared lengths, with denominator four.'),
+      output('variance','Population variance','population-variance','cm2','The sum of squared deviations divided by four, in squared centimetres.'),
+      output('standardDeviation','Population standard deviation','length','cm','The nonnegative square root of the population variance, in the original length unit.'),
+      output('mean','Mean strap length','length','cm','The arithmetic mean of all four known strap lengths, not an inferred parameter.'),
+      output('lengthSum','Total strap length','length','cm','The sum of the four declared observations before division by their count.'),
+      output('sumSquaredDeviations','Squared deviation total','squared-deviation-total','cm2','The sum of squared differences from the current complete-group mean.'),
+      output('count','Number of observations','count','item','The fixed complete group of four strap length observations.')
+    ],
+    recurrence:[
+      input('initial','Starting reservoir volume','volume','L','The volume before any retention and refill rounds have been completed.'),
+      input('retention','Retained fraction','retention-fraction','1','The fraction of the current volume retained before the fixed refill is added.'),
+      input('addition','Refill per completed round','volume','L','The fixed volume added after retention in each actual integer round.'),
+      input('rounds','Completed rounds','iteration-count','round','The whole number of retention-then-refill updates, including zero updates.'),
+      output('output','Current reservoir volume','volume','L','The volume after the selected number of exact retention-then-refill rounds.'),
+      output('previous','Volume before the final update','volume','L','The previous volume for a completed update; at zero rounds this remains the initial volume.'),
+      output('retained','Retained part of the final update','volume','L','The retained volume in the final completed round; zero when no round occurs.'),
+      output('added','Refill in the final update','volume','L','The added volume in the final completed round; zero when no round occurs.')
+    ],
     set:[
       input('maxSize','Maximum accepted height','length','cm','The upper height cutoff for set A in the finite peg universe.'),
       input('minSize','Minimum accepted height','length','cm','The lower height cutoff for set B in the same universe.'),

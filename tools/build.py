@@ -25,7 +25,7 @@ RENDERERS = {
     'real-logarithm-linked-exponential',
     'derivative-secant-tangent',
     'ratio-scale-proportion','linear-model-tank','exponential-change-resize',
-    *{slug+'-visual-model' for slug in ['chaos-theory','fractal-geometry','wave-interference','probability','vector-rotation','pythagorean-theorem','integral-accumulation','quadratic-optimization','complex-multiplication','bayes-theorem','graph-theory','resonance','function','exponentiation','limit','signed-accumulation','vector','inner-product','matrix-linear-map','determinant','linear-combination','basis','matrix-product','chain-rule','partial-derivative','gradient','directional-derivative','tangent-plane','gradient-descent','set','population-sample','computational-complexity']},
+    *{slug+'-visual-model' for slug in ['chaos-theory','fractal-geometry','wave-interference','probability','vector-rotation','pythagorean-theorem','integral-accumulation','quadratic-optimization','complex-multiplication','bayes-theorem','graph-theory','resonance','function','exponentiation','limit','signed-accumulation','vector','inner-product','matrix-linear-map','determinant','linear-combination','basis','matrix-product','chain-rule','partial-derivative','gradient','directional-derivative','tangent-plane','gradient-descent','set','population-sample','computational-complexity','conditional-probability','variance','recurrence']},
 }
 
 def load_catalog():
@@ -73,7 +73,9 @@ def catalog_script(catalog):
 def build(output=None, catalog_only=False):
     catalog = load_catalog()
     src = ROOT/'src'; src.mkdir(parents=True, exist_ok=True)
-    (src/'catalog.js').write_text(catalog_script(catalog), encoding='utf-8')
+    catalog_target=src/'catalog.js'; catalog_source=catalog_script(catalog)
+    if not catalog_target.exists() or catalog_target.read_text(encoding='utf-8')!=catalog_source:
+        catalog_target.write_text(catalog_source, encoding='utf-8')
     # Reference-to-card cross-links are deterministic build data. Never scan
     # every card field before the browser can display its first lesson.
     subprocess.run(['node',str(ROOT/'tools/build_math_index.cjs')],cwd=ROOT,check=True)
@@ -92,7 +94,7 @@ def build(output=None, catalog_only=False):
     template = re.sub(r'<script\b(?=[^>]*\bdata-development\b)[^>]*>.*?</script>\s*', '', template, flags=re.IGNORECASE | re.DOTALL)
     css = '\n'.join((src/name).read_text(encoding='utf-8') for name in ['styles.css','experience.css','studio.css','motion.css','life-story.css','calculation-flow.css','scene-inspector.css','semantic-links.css','workspace-panel.css','workspace-library.css','card-previews.css','model-data.css','concept-atlas.css','atlas-landscape.css','atlas-explorer.css','math-index.css','atlas-search.css'])
     js = '\n'.join((src/name).read_text(encoding='utf-8') for name in
-                   ['everyday.js','fractal-lens.js','chaos-trace.js','discovery.js','frontier.js','plot-view.js','foundations.js','linear-algebra.js','linear-workflows.js','calculus-fields.js','local-change.js','atlas-gaps.js','model-registry.js','models.js','catalog.js','notebook.js','visuals.js','spatial.js','module-graphs.js','life-stories.js','discovery-stories.js','frontier-stories.js','foundation-stories.js','linear-algebra-stories.js','linear-workflow-stories.js','calculus-field-stories.js','local-change-stories.js','atlas-gap-stories.js','story-library.js','experiments.js','scene-input.js','motion.js','readable-values.js','scene-inspector.js','module-registry.js','semantic-links.js','symbol-bindings.js','module-ports.js','playground-modules.js','model-data.js','playground.js','workspace-links.js','workspace-panel.js','workspace-store.js','workspace-runtime.js','workspace-library.js','story-links.js','story-scenes.js','story-journey.js','calculation-flow.js','life-story.js','card-previews.js','concept-atlas.js','atlas-regions.js','atlas-topography.js','atlas-landscape.js','atlas-explorer.js','math-terms.js','math-notation.js','math-index.js','math-index-data.js','atlas-search.js','learning-order.js','math-display.js','app.js'])
+                   ['everyday.js','fractal-lens.js','chaos-trace.js','discovery.js','frontier.js','plot-view.js','foundations.js','linear-algebra.js','linear-workflows.js','calculus-fields.js','local-change.js','atlas-gaps.js','data-iteration.js','model-registry.js','models.js','catalog.js','notebook.js','visuals.js','spatial.js','module-graphs.js','life-stories.js','discovery-stories.js','frontier-stories.js','foundation-stories.js','linear-algebra-stories.js','linear-workflow-stories.js','calculus-field-stories.js','local-change-stories.js','atlas-gap-stories.js','data-iteration-stories.js','story-library.js','experiments.js','scene-input.js','motion.js','readable-values.js','scene-inspector.js','module-registry.js','semantic-links.js','symbol-bindings.js','module-ports.js','playground-modules.js','model-data.js','playground.js','workspace-links.js','workspace-panel.js','workspace-store.js','workspace-runtime.js','workspace-library.js','story-links.js','story-scenes.js','story-journey.js','calculation-flow.js','life-story.js','card-previews.js','concept-atlas.js','atlas-regions.js','atlas-topography.js','atlas-landscape.js','atlas-explorer.js','math-terms.js','math-notation.js','math-index.js','math-index-data.js','atlas-search.js','learning-order.js','math-display.js','app.js'])
     if template.count('<!-- ATLAS_STYLES -->') != 1 or template.count('<!-- ATLAS_SCRIPTS -->') != 1:
         raise ValueError('Source template must have one styles and one scripts placeholder')
     if re.search(r'</script', js, re.IGNORECASE):

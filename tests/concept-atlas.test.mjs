@@ -16,12 +16,12 @@ test('atlas loads offline without a document, clocks, model evaluation or browse
   const context=vm.createContext({});
   vm.runInContext(fs.readFileSync(new URL('../src/concept-atlas.js',import.meta.url),'utf8'),context);
   assert.equal(typeof context.AtlasConceptAtlas.create,'function');
-  assert.equal(context.AtlasConceptAtlas.create({cards,sources}).nodes.length,38);
+  assert.equal(context.AtlasConceptAtlas.create({cards,sources}).nodes.length,cards.length);
   assert.deepEqual(Object.keys(context).sort(),['AtlasConceptAtlas']);
 });
 
 test('all installed concepts have stable identities and overlapping field placements without pretending to cover all mathematics',()=>{
-  assert.equal(model.nodes.length,38);
+  assert.equal(model.nodes.length,cards.length);
   assert.equal(new Set(model.nodes.map(node=>node.id)).size,cards.length);
   assert.equal(new Set(model.nodes.map(node=>node.slug)).size,cards.length);
   const fields=new Set(model.fields.map(field=>field.id));
