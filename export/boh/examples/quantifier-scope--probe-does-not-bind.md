@@ -1,0 +1,192 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:quantifier-scope:probe-does-not-bind", "id": "math:example:quantifier-scope:probe-does-not-bind", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:quantifier-scope", "example_id": "math:example:quantifier-scope:probe-does-not-bind", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "450b558f90b96a363831ad53e9f4a09e6333cec8289972dedc7389cd5a969a2d", "source_revision": "0.1.0-draft", "upstream_content_sha256": "3a1165682a9daa093c5d7042f7c6da906c7d3aa2ad12b461193e75783b4db69b"}, "purpose": "Change a cable reach and distinguish a station for each desk from one station serving every desk, while keeping a selected probe separate.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "3a1165682a9daa093c5d7042f7c6da906c7d3aa2ad12b461193e75783b4db69b", "status": "draft", "title": "Change a free probe without changing bound truth", "topics": ["mathematics", "language-foundations", "logic", "formal-semantics", "forall exists order", "exists forall order", "free variable assignment", "bound variable scope", "quantifier dependency"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Change a free probe without changing bound truth
+
+Parent card: math:concept:quantifier-scope; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:quantifier-scope; revision 0.1.0-draft. Setting: Two finite quantifier orders for a one-dimensional distance relation, with a separately assigned free desk probe. Expression: $D=\{2,4,6,8,10,12\}\,\mathrm m,\ E=\{1,5,9\}\,\mathrm m,\ R_h(x,y):|x-y|\le h;\quad A_h=\forall x\in D\,\exists y\in E\,R_h(x,y),\quad B_h=\exists y\in E\,\forall x\in D\,R_h(x,y).$. Conditions required for a defined value (a case may test their violation): Desk positions are D={2,4,6,8,10,12} m and station positions are E={1,5,9} m on one straight line. Reach h ranges from zero to twelve metres, and Rₕ uses the inclusive distance test |x−y|≤h. Each desk may use a station without station-capacity, routing or allocation constraints. The model compares distance statements, not a capacity-constrained matching problem. The free probe xₚ must be exactly one of the six desk positions. Changing it affects φₕ(xₚ) only; it does not control either formula’s bound variable x. In φₕ(x), y is bound while x and h are free. In Aₕ and Bₕ, x and y are bound but h remains free. Binding x and y does not make these full closed sentences if h is still a variable. Aₕ is true exactly when h≥3 m. Bₕ is true exactly when h≥7 m, and at h=7 m both stations 5 m and 9 m are common witnesses. Scope: The complete finite grid permits exact checks of these two formulas. A selected probe is an assignment to a free variable, not a new quantifier binding. The module does not parse arbitrary formulas, perform variable substitution or implement a general proof system.
+
+Case unit math:example:quantifier-scope:probe-does-not-bind. Setting: An originally authored workshop scenario with stipulated quantities and rules. Inputs: {"desk": 2, "order": "all-some", "reach": 2}. Result: {"exact": "Probe at 2 m=True; probe at 12 m=False; A₂=False; B₂=False"}. Limits: The probe control is separate from the bound x tokens in Aₕ and Bₕ.
+
+## Complete worked case
+
+- id: math:example:quantifier-scope:probe-does-not-bind
+- title: Change a free probe without changing bound truth
+- role: applied_model
+- question: At h=2 m, what changes when the probe desk is 2 m instead of 12 m?
+- setting: An originally authored workshop scenario with stipulated quantities and rules.
+- assumptions:
+  - Desk positions are D={2,4,6,8,10,12} m and station positions are E={1,5,9} m on one straight line. Reach h ranges from zero to twelve metres, and Rₕ uses the inclusive distance test |x−y|≤h.
+  - Each desk may use a station without station-capacity, routing or allocation constraints. The model compares distance statements, not a capacity-constrained matching problem.
+- inputs:
+  - reach: 2
+  - desk: 2
+  - order: all-some
+- steps:
+  - Item:
+    - index: 1
+    - expression: At xₚ=2 m, station 1 m witnesses φ₂(xₚ).
+    - reason: The open-formula probe is true at this assignment.
+  - Item:
+    - index: 2
+    - expression: At xₚ=12 m, the nearest station is 9 m at distance 3 m, so φ₂(xₚ) is false.
+    - reason: Another free-variable assignment changes the probe reading.
+  - Item:
+    - index: 3
+    - expression: A₂ and B₂ remain False for either probe.
+    - reason: Their bound desk domains include all six positions independently of the probe.
+- result:
+  - exact: Probe at 2 m=True; probe at 12 m=False; A₂=False; B₂=False
+- interpretation: Assigning a probe value is not a new quantifier binding.
+- independent check:
+  - method: Separate logical or exact arithmetic check
+  - expected: The uncovered desk at 12 m refutes A₂ regardless of which row is highlighted.
+- limits: The probe control is separate from the bound x tokens in Aₕ and Bₕ.
+- preset:
+  - reach: 2
+  - desk: 2
+  - order: all-some
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - Desk positions are D={2,4,6,8,10,12} m and station positions are E={1,5,9} m on one straight line. Reach h ranges from zero to twelve metres, and Rₕ uses the inclusive distance test |x−y|≤h.
+  - Each desk may use a station without station-capacity, routing or allocation constraints. The model compares distance statements, not a capacity-constrained matching problem.
+
+## Written exploration recipe
+
+- component id: component:quantifier-scope
+- renderer id: quantifier-scope-visual-model
+- renderer version: 1
+- model id: quantifier-scope-visual-model
+- model revision: 1
+- expression id: ast:quantifier-scope:expression
+- interaction status: implemented
+- description: A six-desk by three-station membership grid distinguishes each row’s witnesses from a whole-desk covering column. A separately highlighted probe row and common-scale nearest-distance bar do not replace the bound-variable formulas.
+- controls:
+  - Item:
+    - id: reach
+    - type: number
+    - default: 2
+    - min: 0
+    - max: 12
+    - step: 0.01
+  - Item:
+    - id: desk
+    - type: number
+    - default: 12
+    - min: 2
+    - max: 12
+    - step: 2
+  - Item:
+    - id: order
+    - type: enum
+    - default: all-some
+    - values:
+      - all-some
+      - some-all
+- expected cases:
+  - Item:
+    - input:
+      - reach: 2
+      - desk: 12
+      - order: all-some
+    - output: 0
+  - Item:
+    - input:
+      - reach: 3
+      - desk: 12
+      - order: all-some
+    - output: 1
+  - Item:
+    - input:
+      - reach: 2.9999
+      - desk: 12
+      - order: all-some
+    - output: 0
+  - Item:
+    - input:
+      - reach: 7
+      - desk: 12
+      - order: some-all
+    - output: 1
+  - Item:
+    - input:
+      - reach: 6.9999
+      - desk: 12
+      - order: some-all
+    - output: 0
+  - Item:
+    - input:
+      - reach: 7
+      - desk: 2
+      - order: some-all
+    - output: 1
+  - Item:
+    - input:
+      - reach: 3
+      - desk: 2
+      - order: all-some
+    - output: 1
+  - Item:
+    - input:
+      - reach: 0
+      - desk: 2
+      - order: all-some
+    - output: 0
+  - Item:
+    - input:
+      - reach: 12
+      - desk: 12
+      - order: some-all
+    - output: 1
+  - Item:
+    - input:
+      - reach: 13
+      - desk: 12
+      - order: all-some
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - reach: 3
+      - desk: 3
+      - order: all-some
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - reach: 3
+      - desk: 12
+      - order: all-any
+    - status: invalid_parameters
+- compute: Use desk positions D={2,4,6,8,10,12} m and station positions E={1,5,9} m. The relation Rₕ(x,y) means |x−y|≤h. Aₕ says every desk may choose a station; Bₕ says one station must serve every desk. The open formula φₕ(x)=∃y∈E Rₕ(x,y) has free x and h. Assigning xₚ evaluates one probe row without changing the truth of Aₕ or Bₕ.
+- numeric tolerance: 1e-10
+- invariants:
+  - Desk positions are D={2,4,6,8,10,12} m and station positions are E={1,5,9} m on one straight line. Reach h ranges from zero to twelve metres, and Rₕ uses the inclusive distance test |x−y|≤h.
+  - Each desk may use a station without station-capacity, routing or allocation constraints. The model compares distance statements, not a capacity-constrained matching problem.
+  - The free probe xₚ must be exactly one of the six desk positions. Changing it affects φₕ(xₚ) only; it does not control either formula’s bound variable x.
+  - In φₕ(x), y is bound while x and h are free. In Aₕ and Bₕ, x and y are bound but h remains free. Binding x and y does not make these full closed sentences if h is still a variable.
+  - Aₕ is true exactly when h≥3 m. Bₕ is true exactly when h≥7 m, and at h=7 m both stations 5 m and 9 m are common witnesses.
+- limits:
+  - Only the two fixed finite domains, inclusive distance predicate and two stated quantifier orders are executable.
+  - The selected probe is not the universally bound x variable in Aₕ or Bₕ.
+  - Free-variable scope is explained for these authored formulas; there is no arbitrary formula parser, capture engine or proof solver.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:waterloo:first-order-scope. [University of Waterloo CS 245, First-Order Logic: Summary of Definitions and Main Results](https://cs.uwaterloo.ca/~david/cs245/cs-firstorder.pdf). Locator: Printed pages 2–3, Definitions 4, 5 and 9: free variables, closed formulas, valuations and quantified satisfaction. Verification: Definition-level material inspected 2026-10-27 on the author, university or course publication. Supports the stated definitions and conditions, not independent review, photographed-book coverage or verification of the original constructed scenarios.. Rights: Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied.
+
+- Source ID: source:western:quantifier-order. [Alexander Brandt, Discrete Structures for Computing, 1.2 Predicate Logic](https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter1/pred-logic.html). Locator: Order of Quantifiers: witness dependence and the difference between universal-existential and existential-universal claims. Verification: Definition-level material inspected 2026-10-27 on the author, university or course publication. Supports the stated definitions and conditions, not independent review, photographed-book coverage or verification of the original constructed scenarios.. Rights: Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied.

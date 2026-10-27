@@ -9,6 +9,10 @@
   // Empty lists are deliberate: a binder, operator or random variable is not
   // automatically a current numerical value or a physical mark in the scene.
   const records = {
+    countability:{n:['index'],z:['integer'],f:['function:f'],g:['function:g'],'f(n)':['output'],'g(z)':['inverseIndex'],'ℕ₀':['sourceSet'],'ℤ':['targetSet'],'ℵ₀':[]},
+    'finite-state-machine':{w:['word'],k:['steps'],Q:['state:E','state:O'],'Σ':[],E:['state:E'],O:['state:O'],'q₀':['initialState'],'qₖ':['stateCode'],'δ':['transitionFunction'],'δ(q,0)':['transition:zero'],'δ(q,1)':['transition:one'],'ε':[]},
+    'open-set':{U:['targetSet'],p:['selectedPoint'],x:['center'],'ε':['radius'],'Bε(p)':['neighborhood'],'‖p‖':['distanceFromOrigin'],'C(x)':['clearance'],b:[]},
+    'quantifier-scope':{D:['desks'],E:['stations'],h:['reach'],x:[],y:[],'xₚ':['desk'],'Rₕ(x,y)':['pairs'],'φₕ(x)':['rows'],'φₕ(xₚ)':['probeTruth'],'Aₕ':['allSomeTruth'],'Bₕ':['someAllTruth'],'∀x∈D∃y∈E Rₕ(x,y)':['allSomeTruth'],'∃y∈E∀x∈D Rₕ(x,y)':['someAllTruth'],o:[]},
     relation: {D:['domain'],x:[],y:[],h:['threshold'],R:['members'],'R(x,y)':['pairs'],'Rₕ':['members'],'Rₕ(x,y)':['pairs'],'D×D':['pairs'],'|R|':['pairCount'],'|Rₕ|':['pairCount']},
     equivalence: {c:[],P:['pTruth'],Q:['qTruth'],x:['length'],y:['width'],'¬(P∧Q)':['formula:not-and'],'¬P∨¬Q':['formula:not-p-or-not-q'],'P→Q':['formula:implies'],'¬P∨Q':['formula:not-p-or-q'],'¬P∧¬Q':['formula:not-p-and-not-q'],'≡':['equivalent']},
     inference: {a:[],P:['pTruth'],Q:['qTruth'],x:['length'],y:['width'],'P→Q':['conditionalTruth'],'¬P':['negatedP'],'¬Q':['negatedQ'],'⊨':['validArgument']},

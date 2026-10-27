@@ -1049,7 +1049,11 @@
             "relation-visual-model",
             "equivalence-visual-model",
             "inference-visual-model",
-            "torque-visual-model"
+            "torque-visual-model",
+            "countability-visual-model",
+            "finite-state-machine-visual-model",
+            "open-set-visual-model",
+            "quantifier-scope-visual-model"
           ]
         },
         "renderer_version": {

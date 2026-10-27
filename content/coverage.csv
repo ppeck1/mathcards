@@ -119,7 +119,7 @@ math:concept:field,Field,abstract-structure,planned,expansion,pending,pending,pl
 math:concept:homomorphism,Homomorphism,abstract-structure,planned,expansion,pending,pending,planned
 math:concept:isomorphism,Isomorphism,abstract-structure,planned,expansion,pending,pending,planned
 math:concept:duality,Duality,abstract-structure,planned,expansion,pending,pending,planned
-math:concept:open-set,Open Set,topology-space,planned,expansion,pending,pending,planned
+math:concept:open-set,Open Sets and Neighborhoods,topology-space,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:topological-space,Topological Space,topology-space,planned,expansion,pending,pending,planned
 math:concept:topological-continuity,Topological Continuity,topology-space,planned,expansion,pending,pending,planned
 math:concept:homeomorphism,Homeomorphism,topology-space,planned,expansion,pending,pending,planned
@@ -195,3 +195,6 @@ math:concept:logical-connectives,Logical Connectives and Truth Tables,language-f
 math:concept:cross-product,Cross Product and Oriented Area,linear-algebra,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:inference,Inference Rules and Counterexamples,language-foundations,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:torque,Torque about a Pivot,linear-algebra,draft_specimen,book-expansion,pending,pending,implemented
+math:concept:countability,Countability and Enumeration,number-arithmetic,draft_specimen,book-expansion,pending,pending,implemented
+math:concept:finite-state-machine,Finite-State Machines and Configurations,discrete-computation,draft_specimen,book-expansion,pending,pending,implemented
+math:concept:quantifier-scope,Quantifier Order and Variable Scope,language-foundations,draft_specimen,book-expansion,pending,pending,implemented

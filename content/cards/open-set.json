@@ -1,0 +1,772 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:open-set",
+  "slug": "open-set",
+  "type": "concept",
+  "title": "Open sets and neighborhoods",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-27T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "open ball",
+    "interior point",
+    "neighborhood containment",
+    "signed boundary clearance"
+  ],
+  "branches": [
+    "topology-space",
+    "geometry",
+    "analysis"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Move a query point and separate its membership, the existence of some neighborhood, the fit of one chosen neighborhood and openness of the whole set.",
+  "meaning": "A set in a metric space is open when every point of the set has a positive-radius open ball contained in it. That condition concerns the existence of some sufficiently small ball, not whether one currently chosen radius fits. A closed disk has interior points too, but its included rim points have no positive ball contained in the disk.",
+  "prerequisites": {
+    "required": [
+      "math:concept:set"
+    ],
+    "helpful": [
+      "math:concept:euclidean-distance",
+      "math:concept:quantifier"
+    ],
+    "depth": [
+      "math:concept:topological-space",
+      "math:concept:topological-continuity"
+    ]
+  },
+  "definition": {
+    "setting": "Euclidean neighborhoods around points on the horizontal diameter of a radius-two disk in the ambient plane ℝ².",
+    "formal_latex": "U_{<}=\\{z\\in\\mathbb R^2:\\|z\\|<2\\,\\mathrm{cm}\\},\\quad U_{\\le}=\\{z:\\|z\\|\\le2\\,\\mathrm{cm}\\},\\quad B_\\varepsilon(p)=\\{z:\\|z-p\\|<\\varepsilon\\},\\quad C(x)=2-|x|.",
+    "signature": {
+      "U": "Selected radius-two target disk.",
+      "p": "Selected point (x,0).",
+      "x": "Horizontal coordinate of p.",
+      "ε": "Chosen open-neighborhood radius.",
+      "Bε(p)": "Open ball about p.",
+      "‖p‖": "Distance from p to the origin.",
+      "C(x)": "Signed clearance to the disk boundary.",
+      "b": "Selected open or closed disk boundary."
+    },
+    "conditions": [
+      "The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.",
+      "The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded.",
+      "Point membership is strict at the open disk rim and inclusive at the closed disk rim. An interior point, for either disk, has |x|<2 and positive clearance.",
+      "The chosen open ball fits when |x|+ε≤2, including equality even for the open disk. At tangency the touching point is excluded from the inner open ball.",
+      "For an interior point, the constructive radius C(x)/2 is positive and works, even when it is below the live slider minimum. Failure of the selected radius does not imply absence of every possible radius.",
+      "Global openness depends on the whole selected set, not this point or radius. In general a set may be both open and closed, or neither; the two labels are not universal opposites."
+    ],
+    "domain_notes": "The primary output is signed clearance, which may be positive, zero or negative. It is not a radius or an openness truth value. The disk boundary choice, point membership, interior status and chosen-ball containment are four separate notions.",
+    "proof_status": "Definition-level sources and original restricted-family arguments; independent review pending.",
+    "source_refs": [
+      "source:cmu:metric-open-sets"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Open sets and neighborhoods",
+    "expression_latex": "U_{<}=\\{z\\in\\mathbb R^2:\\|z\\|<2\\,\\mathrm{cm}\\},\\quad U_{\\le}=\\{z:\\|z\\|\\le2\\,\\mathrm{cm}\\},\\quad B_\\varepsilon(p)=\\{z:\\|z-p\\|<\\varepsilon\\},\\quad C(x)=2-|x|.",
+    "formation_rule": "Choose the open or closed disk of radius 2 cm, and p=(x,0) with horizontal coordinate measured in centimetres. The selected neighborhood is the open ball Bε(p) of positive radius ε. Its signed clearance is C(x)=2−|x| cm. For either disk choice, Bε(p) is contained exactly when |x|+ε≤2. A positive contained ball exists exactly when |x|<2; the full open disk is open, while the full closed disk is not open in ℝ².",
+    "precedence": "First distinguish the selected set and point. Then compare the chosen radius with clearance; keep that one-ball containment test separate from existence of some positive ball and the global openness condition.",
+    "symbols": [
+      {
+        "token": "U",
+        "role": "Selected radius-two target disk",
+        "type": "Subset of ℝ²"
+      },
+      {
+        "token": "p",
+        "role": "Selected point (x,0)",
+        "type": "Plane point"
+      },
+      {
+        "token": "x",
+        "role": "Horizontal coordinate of p",
+        "type": "Centimetres"
+      },
+      {
+        "token": "ε",
+        "role": "Chosen open-neighborhood radius",
+        "type": "Positive centimetres"
+      },
+      {
+        "token": "Bε(p)",
+        "role": "Open ball about p",
+        "type": "Subset of ℝ²"
+      },
+      {
+        "token": "‖p‖",
+        "role": "Distance from p to the origin",
+        "type": "Nonnegative centimetres"
+      },
+      {
+        "token": "C(x)",
+        "role": "Signed clearance to the disk boundary",
+        "type": "Centimetres"
+      },
+      {
+        "token": "b",
+        "role": "Selected open or closed disk boundary",
+        "type": "One of two stated set choices"
+      }
+    ],
+    "ast": {
+      "id": "ast:open-set:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:center",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "x",
+          "scope_ref": "scope:open-set:expression"
+        },
+        {
+          "id": "n:radius",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "ε",
+          "scope_ref": "scope:open-set:expression"
+        },
+        {
+          "id": "n:boundary",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "b",
+          "scope_ref": "scope:open-set:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried rule for the stated executable family",
+          "ref": "Choose the open or closed disk of radius 2 cm, and p=(x,0) with horizontal coordinate measured in centimetres. The selected neighborhood is the open ball Bε(p) of positive radius ε. Its signed clearance is C(x)=2−|x| cm. For either disk choice, Bε(p) is contained exactly when |x|+ε≤2. A positive contained ball exists exactly when |x|<2; the full open disk is open, while the full closed disk is not open in ℝ²."
+        },
+        {
+          "id": "n:bound-0",
+          "kind": "apply",
+          "type": "Partially applied declared rule",
+          "function": "n:rule",
+          "argument": "n:center"
+        },
+        {
+          "id": "n:bound-1",
+          "kind": "apply",
+          "type": "Partially applied declared rule",
+          "function": "n:bound-0",
+          "argument": "n:radius"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-1",
+          "argument": "n:boundary"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:open-set:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "x",
+            "ε",
+            "b"
+          ],
+          "domain_condition": "Euclidean neighborhoods around points on the horizontal diameter of a radius-two disk in the ambient plane ℝ²."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use a strict inequality for open-ball tangency",
+        "status": "boundary error",
+        "reason": "When |x|+ε=2, the inner open ball excludes the touching point, so it remains inside the open target disk."
+      },
+      {
+        "input": "Conclude the set is not open because the selected ball fails",
+        "status": "quantifier error",
+        "reason": "Openness requires some positive fitting radius for each included point, not every chosen radius."
+      },
+      {
+        "input": "Call a closed-disk rim point interior because it belongs to U",
+        "status": "membership error",
+        "reason": "An included rim point has no positive open ball contained in the disk."
+      }
+    ],
+    "ast_coverage": "A typed application outline of the fixed executable rule. Displayed logical formulas and vector notation have the meanings stated in the signature; this outline is not a general formula parser or proof calculus.",
+    "output_symbol_bindings": {
+      "p": "center",
+      "x": "center",
+      "ε": "radius",
+      "C(x)": "clearance"
+    }
+  },
+  "properties": [
+    {
+      "claim": "An open neighborhood tangent to the open target disk is contained.",
+      "conditions": "Use a positive radius with |x|+ε=2.",
+      "derivation": "For every z in the inner ball, ‖z‖≤|x|+‖z−p‖<|x|+ε=2, so z belongs to the open target disk.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:open-set:tangent-open-ball"
+    },
+    {
+      "claim": "Interior status is equivalent to positive clearance for either disk choice.",
+      "conditions": "Use the Euclidean disk family and the ambient plane.",
+      "derivation": "If C>0, radius C/2 works. At a rim point or outside, every positive open ball contains an outward point outside the disk.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:open-set:closed-rim"
+    },
+    {
+      "claim": "Failure of the chosen radius does not refute global openness.",
+      "conditions": "The selected point is strictly inside the open disk.",
+      "derivation": "A smaller positive radius such as C/2 may fit even when the displayed ε exceeds C.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:open-set:oversized-selected-ball"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:set",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "Membership in the selected target set differs from being an interior point.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:quantifier",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "Openness uses a for-every-point/there-exists-radius condition.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:euclidean-distance",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "The norm and open-ball test use Euclidean distance in the ambient plane.",
+      "target_status": "planned",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:quantifier-scope",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "The existence of some fitting radius must be distinguished from the choice of one fixed radius.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:open-set:fitting-neighborhood",
+      "title": "Check one contained query neighborhood",
+      "role": "applied_model",
+      "question": "At x=0.5 cm and ε=0.75 cm, does the open neighborhood fit?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.",
+        "The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded."
+      ],
+      "inputs": {
+        "center": 0.5,
+        "radius": 0.75,
+        "boundary": "open"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "C=2−0.5=1.5 cm.",
+          "reason": "Compute the signed boundary clearance."
+        },
+        {
+          "index": 2,
+          "expression": "|x|+ε=0.5+0.75=1.25 cm≤2 cm.",
+          "reason": "Apply the open-ball containment criterion."
+        }
+      ],
+      "result": {
+        "exact": "Clearance=1.5 cm; center inside; interior=True; chosen ball fits"
+      },
+      "interpretation": "The selected query neighborhood is one of the positive balls available at this interior point.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "For any point in the ball, its origin distance is less than 0.5+0.75=1.25 cm<2 cm."
+      },
+      "limits": "This verifies the selected configuration, separately from the whole-set definition.",
+      "preset": {
+        "center": 0.5,
+        "radius": 0.75,
+        "boundary": "open"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.",
+        "The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded."
+      ]
+    },
+    {
+      "id": "math:example:open-set:tangent-open-ball",
+      "title": "Include tangency for an open inner ball",
+      "role": "applied_model",
+      "question": "Does x=1.25 cm, ε=0.75 cm fit inside the open disk?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.",
+        "The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded."
+      ],
+      "inputs": {
+        "center": 1.25,
+        "radius": 0.75,
+        "boundary": "open"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "|x|+ε=1.25+0.75=2 cm.",
+          "reason": "The outer and neighborhood boundaries are tangent."
+        },
+        {
+          "index": 2,
+          "expression": "If ‖z−p‖<0.75 cm, then ‖z‖≤1.25+‖z−p‖<2 cm.",
+          "reason": "Use the strict inner open-ball condition."
+        }
+      ],
+      "result": {
+        "exact": "Clearance=0.75 cm; chosen ball fits at equality"
+      },
+      "interpretation": "The excluded touching point is not a counterexample to containment.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "The triangle inequality gives a strict origin-distance bound for every point actually in the inner ball."
+      },
+      "limits": "A closed inner ball would include the touching point and change this open-target conclusion.",
+      "preset": {
+        "center": 1.25,
+        "radius": 0.75,
+        "boundary": "open"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.",
+        "The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded."
+      ]
+    },
+    {
+      "id": "math:example:open-set:oversized-selected-ball",
+      "title": "Keep openness when one chosen radius fails",
+      "role": "applied_model",
+      "question": "At x=1.5 cm and ε=0.75 cm, what fails and what remains true?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.",
+        "The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded."
+      ],
+      "inputs": {
+        "center": 1.5,
+        "radius": 0.75,
+        "boundary": "open"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "C=2−1.5=0.5 cm, which is positive.",
+          "reason": "The point is an interior point."
+        },
+        {
+          "index": 2,
+          "expression": "1.5+0.75=2.25>2, so the chosen ball fails.",
+          "reason": "This specific radius is too large."
+        },
+        {
+          "index": 3,
+          "expression": "The point z=(2.125,0) cm lies 0.625 cm from p and outside U.",
+          "reason": "Use a witness inside the chosen ball."
+        },
+        {
+          "index": 4,
+          "expression": "A smaller radius C/2=0.25 cm fits.",
+          "reason": "Existence of another positive radius preserves the interior condition."
+        }
+      ],
+      "result": {
+        "exact": "Clearance=0.5 cm; interior=True; chosen ball fails; U remains open"
+      },
+      "interpretation": "A failed selected neighborhood does not refute the every-point/some-radius definition.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "The witness has 0.625<0.75 cm distance from p and 2.125>2 cm distance from the origin."
+      },
+      "limits": "The outside witness refutes only this chosen neighborhood’s containment.",
+      "preset": {
+        "center": 1.5,
+        "radius": 0.75,
+        "boundary": "open"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.",
+        "The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded."
+      ]
+    },
+    {
+      "id": "math:example:open-set:closed-rim",
+      "title": "Separate membership from interior at a closed rim",
+      "role": "applied_model",
+      "question": "What happens at x=2 cm in the closed disk?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.",
+        "The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded."
+      ],
+      "inputs": {
+        "center": 2,
+        "radius": 0.05,
+        "boundary": "closed"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "The point belongs to U because ‖p‖=2 cm≤2 cm.",
+          "reason": "The selected disk includes its rim."
+        },
+        {
+          "index": 2,
+          "expression": "C=0, so no positive neighborhood radius can fit.",
+          "reason": "Every outward displacement leaves the disk."
+        },
+        {
+          "index": 3,
+          "expression": "The point z=(2.025,0) cm lies inside the chosen 0.05 cm ball but outside U.",
+          "reason": "Half the chosen radius gives an explicit outward witness."
+        }
+      ],
+      "result": {
+        "exact": "Clearance=0 cm; membership=True; interior=False; chosen ball fails"
+      },
+      "interpretation": "The closed disk contains this point but is not open in the ambient plane.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "For every ε>0, the outward point at distance ε/2 is in Bε(p) and has origin distance greater than 2 cm."
+      },
+      "limits": "The argument concerns neighborhoods in the ambient ℝ², not a relative subspace topology.",
+      "preset": {
+        "center": 2,
+        "radius": 0.05,
+        "boundary": "closed"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.",
+        "The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded."
+      ]
+    },
+    {
+      "id": "math:example:open-set:below-slider-minimum",
+      "title": "Use a mathematical witness smaller than the live radius range",
+      "role": "applied_model",
+      "question": "At x=1.99 cm and selected ε=0.05 cm, does a smaller positive ball exist?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.",
+        "The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded."
+      ],
+      "inputs": {
+        "center": 1.99,
+        "radius": 0.05,
+        "boundary": "open"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "C=2−1.99=0.01 cm>0.",
+          "reason": "The selected point is interior."
+        },
+        {
+          "index": 2,
+          "expression": "The chosen radius 0.05 cm exceeds the clearance.",
+          "reason": "That selected ball fails."
+        },
+        {
+          "index": 3,
+          "expression": "Choose ε*=C/2=0.005 cm. Then 1.99+0.005=1.995<2 cm.",
+          "reason": "A valid existence witness need not lie in the slider’s selected-radius range."
+        }
+      ],
+      "result": {
+        "exact": "Clearance=0.01 cm; interior=True; chosen ball fails; ε*=0.005 cm works"
+      },
+      "interpretation": "The control range does not redefine the mathematical neighborhood condition.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "The explicit positive radius gives a contained ball by the triangle inequality."
+      },
+      "limits": "The smaller radius is a mathematical witness, not a new allowed selected slider value.",
+      "preset": {
+        "center": 1.99,
+        "radius": 0.05,
+        "boundary": "open"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.",
+        "The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:open-set",
+    "renderer_id": "open-set-visual-model",
+    "renderer_version": "1",
+    "model_id": "open-set-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:open-set:expression",
+    "interaction_status": "implemented",
+    "description": "The radius-two target disk and selected open neighborhood use one centimetre scale. The point, boundary convention, signed clearance and any valid outside witness make the local tests visible.",
+    "controls": [
+      {
+        "id": "center",
+        "type": "number",
+        "default": 0.5,
+        "min": -3,
+        "max": 3,
+        "step": 0.01
+      },
+      {
+        "id": "radius",
+        "type": "number",
+        "default": 0.75,
+        "min": 0.05,
+        "max": 1.5,
+        "step": 0.01
+      },
+      {
+        "id": "boundary",
+        "type": "enum",
+        "default": "open",
+        "values": [
+          "open",
+          "closed"
+        ]
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "center": 0.5,
+          "radius": 0.75,
+          "boundary": "open"
+        },
+        "output": 1.5
+      },
+      {
+        "input": {
+          "center": 1.5,
+          "radius": 0.75,
+          "boundary": "open"
+        },
+        "output": 0.5
+      },
+      {
+        "input": {
+          "center": 1.25,
+          "radius": 0.75,
+          "boundary": "open"
+        },
+        "output": 0.75
+      },
+      {
+        "input": {
+          "center": 1.25,
+          "radius": 0.75,
+          "boundary": "closed"
+        },
+        "output": 0.75
+      },
+      {
+        "input": {
+          "center": 2,
+          "radius": 0.05,
+          "boundary": "open"
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "center": 2,
+          "radius": 0.05,
+          "boundary": "closed"
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "center": 2.5,
+          "radius": 0.5,
+          "boundary": "closed"
+        },
+        "output": -0.5
+      },
+      {
+        "input": {
+          "center": -1.5,
+          "radius": 0.5,
+          "boundary": "open"
+        },
+        "output": 0.5
+      },
+      {
+        "input": {
+          "center": 0,
+          "radius": 1.5,
+          "boundary": "open"
+        },
+        "output": 2
+      },
+      {
+        "input": {
+          "center": 0.5,
+          "radius": 0,
+          "boundary": "open"
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "center": 3.1,
+          "radius": 0.75,
+          "boundary": "open"
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "center": 0.5,
+          "radius": 0.75,
+          "boundary": "half-open"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Choose the open or closed disk of radius 2 cm, and p=(x,0) with horizontal coordinate measured in centimetres. The selected neighborhood is the open ball Bε(p) of positive radius ε. Its signed clearance is C(x)=2−|x| cm. For either disk choice, Bε(p) is contained exactly when |x|+ε≤2. A positive contained ball exists exactly when |x|<2; the full open disk is open, while the full closed disk is not open in ℝ².",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.",
+      "The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded.",
+      "Point membership is strict at the open disk rim and inclusive at the closed disk rim. An interior point, for either disk, has |x|<2 and positive clearance.",
+      "The chosen open ball fits when |x|+ε≤2, including equality even for the open disk. At tangency the touching point is excluded from the inner open ball.",
+      "For an interior point, the constructive radius C(x)/2 is positive and works, even when it is below the live slider minimum. Failure of the selected radius does not imply absence of every possible radius.",
+      "Global openness depends on the whole selected set, not this point or radius. In general a set may be both open and closed, or neither; the two labels are not universal opposites."
+    ],
+    "limits": [
+      "The live family consists of two disks and points on their horizontal diameter, rather than arbitrary metric spaces or set expressions.",
+      "The selected neighborhood is open; the tangency rule would differ for a closed neighborhood inside an open target disk.",
+      "The radius slider range limits the selected example, not the mathematical existence of a smaller positive neighborhood."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Can the set remain open while this chosen neighborhood fails?",
+      "answer": "Yes. An interior point admits a sufficiently small positive radius even if a larger selected radius extends outside the set."
+    },
+    {
+      "prompt": "Does a closed disk have interior points?",
+      "answer": "Yes. Points strictly inside the rim admit positive contained balls. The included rim points prevent the entire closed disk from being open in ℝ²."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "The radius-two target disk and selected open neighborhood use one centimetre scale. The point, boundary convention, signed clearance and any valid outside witness make the local tests visible."
+    },
+    {
+      "kind": "graph",
+      "description": "The continuous signed-clearance graph C(x)=2−|x| uses fixed coordinate and centimetre axes, with the chosen radius shown separately. Containment and global openness remain separately labelled."
+    },
+    {
+      "kind": "substitution",
+      "description": "Follow the declared inputs through the stated expression into the labelled result."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Constructed workshop example",
+      "mapping": "Move a query point and separate its membership, the existence of some neighborhood, the fit of one chosen neighborhood and openness of the whole set.",
+      "limitations": "The live family consists of two disks and points on their horizontal diameter, rather than arbitrary metric spaces or set expressions.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:open-set:fitting-neighborhood"
+    },
+    {
+      "context": "Include tangency for an open inner ball",
+      "mapping": "The excluded touching point is not a counterexample to containment.",
+      "limitations": "A closed inner ball would include the touching point and change this open-target conclusion.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:open-set:tangent-open-ball"
+    }
+  ],
+  "source_refs": [
+    "source:cmu:metric-open-sets"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.29.0: Added an original modular story, Geometry and Graph views, five worked examples and twelve numeric fixtures in the continuing book-scope sequence."
+  ]
+}

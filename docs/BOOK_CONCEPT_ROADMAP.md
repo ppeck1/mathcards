@@ -42,6 +42,21 @@ The second family lives in `reasoning.js` and `reasoning-stories.js`. It shares
 the existing host, timing, readable values, controls and Geometry/Graph space.
 Canonical records, reference entries and map memberships remain separate data.
 
+## Third build: sizes, configurations and neighborhoods
+
+| Lesson | Matrix connection | Connected representation | Boundary |
+|---|---|---|---|
+| Countability and enumeration | MAT-105; precursors for MAT-064 and 101 | Match nonnegative labels to signed shelf addresses, then follow the same bijection in a discrete graph | The full rule and inverse identities justify countability; the visible finite prefix is an illustration |
+| Finite-state machines and configurations | MAT-094; precursors for MAT-092–093, 096–097 | Scan a bead pattern through a two-state transition diagram and a discrete state history | Four finite inputs, explicit state and unread suffix; universal computation and Turing machines remain planned |
+| Open sets and neighborhoods | Foundational precursor for MAT-039, 134–135; no dedicated open-set row in the supplied matrix | Move a cursor and its open neighborhood inside a disk; compare actual containment with a clearance graph | One Euclidean disk family; a failed chosen radius does not refute openness, and no manifold/differential-topology theory is implemented |
+| Quantifier order and variable scope | MAT-071, 085, 088; precursors for MAT-083, 087, 090 | Follow per-desk witnesses versus a shared station through a distance grid and exact truth graphs | Fixed finite domains; the probe is free, quantified x/y are bound, and reach h remains a free parameter |
+
+Models/scenes live in `structures.js`, stories in `structure-stories.js` and
+canonical records in their own JSON files. The same playground host supplies
+controls, timing, pins, readable values and saved-state behavior. Open sets fill
+an existing atlas gap while providing a prerequisite for the book sequence;
+there is no claim that a missing book-matrix row has been reconstructed.
+
 ## Expansion sequence
 
 Stage labels group prerequisite streams. They are an editorial roadmap, not a
@@ -49,17 +64,17 @@ claim that all earlier stages are required for every later topic.
 
 | Stream | Rows | Next useful modules | What must precede the advanced end |
 |---|---:|---|---|
-| 1 · Logic and language | 33 | Free/bound variables; explicit interpretations; nested quantification | Explicit domain, syntax and interpretation before arbitrary quantified arguments |
+| 1 · Logic and language | 33 | Explicit interpretations; substitution and capture; formal derivations | Explicit domain, syntax and interpretation before arbitrary quantified arguments |
 | 2 · Vectors and mechanics | 41 | Located versus free vectors; general spatial cross product; triple products | Shared coordinate frames, units, orientation and location-sensitive meaning |
-| 3 · Proof, models and computation | 30 | Formal proof; small finite structures; machine transitions; decidability | Separate truth from derivability and finite demonstrations from general theorems |
+| 3 · Proof, models and computation | 30 | Formal proof; small finite structures; tape machines; decidability | Separate truth from derivability and finite demonstrations from general theorems |
 | 4 · Tensors and coordinate laws | 9 | Coordinate changes; metric; index notation; contraction | Transformation behavior before treating tensors as arrays |
-| 5 · Infinite sets and foundations | 16 | Countability; Cantor's diagonal argument; ordinals | Actual proof structure before compactness, independence, forcing or incompleteness claims |
+| 5 · Infinite sets and foundations | 16 | Cantor's diagonal argument; cardinal comparisons; ordinals | Actual proof structure before compactness, independence, forcing or incompleteness claims |
 | 6 · Topology and dynamics | 31 | Vector fields; continuous flows; basins; manifolds; structural stability | State space, neighborhood, continuity, smoothness and the specified type of perturbation |
 | 7 · Singularities and catastrophes | 21 | Fold first, then cusp and hysteresis; critical-point geometry | Equilibria, parameterized families, local derivatives and clear state/control axes |
 | 8 · Qualitative modeling and applications | 33 | Qualitative versus quantitative models; potentials; carefully bounded morphology examples | Distinguish a mathematical construction, a historical interpretation and empirically validated prediction |
 
-The CSV currently links 42 rows to draft introductions, 34 to precursors, and
-leaves 138 without a dedicated introduction or precursor link. These are
+The CSV currently links 46 rows to draft introductions, 39 to precursors, and
+leaves 129 without a dedicated introduction or precursor link. These are
 topic-to-lesson links, not counts of independently reviewed or complete topics.
 All 214 rows still require scope review as expansion proceeds.
 

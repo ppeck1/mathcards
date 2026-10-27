@@ -8,7 +8,17 @@
   const clamp=v=>Math.max(0,Math.min(1,v));
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const format=v=>typeof v==='number'?(Number.isFinite(v)?Number(v.toPrecision(6)).toLocaleString('en-US',{maximumFractionDigits:20}):'Unavailable'):String(v??'Unavailable');
-  function parametersAt(story,progress,base=story.parameters){const t=clamp(Number.isFinite(progress)?progress:0),s=story.timeline;return {...base,[s.key]:t===1?s.to:t===0?s.from:s.from+(s.to-s.from)*t};}
+  function discreteValues(story,values){
+    const next={...values};
+    for(const variable of story.variables||[])if(variable.discrete&&Object.hasOwn(next,variable.key)&&Number.isFinite(next[variable.key])){
+      const step=Number.isFinite(variable.step)&&variable.step>0?variable.step:1,origin=Number.isFinite(variable.min)?variable.min:0;
+      const snapped=origin+Math.round((next[variable.key]-origin)/step)*step;
+      next[variable.key]=Math.max(variable.min,Math.min(variable.max,snapped));
+      if(next[variable.key]===0)next[variable.key]=0;
+    }
+    return next;
+  }
+  function parametersAt(story,progress,base=story.parameters){const t=clamp(Number.isFinite(progress)?progress:0),s=story.timeline;return discreteValues(story,{...base,[s.key]:t===1?s.to:t===0?s.from:s.from+(s.to-s.from)*t});}
   function formatTemplate(template,values){return String(template).replace(/\{\{([A-Za-z][A-Za-z0-9_]*)\}\}/g,(_,key)=>format(Object.hasOwn(values,key)?values[key]:undefined));}
   function templateParts(template){
     const parts=[];let start=0;
@@ -37,7 +47,7 @@
     const steps='<ol class="life-steps">'+story.steps.map((s,i)=>'<li><button type="button" data-step="'+i+'" aria-label="Show step '+(i+1)+': '+esc(s.title)+'"><span class="life-step-number">0'+(i+1)+'</span><strong>'+esc(s.title)+'</strong><span aria-hidden="true">↗</span></button><p data-body="'+i+'"></p><div class="life-formula" data-formula="'+i+'"></div></li>').join('')+'</ol>';
     const answer='<div class="life-answer" aria-live="off">'+(compact?'':'<span class="life-answer-value"></span>')+'<span class="life-answer-note"></span></div>';
     const worked=compact?'<details class="life-work"><summary>'+esc(story.presentation?.workLabel||'Follow the calculation')+'</summary>'+steps+answer+'</details>':steps+answer;
-    const variables=story.variables.map(v=>'<label class="life-variable">'+esc(v.label)+' <span><b data-variable-value="'+esc(v.key)+'"></b> '+esc(v.unit)+'</span><input type="range" data-story-param="'+esc(v.key)+'" min="'+v.min+'" max="'+v.max+'" step="any" value="'+params[v.key]+'" aria-label="'+esc(v.label)+'"></label>').join('');
+    const variables=story.variables.map(v=>'<label class="life-variable">'+esc(v.label)+' <span><b data-variable-value="'+esc(v.key)+'"></b> '+esc(v.unit)+'</span><input type="range" data-story-param="'+esc(v.key)+'" min="'+v.min+'" max="'+v.max+'" step="'+(v.discrete?esc(v.step||1):'any')+'" value="'+params[v.key]+'" aria-label="'+esc(v.label)+'"></label>').join('');
     return '<div class="life-heading"><p class="eyebrow">A REAL-WORLD STORY · TRY IT AS YOU READ</p><h2>'+esc(story.title)+'</h2>'+(compact?'':'<p>'+esc(story.summary)+'</p>')+'</div><div class="life-layout"><div class="life-copy"><p class="life-context">'+esc(story.context)+'</p><h3 class="life-question">'+esc(story.question)+'</h3>'+worked+'<details class="life-assumptions"><summary>What this story assumes</summary><ul>'+story.assumptions.map(a=>'<li>'+esc(a)+'</li>').join('')+'</ul><p class="fine">An illustrative scenario with chosen values.</p><p class="fine">References for the underlying rules:<br>'+references+'</p></details></div><div class="life-view"><div class="life-stage-wrap"><div class="life-stage-header"><span><i class="live-dot"></i> '+esc(story.eyebrow)+'</span><span data-running>READY TO PLAY</span></div><div class="life-scene"></div>'+(policy.sceneReadout?'':'<div class="life-readout"><span data-input></span><strong data-result></strong></div>')+'</div><div class="life-controls">'+variables+'<div class="life-playback"><button class="button" type="button" data-play>'+(compact?'Play change':'Play whole story')+' <span aria-hidden="true">▶</span></button>'+(policy.replay?'<button class="button secondary" type="button" data-replay>Start again ↺</button>':'')+(policy.timeline?'<span data-progress>0%</span>':'')+'</div>'+(policy.timeline?'<label class="life-timeline-label">Story timeline<input type="range" min="0" max="1" step="any" value="0" data-timeline aria-label="Story timeline"></label>':'')+'<p class="life-hint">'+esc(story.presentation?.controlHint||'Drag to follow the highlighted variable. Tap a colored value in the explanation to find its mark in the scene.')+'</p><div class="life-actions"><button class="text-link" type="button" data-explore>Explore these values in the playground ↓</button><button class="text-link" type="button" data-keep>Keep this moment ↗</button></div></div></div></div>';
   }
   function mount(host,options){
@@ -47,7 +57,7 @@
     const link=Links.forSlug(slug),pacer=Readable.createPacer();
     const media=matchMedia('(prefers-reduced-motion: reduce)');
     const references=(options.sources||[]).filter(source=>story.sourceRefs.includes(source.id)&&/^https:\/\//.test(source.url)).map(source=>'<a href="'+esc(source.url)+'" target="_blank" rel="noopener noreferrer">'+esc(source.title)+' ↗</a>').join('<br>');
-    let destroyed=false,playing=false,clock=null,last=null,progress=0,phase=0,display={...params};
+    let destroyed=false,playing=false,clock=null,last=null,progress=0,playProgress=0,phase=0,display={...params};
     let activeStep=0,focus=story.steps[0].focus||'reference',followProgress=false,displaySettled=true,interacting=false;
     let playKind='whole',stepRun=null,selectedQuantity=null,calculation=null,inspector=null,semanticKeys=[];
     const unit=story.unit??(slug==='derivative'?'m/s':slug==='function-composition'?'m²':slug==='real-logarithm'?'stops':slug==='ratio-scale'?'g':slug==='linear-model'?'L':'px');
@@ -122,23 +132,23 @@
       story.variables.forEach(v=>Readable.writeText(host.querySelector('[data-variable-value="'+v.key+'"]'),Readable.format(p[v.key],v.precision?{settled:true,precision:v.precision}:reading)));
       if(policy.timeline)Readable.writeText(host.querySelector('[data-progress]'),Math.round(coordinate(p)*100)+'%');
     }
-    const follower=Motion.createFollower({initial:params,onFrame:draw,reducedMotion:()=>media.matches,canInterpolate:(a,b)=>M.validateParams(slug,a).valid&&M.validateParams(slug,b).valid});
+    const follower=Motion.createFollower({initial:params,onFrame:draw,reducedMotion:()=>media.matches,canInterpolate:(a,b)=>M.validateParams(slug,a).valid&&M.validateParams(slug,b).valid&&story.variables.every(v=>!v.discrete||a[v.key]===b[v.key])});
     function sync(){progress=coordinate(params);if(policy.timeline)host.querySelector('[data-timeline]').value=progress;story.variables.forEach(v=>host.querySelector('[data-story-param="'+v.key+'"]').value=params[v.key]);}
-    function update(next,immediate=false){Object.assign(params,next);sync();follower.setTarget(params,{immediate});}
+    function update(next,immediate=false){Object.assign(params,discreteValues(story,next));sync();if(!playing||playKind!=='whole')playProgress=progress;follower.setTarget(params,{immediate});}
     function announce(text){Readable.writeText(status,text);}
     function stop(settle=true,cancelTrace=true){if(cancelTrace)calculation?.cancel();playing=false;if(clock!==null)cancelAnimationFrame(clock);clock=null;last=null;Readable.writeText(play,compact?(progress>=1?'Replay change ▶':'Play change ▶'):'Play whole story ▶');play.setAttribute('aria-pressed','false');Readable.writeText(host.querySelector('[data-running]'),'PAUSED · TAKE YOUR TIME');if(settle){interacting=false;follower.settle();}else paintLinks();}
     function startClock(kind){calculation?.begin({restart:true});playKind=kind;playing=true;last=null;Readable.writeText(play,'Pause ❚❚');play.setAttribute('aria-pressed','true');Readable.writeText(host.querySelector('[data-running]'),kind==='step'?'PLAYING THIS STEP':'PLAYING THE WHOLE STORY');paintLinks();clock=requestAnimationFrame(tick);}
     function tick(now){
       if(!playing||destroyed)return;
-      const elapsed=last===null?0:Math.max(0,Math.min(100,now-last));last=now;phase+=elapsed/1000;
+      const elapsed=last===null?0:Math.max(0,now-last);last=now;phase+=elapsed/1000;
       if(playKind==='step'){
         stepRun.elapsed=Math.min(stepRun.duration,stepRun.elapsed+elapsed);
         const t=stepRun.elapsed/stepRun.duration,key=timeline.key;
         update(t===1?stepRun.to:{...stepRun.from,[key]:stepRun.from[key]+(stepRun.to[key]-stepRun.from[key])*t},true);
         if(t===1){stop();announce('Step '+(activeStep+1)+' complete. '+story.steps[activeStep].title+'. Choose Next when you are ready.');return;}
       }else{
-        progress=clamp(progress+elapsed/timeline.durationMs);update(frameAt(progress),true);
-        if(progress===1){stop();announce('Story complete. '+conclusionAt(params));return;}
+        playProgress=clamp(playProgress+elapsed/timeline.durationMs);update(frameAt(playProgress),true);
+        if(playProgress===1){stop();announce('Story complete. '+conclusionAt(params));return;}
       }
       clock=requestAnimationFrame(tick);
     }

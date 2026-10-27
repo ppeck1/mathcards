@@ -484,3 +484,20 @@ test('comparison pins may preserve an undefined demonstration and disposed hosts
     host.destroy();assert.equal(host.restoreViewState({...state,camera:.8}).valid,false);assert.deepEqual(host.getViewState(),state);host=null;
   }finally{host?.destroy();h.restore();}
 });
+
+
+test('discrete sweeps retain a continuous clock while publishing only legal states through play, pause, and scrub',()=>{
+  let now=1000;const descriptor=Object.getOwnPropertyDescriptor(globalThis,'performance');Object.defineProperty(globalThis,'performance',{configurable:true,value:{now:()=>now}});
+  const seen=[];const h=harness(true,{
+    defaults:()=>({q:3}),primarySweep:'q',controls:[{key:'q',label:'Whole grid',type:'number',min:3,max:13,step:2,discrete:true}],sweeps:[{key:'q',label:'Whole grid',min:3,max:13,step:2,discrete:true}],
+    validateParams:p=>({valid:Number.isInteger((p.q-3)/2)&&p.q>=3&&p.q<=13,parameters:{...p},errors:[],warnings:[]}),canInterpolate:(a,b)=>a.q===b.q,
+    evaluate:p=>{seen.push(p.q);assert.ok(Number.isInteger((p.q-3)/2)&&p.q>=3&&p.q<=13,'no fractional state reaches the model');return{valid:true,output:p.q};}
+  });let host;
+  try{
+    assert.match(Playground.markup('static-test',{q:3}),/step="2"/);
+    host=Playground.mount(h.root,{slug:'static-test',parameters:{q:3}});const play=h.surface.querySelector('.motion-toggle');play.onclick();
+    let frame=0;for(let i=0;i<35;i++){now+=100;h.frames[frame++](now);}
+    assert.ok(host.getParameters().q>=5,'small clock increments accumulate instead of freezing at the rounded state');play.onclick();play.onclick();for(let i=0;i<15;i++){now+=100;h.frames[frame++](now);}
+    host.pause();const timeline=h.surface.querySelector('.timeline input');timeline.value='39';timeline.oninput();assert.equal(host.getParameters().q,7);timeline.value='100';timeline.oninput();assert.equal(host.getParameters().q,13);assert.ok(seen.length>10);
+  }finally{host?.destroy();h.restore();Object.defineProperty(globalThis,'performance',descriptor);}
+});

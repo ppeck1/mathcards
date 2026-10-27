@@ -12,6 +12,41 @@
   const port=(direction,key,label,type,unit,description)=>Object.freeze({id:direction+':'+key,label,direction,key,type,unit,description});
   const input=(...args)=>port('input',...args),output=(...args)=>port('output',...args);
   const definitions={
+    countability:[
+      input('index','Selected enumeration index','enumeration-index','1','A whole nonnegative index into the fixed enumeration of integers.'),
+      output('output','Integer at the selected index','integer-value','1','The finite integer f(n), not an infinite cardinal or the size of the integer set.'),
+      output('integer','Selected integer','integer-value','1','The integer paired with the selected natural-number index.'),
+      output('inverseIndex','Recovered enumeration index','enumeration-index','1','The inverse rule applied to the currently selected integer.'),
+      output('prefixSize','Visible prefix size','count','item','The finite number of pairs shown from index zero through the selected index.')
+    ],
+    'finite-state-machine':[
+      input('steps','Symbols already read','iteration-count','step','The whole number of symbols processed from this fixed eight-symbol word.'),
+      output('output','Current parity state code','parity-state','1','Even is encoded zero and Odd one; these are categorical states, not truth values or probabilities.'),
+      output('stateCode','Current finite-state code','parity-state','1','The current Even or Odd state after the processed prefix.'),
+      output('onesRead','Dark beads read','count','symbol','The exact number of ones in the processed prefix.'),
+      output('isAcceptingState','Current state is accepting','accepting-state-flag','1','Whether the current state is Even; visiting this state before the end does not accept the whole word.'),
+      output('accepted','Whole-word acceptance flag','word-acceptance-flag','1','One only after all eight symbols have been read and the final state is Even; zero while unfinished is not a final rejection.')
+    ],
+    'open-set':[
+      input('center','Selected horizontal coordinate','signed-coordinate','cm','The x coordinate of the selected point (x,0) in the Euclidean plane.'),
+      input('radius','Chosen neighborhood radius','length','cm','The positive radius of the open neighborhood ball; a failed chosen radius does not refute openness.'),
+      output('output','Signed clearance','signed-clearance','cm','Two centimetres minus the distance of the selected point from the origin, including negative clearance outside.'),
+      output('clearance','Signed boundary clearance','signed-clearance','cm','The signed radial clearance, not a nonnegative distance in every configuration.'),
+      output('constructiveRadius','Constructive interior radius','length','cm','Half the positive clearance when an interior witness exists; otherwise no positive witness radius is returned.'),
+      output('centerInside','Selected point membership','set-membership','1','Whether the selected point belongs to the chosen open or closed disk.'),
+      output('neighborhoodFits','Chosen open ball containment','neighborhood-containment','1','Whether the particular positive open ball is contained in the disk.'),
+      output('isOpen','Global disk openness','set-openness','1','Whether the chosen disk is open in the Euclidean plane, independently of the selected point or radius.')
+    ],
+    'quantifier-scope':[
+      input('reach','Available cable reach','length','m','The distance bound h, free in both quantified formulas.'),
+      input('desk','Selected probe desk position','length','m','One of the six allowed desk coordinates used only for the open-formula probe.'),
+      output('output','Selected quantified formula truth','truth-value','1','The truth value of the selected order at the current free distance parameter h.'),
+      output('allSomeTruth','Every desk has some station','truth-value','1','The truth of the forall-exists formula, allowing a different station for each desk.'),
+      output('someAllTruth','One station covers every desk','truth-value','1','The truth of the exists-forall formula, requiring a common station.'),
+      output('probeTruth','Current open-formula probe truth','truth-value','1','The reading at the selected free probe, separate from either bound formula.'),
+      output('nearestDistance','Nearest station distance for the probe','length','m','The exact distance from the selected desk to its nearest station.'),
+      output('rowCount','Covered desks','count','item','The exact number of the six desks that have at least one station within reach.')
+    ],
     relation:[
       input('threshold','Required combined length','length','cm','The inclusive lower bound for the total length of an ordered pair of independently selected strips.'),
       output('output','Qualifying ordered pair count','count','pair','The exact number of satisfying ordered pairs among the thirty-six stated choices, not a probability.'),

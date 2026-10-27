@@ -19,7 +19,8 @@ test('every module supplies an exact current row and finite evaluations with oth
     const p=module.defaults(),before=JSON.stringify(p),data=Data.sample(module,p);
     assert.equal(data.valid,true,module.id);
     assert.equal(JSON.stringify(p),before,module.id);
-    assert.ok(data.rows.length>=9&&data.rows.length<=10,module.id);
+    const sweep=module.sweeps.find(item=>item.key===module.primarySweep)||module.sweeps[0],control=module.controls.find(item=>item.key===sweep?.key),legalCount=(sweep?.discrete||control?.discrete)?Math.floor((sweep.max-sweep.min)/(sweep.step??control.step))+1:Infinity;
+    assert.ok(data.rows.length>=Math.min(9,legalCount)&&data.rows.length<=Math.min(10,legalCount),module.id);
     assert.equal(data.rows.filter(row=>row.current).length,1,module.id);
     for(const row of data.rows){
       const evaluated=module.evaluate({...p,[data.axis.key]:row.input});
@@ -83,4 +84,16 @@ test('valid logarithm bases adjacent to one never display as the excluded base o
     assert.match(Data.markup(data),new RegExp('<dd>'+String(base).replaceAll('.','\\.')+'</dd>'));
     assert.ok(data.rows.every(row=>Number.isFinite(row.values.output)));
   }
+});
+
+
+test('discrete numeric samples respect the offset legal grid, stay unique and include the exact current value',()=>{
+  for(const [id,key] of [['countability','index'],['finite-state-machine','steps']]){
+    const module=Modules.get(id),data=Data.sample(module,{...module.defaults(),[key]:3},{count:25});
+    assert.equal(data.rows.length,id==='countability'?13:9);
+    assert.equal(new Set(data.rows.map(row=>row.input)).size,data.rows.length);
+    for(const row of data.rows){assert.equal(Number.isInteger(row.input),true);assert.equal(module.validateParams({...data.current.parameters,[key]:row.input}).valid,true);assert.equal(row.status,'valid');}
+  }
+  const module={title:'Offset steps',primarySweep:'q',defaults:()=>({q:7}),controls:[{key:'q',label:'Whole grid',min:3,max:13,step:2,discrete:true}],sweeps:[{key:'q',label:'Whole grid',min:3,max:13,step:2,discrete:true}],validateParams:p=>({valid:Number.isInteger((p.q-3)/2),parameters:{...p}}),evaluate:p=>({output:p.q,status:'valid'})};
+  const data=Data.sample(module,{q:7},{count:3});assert.ok(data.rows.length<=4);assert.ok(data.rows.some(row=>row.current&&row.input===7));assert.deepEqual(data.rows.map(row=>row.input),[3,7,9,13]);
 });
