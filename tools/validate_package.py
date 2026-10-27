@@ -104,6 +104,40 @@ def checks(card, schema, source_ids, known):
     return errors
 
 def compute(model,p):
+    structure_bounds={
+        'countability-visual-model':{'index':(0,12)},
+        'finite-state-machine-visual-model':{'steps':(0,8)},
+        'open-set-visual-model':{'center':(-3,3),'radius':(.05,1.5)},
+        'quantifier-scope-visual-model':{'reach':(0,12),'desk':(2,12)},
+    }
+    if model in structure_bounds:
+        bounds=structure_bounds[model]
+        select={
+            'finite-state-machine-visual-model':('pattern',{'10010010','00000000','11111111','10101010'}),
+            'open-set-visual-model':('boundary',{'open','closed'}),
+            'quantifier-scope-visual-model':('order',{'all-some','some-all'}),
+        }.get(model)
+        keys=set(bounds)|({select[0]} if select else set())
+        if set(p)!=keys or any(type(p[key]) not in (int,float) or not math.isfinite(p[key]) or not low<=p[key]<=high for key,(low,high) in bounds.items()):return {'status':'invalid_parameters'}
+        if select and (not isinstance(p[select[0]],str) or p[select[0]] not in select[1]):return {'status':'invalid_parameters'}
+        if model=='countability-visual-model':
+            if p['index']!=int(p['index']):return {'status':'invalid_parameters'}
+            # A literal alternating enumeration independently checks the parity formula.
+            enumeration=[0,*[sign*k for k in range(1,7) for sign in (1,-1)]]
+            output=enumeration[int(p['index'])]
+        elif model=='finite-state-machine-visual-model':
+            if p['steps']!=int(p['steps']):return {'status':'invalid_parameters'}
+            # Count marked inputs instead of following state transitions.
+            output=p['pattern'][:int(p['steps'])].count('1')%2
+        elif model=='open-set-visual-model':
+            output=min(2-p['center'],2+p['center'])
+        else:
+            if p['desk'] not in (2,4,6,8,10,12):return {'status':'invalid_parameters'}
+            # Max-min and min-max distances independently check nested Boolean loops.
+            distances=[[abs(x-y) for y in (1,5,9)] for x in (2,4,6,8,10,12)]
+            required=max(min(row) for row in distances) if p['order']=='all-some' else min(max(row[j] for row in distances) for j in range(3))
+            output=int(p['reach']>=required)
+        return {'status':'valid','output':output}
     reasoning_bounds={
         'relation-visual-model':{'threshold':(0,26)},
         'equivalence-visual-model':{'length':(0,12),'width':(0,12)},

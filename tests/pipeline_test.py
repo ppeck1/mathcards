@@ -36,9 +36,9 @@ class PipelineTests(unittest.TestCase):
         for card in catalog['cards']:
             source=json.loads((ROOT/'content/cards'/(card['slug']+'.json')).read_text(encoding='utf-8'))
             self.assertEqual(source,card)
-        self.assertEqual(len(catalog['cards']),49)
-        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),249)
-        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),478)
+        self.assertEqual(len(catalog['cards']),53)
+        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),269)
+        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),526)
 
     def test_book_roadmap_preserves_topic_identity_and_honest_card_links(self):
         with (ROOT/'docs/BOOK_CONCEPT_ROADMAP.csv').open(encoding='utf-8',newline='') as stream:
@@ -68,7 +68,7 @@ class PipelineTests(unittest.TestCase):
             a,b=Path(tmp)/'a',Path(tmp)/'b'
             ma,mb=build_export(a),build_export(b)
             self.assertEqual(ma,mb)
-            self.assertEqual(ma['document_count'],298)
+            self.assertEqual(ma['document_count'],322)
             for entry in ma['documents']:
                 self.assertEqual((a/entry['path']).read_bytes(),(b/entry['path']).read_bytes())
                 self.assertNotIn('notebook',entry['path'])

@@ -20,24 +20,25 @@ preview commands. The offline entry points below remain available.
 
 ## Open the application
 
-Version 0.28 continues the book-guided expansion with Predicates and relations,
-Logical equivalence, Inference rules and counterexamples, and Torque about a
-pivot. The collection has 49 draft concepts, 249 examples and 478 numeric
-fixtures. Each new lesson connects an original workshop story to its formula
-and distinct Geometry/Graph views through the existing controls and animation
-host.
+Version 0.29 deepens three thin atlas areas with Countability and enumeration,
+Finite-state machines and configurations, and Open sets and neighborhoods. A
+fourth lesson, Quantifier order and variable scope, connects their logical
+foundations. The collection has 53 draft concepts, 269 original examples and
+526 canonical fixtures.
+
+Each new lesson uses the existing playground controls and animation clock,
+with one guided variable and distinct Geometry/Graph views. Follow a shelf
+address through a bijection, a scanned bead through a state transition, or a
+cursor position through the clearance of its neighborhood. Quantifier order
+shows why every desk choosing a station differs from one station serving
+all desks.
 
 The [book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) preserves all 214 topic IDs from
-the supplied matrix and separates introductions, precursors and planned work.
-The new reasoning lessons distinguish current truth from agreement or validity
-across every assignment. Torque connects the cross product to a turning effect,
-with signed direction, declared units and a clearly located force.
-
-The complete collapsible symbol catalog and lesson-count topography remain.
-New indexed forms enter the visual catalog automatically; summit heights use
-the atlas's current availability. All eight territories still fit the phone
-overview. The prepared reference has 489 entries and 597 selectable notation
-forms. See the [current review](docs/BUILD_REVIEW_0_28_0.md).
+the supplied matrix. Its links distinguish bounded introductions, conceptual
+precursors and planned theories. The full collapsible notation catalog and
+lesson-count topography grow from the same records. The reference now has 534
+entries and 618 selectable notation forms. See the
+[current review](docs/BUILD_REVIEW_0_29_0.md).
 
 1. Extract this ZIP into a folder.
 2. Open **`START_HERE.html`** (or **`dist/index.html`**) in a modern browser such as Chrome, Edge, Firefox

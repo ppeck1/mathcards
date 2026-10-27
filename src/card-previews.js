@@ -33,6 +33,29 @@
   const caption = value => label(180, 184, value, C.ink, 17);
 
   const records = {
+    countability: {
+      title:'Countability and enumeration',
+      describe:(p,r)=>`The selected natural-number index ${p.index} is paired with integer ${r.output}; the inverse rule returns index ${r.inverseIndex}. This finite prefix contains ${r.prefixSize} displayed pairs. The complete rule and its inverse identities establish the bijection with all integers; the diagram alone does not prove it.`,
+      draw:(p,r)=>{
+        const px=i=>30+i*25,sx=z=>30+(z+6)*25;
+        return label(180,23,'NATURAL-NUMBER TICKETS',C.muted,11)+Array.from({length:13},(_,i)=>circle(px(i),52,9,i<=p.index?C.cyan:C.grid)+label(px(i),56,i,i<=p.index?C.bg:C.muted,10)).join('')+arrow(px(p.index),66,sx(r.output),112,C.gold)+Array.from({length:13},(_,i)=>circle(px(i),128,9,i-6===r.output?C.mint:C.grid)+label(px(i),132,i-6,C.ink,10)).join('')+quantity('output',r.output,label(180,159,'f('+p.index+') = '+r.output+' · inverse '+r.inverseIndex,C.mint,19))+caption('One index. One integer. An inverse.');
+      }
+    },
+    'finite-state-machine': {
+      title:'Finite-state machines and configurations',
+      describe:(p,r)=>`The word ${p.pattern} is scanned from left to right. After ${p.steps} symbols, ${r.onesRead} dark beads have been read and the current state is ${r.stateLabel}. The unread suffix and state form the current configuration. Whole-word acceptance is decided only when the entire word has been read.`,
+      draw:(p,r)=>label(180,22,p.steps+' of 8 symbols read',C.muted,12)+[...p.pattern].map((bit,i)=>circle(40+i*40,51,12,bit==='1'?C.cyan:C.ink,'stroke="'+(i<p.steps?C.mint:C.grid)+'" stroke-width="3"')+label(40+i*40,56,bit,C.bg,14)).join('')+circle(104,114,26,r.output===0?C.mint:C.grid)+circle(256,114,26,r.output===1?C.orange:C.grid)+label(104,120,'Even',r.output===0?C.bg:C.muted,17)+label(256,120,'Odd',r.output===1?C.bg:C.muted,17)+arrow(139,103,219,103,C.cyan)+label(180,94,'1 flips',C.cyan,12)+quantity('output',r.output,label(180,163,'Current: '+r.stateLabel,C.ink,21))+caption('Read the next bead. Update the state.')
+    },
+    'open-set': {
+      title:'Open sets and neighborhoods',
+      describe:(p,r)=>`A disk of radius 2 cm contains the selected point (${f(p.center)},0) cm according to its ${p.boundary} boundary convention. The chosen neighborhood is an open ball of radius ${f(p.radius)} cm. Signed clearance is ${f(r.clearance)} cm; the current ball ${r.neighborhoodFits?'fits':'does not fit'}. The disk's global openness is a separate property.`,
+      draw:(p,r)=>circle(94,94,58,C.violet,'fill-opacity=".13" stroke="'+C.violet+'" stroke-width="2" '+(p.boundary==='open'?'stroke-dasharray="5 4"':''))+line(28,94,160,94,C.grid)+circle(94+p.center*29,94,p.radius*29,C.cyan,'fill-opacity=".14" stroke="'+C.cyan+'" stroke-width="2" stroke-dasharray="4 3"')+circle(94,94,2,C.muted)+circle(94+p.center*29,94,4,C.mint)+label(94,166,'Shared centimetre scale',C.muted,12)+quantity('output',r.output,label(263,57,'C = '+f(r.output)+' cm',C.mint,23))+label(263,91,'ε = '+f(p.radius)+' cm',C.cyan,18)+label(263,121,r.neighborhoodFits?'Chosen ball fits':'Ball does not fit',C.ink,15)+label(263,146,'Disk: '+(r.isOpen?'open':'closed'),C.violet,16)+caption('Local fit. Global openness.')
+    },
+    'quantifier-scope': {
+      title:'Quantifier order and variable scope',
+      describe:(p,r)=>`Six desks at 2, 4, 6, 8, 10 and 12 metres can use stations at 1, 5 and 9 metres. At cable reach ${f(p.reach)} m, ${r.rowCount} desks have a station in range. Every desk may choose its own station in the forall-exists claim; the exists-forall claim needs one common station. The selected probe desk does not control either bound formula.`,
+      draw:(p,r)=>[1,5,9].map((y,j)=>label(46+j*24,26,y,C.violet,12)).join('')+[2,4,6,8,10,12].map((x,i)=>label(22,48+i*17,x,C.cyan,12)+[1,5,9].map((y,j)=>rect(36+j*24,37+i*17,19,12,Math.abs(x-y)<=p.reach?C.mint:C.grid,x===p.desk?'stroke="'+C.gold+'" stroke-width="1.5"':'')).join('')).join('')+label(246,43,'EACH HAS SOME · ∀∃',C.muted,11)+quantity('output',r.output,label(246,73,r.allSomeLabel,C.cyan,23))+label(246,103,'ONE COVERS ALL · ∃∀',C.muted,11)+label(246,133,r.someAllLabel,C.violet,23)+label(180,162,r.rowCount+' of 6 desks have a station',C.ink,17)+caption('Each may choose. One must cover all.')
+    },
     relation: {
       title:'Predicates and relations',
       describe:(p,r)=>`Independent left and right strip supplies both offer lengths 2, 4, 6, 8, 10 and 12 centimetres. Exactly ${r.pairCount} of the 36 ordered pairs meet the total requirement ${f(p.threshold)} cm. The distinguished pair (6,8) totals 14 cm and ${r.exampleTruth?'qualifies':'does not qualify'}. This is an exact count, not a probability.`,

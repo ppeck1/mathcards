@@ -1,3 +1,17 @@
+# 0.29.0 — Enumeration, configurations and neighborhoods
+
+- Fill thin atlas areas with countability, finite-state machines and open sets;
+  connect them to a fourth lesson on quantifier order and free/bound scope.
+- Reuse the shared host, controls, clock, readable values and Geometry/Graph
+  space through one pure model provider and one separate story provider.
+- Connect 20 original examples, 48 canonical fixtures, matching previews,
+  scoped terms/symbols, typed ports and book-roadmap links.
+- Keep infinite-rule proofs distinct from finite pictures, current machine state
+  from finished-input acceptance, and selected neighborhood fit from openness.
+- Show witness dependence in nested quantifiers while keeping the free probe
+  separate from the bound variables in the complete claims.
+- Reach 53 draft cards, 269 examples, 526 fixtures, 322 written exports and 113 views.
+
 # 0.28.0 — Relations, reasoning and torque
 
 - Add four modular lessons: predicates and relations, logical equivalence,

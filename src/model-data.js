@@ -25,7 +25,13 @@
     if(!Number.isInteger(requested)||requested<2||requested>25)throw new RangeError('Use between 2 and 25 finite samples.');
     const axis=sweep?{key:sweep.key,label:sweep.label,unit:(module.controls||[]).find(control=>control.key===sweep.key)?.unit||'',min:sweep.min,max:sweep.max}:null;
     const columns=[...(axis?[axis]:[]),...outputs.map(({key,label,unit,description})=>({key,label,unit,description}))];
-    const values=sweep?Array.from({length:requested},(_,index)=>index===requested-1?sweep.max:sweep.min+(sweep.max-sweep.min)*index/(requested-1)): [null];
+    const control=(module.controls||[]).find(item=>item.key===sweep?.key),discrete=!!(sweep?.discrete||control?.discrete),step=sweep?.step??control?.step;
+    let values;
+    if(sweep&&discrete){
+      if(!finite(step)||step<=0)throw new RangeError('A discrete sweep needs a positive finite step.');
+      const last=Math.floor((sweep.max-sweep.min)/step),count=Math.min(requested,last+1);
+      values=Array.from({length:count},(_,index)=>sweep.min+(count===1?0:Math.round(last*index/(count-1)))*step);
+    }else values=sweep?Array.from({length:requested},(_,index)=>index===requested-1?sweep.max:sweep.min+(sweep.max-sweep.min)*index/(requested-1)): [null];
     if(sweep&&finite(p[sweep.key])&&!values.includes(p[sweep.key]))values.push(p[sweep.key]);
     values.sort((a,b)=>a-b);
     const rows=values.map(value=>{

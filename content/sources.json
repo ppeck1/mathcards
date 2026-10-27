@@ -567,6 +567,51 @@
       "locator": "Torque as position cross force, signed normal component, N·m and perpendicular moment arm",
       "verification": "Definition-level material inspected 2026-10-27 on the official publisher or university teaching page. Supports definitions and stated conditions, not independent review, photographed-book coverage or the original constructed scenarios.",
       "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:lebl:cardinality",
+      "title": "Jiří Lebl, Basic Analysis, 0.3 Basic Set Theory",
+      "url": "https://jirilebl.github.io/ra/html/sec_basicset.html",
+      "kind": "textbook",
+      "locator": "Sections 0.3.3 and 0.3.5: injective/surjective/bijective functions, cardinality, countable versus countably infinite, and aleph-zero notation",
+      "verification": "Definition-level material inspected 2026-10-27 on the author, university or course publication. Supports the stated definitions and conditions, not independent review, photographed-book coverage or verification of the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:columbia:finite-automata",
+      "title": "Alfred Aho, COMS W3261, Lecture 2: Finite Automata and Regular Languages",
+      "url": "https://www.cs.columbia.edu/~aho/cs3261/Lectures/L2-Finite_Automata.html",
+      "kind": "institutional_teaching",
+      "locator": "Section 2: deterministic finite-automaton components, alphabet, transition function, accepting states and acceptance after a complete input",
+      "verification": "Definition-level material inspected 2026-10-27 on the author, university or course publication. Supports the stated definitions and conditions, not independent review, photographed-book coverage or verification of the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:cmu:metric-open-sets",
+      "title": "Gautam Iyer, Carnegie Mellon 2024-455, Metric Spaces",
+      "url": "https://www.math.cmu.edu/~gautam/c/2024-455/notes/01-metric.html",
+      "kind": "institutional_teaching",
+      "locator": "Definitions 1 and 8–11, Example 12 and Proposition 14: Euclidean metrics, open/closed balls, open sets, and the distinction between open and closed properties",
+      "verification": "Definition-level material inspected 2026-10-27 on the author, university or course publication. Supports the stated definitions and conditions, not independent review, photographed-book coverage or verification of the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:waterloo:first-order-scope",
+      "title": "University of Waterloo CS 245, First-Order Logic: Summary of Definitions and Main Results",
+      "url": "https://cs.uwaterloo.ca/~david/cs245/cs-firstorder.pdf",
+      "kind": "institutional_teaching",
+      "locator": "Printed pages 2–3, Definitions 4, 5 and 9: free variables, closed formulas, valuations and quantified satisfaction",
+      "verification": "Definition-level material inspected 2026-10-27 on the author, university or course publication. Supports the stated definitions and conditions, not independent review, photographed-book coverage or verification of the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:western:quantifier-order",
+      "title": "Alexander Brandt, Discrete Structures for Computing, 1.2 Predicate Logic",
+      "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter1/pred-logic.html",
+      "kind": "institutional_teaching",
+      "locator": "Order of Quantifiers: witness dependence and the difference between universal-existential and existential-universal claims",
+      "verification": "Definition-level material inspected 2026-10-27 on the author, university or course publication. Supports the stated definitions and conditions, not independent review, photographed-book coverage or verification of the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
     }
   ]
 }

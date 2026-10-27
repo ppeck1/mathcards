@@ -13,12 +13,12 @@
   const named={sin:['sine'],cos:['cosine'],tan:['tangent-function'],sec:['secant-function'],csc:['cosecant-function'],cot:['cotangent-function'],arcsin:['arcsine'],arccos:['arccosine'],arctan:['arctangent'],ln:['logarithm'],log:['logarithm'],Log:['logarithm'],exp:['exponential-function'],sqrt:['square-root'],abs:['absolute-value'],norm:['magnitude'],hypot:['hypot'],atan2:['atan2'],floor:['floor'],ceil:['ceiling'],frac:['fractional-part'],det:['determinant'],rank:['rank'],dim:['vector-space-dimension'],min:['minimum'],max:['maximum'],argmin:['argmin'],argmax:['argmax'],arg:['complex-argument'],Re:['real-part'],Im:['imaginary-part'],Var:['variance'],Binomial:['binomial-distribution'],Apply:['function-notation'],AB:['matrix-product'],BA:['matrix-product'],T_A:['linear-map','function-notation'],dom:['domain'],codom:['codomain'],sign:['sign-function'],sgn:['sign-function'],proj:['projection','scalar-projection'],lim:['limit'],mod:['modulo'],bmod:['modulo'],pmod:['modulo']};
   const texFunctions=new Set(['sin','cos','tan','sec','csc','cot','arcsin','arccos','arctan','ln','log','exp','det','dim','min','max','lim','arg','Re','Im','bmod','pmod']);
   Object.assign(named,{Pr:['probability'],span:['span'],tr:['matrix-trace'],ker:['kernel'],im:['image-of-map'],comp:['scalar-projection'],comp_u:['scalar-projection'],SD:['standard-deviation'],sd:['standard-deviation'],Bin:['binomial-distribution']});
-  Object.assign(named,{D_uF:['directional-derivative']});
+  Object.assign(named,{D_uF:['directional-derivative'],R_h:['binary-relation']});
   Object.assign(macros,{setminus:'∖',smallsetminus:'∖',land:'∧',wedge:'∧',lor:'∨',vee:'∨',neg:'¬',lnot:'¬',leftrightarrow:'↔',top:'⊤',bot:'⊥',odot:'⊙',otimes:'⊗',models:'⊨'});
   const glyphs={'+':['addition'],'-':['subtraction'],'−':['subtraction'],'×':['multiplication'],'·':['multiplication'],'⋅':['multiplication'],'*':['multiplication'],'÷':['division'],'/':['division'],'=':['equality'],'≠':['not-equal'],'<':['less-than'],'>':['greater-than'],'≤':['less-or-equal'],'≥':['greater-or-equal'],'≈':['approximately-equal'],'±':['plus-minus'],'%':['percent'],'√':['square-root'],'∞':['infinity'],'ℕ':['natural-number'],'ℤ':['integer'],'ℚ':['rational-number'],'ℝ':['real-number'],'ℂ':['complex-number'],'∈':['element'],'∉':['element'],'∀':['for-all'],'∃':['there-exists'],'⇒':['implication','logical-conditional'],'⇔':['if-and-only-if'],'∘':['composition'],'∑':['summation'],'∫':['integral','indefinite-integral'],'∬':['multiple-integral'],'∭':['multiple-integral'],'∮':['contour-integral'],'∂':['partial-derivative'],'∇':['gradient'],'⊥':['orthogonal'],'≡':['identity'],'∼':['distribution-notation'],'…':['ellipses'],'⋯':['ellipses'],'|':['vertical-bar'],'‖':['magnitude'],'′':['prime-mark'],'″':['higher-derivative','prime-mark'],'^':['superscript','exponent'],'_':['subscript'],'(':['grouping-parentheses'],')':['grouping-parentheses'],'[':['square-brackets'],']':['square-brackets'],'{':['curly-braces'],'}':['curly-braces'],'→':['right-arrow'],'↦':['maps-to'],'⌊':['floor'],'⌋':['floor'],'⌈':['ceiling'],'⌉':['ceiling'],'!':['factorial']};
   const vulgar={'½':'1/2','¼':'1/4','¾':'3/4','⅓':'1/3','⅔':'2/3','⅛':'1/8','⅜':'3/8','⅝':'5/8','⅞':'7/8'};
-  Object.assign(glyphs,{'∖':['set-difference'],'~':['distribution-notation'],'∩':['set-intersection'],'∪':['set-union'],'∧':['logical-and'],'∨':['logical-or'],'¬':['logical-not'],'↔':['if-and-only-if'],'⊤':['truth-constants'],'⊥':['orthogonal','truth-constants'],'⊙':['normal-direction-glyphs'],'⊗':['normal-direction-glyphs'],'⊨':['semantic-entailment']});
-  Object.assign(macros,{cap:'∩',cup:'∪',setminus:'∖',emptyset:'∅'});
+  Object.assign(glyphs,{'∖':['set-difference'],'~':['distribution-notation'],'∩':['set-intersection'],'∪':['set-union'],'∧':['logical-and'],'∨':['logical-or'],'¬':['logical-not'],'↔':['if-and-only-if'],'⊤':['truth-constants'],'⊥':['orthogonal','truth-constants'],'⊙':['normal-direction-glyphs'],'⊗':['normal-direction-glyphs'],'⊨':['semantic-entailment'],'ℵ':['aleph-null']});
+  Object.assign(macros,{aleph:'ℵ',subseteq:'⊆',cap:'∩',cup:'∪',setminus:'∖',emptyset:'∅'});
   const mathLetter=c=>/[\u0370-\u03ff\u2100-\u214f]/u.test(c)||/\p{Script=Greek}/u.test(c)||(c.codePointAt(0)>=0x1d400&&c.codePointAt(0)<=0x1d7ff);
   function scriptRuns(value,characters,map,marker){let result='';for(let i=0;i<value.length;){const c=String.fromCodePoint(value.codePointAt(i));if(!characters.has(c)){result+=c;i+=c.length;continue;}let run='';while(i<value.length){const next=String.fromCodePoint(value.codePointAt(i));if(!characters.has(next))break;run+=map[next];i+=next.length;}result+=marker+(run.length===1?run:'{'+run+'}');}return result;}
   function normalize(query){
@@ -44,6 +44,23 @@
     if(typeof query!=='string'||!query.trim())return[];if(options.kind==='unit')return unitIds(query,options);const raw=query.trim(),q=normalize(raw),result=[];const add=(...ids)=>result.push(...ids);
     if(Object.hasOwn(vulgar,raw)||/^[-+]?\d+\/\d+$/.test(q))add('fraction');
     if(q==='∃!')add('unique-exists');
+    if(q==='ℵ_0'||q==='ℵ')add('aleph-null');
+    if(options.slug==='countability'){
+      if(/^f\([^()]+\)$/.test(q))add('enumeration');if(/^g\([^()]+\)$/.test(q))add('inverse-enumeration');
+    }
+    if(options.slug==='finite-state-machine'){
+      if(/^δ\([^()]+,[01]\)$/.test(q)||q==='δ')add('transition-function');
+      if(q==='Σ')add('input-alphabet');if(q==='ε')add('empty-word');
+      if(/^q_(?:[0-9k]|\{[^{}]+\})$/.test(q))add('machine-state');
+    }
+    if(options.slug==='open-set'){
+      if(/^(?:Bε|B_ε)\(p\)$/.test(q))add('open-ball');if(q==='‖p‖')add('metric-distance');if(q==='U_{<}'||q==='U_{≤}')add('disk-boundary-choice');if(q==='C(x)')add('signed-clearance');if(q==='ε')add('neighborhood-radius');
+    }
+    if(options.slug==='quantifier-scope'){
+      if(/^R_h\(x,y\)$/.test(q))add('station-relation');
+      if(q==='φ_h(x)')add('open-formula');if(q==='φ_h(x_p)')add('probe-coordinate');
+      if(q==='A_h'||q==='B_h')add('quantifier-order');
+    }
     if(/^(?:[uv]×[uv]|r×F|r⃗×F⃗)$/.test(q))add('cross-product');
     if(q==='r⃗')add('position-vector');if(q==='F⃗')add('force');if(q==='τ⃗')add('torque');
     if(q==='x̅')add('sample-mean');if(q==='z̅')add('complex-conjugate');
@@ -57,7 +74,7 @@
     if(/^[-+]?(?:\d+(?:\.\d*)?|\.\d+)[eE][-+]?\d+$/.test(q))add('scientific-notation');
     if(/^E(?:\[[\s\S]+\]|\([\s\S]+\))$/.test(q))add('expected-value');
     if(/^P\([\s\S]+\)$/.test(q)){if(['quantifier','relation'].includes(options.slug))add('predicate');else {add(q.includes('|')?'conditional-probability':'probability');if(q==='P(x)'||/^P\([-+]?\d+(?:\.\d+)?\)$/.test(q))add('predicate');}}
-    if(/^R(?:_h)?\(x,y\)$/.test(q))add('binary-relation');
+    if(/^R(?:_h)?\(x,y\)$/.test(q)&&options.slug!=='quantifier-scope')add('binary-relation');
     if(q==='D×D')add('cartesian-product');
     if(/^P_h\(x\)$/.test(q))add('predicate');
     const costCall=/^C\(x(?:_(?:0|k|\{k\+1\}))?,y(?:_(?:0|k|\{k\+1\}))?\)$/.test(q);
@@ -88,7 +105,7 @@
     if(/^\\mathcal\{B\}$/.test(q))add('basis');
     const command=/^\\([A-Za-z]+)$/.exec(raw);if(command&&texFunctions.has(command[1]))add(...named[command[1]]);
     if(Object.hasOwn(named,q))add(...named[q]);
-    const call=/^([A-Za-z][A-Za-z0-9_]*)\([\s\S]*\)$/.exec(q);if(call){if(Object.hasOwn(named,call[1]))add(...named[call[1]]);else if(/^[fghWVARdSvLTw]$/.test(call[1])&&!(options.slug==='relation'&&call[1]==='R'))add('function-notation');}
+    const call=/^([A-Za-z][A-Za-z0-9_]*)\([\s\S]*\)$/.exec(q);if(call){if(Object.hasOwn(named,call[1]))add(...(call[1]==='R_h'&&options.slug==='quantifier-scope'?['station-relation']:named[call[1]]));else if(/^[fghWVARdSvLTw]$/.test(call[1])&&!(options.slug==='relation'&&call[1]==='R'))add('function-notation');}
     if(Object.hasOwn(glyphs,q))add(...glyphs[q]);if(Object.hasOwn(greekIds,q))add(greekIds[q]);
     if(subChars.has(raw))add('subscript');if(supChars.has(raw))add('superscript','exponent');
     return unique(result);
@@ -104,6 +121,7 @@
     if(unit==='m² per unit setting')return['compound-unit','declared-unit'];
     if(q==='px')return['pixel-unit'];if(q==='°'||unit==='degrees')return['degree'];if(unit==='rad'||unit==='radians')return['radian'];
     if(['unitless','dimensionless','× reference','ratio'].includes(unit))return unit==='ratio'?['ratio','dimensionless']:['dimensionless'];
+    if(unit==='symbols')return['symbol-count'];
     if(['population fraction','fraction','of capacity','probability','fraction of flagged items'].includes(unit))return['ratio','probability'];
     if(['generations','passes','levels','refinements'].includes(unit))return['iteration'];
     if(unit==='truth value')return['truth-value'];
@@ -193,10 +211,10 @@
         const end=text.indexOf('|',i+1);if(end>i+1&&end-i<150&&!/[\n;]/.test(text.slice(i+1,end))){emit(text.slice(i,end+1),i,'structured');children(i+1,end);i=end+1;continue;}
       }
       const functionStart=/^(?:[A-Za-z]['’′″]+|(?:E|P|C|O|Θ|[fghWVARdSvLTw]|AB|BA|T_A|Apply|Log|sin|cos|tan|sec|csc|cot|arcsin|arccos|arctan|log(?:_(?:[A-Za-z0-9]+|\{[^{}]+\}|\([^()]+\))|[₀-₉]+|\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)?|ln|exp|sqrt|abs|norm|hypot|atan2|floor|ceil|frac|det|rank|dim|min|max|argmin|argmax|arg|Re|Im|Var|Binomial|sign|sgn|proj)(?:['’′″]+)?)\s*[([]/.exec(rest);
-      const predicateStart=/^[PR](?:_h|_\{h\}|ₕ)\s*\(/.exec(rest);
+      const predicateStart=/^(?:[PR](?:_h|_\{h\}|ₕ)|φ(?:_h|_\{h\}|ₕ)|B(?:ε|_ε|_\{ε\})|δ)\s*\(/.exec(rest);
       const nativeStart=/^([A-Za-z][A-Za-z0-9_]*)\s*[([]/.exec(rest),recognizedStart=predicateStart||functionStart||(nativeStart&&Object.hasOwn(named,nativeStart[1])?nativeStart:null);
       if(recognizedStart){const open=rest[recognizedStart[0].length-1],start=i+recognizedStart[0].length-1,end=balanced(text,start,open,open==='('?')':']');if(end){const token=text.slice(i,end),ids=classify(token,{slug});if(ids.length){emit(token,i,'structured',{entryIds:ids});delimiters(start,end-1);children(start+1,end-1);i=end;continue;}}}
-      const decorated=/^[A-Za-zα-ωΑ-Ω][A-Za-z0-9α-ωΑ-Ω]*(?:_[A-Za-z0-9]|_\{[^{}]+\}|\^[A-Za-z0-9+-]|\^\{[^{}]+\}|[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]+)(?:[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]*)/.exec(rest);
+      const decorated=/^[A-Za-zα-ωΑ-Ωℵℕ][A-Za-z0-9α-ωΑ-Ω]*(?:_[A-Za-z0-9]|_\{[^{}]+\}|\^[A-Za-z0-9+-]|\^\{[^{}]+\}|[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]+)(?:[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]*)/.exec(rest);
       if(decorated&&!/[A-Za-z_]/.test(rest[decorated[0].length]||'')){emit(decorated[0],i,'structured');for(const match of decorated[0].matchAll(/\{([^{}]*)\}/g)){const start=i+match.index;delimiters(start,start+match[0].length-1);children(start+1,start+match[0].length-1);}i+=decorated[0].length;continue;}
       const compound=/^(?:N(?:[·.]|\s+)m|m\/s(?:²|\^2)?|ms\/item|L\/min|km\/h|(?:cm|mm|m)[²³]|px)(?![\p{L}\p{N}_/])/u.exec(rest);if(compound){emit(compound[0],i,'unit',{entryIds:unitIds(compound[0],{slug})});if(/^N/.test(compound[0])){emit('N',i,'unit',{entryIds:['newton']});emit('m',i+compound[0].lastIndexOf('m'),'unit',{entryIds:['measurement-unit-symbols']});}i+=compound[0].length;continue;}
       const differential=/^d[xtyθφ]\b/.exec(rest);if(differential&&(text.trim()===differential[0]||/∫|\\(?:int|iint|iiint|oint)\b|\\frac\s*\{d/.test(text))){emit(differential[0],i,'structured');i+=differential[0].length;continue;}

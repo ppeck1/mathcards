@@ -28,8 +28,9 @@
   function controlMarkup(field,p,slot){
     const id=slot+'-'+field.key,label=field.label+(field.unit?' · '+field.unit:''),value=p[field.key];
     if(field.type==='select')return '<div class="control full"><label class="fine" for="'+escape(id)+'">'+escape(label)+'</label><select id="'+escape(id)+'" data-param="'+escape(field.key)+'">'+field.options.map(option=>'<option value="'+escape(option.value)+'" '+(value===option.value?'selected':'')+'>'+escape(option.label)+'</option>').join('')+'</select></div>';
+    const step=field.discrete===true&&Number.isFinite(field.step)?field.step:'any';
     const bounds=Number.isFinite(field.min)&&Number.isFinite(field.max)?' min="'+field.min+'" max="'+field.max+'"':'';
-    return '<div class="control"><div class="control-top"><label for="'+escape(id)+'">'+escape(label)+'</label><input id="'+escape(id)+'" type="number" data-param="'+escape(field.key)+'" value="'+escape(value)+'"'+bounds+' step="any" aria-label="'+escape(label)+' numeric value"></div>'+(bounds?'<input type="range" data-param="'+escape(field.key)+'"'+bounds+' step="any" value="'+escape(value)+'" aria-label="'+escape(label)+' slider">':'')+'</div>';
+    return '<div class="control"><div class="control-top"><label for="'+escape(id)+'">'+escape(label)+'</label><input id="'+escape(id)+'" type="number" data-param="'+escape(field.key)+'" value="'+escape(value)+'"'+bounds+' step="'+step+'" aria-label="'+escape(label)+' numeric value"></div>'+(bounds?'<input type="range" data-param="'+escape(field.key)+'"'+bounds+' step="'+step+'" value="'+escape(value)+'" aria-label="'+escape(label)+' slider">':'')+'</div>';
   }
   function markup(id,parameters,options={}){
     const module=moduleFor(id),p=parameters||module.defaults(),slot=options.slot||id;
@@ -86,7 +87,7 @@
     const reducedMedia=matchMedia('(prefers-reduced-motion:reduce)');
     let view=module.defaultView, explicitView=false, camera=.65, restoringView=false;
     let pinned=null, playing=false, pausedMode=false, frame=0, last=0, direction=1, speed=1, disposed=false, interacting=false;
-    let sweep=selected.find(field=>field[0]===module.primarySweep)||selected[0], lastAnnounced=0, selectedStory=stories[0], prediction=null, phase='ready', storyPath=null, scalePath=null, lessonElapsed=0;
+    let sweep=selected.find(field=>field[0]===module.primarySweep)||selected[0], lastAnnounced=0, selectedStory=stories[0], prediction=null, phase='ready', storyPath=null, scalePath=null, lessonElapsed=0, sweepPosition=null;
     let focused=false, focusReturn=null, originalOverflow='', inertElements=[];
     surface.innerHTML=`<div class="visual-toolbar"><div class="view-switch" role="group" aria-label="Visualization mode">${module.views.map(item=>'<button type="button" data-view="'+escape(item.id)+'">'+escape(item.label)+'</button>').join('')}</div><button type="button" class="focus-toggle" aria-expanded="false" aria-label="Expand playground">⤢ Focus</button></div><div class="studio-metadata"><span class="scale-chip">Linked to your expression</span><span class="interaction-hint">Grab a glowing handle · arrow keys work too</span></div><div class="visual-stage"></div><div class="camera-control"><label>Rotate the view <input type="range" min="0.15" max="1" step=".01" value=".65" aria-label="Spatial viewing angle"></label><span>Same values. Another perspective.</span></div><div class="lab-transport"><button class="button motion-toggle" type="button" aria-pressed="false">▶ Animate</button><label class="sweep-label">Vary <select class="sweep-select" aria-label="Variable to animate">`+selected.map(([key,label])=>'<option value="'+key+'">'+label+'</option>').join('')+`</select></label><label class="speed-label"><span class="sr-only">Animation speed</span><select class="speed-select" aria-label="Animation speed"><option value="0.5">½×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label><button class="button secondary pin-toggle" type="button" aria-pressed="false">◎ Pin comparison</button></div><div class="timeline"><div><span class="timeline-label">Scrub the input</span><output class="timeline-value"></output></div><input type="range" min="0" max="100" step=".1" value="0" aria-label="Scrub the experiment"></div><div class="journey-status" hidden></div><div class="live-readout"></div><p class="lab-insight"></p><details class="model-data"><summary>Read the model as data</summary><p class="model-data-status"></p><div class="model-data-content"></div></details><section class="experiment-deck" aria-label="Guided experiments"><div class="deck-heading"><div><p class="eyebrow">FOLLOW A QUESTION</p><h3>What do you think will happen?</h3></div><span>Predict. Play. Notice.</span></div><div class="story-tabs" role="group" aria-label="Choose an experiment">`+stories.map((story,i)=>'<button type="button" data-story="'+story.id+'" aria-pressed="'+(i===0)+'"><span>0'+(i+1)+'</span>'+escape(story.title)+'</button>').join('')+`</div><div class="story-content"></div></section><p class="sr-only lab-status" role="status" aria-live="polite"></p>`;
     const stage=surface.querySelector('.visual-stage'), playButton=surface.querySelector('.motion-toggle'), pinButton=surface.querySelector('.pin-toggle');
@@ -115,6 +116,16 @@
       onFrame:(values,state)=>{displayed=values;motionPhase+=state.dt/1000;paint(state.settled);}});
     root.dataset.motion='paused';
 
+    function legalValue(key,value){
+      const control=module.controls.find(item=>item.key===key),range=module.sweeps.find(item=>item.key===key);
+      if(!(range?.discrete||control?.discrete))return value;
+      const min=range?.min??control.min,max=range?.max??control.max,step=range?.step??control.step;
+      if(!Number.isFinite(step)||step<=0)return value;
+      const last=min+Math.floor((max-min)/step)*step;
+      const snapped=Math.min(last,Math.max(min,min+Math.round((value-min)/step)*step));
+      const checked=module.validateParams({...p,[key]:snapped});
+      return checked.valid?checked.parameters[key]:p[key];
+    }
     function reference() {
       const peers=options.peerParameters?options.peerParameters():[];
       const sources=[displayed,...peers.filter(peer=>peer!==p),...(scalePath?[scalePath.start,scalePath.finish]:[])];
@@ -123,7 +134,7 @@
       if(key===referenceKey)return referenceValue;
       referenceKey=key;
       const ranges=shared?selected.map(item=>[item[0],item[2],item[3]]):scalePath?scalePath.sweep?[[scalePath.sweep.key,scalePath.sweep.from,scalePath.sweep.to]]:[]:sweep?[[sweep[0],sweep[2],sweep[3]]]:[];
-      const candidates=[...sources,...ranges.flatMap(range=>sources.flatMap(source=>Array.from({length:21},(_,i)=>({...source,[range[0]]:range[1]+(range[2]-range[1])*i/20}))))];
+      const candidates=[...sources,...ranges.flatMap(range=>sources.flatMap(source=>Array.from({length:21},(_,i)=>({...source,[range[0]]:legalValue(range[0],range[1]+(range[2]-range[1])*i/20)}))))];
       surface.querySelector('.scale-chip').textContent=shared?'Shared scale · same topic':scalePath?'Experiment viewing scale':'One scale throughout the change';
       const weight=module.referenceWeight||((_p,result)=>Math.abs(result.output||0));
       referenceValue=candidates.reduce((best,candidate)=>{const r=M.evaluate(slug,candidate),b=M.evaluate(slug,best),cw=weight(candidate,r),bw=weight(best,b);return cw>bw?candidate:best;},candidates[0]);
@@ -280,11 +291,12 @@
     function startMotion(mode) {
       if(!sweep)return;
       follower.setTarget(p,{immediate:true});
+      if(sweepPosition===null||pausedMode!==mode)sweepPosition=Number(p[mode==='once'?module.replay.key:sweep[0]]);
       playing=mode;pausedMode=false;last=performance.now();root.dataset.motion='playing';
       playButton.textContent='Ⅱ Pause';playButton.setAttribute('aria-pressed','true');frame=requestAnimationFrame(tick);
     }
     function runStory() {
-      pause(false);pausedMode=false;Object.assign(p,selectedStory.start);pinned={...p};storyPath=selectedStory;scalePath=selectedStory;lessonElapsed=0;
+      pause(false);pausedMode=false;Object.assign(p,selectedStory.start);pinned={...p};storyPath=selectedStory;scalePath=selectedStory;lessonElapsed=0, sweepPosition=null;
       // A guided path may suggest a view, but an explicitly chosen perspective
       // belongs to this slot and survives changes to the experiment.
       if(!explicitView||!activeView())view=module.views.some(item=>item.id===selectedStory.view)?selectedStory.view:module.defaultView;
@@ -301,16 +313,16 @@
         if(playing==='lesson'){
           const path=storyPath.sweep;lessonElapsed+=elapsed;
           const t=Math.min(1,lessonElapsed/path.durationMs), eased=(1-Math.cos(Math.PI*t))/2;
-          p[path.key]=path.from+(path.to-path.from)*eased;
+          p[path.key]=legalValue(path.key,path.from+(path.to-path.from)*eased);
           if(t===1){Object.assign(p,storyPath.finish);pause(false);pausedMode=false;phase='complete';paintStory();draw(true,true,true);return;}
         }else if(playing==='once'){
-          const path=module.replay,t=Math.min(1,(p[path.key]-path.from)/(path.to-path.from)+elapsed/9000);
-          p[path.key]=path.from+(path.to-path.from)*t;
+          const path=module.replay,t=Math.min(1,(sweepPosition-path.from)/(path.to-path.from)+elapsed/9000);
+          sweepPosition=path.from+(path.to-path.from)*t;p[path.key]=legalValue(path.key,sweepPosition);
           if(t===1){pause(false);pausedMode=false;draw(true,true,true);return;}
         }else{
-          const [key,,min,max]=sweep;let value=Number.isFinite(p[key])?p[key]:min;
+          const [key,,min,max]=sweep;let value=Number.isFinite(sweepPosition)?sweepPosition:min;
           value+=direction*(max-min)*elapsed/9000;
-          if(value>=max){value=max;direction=-1;}if(value<=min){value=min;direction=1;}p[key]=Number(value.toFixed(5));
+          if(value>=max){value=max;direction=-1;}if(value<=min){value=min;direction=1;}sweepPosition=value;p[key]=legalValue(key,value);
         }
         draw();
       }
@@ -334,8 +346,8 @@
     timeline.oninput=()=>{
       if(!sweep)return;
       manual(false);const t=Number(timeline.value)/100;
-      if(storyPath){Object.assign(p,storyPath.start);if(storyPath.sweep)p[storyPath.sweep.key]=storyPath.sweep.from+(storyPath.sweep.to-storyPath.sweep.from)*t;else Object.assign(p,t<.5?storyPath.start:storyPath.finish);}
-      else p[sweep[0]]=sweep[2]+(sweep[3]-sweep[2])*t;
+      if(storyPath){Object.assign(p,storyPath.start);if(storyPath.sweep)p[storyPath.sweep.key]=legalValue(storyPath.sweep.key,storyPath.sweep.from+(storyPath.sweep.to-storyPath.sweep.from)*t);else Object.assign(p,t<.5?storyPath.start:storyPath.finish);}
+      else p[sweep[0]]=legalValue(sweep[0],sweep[2]+(sweep[3]-sweep[2])*t);
       draw(true,true,timelineKeyboard);
     };
     timeline.onchange=()=>{interacting=false;follower.settle();};
