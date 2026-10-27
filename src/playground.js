@@ -143,7 +143,8 @@
       else if(sweep)t=(p[key]-sweep[2])/(sweep[3]-sweep[2]);
       timeline.value=Number.isFinite(t)?Math.max(0,Math.min(100,t*100)):0;
       surface.querySelector('.timeline-label').textContent=storyPath?'Scrub this experiment':sweep?'Scrub '+sweep[1]:'';
-      if(showText)Readable.writeText(surface.querySelector('.timeline-value'),storyPath&&!storyPath.sweep?(t===1?'After':'Before'):key?key+' = '+format(displayed[key],{settled}):'');
+      const inputLabel=module.controls.find(field=>field.key===key)?.label||selected.find(field=>field[0]===key)?.[1]||key;
+      if(showText)Readable.writeText(surface.querySelector('.timeline-value'),storyPath&&!storyPath.sweep?(t===1?'After':'Before'):key?inputLabel+' = '+format(displayed[key],{settled}):'');
       surface.querySelectorAll('[data-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.view===view)));
       surface.querySelector('.view-switch').setAttribute('aria-label','Visualization mode. '+activeView().label+' selected.');
       surface.querySelector('.sweep-select').value=sweep?.[0]||'';

@@ -1,14 +1,11 @@
-.atlas-landscape{margin:0;border:1px solid #bccbbb;border-radius:14px;overflow:hidden;background:#cedfe0}
+.atlas-landscape{margin:0;border:1px solid #bccbbb;border-radius:14px;overflow:hidden;background:#f4f1e7}
 .atlas-landscape-svg{display:block;width:100%;height:auto;aspect-ratio:3/2;font-family:system-ui,sans-serif;touch-action:pan-y;user-select:none}
-.atlas-contours{fill:none;stroke:#706d56;stroke-width:.65;opacity:.21;pointer-events:none}
-.atlas-contours .index-contour{stroke-width:1.05;opacity:.9}
-.atlas-contours path,.atlas-shoreline,.atlas-editorial-territory{vector-effect:non-scaling-stroke}
-.atlas-shoreline{fill:none;stroke:#718c83;stroke-width:.8;opacity:.52}
+.atlas-editorial-territory{vector-effect:non-scaling-stroke}
 .atlas-terrain-region-hit,.atlas-terrain-topic,.atlas-card-destination{cursor:pointer;outline:none}
-.atlas-editorial-territory{fill-opacity:.025;stroke:transparent;stroke-width:2;transition:fill-opacity .15s,stroke .15s}
-.atlas-terrain-region-hit:hover .atlas-editorial-territory{fill-opacity:.12}
-.atlas-terrain-region-hit.is-selected .atlas-editorial-territory{fill-opacity:.10;stroke:#8f713d;stroke-opacity:.65;stroke-dasharray:3 5}
-.atlas-terrain-region-hit:focus-visible .atlas-editorial-territory{stroke:#263f38;stroke-width:3;stroke-dasharray:none;fill-opacity:.16}
+.atlas-editorial-territory{fill-opacity:.86;stroke:#f4f1e7;stroke-width:2;transition:fill-opacity .15s,stroke .15s}
+.atlas-terrain-region-hit:hover .atlas-editorial-territory{fill-opacity:1}
+.atlas-terrain-region-hit.is-selected .atlas-editorial-territory{fill-opacity:1;stroke:#8f713d;stroke-opacity:.65;stroke-dasharray:3 5}
+.atlas-terrain-region-hit:focus-visible .atlas-editorial-territory{stroke:#263f38;stroke-width:3;stroke-dasharray:none;fill-opacity:1}
 .atlas-map-label{fill:#263f38;paint-order:stroke fill;stroke:#f4f1e7;stroke-width:4;stroke-linejoin:round;letter-spacing:.05px}
 .atlas-map-label.region-label{font-family:Georgia,serif;font-weight:600}
 .atlas-map-label.topic-label{font-weight:600}

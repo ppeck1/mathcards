@@ -48,3 +48,52 @@
 .sample-compact .visual-caption{font-size:13px;line-height:1.6}
 @media(pointer:coarse){.life-reader .life-token{align-items:center;min-width:36px;min-height:44px;vertical-align:middle}}
 @media(max-width:760px){.life-reader .life-reader-body{font-size:14px;line-height:1.7}.life-reader .life-reader-formula{font-size:12px;padding:9px 10px}.life-step-nav{gap:6px}.life-step-nav button{font-size:12px;padding:9px 6px}.life-reader-step{padding-bottom:10px}}
+
+/* A compact lesson has one input and one comparison readout on every screen. */
+.life-story-host[data-presentation=compact]{margin-bottom:28px}
+.life-story-host[data-presentation=compact] .life-heading{margin-bottom:16px}
+.life-story-host[data-presentation=compact] .life-heading .eyebrow{display:none}
+.life-story-host[data-presentation=compact] .life-heading h2{font-size:clamp(25px,2.2vw,31px);line-height:1.15;letter-spacing:-.6px;margin:7px 0}
+.life-story-host[data-presentation=compact] .life-layout{grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:24px}
+.life-story-host[data-presentation=compact] .life-context{font-size:14px;line-height:1.7}
+.life-story-host[data-presentation=compact] .life-question{font-size:20px;line-height:1.45;margin:18px 0}
+.life-story-host[data-presentation=compact] .life-stage-header{padding:12px 20px 0;font-size:10px}
+.life-story-host[data-presentation=compact] .life-stage-wrap{border-radius:12px}
+.life-story-host[data-presentation=compact] .life-view{top:16px}
+.life-story-host[data-presentation=compact] .life-scene figcaption{padding:0 20px 12px;min-height:0;font-size:12px;color:#d0dde0}
+.life-story-host[data-presentation=compact] .life-controls{padding-top:12px}
+.life-story-host[data-presentation=compact] .life-variable{padding-top:0;border:0;font-size:14px;font-weight:600;color:#25483d}
+.life-story-host[data-presentation=compact] .life-variable>span{color:#0b6071}
+.life-story-host[data-presentation=compact] .life-controls input[type=range]{height:32px;margin:7px 0;accent-color:#22695d}
+.life-story-host[data-presentation=compact] .life-playback{margin:9px 0}
+.life-story-host[data-presentation=compact] .life-playback .button{min-height:44px;font-size:12px;padding:10px 15px}
+.life-story-host[data-presentation=compact] .life-hint{font-size:12px;line-height:1.6;color:#425e52;margin:7px 0 12px}
+.life-work{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:15px}
+.life-work>summary{display:flex;align-items:center;min-height:44px;cursor:pointer;font-size:14px;font-weight:600;color:#285b4e}
+.life-work .life-connection{background:#102330;border-radius:9px;margin:0 0 14px;padding:12px 14px}
+.life-work .life-connection p{min-height:0}
+.life-work .life-steps{margin:10px 0}
+.life-work .life-answer{border:0;padding:8px 0 14px}
+.life-work .life-answer-note{min-height:0}
+main:has(>.page-head-compact){padding-top:24px}
+main:has(>.page-head-compact)>.breadcrumb{margin-bottom:14px}
+.page-head-compact{margin-bottom:8px!important;align-items:flex-start}
+.page-head-compact h1{font-size:25px!important;line-height:1.1!important;margin:4px 0 6px}
+.page-head-compact .eyebrow{font-size:10px;margin:0}
+.page-head-compact .card-options{font-size:12px;min-width:0}
+.page-head-compact .card-options>summary{cursor:pointer;min-height:40px;display:flex;align-items:center;color:#285b4e}
+.page-head-compact .card-options .actions{padding:8px 0}
+@media(min-width:761px){
+ .life-story-host[data-presentation=compact] .life-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:14px;align-items:end}
+ .life-story-host[data-presentation=compact] .life-variable{grid-column:1;grid-row:1;margin-bottom:0}
+ .life-story-host[data-presentation=compact] .life-playback{grid-column:2;grid-row:1;margin:0 0 7px}
+ .life-story-host[data-presentation=compact] .life-hint,.life-story-host[data-presentation=compact] .life-actions{grid-column:1/-1}
+}
+@media(max-width:760px){
+ .life-story-host[data-presentation=compact] .life-layout{display:flex;gap:20px}
+ .life-story-host[data-presentation=compact] .life-heading h2{font-size:27px}
+ .life-story-host[data-presentation=compact] .life-stage-header{padding:10px 14px 0;font-size:9px}
+ .life-story-host[data-presentation=compact] .life-scene figcaption{padding:0 18px 12px;font-size:12px}
+ .life-story-host[data-presentation=compact] .life-controls{padding-top:12px}
+ .card-layout-compact .outline{padding-bottom:12px}
+}

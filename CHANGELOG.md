@@ -1,3 +1,12 @@
+# 0.24.0 — one comparison, one control, a complete overview
+
+- Use the same large selected-versus-population chart on laptops and phones; keep the primary visualization above the fold on a 1366 × 768 laptop.
+- Give the compact crate story one mass slider and one play/pause button. Remove its in-scene slider, repeated readout band, timeline, restart button and step navigator; keep calculation detail expandable.
+- Write the crate's explanations, given values and expression outline using declared mathematical notation, while preserving internal model keys and exact calculations.
+- Replace non-quantitative relief with a flat categorical map. Show every territory on phone overview and retain local topic focus, readable native navigation, counts, routes and Concept connections.
+- Read the release version from `package.json` for the catalog, manifest, footer, development cache tags, notation report and ZIP filename; add consistency checks.
+- Refresh the portfolio description and demo launch cache key to match the current work.
+
 # 0.23.0 — terrain and startup preview
 
 - Compile the deterministic reference index during the build and hydrate it at startup; cache repeated notation normalization in the shared compiler.

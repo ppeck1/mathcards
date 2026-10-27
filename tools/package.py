@@ -4,9 +4,10 @@ from pathlib import Path
 from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
 import argparse
 from build import build
+from release import application_version
 ROOT=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser()
-p.add_argument('output',nargs='?',default=str(ROOT/'math_cards_v0_23_0.zip'))
+p.add_argument('output',nargs='?',default=str(ROOT/('math_cards_v'+application_version(ROOT).replace('.','_')+'.zip')))
 args=p.parse_args()
 build()
 output=Path(args.output).resolve()

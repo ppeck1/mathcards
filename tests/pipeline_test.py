@@ -13,6 +13,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
 from build import build, load_catalog, catalog_script
 from export_boh import canonical, build as build_export
+from release import application_version, stamp_template
 
 class PipelineTests(unittest.TestCase):
     def test_workspace_format_schema_and_public_fixture(self):
@@ -61,8 +62,15 @@ class PipelineTests(unittest.TestCase):
             a,b=Path(tmp)/'a',Path(tmp)/'b'
             ma,mb=build(a),build(b)
             self.assertEqual(ma,mb)
+            version=application_version(ROOT)
+            self.assertEqual(ma['application_version'],version)
+            self.assertEqual(load_catalog()['build_version'],version)
+            source=(ROOT/'src/index.html').read_text(encoding='utf-8')
+            self.assertEqual(set(re.findall(r'[?&]v=([0-9.]+)',source)),{version})
+            self.assertIn('data-application-version>'+version+'<',source)
             html=(a/'index.html').read_text(encoding='utf-8')
             self.assertEqual(html,(b/'index.html').read_text(encoding='utf-8'))
+            self.assertIn('data-application-version>'+version+'<',html)
             self.assertNotIn('<!-- ATLAS_',html)
             self.assertNotIn('data-development',html)
             self.assertEqual(len(re.findall(r'<script\b',html,re.I)),1)
