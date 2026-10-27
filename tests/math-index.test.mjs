@@ -261,7 +261,7 @@ test('local-change vocabulary follows the actual lesson explanations and preserv
 test('new local symbols and typed compound forms keep their actual card scopes',()=>{
   const use=(query,id)=>index.search(query).find(entry=>entry.id===id)?.usedBy.map(usage=>usage.slug);
   for(const [query,id,slugs] of [
-    ['η','step-size',['gradient-descent']],['k','iteration-index',['gradient-descent','recurrence']],
+    ['η','step-size',['gradient-descent']],['k','iteration-index',['gradient-descent','recurrence','stability']],
     ['R','approximation-error',['tangent-plane']],['L(x+Δx,y+Δy)','linear-approximation',['tangent-plane']],
     ['L(x+\\Delta x,y+\\Delta y)','linear-approximation',['tangent-plane']],
     ['C(xₖ,yₖ)','cost-function',['gradient-descent']],['C(x_k,y_k)','cost-function',['gradient-descent']],

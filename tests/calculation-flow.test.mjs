@@ -17,7 +17,7 @@ test('calculation descriptions load offline and resolve against all installed sh
   for(const story of Stories.all()){
     const stages=Flow.stages(story),values=Scenes.values(story.slug,story.parameters);
     assert.deepEqual(stages.map(s=>s.role),['input','intermediate','output']);
-    for(const stage of stages){assert.ok(stage.label.length>3);assert.ok(stage.description.length>3);for(const part of Flow.parts(stage.template))if(part.key)assert.ok(Number.isFinite(values[part.key]),`${story.slug}.${part.key}`);}
+    for(const stage of stages){assert.ok(stage.label.length>3);assert.ok(stage.description.length>3);for(const part of Flow.parts(stage.template))if(part.key)assert.ok(Number.isFinite(values[part.key])||typeof values[part.key]==='string'&&values[part.key].trim().length>0,`${story.slug}.${part.key}`);}
   }
   assert.deepEqual(Flow.parts('x={{x}}; literal {{x + 1}}'),[{text:'x='},{key:'x'},{text:'; literal {{x + 1}}'}]);
 });
@@ -38,6 +38,19 @@ function fixture(reduced=false,story=Stories.forSlug('function-composition')){
   const controller=Flow.mount(host,{story,readable:Readable,quantityFor:key=>require('../src/story-links.js').quantityFor(story.slug,key),formatLiteral:require('../src/life-story.js').formulaLiteral,onPhase:stage=>phases.push(stage.role),reducedMotion:()=>reduced,now:()=>time,requestFrame:fn=>{frames.set(++next,fn);return next;},cancelFrame:id=>frames.delete(id)});
   return {host,controller,phases,frames,advance(at){time=at;const callbacks=[...frames.values()];frames.clear();callbacks.forEach(fn=>fn(time));},dispose(){controller.destroy();globalThis.document=original;}};
 }
+
+test('truth-valued calculation stages display semantic labels through measurement changes',()=>{
+  const story=Stories.forSlug('logical-connectives'),f=fixture(false,story);
+  try{
+    f.controller.update(Scenes.values(story.slug,{length:3,width:5,operation:'and'}),{settled:true});
+    assert.match(f.host.textContent,/P = False; Q = True/);
+    assert.match(f.host.textContent,/P∧Q = False/);
+    f.controller.update(Scenes.values(story.slug,{length:9,width:5,operation:'and'}),{settled:true});
+    assert.match(f.host.textContent,/P = True; Q = True/);
+    assert.match(f.host.textContent,/P∧Q = True/);
+    assert.doesNotMatch(f.host.textContent,/Unavailable|undefined|NaN/);
+  }finally{f.dispose();}
+});
 
 test('trace follows readable input, operation and shape phases then stops requesting frames',()=>{
   const f=fixture();try{

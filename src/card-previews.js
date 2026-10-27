@@ -33,6 +33,32 @@
   const caption = value => label(180, 184, value, C.ink, 17);
 
   const records = {
+    'logical-connectives': {
+      title:'Logical connectives and truth tables',
+      describe:(p,r)=>`A workshop panel is ${f(p.length)} centimetres long and ${f(p.width)} centimetres wide. P requires length at least 6 cm; Q requires width at least 4 cm. At the default conjunction, P is ${r.pTruth?'true':'false'}, Q is ${r.qTruth?'true':'false'}, and P and Q is ${r.output?'true':'false'}. Truth values are not probabilities.`,
+      draw:(p,r)=>rect(30,130-p.width*14,p.length*14,p.width*14,C.cyan,'fill-opacity=".3" stroke="'+C.cyan+'" stroke-width="2"')+line(114,42,114,142,C.gold,'stroke-width="2" stroke-dasharray="4 3"')+label(76,160,'6 cm required',C.gold,13)+label(245,45,'P: '+(r.pTruth?'True':'False'),C.cyan,19)+label(245,81,'Q: '+(r.qTruth?'True':'False'),C.violet,19)+quantity('output',r.output,label(245,131,'P ∧ Q: '+(r.output?'True':'False'),C.mint,23))+caption('Two tests. One truth condition.')
+    },
+    quantifier: {
+      title:'Universal and existential quantifiers',
+      describe:(p,r)=>`The six strips have lengths 2, 4, 6, 8, 10 and 12 centimetres. At threshold ${f(p.threshold)} cm, exactly ${r.qualifyingCount} qualify. The universal claim is ${r.allTruth?'true':'false'} and the existential claim is ${r.someTruth?'true':'false'} over this stated finite domain.`,
+      draw:(p,r)=>[2,4,6,8,10,12].map((x,i)=>rect(28,29+i*17,x*12,10,x>=p.threshold?C.mint:C.grid)+label(17,38+i*17,x,C.muted,10)).join('')+quantity('threshold',p.threshold,line(28+p.threshold*12,21,28+p.threshold*12,136,C.gold,'stroke-width="2"'))+label(266,53,'EVERY',C.muted,12)+quantity('output',r.output,label(266,76,r.allTruth?'True':'False',C.cyan,23))+label(266,107,'AT LEAST ONE',C.muted,12)+label(266,131,r.someTruth?'True':'False',C.mint,23)+quantity('qualifyingCount',r.qualifyingCount,label(180,160,r.qualifyingCount+' of 6 meet the cutoff',C.ink,18))+caption('Every strip or at least one?')
+    },
+    'cross-product': {
+      title:'Cross product and oriented area',
+      describe:(p,r)=>`In a fixed right-handed frame, u has length ${f(p.uLength)} metres and v has length ${f(p.vLength)} metres at signed angle ${f(p.angle)} degrees. Their cross product has z component ${f(r.normalComponent)} square metres and magnitude ${f(r.area)} square metres. Its positive normal points out of the page.`,
+      draw:(p,r)=>{
+        const o=[45,131],u=[o[0]+p.uLength*25,o[1]],v=[o[0]+r.vX*25,o[1]-r.vY*25],end=[u[0]+r.vX*25,u[1]-r.vY*25];
+        return quantity('area',r.area,`<path d="${path([o,u,end,v])}Z" fill="${C.gold}" fill-opacity=".24" stroke="${C.gold}" stroke-width="1.5"/>`)+arrow(...o,...u,C.cyan)+arrow(...o,...v,C.violet)+label(91,154,'u',C.cyan,17)+label(56,75,'v',C.violet,17)+circle(269,66,20,'none','stroke="'+C.mint+'" stroke-width="2"')+circle(269,66,4,C.mint)+label(269,104,'out of page',C.muted,12)+quantity('output',r.output,label(269,142,'w_z = '+f(r.output),C.mint,23))+caption('Area has magnitude and orientation.');
+      }
+    },
+    stability: {
+      title:'Stability of an equilibrium',
+      describe:(p,r)=>`Starting error ${f(p.initialError)} centimetres is multiplied by ${f(p.multiplier)} at each of ${p.steps} completed updates. The final signed error is ${f(r.output)} centimetres. This multiplier has magnitude below one, so the exact linear recurrence attracts errors to zero.`,
+      draw:(p,r)=>{
+        const values=Array.from({length:p.steps+1},(_,k)=>p.initialError*p.multiplier**k),points=values.map((v,k)=>[34+k*292/8,139-v*93]);
+        return line(34,139,326,139,C.grid,'stroke-width="2"')+curve(points,C.grid,'stroke-width="2" stroke-dasharray="4 3"')+points.map(([x,y],k)=>circle(x,y,4.5,k===p.steps?C.mint:C.cyan)).join('')+label(236,40,'r = '+f(p.multiplier),C.cyan,20)+quantity('output',r.output,label(236,77,'e₈ = '+f(r.output)+' cm',C.mint,18))+label(236,102,'attracting equilibrium',C.muted,12)+caption('Exact updates toward the same target.');
+      }
+    },
     'conditional-probability': {
       title:'Conditional probability',
       describe:(p,r)=>`A uniformly sampled location lies on a 100 centimetre strip. Event A covers ${f(p.eventEnd)} centimetres and event B covers ${f(p.windowEnd)} centimetres. Their overlap is ${f(r.overlapLength)} centimetres. Restricting attention to B gives conditional probability ${f(r.output)}, while the unconditional probability of A remains ${f(r.eventProbability)}.`,

@@ -9,6 +9,10 @@
   // Empty lists are deliberate: a binder, operator or random variable is not
   // automatically a current numerical value or a physical mark in the scene.
   const records = {
+    'logical-connectives': {x:['length'],y:['width'],P:['pTruth'],Q:['qTruth'],'P∧Q':['output'],'P∨Q':['output'],'P→Q':['output'],'P↔Q':['output'],'¬P':['output'],'∧':[],'∨':[],'¬':[],'→':[],'↔':[]},
+    quantifier: {h:['threshold'],D:['domain'],'P(x)':['outcomes'],x:[],'∀x∈D P(x)':['allTruth'],'∃x∈D P(x)':['someTruth'],'∀':[],'∃':[],'|{x∈D:P(x)}|':['qualifyingCount']},
+    'cross-product': {u:['uX','uY'],v:['vX','vY'],'‖u‖':['uLength'],'‖v‖':['vLength'],'θ':['angle'],'sin(θ)':['sine'],w:['normalComponent'],'u×v':['normalComponent'],'w_z':['normalComponent'],'v_x':['vX'],'v_y':['vY'],'|u×v|':['area'],'wₓ':[],'wᵧ':[],A:['area'],'‖u×v‖':['area'],'×':[]},
+    stability: {'e₀':['initialError'],r:['multiplier'],n:['steps'],k:[],'eₖ':['values'],'eₖ₊₁':['values'],'eₙ':['output'],'|eₙ|':['magnitude'],'|r|':['factorMagnitude']},
     'conditional-probability': {a:['eventEnd'],b:['windowEnd'],A:['event:A'],B:['event:B'],'A∩B':['event:intersection'],'P(A)':['eventProbability'],'P(B)':['givenProbability'],'P(A∩B)':['intersectionProbability'],'P(A|B)':['conditionalProbability'],'ℓ(A∩B)':['overlapLength']},
     variance: {x:['lastLength'],'xᵢ':['measurements'],'μ':['mean'],N:['count'],'∑xᵢ':['lengthSum'],'x−μ':['deviation4'],'(x−μ)²':['square4'],'xᵢ−μ':['deviations'],'dᵢ':['deviations'],'d₁':['deviation1'],'d₂':['deviation2'],'d₃':['deviation3'],'d₄':['deviation4'],'(xᵢ−μ)²':['squaredDeviations'],'∑(xᵢ−μ)²':['sumSquaredDeviations'],'σ²':['variance'],'σ':['standardDeviation']},
     recurrence: {'v₀':['initial'],r:['retention'],d:['addition'],n:['rounds'],k:[],j:[],'vₖ':['values'],'vₖ₊₁':['values'],'vₙ':['output'],'vₙ₋₁':['previous'],'r vₙ₋₁':['retained']},

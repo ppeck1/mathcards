@@ -1,3 +1,18 @@
+# 0.27.0 — Book-guided foundations
+
+- Add four modular lessons: classical logical connectives, finite-domain
+  quantifiers, planar cross products and scalar discrete equilibrium stability.
+- Connect original compact stories, formulas, exact model results and distinct
+  Geometry/Graph views, with one primary guided control per lesson.
+- Add 20 original worked examples and 48 independent numeric fixtures; the
+  collection now has 45 cards, 229 examples, 430 fixtures and 97 views.
+- Expand and scope the prepared reference to 455 entries and 573 visual forms;
+  preserve existing gradient/norm meanings and distinguish predicates from
+  probabilities, cross products from scalar multiplication and kinds of stability.
+- Preserve the supplied matrix's 214 stable topics in a staged research roadmap.
+- Keep truth comparisons and live announcements human-readable; reduce unused
+  desktop scene space and preserve exact threshold/whole-update behavior.
+
 # 0.26.0 — conditioning, spread and repeated updates
 
 - Deepened thin atlas areas with Conditional probability, Variance and standard deviation, and Recurrence relations.

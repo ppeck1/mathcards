@@ -1,0 +1,750 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:logical-connectives",
+  "slug": "logical-connectives",
+  "type": "concept",
+  "title": "Logical connectives and truth tables",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-27T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Workshop stories and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of a book edition or lesson.",
+  "aliases": [
+    "conjunction",
+    "disjunction",
+    "truth table",
+    "material conditional",
+    "propositional logic"
+  ],
+  "branches": [
+    "language-foundations",
+    "logic",
+    "formal-semantics"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Test two stated workshop requirements separately, then follow their truth values through a chosen logical connective.",
+  "meaning": "A truth-functional connective determines a compound statement from the truth values of its parts. AND requires both statements; inclusive OR requires at least one. The material conditional fails only when its antecedent is true and its consequent false. A truth table makes every allowed input combination explicit.",
+  "prerequisites": {
+    "required": [
+      "math:concept:set"
+    ],
+    "helpful": [
+      "math:concept:function"
+    ],
+    "depth": [
+      "math:concept:quantifier",
+      "math:concept:proof"
+    ]
+  },
+  "definition": {
+    "setting": "Classical two-valued propositional logic realized by two inclusive dimension tests on one panel.",
+    "formal_latex": "P:x\\ge6\\,\\mathrm{cm},\\quad Q:y\\ge4\\,\\mathrm{cm};\\quad P\\land Q,\\ P\\lor Q,\\ P\\to Q,\\ P\\leftrightarrow Q,\\ \\neg P.",
+    "signature": {
+      "x": "Panel length.",
+      "y": "Panel width.",
+      "P": "Length meets its requirement.",
+      "Q": "Width meets its requirement.",
+      "P∧Q": "Both requirements hold.",
+      "P∨Q": "At least one requirement holds.",
+      "P→Q": "Material conditional.",
+      "P↔Q": "Matching truth values.",
+      "¬P": "Length requirement does not hold."
+    },
+    "conditions": [
+      "Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.",
+      "Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true.",
+      "P→Q is false exactly for P true and Q false. P↔Q is true when the two truth values agree. ¬P reverses P and ignores Q.",
+      "The material conditional states a truth-table relation; it does not by itself express causation, relevance, a promise or the full meaning of an ordinary-language conditional."
+    ],
+    "domain_notes": "The numeric dimension domain supplies concrete statements. Truth values change at thresholds; smooth movement of a panel does not create a partly true statement.",
+    "proof_status": "Definition-level sources and original restricted-family arguments; independent review pending.",
+    "source_refs": [
+      "source:openstax:compound-statements",
+      "source:openstax:truth-tables",
+      "source:openstax:statements-quantifiers"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Logical connectives and truth tables",
+    "expression_latex": "P:x\\ge6\\,\\mathrm{cm},\\quad Q:y\\ge4\\,\\mathrm{cm};\\quad P\\land Q,\\ P\\lor Q,\\ P\\to Q,\\ P\\leftrightarrow Q,\\ \\neg P.",
+    "formation_rule": "Let P mean x≥6 cm and Q mean y≥4 cm. Choose P∧Q, P∨Q, P→Q, P↔Q or ¬P, then apply its classical truth table.",
+    "precedence": "Evaluate each dimension test before applying the chosen connective. Negation applies to P only; its result does not depend on Q.",
+    "symbols": [
+      {
+        "token": "x",
+        "role": "Panel length",
+        "type": "Centimetres"
+      },
+      {
+        "token": "y",
+        "role": "Panel width",
+        "type": "Centimetres"
+      },
+      {
+        "token": "P",
+        "role": "Length meets its requirement",
+        "type": "Proposition"
+      },
+      {
+        "token": "Q",
+        "role": "Width meets its requirement",
+        "type": "Proposition"
+      },
+      {
+        "token": "P∧Q",
+        "role": "Both requirements hold",
+        "type": "Proposition"
+      },
+      {
+        "token": "P∨Q",
+        "role": "At least one requirement holds",
+        "type": "Proposition"
+      },
+      {
+        "token": "P→Q",
+        "role": "Material conditional",
+        "type": "Proposition"
+      },
+      {
+        "token": "P↔Q",
+        "role": "Matching truth values",
+        "type": "Proposition"
+      },
+      {
+        "token": "¬P",
+        "role": "Length requirement does not hold",
+        "type": "Proposition"
+      }
+    ],
+    "ast": {
+      "id": "ast:logical-connectives:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:length",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "length",
+          "scope_ref": "scope:logical-connectives:expression"
+        },
+        {
+          "id": "n:width",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "width",
+          "scope_ref": "scope:logical-connectives:expression"
+        },
+        {
+          "id": "n:operation",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "operation",
+          "scope_ref": "scope:logical-connectives:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried rule for this explicitly bounded executable family",
+          "ref": "Let P mean x≥6 cm and Q mean y≥4 cm. Choose P∧Q, P∨Q, P→Q, P↔Q or ¬P, then apply its classical truth table."
+        },
+        {
+          "id": "n:bound-0",
+          "kind": "apply",
+          "type": "Partially applied declared rule",
+          "function": "n:rule",
+          "argument": "n:length"
+        },
+        {
+          "id": "n:bound-1",
+          "kind": "apply",
+          "type": "Partially applied declared rule",
+          "function": "n:bound-0",
+          "argument": "n:width"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-1",
+          "argument": "n:operation"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:logical-connectives:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "length",
+            "width",
+            "operation"
+          ],
+          "domain_condition": "Classical two-valued propositional logic realized by two inclusive dimension tests on one panel."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Treat x=6 cm as too short",
+        "status": "boundary error",
+        "reason": "The stipulated length test includes equality."
+      },
+      {
+        "input": "Read OR as exactly one",
+        "status": "connective error",
+        "reason": "The chosen disjunction is inclusive, so two true inputs give a true result."
+      },
+      {
+        "input": "Infer causation from P→Q",
+        "status": "interpretation error",
+        "reason": "The material conditional is a truth function, not a causal model."
+      }
+    ],
+    "ast_coverage": "A typed application outline of the stated executable rule. Bound notation in the displayed mathematical definition is explained in the signature; this outline is not a general formula parser or proof engine.",
+    "output_symbol_bindings": {
+      "x": "length",
+      "y": "width",
+      "P": "pTruth",
+      "Q": "qTruth",
+      "P∧Q": "output",
+      "P∨Q": "output",
+      "P→Q": "output",
+      "P↔Q": "output",
+      "¬P": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Conjunction is true exactly when both requirements hold.",
+      "conditions": "Use the two fixed inclusive dimension predicates and operation AND.",
+      "derivation": "The AND truth table has one true row: both P and Q true.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:logical-connectives:two-requirements"
+    },
+    {
+      "claim": "The material conditional can be true while both requirements fail.",
+      "conditions": "Use the material truth function P→Q, not a causal interpretation.",
+      "derivation": "P→Q is equivalent to ¬P∨Q; two false inputs give True∨False=True.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:logical-connectives:false-antecedent"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the development of the concept and notation before adding historical priority claims.",
+      "Check book-specific statements against the exact edition before treating the supplied planning matrix as verified coverage."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The workshop scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:set",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "A predicate test selects the panels that meet a stated condition.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:function",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "A connective maps one or two truth values to one truth value.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:quantifier",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "Quantification combines a predicate with a stated domain rather than only joining two given statements.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:logical-connectives:two-requirements",
+      "title": "Check both panel requirements",
+      "role": "applied_model",
+      "question": "Does a 9 cm by 5 cm panel meet both requirements?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.",
+        "Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true."
+      ],
+      "inputs": {
+        "length": 9,
+        "width": 5,
+        "operation": "and"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "P:9≥6 is True; Q:5≥4 is True.",
+          "reason": "Evaluate the two stated comparisons independently."
+        },
+        {
+          "index": 2,
+          "expression": "P∧Q=True∧True=True.",
+          "reason": "Conjunction requires both inputs to be true."
+        }
+      ],
+      "result": {
+        "exact": "True"
+      },
+      "interpretation": "Both requirements hold for this stipulated panel.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "The only true AND row is the row with both inputs true."
+      },
+      "limits": "Only the two stated thresholds are being checked.",
+      "preset": {
+        "length": 9,
+        "width": 5,
+        "operation": "and"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.",
+        "Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true."
+      ]
+    },
+    {
+      "id": "math:example:logical-connectives:either-requirement",
+      "title": "Read an inclusive OR",
+      "role": "applied_model",
+      "question": "Does a 3 cm by 5 cm panel meet at least one requirement?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.",
+        "Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true."
+      ],
+      "inputs": {
+        "length": 3,
+        "width": 5,
+        "operation": "or"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "P:3≥6 is False; Q:5≥4 is True.",
+          "reason": "The length fails and the width passes."
+        },
+        {
+          "index": 2,
+          "expression": "P∨Q=False∨True=True.",
+          "reason": "Inclusive disjunction requires at least one true input."
+        }
+      ],
+      "result": {
+        "exact": "True"
+      },
+      "interpretation": "The panel meets the width test, so the inclusive OR is true.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "The false OR row requires two false inputs; that is not this case."
+      },
+      "limits": "An OR result does not claim that both dimensions pass.",
+      "preset": {
+        "length": 3,
+        "width": 5,
+        "operation": "or"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.",
+        "Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true."
+      ]
+    },
+    {
+      "id": "math:example:logical-connectives:false-antecedent",
+      "title": "Inspect a material conditional",
+      "role": "applied_model",
+      "question": "What is P→Q for a 3 cm by 2 cm panel?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.",
+        "Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true."
+      ],
+      "inputs": {
+        "length": 3,
+        "width": 2,
+        "operation": "implies"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "P=False and Q=False.",
+          "reason": "Both dimension comparisons fail."
+        },
+        {
+          "index": 2,
+          "expression": "P→Q=¬P∨Q=True∨False=True.",
+          "reason": "The material conditional fails only for True→False."
+        }
+      ],
+      "result": {
+        "exact": "True"
+      },
+      "interpretation": "The truth-table conditional is true despite both requirements failing.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "Rewrite the conditional as ¬P∨Q and evaluate its disjunction."
+      },
+      "limits": "The material conditional does not certify the panel or assert a causal relationship.",
+      "preset": {
+        "length": 3,
+        "width": 2,
+        "operation": "implies"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.",
+        "Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true."
+      ]
+    },
+    {
+      "id": "math:example:logical-connectives:different-truths",
+      "title": "Compare truth values with a biconditional",
+      "role": "applied_model",
+      "question": "Does P↔Q hold for a 9 cm by 2 cm panel?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.",
+        "Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true."
+      ],
+      "inputs": {
+        "length": 9,
+        "width": 2,
+        "operation": "iff"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "P=True; Q=False.",
+          "reason": "Only the length passes its requirement."
+        },
+        {
+          "index": 2,
+          "expression": "P↔Q=False.",
+          "reason": "A biconditional is true exactly when its two truth values agree."
+        }
+      ],
+      "result": {
+        "exact": "False"
+      },
+      "interpretation": "The two requirements have different truth values.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "P→Q is false, so the conjunction of the two implication directions is false."
+      },
+      "limits": "This compares truth values, not equality of the panel dimensions.",
+      "preset": {
+        "length": 9,
+        "width": 2,
+        "operation": "iff"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.",
+        "Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true."
+      ]
+    },
+    {
+      "id": "math:example:logical-connectives:negate-length",
+      "title": "Negate one statement",
+      "role": "applied_model",
+      "question": "What is ¬P for a 3 cm by 5 cm panel?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.",
+        "Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true."
+      ],
+      "inputs": {
+        "length": 3,
+        "width": 5,
+        "operation": "not"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "P:3≥6 is False.",
+          "reason": "Read the length comparison."
+        },
+        {
+          "index": 2,
+          "expression": "¬P=True.",
+          "reason": "Negation reverses that truth value and does not use Q."
+        }
+      ],
+      "result": {
+        "exact": "True"
+      },
+      "interpretation": "The statement that the length requirement does not hold is true.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "The complementary comparison3<6 is true."
+      },
+      "limits": "The width does not affect this unary connective.",
+      "preset": {
+        "length": 3,
+        "width": 5,
+        "operation": "not"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.",
+        "Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:logical-connectives",
+    "renderer_id": "logical-connectives-visual-model",
+    "renderer_version": "1",
+    "model_id": "logical-connectives-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:logical-connectives:expression",
+    "interaction_status": "implemented",
+    "description": "A centimetre-scale panel, two threshold tests and a truth table show which concrete measurements determine P, Q and the compound result.",
+    "controls": [
+      {
+        "id": "length",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 12,
+        "step": 0.01
+      },
+      {
+        "id": "width",
+        "type": "number",
+        "default": 5,
+        "min": 0,
+        "max": 12,
+        "step": 0.01
+      },
+      {
+        "id": "operation",
+        "type": "enum",
+        "default": "and",
+        "values": [
+          "and",
+          "or",
+          "implies",
+          "iff",
+          "not"
+        ]
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "length": 3,
+          "width": 5,
+          "operation": "and"
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "length": 6,
+          "width": 4,
+          "operation": "and"
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "length": 6,
+          "width": 3.999,
+          "operation": "and"
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "length": 5.999,
+          "width": 4,
+          "operation": "and"
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "length": 3,
+          "width": 5,
+          "operation": "or"
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "length": 3,
+          "width": 2,
+          "operation": "or"
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "length": 9,
+          "width": 2,
+          "operation": "implies"
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "length": 3,
+          "width": 2,
+          "operation": "implies"
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "length": 3,
+          "width": 2,
+          "operation": "iff"
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "length": 6,
+          "width": 5,
+          "operation": "not"
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "length": 3,
+          "width": 5,
+          "operation": "xor"
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "length": -1,
+          "width": 5,
+          "operation": "and"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Let P mean x≥6 cm and Q mean y≥4 cm. Choose P∧Q, P∨Q, P→Q, P↔Q or ¬P, then apply its classical truth table.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.",
+      "Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true.",
+      "P→Q is false exactly for P true and Q false. P↔Q is true when the two truth values agree. ¬P reverses P and ignores Q.",
+      "The material conditional states a truth-table relation; it does not by itself express causation, relevance, a promise or the full meaning of an ordinary-language conditional."
+    ],
+    "limits": [
+      "The executable predicates are two fixed inclusive dimension requirements; arbitrary formulas and predicates are not parsed.",
+      "The visual uses classical two-valued logic and inclusive OR, rather than graded truth or probabilistic belief.",
+      "Truth tables capture only a stated truth-functional interpretation of language."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Why can P→Q be true when P is false?",
+      "answer": "Only a true antecedent with a false consequent violates the material truth-table condition; no causal relation is asserted."
+    },
+    {
+      "prompt": "Does a panel halfway to the threshold make P partly true?",
+      "answer": "No. In this classical model the measurement moves continuously, while the inclusive threshold test has a definite truth value."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "A centimetre-scale panel, two threshold tests and a truth table show which concrete measurements determine P, Q and the compound result."
+    },
+    {
+      "kind": "graph",
+      "description": "A length-width coordinate plane colors the exact True and False input regions. Boundary lines and the current point identify the active case."
+    },
+    {
+      "kind": "substitution",
+      "description": "Follow each declared input through the stated expression into the labelled truth value or measured result."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Constructed workshop example",
+      "mapping": "Test two stated workshop requirements separately, then follow their truth values through a chosen logical connective.",
+      "limitations": "The executable predicates are two fixed inclusive dimension requirements; arbitrary formulas and predicates are not parsed.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:logical-connectives:two-requirements"
+    },
+    {
+      "context": "Read an inclusive OR",
+      "mapping": "The panel meets the width test, so the inclusive OR is true.",
+      "limitations": "An OR result does not claim that both dimensions pass.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:logical-connectives:either-requirement"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:compound-statements",
+    "source:openstax:truth-tables",
+    "source:openstax:statements-quantifiers"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.27.0: Added an original modular story, Geometry and Graph views, five worked examples and twelve numeric fixtures, sequenced from the supplied book-scope matrix."
+  ]
+}

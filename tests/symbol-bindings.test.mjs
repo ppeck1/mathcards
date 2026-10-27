@@ -32,7 +32,7 @@ test('symbol bindings load offline, remain immutable and reject unknown inputs',
 
 test('every mapped canonical grammar token resolves to an actual rendered quantity mark', () => {
   assert.equal(cards.length, Modules.list().length);
-  const textOnly = new Set(['function-composition:∘', 'real-logarithm:log', 'derivative:lim', 'probability:X','partial-derivative:h','computational-complexity:O(n)','recurrence:k']);
+  const textOnly = new Set(['function-composition:∘', 'real-logarithm:log', 'derivative:lim', 'probability:X','partial-derivative:h','computational-complexity:O(n)','recurrence:k','quantifier:x','stability:k']);
   let mapped = 0, unmapped = 0;
   for (const card of cards) {
     const p = Models.defaults(card.slug);
@@ -50,7 +50,7 @@ test('every mapped canonical grammar token resolves to an actual rendered quanti
       }
     }
   }
-  assert.equal(unmapped, 7);
+  assert.equal(unmapped, 9);
   assert.ok(mapped > 50);
 });
 

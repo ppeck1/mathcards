@@ -86,7 +86,7 @@ def checks(card, schema, source_ids, known):
         if set(case['input'])!=control_ids:errors.append('fixture input/control mismatch')
         for control in inter['controls']:
             value=case['input'].get(control['id'])
-            if control['type']=='enum' and value not in control.get('values',[]):errors.append('invalid fixture enum')
+            if control['type']=='enum' and value not in control.get('values',[]) and case.get('status')!='invalid_parameters':errors.append('invalid fixture enum lacks expected parameter failure')
             if control['type']=='number' and isinstance(value,(int,float)):
                 invalid=value in control.get('excluded',[]) or value<control.get('min',-math.inf) or value>control.get('max',math.inf)
                 if invalid and not case.get('status'):errors.append('invalid fixture value lacks expected failure')
@@ -104,6 +104,37 @@ def checks(card, schema, source_ids, known):
     return errors
 
 def compute(model,p):
+    book_bounds={
+        'logical-connectives-visual-model':{'length':(0,12),'width':(0,12)},
+        'quantifier-visual-model':{'threshold':(0,14)},
+        'cross-product-visual-model':{'uLength':(0,4),'vLength':(0,4),'angle':(-180,180)},
+        'stability-visual-model':{'initialError':(-2,2),'multiplier':(-1.2,1.2),'steps':(0,8)},
+    }
+    if model in book_bounds:
+        bounds=book_bounds[model]
+        select={'logical-connectives-visual-model':('operation',{'and','or','implies','iff','not'}),'quantifier-visual-model':('mode',{'all','some'})}.get(model)
+        keys=set(bounds)|({select[0]} if select else set())
+        if set(p)!=keys or any(type(p[key]) not in (int,float) or not math.isfinite(p[key]) or not low<=p[key]<=high for key,(low,high) in bounds.items()):return {'status':'invalid_parameters'}
+        if select and (not isinstance(p[select[0]],str) or p[select[0]] not in select[1]):return {'status':'invalid_parameters'}
+        if model=='logical-connectives-visual-model':
+            # Literal truth tables check the runtime's logical operators independently.
+            row=2*int(p['length']>=6)+int(p['width']>=4)
+            output={'and':[0,0,0,1],'or':[0,1,1,1],'implies':[1,1,0,1],'iff':[1,0,0,1],'not':[1,1,0,0]}[p['operation']][row]
+        elif model=='quantifier-visual-model':
+            # Count integer indices j in 1..6 satisfying 2*j >= threshold.
+            count=max(0,7-max(1,math.ceil(p['threshold']/2)))
+            output=int(count==6 if p['mode']=='all' else count>0)
+        elif model=='cross-product-visual-model':
+            # Oriented 2x2 determinant of the two planar coordinate vectors.
+            angle=math.radians(p['angle'])
+            output=p['uLength']*(p['vLength']*math.sin(angle))-0*(p['vLength']*math.cos(angle))
+            if p['uLength']>0 and p['vLength']>0 and p['angle']!=0 and abs(p['angle'])!=180 and output==0:return {'status':'numeric_precision'}
+        else:
+            if p['steps']!=int(p['steps']):return {'status':'invalid_parameters'}
+            # Closed powers check the runtime's sequence of exact updates.
+            output=p['initialError']*p['multiplier']**int(p['steps'])
+            if p['initialError']!=0 and p['multiplier']!=0 and output==0:return {'status':'numeric_precision'}
+        return {'status':'valid','output':output}
     data_iteration_bounds={
         'conditional-probability-visual-model':{'eventEnd':(0,100),'windowEnd':(0,100)},
         'variance-visual-model':{'lastLength':(0,20)},
@@ -421,6 +452,12 @@ def main():
         bad=copy.deepcopy(next(c for c in cards if c['slug']=='derivative'));mutate(bad)
         assert checks(bad,schema,source_ids,known),'negative mutation not caught'
         negative_checks+=1
+    # Invalid enum inputs are useful rejection fixtures, but cannot pass as valid states.
+    bad=copy.deepcopy(next(c for c in cards if c['slug']=='logical-connectives'))
+    bad['interactive']['expected_cases'][0]['input']['operation']='unknown-connective'
+    bad['interactive']['expected_cases'][0]['status']='valid'
+    assert checks(bad,schema,source_ids,known),'invalid enum fixture accepted as a valid state'
+    negative_checks+=1
     for model in ['real-logarithm-linked-exponential']:
         assert compute(model,{'base':-2,'argument':8})['status']=='invalid_base'
         assert compute(model,{'base':2,'argument':-8})['status']=='undefined_argument'

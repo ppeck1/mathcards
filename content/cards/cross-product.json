@@ -1,0 +1,767 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:cross-product",
+  "slug": "cross-product",
+  "type": "concept",
+  "title": "Cross product and oriented area",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-10-27T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Workshop stories and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of a book edition or lesson.",
+  "aliases": [
+    "vector product",
+    "oriented parallelogram area",
+    "right-hand rule",
+    "normal vector"
+  ],
+  "branches": [
+    "linear-algebra",
+    "geometry",
+    "measurement"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Rotate one measured edge, follow the perpendicular component into parallelogram area, and keep the normal direction separate from magnitude.",
+  "meaning": "In an oriented Euclidean three-dimensional space, the cross product of two vectors is perpendicular to both. Its magnitude is their parallelogram area; its direction follows the chosen right-handed orientation. Reversing the order reverses the product. The executable family keeps both input vectors in the coordinate plane, so the product has only a signed z component.",
+  "prerequisites": {
+    "required": [
+      "math:concept:vector"
+    ],
+    "helpful": [
+      "math:concept:inner-product",
+      "math:concept:determinant",
+      "math:concept:basis"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A planar family of vectors inside a fixed right-handed orthonormal three-dimensional coordinate frame.",
+    "formal_latex": "\\mathbf u=(a,0,0),\\quad\\mathbf v=(b\\cos\\theta,b\\sin\\theta,0),\\quad\\mathbf u\\times\\mathbf v=(0,0,ab\\sin\\theta),\\quad A=\\lVert\\mathbf u\\times\\mathbf v\\rVert.",
+    "signature": {
+      "u": "First directed edge.",
+      "v": "Second directed edge.",
+      "θ": "Signed angle from u toward v.",
+      "u×v": "Ordered cross product.",
+      "w_z": "Signed z component of u×v.",
+      "|u×v|": "Magnitude of the cross product.",
+      "v_x": "Horizontal component of v.",
+      "v_y": "Vertical component of v."
+    },
+    "conditions": [
+      "The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.",
+      "The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis.",
+      "The input vectors are u=(a,0,0) and v=(b cosθ,b sinθ,0). Their cross product points only in the z direction and its signed component is a b sinθ square metres.",
+      "Unoriented area A is the nonnegative magnitude |a b sinθ|. A zero product has no distinguished normal direction, including parallel inputs and a zero vector. When either length is zero, θ remains the construction's orientation parameter; it is not an angle defined by two nonzero vectors."
+    ],
+    "domain_notes": "The broader cross-product definition applies to three-dimensional vectors in an oriented Euclidean frame. This executable planar family illustrates its component formula, magnitude and orientation without being an arbitrary 3D vector editor.",
+    "proof_status": "Definition-level sources and original restricted-family arguments; independent review pending.",
+    "source_refs": [
+      "source:openstax:cross-product",
+      "source:openstax:vectors-plane"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Cross product and oriented area",
+    "expression_latex": "\\mathbf u=(a,0,0),\\quad\\mathbf v=(b\\cos\\theta,b\\sin\\theta,0),\\quad\\mathbf u\\times\\mathbf v=(0,0,ab\\sin\\theta),\\quad A=\\lVert\\mathbf u\\times\\mathbf v\\rVert.",
+    "formation_rule": "Set u=(a,0,0) and v=(b cosθ,b sinθ,0). The general component rule gives u×v=(u_yv_z−u_zv_y,u_zv_x−u_xv_z,u_xv_y−u_yv_x). In this family w_z=a b sinθ and A=|w_z|. The displayed angle is in degrees.",
+    "precedence": "Compute the components of v from the signed angle, then form the ordered cross product u×v. Take absolute value only when reading the unoriented area.",
+    "symbols": [
+      {
+        "token": "u",
+        "role": "First directed edge",
+        "type": "Vector in metres"
+      },
+      {
+        "token": "v",
+        "role": "Second directed edge",
+        "type": "Vector in metres"
+      },
+      {
+        "token": "θ",
+        "role": "Signed angle from u toward v",
+        "type": "Degrees"
+      },
+      {
+        "token": "u×v",
+        "role": "Ordered cross product",
+        "type": "Area vector in square metres"
+      },
+      {
+        "token": "w_z",
+        "role": "Signed z component of u×v",
+        "type": "Square metres"
+      },
+      {
+        "token": "|u×v|",
+        "role": "Magnitude of the cross product",
+        "type": "Nonnegative square metres"
+      },
+      {
+        "token": "v_x",
+        "role": "Horizontal component of v",
+        "type": "Metres"
+      },
+      {
+        "token": "v_y",
+        "role": "Vertical component of v",
+        "type": "Metres"
+      }
+    ],
+    "ast": {
+      "id": "ast:cross-product:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:uLength",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "uLength",
+          "scope_ref": "scope:cross-product:expression"
+        },
+        {
+          "id": "n:vLength",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "vLength",
+          "scope_ref": "scope:cross-product:expression"
+        },
+        {
+          "id": "n:angle",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "angle",
+          "scope_ref": "scope:cross-product:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried rule for this explicitly bounded executable family",
+          "ref": "Set u=(a,0,0) and v=(b cosθ,b sinθ,0). The general component rule gives u×v=(u_yv_z−u_zv_y,u_zv_x−u_xv_z,u_xv_y−u_yv_x). In this family w_z=a b sinθ and A=|w_z|. The displayed angle is in degrees."
+        },
+        {
+          "id": "n:bound-0",
+          "kind": "apply",
+          "type": "Partially applied declared rule",
+          "function": "n:rule",
+          "argument": "n:uLength"
+        },
+        {
+          "id": "n:bound-1",
+          "kind": "apply",
+          "type": "Partially applied declared rule",
+          "function": "n:bound-0",
+          "argument": "n:vLength"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-1",
+          "argument": "n:angle"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:cross-product:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "uLength",
+            "vLength",
+            "angle"
+          ],
+          "domain_condition": "A planar family of vectors inside a fixed right-handed orthonormal three-dimensional coordinate frame."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Treat w_z as the unoriented area when θ<0",
+        "status": "orientation error",
+        "reason": "The signed normal component can be negative; the parallelogram area is its absolute value."
+      },
+      {
+        "input": "Swap u and v without changing the sign",
+        "status": "order error",
+        "reason": "v×u=−(u×v)."
+      },
+      {
+        "input": "Assign a normal direction to the zero vector",
+        "status": "degeneracy error",
+        "reason": "A zero product has zero magnitude and no distinguished direction."
+      }
+    ],
+    "ast_coverage": "A typed application outline of the stated executable rule. Bound notation in the displayed mathematical definition is explained in the signature; this outline is not a general formula parser or proof engine.",
+    "output_symbol_bindings": {
+      "u": [
+        "uLength",
+        "uX",
+        "uY"
+      ],
+      "v": [
+        "vLength",
+        "vX",
+        "vY"
+      ],
+      "θ": "angle",
+      "u×v": "normalComponent",
+      "w_z": "normalComponent",
+      "|u×v|": "area",
+      "v_x": "vX",
+      "v_y": "vY"
+    }
+  },
+  "properties": [
+    {
+      "claim": "The largest area for fixed lengths occurs at a right angle.",
+      "conditions": "Keep a,b≥0 fixed in this planar family.",
+      "derivation": "A=ab|sinθ|≤ab, with equality atθ=±90° for nonzero lengths.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:cross-product:right-angle"
+    },
+    {
+      "claim": "Reversing the signed right angle reverses the normal but preserves area.",
+      "conditions": "Use the same positive edge lengths and right-handed frame.",
+      "derivation": "sin(−90°)=−sin90°, while absolute values agree.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:cross-product:reverse-turn"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research the development of the concept and notation before adding historical priority claims.",
+      "Check book-specific statements against the exact edition before treating the supplied planning matrix as verified coverage."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The workshop scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:vector",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "The inputs have directed components and units.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:inner-product",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "The dot product uses cosine to measure alignment; the cross-product magnitude uses sine to measure spanned area.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:determinant",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "The signed planar component u_xv_y−u_yv_x is the determinant of the two input columns.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:basis",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "The component formula presumes an ordered right-handed orthonormal basis.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:cross-product:right-angle",
+      "title": "Open the frame to a right angle",
+      "role": "applied_model",
+      "question": "What is u×v for3 m and 2 m edges at 90°?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.",
+        "The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis."
+      ],
+      "inputs": {
+        "uLength": 3,
+        "vLength": 2,
+        "angle": 90
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "u=(3,0,0) m; v=(0,2,0) m.",
+          "reason": "Resolve the right-angle input components."
+        },
+        {
+          "index": 2,
+          "expression": "w_z=3·2−0·0=6 m².",
+          "reason": "Use the ordered planar determinant."
+        },
+        {
+          "index": 3,
+          "expression": "u×v=(0,0,6) m²; A=6 m².",
+          "reason": "Keep the directed normal and its magnitude separate."
+        }
+      ],
+      "result": {
+        "exact": "u×v=(0,0,6) m²; A=6 m²"
+      },
+      "interpretation": "The positive normal points out of the page and the frame spans6 m².",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "A rectangle with sides3 m and 2 m has area6 m²."
+      },
+      "limits": "The normal is an area vector, not a third edge length.",
+      "preset": {
+        "uLength": 3,
+        "vLength": 2,
+        "angle": 90
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.",
+        "The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis."
+      ]
+    },
+    {
+      "id": "math:example:cross-product:reverse-turn",
+      "title": "Turn below the reference edge",
+      "role": "applied_model",
+      "question": "What changes when the angle is−90°?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.",
+        "The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis."
+      ],
+      "inputs": {
+        "uLength": 3,
+        "vLength": 2,
+        "angle": -90
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v=(0,−2,0) m.",
+          "reason": "The second edge points below the positive x axis."
+        },
+        {
+          "index": 2,
+          "expression": "w_z=3·(−2)=−6 m².",
+          "reason": "The ordered cross product reverses normal direction."
+        },
+        {
+          "index": 3,
+          "expression": "A=|−6|=6 m².",
+          "reason": "Unoriented area is the magnitude."
+        }
+      ],
+      "result": {
+        "exact": "u×v=(0,0,−6) m²; A=6 m²"
+      },
+      "interpretation": "The normal points into the page while the area equals the right-angle case.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "The rectangle is a reflection of the previous frame and has the same nonnegative area."
+      },
+      "limits": "A negative component does not mean negative unoriented area.",
+      "preset": {
+        "uLength": 3,
+        "vLength": 2,
+        "angle": -90
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.",
+        "The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis."
+      ]
+    },
+    {
+      "id": "math:example:cross-product:oblique-frame",
+      "title": "Use the perpendicular height",
+      "role": "applied_model",
+      "question": "What area do3 m and 2 m edges span at 30°?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.",
+        "The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis."
+      ],
+      "inputs": {
+        "uLength": 3,
+        "vLength": 2,
+        "angle": 30
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "v_y=2 sin30°=1 m.",
+          "reason": "Find the component perpendicular to u."
+        },
+        {
+          "index": 2,
+          "expression": "w_z=3·1=3 m².",
+          "reason": "Multiply the base by the perpendicular height."
+        },
+        {
+          "index": 3,
+          "expression": "A=3 m².",
+          "reason": "The normal component is positive at this angle."
+        }
+      ],
+      "result": {
+        "exact": "u×v=(0,0,3) m²; A=3 m²"
+      },
+      "interpretation": "The frame spans half the area of the right-angle case.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "Base times height gives3 m·1 m=3 m²."
+      },
+      "limits": "The2 m edge is not itself the perpendicular height.",
+      "preset": {
+        "uLength": 3,
+        "vLength": 2,
+        "angle": 30
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.",
+        "The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis."
+      ]
+    },
+    {
+      "id": "math:example:cross-product:parallel-edges",
+      "title": "Flatten the frame",
+      "role": "applied_model",
+      "question": "What is the product when the angle is 180°?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.",
+        "The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis."
+      ],
+      "inputs": {
+        "uLength": 3,
+        "vLength": 2,
+        "angle": 180
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "u=(3,0,0) m; v=(−2,0,0) m.",
+          "reason": "Both inputs lie on the same line."
+        },
+        {
+          "index": 2,
+          "expression": "u_xv_y−u_yv_x=3·0−0·(−2)=0.",
+          "reason": "There is no perpendicular height."
+        }
+      ],
+      "result": {
+        "exact": "u×v=(0,0,0) m²; A=0 m²"
+      },
+      "interpretation": "The parallelogram degenerates to a line and no normal direction is distinguished.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "Parallel vectors are linearly dependent and span zero area."
+      },
+      "limits": "Zero magnitude carries no positive or negative orientation.",
+      "preset": {
+        "uLength": 3,
+        "vLength": 2,
+        "angle": 180
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.",
+        "The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis."
+      ]
+    },
+    {
+      "id": "math:example:cross-product:zero-edge",
+      "title": "Collapse one edge",
+      "role": "applied_model",
+      "question": "What happens if the first edge has zero length?",
+      "setting": "An originally authored workshop scenario with stipulated quantities and rules.",
+      "assumptions": [
+        "The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.",
+        "The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis."
+      ],
+      "inputs": {
+        "uLength": 0,
+        "vLength": 2,
+        "angle": 60
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "u=(0,0,0) m.",
+          "reason": "The first input is the zero vector."
+        },
+        {
+          "index": 2,
+          "expression": "Every component of u×v is zero.",
+          "reason": "Each product in the component formula contains a zero component of u."
+        }
+      ],
+      "result": {
+        "exact": "u×v=(0,0,0) m²; A=0 m²"
+      },
+      "interpretation": "A zero edge cannot span a nonzero parallelogram area.",
+      "independent_check": {
+        "method": "Separate logical or exact arithmetic check",
+        "expected": "Base times perpendicular height is 0 m times any allowed height."
+      },
+      "limits": "The zero vector has no distinguished direction.",
+      "preset": {
+        "uLength": 0,
+        "vLength": 2,
+        "angle": 60
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.",
+        "The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:cross-product",
+    "renderer_id": "cross-product-visual-model",
+    "renderer_version": "1",
+    "model_id": "cross-product-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:cross-product:expression",
+    "interaction_status": "implemented",
+    "description": "Shared-scale directed edges span the actual parallelogram. An explicitly out-of-page or into-page normal symbol identifies the sign; the readout separately gives signed component and area.",
+    "controls": [
+      {
+        "id": "uLength",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 4,
+        "step": 0.01
+      },
+      {
+        "id": "vLength",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 4,
+        "step": 0.01
+      },
+      {
+        "id": "angle",
+        "type": "number",
+        "default": 60,
+        "min": -180,
+        "max": 180,
+        "step": 0.01
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "uLength": 3,
+          "vLength": 2,
+          "angle": 60
+        },
+        "output": 5.196152422706632
+      },
+      {
+        "input": {
+          "uLength": 3,
+          "vLength": 2,
+          "angle": 90
+        },
+        "output": 6
+      },
+      {
+        "input": {
+          "uLength": 3,
+          "vLength": 2,
+          "angle": -90
+        },
+        "output": -6
+      },
+      {
+        "input": {
+          "uLength": 3,
+          "vLength": 2,
+          "angle": 0
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "uLength": 3,
+          "vLength": 2,
+          "angle": 180
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "uLength": 3,
+          "vLength": 2,
+          "angle": -180
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "uLength": 0,
+          "vLength": 2,
+          "angle": 60
+        },
+        "output": 0
+      },
+      {
+        "input": {
+          "uLength": 4,
+          "vLength": 4,
+          "angle": 90
+        },
+        "output": 16
+      },
+      {
+        "input": {
+          "uLength": 3,
+          "vLength": 2,
+          "angle": 30
+        },
+        "output": 3
+      },
+      {
+        "input": {
+          "uLength": 4,
+          "vLength": 4,
+          "angle": -150
+        },
+        "output": -8
+      },
+      {
+        "input": {
+          "uLength": 3,
+          "vLength": 2,
+          "angle": 181
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "uLength": 5,
+          "vLength": 2,
+          "angle": 60
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Set u=(a,0,0) and v=(b cosθ,b sinθ,0). The general component rule gives u×v=(u_yv_z−u_zv_y,u_zv_x−u_xv_z,u_xv_y−u_yv_x). In this family w_z=a b sinθ and A=|w_z|. The displayed angle is in degrees.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.",
+      "The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis.",
+      "The input vectors are u=(a,0,0) and v=(b cosθ,b sinθ,0). Their cross product points only in the z direction and its signed component is a b sinθ square metres.",
+      "Unoriented area A is the nonnegative magnitude |a b sinθ|. A zero product has no distinguished normal direction, including parallel inputs and a zero vector."
+    ],
+    "limits": [
+      "Both inputs stay in the coordinate plane and their lengths are nonnegative; this is a stated specialization of the three-dimensional cross product.",
+      "An area vector is not a force, moment or torque unless inputs and units are changed under a separately stated model.",
+      "The out-of-page symbol expresses orientation; it is not a perspective rendering of an extra measured length."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Why does the area stay nonnegative when the normal reverses?",
+      "answer": "Orientation belongs to the signed vector product. Unoriented area is its magnitude, so it is nonnegative."
+    },
+    {
+      "prompt": "What happens when the edges become parallel?",
+      "answer": "Their perpendicular separation is zero, so the parallelogram area and cross product are zero."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Shared-scale directed edges span the actual parallelogram. An explicitly out-of-page or into-page normal symbol identifies the sign; the readout separately gives signed component and area."
+    },
+    {
+      "kind": "graph",
+      "description": "The signed normal component varies sinusoidally with θ. A separately labelled nonnegative magnitude curve uses the same fixed square-metre scale."
+    },
+    {
+      "kind": "substitution",
+      "description": "Follow each declared input through the stated expression into the labelled truth value or measured result."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Constructed workshop example",
+      "mapping": "Rotate one measured edge, follow the perpendicular component into parallelogram area, and keep the normal direction separate from magnitude.",
+      "limitations": "Both inputs stay in the coordinate plane and their lengths are nonnegative; this is a stated specialization of the three-dimensional cross product.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:cross-product:right-angle"
+    },
+    {
+      "context": "Turn below the reference edge",
+      "mapping": "The normal points into the page while the area equals the right-angle case.",
+      "limitations": "A negative component does not mean negative unoriented area.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:cross-product:reverse-turn"
+    }
+  ],
+  "source_refs": [
+    "source:openstax:cross-product",
+    "source:openstax:vectors-plane"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.27.0: Added an original modular story, Geometry and Graph views, five worked examples and twelve numeric fixtures, sequenced from the supplied book-scope matrix."
+  ]
+}

@@ -97,7 +97,7 @@
       for(const selector of ['.motion-toggle','.sweep-select','.speed-select','.timeline input'])surface.querySelector(selector).disabled=true;
     }
     if(!module.controls.length){const hint=surface.querySelector('.interaction-hint');hint.hidden=true;hint.style.display='none';}
-    let displayed={...p}, motionPhase=0, pendingAnnounce=false, referenceKey='', referenceValue,semanticKeys=[];
+    let displayed={...p}, motionPhase=0, pendingAnnounce=false, readoutExpression='', referenceKey='', referenceValue,semanticKeys=[];
     const textPacer=Readable.createPacer(), numericScratch=document.createElement('div');let inspector=null;
     const dataDetails=surface.querySelector('.model-data'),dataContent=surface.querySelector('.model-data-content'),dataStatus=surface.querySelector('.model-data-status');let dataKey='',dataAvailable=false;
     if(!globalThis.AtlasModelData)dataDetails.hidden=true;
@@ -154,10 +154,16 @@
     }
     function readout(result,parameters,settled){
       const f=value=>Readable.format(value,{settled});
-      const data=module.readout?module.readout(parameters,result,{view,format:f}):{expression:(module.expression||module.title)+' → '+f(result.output),stats:[{label:'OUTPUT',value:result.output,note:module.unit||''}],insight:''};
+      const baseline=pinned?module.evaluate(pinned):null;
+      const data=module.readout?module.readout(parameters,result,{view,format:f,baseline}):{expression:(module.expression||module.title)+' → '+f(result.output),stats:[{label:'OUTPUT',value:result.output,note:module.unit||''}],insight:''};
+      readoutExpression=module.readout&&typeof data.expression==='string'?data.expression.trim():'';
       let insight=data.insight||'';
       if(result.errors?.length)insight=result.errors.map(error=>error.message).join(' ');
-      if(pinned){const baseline=module.evaluate(pinned);insight+=' Pinned output: '+f(baseline.output)+'. Change: '+f(result.output!=null&&baseline.output!=null?result.output-baseline.output:null)+'.';}
+      if(pinned){
+        const comparison=result.valid&&baseline?.valid?data.comparison:null;
+        const semantic=comparison&&typeof comparison.baselineValue==='string'&&comparison.baselineValue.trim()&&typeof comparison.change==='string'&&comparison.change.trim();
+        insight+=' Pinned output: '+(semantic?comparison.baselineValue:f(baseline.output))+'. Change: '+(semantic?comparison.change:f(result.output!=null&&baseline.output!=null?result.output-baseline.output:null))+'.';
+      }
       updateScene(surface.querySelector('.live-readout'),'<div class="readout-equation">'+escape(data.expression)+'</div><div class="readout-stats">'+(data.stats||[]).map(stat=>'<div class="readout-stat"><span>'+escape(stat.label)+'</span><strong>'+escape(f(stat.value))+'</strong><small>'+escape(stat.note||'')+'</small></div>').join('')+'</div>');
       Readable.writeText(surface.querySelector('.lab-insight'),insight);
     }
@@ -177,7 +183,7 @@
         updateScene(numeric,numericScratch.innerHTML,{formatText:text=>Readable.formatText(text,{settled:resting})});
       }
       paintData(resting);
-      if(pendingAnnounce&&settled&&performance.now()-lastAnnounced>300){surface.querySelector('.lab-status').textContent='Current output '+format(r.output)+'.';lastAnnounced=performance.now();pendingAnnounce=false;}
+      if(pendingAnnounce&&settled&&performance.now()-lastAnnounced>300){surface.querySelector('.lab-status').textContent=readoutExpression?readoutExpression+'.':'Current output '+format(r.output)+'.';lastAnnounced=performance.now();pendingAnnounce=false;}
     }
     function draw(announce=false,notify=true,immediate=false) {
       if(disposed)return;

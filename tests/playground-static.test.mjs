@@ -128,6 +128,51 @@ test('manual controls still work when a module intentionally declares no automat
   } finally { host?.destroy(); h.restore(); }
 });
 
+test('a provider can compare categorical results without exposing numeric truth encodings', () => {
+  const baselines=[];
+  const h=harness(true,{
+    evaluate:p=>({valid:true,output:p.q>=3?1:0,truthLabel:p.q>=3?'True':'False'}),
+    readout(_p,result,context){baselines.push(context.baseline);return{expression:result.truthLabel,stats:[{label:'TRUTH',value:result.truthLabel}],insight:'Categorical result.',...(context.baseline?.valid?{comparison:{baselineValue:context.baseline.truthLabel,change:context.baseline.truthLabel===result.truthLabel?'Unchanged':context.baseline.truthLabel+' → '+result.truthLabel}}:{})};}
+  });let host;
+  try{
+    host=Playground.mount(h.root,{slug:'static-test',parameters:h.parameters});assert.equal(baselines.at(-1),null);assert.match(h.surface.querySelector('.live-readout').innerHTML,/<strong>False<\/strong>/);
+    h.surface.querySelector('.pin-toggle').onclick();assert.equal(baselines.at(-1).truthLabel,'False');assert.match(h.surface.querySelector('.lab-insight').textContent,/Pinned output: False\. Change: Unchanged\./);
+    host.applyParameters({q:4},{immediate:true});assert.equal(baselines.at(-1).truthLabel,'False');assert.match(h.surface.querySelector('.live-readout').innerHTML,/<strong>True<\/strong>/);assert.match(h.surface.querySelector('.lab-insight').textContent,/Pinned output: False\. Change: False → True\./);assert.doesNotMatch(h.surface.querySelector('.lab-insight').textContent,/Pinned output: 0|Change: 1/);
+  }finally{host?.destroy();h.restore();}
+});
+
+test('settled announcements reuse human readouts while numeric fallback keeps its pacing', () => {
+  const performanceDescriptor=Object.getOwnPropertyDescriptor(globalThis,'performance');let time=1000;
+  Object.defineProperty(globalThis,'performance',{configurable:true,value:{now:()=>time}});
+  try{
+    const h=harness(true,{evaluate:p=>({valid:true,output:p.q>=3?1:0}),readout:(_p,r)=>({expression:'P∧Q = '+(r.output?'True':'False'),stats:[],insight:''})});let host;
+    try{
+      host=Playground.mount(h.root,{slug:'static-test',parameters:h.parameters});const slider=h.root.querySelectorAll('[data-param]')[0];slider.type='range';slider.onpointerdown();slider.value='4';slider.oninput();slider.onchange();
+      assert.equal(h.surface.querySelector('.lab-status').textContent,'P∧Q = True.');assert.doesNotMatch(h.surface.querySelector('.lab-status').textContent,/Current output 1/);
+    }finally{host?.destroy();h.restore();}
+    const numeric=harness(true,{readout:undefined});host=null;
+    try{
+      host=Playground.mount(numeric.root,{slug:'static-test',parameters:numeric.parameters});const input=numeric.root.querySelectorAll('[data-param]')[0];input.value='3';input.oninput();assert.equal(numeric.surface.querySelector('.lab-status').textContent,'Current output 9.');
+      time+=100;input.value='4';input.oninput();assert.equal(numeric.surface.querySelector('.lab-status').textContent,'Current output 9.','rapid edits do not flood the live region');
+      time+=301;host.refresh();assert.equal(numeric.surface.querySelector('.lab-status').textContent,'Current output 16.');
+    }finally{host?.destroy();numeric.restore();}
+  }finally{Object.defineProperty(globalThis,'performance',performanceDescriptor);}
+});
+
+test('default numeric and invalid-state comparisons survive absent or malformed semantic metadata', () => {
+  for(const comparison of [undefined,{baselineValue:'False'}, {baselineValue:0,change:'Changed'}, {baselineValue:' ',change:'Changed'}]){
+    const h=harness(true,{evaluate:p=>({valid:p.q!==0,output:p.q===0?null:p.q**2}),readout:(_p,result)=>({expression:'Value',stats:[],insight:'Numeric comparison.',comparison})});let host;
+    try{
+      host=Playground.mount(h.root,{slug:'static-test',parameters:h.parameters});h.surface.querySelector('.pin-toggle').onclick();host.applyParameters({q:4},{immediate:true});assert.match(h.surface.querySelector('.lab-insight').textContent,/Pinned output: 4\. Change: 12\./);
+      host.applyParameters({q:0},{immediate:true});assert.match(h.surface.querySelector('.lab-insight').textContent,/Pinned output: 4\. Change: Undefined\./);
+    }finally{host?.destroy();h.restore();}
+  }
+  const h=harness(true,{evaluate:p=>({valid:p.q!==0,output:p.q===0?null:p.q**2}),readout:()=>({expression:'Value',stats:[],insight:'Numeric comparison.',comparison:{baselineValue:'A label',change:'A change'}})});let host;
+  try{
+    host=Playground.mount(h.root,{slug:'static-test',parameters:{q:0}});h.surface.querySelector('.pin-toggle').onclick();host.applyParameters({q:4},{immediate:true});assert.match(h.surface.querySelector('.lab-insight').textContent,/Pinned output: Undefined\. Change: Undefined\./);
+  }finally{host?.destroy();h.restore();}
+});
+
 test('a custom inspector can redraw its own view without fractal globals and is destroyed with its host', () => {
   let emphasis = 'Initial inspection', changeView, destroyed = 0, renders = 0;
   const h = harness(false, {
