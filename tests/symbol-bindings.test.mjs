@@ -32,7 +32,7 @@ test('symbol bindings load offline, remain immutable and reject unknown inputs',
 
 test('every mapped canonical grammar token resolves to an actual rendered quantity mark', () => {
   assert.equal(cards.length, Modules.list().length);
-  const textOnly = new Set(['function-composition:∘', 'real-logarithm:log', 'derivative:lim', 'probability:X','partial-derivative:h','computational-complexity:O(n)','recurrence:k','quantifier:x','stability:k','relation:x','relation:y','equivalence:c','inference:a','torque:N·m','countability:ℵ₀','finite-state-machine:Σ','finite-state-machine:ε','open-set:b','quantifier-scope:x','quantifier-scope:y','quantifier-scope:o']);
+  const textOnly = new Set(['probability-distribution:X','expected-value:X','entropy:X','entropy:log₂','function-composition:∘', 'real-logarithm:log', 'derivative:lim', 'probability:X','partial-derivative:h','computational-complexity:O(n)','recurrence:k','quantifier:x','stability:k','relation:x','relation:y','equivalence:c','inference:a','torque:N·m','countability:ℵ₀','finite-state-machine:Σ','finite-state-machine:ε','open-set:b','quantifier-scope:x','quantifier-scope:y','quantifier-scope:o']);
   let mapped = 0, unmapped = 0;
   for (const card of cards) {
     const p = Models.defaults(card.slug);
@@ -51,7 +51,7 @@ test('every mapped canonical grammar token resolves to an actual rendered quanti
       }
     }
   }
-  assert.equal(unmapped, 21);
+  assert.equal(unmapped, textOnly.size);
   assert.ok(mapped > 50);
 });
 

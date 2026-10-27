@@ -12,6 +12,32 @@
   const port=(direction,key,label,type,unit,description)=>Object.freeze({id:direction+':'+key,label,direction,key,type,unit,description});
   const input=(...args)=>port('input',...args),output=(...args)=>port('output',...args);
   const definitions={
+    'probability-distribution':[
+      input('oneChance','One-book probability','probability','1','The probability q assigned to exactly one book.'),
+      input('twoShare','Two-book share of remaining probability','probability-partition-share','1','The fraction r of the remaining probability 1-q assigned to two books.'),
+      output('output','Two-book probability','probability','1','The probability of the two-book outcome, not a density.'),
+      output('p0','Zero-book probability','probability','1','Probability (1-q)(1-r) of zero books.'),
+      output('p1','One-book probability','probability','1','Probability q of one book.'),
+      output('p2','Two-book probability','probability','1','Probability (1-q)r of two books.')
+    ],
+    'expected-value':[
+      input('oneChance','One-book probability','probability','1','The probability q assigned to exactly one book.'),
+      input('twoShare','Two-book share of remaining probability','probability-partition-share','1','The fraction r of the remaining probability 1-q assigned to two books.'),
+      output('output','Expected books returned','expected-count','book','The probability-weighted mean; an expected count may be fractional.'),
+      output('mean','Expected books returned','expected-count','book','The probability-weighted mean; an expected count may be fractional.'),
+      output('p0','Zero-book probability','probability','1','Probability (1-q)(1-r) of zero books.'),
+      output('p1','One-book probability','probability','1','Probability q of one book.'),
+      output('p2','Two-book probability','probability','1','Probability (1-q)r of two books.')
+    ],
+    'entropy':[
+      input('oneChance','One-book probability','probability','1','The probability q assigned to exactly one book.'),
+      input('twoShare','Two-book share of remaining probability','probability-partition-share','1','The fraction r of the remaining probability 1-q assigned to two books.'),
+      output('output','Shannon entropy','information-entropy','bit','The expected base-two surprisal; this quantity is not thermodynamic entropy.'),
+      output('entropy','Shannon entropy','information-entropy','bit','The expected base-two surprisal; this quantity is not thermodynamic entropy.'),
+      output('p0','Zero-book probability','probability','1','Probability (1-q)(1-r) of zero books.'),
+      output('p1','One-book probability','probability','1','Probability q of one book.'),
+      output('p2','Two-book probability','probability','1','Probability (1-q)r of two books.')
+    ],
     countability:[
       input('index','Selected enumeration index','enumeration-index','1','A whole nonnegative index into the fixed enumeration of integers.'),
       output('output','Integer at the selected index','integer-value','1','The finite integer f(n), not an infinite cardinal or the size of the integer set.'),

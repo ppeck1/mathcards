@@ -57,6 +57,22 @@ controls, timing, pins, readable values and saved-state behavior. Open sets fill
 an existing atlas gap while providing a prerequisite for the book sequence;
 there is no claim that a missing book-matrix row has been reconstructed.
 
+## Fourth build: chance and information
+
+| Lesson | Matrix connection | Connected representation | Boundary |
+|---|---|---|---|
+| Probability distributions | A prerequisite for the entropy strand; fills the atlas's general discrete-distribution gap | A return-desk model assigns probability to zero, one or two books; a fixed whole-probability strip and separate masses move together | Three finite outcomes, specified probabilities and no inference from observations |
+| Expected value | A prerequisite for interpreting entropy as an expectation | Each book count is multiplied by its probability; the contributions locate the distribution's balance point | The mean can be fractional and is not a promised next outcome or a guaranteed finite-run average |
+| Shannon entropy | Precursor for MAT-052 and MAT-177 | Follow each positive probability through base-two surprisal into a weighted contribution; the sum agrees with the entropy graph | Information entropy in bits; neither microcanonical thermodynamics nor a definition of form in the book's setting is implemented |
+
+One family in `chance-information.js` evaluates the same probability vector for
+all three modules. Narrative stays in `chance-information-stories.js`; canonical
+cards, reference language and map membership remain separate. The existing
+host supplies timing, readable numbers, comparison pins and Geometry/Graph.
+The zero-probability entropy contribution is defined by continuity without
+evaluating a logarithm of zero. No random sampler or extra animation clock is
+needed to explain the distribution and its two summaries.
+
 ## Expansion sequence
 
 Stage labels group prerequisite streams. They are an editorial roadmap, not a
@@ -73,8 +89,8 @@ claim that all earlier stages are required for every later topic.
 | 7 · Singularities and catastrophes | 21 | Fold first, then cusp and hysteresis; critical-point geometry | Equilibria, parameterized families, local derivatives and clear state/control axes |
 | 8 · Qualitative modeling and applications | 33 | Qualitative versus quantitative models; potentials; carefully bounded morphology examples | Distinguish a mathematical construction, a historical interpretation and empirically validated prediction |
 
-The CSV currently links 46 rows to draft introductions, 39 to precursors, and
-leaves 129 without a dedicated introduction or precursor link. These are
+The CSV currently links 46 rows to draft introductions, 41 to precursors, and
+leaves 127 without a dedicated introduction or precursor link. These are
 topic-to-lesson links, not counts of independently reviewed or complete topics.
 All 214 rows still require scope review as expansion proceeds.
 

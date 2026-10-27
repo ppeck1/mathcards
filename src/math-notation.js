@@ -13,7 +13,7 @@
   const named={sin:['sine'],cos:['cosine'],tan:['tangent-function'],sec:['secant-function'],csc:['cosecant-function'],cot:['cotangent-function'],arcsin:['arcsine'],arccos:['arccosine'],arctan:['arctangent'],ln:['logarithm'],log:['logarithm'],Log:['logarithm'],exp:['exponential-function'],sqrt:['square-root'],abs:['absolute-value'],norm:['magnitude'],hypot:['hypot'],atan2:['atan2'],floor:['floor'],ceil:['ceiling'],frac:['fractional-part'],det:['determinant'],rank:['rank'],dim:['vector-space-dimension'],min:['minimum'],max:['maximum'],argmin:['argmin'],argmax:['argmax'],arg:['complex-argument'],Re:['real-part'],Im:['imaginary-part'],Var:['variance'],Binomial:['binomial-distribution'],Apply:['function-notation'],AB:['matrix-product'],BA:['matrix-product'],T_A:['linear-map','function-notation'],dom:['domain'],codom:['codomain'],sign:['sign-function'],sgn:['sign-function'],proj:['projection','scalar-projection'],lim:['limit'],mod:['modulo'],bmod:['modulo'],pmod:['modulo']};
   const texFunctions=new Set(['sin','cos','tan','sec','csc','cot','arcsin','arccos','arctan','ln','log','exp','det','dim','min','max','lim','arg','Re','Im','bmod','pmod']);
   Object.assign(named,{Pr:['probability'],span:['span'],tr:['matrix-trace'],ker:['kernel'],im:['image-of-map'],comp:['scalar-projection'],comp_u:['scalar-projection'],SD:['standard-deviation'],sd:['standard-deviation'],Bin:['binomial-distribution']});
-  Object.assign(named,{D_uF:['directional-derivative'],R_h:['binary-relation']});
+  Object.assign(named,{D_uF:['directional-derivative'],R_h:['binary-relation'],p_X:['probability-mass-function']});
   Object.assign(macros,{setminus:'∖',smallsetminus:'∖',land:'∧',wedge:'∧',lor:'∨',vee:'∨',neg:'¬',lnot:'¬',leftrightarrow:'↔',top:'⊤',bot:'⊥',odot:'⊙',otimes:'⊗',models:'⊨'});
   const glyphs={'+':['addition'],'-':['subtraction'],'−':['subtraction'],'×':['multiplication'],'·':['multiplication'],'⋅':['multiplication'],'*':['multiplication'],'÷':['division'],'/':['division'],'=':['equality'],'≠':['not-equal'],'<':['less-than'],'>':['greater-than'],'≤':['less-or-equal'],'≥':['greater-or-equal'],'≈':['approximately-equal'],'±':['plus-minus'],'%':['percent'],'√':['square-root'],'∞':['infinity'],'ℕ':['natural-number'],'ℤ':['integer'],'ℚ':['rational-number'],'ℝ':['real-number'],'ℂ':['complex-number'],'∈':['element'],'∉':['element'],'∀':['for-all'],'∃':['there-exists'],'⇒':['implication','logical-conditional'],'⇔':['if-and-only-if'],'∘':['composition'],'∑':['summation'],'∫':['integral','indefinite-integral'],'∬':['multiple-integral'],'∭':['multiple-integral'],'∮':['contour-integral'],'∂':['partial-derivative'],'∇':['gradient'],'⊥':['orthogonal'],'≡':['identity'],'∼':['distribution-notation'],'…':['ellipses'],'⋯':['ellipses'],'|':['vertical-bar'],'‖':['magnitude'],'′':['prime-mark'],'″':['higher-derivative','prime-mark'],'^':['superscript','exponent'],'_':['subscript'],'(':['grouping-parentheses'],')':['grouping-parentheses'],'[':['square-brackets'],']':['square-brackets'],'{':['curly-braces'],'}':['curly-braces'],'→':['right-arrow'],'↦':['maps-to'],'⌊':['floor'],'⌋':['floor'],'⌈':['ceiling'],'⌉':['ceiling'],'!':['factorial']};
   const vulgar={'½':'1/2','¼':'1/4','¾':'3/4','⅓':'1/3','⅔':'2/3','⅛':'1/8','⅜':'3/8','⅝':'5/8','⅞':'7/8'};
@@ -45,6 +45,18 @@
     if(Object.hasOwn(vulgar,raw)||/^[-+]?\d+\/\d+$/.test(q))add('fraction');
     if(q==='∃!')add('unique-exists');
     if(q==='ℵ_0'||q==='ℵ')add('aleph-null');
+    if(['probability-distribution','expected-value','entropy'].includes(options.slug)){
+      if(/^p_(?:[012i]|\{[012i]\})$/.test(q))add('probability-mass');
+      if(q==='p_X(x)')add('probability-mass-function');if(q==='x_i')add('discrete-outcome-value');
+      if(q==='q')add('one-book-chance');if(q==='r')add('remaining-two-share');if(q==='μ')add('probability-mean');
+      if(q==='∑p_i')add('total-probability-mass');
+      if(/^c_(?:[012i]|\{[012i]\})$/.test(q)||q==='x_ip_i')add('expectation-contribution');
+      if(q==='H(X)'||q==='H[X]')add('entropy');
+      if(/^I\(x(?:_i)?\)$/.test(q))add('self-information');
+      if(/^h_(?:[012i]|\{[012i]\})$/.test(q))add('entropy-contribution');
+      if(q==='log_2'||/^log_2\(.+\)$/.test(q))add('base-two-logarithm');
+      if(/^0log_2(?:0|\(0\))$/.test(q))add('zero-entropy-term');
+    }
     if(options.slug==='countability'){
       if(/^f\([^()]+\)$/.test(q))add('enumeration');if(/^g\([^()]+\)$/.test(q))add('inverse-enumeration');
     }
@@ -121,7 +133,8 @@
     if(unit==='m² per unit setting')return['compound-unit','declared-unit'];
     if(q==='px')return['pixel-unit'];if(q==='°'||unit==='degrees')return['degree'];if(unit==='rad'||unit==='radians')return['radian'];
     if(['unitless','dimensionless','× reference','ratio'].includes(unit))return unit==='ratio'?['ratio','dimensionless']:['dimensionless'];
-    if(unit==='symbols')return['symbol-count'];
+    if(unit==='symbols')return['symbol-count'];if(unit==='share')return['ratio','dimensionless'];
+    if(['bit','bits'].includes(unit))return['bit'];if(['book','books','expected books','books per check-in'].includes(unit))return['book-count-unit'];
     if(['population fraction','fraction','of capacity','probability','fraction of flagged items'].includes(unit))return['ratio','probability'];
     if(['generations','passes','levels','refinements'].includes(unit))return['iteration'];
     if(unit==='truth value')return['truth-value'];
@@ -166,6 +179,11 @@
     const delimiters=(open,close)=>{emit(text[open],open,'grouping');emit(text[close],close,'grouping');};
     for(let i=0;i<text.length;){const rest=text.slice(i),c=String.fromCodePoint(text.codePointAt(i));
       if(/\s/u.test(c)){i+=c.length;continue;}
+      if(['probability-distribution','expected-value','entropy'].includes(slug)){
+        const zeroEntropy=/^0\s*(?:\\log\s*_\s*\{?2\}?|log₂|log_2)\s*0(?![0-9])/.exec(rest);
+        if(zeroEntropy){emit(zeroEntropy[0],i,'structured',{entryIds:['zero-entropy-term']});i+=zeroEntropy[0].length;continue;}
+      }
+
       const meanBar=/^[xz][̄̅]/u.exec(rest);if(meanBar){emit(meanBar[0],i,'structured');i+=meanBar[0].length;continue;}
       const texVectorProduct=/^(\\vec\s*\{r\})\s*\\times\s*(\\vec\s*\{F\})/.exec(rest);if(texVectorProduct){emit(texVectorProduct[0],i,'structured',{entryIds:['cross-product']});emit(texVectorProduct[1],i,'structured',{entryIds:['position-vector']});emit(texVectorProduct[2],i+texVectorProduct[0].lastIndexOf(texVectorProduct[2]),'structured',{entryIds:['force']});i+=texVectorProduct[0].length;continue;}
       const texVector=/^\\vec\s*\{(?:[A-Za-zα-ωΑ-Ω]|\\[A-Za-z]+)\}/.exec(rest);if(texVector){emit(texVector[0],i,'structured');i+=texVector[0].length;continue;}
@@ -212,7 +230,7 @@
       }
       const functionStart=/^(?:[A-Za-z]['’′″]+|(?:E|P|C|O|Θ|[fghWVARdSvLTw]|AB|BA|T_A|Apply|Log|sin|cos|tan|sec|csc|cot|arcsin|arccos|arctan|log(?:_(?:[A-Za-z0-9]+|\{[^{}]+\}|\([^()]+\))|[₀-₉]+|\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)?|ln|exp|sqrt|abs|norm|hypot|atan2|floor|ceil|frac|det|rank|dim|min|max|argmin|argmax|arg|Re|Im|Var|Binomial|sign|sgn|proj)(?:['’′″]+)?)\s*[([]/.exec(rest);
       const predicateStart=/^(?:[PR](?:_h|_\{h\}|ₕ)|φ(?:_h|_\{h\}|ₕ)|B(?:ε|_ε|_\{ε\})|δ)\s*\(/.exec(rest);
-      const nativeStart=/^([A-Za-z][A-Za-z0-9_]*)\s*[([]/.exec(rest),recognizedStart=predicateStart||functionStart||(nativeStart&&Object.hasOwn(named,nativeStart[1])?nativeStart:null);
+      const nativeStart=/^([A-Za-z][A-Za-z0-9_]*)\s*[([]/.exec(rest),recognizedStart=predicateStart||functionStart||(['probability-distribution','expected-value','entropy'].includes(slug)&&/^(?:H|I|p_X)\s*[([]/.exec(rest))||(nativeStart&&Object.hasOwn(named,nativeStart[1])?nativeStart:null);
       if(recognizedStart){const open=rest[recognizedStart[0].length-1],start=i+recognizedStart[0].length-1,end=balanced(text,start,open,open==='('?')':']');if(end){const token=text.slice(i,end),ids=classify(token,{slug});if(ids.length){emit(token,i,'structured',{entryIds:ids});delimiters(start,end-1);children(start+1,end-1);i=end;continue;}}}
       const decorated=/^[A-Za-zα-ωΑ-Ωℵℕ][A-Za-z0-9α-ωΑ-Ω]*(?:_[A-Za-z0-9]|_\{[^{}]+\}|\^[A-Za-z0-9+-]|\^\{[^{}]+\}|[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]+)(?:[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]*)/.exec(rest);
       if(decorated&&!/[A-Za-z_]/.test(rest[decorated[0].length]||'')){emit(decorated[0],i,'structured');for(const match of decorated[0].matchAll(/\{([^{}]*)\}/g)){const start=i+match.index;delimiters(start,start+match[0].length-1);children(start+1,start+match[0].length-1);}i+=decorated[0].length;continue;}

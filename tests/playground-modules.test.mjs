@@ -8,6 +8,7 @@ const require = createRequire(import.meta.url);
 const modules = require('../src/playground-modules.js');
 const models = require('../src/models.js');
 const expectedIds = [
+  'probability-distribution', 'expected-value', 'entropy',
   'countability', 'finite-state-machine', 'open-set', 'quantifier-scope',
   'relation', 'equivalence', 'inference', 'torque',
   'logical-connectives', 'quantifier', 'cross-product', 'stability',

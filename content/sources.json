@@ -612,6 +612,42 @@
       "locator": "Order of Quantifiers: witness dependence and the difference between universal-existential and existential-universal claims",
       "verification": "Definition-level material inspected 2026-10-27 on the author, university or course publication. Supports the stated definitions and conditions, not independent review, photographed-book coverage or verification of the original constructed scenarios.",
       "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:discrete-pmf",
+      "title": "Introductory Statistics 2e, 4.1 Probability Distribution Function (PDF) for a Discrete Random Variable",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/4-1-probability-distribution-function-pdf-for-a-discrete-random-variable",
+      "kind": "textbook",
+      "locator": "Section 4.1: discrete random variables, probability masses between zero and one inclusive, and total mass one. The lesson calls this a probability mass function to distinguish it from a continuous density.",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher or university publication. Supports the stated definitions and units, not independent mathematical review or empirical validation of the original library scenario.",
+      "rights": "Reference only. Explanations, library scenarios and worked derivations are originally authored; no source prose, exercises or diagrams copied."
+    },
+    {
+      "id": "source:openstax:expected-value",
+      "title": "Introductory Statistics 2e, 4.2 Mean or Expected Value and Standard Deviation",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/4-2-mean-or-expected-value-and-standard-deviation",
+      "kind": "textbook",
+      "locator": "Section 4.2: the probability-weighted mean of a discrete random variable, its expected-value formula and the difference between the model mean and a short-run result.",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher or university publication. Supports the stated definitions and units, not independent mathematical review or empirical validation of the original library scenario.",
+      "rights": "Reference only. Explanations, library scenarios and worked derivations are originally authored; no source prose, exercises or diagrams copied."
+    },
+    {
+      "id": "source:stanford:discrete-entropy",
+      "title": "John Duchi, Stanford Statistics 311, Lecture Notes on Statistics and Information Theory",
+      "url": "https://stanford.edu/class/stats311/lecture-notes.pdf",
+      "kind": "institutional_teaching",
+      "locator": "December 6, 2023 edition, printed pages 12–15: natural-log convention, finite discrete entropy, uniform distributions and the finite-alphabet upper bound. The lesson converts the natural-log formula and bound to base two by change of base.",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher or university publication. Supports the stated definitions and units, not independent mathematical review or empirical validation of the original library scenario.",
+      "rights": "Reference only. Explanations, library scenarios and worked derivations are originally authored; no source prose, exercises or diagrams copied."
+    },
+    {
+      "id": "source:mit:entropy-units",
+      "title": "MIT 6.441 Information Theory, Spring 2016, Course Notes",
+      "url": "https://ocw.mit.edu/courses/6-441-information-theory-spring-2016/5d8f16adc3385c9ff2975b121bd620e4_MIT6_441S16_course_notes.pdf",
+      "kind": "institutional_teaching",
+      "locator": "Section 1.1, printed page 9 (PDF page index 8): entropy definition, continuous zero-probability contribution, and base-two logarithms measured in bits.",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher or university publication. Supports the stated definitions and units, not independent mathematical review or empirical validation of the original library scenario.",
+      "rights": "Reference only. Explanations, library scenarios and worked derivations are originally authored; no source prose, exercises or diagrams copied."
     }
   ]
 }

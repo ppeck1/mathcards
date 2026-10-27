@@ -1,3 +1,18 @@
+# 0.30.0 — Distributions, expectation and information
+
+- Add three linked lessons using one library return-desk model: a finite
+  probability distribution, expected value and Shannon entropy in bits.
+- Follow probability through a fixed 100% strip and discrete masses, weighted
+  contributions into a balance point, and surprisal into entropy contributions.
+- Keep story, formula, Geometry, Graph, previews, pins and saved values tied to
+  one pure provider, with a separate narrative provider and the existing clock.
+- Handle zero-probability terms by continuity, distinguish entropy from realized
+  surprisal, and keep information entropy separate from thermodynamic claims.
+- Add 15 original examples and 36 canonical fixtures; reach 56 draft cards,
+  284 examples, 562 fixtures, 340 written exports and 119 views.
+- Expand searchable terms and scoped notation, learner order, Chance territory
+  and book-roadmap precursors without claiming the broader book topics complete.
+
 # 0.29.0 — Enumeration, configurations and neighborhoods
 
 - Fill thin atlas areas with countability, finite-state machines and open sets;

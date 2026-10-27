@@ -3,6 +3,7 @@ import copy
 import csv
 import importlib.util
 import json
+import math
 from pathlib import Path
 import re
 import sys
@@ -15,8 +16,26 @@ sys.path.insert(0,str(ROOT/'tools'))
 from build import build, load_catalog, catalog_script
 from export_boh import canonical, build as build_export
 from release import application_version, stamp_template
+from validate_package import compute
 
 class PipelineTests(unittest.TestCase):
+    def test_chance_reference_uses_tail_sums_and_entropy_partition(self):
+        # Independent identities check the three-outcome PMF, including its
+        # boundary distributions and the binary partition used by the oracle.
+        for q,r in [(0,0),(0,1),(1,0),(1,1),(.5,.5),(.5,.75),(1/3,.5),(.999,.001)]:
+            p=[(1-q)*(1-r),q,(1-q)*r]
+            parameters={'oneChance':q,'twoShare':r}
+            with self.subTest(parameters=parameters):
+                self.assertTrue(math.isclose(math.fsum(p),1,abs_tol=1e-15))
+                self.assertAlmostEqual(compute('probability-distribution-visual-model',parameters)['output'],p[2])
+                self.assertAlmostEqual(compute('expected-value-visual-model',parameters)['output'],math.fsum(i*v for i,v in enumerate(p)))
+                direct=math.fsum(-v*math.log2(v) for v in p if v>0)
+                self.assertAlmostEqual(compute('entropy-visual-model',parameters)['output'],direct)
+        for model in ['probability-distribution','expected-value','entropy']:
+            for parameters in [{'oneChance':True,'twoShare':.5},{'oneChance':'0.5','twoShare':.5},{'oneChance':-.01,'twoShare':.5},{'oneChance':.5,'twoShare':1.01},{'oneChance':math.inf,'twoShare':.5},{'oneChance':.5}]:
+                with self.subTest(model=model,parameters=parameters):
+                    self.assertEqual(compute(model+'-visual-model',parameters)['status'],'invalid_parameters')
+
     def test_workspace_format_schema_and_public_fixture(self):
         schema=json.loads((ROOT/'schemas/workspace.schema.json').read_text(encoding='utf-8'))
         fixture=json.loads((ROOT/'examples/workspace-format-fixture.json').read_text(encoding='utf-8'))
@@ -36,9 +55,9 @@ class PipelineTests(unittest.TestCase):
         for card in catalog['cards']:
             source=json.loads((ROOT/'content/cards'/(card['slug']+'.json')).read_text(encoding='utf-8'))
             self.assertEqual(source,card)
-        self.assertEqual(len(catalog['cards']),53)
-        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),269)
-        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),526)
+        self.assertEqual(len(catalog['cards']),56)
+        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),284)
+        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),562)
 
     def test_book_roadmap_preserves_topic_identity_and_honest_card_links(self):
         with (ROOT/'docs/BOOK_CONCEPT_ROADMAP.csv').open(encoding='utf-8',newline='') as stream:
@@ -68,7 +87,7 @@ class PipelineTests(unittest.TestCase):
             a,b=Path(tmp)/'a',Path(tmp)/'b'
             ma,mb=build_export(a),build_export(b)
             self.assertEqual(ma,mb)
-            self.assertEqual(ma['document_count'],322)
+            self.assertEqual(ma['document_count'],340)
             for entry in ma['documents']:
                 self.assertEqual((a/entry['path']).read_bytes(),(b/entry['path']).read_bytes())
                 self.assertNotIn('notebook',entry['path'])

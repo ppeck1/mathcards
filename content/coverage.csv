@@ -76,9 +76,9 @@ math:concept:conditional-probability,Conditional Probability,probability,draft_s
 math:concept:independence,Independence,probability,planned,expansion,pending,pending,planned
 math:concept:bayes-rule,Bayes Rule,probability,planned,expansion,pending,pending,planned
 math:concept:random-variable,Random Variable,probability,planned,expansion,pending,pending,planned
-math:concept:expectation,Expectation,probability,planned,expansion,pending,pending,planned
+math:concept:expected-value,Expected Value,probability,draft_specimen,expansion,pending,pending,implemented
 math:concept:variance,Variance,probability,draft_specimen,expansion,pending,pending,implemented
-math:concept:probability-distribution,Probability Distribution,probability,planned,expansion,pending,pending,planned
+math:concept:probability-distribution,Probability Distribution,probability,draft_specimen,expansion,pending,pending,implemented
 math:concept:population-sample,Population Sample,statistics-inference,draft_specimen,expansion,pending,pending,implemented
 math:concept:sampling-distribution,Sampling Distribution,statistics-inference,planned,expansion,pending,pending,planned
 math:concept:estimator,Estimator,statistics-inference,planned,expansion,pending,pending,planned
@@ -160,7 +160,7 @@ math:concept:conditioning,Conditioning,modeling-computation,planned,expansion,pe
 math:concept:roundoff-error,Roundoff Error,modeling-computation,planned,expansion,pending,pending,planned
 math:concept:model-validation,Model Validation,modeling-computation,planned,expansion,pending,pending,planned
 math:concept:information-content,Information Content,information,planned,expansion,pending,pending,planned
-math:concept:entropy,Entropy,information,planned,expansion,pending,pending,planned
+math:concept:entropy,Entropy,information,draft_specimen,expansion,pending,pending,implemented
 math:concept:conditional-entropy,Conditional Entropy,information,planned,expansion,pending,pending,planned
 math:concept:mutual-information,Mutual Information,information,planned,expansion,pending,pending,planned
 math:concept:relative-entropy,Relative Entropy,information,planned,expansion,pending,pending,planned

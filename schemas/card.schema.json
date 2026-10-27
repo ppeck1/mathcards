@@ -1053,7 +1053,10 @@
             "countability-visual-model",
             "finite-state-machine-visual-model",
             "open-set-visual-model",
-            "quantifier-scope-visual-model"
+            "quantifier-scope-visual-model",
+            "probability-distribution-visual-model",
+            "expected-value-visual-model",
+            "entropy-visual-model"
           ]
         },
         "renderer_version": {
