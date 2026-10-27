@@ -25,14 +25,17 @@ def main():
                               'documents':payload['file_count'],'boh_commit':payload['boh_commit'],
                               'scope':payload['scope']},indent=2))
         else: print(result.stdout.strip())
-    notation=subprocess.run(['node',str(ROOT/'tools/check_notation.cjs'),'--report','docs/NOTATION_COVERAGE_0_22_0.json'],cwd=ROOT,capture_output=True,text=True)
+    notation=subprocess.run(['node',str(ROOT/'tools/check_notation.cjs'),'--report','docs/NOTATION_COVERAGE_0_23_0.json'],cwd=ROOT,capture_output=True,text=True)
     if notation.returncode:
         print(notation.stdout);print(notation.stderr,file=sys.stderr);return notation.returncode
     report=json.loads(notation.stdout)
     print(json.dumps({'check':'public notation coverage','pass':report['complete'],
                       'index_entries':report['indexEntries'],'counts':report['counts'],
                       'scope':report['scope']},indent=2))
-    suite=unittest.defaultTestLoader.discover(str(ROOT/'tests'),pattern='pipeline_test.py')
+    suite=unittest.TestSuite([
+        unittest.defaultTestLoader.discover(str(ROOT/'tests'),pattern='pipeline_test.py'),
+        unittest.defaultTestLoader.discover(str(ROOT/'tests'),pattern='terrain_generation_test.py'),
+    ])
     return 0 if unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful() else 1
 
 if __name__ == '__main__': raise SystemExit(main())

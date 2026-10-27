@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Compile canonical cards into an offline application and inert BOH projection.
 
-Uses only the Python standard library. Run tools/check.py for full JSON Schema
+Uses the Python standard library and Node.js for the shared reference compiler.
+Run tools/check.py for full JSON Schema
 and pinned BOH metadata validation (requirements-checks.txt).
 """
 from __future__ import annotations
@@ -11,11 +12,13 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).parent))
 from export_boh import build as build_export, canonical, read_cards
+from build_terrain import build as build_terrain
 
 RENDERERS = {
     'function-composition-quadratic-affine',
@@ -56,7 +59,7 @@ def load_catalog():
             elif isinstance(value, list):
                 for v in value: refs(v)
         refs(card)
-    return {'schema_version':'0.1.0', 'build_version':'0.22.0',
+    return {'schema_version':'0.1.0', 'build_version':'0.23.0',
             'cards':cards, 'sources':sources, 'coverage':coverage}
 
 def catalog_script(catalog):
@@ -71,10 +74,14 @@ def build(output=None, catalog_only=False):
     catalog = load_catalog()
     src = ROOT/'src'; src.mkdir(parents=True, exist_ok=True)
     (src/'catalog.js').write_text(catalog_script(catalog), encoding='utf-8')
+    # Reference-to-card cross-links are deterministic build data. Never scan
+    # every card field before the browser can display its first lesson.
+    subprocess.run(['node',str(ROOT/'tools/build_math_index.cjs')],cwd=ROOT,check=True)
     export = build_export(ROOT/'export')
     if catalog_only:
         return {'cards':len(catalog['cards']), 'examples':sum(len(c['examples']) for c in catalog['cards']),
                 'boh_documents':export['document_count'], 'catalog_only':True}
+    terrain = build_terrain(quiet=True)
     template = (src/'index.html').read_text(encoding='utf-8')
     # The editable source page loads separate assets. The downloadable page
     # embeds those assets instead; loading both would run the app twice and
@@ -83,7 +90,7 @@ def build(output=None, catalog_only=False):
     template = re.sub(r'<script\b(?=[^>]*\bdata-development\b)[^>]*>.*?</script>\s*', '', template, flags=re.IGNORECASE | re.DOTALL)
     css = '\n'.join((src/name).read_text(encoding='utf-8') for name in ['styles.css','experience.css','studio.css','motion.css','life-story.css','calculation-flow.css','scene-inspector.css','semantic-links.css','workspace-panel.css','workspace-library.css','card-previews.css','model-data.css','concept-atlas.css','atlas-landscape.css','atlas-explorer.css','math-index.css','atlas-search.css'])
     js = '\n'.join((src/name).read_text(encoding='utf-8') for name in
-                   ['everyday.js','fractal-lens.js','chaos-trace.js','discovery.js','frontier.js','plot-view.js','foundations.js','linear-algebra.js','linear-workflows.js','calculus-fields.js','local-change.js','atlas-gaps.js','model-registry.js','models.js','catalog.js','notebook.js','visuals.js','spatial.js','module-graphs.js','life-stories.js','discovery-stories.js','frontier-stories.js','foundation-stories.js','linear-algebra-stories.js','linear-workflow-stories.js','calculus-field-stories.js','local-change-stories.js','atlas-gap-stories.js','story-library.js','experiments.js','scene-input.js','motion.js','readable-values.js','scene-inspector.js','module-registry.js','semantic-links.js','symbol-bindings.js','module-ports.js','playground-modules.js','model-data.js','playground.js','workspace-links.js','workspace-panel.js','workspace-store.js','workspace-runtime.js','workspace-library.js','story-links.js','story-scenes.js','story-journey.js','calculation-flow.js','life-story.js','card-previews.js','concept-atlas.js','atlas-regions.js','atlas-landscape.js','atlas-explorer.js','math-terms.js','math-notation.js','math-index.js','atlas-search.js','app.js'])
+                   ['everyday.js','fractal-lens.js','chaos-trace.js','discovery.js','frontier.js','plot-view.js','foundations.js','linear-algebra.js','linear-workflows.js','calculus-fields.js','local-change.js','atlas-gaps.js','model-registry.js','models.js','catalog.js','notebook.js','visuals.js','spatial.js','module-graphs.js','life-stories.js','discovery-stories.js','frontier-stories.js','foundation-stories.js','linear-algebra-stories.js','linear-workflow-stories.js','calculus-field-stories.js','local-change-stories.js','atlas-gap-stories.js','story-library.js','experiments.js','scene-input.js','motion.js','readable-values.js','scene-inspector.js','module-registry.js','semantic-links.js','symbol-bindings.js','module-ports.js','playground-modules.js','model-data.js','playground.js','workspace-links.js','workspace-panel.js','workspace-store.js','workspace-runtime.js','workspace-library.js','story-links.js','story-scenes.js','story-journey.js','calculation-flow.js','life-story.js','card-previews.js','concept-atlas.js','atlas-regions.js','atlas-terrain.js','atlas-landscape.js','atlas-explorer.js','math-terms.js','math-notation.js','math-index.js','math-index-data.js','atlas-search.js','learning-order.js','app.js'])
     if template.count('<!-- ATLAS_STYLES -->') != 1 or template.count('<!-- ATLAS_SCRIPTS -->') != 1:
         raise ValueError('Source template must have one styles and one scripts placeholder')
     if re.search(r'</script', js, re.IGNORECASE):
@@ -95,7 +102,9 @@ def build(output=None, catalog_only=False):
     target = output/'index.html'; target.write_text(html,encoding='utf-8')
     if output.resolve() == (ROOT/'dist').resolve():
         (ROOT/'START_HERE.html').write_text(html, encoding='utf-8')
-    manifest = {'application_version':'0.22.0','schema_version':catalog['schema_version'],
+    manifest = {'application_version':'0.23.0','schema_version':catalog['schema_version'],
+                'terrain':{'version':terrain['version'],'recipe_sha256':terrain['recipeHash'],
+                           'samples':terrain['stats']['sampleCount']},
                 'cards':len(catalog['cards']),'examples':sum(len(c['examples']) for c in catalog['cards']),
                 'boh_documents':export['document_count'],
                 'canonical_content_sha256':hashlib.sha256(canonical(catalog)).hexdigest(),

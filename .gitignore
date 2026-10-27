@@ -1,6 +1,7 @@
 # Local agent, machine and credential state.
 .openai/
 .codex/
+.codex-remote-attachments/
 .agents/
 .aws/
 .env

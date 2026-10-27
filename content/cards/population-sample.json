@@ -4,7 +4,7 @@
   "slug": "population-sample",
   "type": "concept",
   "title": "Population and sample",
-  "revision": "0.1.0-draft",
+  "revision": "0.2.0-draft",
   "publication_status": "draft",
   "updated": "2026-10-26T00:00:00Z",
   "review": {
@@ -59,7 +59,7 @@
     "conditions": [
       "The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match.",
       "The highlighted data value lastValue is in [0,30] kg. Only that one measured-value placeholder changes; the other eleven stipulated values stay fixed.",
-      "Sample size n is an integer from 1 to 12. Starting index s is zero-based, from 0 to 11, and selects n consecutive labels cyclically with wraparound, without replacement.",
+      "Sample size n is an integer from 1 to 12. Skip s crates (an integer from 0 to 11), then select n consecutive crates. Continue from crate 1 after crate 12 (wraparound), without selecting a crate twice.",
       "The sample mean is sampleSum/n. The population mean is populationSum/12. Both are arithmetic means measured in kilograms; sums and counts are distinct quantities.",
       "The displayed mean difference E is sampleMean-populationMean, with its subtraction order and sign retained.",
       "This deliberately chosen contiguous window is not a simple random sample. No randomization, unbiased-estimator guarantee, confidence interval or sampling distribution is produced.",
@@ -167,7 +167,7 @@
           "id": "n:sampleRule",
           "kind": "functionRef",
           "type": "Integer to index to population to selected value list",
-          "ref": "Given integer sampleSize then zero-based startIndex then the population, select that many cyclic consecutive distinct crate labels."
+          "ref": "Given sampleSize, the number of crates to skip, and the population, select that many consecutive distinct crates, returning to crate 1 after the last."
         },
         {
           "id": "n:sizeRule",
@@ -327,7 +327,7 @@
       "assumptions": [
         "The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.",
         "Each crate has its own label, even when several weights are equal.",
-        "A deterministic cyclic block of n distinct labels is selected from zero-based start s.",
+        "Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.",
         "Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population."
       ],
       "inputs": {
@@ -374,7 +374,7 @@
       "conditions_to_check": [
         "The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.",
         "Each crate has its own label, even when several weights are equal.",
-        "A deterministic cyclic block of n distinct labels is selected from zero-based start s.",
+        "Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.",
         "Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population."
       ]
     },
@@ -387,7 +387,7 @@
       "assumptions": [
         "The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.",
         "Each crate has its own label, even when several weights are equal.",
-        "A deterministic cyclic block of n distinct labels is selected from zero-based start s.",
+        "Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.",
         "Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population."
       ],
       "inputs": {
@@ -434,7 +434,7 @@
       "conditions_to_check": [
         "The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.",
         "Each crate has its own label, even when several weights are equal.",
-        "A deterministic cyclic block of n distinct labels is selected from zero-based start s.",
+        "Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.",
         "Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population."
       ]
     },
@@ -447,7 +447,7 @@
       "assumptions": [
         "The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.",
         "Each crate has its own label, even when several weights are equal.",
-        "A deterministic cyclic block of n distinct labels is selected from zero-based start s.",
+        "Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.",
         "Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population."
       ],
       "inputs": {
@@ -494,7 +494,7 @@
       "conditions_to_check": [
         "The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.",
         "Each crate has its own label, even when several weights are equal.",
-        "A deterministic cyclic block of n distinct labels is selected from zero-based start s.",
+        "Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.",
         "Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population."
       ]
     },
@@ -507,7 +507,7 @@
       "assumptions": [
         "The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.",
         "Each crate has its own label, even when several weights are equal.",
-        "A deterministic cyclic block of n distinct labels is selected from zero-based start s.",
+        "Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.",
         "Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population."
       ],
       "inputs": {
@@ -554,7 +554,7 @@
       "conditions_to_check": [
         "The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.",
         "Each crate has its own label, even when several weights are equal.",
-        "A deterministic cyclic block of n distinct labels is selected from zero-based start s.",
+        "Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.",
         "Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population."
       ]
     },
@@ -562,12 +562,12 @@
       "id": "math:example:population-sample:wraparound",
       "title": "Follow a sample window across the last label",
       "role": "applied_model",
-      "question": "Which average results from four cyclic labels starting at zero-based index 10?",
+      "question": "Which average results from four consecutive crates starting at crate 11, returning to crate 1 after crate 12?",
       "setting": "Original constructed teaching scenario; quantities and rules are stipulated, not measured.",
       "assumptions": [
         "The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.",
         "Each crate has its own label, even when several weights are equal.",
-        "A deterministic cyclic block of n distinct labels is selected from zero-based start s.",
+        "Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.",
         "Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population."
       ],
       "inputs": {
@@ -614,7 +614,7 @@
       "conditions_to_check": [
         "The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.",
         "Each crate has its own label, even when several weights are equal.",
-        "A deterministic cyclic block of n distinct labels is selected from zero-based start s.",
+        "Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.",
         "Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population."
       ]
     }
@@ -757,7 +757,7 @@
     "invariants": [
       "The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match.",
       "The highlighted data value lastValue is in [0,30] kg. Only that one measured-value placeholder changes; the other eleven stipulated values stay fixed.",
-      "Sample size n is an integer from 1 to 12. Starting index s is zero-based, from 0 to 11, and selects n consecutive labels cyclically with wraparound, without replacement.",
+      "Sample size n is an integer from 1 to 12. Skip s crates (an integer from 0 to 11), then select n consecutive crates. Continue from crate 1 after crate 12 (wraparound), without selecting a crate twice.",
       "The sample mean is sampleSum/n. The population mean is populationSum/12. Both are arithmetic means measured in kilograms; sums and counts are distinct quantities.",
       "The displayed mean difference E is sampleMean-populationMean, with its subtraction order and sign retained."
     ],

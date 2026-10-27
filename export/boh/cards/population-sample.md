@@ -1,12 +1,12 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:population-sample", "id": "math:concept:population-sample", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:population-sample", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.1.0-draft", "upstream_content_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"}, "purpose": "Compare a selected sample with the whole population and see how one changed value affects each mean.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5", "status": "draft", "title": "Population and sample", "topics": ["mathematics", "statistics", "probability", "modeling", "sample mean", "population mean", "sample selection"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:population-sample", "id": "math:concept:population-sample", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:population-sample", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "5a84637d71136c60093ef7898a8c06e8ad8d0988f5beb6cd50c83c9fed2a29f0", "source_revision": "0.2.0-draft", "upstream_content_sha256": "2afb0013ef968a735f7a88f4553895b1c56bc8fc8338a2afe4d28415dd6378dc"}, "purpose": "Compare a selected sample with the whole population and see how one changed value affects each mean.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "2afb0013ef968a735f7a88f4553895b1c56bc8fc8338a2afe4d28415dd6378dc", "status": "draft", "title": "Population and sample", "topics": ["mathematics", "statistics", "probability", "modeling", "sample mean", "population mean", "sample selection"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.2.0-draft"}
 ---
 
 # Population and sample
 
 Draft teaching specimen. A registered interactive renderer is available in the accompanying application; retained source fields describe the original specimen and its pending review.
 
-Definition unit math:concept:population-sample; revision 0.1.0-draft. Setting: Descriptive statistics for a known finite population of twelve distinctly labeled crate weights. Selection is a deliberate cyclic window, not a random experiment. Expression: $\overline{x}=\frac{\sum_{i=1}^{n}x_i}{n},\quad \mu=\frac{\sum_{i=1}^{12}X_i}{12},\quad E=\overline{x}-\mu.$. Conditions required for a defined value (a case may test their violation): The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match. The highlighted data value lastValue is in [0,30] kg. Only that one measured-value placeholder changes; the other eleven stipulated values stay fixed. Sample size n is an integer from 1 to 12. Starting index s is zero-based, from 0 to 11, and selects n consecutive labels cyclically with wraparound, without replacement. The sample mean is sampleSum/n. The population mean is populationSum/12. Both are arithmetic means measured in kilograms; sums and counts are distinct quantities. The displayed mean difference E is sampleMean-populationMean, with its subtraction order and sign retained. This deliberately chosen contiguous window is not a simple random sample. No randomization, unbiased-estimator guarantee, confidence interval or sampling distribution is produced. A census uses all twelve distinct crate labels and makes the sample mean equal to this known finite-population mean. If the highlighted crate is outside the selected sample, changing it leaves the sample mean fixed while changing the population mean. Scope: The broader subject distinguishes descriptive summaries from statistical inference. This specimen has a known finite population and deterministic sample selection. It does not simulate random sampling, infer an unknown population mean, produce a confidence level, or implement sample variance. The ordering of the labeled crates does not imply that observations are independent random draws.
+Definition unit math:concept:population-sample; revision 0.2.0-draft. Setting: Descriptive statistics for a known finite population of twelve distinctly labeled crate weights. Selection is a deliberate cyclic window, not a random experiment. Expression: $\overline{x}=\frac{\sum_{i=1}^{n}x_i}{n},\quad \mu=\frac{\sum_{i=1}^{12}X_i}{12},\quad E=\overline{x}-\mu.$. Conditions required for a defined value (a case may test their violation): The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match. The highlighted data value lastValue is in [0,30] kg. Only that one measured-value placeholder changes; the other eleven stipulated values stay fixed. Sample size n is an integer from 1 to 12. Skip s crates (an integer from 0 to 11), then select n consecutive crates. Continue from crate 1 after crate 12 (wraparound), without selecting a crate twice. The sample mean is sampleSum/n. The population mean is populationSum/12. Both are arithmetic means measured in kilograms; sums and counts are distinct quantities. The displayed mean difference E is sampleMean-populationMean, with its subtraction order and sign retained. This deliberately chosen contiguous window is not a simple random sample. No randomization, unbiased-estimator guarantee, confidence interval or sampling distribution is produced. A census uses all twelve distinct crate labels and makes the sample mean equal to this known finite-population mean. If the highlighted crate is outside the selected sample, changing it leaves the sample mean fixed while changing the population mean. Scope: The broader subject distinguishes descriptive summaries from statistical inference. This specimen has a known finite population and deterministic sample selection. It does not simulate random sampling, infer an unknown population mean, produce a confidence level, or implement sample variance. The ordering of the labeled crates does not imply that observations are independent random draws.
 
 ## Schema Version
 
@@ -30,7 +30,7 @@ Population and sample
 
 ## Revision
 
-0.1.0-draft
+0.2.0-draft
 
 ## Publication Status
 
@@ -103,7 +103,7 @@ A population is the complete collection under study, while a sample is a selecte
 - conditions:
   - The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match.
   - The highlighted data value lastValue is in [0,30] kg. Only that one measured-value placeholder changes; the other eleven stipulated values stay fixed.
-  - Sample size n is an integer from 1 to 12. Starting index s is zero-based, from 0 to 11, and selects n consecutive labels cyclically with wraparound, without replacement.
+  - Sample size n is an integer from 1 to 12. Skip s crates (an integer from 0 to 11), then select n consecutive crates. Continue from crate 1 after crate 12 (wraparound), without selecting a crate twice.
   - The sample mean is sampleSum/n. The population mean is populationSum/12. Both are arithmetic means measured in kilograms; sums and counts are distinct quantities.
   - The displayed mean difference E is sampleMean-populationMean, with its subtraction order and sign retained.
   - This deliberately chosen contiguous window is not a simple random sample. No randomization, unbiased-estimator guarantee, confidence interval or sampling distribution is produced.
@@ -195,7 +195,7 @@ A population is the complete collection under study, while a sample is a selecte
       - id: n:sampleRule
       - kind: functionRef
       - type: Integer to index to population to selected value list
-      - ref: Given integer sampleSize then zero-based startIndex then the population, select that many cyclic consecutive distinct crate labels.
+      - ref: Given sampleSize, the number of crates to skip, and the population, select that many consecutive distinct crates, returning to crate 1 after the last.
     - Item:
       - id: n:sizeRule
       - kind: apply
@@ -335,7 +335,7 @@ A population is the complete collection under study, while a sample is a selecte
   - assumptions:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
-    - A deterministic cyclic block of n distinct labels is selected from zero-based start s.
+    - Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.
     - Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population.
   - inputs:
     - lastValue: 14
@@ -372,7 +372,7 @@ A population is the complete collection under study, while a sample is a selecte
   - conditions to check:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
-    - A deterministic cyclic block of n distinct labels is selected from zero-based start s.
+    - Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.
     - Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population.
 - Item:
   - id: math:example:population-sample:change-one-crate
@@ -383,7 +383,7 @@ A population is the complete collection under study, while a sample is a selecte
   - assumptions:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
-    - A deterministic cyclic block of n distinct labels is selected from zero-based start s.
+    - Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.
     - Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population.
   - inputs:
     - lastValue: 26
@@ -420,7 +420,7 @@ A population is the complete collection under study, while a sample is a selecte
   - conditions to check:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
-    - A deterministic cyclic block of n distinct labels is selected from zero-based start s.
+    - Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.
     - Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population.
 - Item:
   - id: math:example:population-sample:full-census
@@ -431,7 +431,7 @@ A population is the complete collection under study, while a sample is a selecte
   - assumptions:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
-    - A deterministic cyclic block of n distinct labels is selected from zero-based start s.
+    - Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.
     - Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population.
   - inputs:
     - lastValue: 26
@@ -468,7 +468,7 @@ A population is the complete collection under study, while a sample is a selecte
   - conditions to check:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
-    - A deterministic cyclic block of n distinct labels is selected from zero-based start s.
+    - Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.
     - Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population.
 - Item:
   - id: math:example:population-sample:outside-window
@@ -479,7 +479,7 @@ A population is the complete collection under study, while a sample is a selecte
   - assumptions:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
-    - A deterministic cyclic block of n distinct labels is selected from zero-based start s.
+    - Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.
     - Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population.
   - inputs:
     - lastValue: 26
@@ -516,18 +516,18 @@ A population is the complete collection under study, while a sample is a selecte
   - conditions to check:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
-    - A deterministic cyclic block of n distinct labels is selected from zero-based start s.
+    - Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.
     - Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population.
 - Item:
   - id: math:example:population-sample:wraparound
   - title: Follow a sample window across the last label
   - role: applied_model
-  - question: Which average results from four cyclic labels starting at zero-based index 10?
+  - question: Which average results from four consecutive crates starting at crate 11, returning to crate 1 after crate 12?
   - setting: Original constructed teaching scenario; quantities and rules are stipulated, not measured.
   - assumptions:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
-    - A deterministic cyclic block of n distinct labels is selected from zero-based start s.
+    - Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.
     - Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population.
   - inputs:
     - lastValue: 14
@@ -564,7 +564,7 @@ A population is the complete collection under study, while a sample is a selecte
   - conditions to check:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
-    - A deterministic cyclic block of n distinct labels is selected from zero-based start s.
+    - Skip s crates, then select n consecutive distinct crates, returning to crate 1 after crate 12.
     - Means use kilograms and are computed from separate sums and positive counts; the signed difference is sample minus population.
 
 ## Interactive
@@ -677,7 +677,7 @@ A population is the complete collection under study, while a sample is a selecte
 - invariants:
   - The finite population is twelve labeled crate weights in kilograms: [8,9,9,10,10,10,11,11,12,12,13,lastValue]. Different crates remain distinct even when weights match.
   - The highlighted data value lastValue is in [0,30] kg. Only that one measured-value placeholder changes; the other eleven stipulated values stay fixed.
-  - Sample size n is an integer from 1 to 12. Starting index s is zero-based, from 0 to 11, and selects n consecutive labels cyclically with wraparound, without replacement.
+  - Sample size n is an integer from 1 to 12. Skip s crates (an integer from 0 to 11), then select n consecutive crates. Continue from crate 1 after crate 12 (wraparound), without selecting a crate twice.
   - The sample mean is sampleSum/n. The population mean is populationSum/12. Both are arithmetic means measured in kilograms; sums and counts are distinct quantities.
   - The displayed mean difference E is sampleMean-populationMean, with its subtraction order and sign retained.
 - limits:

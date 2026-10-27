@@ -43,7 +43,7 @@
     },
     'population-sample': {
       title:'Population and sample',
-      describe:(p,r)=>`The twelve known crate weights have mean ${f(r.populationMean)} kilograms. The four selected crates weigh ${r.sampleValues.map(f).join(', ')} kilograms, with sum ${f(r.sampleSum)} and mean ${f(r.output)}. The selected sample mean differs from the full population mean by ${f(r.meanError)} kilograms; this selection is not random.`,
+      describe:(p,r)=>`The twelve known crate weights have mean ${f(r.populationMean)} kilograms. The four selected crates weigh ${r.sampleValues.map(f).join(', ')} kilograms, with sum ${f(r.sampleSum)} and mean ${f(r.output)}. The selected sample mean differs from the full population mean by ${f(r.meanError)} kilograms.`,
       draw:(p,r)=>{
         const y=v=>143-v*4,selected=new Set(r.sampleIndices);
         return r.populationValues.map((value,i)=>rect(24+i*18,y(value),12,value*4,selected.has(i)?C.mint:C.grid)+label(30+i*18,158,i+1,selected.has(i)?C.mint:C.muted,9)).join('')+line(19,y(r.populationMean),239,y(r.populationMean),C.violet,'stroke-width="2" stroke-dasharray="4 3"')+line(19,y(r.sampleMean),239,y(r.sampleMean),C.mint,'stroke-width="2"')+label(294,38,'SAMPLE MEAN',C.muted,11)+quantity('output',r.output,label(294,69,f(r.output),C.mint,27))+label(294,89,'kg',C.muted,12)+label(294,116,'WHOLE GROUP',C.muted,11)+quantity('populationMean',r.populationMean,label(294,143,f(r.populationMean),C.violet,24))+caption('A chosen part can tell a different story.');
