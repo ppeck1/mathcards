@@ -33,6 +33,25 @@
   const caption = value => label(180, 184, value, C.ink, 17);
 
   const records = {
+    'probability-distribution': {
+      title:'Finite probability distributions',
+      describe:(p,r)=>`The next library check-in returns zero, one or two books with probabilities ${r.probabilities.map(f).join(', ')}. Bar heights and strip widths encode those probabilities on fixed zero-to-one scales. Total probability is ${f(r.massTotal)}.`,
+      draw:(p,r)=>{
+        const colors=[C.cyan,C.gold,C.mint];let offset=28;
+        const strip=r.probabilities.map((v,i)=>{const x=offset;offset+=304*v;return quantity('p'+i,v,rect(x,28,304*v,18,colors[i]));}).join('');
+        return strip+line(40,137,320,137,C.grid)+r.probabilities.map((v,i)=>quantity('p'+i,v,rect(66+i*112,137-v*76,28,v*76,colors[i])+label(80+i*112,154,i+' books',C.muted,12)+label(80+i*112,126-v*76,f(v),colors[i],17))).join('')+quantity('output',r.output,label(180,172,'P(X=2) = '+f(r.p2),C.mint,18))+caption('Three outcomes. One whole probability.');
+      }
+    },
+    'expected-value': {
+      title:'Expected value',
+      describe:(p,r)=>`Probability masses at zero, one and two books balance at mean ${f(r.mean)} books. Each outcome contributes its value times its probability. This mean summarizes the distribution and need not be a possible single return.`,
+      draw:(p,r)=>line(44,122,316,122,C.ink,'stroke-width="2"')+r.rows.map((row,i)=>quantity('p'+i,row.probability,rect(38+i*136,122-row.probability*90,12,row.probability*90,[C.cyan,C.gold,C.mint][i])+label(44+i*136,143,i,C.muted,13))).join('')+quantity('output',r.output,`<path d="M${n(44+r.mean*136)} 123l-8 14h16Z" fill="${C.gold}"/>`+label(180,32,'E[X] = '+f(r.mean)+' books',C.gold,24))+label(180,164,r.rows.map(row=>f(row.weightedValue)).join(' + ')+' = '+f(r.mean),C.ink,17)+caption('A probability-weighted balance point.')
+    },
+    entropy: {
+      title:'Discrete Shannon entropy',
+      describe:(p,r)=>`The three probability-weighted surprisal contributions total ${f(r.entropy)} bits. Each term is minus p times log base two of p, with zero contribution when p is zero. The maximum over three outcomes is log base two of three bits.`,
+      draw:(p,r)=>label(180,29,'H(X) = '+f(r.entropy)+' bits',C.gold,25)+r.rows.map((row,i)=>quantity('h'+i,row.entropyContribution,rect(66+i*112,131-row.entropyContribution*80,28,row.entropyContribution*80,[C.cyan,C.gold,C.mint][i])+label(80+i*112,151,'p'+i+' × I'+i,C.muted,12)+label(80+i*112,120-row.entropyContribution*80,f(row.entropyContribution),C.ink,17))).join('')+line(40,131,320,131,C.grid)+quantity('output',r.output,label(180,170,'Sum the weighted surprises',C.ink,17))+caption('Uncertainty, measured in bits.')
+    },
     countability: {
       title:'Countability and enumeration',
       describe:(p,r)=>`The selected natural-number index ${p.index} is paired with integer ${r.output}; the inverse rule returns index ${r.inverseIndex}. This finite prefix contains ${r.prefixSize} displayed pairs. The complete rule and its inverse identities establish the bijection with all integers; the diagram alone does not prove it.`,

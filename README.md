@@ -20,25 +20,26 @@ preview commands. The offline entry points below remain available.
 
 ## Open the application
 
-Version 0.29 deepens three thin atlas areas with Countability and enumeration,
-Finite-state machines and configurations, and Open sets and neighborhoods. A
-fourth lesson, Quantifier order and variable scope, connects their logical
-foundations. The collection has 53 draft concepts, 269 original examples and
-526 canonical fixtures.
+Version 0.30 adds three connected lessons: finite Probability distributions,
+Expected value and discrete Shannon entropy. A library return-desk story
+follows the chances of receiving zero, one or two books into a weighted mean
+and expected surprise. The collection has 56 draft concepts, 284 original
+examples and 562 canonical fixtures.
 
 Each new lesson uses the existing playground controls and animation clock,
-with one guided variable and distinct Geometry/Graph views. Follow a shelf
-address through a bijection, a scanned bead through a state transition, or a
-cursor position through the clearance of its neighborhood. Quantifier order
-shows why every desk choosing a station differs from one station serving
-all desks.
+with one guided variable and distinct Geometry/Graph views. Probability moves
+within a fixed whole, expected value marks a balance point, and entropy adds
+probability-weighted surprises on a fixed bits scale. Impossible outcomes have
+zero entropy contribution by continuity; the app never evaluates log₂0 as a
+finite surprise. All three modules evaluate the same finite probability family.
 
 The [book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) preserves all 214 topic IDs from
 the supplied matrix. Its links distinguish bounded introductions, conceptual
 precursors and planned theories. The full collapsible notation catalog and
-lesson-count topography grow from the same records. The reference now has 534
-entries and 618 selectable notation forms. See the
-[current review](docs/BUILD_REVIEW_0_29_0.md).
+lesson-count topography grow from the same records. The prepared reference has
+554 entries and a visual catalog of 644 notation forms, with direct links to
+the cards that use them. See the
+[current review](docs/BUILD_REVIEW_0_30_0.md).
 
 1. Extract this ZIP into a folder.
 2. Open **`START_HERE.html`** (or **`dist/index.html`**) in a modern browser such as Chrome, Edge, Firefox

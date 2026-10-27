@@ -104,6 +104,22 @@ def checks(card, schema, source_ids, known):
     return errors
 
 def compute(model,p):
+    if model in {'probability-distribution-visual-model','expected-value-visual-model','entropy-visual-model'}:
+        if set(p)!={'oneChance','twoShare'} or any(type(v) not in (int,float) or not math.isfinite(v) or not 0<=v<=1 for v in p.values()):
+            return {'status':'invalid_parameters'}
+        q,r=p['oneChance'],p['twoShare']
+        if model=='probability-distribution-visual-model':
+            output=(1-q)*r
+        elif model=='expected-value-visual-model':
+            # Tail-sum identity: E[X] = P(X>=1) + P(X>=2).
+            output=(q+(1-q)*r)+(1-q)*r
+        else:
+            # Partition on the one-book event: binary entropy plus the
+            # remaining event's conditional binary entropy, in bits.
+            def binary_entropy(t):
+                return math.fsum(-v*math.log(v)/math.log(2) for v in (t,1-t) if v>0)
+            output=binary_entropy(q)+(1-q)*binary_entropy(r)
+        return {'status':'valid','output':output}
     structure_bounds={
         'countability-visual-model':{'index':(0,12)},
         'finite-state-machine-visual-model':{'steps':(0,8)},

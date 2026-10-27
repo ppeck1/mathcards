@@ -9,6 +9,9 @@
   // Empty lists are deliberate: a binder, operator or random variable is not
   // automatically a current numerical value or a physical mark in the scene.
   const records = {
+    'probability-distribution':{q:['oneChance'],r:['twoShare'],X:[],'xᵢ':['outcomes'],'pᵢ':['p0','p1','p2'],'p₀':['p0'],'p₁':['p1'],'p₂':['p2'],'p_X(x)':['probabilities'],'P(X=0)':['p0'],'P(X=1)':['p1'],'P(X=2)':['p2'],'∑pᵢ':['massTotal']},
+    'expected-value':{q:['oneChance'],r:['twoShare'],X:[],'xᵢ':['outcomes'],'pᵢ':['p0','p1','p2'],'p₀':['p0'],'p₁':['p1'],'p₂':['p2'],'E[X]':['mean'],'E(X)':['mean'],'μ':['mean'],'xᵢpᵢ':['c0','c1','c2'],'cᵢ':['c0','c1','c2'],'c₀':['c0'],'c₁':['c1'],'c₂':['c2']},
+    entropy:{q:['oneChance'],r:['twoShare'],X:[],'xᵢ':['outcomes'],'pᵢ':['p0','p1','p2'],'p₀':['p0'],'p₁':['p1'],'p₂':['p2'],'H(X)':['entropy'],'I(xᵢ)':['surprisal0Label','surprisal1Label','surprisal2Label'],'I(x)':['surprisal0Label','surprisal1Label','surprisal2Label'],'hᵢ':['h0','h1','h2'],'h₀':['h0'],'h₁':['h1'],'h₂':['h2'],'−pᵢ log₂ pᵢ':['h0','h1','h2'],'−pᵢlog₂pᵢ':['h0','h1','h2'],'log₂':[]},
     countability:{n:['index'],z:['integer'],f:['function:f'],g:['function:g'],'f(n)':['output'],'g(z)':['inverseIndex'],'ℕ₀':['sourceSet'],'ℤ':['targetSet'],'ℵ₀':[]},
     'finite-state-machine':{w:['word'],k:['steps'],Q:['state:E','state:O'],'Σ':[],E:['state:E'],O:['state:O'],'q₀':['initialState'],'qₖ':['stateCode'],'δ':['transitionFunction'],'δ(q,0)':['transition:zero'],'δ(q,1)':['transition:one'],'ε':[]},
     'open-set':{U:['targetSet'],p:['selectedPoint'],x:['center'],'ε':['radius'],'Bε(p)':['neighborhood'],'‖p‖':['distanceFromOrigin'],'C(x)':['clearance'],b:[]},

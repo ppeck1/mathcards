@@ -468,7 +468,7 @@ test('the visual catalog contains every declared form and every variant without 
   assert.deepEqual(new Set(catalog.groups.flatMap(group=>group.forms.map(form=>form.symbol))),new Set(forms.keys()),'grouping omits no form');
   assert.equal(catalog.groups.reduce((sum,group)=>sum+group.forms.length,0),forms.size,'each form is grouped once');
   for(const token of ['Σ','∑','δ','Δ','ϵ','ϑ','∂F/∂y','C(xₖ,yₖ)','ms/item','m² per unit setting','∑xᵢ','∑Xᵢ','W₀','V(t)'])assert.ok(forms.has(token),token);
-  assert.deepEqual(forms.get('μ').entryIds,['mu','population-mean']);
+  assert.deepEqual(forms.get('μ').entryIds,['mu','population-mean','probability-mean']);
   assert.deepEqual(forms.get('Σ').entryIds,['sigma-capital','input-alphabet']);
   assert.deepEqual(forms.get('∑').entryIds,['summation']);
   const initial=index.markup({query:'no-matching-word-8907',category:'calculus',mode:'az',letter:'P'});

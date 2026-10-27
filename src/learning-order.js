@@ -6,7 +6,7 @@
     'exponential-change','real-logarithm','quadratic-optimization','pythagorean-theorem',
     'vector','vector-rotation','inner-product','open-set','cross-product','torque','linear-combination','basis',
     'matrix-linear-map','determinant','matrix-product','complex-multiplication',
-    'probability','conditional-probability','population-sample','variance','bayes-theorem','limit','derivative',
+    'probability-distribution','expected-value','probability','entropy','conditional-probability','population-sample','variance','bayes-theorem','limit','derivative',
     'integral-accumulation','signed-accumulation','chain-rule','partial-derivative',
     'gradient','directional-derivative','tangent-plane','gradient-descent',
     'wave-interference','resonance','graph-theory','computational-complexity','finite-state-machine','recurrence','stability',
