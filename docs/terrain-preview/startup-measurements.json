@@ -1,0 +1,23 @@
+{
+  "method": "One fresh local Chrome navigation per instrumented standalone page, same default viewport, no applied CPU/network throttling. DOMContentLoaded timing includes script execution and content construction, not paint. Browser tools only read DOM attributes written by a test-only head listener; instrumentation is absent from shipped assets.",
+  "baseline": {
+    "version": "0.22.0",
+    "domContentLoadedMs": 76317.0,
+    "mainHasContent": true
+  },
+  "preview": {
+    "version": "0.23.0",
+    "domContentLoadedMs": 655.5,
+    "mainHasContent": true
+  },
+  "referenceCompiler": {
+    "baselineMs": 22845,
+    "cachedNormalizationMs": 1621,
+    "jsonRoundTripAndHydrationMs": 18.6
+  },
+  "limits": [
+    "Single browser comparison, not a cross-device benchmark or percentile.",
+    "JavaScript bootstrap CI budget is 1500 ms; it excludes layout and paint.",
+    "No real-device touch or slow-phone measurement."
+  ]
+}

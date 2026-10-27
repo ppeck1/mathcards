@@ -36,5 +36,15 @@
 .life-key-fold>summary{color:#a8c3c1;font-size:11px;font-weight:500}
 .life-key-fold .life-link-keys{margin:0 0 12px}
 .life-key-fold .life-link-keys button{min-height:44px}
+.life-story-host[data-presentation=compact] .life-steps>li:not(.is-current)>p,
+.life-story-host[data-presentation=compact] .life-steps>li:not(.is-current)>.life-formula{display:none}
+.life-story-host[data-presentation=compact] .life-timeline-label[hidden],
+.life-story-host[data-presentation=compact] .life-reader[hidden]{display:none!important}
+.life-calculation-fold>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-size:12px;color:#d7e8e6}
+.card-playground{margin:0 0 32px;border:1px solid var(--line);border-radius:12px;background:#ffffff40;scroll-margin-top:24px}
+.card-playground>summary{cursor:pointer;min-height:54px;padding:16px 20px;color:#285b4e;font-weight:650;line-height:1.5}
+.card-playground>summary:focus-visible{outline:3px solid #a47d38;outline-offset:3px}
+.card-playground>.lab,.card-playground>[data-card-playground]{padding:0 12px 12px}
+.sample-compact .visual-caption{font-size:13px;line-height:1.6}
 @media(pointer:coarse){.life-reader .life-token{align-items:center;min-width:36px;min-height:44px;vertical-align:middle}}
 @media(max-width:760px){.life-reader .life-reader-body{font-size:14px;line-height:1.7}.life-reader .life-reader-formula{font-size:12px;padding:9px 10px}.life-step-nav{gap:6px}.life-step-nav button{font-size:12px;padding:9px 6px}.life-reader-step{padding-bottom:10px}}

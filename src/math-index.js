@@ -20,25 +20,27 @@
     return sections.filter(([,text])=>typeof text==='string'&&text.length).map(([section,text])=>({section,text,folded:fold(text)}));
   }
   function mathFields(card){return[card.definition?.formal_latex,card.grammar?.formation_rule,...(card.examples||[]).flatMap(example=>(example.steps||[]).map(step=>step.expression))].filter(text=>typeof text==='string').join('\n');}
-  function phraseIn(text,phrase){
-    if(!phrase)return false;
-    return new RegExp('(^|[^\\p{L}\\p{N}_])'+reEscape(fold(phrase))+'(?=$|[^\\p{L}\\p{N}_])','u').test(text);
+  function phraseMatcher(phrase){
+    const value=fold(phrase);
+    const boundary=new RegExp('(^|[^\\p{L}\\p{N}_])'+reEscape(value)+'(?=$|[^\\p{L}\\p{N}_])','u');
+    // Most fields do not contain the phrase. Avoid a Unicode boundary scan in
+    // that common case, and compile each phrase only once per compilation.
+    return text=>Boolean(value)&&text.includes(value)&&boundary.test(text);
   }
   function mathIn(math,token){
     if(/^\\[A-Za-z]+$/.test(token))return new RegExp(reEscape(token)+'(?![A-Za-z])').test(math);
     return math.includes(token);
   }
-  function create({cards=[],sources=[],stories=[]}={}){
+  function compile({cards=[],sources=[],stories=[]}={}){
     if(!Array.isArray(cards)||!Array.isArray(sources))throw new TypeError('Index cards and sources must be arrays.');
     const validCards=cards.filter(card=>card&&typeof card.slug==='string'&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(card.slug));
-    const bySlug=new Map(validCards.map(card=>[card.slug,card]));
     const sourceMap=new Map(sources.filter(source=>source&&typeof source.id==='string').map(source=>[source.id,{title:String(source.title||source.id),url:safeURL(source.url)}]));
     const work=Terms.entries.map(entry=>({...entry,symbols:[...entry.symbols],aliases:[...entry.aliases],lookupAliases:[...(entry.lookupAliases||[])],usedBy:[],contextual:false,sources:entry.sourceKeys.map(key=>Terms.sources[key]).filter(Boolean).map(source=>({...source}))}));
     const cardInfo=validCards.map(card=>{
       const mathSources=Notation?Notation.fieldsFor(card,stories):[{text:mathFields(card),kind:'tex',location:'Formula'}];
       const localBindings=new Map();
       for(const entry of work)if(entry.grammarCards?.includes(card.slug))for(const token of entry.tokens||entry.symbols){if(!/^(?:[A-Za-z]|\|[^|]+\|)$/.test(token))continue;const form=Notation?Notation.normalize(token):token,bound=localBindings.get(form)||new Set();bound.add(entry.id);localBindings.set(form,bound);}
-      return{card,localBindings,fields:readableFields(card),math:mathSources.filter(field=>field.kind!=='unit').map(field=>field.text).join('\n'),notation:Notation?mathSources.flatMap(field=>Notation.extract(field.text,{kind:field.kind}).filter(record=>!['formatting','invalid'].includes(record.kind)).map(record=>({...record,location:field.location,sourceKind:field.kind}))):[],grammar:(card.grammar?.symbols||[]).filter(symbol=>symbol&&typeof symbol.token==='string')};
+      return{card,localBindings,fields:readableFields(card),math:mathSources.filter(field=>field.kind!=='unit').map(field=>field.text).join('\n'),notation:Notation?mathSources.flatMap(field=>Notation.extract(field.text,{kind:field.kind}).filter(record=>!['formatting','invalid'].includes(record.kind)).map(record=>({...record,normalizedToken:Notation.normalize(record.token),location:field.location,sourceKind:field.kind}))):[],grammar:(card.grammar?.symbols||[]).filter(symbol=>symbol&&typeof symbol.token==='string')};
     });
     function use(entry,card,context){
       let usage=entry.usedBy.find(item=>item.slug===card.slug);
@@ -48,9 +50,11 @@
       if(!usage.contexts.some(item=>item.token===context.token&&item.via===context.via&&item.meaning===context.meaning))usage.contexts.push(context);
     }
     const grammarCovered=new Map(validCards.map(card=>[card.slug,new Set()]));
+    const matchers=new Map();
     for(const entry of work){
       const exactTokens=entry.tokens||entry.symbols.filter(token=>token.length>1||!/^[A-Za-z]$/.test(token));
-      const words=entry.wordMatches||[entry.title,...entry.aliases.filter(alias=>(alias.length>=5||alias.includes(' '))&&!noWordAliases.has(alias))];
+      const notationForms=new Set([...entry.symbols,...(entry.lookupAliases||[]),...(entry.mathSymbols||[])]);
+      const words=(entry.wordMatches||[entry.title,...entry.aliases.filter(alias=>(alias.length>=5||alias.includes(' '))&&!noWordAliases.has(alias))]).map(word=>{if(!matchers.has(word))matchers.set(word,phraseMatcher(word));return matchers.get(word);});
       for(const info of cardInfo){
         const {card}=info;
         for(const symbol of info.grammar){
@@ -58,19 +62,19 @@
             use(entry,card,{token:symbol.token,meaning:String(symbol.meaning||symbol.role||'Meaning is defined in this card.'),role:String(symbol.role||''),type:String(symbol.type||''),via:'grammar',location:'Grammar'});grammarCovered.get(card.slug).add(symbol.token);
           }
         }
-        const mathToken=(!entry.formulaCards||entry.formulaCards.includes(card.slug))&&(entry.mathSymbols||[]).find(token=>mathIn(info.math,token));
+        const mathToken=!Notation&&(!entry.formulaCards||entry.formulaCards.includes(card.slug))&&(entry.mathSymbols||[]).find(token=>mathIn(info.math,token));
         if(mathToken&&!Notation)use(entry,card,{token:mathToken,meaning:'This notation appears in the card’s formula or worked calculations.',role:'',via:'formula',location:'Formula or worked calculation'});
         for(const record of info.notation){
           const unit=record.kind==='unit'||record.sourceKind==='unit';
           if(unit!==(entry.category==='units'))continue;
-          const preferred=!unit?info.localBindings.get(Notation?Notation.normalize(record.token):record.token):null;
+          const preferred=!unit?info.localBindings.get(record.normalizedToken||record.token):null;
           if(preferred?.size&&!preferred.has(entry.id))continue;
           if(entry.notationKinds?.length&&!entry.notationKinds.includes(record.kind)&&!entry.notationKinds.includes(record.sourceKind))continue;
           if(entry.formulaCards&&!entry.formulaCards.includes(card.slug))continue;
           if(entry.grammarCards&&!entry.grammarCards.includes(card.slug)&&record.kind==='identifier')continue;
-          if((record.entryIds||[]).includes(entry.id)||[...entry.symbols,...(entry.lookupAliases||[]),...(entry.mathSymbols||[])].includes(record.token))use(entry,card,{token:record.token,meaning:'Used here as '+entry.title.toLowerCase()+'.',role:unit?'unit':'notation',via:record.kind==='command'?'formula':'notation',location:record.location});
+          if((record.entryIds||[]).includes(entry.id)||notationForms.has(record.token))use(entry,card,{token:record.token,meaning:'Used here as '+entry.title.toLowerCase()+'.',role:unit?'unit':'notation',via:record.kind==='command'?'formula':'notation',location:record.location});
         }
-        const match=info.fields.find(field=>words.some(word=>phraseIn(field.folded,word)));
+        const match=info.fields.find(field=>words.some(matches=>matches(field.folded)));
         if(match)use(entry,card,{token:entry.title,meaning:'This term appears in the card’s mathematical explanation.',role:'',via:'term',location:match.section});
       }
     }
@@ -96,6 +100,14 @@
       entry.usedBy.sort((a,b)=>a.title.localeCompare(b.title,'en'));
       return freeze({id:entry.id,title:entry.title,category:entry.category,symbols:entry.symbols,aliases:entry.aliases,lookupAliases:entry.lookupAliases||[],readAs:entry.readAs,definition:entry.definition,example:entry.example,sources:entry.sources.filter(source=>safeURL(source.url)).map(source=>({...source,url:safeURL(source.url)})),usedBy:entry.usedBy,relatedIds:[...new Set((entry.relatedIds||[]).filter(id=>typeof id==='string'&&id!==entry.id&&availableIds.has(id)))],contextual:entry.contextual});
     });
+    return freeze({formatVersion:1,cardSlugs:validCards.map(card=>card.slug),entries});
+  }
+  // Compilation owns all source scanning. Hydration consumes only its inert
+  // projection; card and story text is deliberately unavailable on this path.
+  function hydrate(data){
+    if(!data||data.formatVersion!==1||!Array.isArray(data.entries)||!Array.isArray(data.cardSlugs))throw new TypeError('Unsupported prebuilt math index. Rebuild the application.');
+    const entries=data.entries;
+    const bySlug=new Set(data.cardSlugs);
     const byId=new Map(entries.map(entry=>[entry.id,entry]));
     const categoryList=categories.map(([id,title])=>freeze({id,title,count:entries.filter(entry=>entry.category===id).length})).filter(category=>category.count);
     const categoryIds=new Set(categoryList.map(item=>item.id));
@@ -187,5 +199,6 @@
     }
     return Object.freeze({entries:freeze(entries),categories:freeze(categoryList),get,search,isNotation:notationQuery,forCard,markup,mount});
   }
-  return Object.freeze({create});
+  const create=input=>hydrate(compile(input));
+  return Object.freeze({create,compile,hydrate});
 });

@@ -1,12 +1,17 @@
 {
-  "application_version": "0.22.0",
+  "application_version": "0.23.0",
   "boh_documents": 232,
   "boh_scope": "Static metadata only. Live ingestion and retrieval unverified.",
-  "canonical_content_sha256": "c8246b2845b4b5e9585629b8d8b755f6e9c0f70e79b4a823bff6e3561ae7c3a6",
+  "canonical_content_sha256": "8d01dc53af0485168757612607725c3c6c4c5d54e8b951a8b4309a9fe10f63fb",
   "cards": 38,
   "examples": 194,
-  "index_sha256": "6a8fbc4e0986767cea2b1cb010dad5a1f98f43d442f6811610c4258a4797872e",
+  "index_sha256": "b46f903b53f31a7222b14c4e8481c0615542af9e5b5b43162c2facb36d74d097",
   "offline": "All app code and content are embedded in index.html.",
   "review_status": "Draft specimens; historical research and independent review remain incomplete.",
-  "schema_version": "0.1.0"
+  "schema_version": "0.1.0",
+  "terrain": {
+    "recipe_sha256": "b050fb1651f1b7ca8f848274a88f25cd0a728e24f8857d510502844441d370a2",
+    "samples": 393216,
+    "version": "1.0.0"
+  }
 }

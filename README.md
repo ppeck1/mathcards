@@ -20,6 +20,12 @@ preview commands. The offline entry points below remain available.
 
 ## Open the application
 
+The 0.23 preview adds a baked terrain atlas, build-time reference indexing,
+learner-oriented browse order and a quieter, responsive crate story. See the
+[terrain recipe and navigation contract](docs/TERRAIN_ATLAS.md) and
+[preview review](docs/BUILD_REVIEW_0_23_0.md). This preview branch does not deploy
+to the live demo until merged into `main`.
+
 1. Extract this ZIP into a folder.
 2. Open **`START_HERE.html`** (or **`dist/index.html`**) in a modern browser such as Chrome, Edge, Firefox
    or Safari.
@@ -542,17 +548,20 @@ Then visit `http://localhost:8080`. Stop the server with Ctrl+C.
 
 ## Build and verify
 
-The build uses the Python standard library. Run it after changing application
-source or canonical card records:
+The build uses Python 3.11's standard library and Node.js 22. Python builds the
+offline bundle and deterministic terrain; Node compiles the reference index
+with the same JavaScript used by its runtime API. Run it after changing
+application source or canonical card records:
 
 ```bash
 python3 tools/build.py
 ```
 
-This regenerates `src/catalog.js`, `dist/index.html`, its content-hash manifest,
-and all Markdown in `export/` from `content/`. It never reads the notebook.
+This regenerates `src/catalog.js`, `src/math-index-data.js`, `dist/index.html`,
+its content-hash manifest, and all Markdown in `export/` from `content/`.
+Terrain is rebuilt when its recipe or generator changes. It never reads the notebook.
 
-Node 20 or newer runs the dependency-free model and notebook checks:
+Node.js 22 runs the dependency-free model, navigation, reference and notebook checks:
 
 ```bash
 node --test tests/*.test.mjs

@@ -5,6 +5,48 @@ Field membership describes where an idea is useful in this edition; fields
 overlap. It is not a complete classification of mathematics, an account of the
 research frontier, or a sequence every learner must follow.
 
+## Continuous terrain and navigation preview (0.23.0)
+
+The Landscape view now layers stable semantic navigation over a single baked
+relief surface. `atlas-terrain-recipe.json` and `tools/build_terrain.py` generate
+the self-contained `atlas-terrain.js` asset during the deterministic build;
+matching recipe/generator fingerprints reuse the checked-in asset. The browser
+does not generate terrain or run an idle terrain loop. The editable recipe,
+field/shading/contour methods, costs and preview evidence are documented in
+[Terrain atlas](TERRAIN_ATLAS.md).
+
+“An imagined landscape for exploring mathematics. Position and elevation are
+illustrative; fields overlap.” Elevation and location imply no difficulty,
+importance, prerequisite depth or learning progress. The relief uses no rivers
+and invents no relationship edges. Canonical membership still comes from
+`atlas-regions.js`: eight territory IDs, 24 area IDs, 38 available cards and 70
+mapped planned concepts retain their identities, actual counts and card links.
+The earlier release sections below remain historical checkpoints.
+
+`atlas-landscape.js` owns authored anchors, editorial hit regions, label layout
+and focus bounds independently from the scalar field. Selecting an area now
+fits its local bounds rather than reusing its territory's whole bounds. Labels
+and 44 CSS px marker targets remain screen-sized as the camera changes; a
+collision can suppress a visual label while search, native selectors and the
+complete readable panel retain the destination.
+
+`atlas-explorer.js` remains the one owner of camera and interaction lifecycle.
+The compact search/“Find a place” toolbar exposes native controls, and in-map
+buttons provide zoom, fit and overview. Portrait overview uses a locator-backed
+horizontal crop of the world rather than a letterboxed miniature. Touch panning
+has an explicit “Move map” mode so ordinary vertical swipes can scroll the page.
+Pan release must not select a destination. Keyboard/reduced-motion behavior,
+deep links, Back/Forward restoration, resize and independent mount cleanup are
+navigation requirements; they do not alter models, notebook or workbench state.
+
+The established routes remain `#atlas`, `#atlas/map/<territory>`,
+`#atlas/map/<territory>/<area>` and `#atlas/<concept-slug>`. Concept connections
+preserves the existing typed, directed, explained relationships. Terrain,
+editorial fields, definition-use links and personal conjectures remain separate
+from those canonical relationship claims. This redesign is isolated for preview
+on `codex/terrain-atlas-and-startup`; device limitations and evidence are listed
+in the linked terrain notes.
+
 ## Selectable landscape (0.22.0)
 
 Plain `#atlas` now opens the colored geographic overview. Three separate pure

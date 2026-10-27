@@ -27,7 +27,9 @@ test('sample and scan records retain distinct units, collection sizes and mathem
   assert.equal(sample.grammar.output_symbol_bindings['∑Xᵢ'],'populationSum');
   assert.ok(!sample.grammar.symbols.some(s=>s.token.includes('Σ')),'Summation uses the operator glyph, not the Greek capital letter');
   assert.match(sample.definition.conditions.join(' '),/not a simple random sample/);
-  assert.match(sample.definition.conditions.join(' '),/zero-based/);
+  assert.match(sample.definition.conditions.join(' '),/Skip s crates.*0 to 11/);
+  assert.match(sample.definition.conditions.join(' '),/crate 1 after crate 12.*without selecting a crate twice/);
+  assert.doesNotMatch(sample.definition.conditions.join(' '),/zero-based/);
   const census=sample.examples.find(e=>e.id.endsWith(':full-census'));
   const censusResult=Models.evaluate('population-sample',census.preset);
   assert.equal(censusResult.sampleMean,censusResult.populationMean);

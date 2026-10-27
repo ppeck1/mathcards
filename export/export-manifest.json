@@ -1529,61 +1529,61 @@
       "card_id": "math:concept:population-sample",
       "document_id": "math:concept:population-sample",
       "example_id": null,
-      "file_sha256": "b1948bc4f8e3f47edc1e1269132d8b3da8ed7b053c9d9ec1869c9a0b9846f3f5",
+      "file_sha256": "fb0fd6145f3803d7a42467f86a2d4ce10197ffafc85b743bea55b5aec9b1004c",
       "path": "boh/cards/population-sample.md",
-      "size_bytes": 36828,
-      "source_revision": "0.1.0-draft",
-      "source_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"
+      "size_bytes": 37051,
+      "source_revision": "0.2.0-draft",
+      "source_sha256": "2afb0013ef968a735f7a88f4553895b1c56bc8fc8338a2afe4d28415dd6378dc"
     },
     {
       "card_id": "math:concept:population-sample",
       "document_id": "math:example:population-sample:heavy-window",
       "example_id": "math:example:population-sample:heavy-window",
-      "file_sha256": "22dd1aafd4ed1599fd5ca2b79f4cc5baff2ba94ddcb429e3af8c99c25c1468be",
+      "file_sha256": "df1d3c6991ecd04073498bdd2b8beef180ddd4b7f1c026a346b304733d136de6",
       "path": "boh/examples/population-sample--heavy-window.md",
-      "size_bytes": 11971,
-      "source_revision": "0.1.0-draft",
-      "source_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"
+      "size_bytes": 12049,
+      "source_revision": "0.2.0-draft",
+      "source_sha256": "2afb0013ef968a735f7a88f4553895b1c56bc8fc8338a2afe4d28415dd6378dc"
     },
     {
       "card_id": "math:concept:population-sample",
       "document_id": "math:example:population-sample:change-one-crate",
       "example_id": "math:example:population-sample:change-one-crate",
-      "file_sha256": "67c9f635b61aafacf125f6a9d56b11ca91d66139fdd7c2d9f07fd121055589cf",
+      "file_sha256": "cf53061a8de5427eabf1757fcf15848c5cabe044ac7b3fffe1ea7b95efbefe1a",
       "path": "boh/examples/population-sample--change-one-crate.md",
-      "size_bytes": 11950,
-      "source_revision": "0.1.0-draft",
-      "source_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"
+      "size_bytes": 12028,
+      "source_revision": "0.2.0-draft",
+      "source_sha256": "2afb0013ef968a735f7a88f4553895b1c56bc8fc8338a2afe4d28415dd6378dc"
     },
     {
       "card_id": "math:concept:population-sample",
       "document_id": "math:example:population-sample:full-census",
       "example_id": "math:example:population-sample:full-census",
-      "file_sha256": "9aaac817a6478685dd31492e5ae9dbea35be44fe43d610e494706cda2d6765d7",
+      "file_sha256": "52272a90bfdf221f641a4d4bc602aece4dad383892a9b45043d980f12ada1a32",
       "path": "boh/examples/population-sample--full-census.md",
-      "size_bytes": 11952,
-      "source_revision": "0.1.0-draft",
-      "source_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"
+      "size_bytes": 12030,
+      "source_revision": "0.2.0-draft",
+      "source_sha256": "2afb0013ef968a735f7a88f4553895b1c56bc8fc8338a2afe4d28415dd6378dc"
     },
     {
       "card_id": "math:concept:population-sample",
       "document_id": "math:example:population-sample:outside-window",
       "example_id": "math:example:population-sample:outside-window",
-      "file_sha256": "766ef9f8b1852027c5b157aa12edf820e5d05a161ef2372b52f2db39f8010b60",
+      "file_sha256": "65c9c5901110379f2513c5ccad87e6337a61b643e07902167ea9c6c221c9bae8",
       "path": "boh/examples/population-sample--outside-window.md",
-      "size_bytes": 11980,
-      "source_revision": "0.1.0-draft",
-      "source_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"
+      "size_bytes": 12058,
+      "source_revision": "0.2.0-draft",
+      "source_sha256": "2afb0013ef968a735f7a88f4553895b1c56bc8fc8338a2afe4d28415dd6378dc"
     },
     {
       "card_id": "math:concept:population-sample",
       "document_id": "math:example:population-sample:wraparound",
       "example_id": "math:example:population-sample:wraparound",
-      "file_sha256": "04dab08bb9a7b0e5535fdafaa4ae6a4d5e6cf5a2592695196100e3f8af04dde3",
+      "file_sha256": "e3fc524efd0f443bcb42e024db54ca1d8f0960580da7852a9009171cadfbc46a",
       "path": "boh/examples/population-sample--wraparound.md",
-      "size_bytes": 11995,
-      "source_revision": "0.1.0-draft",
-      "source_sha256": "f05d510a2cc4a267fd0e0cbb8b1207368b30822d6b52b8845c7cf439c9dd25a5"
+      "size_bytes": 12104,
+      "source_revision": "0.2.0-draft",
+      "source_sha256": "2afb0013ef968a735f7a88f4553895b1c56bc8fc8338a2afe4d28415dd6378dc"
     },
     {
       "card_id": "math:concept:probability",

@@ -1,3 +1,14 @@
+# 0.23.0 — terrain and startup preview
+
+- Compile the deterministic reference index during the build and hydrate it at startup; cache repeated notation normalization in the shared compiler.
+- Add prebuilt/runtime parity checks, a 1,500 ms JavaScript bootstrap budget and a guard against cross-link compilation on browser startup.
+- Replace the Landscape's colored enclosures with one continuous, seeded relief surface, matching shoreline and marching-squares contours. Keep the existing eight territories, 24 areas, identities and card memberships.
+- Add stable topic locations, local focus bounds, screen-sized labels with collision clearings, native place navigation, a locator and explicit touch-pan mode. Preserve Concept connections.
+- Give map selections separate history entries and test Back/Forward restoration with the actual application router.
+- Order browse cards for a learner. Make the secondary playground expandable and mount it on demand, pausing it when closed.
+- Simplify the crate story's main controls and explanation, fix “Do the last four crates…”, use ordinary crate numbering, and add a narrow chart with larger mean labels. Keep the full model available and preserve pinned comparisons.
+- Keep raw attachments, local benchmark fixtures and publication working copies out of source publishing and ZIP packaging.
+
 # 0.22.0 — fill the empty atlas areas
 
 Sets and membership, Population and sample, and Computational complexity: a

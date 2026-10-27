@@ -87,9 +87,9 @@ test('camera zoom and pan remain finite and bounded at every extreme',()=>{
   for(const region of model.areas.regions){
     for(const factor of [.00001,.1,1,1.4,1000000]){
       const box=Explorer.scaleCamera(Landscape.boundsForRegion(region.id),factor);
-      assert.ok(box.width>=150&&box.width<=1200);assert.ok(box.height>=92.5&&box.height<=740);
+      assert.ok(box.width>=150&&box.width<=1200);assert.ok(box.height>=100&&box.height<=800);
       assert.ok(box.x>=0&&box.x+box.width<=1200+1e-10);
-      assert.ok(box.y>=0&&box.y+box.height<=740+1e-10);
+      assert.ok(box.y>=0&&box.y+box.height<=800+1e-10);
     }
   }
 });
@@ -170,6 +170,56 @@ test('reduced motion lands on the selected area immediately and removes preferen
   globalThis.matchMedia=()=>media;t.after(()=>{if(previous===undefined)delete globalThis.matchMedia;else globalThis.matchMedia=previous;});
   const f=fixture(t),view=model.mount(f.host);
   view.selectTopic('structures:linear-algebra');
-  assert.equal(f.pending.size,0);assert.deepEqual(view.getState().camera,Landscape.boundsForRegion('structures'));
+  assert.equal(f.pending.size,0);assert.deepEqual(view.getState().camera,Explorer.fitCamera(Landscape.boundsForTopic('structures:linear-algebra'),{width:1200,height:740}));
   assert.equal(listeners.size,1);view.destroy();assert.equal(listeners.size,0);
+});
+
+test('portrait camera fills the map height with an explicit locator and native access to every territory',()=>{
+  for(const width of [360,390,430]){
+    const viewport={width,height:460},box=Explorer.fitCamera(Landscape.overviewBounds(),viewport,true);
+    assert.ok(Math.abs(box.width/box.height-width/460)<1e-9);
+    assert.equal(box.height,800);
+    assert.ok(box.width<1200,'Portrait overview has an explicit cropped camera rather than letterbox gaps');
+    const area=Explorer.fitCamera(Landscape.boundsForTopic('change:calculus'),viewport);
+    assert.ok(Math.abs(area.width/area.height-width/460)<1e-9);
+  }
+  const html=model.markup();
+  assert.ok(html.includes('class="world-find"'));
+  assert.ok(html.includes('data-world-locator'));
+  assert.ok(html.includes('data-world-interact aria-pressed="false"'));
+  assert.ok(html.includes('class="world-lessons"')===false,'Overview does not duplicate a long lesson list');
+});
+
+test('a wide overview retains the entire coast instead of cropping the northern and southern terrain',()=>{
+  const whole=Landscape.overviewBounds();
+  for(const viewport of [{width:1200,height:600},{width:1022,height:527},{width:1600,height:800}])
+    assert.deepEqual(Explorer.fitCamera(whole,viewport,true),whole);
+});
+
+test('touch scrolling is the default and map movement has an explicit reversible mode',t=>{
+  globalThis.requestAnimationFrame??=()=>0;globalThis.cancelAnimationFrame??=()=>{};
+  const f=fixture(t),view=model.mount(f.host);
+  const fire=(node,type,event)=>{for(const handler of node.listeners.get(type)||[])handler({type,preventDefault(){},...event});};
+  fire(f.canvas,'pointerdown',{button:0,pointerType:'touch',pointerId:1,clientX:300,clientY:300});
+  fire(f.canvas,'pointermove',{buttons:1,pointerType:'touch',pointerId:1,clientX:330,clientY:320});
+  assert.equal(f.canvas.dataset.dragging,undefined);
+  const toggle=new Element('button');toggle.setAttribute('data-world-interact','');toggle.closest=()=>toggle;
+  fire(f.host,'click',{detail:1,target:toggle});
+  assert.equal(toggle.getAttribute('aria-pressed'),'true');
+  fire(f.canvas,'pointerdown',{button:0,pointerType:'touch',pointerId:2,clientX:300,clientY:300});
+  fire(f.canvas,'pointermove',{buttons:1,pointerType:'touch',pointerId:2,clientX:330,clientY:320});
+  assert.equal(f.canvas.dataset.dragging,'true');
+  fire(f.host,'click',{detail:0,target:toggle});
+  assert.equal(toggle.getAttribute('aria-pressed'),'false');
+  assert.equal(f.canvas.dataset.dragging,undefined);
+  view.destroy();
+});
+
+test('mounted resize observation is scoped and removed during cleanup',t=>{
+  globalThis.requestAnimationFrame??=()=>0;globalThis.cancelAnimationFrame??=()=>{};
+  const previous=globalThis.ResizeObserver;let observed=0,disconnected=0;
+  globalThis.ResizeObserver=class{constructor(callback){this.callback=callback;}observe(){observed++;}disconnect(){disconnected++;}};
+  t.after(()=>{if(previous===undefined)delete globalThis.ResizeObserver;else globalThis.ResizeObserver=previous;});
+  const f=fixture(t),view=model.mount(f.host);
+  assert.equal(observed,1);view.destroy();view.destroy();assert.equal(disconnected,1);
 });
