@@ -1045,7 +1045,11 @@
             "logical-connectives-visual-model",
             "quantifier-visual-model",
             "cross-product-visual-model",
-            "stability-visual-model"
+            "stability-visual-model",
+            "relation-visual-model",
+            "equivalence-visual-model",
+            "inference-visual-model",
+            "torque-visual-model"
           ]
         },
         "renderer_version": {

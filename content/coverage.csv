@@ -3,9 +3,9 @@ math:concept:variable,Variable,language-foundations,planned,expansion,pending,pe
 math:concept:constant,Constant,language-foundations,planned,expansion,pending,pending,planned
 math:concept:expression,Expression,language-foundations,planned,expansion,pending,pending,planned
 math:concept:equality,Equality,language-foundations,planned,expansion,pending,pending,planned
-math:concept:equivalence,Equivalence,language-foundations,planned,expansion,pending,pending,planned
+math:concept:equivalence,Logical Equivalence,language-foundations,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:set,Set,language-foundations,draft_specimen,expansion,pending,pending,implemented
-math:concept:relation,Relation,language-foundations,planned,expansion,pending,pending,planned
+math:concept:relation,Predicates and Relations,language-foundations,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:function,Function,language-foundations,draft_specimen,first-eight,pending,pending,implemented
 math:concept:quantifier,Quantifier,language-foundations,draft_specimen,expansion,pending,pending,implemented
 math:concept:proof,Proof,language-foundations,planned,expansion,pending,pending,planned
@@ -193,3 +193,5 @@ math:concept:directional-derivative,Directional derivative,calculus,draft_specim
 math:concept:tangent-plane,Tangent plane,calculus,draft_specimen,expansion,pending,pending,implemented
 math:concept:logical-connectives,Logical Connectives and Truth Tables,language-foundations,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:cross-product,Cross Product and Oriented Area,linear-algebra,draft_specimen,book-expansion,pending,pending,implemented
+math:concept:inference,Inference Rules and Counterexamples,language-foundations,draft_specimen,book-expansion,pending,pending,implemented
+math:concept:torque,Torque about a Pivot,linear-algebra,draft_specimen,book-expansion,pending,pending,implemented

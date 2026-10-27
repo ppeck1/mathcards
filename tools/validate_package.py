@@ -104,6 +104,36 @@ def checks(card, schema, source_ids, known):
     return errors
 
 def compute(model,p):
+    reasoning_bounds={
+        'relation-visual-model':{'threshold':(0,26)},
+        'equivalence-visual-model':{'length':(0,12),'width':(0,12)},
+        'inference-visual-model':{'length':(0,12),'width':(0,12)},
+        'torque-visual-model':{'arm':(0,2),'force':(0,20),'angle':(-180,180)},
+    }
+    if model in reasoning_bounds:
+        bounds=reasoning_bounds[model]
+        select={'equivalence-visual-model':('comparison',{'de-morgan','implication','lookalike'}),'inference-visual-model':('argument',{'modus-ponens','modus-tollens','affirming-consequent'})}.get(model)
+        keys=set(bounds)|({select[0]} if select else set())
+        if set(p)!=keys or any(type(p[key]) not in (int,float) or not math.isfinite(p[key]) or not low<=p[key]<=high for key,(low,high) in bounds.items()):return {'status':'invalid_parameters'}
+        if select and (not isinstance(p[select[0]],str) or p[select[0]] not in select[1]):return {'status':'invalid_parameters'}
+        if model=='relation-visual-model':
+            # Count integer y-indices for each x-index, without the runtime's pair grid.
+            output=sum(max(0,7-max(1,math.ceil(p['threshold']/2-i))) for i in range(1,7))
+        elif model=='equivalence-visual-model':
+            # Literal truth rows independently check the runtime's formula evaluation.
+            row=2*int(p['length']>=6)+int(p['width']>=4)
+            output=([1,1,1,0] if p['comparison']!='implication' else [1,1,0,1])[row]
+        elif model=='inference-visual-model':
+            row=2*int(p['length']>=6)+int(p['width']>=4)
+            output={'modus-ponens':[0,1,0,1],'modus-tollens':[1,1,0,0],'affirming-consequent':[0,0,1,1]}[p['argument']][row]
+        else:
+            # A determinant independently checks the runtime's perpendicular-force path.
+            sine=0.0 if p['angle'] in (-180,0,180) else (1.0 if p['angle']==90 else (-1.0 if p['angle']==-90 else math.sin(math.radians(p['angle']))))
+            cosine=0.0 if abs(p['angle'])==90 else math.cos(math.radians(p['angle']))
+            output=p['arm']*(p['force']*sine)
+            if p['angle'] not in (-180,0,180) and (sine==0 or p['arm']>0 and p['arm']*abs(sine)==0 or p['force']>0 and p['force']*sine==0 or p['force']>0 and cosine!=0 and p['force']*cosine==0 or p['arm']>0 and p['force']>0 and output==0):return {'status':'numeric_precision'}
+            if output==0:output=0.0
+        return {'status':'valid','output':output}
     book_bounds={
         'logical-connectives-visual-model':{'length':(0,12),'width':(0,12)},
         'quantifier-visual-model':{'threshold':(0,14)},

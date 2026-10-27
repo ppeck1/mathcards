@@ -522,6 +522,51 @@
       "locator": "Slides 9–10 of 13: structural stability, specified perturbations and topological conjugacy; distinction from a fixed rule's response to starting-state changes",
       "verification": "Definition-level material inspected 2026-10-27 on the official university-hosted lecture. Supports the reference distinction, not a claim that the bounded equilibrium lesson implements structural-stability analysis.",
       "rights": "Reference only. Explanations and scenarios are originally authored; no lecture prose or diagrams copied."
+    },
+    {
+      "id": "source:western:relations",
+      "title": "Alexander Brandt, Discrete Structures for Computing, 2.2 Relations",
+      "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html",
+      "kind": "institutional_teaching",
+      "locator": "Binary Relations and Relations as Predicates: Cartesian products, subsets of ordered pairs, and one-place versus two-place predicates",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher or university teaching page. Supports definitions and stated conditions, not independent review, photographed-book coverage or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:equivalent-statements",
+      "title": "Contemporary Mathematics, 2.5 Equivalent Statements",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/2-5-equivalent-statements",
+      "kind": "textbook",
+      "locator": "Matching truth values on every assignment; material conditional as a disjunction",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher or university teaching page. Supports definitions and stated conditions, not independent review, photographed-book coverage or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:de-morgan",
+      "title": "Contemporary Mathematics, 2.6 De Morgan’s Laws",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/2-6-de-morgans-laws",
+      "kind": "textbook",
+      "locator": "Negation of conjunction and disjunction; conditional as negation-or, verified by all four truth assignments",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher or university teaching page. Supports definitions and stated conditions, not independent review, photographed-book coverage or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:logical-arguments",
+      "title": "Contemporary Mathematics, 2.7 Logical Arguments",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/2-7-logical-arguments",
+      "kind": "textbook",
+      "locator": "Validity and soundness; law of detachment, denying the consequent, and counterexamples to affirming the consequent",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher or university teaching page. Supports definitions and stated conditions, not independent review, photographed-book coverage or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
+    },
+    {
+      "id": "source:openstax:torque",
+      "title": "University Physics Volume 1, 10.6 Torque",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/10-6-torque",
+      "kind": "textbook",
+      "locator": "Torque as position cross force, signed normal component, N·m and perpendicular moment arm",
+      "verification": "Definition-level material inspected 2026-10-27 on the official publisher or university teaching page. Supports definitions and stated conditions, not independent review, photographed-book coverage or the original constructed scenarios.",
+      "rights": "Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied."
     }
   ]
 }

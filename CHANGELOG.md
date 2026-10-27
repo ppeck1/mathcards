@@ -1,3 +1,17 @@
+# 0.28.0 — Relations, reasoning and torque
+
+- Add four modular lessons: predicates and relations, logical equivalence,
+  inference rules and counterexamples, and torque about a pivot.
+- Follow each story's measurement through a formula into exact truth regions,
+  ordered-pair membership or a force's turning effect, with Geometry and Graph.
+- Keep current truth separate from all-row equivalence and argument validity;
+  show counterexamples explicitly and count ordered pairs without implying chance.
+- Locate forces and distinguish application distance, perpendicular moment arm,
+  signed torque and magnitude, with labelled metre and Newton scales.
+- Add 20 original examples, 48 independently checked fixtures, scoped searchable
+  definitions and notation, previews, typed ports and book-roadmap links.
+- Reach 49 draft cards, 249 examples, 478 fixtures, 298 written exports and 105 views.
+
 # 0.27.0 — Book-guided foundations
 
 - Add four modular lessons: classical logical connectives, finite-domain

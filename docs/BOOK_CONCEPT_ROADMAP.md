@@ -29,6 +29,19 @@ Mathematics and scenes live in `book-foundations.js`; narrative lives in
 and numeric fixtures. Definitions and visible forms enter the prepared reference
 index and its visual symbol catalog.
 
+## Second build: reasoning and turning effects
+
+| Lesson | Matrix connection | Connected representation | Boundary |
+|---|---|---|---|
+| Predicates and relations | MAT-084, 205–206, 214 | A minimum combined length selects ordered pairs in a 6 × 6 grid and an exact count graph | One explicit finite domain; the count is not a probability |
+| Logical equivalence | MAT-200, 213; precursors for 191, 211 | A panel measurement changes the selected truth row; all four assignments decide whether formulas agree everywhere | Three declared formula pairs; a matching current row does not establish equivalence |
+| Inference rules and counterexamples | MAT-194, 203–204, 207, 210 | Measurements feed premises and a conclusion; truth rows and regions reveal the invalid argument's counterexample | Semantic validity of three fixed arguments; formal proof and empirical soundness remain separate |
+| Torque about a pivot | MAT-011, 053, 055; precursors for 048, 051, 059 | Turn the applied force; follow its perpendicular component into signed torque and a sine graph | One planar force; application distance differs from moment arm; no motion simulation |
+
+The second family lives in `reasoning.js` and `reasoning-stories.js`. It shares
+the existing host, timing, readable values, controls and Geometry/Graph space.
+Canonical records, reference entries and map memberships remain separate data.
+
 ## Expansion sequence
 
 Stage labels group prerequisite streams. They are an editorial roadmap, not a
@@ -36,8 +49,8 @@ claim that all earlier stages are required for every later topic.
 
 | Stream | Rows | Next useful modules | What must precede the advanced end |
 |---|---:|---|---|
-| 1 · Logic and language | 33 | Predicate arity and extensions; inference rules; equivalence; free/bound variables | Explicit domain, syntax and interpretation before arbitrary quantified arguments |
-| 2 · Vectors and mechanics | 41 | Located versus free vectors; torque; general spatial cross product; triple products | Shared coordinate frames, units, orientation and location-sensitive meaning |
+| 1 · Logic and language | 33 | Free/bound variables; explicit interpretations; nested quantification | Explicit domain, syntax and interpretation before arbitrary quantified arguments |
+| 2 · Vectors and mechanics | 41 | Located versus free vectors; general spatial cross product; triple products | Shared coordinate frames, units, orientation and location-sensitive meaning |
 | 3 · Proof, models and computation | 30 | Formal proof; small finite structures; machine transitions; decidability | Separate truth from derivability and finite demonstrations from general theorems |
 | 4 · Tensors and coordinate laws | 9 | Coordinate changes; metric; index notation; contraction | Transformation behavior before treating tensors as arrays |
 | 5 · Infinite sets and foundations | 16 | Countability; Cantor's diagonal argument; ordinals | Actual proof structure before compactness, independence, forcing or incompleteness claims |
@@ -45,8 +58,8 @@ claim that all earlier stages are required for every later topic.
 | 7 · Singularities and catastrophes | 21 | Fold first, then cusp and hysteresis; critical-point geometry | Equilibria, parameterized families, local derivatives and clear state/control axes |
 | 8 · Qualitative modeling and applications | 33 | Qualitative versus quantitative models; potentials; carefully bounded morphology examples | Distinguish a mathematical construction, a historical interpretation and empirically validated prediction |
 
-The CSV currently links 30 rows to draft introductions, 32 to precursors, and
-leaves 152 without a dedicated introduction or precursor link. These are
+The CSV currently links 42 rows to draft introductions, 34 to precursors, and
+leaves 138 without a dedicated introduction or precursor link. These are
 topic-to-lesson links, not counts of independently reviewed or complete topics.
 All 214 rows still require scope review as expansion proceeds.
 

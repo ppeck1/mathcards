@@ -1,0 +1,188 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:torque:perpendicular-pull", "id": "math:example:torque:perpendicular-pull", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:torque", "example_id": "math:example:torque:perpendicular-pull", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "f744c42328f5e0dd0c64beccbcf49ad7e9e162a27dabc37b4f2d4a969ac6f822", "source_revision": "0.1.0-draft", "upstream_content_sha256": "47c646cb06bd99e333a4658dd49d2c7f0be5cca3e29d0c3cddf4c54696dcf6a3"}, "purpose": "Turn a force at a fixed application point and follow its perpendicular component into signed torque about the pivot.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "47c646cb06bd99e333a4658dd49d2c7f0be5cca3e29d0c3cddf4c54696dcf6a3", "status": "draft", "title": "Turn the same force to a right angle", "topics": ["mathematics", "applied-mathematics", "mechanics", "linear-algebra", "moment of a force", "perpendicular lever arm", "turning effect", "signed torque"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Turn the same force to a right angle
+
+Parent card: math:concept:torque; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:torque; revision 0.1.0-draft. Setting: A planar force applied at a stated distance from a fixed pivot in a right-handed coordinate frame. Expression: $\vec{r}=(r,0,0)\,\mathrm m,\quad\vec{F}=(F\cos\theta,F\sin\theta,0)\,\mathrm N,\quad\vec{\tau}=\vec{r}\times\vec{F},\quad\tau_z=rF\sin\theta,\quad d_\perp=r|\sin\theta|.$. Conditions required for a defined value (a case may test their violation): The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N. The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction. The signed perpendicular force is F⊥=F sinθ. The actual moment arm d⊥=r|sinθ| is the perpendicular distance to the force line of action when the force is nonzero; it generally differs from r. At zero force, the construction still supplies d⊥ but the zero force vector has no distinguished line of action. The signed component τ_z=rF sinθ is in N·m. Positive z points out of the page and positive planar torque is counterclockwise. A zero torque has no distinguished normal direction. Torque is a turning effect about a selected pivot. Although N·m has the same dimensional form as a joule, this torque value is not energy or work. Scope: The metre distance and Newton force have separate drawing scales. Arrows over r and F denote the position and force vectors; plain r and F in the scalar component formula denote their stated magnitudes. The model evaluates torque for the stated geometry; it does not integrate motion or account for friction, inertia or a force needed to open a real door.
+
+Case unit math:example:torque:perpendicular-pull. Setting: An originally authored workshop scenario with stipulated quantities and rules. Inputs: {"angle": 90, "arm": 0.8, "force": 10}. Result: {"exact": "τ_z=8 N·m; d⊥=0.8 m"}. Limits: The maximum is for the stipulated force magnitude and application distance.
+
+## Complete worked case
+
+- id: math:example:torque:perpendicular-pull
+- title: Turn the same force to a right angle
+- role: applied_model
+- question: What changes at θ=90° with the same point and force?
+- setting: An originally authored workshop scenario with stipulated quantities and rules.
+- assumptions:
+  - The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.
+  - The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction.
+- inputs:
+  - arm: 0.8
+  - force: 10
+  - angle: 90
+- steps:
+  - Item:
+    - index: 1
+    - expression: F⊥=10 sin90°=10 N.
+    - reason: The entire force is perpendicular.
+  - Item:
+    - index: 2
+    - expression: d⊥=0.8 m; τ_z=0.8×10=8 N·m.
+    - reason: The perpendicular moment arm equals the application distance here.
+- result:
+  - exact: τ_z=8 N·m; d⊥=0.8 m
+- interpretation: This angle gives the largest magnitude for these fixed inputs.
+- independent check:
+  - method: Separate logical or exact arithmetic check
+  - expected: |sinθ|≤1 implies |τ_z|≤rF=8 N·m.
+- limits: The maximum is for the stipulated force magnitude and application distance.
+- preset:
+  - arm: 0.8
+  - force: 10
+  - angle: 90
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.
+  - The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction.
+
+## Written exploration recipe
+
+- component id: component:torque
+- renderer id: torque-visual-model
+- renderer version: 1
+- model id: torque-visual-model
+- model revision: 1
+- expression id: ast:torque:expression
+- interaction status: implemented
+- description: A pivot and application-distance bracket use a metre scale. The force arrow and perpendicular component share a separate Newton scale. Signed torque and the perpendicular lever-arm construction remain labelled quantities.
+- controls:
+  - Item:
+    - id: arm
+    - type: number
+    - default: 0.8
+    - min: 0
+    - max: 2
+    - step: 0.01
+  - Item:
+    - id: force
+    - type: number
+    - default: 10
+    - min: 0
+    - max: 20
+    - step: 0.01
+  - Item:
+    - id: angle
+    - type: number
+    - default: 30
+    - min: -180
+    - max: 180
+    - step: 0.01
+- expected cases:
+  - Item:
+    - input:
+      - arm: 0.8
+      - force: 10
+      - angle: 30
+    - output: 4
+  - Item:
+    - input:
+      - arm: 0.8
+      - force: 10
+      - angle: 90
+    - output: 8
+  - Item:
+    - input:
+      - arm: 0.8
+      - force: 10
+      - angle: -90
+    - output: -8
+  - Item:
+    - input:
+      - arm: 0.8
+      - force: 10
+      - angle: 0
+    - output: 0
+  - Item:
+    - input:
+      - arm: 0.8
+      - force: 10
+      - angle: 180
+    - output: 0
+  - Item:
+    - input:
+      - arm: 0.8
+      - force: 10
+      - angle: -180
+    - output: 0
+  - Item:
+    - input:
+      - arm: 0
+      - force: 10
+      - angle: 30
+    - output: 0
+  - Item:
+    - input:
+      - arm: 0.8
+      - force: 0
+      - angle: 30
+    - output: 0
+  - Item:
+    - input:
+      - arm: 2
+      - force: 20
+      - angle: 90
+    - output: 40
+  - Item:
+    - input:
+      - arm: 1
+      - force: 10
+      - angle: 150
+    - output: 5
+  - Item:
+    - input:
+      - arm: 2.1
+      - force: 10
+      - angle: 30
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - arm: 0.8
+      - force: 10
+      - angle: 181
+    - status: invalid_parameters
+- compute: Let r be the nonnegative pivot-to-application distance and F the nonnegative force magnitude. In the fixed plane the position vector is (r,0,0) m and the force vector is (F cosθ,F sinθ,0) N. Their cross product has signed component τ_z=rF sinθ. The perpendicular lever arm is d⊥=r|sinθ| and the torque magnitude is |τ_z|=F d⊥.
+- numeric tolerance: 1e-10
+- invariants:
+  - The position vector and force vector use a fixed right-handed frame. The application point is r metres along positive x, with 0≤r≤2 m; the force magnitude satisfies 0≤F≤20 N.
+  - The construction setting θ ranges from −180 to 180 degrees relative to the positive x axis. For nonzero position and force vectors it is the directed angle from the position vector toward the force. If either vector is zero, the setting does not give that zero vector a direction.
+  - The signed perpendicular force is F⊥=F sinθ. The actual moment arm d⊥=r|sinθ| is the perpendicular distance to the force line of action when the force is nonzero; it generally differs from r. At zero force, the construction still supplies d⊥ but the zero force vector has no distinguished line of action.
+  - The signed component τ_z=rF sinθ is in N·m. Positive z points out of the page and positive planar torque is counterclockwise. A zero torque has no distinguished normal direction.
+  - Torque is a turning effect about a selected pivot. Although N·m has the same dimensional form as a joule, this torque value is not energy or work.
+- limits:
+  - This constructed planar statics calculation supplies a turning effect about a chosen pivot, not a simulation of door motion.
+  - The pivot-to-application distance is not generally the perpendicular moment arm.
+  - The drawing’s metre and Newton scales are distinct; torque in N·m is not a work or energy measurement.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openstax:cross-product. [Calculus Volume 3, 2.4 The Cross Product](https://openstax.org/books/calculus-volume-3/pages/2-4-the-cross-product). Locator: Component definition, orthogonality and orientation; parallelogram area as the cross-product norm. Verification: Definition-level material inspected 2026-10-27 on the official publisher page. Supports definitions, not independent review, photographed-book coverage or the original workshop scenarios.. Rights: Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied.
+
+- Source ID: source:openstax:torque. [University Physics Volume 1, 10.6 Torque](https://openstax.org/books/university-physics-volume-1/pages/10-6-torque). Locator: Torque as position cross force, signed normal component, N·m and perpendicular moment arm. Verification: Definition-level material inspected 2026-10-27 on the official publisher or university teaching page. Supports definitions and stated conditions, not independent review, photographed-book coverage or the original constructed scenarios.. Rights: Reference only. Explanations, scenarios and worked derivations are originally authored; no source prose or exercise bank copied.
