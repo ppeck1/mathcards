@@ -33,6 +33,21 @@
   const caption = value => label(180, 184, value, C.ink, 17);
 
   const records = {
+    'joint-distribution':{
+      title:'Joint distributions',
+      describe:(p,r)=>`A binary library tray and lamp have joint probabilities ${[r.p00,r.p01,r.p10,r.p11].map(f).join(', ')}. Row and column sums give the marginals; P(X=1,Y=1) is ${f(r.p11)}.`,
+      draw:(p,r)=>label(180,24,'TRAY × LAMP',C.muted,12)+label(139,46,'OFF · Y=0',C.cyan,12)+label(265,46,'ON · Y=1',C.gold,12)+[0,1].map(x=>label(44,78+x*52,x?'BOOK':'EMPTY',C.muted,12)+[0,1].map(y=>{const key='p'+x+y,v=r[key];return quantity(key,v,rect(83+y*126,60+x*52,112,39,C.grid,'rx="4"')+rect(83+y*126,92+x*52,112*v,7,y?C.gold:C.cyan)+label(139+y*126,84+x*52,f(v),C.ink,20));}).join('')).join('')+quantity('output',r.output,label(180,168,'P(X=1,Y=1) = '+f(r.output),C.mint,18))+caption('Four paired outcomes. One total.')
+    },
+    'conditional-entropy':{
+      title:'Conditional entropy',
+      describe:(p,r)=>`Averaged remaining entropy H(X|Y) is ${f(r.hxGivenY)} bits. The two lamp observations contribute ${f(r.given0Contribution)} and ${f(r.given1Contribution)} bits. The selected observation has probability ${f(r.observationProbability)}; its own entropy is a separate reading.`,
+      draw:(p,r)=>quantity('output',r.output,label(180,30,'H(X|Y) ≈ '+f(r.hxGivenY)+' bits',C.gold,25))+[r.given0Contribution,r.given1Contribution].map((v,i)=>quantity('given'+i+'Contribution',v,label(57,72+i*40,i?'ON':'OFF',C.muted,13)+rect(91,55+i*40,231*v,17,i?C.mint:C.cyan)+label(280,85+i*40,f(v)+' bits',C.ink,14))).join('')+label(180,156,'Weight each observation’s uncertainty',C.ink,15)+caption('Average over what can be observed.')
+    },
+    'mutual-information':{
+      title:'Mutual information',
+      describe:(p,r)=>`The tray entropy ${f(r.hx)} bits splits into ${f(r.mutualInformation)} bits shared with the lamp and ${f(r.hxGivenY)} bits remaining after it. A perfectly inverted lamp can still be fully informative.`,
+      draw:(p,r)=>quantity('output',r.output,label(180,31,'I(X;Y) ≈ '+f(r.mutualInformation)+' bits',C.gold,25))+label(180,65,'H(X) = '+f(r.hx)+' bits',C.ink,18)+rect(28,83,304,32,'none','stroke="'+C.muted+'"')+quantity('mutualInformation',r.mutualInformation,rect(28,83,304*r.mutualInformation,32,C.gold))+quantity('hxGivenY',r.hxGivenY,rect(28+304*r.mutualInformation,83,304*r.hxGivenY,32,C.cyan))+label(28,135,'0',C.muted,12)+label(332,135,'1 bit',C.muted,12)+label(180,159,'Shared '+f(r.mutualInformation)+' · remaining '+f(r.hxGivenY),C.ink,16)+caption('What the lamp tells you, on average.')
+    },
     'probability-distribution': {
       title:'Finite probability distributions',
       describe:(p,r)=>`The next library check-in returns zero, one or two books with probabilities ${r.probabilities.map(f).join(', ')}. Bar heights and strip widths encode those probabilities on fixed zero-to-one scales. Total probability is ${f(r.massTotal)}.`,

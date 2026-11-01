@@ -20,26 +20,28 @@ preview commands. The offline entry points below remain available.
 
 ## Open the application
 
-Version 0.30 adds three connected lessons: finite Probability distributions,
-Expected value and discrete Shannon entropy. A library return-desk story
-follows the chances of receiving zero, one or two books into a weighted mean
-and expected surprise. The collection has 56 draft concepts, 284 original
-examples and 562 canonical fixtures.
+Version 0.31 connects Joint distributions, Conditional entropy and Mutual
+information. A library tray and sensor lamp show how two variables share a
+probability model, how an observation changes a prediction, and how much
+uncertainty remains on average. The collection has 59 draft concepts, 299
+original examples and 598 canonical fixtures.
 
 Each new lesson uses the existing playground controls and animation clock,
-with one guided variable and distinct Geometry/Graph views. Probability moves
-within a fixed whole, expected value marks a balance point, and entropy adds
-probability-weighted surprises on a fixed bits scale. Impossible outcomes have
-zero entropy contribution by continuity; the app never evaluates log₂0 as a
-finite surprise. All three modules evaluate the same finite probability family.
+with one guided variable and distinct Geometry/Graph views. A joint table
+connects whole outcomes, marginal totals and conditional columns. Weighted
+conditional entropies add to the average uncertainty remaining after reading
+the lamp. Mutual information fills the rest of the original entropy. A selected
+impossible observation has no defined conditional distribution; the global
+information quantities remain valid. A perfectly reversed lamp still carries
+information when its labeling rule is known.
 
 The [book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) preserves all 214 topic IDs from
 the supplied matrix. Its links distinguish bounded introductions, conceptual
 precursors and planned theories. The full collapsible notation catalog and
 lesson-count topography grow from the same records. The prepared reference has
-554 entries and a visual catalog of 644 notation forms, with direct links to
-the cards that use them. See the
-[current review](docs/BUILD_REVIEW_0_30_0.md).
+573 entries and 661 selectable notation forms, with direct links to the cards
+that use them. See the
+[current review](docs/BUILD_REVIEW_0_31_0.md).
 
 1. Extract this ZIP into a folder.
 2. Open **`START_HERE.html`** (or **`dist/index.html`**) in a modern browser such as Chrome, Edge, Firefox

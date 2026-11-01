@@ -57,7 +57,7 @@ test('index symbols retain probability roles and expose new definitions with act
   assert.ok(!uses('r','remaining-two-share').includes('torque'));
   assert.ok(uses('μ','probability-mean').includes('expected-value'));assert.ok(!uses('μ','probability-mean').includes('variance'));
   assert.ok(!uses('μ','population-mean').includes('expected-value'));
-  assert.deepEqual(uses('H(X)','entropy'),['entropy']);assert.deepEqual(uses('I(xᵢ)','self-information'),['entropy']);
+  assert.deepEqual(uses('H(X)','entropy'),['conditional-entropy','entropy','mutual-information']);assert.deepEqual(uses('I(xᵢ)','self-information'),['entropy']);
   for(const query of ['H(X)','H[X]'])assert.ok(index.search(query).some(e=>e.id==='entropy'));
   for(const query of ['pᵢ','p_i','p₀','p_0'])assert.ok(index.search(query).some(e=>e.id==='probability-mass'));
   for(const [query,id]of [['probability mass function','probability-mass-function'],['surprisal','self-information'],['bits','bit'],['0 log 0','zero-entropy-term']])assert.ok(index.search(query).some(e=>e.id===id&&e.usedBy.some(u=>slugs.includes(u.slug))),query);

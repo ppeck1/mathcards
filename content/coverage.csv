@@ -161,8 +161,8 @@ math:concept:roundoff-error,Roundoff Error,modeling-computation,planned,expansio
 math:concept:model-validation,Model Validation,modeling-computation,planned,expansion,pending,pending,planned
 math:concept:information-content,Information Content,information,planned,expansion,pending,pending,planned
 math:concept:entropy,Entropy,information,draft_specimen,expansion,pending,pending,implemented
-math:concept:conditional-entropy,Conditional Entropy,information,planned,expansion,pending,pending,planned
-math:concept:mutual-information,Mutual Information,information,planned,expansion,pending,pending,planned
+math:concept:conditional-entropy,Conditional Entropy,information,draft_specimen,expansion,pending,pending,implemented
+math:concept:mutual-information,Mutual Information,information,draft_specimen,expansion,pending,pending,implemented
 math:concept:relative-entropy,Relative Entropy,information,planned,expansion,pending,pending,planned
 math:concept:coding,Coding,information,planned,expansion,pending,pending,planned
 math:concept:compression,Compression,information,planned,expansion,pending,pending,planned
@@ -198,3 +198,4 @@ math:concept:torque,Torque about a Pivot,linear-algebra,draft_specimen,book-expa
 math:concept:countability,Countability and Enumeration,number-arithmetic,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:finite-state-machine,Finite-State Machines and Configurations,discrete-computation,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:quantifier-scope,Quantifier Order and Variable Scope,language-foundations,draft_specimen,book-expansion,pending,pending,implemented
+math:concept:joint-distribution,Joint Probability Distributions,probability,draft_specimen,expansion,pending,pending,implemented

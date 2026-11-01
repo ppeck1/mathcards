@@ -104,6 +104,24 @@ def checks(card, schema, source_ids, known):
     return errors
 
 def compute(model,p):
+    if model in {'joint-distribution-visual-model','conditional-entropy-visual-model','mutual-information-visual-model'}:
+        if set(p)!={'bookChance','errorChance','observed'} or type(p['observed']) is not str or p['observed'] not in {'0','1'} or any(type(p[key]) not in (int,float) or not math.isfinite(p[key]) or not 0<=p[key]<=1 for key in ('bookChance','errorChance')):
+            return {'status':'invalid_parameters'}
+        q,e=p['bookChance'],p['errorChance']
+        def hb(t):
+            return math.fsum(-v*math.log(v)/math.log(2) for v in (t,1-t) if v>0)
+        if model=='joint-distribution-visual-model':
+            output=q*(1-e)
+        else:
+            # Channel identities independently check the runtime's per-column
+            # entropy and joint-vs-product-of-marginals calculations.
+            hx,hy,noise=hb(q),hb((1-q)*e+q*(1-e)),hb(e)
+            if model=='conditional-entropy-visual-model':
+                output=0 if e in (0,1) or q in (0,1) else hx+noise-hy
+            else:
+                output=0 if e==.5 or q in (0,1) else hy-noise
+            if -1e-12<output<0:output=0.0
+        return {'status':'valid','output':output}
     if model in {'probability-distribution-visual-model','expected-value-visual-model','entropy-visual-model'}:
         if set(p)!={'oneChance','twoShare'} or any(type(v) not in (int,float) or not math.isfinite(v) or not 0<=v<=1 for v in p.values()):
             return {'status':'invalid_parameters'}

@@ -19,6 +19,23 @@ from release import application_version, stamp_template
 from validate_package import compute
 
 class PipelineTests(unittest.TestCase):
+    def test_information_channel_identities_match_direct_joint_sums(self):
+        for q,e in [(0,0),(0,1),(1,0),(1,1),(.5,0),(.5,.5),(.5,1),(.5,.1),(.75,.25),(.2,.9)]:
+            cells=[[(1-q)*(1-e),(1-q)*e],[q*e,q*(1-e)]]
+            px=[1-q,q];py=[math.fsum(row[j] for row in cells) for j in (0,1)]
+            conditional=math.fsum(v*math.log2(py[y]/v) for x,row in enumerate(cells) for y,v in enumerate(row) if v>0)
+            information=math.fsum(v*math.log2(v/(px[x]*py[y])) for x,row in enumerate(cells) for y,v in enumerate(row) if v>0)
+            for observed in ('0','1'):
+                p={'bookChance':q,'errorChance':e,'observed':observed}
+                with self.subTest(parameters=p):
+                    self.assertAlmostEqual(compute('joint-distribution-visual-model',p)['output'],cells[1][1])
+                    self.assertAlmostEqual(compute('conditional-entropy-visual-model',p)['output'],conditional)
+                    self.assertAlmostEqual(compute('mutual-information-visual-model',p)['output'],information)
+        for slug in ('joint-distribution','conditional-entropy','mutual-information'):
+            for invalid in [{'bookChance':.5,'errorChance':.1,'observed':'2'},{'bookChance':.5,'errorChance':.1,'observed':1},{'bookChance':True,'errorChance':.1,'observed':'1'},{'bookChance':.5,'errorChance':-.1,'observed':'1'},{'bookChance':.5,'errorChance':.1}]:
+                with self.subTest(slug=slug,invalid=invalid):
+                    self.assertEqual(compute(slug+'-visual-model',invalid)['status'],'invalid_parameters')
+
     def test_chance_reference_uses_tail_sums_and_entropy_partition(self):
         # Independent identities check the three-outcome PMF, including its
         # boundary distributions and the binary partition used by the oracle.
@@ -55,9 +72,9 @@ class PipelineTests(unittest.TestCase):
         for card in catalog['cards']:
             source=json.loads((ROOT/'content/cards'/(card['slug']+'.json')).read_text(encoding='utf-8'))
             self.assertEqual(source,card)
-        self.assertEqual(len(catalog['cards']),56)
-        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),284)
-        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),562)
+        self.assertEqual(len(catalog['cards']),59)
+        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),299)
+        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),598)
 
     def test_book_roadmap_preserves_topic_identity_and_honest_card_links(self):
         with (ROOT/'docs/BOOK_CONCEPT_ROADMAP.csv').open(encoding='utf-8',newline='') as stream:
@@ -87,7 +104,7 @@ class PipelineTests(unittest.TestCase):
             a,b=Path(tmp)/'a',Path(tmp)/'b'
             ma,mb=build_export(a),build_export(b)
             self.assertEqual(ma,mb)
-            self.assertEqual(ma['document_count'],340)
+            self.assertEqual(ma['document_count'],358)
             for entry in ma['documents']:
                 self.assertEqual((a/entry['path']).read_bytes(),(b/entry['path']).read_bytes())
                 self.assertNotIn('notebook',entry['path'])
