@@ -56,18 +56,17 @@ class Element{
   contains(){return false;}
   setAttribute(key,value){this.attrs[key]=String(value);}
   getAttribute(key){return this.attrs[key]??null;}
-  querySelector(key){if(!this.selectors.has(key))this.selectors.set(key,new Element());return this.selectors.get(key);}
+  querySelector(key){if(!this.selectors.has(key)){const node=new Element();if(key.startsWith('[data-formula=')||key==='.life-reader-formula')node.className='life-formula';this.selectors.set(key,node);}return this.selectors.get(key);}
   querySelectorAll(key){return this.groups.get(key)||[];}
   addEventListener(key,value){this.listeners.set(key,value);}
   removeEventListener(key){this.listeners.delete(key);}
 }
-function harness(){
-  const story=gridStory(),host=new Element(),slider=new Element('input'),created=[],frames=new Map(),seen=[];let now=1000,nextFrame=0;
-  slider.dataset.storyParam='n';slider.value='1';
+function harness(story=gridStory(),valid=p=>[1,3,5,7,9].includes(p.n)&&p.fixed===7){
+  const host=new Element(),slider=new Element('input'),created=[],frames=new Map(),seen=[];let now=1000,nextFrame=0;
+  slider.dataset.storyParam='n';slider.value=String(story.timeline.from);
   host.selectors.set('[data-story-param="n"]',slider);host.groups.set('[data-story-param]',[slider]);
   host.groups.set('input[type=range]',[slider,host.querySelector('[data-timeline]')]);host.groups.set('[data-step]',story.steps.map((_,i)=>{const button=host.querySelector('[data-step="'+i+'"]');button.dataset.step=String(i);return button;}));
   const request=callback=>{frames.set(++nextFrame,callback);return nextFrame;},cancel=id=>frames.delete(id);
-  const valid=p=>[1,3,5,7,9].includes(p.n)&&p.fixed===7;
   const context=vm.createContext({
     document:{hidden:false,createElement(name){const node=new Element(name);created.push(node);return node;},createTextNode:text,addEventListener(){},removeEventListener(){}},
     matchMedia:()=>({matches:false,addEventListener(){},removeEventListener(){}}),requestAnimationFrame:request,cancelAnimationFrame:cancel,
@@ -114,4 +113,23 @@ test('throttled frame callbacks preserve the authored replay duration and still 
     const play=h.host.querySelector('[data-play]');play.onclick();h.advanceFrame(1000);h.advanceFrame(1000);
     assert.equal(h.player.getParameters().n,9);assert.equal(play.getAttribute('aria-pressed'),'false');
   }finally{h.player.destroy();}
+});
+
+test('mounted story formulas simplify signed addition while token accessibility retains the signed quantity',()=>{
+  const story=gridStory();story.parameters.n=.25;story.timeline={key:'n',from:-.25,to:.25,durationMs:1000};
+  story.variables=[{key:'n',symbol:'n',label:'Signed amount',unit:'',min:-1,max:1,step:.01,discrete:false}];
+  story.steps=story.steps.map(step=>({...step,body:'A read-only part has n={{n}}.',formula:'-1 × 0 + {{n}} × 1 = {{output}}'}));
+  const h=harness(story,p=>Number.isFinite(p.n)&&p.n>=-1&&p.n<=1&&p.fixed===7);
+  try{
+    const formula=h.host.querySelector('[data-formula="0"]'),body=h.host.querySelector('[data-body="0"]');
+    assert.equal(formula.textContent,'−1 × 0 − 0.25 × 1 = −0.25');
+    assert.equal(body.textContent,'A read-only part has n=−0.25.');
+    const token=formula.childNodes.find(node=>node.dataset?.tokenKey==='n'),valueNode=token.firstChild.firstChild;
+    assert.equal(token.firstChild.textContent,'0.25');
+    assert.match(token.getAttribute('aria-label'),/n −0\.25\./,'The button names the signed model quantity');
+    h.slider.value='.25';h.slider.oninput();h.advance(400);
+    assert.equal(formula.textContent,'−1 × 0 + 0.25 × 1 = 0.25');
+    assert.match(token.getAttribute('aria-label'),/n 0\.25\./);
+    assert.equal(token.firstChild.firstChild,valueNode,'The numeric text node survives the sign crossing');
+  }finally{h.player.destroy();assert.equal(h.frames.size,0);}
 });

@@ -1,3 +1,23 @@
+# 0.33.0 — Presentation and review repairs
+
+- Give every card illustration a separate caption band and readable labels;
+  correct singular book/bit units without changing the underlying geometry.
+- Replace exact-log allowlists with bounded mathematical certificates, retain
+  exact fractions in readouts, and explain the fixed base multiplier correctly.
+- Correct summation notation, scoped symbol roles and graph vertex definitions.
+- Compile all 61 formal definitions to native MathML at build time. The pinned
+  MIT-licensed TeX compiler stays out of the runtime bundle.
+- Use all eight atlas territories to filter Explore, show twelve cards initially,
+  improve reference contrast/type size, and clarify overlapping map counts.
+- Link readable card titles, distinguish written examples, add six supported
+  legacy presets, improve defaults, label notebook import and add share metadata.
+- Normalize formula operators while preserving paced values and signed
+  accessibility labels. Keep models, views and saved-state contracts intact.
+- Canonicalize generated LF bytes, verify offline hashes and reject generated
+  drift in CI. Remove the unused terrain bake and shorten the README.
+- Keep broad formatting, lazy data hydration, legacy-provider migration and
+  browser qualification explicit in docs/REVIEW_RESPONSE_0_33_0.md.
+
 # 0.32.0 — Writable memory and formal derivations
 
 - Add a six-rule binary tape incrementer and a five-line formal proof lesson.

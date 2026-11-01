@@ -51,7 +51,7 @@
       const button=document.createElement('button');button.type='button';button.className='calculation-stage';button.dataset.flowRole=entry.role;button.setAttribute('aria-pressed','false');
       const title=document.createElement('span');title.className='calculation-stage-label';title.textContent=String(index+1).padStart(2,'0')+' · '+entry.label;
       const expression=document.createElement('span');expression.className='calculation-expression';
-      const segments=parts(entry.template);segments.forEach((part,i)=>{if(part.key){const value=document.createElement('span');value.dataset.flowKey=part.key;value.className='calculation-value';expression.append(value);tokens.push({key:part.key,node:value,precision:quantityFor(part.key)?.precision});}else{const node=document.createTextNode(part.text);expression.append(node);literals.push({node,text:part.text,nextRole:quantityFor(segments[i+1]?.key)?.role});}});
+      const segments=parts(entry.template);let prefix=null;segments.forEach((part,i)=>{if(part.key){const value=document.createElement('span');value.dataset.flowKey=part.key;value.className='calculation-value';expression.append(value);tokens.push({key:part.key,node:value,precision:quantityFor(part.key)?.precision,prefix,precededByValue:i>1});prefix=null;}else{const node=document.createTextNode(part.text);expression.append(node);prefix={node,text:part.text,hasValue:!!segments[i+1]?.key,nextRole:quantityFor(segments[i+1]?.key)?.role};literals.push(prefix);}});
       button.append(title,expression);button.onclick=()=>{cancel();select(index,true);};row.append(button);buttons.push(button);
     });
     function select(index,notify=false){if(index===current)return;current=index;buttons.forEach((button,i)=>{const value=String(i===index);if(button.getAttribute('aria-pressed')!==value)button.setAttribute('aria-pressed',value);});host.dataset.flowPhase=entries[index]?.role||'reference';if(notify&&entries[index])onPhase(entries[index]);}
@@ -59,7 +59,14 @@
     function tick(time){if(disposed||!running)return;select(phaseAt(Math.max(0,time-started)),true);if(current===2){running=false;frame=null;return;}frame=requestFrame(tick);}
     function begin({restart=false}={}){if(disposed||running&&!restart)return;cancel();if(reducedMotion()){select(2,true);return;}started=now();running=true;current=-1;select(0,true);frame=requestFrame(tick);}
     replay.onclick=()=>begin({restart:true});
-    return Object.freeze({begin,cancel,mark(role){const index=entries.findIndex(entry=>entry.role===role);if(index>=0)select(index);else{current=-1;buttons.forEach(button=>button.setAttribute('aria-pressed','false'));}},update(values,reading){tokens.forEach(token=>readable.writeText(token.node,readable.format(values[token.key],token.precision?{settled:true,precision:token.precision}:reading)));literals.forEach(part=>{const text=formatLiteral(part.text,part.nextRole,!reading.settled);if(part.node.nodeValue!==text)part.node.nodeValue=text;});},destroy(){disposed=true;cancel();replay.onclick=null;buttons.forEach(button=>button.onclick=null);}});
+    return Object.freeze({begin,cancel,mark(role){const index=entries.findIndex(entry=>entry.role===role);if(index>=0)select(index);else{current=-1;buttons.forEach(button=>button.setAttribute('aria-pressed','false'));}},update(values,reading){
+      literals.forEach(part=>{if(part.hasValue)return;const text=readable.mathLiteral(formatLiteral(part.text,part.nextRole,!reading.settled));if(part.node.nodeValue!==text)part.node.nodeValue=text;});
+      tokens.forEach(token=>{
+        const options=token.precision?{settled:true,precision:token.precision}:reading,term=readable.mathTerm(values[token.key],{...options,prefix:token.prefix?formatLiteral(token.prefix.text,token.prefix.nextRole,!reading.settled):'',precededByValue:token.precededByValue});
+        if(token.prefix&&token.prefix.node.nodeValue!==term.prefix)token.prefix.node.nodeValue=term.prefix;
+        readable.writeText(token.node,term.text);
+      });
+    },destroy(){disposed=true;cancel();replay.onclick=null;buttons.forEach(button=>button.onclick=null);}});
   }
   return Object.freeze({stages,phaseAt,parts,mount});
 });

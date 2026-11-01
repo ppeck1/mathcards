@@ -49,7 +49,7 @@
       id:'story:alignment-correction-size',slug:'gradient-descent',scene:'calibrated-alignment-cost',unit:'score units',title:'Choose the size of an alignment correction',eyebrow:'Two calibration settings · discrete gradient descent',
       summary:'Change the learning rate and watch four actual adjustment steps find a smaller alignment score.',
       context:'Imagine a calibration tool with two normalized alignment errors x and y. This constructed score is C(x,y)=(x²+2y²)/2, starting at (2,1.5). Each update subtracts the selected learning rate times the current gradient. The displayed path contains exactly four updates; changing the learning rate recalculates that whole discrete path.',
-      question:'With learning rate 0.4, where do four gradient-descent updates end, and what score remains?',
+      question:'How does changing the learning rate move four gradient-descent updates and change the remaining score?',
       variables:[{key:'stepSize',symbol:'η',label:'Learning rate',unit:'unitless',min:.05,max:.9,step:.01}],parameters:{startX:2,startY:1.5,a:1,b:2,stepSize:.4,iteration:4},timeline:{key:'stepSize',from:.1,to:.4,durationMs:14000},
       steps:stages([
         {title:'Keep the starting calibration and score',focusLabel:'The initial point and the cost contours stay fixed',focusDescription:'The positive quadratic weights define a strictly convex bowl with its unique minimum at zero. The learning-rate control changes the update size, not the score function.',body:'At learning rate {{stepSize}}, start at ({{startX}},{{startY}}) with score {{initialCost}}. The fixed weights are {{a}} and {{b}}.',formula:'C(x,y) = ({{a}}x² + {{b}}y²)/2'},

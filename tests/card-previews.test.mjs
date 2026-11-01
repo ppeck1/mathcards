@@ -19,7 +19,7 @@ test('every installed concept has a dedicated, accessible, finite and noninterac
   for (const slug of Previews.list()) {
     const original = Models.defaults(slug), result = Models.evaluate(slug, original), html = Previews.render(slug, { id: 'tile-' + slug });
     assert.match(html, /^<svg\b/);
-    assert.match(html, /viewBox="0 0 360 200"/);
+    assert.match(html, /viewBox="0 0 360 232"/);
     assert.match(html, /role="img"/);
     assert.ok(Previews.description(slug).length > 70, slug);
     assert.doesNotMatch(html, /NaN|Infinity/);
@@ -55,6 +55,50 @@ test('the card library loads offline with the existing model helpers and escapes
   for (const slug of ['constructor', '__proto__', 'unknown', null, {}]) {
     assert.equal(Previews.has(slug), false); assert.equal(Previews.render(slug), ''); assert.equal(Previews.description(slug), '');
   }
+});
+
+test('all previews reserve readable nonoverlapping artwork and caption bands', () => {
+  const layout = Previews.layout;
+  assert.ok(Object.isFrozen(layout));
+  assert.ok(layout.captionTop - layout.artBottom >= 10);
+  for (const slug of Previews.list()) {
+    const html = Previews.render(slug);
+    const captions = [...html.matchAll(/<g data-preview-layer="caption">([\s\S]*?)<\/g>/g)];
+    assert.equal(captions.length, 1, slug + ' has one dedicated explanatory caption');
+    const caption = attrs(captions[0][1].match(/<text\b[^>]*>/)[0]);
+    const captionY = Number(caption.y), captionSize = Number(caption['font-size']);
+    assert.ok(captionY - captionSize >= layout.captionTop, slug + ' caption fits its reserved band');
+    assert.ok(captionY + captionSize / 4 <= layout.height - 8, slug + ' caption has room below its baseline');
+    const artwork = html.replace(captions[0][0], '');
+    for (const [tag] of artwork.matchAll(/<text\b[^>]*>/g)) {
+      const a = attrs(tag), size = Number(a['font-size']);
+      assert.ok(size >= 13, slug + ' retains legible illustration text');
+      // Conservative baseline descent keeps result labels and axis labels
+      // clear of the caption without relying on a particular system font.
+      assert.ok(Number(a.y) + size / 4 <= layout.artBottom, slug + ' label remains in the artwork band');
+    }
+  }
+});
+
+test('preview unit labels distinguish one book or bit from plural counts', () => {
+  assert.match(Previews.render('probability-distribution'), />1 book<\/text>/);
+  assert.match(Previews.render('probability-distribution'), />0 books<\/text>/);
+  assert.match(Previews.render('probability-distribution'), />2 books<\/text>/);
+  assert.match(Previews.render('expected-value'), /E\[X\] = 1 book/);
+  assert.match(Previews.render('mutual-information'), /H\(X\) = 1 bit/);
+  for (const slug of Previews.list()) assert.doesNotMatch(Previews.render(slug), /\b1 (?:books|bits)\b/, slug);
+});
+
+test('every illustration has unambiguous SVG attributes including custom-width arrows', () => {
+  for (const slug of Previews.list()) {
+    for (const [tag] of Previews.render(slug).matchAll(/<[A-Za-z][^>]*>/g)) {
+      const names = [...tag.matchAll(/([\w:-]+)="[^"]*"/g)].map(([,name]) => name);
+      assert.equal(new Set(names).size, names.length, slug + ': ' + tag);
+    }
+  }
+  const arrow = find(Previews.render('directional-derivative'), 'directionX').body;
+  assert.match(arrow, /<line[^>]*stroke-width="3"/);
+  assert.match(arrow, /<path[^>]*stroke-width="3"/);
 });
 
 test('composition illustrates the current order and scales square areas, not side lengths, by magnitude', () => {

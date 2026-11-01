@@ -1,9 +1,9 @@
 (function(root,factory){
   'use strict';
-  const api=factory(root.AtlasModels||(typeof require==='function'?require('./models.js'):null),root.AtlasStoryScenes||(typeof require==='function'?require('./story-scenes.js'):null));
+  const api=factory(root.AtlasModels||(typeof require==='function'?require('./models.js'):null),root.AtlasStoryScenes||(typeof require==='function'?require('./story-scenes.js'):null),root.AtlasReadableValues||(typeof require==='function'?require('./readable-values.js'):null));
   if(typeof module==='object'&&module.exports)module.exports=api;
   root.AtlasLifeStory=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(M,Scenes){
+})(typeof globalThis!=='undefined'?globalThis:this,function(M,Scenes,ReadableCore){
   'use strict';
   const clamp=v=>Math.max(0,Math.min(1,v));
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -19,7 +19,19 @@
     return next;
   }
   function parametersAt(story,progress,base=story.parameters){const t=clamp(Number.isFinite(progress)?progress:0),s=story.timeline;return discreteValues(story,{...base,[s.key]:t===1?s.to:t===0?s.from:s.from+(s.to-s.from)*t});}
-  function formatTemplate(template,values){return String(template).replace(/\{\{([A-Za-z][A-Za-z0-9_]*)\}\}/g,(_,key)=>format(Object.hasOwn(values,key)?values[key]:undefined));}
+  function formatTemplate(template,values,options={}){
+    if(!options.math||!ReadableCore)return String(template).replace(/\{\{([A-Za-z][A-Za-z0-9_]*)\}\}/g,(_,key)=>format(Object.hasOwn(values,key)?values[key]:undefined));
+    const parts=templateParts(template),result=[];
+    parts.forEach((part,i)=>{
+      if(Object.hasOwn(part,'text'))result.push(ReadableCore.mathLiteral(part.text));
+      else{
+        const hasPrefix=Object.hasOwn(parts[i-1]||{},'text'),term=ReadableCore.mathTerm(Object.hasOwn(values,part.key)?values[part.key]:undefined,{settled:true,...options,prefix:hasPrefix?result.at(-1):'',precededByValue:i>1});
+        if(hasPrefix)result[result.length-1]=term.prefix;
+        result.push(term.text);
+      }
+    });
+    return result.join('');
+  }
   function templateParts(template){
     const parts=[];let start=0;
     for(const match of String(template).matchAll(/\{\{([A-Za-z][A-Za-z0-9_]*)\}\}/g)){
@@ -81,12 +93,12 @@
     const tokens=[],formulaText=[];
     function compile(node,template){
       node.replaceChildren();
-      const parts=templateParts(template);
+      const parts=templateParts(template),isMath=node.classList.contains('life-formula');let prefix=null;
       for(let i=0;i<parts.length;i++){
         const part=parts[i],next=parts[i+1];
-        if(Object.hasOwn(part,'text')){const literal=document.createTextNode(part.text);node.append(literal);if(node.classList.contains('life-formula')&&next?.key)formulaText.push({node:literal,text:part.text,nextRole:Links.quantityFor(slug,next.key)?.role||tokenRole(slug,next.key,variable.key)});continue;}
+        if(Object.hasOwn(part,'text')){const literal=document.createTextNode(part.text);node.append(literal);prefix={node:literal,text:part.text,hasValue:!!next?.key,nextRole:next?.key?(Links.quantityFor(slug,next.key)?.role||tokenRole(slug,next.key,variable.key)):null};if(isMath)formulaText.push(prefix);continue;}
         const quantity=Links.quantityFor(slug,part.key),role=quantity?.role||tokenRole(slug,part.key,variable.key),button=document.createElement('button');button.type='button';button.className='life-token';button.dataset.tokenKey=part.key;button.dataset.linkRole=role;button.setAttribute('aria-pressed','false');
-        const value=document.createElement('span');value.className='life-token-value';button.append(value);node.append(button);tokens.push({key:part.key,role,quantity,button,value});
+        const value=document.createElement('span');value.className='life-token-value';button.append(value);node.append(button);tokens.push({key:part.key,role,quantity,button,value,isMath,prefix,precededByValue:i>1});prefix=null;
       }
     }
     story.steps.forEach((step,i)=>{compile(host.querySelector('[data-body="'+i+'"]'),step.body);compile(host.querySelector('[data-formula="'+i+'"]'),step.formula);});
@@ -125,8 +137,14 @@
       const values=Scenes.values(slug,p);calculation?.update(values,reading);const current=Readable.format(Scenes.primaryValue(slug,p),reading)+' '+unit;
       if(!policy.sceneReadout)Readable.writeText(host.querySelector('[data-input]'),variable.symbol+(settled?' = ':' ≈ ')+Readable.format(p[variable.key],reading)+' '+variable.unit);
       if(!policy.sceneReadout)Readable.writeText(host.querySelector('[data-result]'),(settled?'':'≈ ')+current);
-      tokens.forEach(token=>{const value=Readable.format(Object.hasOwn(values,token.key)?values[token.key]:undefined,token.quantity?.precision?{settled:true,precision:token.quantity.precision}:reading);Readable.writeText(token.value,value);const label=(token.quantity?.label||link.variableLabel)+' '+value+'. Show its place in the scene.';if(token.button.getAttribute('aria-label')!==label)token.button.setAttribute('aria-label',label);});
-      formulaText.forEach(part=>{const value=formulaLiteral(part.text,part.nextRole,!settled);if(part.node.nodeValue!==value)part.node.nodeValue=value;});
+      formulaText.forEach(part=>{if(part.hasValue)return;const value=Readable.mathLiteral(formulaLiteral(part.text,part.nextRole,!settled));if(part.node.nodeValue!==value)part.node.nodeValue=value;});
+      tokens.forEach(token=>{
+        const raw=Object.hasOwn(values,token.key)?values[token.key]:undefined,options=token.quantity?.precision?{settled:true,precision:token.quantity.precision}:reading;
+        const term=token.isMath?Readable.mathTerm(raw,{...options,prefix:token.prefix?formulaLiteral(token.prefix.text,token.prefix.nextRole,!settled):'',precededByValue:token.precededByValue}):null;
+        if(term&&token.prefix&&token.prefix.node.nodeValue!==term.prefix)token.prefix.node.nodeValue=term.prefix;
+        const value=term?.signedText??Readable.format(raw,options);Readable.writeText(token.value,term?.text??value);
+        const label=(token.quantity?.label||link.variableLabel)+' '+value+'. Show its place in the scene.';if(token.button.getAttribute('aria-label')!==label)token.button.setAttribute('aria-label',label);
+      });
       if(!compact)Readable.writeText(answer.querySelector('.life-answer-value'),(settled?'Current reading: ':'Moving reading: ')+current);
       Readable.writeText(answer.querySelector('.life-answer-note'),atGoal(p)?conclusionAt(p):compact?'Set '+variable.label.toLowerCase()+' to '+format(story.parameters[variable.key])+' '+variable.unit+' to check the question.':'Move to the final story marker to check the original question.');answer.classList.toggle('is-solved',atGoal(p));
       story.variables.forEach(v=>Readable.writeText(host.querySelector('[data-variable-value="'+v.key+'"]'),Readable.format(p[v.key],v.precision?{settled:true,precision:v.precision}:reading)));

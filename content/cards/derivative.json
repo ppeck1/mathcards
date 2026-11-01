@@ -309,7 +309,11 @@
         "expected": "At a=2 the symbolic formula 3a² gives 12."
       },
       "limits": "A slope at one point is not a global constant.",
-      "preset": null,
+      "preset": {
+        "preset": "cubic",
+        "a": 2,
+        "h": 0
+      },
       "provenance": {
         "kind": "original worked derivation",
         "mathematical_review": "draft",
@@ -355,7 +359,11 @@
         "expected": "Expanded quotient: 12+6(0.1)+(0.1)²=12.61."
       },
       "limits": "Moving a finite step is not taking a limit.",
-      "preset": null,
+      "preset": {
+        "preset": "cubic",
+        "a": 2,
+        "h": 0.1
+      },
       "provenance": {
         "kind": "original worked derivation",
         "mathematical_review": "draft",
@@ -496,7 +504,11 @@
         "expected": "The two one-sided quotient limits disagree."
       },
       "limits": "A wide plot or rounded pixel corner must not smooth away this failure.",
-      "preset": null,
+      "preset": {
+        "preset": "absolute",
+        "a": 0,
+        "h": 0.1
+      },
       "provenance": {
         "kind": "original worked derivation",
         "mathematical_review": "draft",
@@ -536,7 +548,11 @@
         "expected": "For h≠0 the quotient is 12+6h+h² and its limit is 12."
       },
       "limits": "Never display the h=0 quotient as 0 or 12.",
-      "preset": null,
+      "preset": {
+        "preset": "cubic",
+        "a": 2,
+        "h": 0
+      },
       "provenance": {
         "kind": "original worked derivation",
         "mathematical_review": "draft",

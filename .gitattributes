@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.pdf binary
+*.zip binary
+# Preserve the pinned upstream compiler byte-for-byte, including its whitespace.
+tools/vendor/** -whitespace linguist-vendored

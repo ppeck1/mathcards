@@ -285,6 +285,10 @@
     const byId=new Map(entries.filter(entry=>entry&&typeof entry.id==='string').map(entry=>[entry.id,entry])),exact=new Map();
     for(const entry of byId.values())for(const token of [...(entry.symbols||[]),...(entry.lookupAliases||[]),...(entry.mathSymbols||[]),...(entry.tokens||[])])if(typeof token==='string'&&token.trim()){const key=normalize(token),ids=exact.get(key)||[];ids.push(entry.id);exact.set(key,ids);}
     const records=[],layout=[],review=[],allFields=[...cards.flatMap(card=>fieldsFor(card,stories).map(field=>({...field,slug:String(card.slug||'')}))),...fields.filter(field=>field&&typeof field.text==='string')];
+    // These contexts declare sums, not a set named by capital Greek sigma.
+    // A glyph resolving somewhere in the index must not hide a wrong role.
+    const sumContexts=new Set(['probability','reference:riemann-sum']);
+    for(const field of allFields)if(field.kind!=='unit'&&sumContexts.has(String(field.slug||'')))for(const match of field.text.matchAll(/Σ|\\Sigma\b/g))review.push({slug:String(field.slug||''),location:field.location||'Declared runtime notation',token:match[0],offset:match.index,reason:'This context declares summation. Use the operator ∑ or \\sum, not the Greek letter Σ.'});
     for(const field of allFields)if(field.kind!=='unit')for(const match of field.text.matchAll(/(?<![\\\w])([A-Za-z][A-Za-z0-9_]*)\(/g)){const name=match[1];if(name.length>1&&!Object.hasOwn(named,name)&&!/^log_(?:[A-Za-z0-9]*|\{[^{}]+\})$/.test(name)&&!/^log\d+$/.test(name)&&name!=='rx_n')review.push({slug:String(field.slug||''),location:field.location||'Declared runtime notation',token:name,offset:match.index,reason:'Adjacent plain callable needs an explicit mathematical reader or a reviewed prose exclusion.'});}
     for(const field of allFields)for(const occurrence of extract(field.text,{kind:field.kind,slug:field.slug})){
       const reference=field.reference===true||String(field.slug||'').startsWith('reference:');

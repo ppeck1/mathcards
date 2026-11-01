@@ -59,6 +59,15 @@ test('formatTemplate replaces model quantities as plain text without evaluating 
   assert.equal(Player.formatTemplate('{{text}}',{text:'<img onerror="bad()">'}),'<img onerror="bad()">','The helper returns text; the controller inserts it with textContent');
 });
 
+test('formula template formatting is explicit and leaves the prose API unchanged',()=>{
+  const values={a:-1,b:-.25,x:0,y:1,tiny:-1.25e-10};
+  const template='{{a}} × {{x}} + {{b}} × {{y}}';
+  assert.equal(Player.formatTemplate(template,values,{math:true}),'−1 × 0 − 0.25 × 1');
+  assert.equal(Player.formatTemplate('a read-only part has {{b}} offset',values),'a read-only part has -0.25 offset');
+  assert.equal(Player.formatTemplate('x-y = {{tiny}}',values,{math:true}),'x−y = −1.25e−10');
+  assert.equal(Player.formatTemplate('-{{b}}',values,{math:true}),'−(−0.25)');
+});
+
 test('missing and nonfinite quantities show an explicit unavailable state',()=>{
   for(const value of [NaN,Infinity,-Infinity,null,undefined])assert.equal(Player.formatTemplate('Now {{output}}',{output:value}),'Now Unavailable');
   assert.equal(Player.formatTemplate('{{missing}}',{}),'Unavailable');

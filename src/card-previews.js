@@ -8,12 +8,15 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function (M, D) {
   'use strict';
   const C = Object.freeze({ bg: '#101e2b', grid: '#294352', ink: '#eef8f3', muted: '#9eb4bf', cyan: '#77d8e8', mint: '#c6f276', gold: '#f5cf78', violet: '#b8a1ff', orange: '#ffb08a' });
+  // Every preview keeps explanatory text below the mathematical artwork.
+  // A shared band prevents a new result label from colliding with its caption.
+  const L = Object.freeze({ width: 360, height: 232, artBottom: 188, captionTop: 198, captionBaseline: 216, minimumTextSize: 13 });
   const finite = Number.isFinite;
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   const n = value => finite(value) ? Number(value.toFixed(5)) : 0;
   const f = value => finite(value) ? String(Number(value.toPrecision(4))).replace('-', '−') : 'undefined';
   const scope = value => 'atlas-card-' + Array.from(String(value ?? 'preview')).map(c => /^[A-Za-z0-9-]$/.test(c) ? c : '_' + c.codePointAt(0).toString(16) + '_').join('');
-  const text = (x, y, value, color = C.muted, size = 15, extra = '') => `<text x="${n(x)}" y="${n(y)}" fill="${color}" font-size="${size}" ${extra}>${esc(value)}</text>`;
+  const text = (x, y, value, color = C.muted, size = 15, extra = '') => `<text x="${n(x)}" y="${n(y)}" fill="${color}" font-size="${Math.max(L.minimumTextSize, size)}" ${extra}>${esc(value)}</text>`;
   const line = (x1, y1, x2, y2, color = C.grid, extra = '') => `<line x1="${n(x1)}" y1="${n(y1)}" x2="${n(x2)}" y2="${n(y2)}" stroke="${color}" ${extra}/>`;
   const circle = (x, y, r, color, extra = '') => `<circle cx="${n(x)}" cy="${n(y)}" r="${n(r)}" fill="${color}" ${extra}/>`;
   const rect = (x, y, width, height, color, extra = '') => `<rect x="${n(x)}" y="${n(y)}" width="${n(width)}" height="${n(height)}" fill="${color}" ${extra}/>`;
@@ -25,12 +28,15 @@
   const quantity = (key, value, body, extra = '') => `<g data-preview-quantity="${esc(key)}" data-value="${esc(value)}" ${extra}>${body}</g>`;
   const label = (x, y, value, color = C.ink, size = 18) => text(x, y, value, color, size, 'text-anchor="middle"');
   const arrow = (x1, y1, x2, y2, color = C.muted, extra = '') => {
+    const width = /\bstroke-width="([^"]+)"/.exec(extra)?.[1] || '2.5';
+    extra = extra.replace(/\bstroke-width="[^"]+"\s*/, '');
     const angle = Math.atan2(y2 - y1, x2 - x1), backX = x2 - Math.cos(angle) * 8, backY = y2 - Math.sin(angle) * 8;
-    return line(x1, y1, x2, y2, color, 'stroke-width="2.5" ' + extra) + `<path d="M${n(backX + Math.sin(angle) * 4)} ${n(backY - Math.cos(angle) * 4)}L${n(x2)} ${n(y2)}L${n(backX - Math.sin(angle) * 4)} ${n(backY + Math.cos(angle) * 4)}" fill="none" stroke="${color}" stroke-width="2.5"/>`;
+    return line(x1, y1, x2, y2, color, 'stroke-width="' + width + '" ' + extra) + `<path d="M${n(backX + Math.sin(angle) * 4)} ${n(backY - Math.cos(angle) * 4)}L${n(x2)} ${n(y2)}L${n(backX - Math.sin(angle) * 4)} ${n(backY + Math.cos(angle) * 4)}" fill="none" stroke="${color}" stroke-width="${width}"/>`;
   };
   const samples = (from, to, count, compute) => Array.from({ length: count + 1 }, (_, i) => { const x = from + (to - from) * i / count; return compute(x); });
   const axis = (left = 42, top = 36, right = 318, bottom = 146) => line(left, top, left, bottom, C.grid) + line(left, bottom, right, bottom, C.grid);
-  const caption = value => label(180, 184, value, C.ink, 17);
+  const caption = value => `<g data-preview-layer="caption">${label(L.width / 2, L.captionBaseline, value, C.ink, 17)}</g>`;
+  const counted = (value, singular, plural = singular + 's') => f(value) + ' ' + (value === 1 ? singular : plural);
 
   const records = {
     'turing-machine':{
@@ -50,13 +56,13 @@
     },
     'conditional-entropy':{
       title:'Conditional entropy',
-      describe:(p,r)=>`Averaged remaining entropy H(X|Y) is ${f(r.hxGivenY)} bits. The two lamp observations contribute ${f(r.given0Contribution)} and ${f(r.given1Contribution)} bits. The selected observation has probability ${f(r.observationProbability)}; its own entropy is a separate reading.`,
-      draw:(p,r)=>quantity('output',r.output,label(180,30,'H(X|Y) ≈ '+f(r.hxGivenY)+' bits',C.gold,25))+[r.given0Contribution,r.given1Contribution].map((v,i)=>quantity('given'+i+'Contribution',v,label(57,72+i*40,i?'ON':'OFF',C.muted,13)+rect(91,55+i*40,231*v,17,i?C.mint:C.cyan)+label(280,85+i*40,f(v)+' bits',C.ink,14))).join('')+label(180,156,'Weight each observation’s uncertainty',C.ink,15)+caption('Average over what can be observed.')
+      describe:(p,r)=>`Averaged remaining entropy H(X|Y) is ${counted(r.hxGivenY,'bit')}. The two lamp observations contribute ${f(r.given0Contribution)} and ${f(r.given1Contribution)} bits. The selected observation has probability ${f(r.observationProbability)}; its own entropy is a separate reading.`,
+      draw:(p,r)=>quantity('output',r.output,label(180,30,'H(X|Y) ≈ '+counted(r.hxGivenY,'bit'),C.gold,25))+[r.given0Contribution,r.given1Contribution].map((v,i)=>quantity('given'+i+'Contribution',v,label(57,72+i*40,i?'ON':'OFF',C.muted,13)+rect(91,55+i*40,231*v,17,i?C.mint:C.cyan)+label(280,85+i*40,counted(v,'bit'),C.ink,14))).join('')+label(180,156,'Weight each observation’s uncertainty',C.ink,15)+caption('Average over what can be observed.')
     },
     'mutual-information':{
       title:'Mutual information',
-      describe:(p,r)=>`The tray entropy ${f(r.hx)} bits splits into ${f(r.mutualInformation)} bits shared with the lamp and ${f(r.hxGivenY)} bits remaining after it. A perfectly inverted lamp can still be fully informative.`,
-      draw:(p,r)=>quantity('output',r.output,label(180,31,'I(X;Y) ≈ '+f(r.mutualInformation)+' bits',C.gold,25))+label(180,65,'H(X) = '+f(r.hx)+' bits',C.ink,18)+rect(28,83,304,32,'none','stroke="'+C.muted+'"')+quantity('mutualInformation',r.mutualInformation,rect(28,83,304*r.mutualInformation,32,C.gold))+quantity('hxGivenY',r.hxGivenY,rect(28+304*r.mutualInformation,83,304*r.hxGivenY,32,C.cyan))+label(28,135,'0',C.muted,12)+label(332,135,'1 bit',C.muted,12)+label(180,159,'Shared '+f(r.mutualInformation)+' · remaining '+f(r.hxGivenY),C.ink,16)+caption('What the lamp tells you, on average.')
+      describe:(p,r)=>`The tray entropy ${counted(r.hx,'bit')} splits into ${counted(r.mutualInformation,'bit')} shared with the lamp and ${counted(r.hxGivenY,'bit')} remaining after it. A perfectly inverted lamp can still be fully informative.`,
+      draw:(p,r)=>quantity('output',r.output,label(180,31,'I(X;Y) ≈ '+counted(r.mutualInformation,'bit'),C.gold,25))+label(180,65,'H(X) = '+counted(r.hx,'bit'),C.ink,18)+rect(28,83,304,32,'none','stroke="'+C.muted+'"')+quantity('mutualInformation',r.mutualInformation,rect(28,83,304*r.mutualInformation,32,C.gold))+quantity('hxGivenY',r.hxGivenY,rect(28+304*r.mutualInformation,83,304*r.hxGivenY,32,C.cyan))+label(28,135,'0',C.muted,12)+label(332,135,'1 bit',C.muted,12)+label(180,159,'Shared '+f(r.mutualInformation)+' · remaining '+f(r.hxGivenY),C.ink,16)+caption('What the lamp tells you, on average.')
     },
     'probability-distribution': {
       title:'Finite probability distributions',
@@ -64,18 +70,18 @@
       draw:(p,r)=>{
         const colors=[C.cyan,C.gold,C.mint];let offset=28;
         const strip=r.probabilities.map((v,i)=>{const x=offset;offset+=304*v;return quantity('p'+i,v,rect(x,28,304*v,18,colors[i]));}).join('');
-        return strip+line(40,137,320,137,C.grid)+r.probabilities.map((v,i)=>quantity('p'+i,v,rect(66+i*112,137-v*76,28,v*76,colors[i])+label(80+i*112,154,i+' books',C.muted,12)+label(80+i*112,126-v*76,f(v),colors[i],17))).join('')+quantity('output',r.output,label(180,172,'P(X=2) = '+f(r.p2),C.mint,18))+caption('Three outcomes. One whole probability.');
+        return strip+line(40,137,320,137,C.grid)+r.probabilities.map((v,i)=>quantity('p'+i,v,rect(66+i*112,137-v*76,28,v*76,colors[i])+label(80+i*112,154,counted(i,'book'),C.muted,12)+label(80+i*112,126-v*76,f(v),colors[i],17))).join('')+quantity('output',r.output,label(180,172,'P(X=2) = '+f(r.p2),C.mint,18))+caption('Three outcomes. One whole probability.');
       }
     },
     'expected-value': {
       title:'Expected value',
-      describe:(p,r)=>`Probability masses at zero, one and two books balance at mean ${f(r.mean)} books. Each outcome contributes its value times its probability. This mean summarizes the distribution and need not be a possible single return.`,
-      draw:(p,r)=>line(44,122,316,122,C.ink,'stroke-width="2"')+r.rows.map((row,i)=>quantity('p'+i,row.probability,rect(38+i*136,122-row.probability*90,12,row.probability*90,[C.cyan,C.gold,C.mint][i])+label(44+i*136,143,i,C.muted,13))).join('')+quantity('output',r.output,`<path d="M${n(44+r.mean*136)} 123l-8 14h16Z" fill="${C.gold}"/>`+label(180,32,'E[X] = '+f(r.mean)+' books',C.gold,24))+label(180,164,r.rows.map(row=>f(row.weightedValue)).join(' + ')+' = '+f(r.mean),C.ink,17)+caption('A probability-weighted balance point.')
+      describe:(p,r)=>`Probability masses at zero, one and two books balance at mean ${counted(r.mean,'book')}. Each outcome contributes its value times its probability. This mean summarizes the distribution and need not be a possible single return.`,
+      draw:(p,r)=>line(44,122,316,122,C.ink,'stroke-width="2"')+r.rows.map((row,i)=>quantity('p'+i,row.probability,rect(38+i*136,122-row.probability*90,12,row.probability*90,[C.cyan,C.gold,C.mint][i])+label(44+i*136,143,i,C.muted,13))).join('')+quantity('output',r.output,`<path d="M${n(44+r.mean*136)} 123l-8 14h16Z" fill="${C.gold}"/>`+label(180,32,'E[X] = '+counted(r.mean,'book'),C.gold,24))+label(180,164,r.rows.map(row=>f(row.weightedValue)).join(' + ')+' = '+f(r.mean),C.ink,17)+caption('A probability-weighted balance point.')
     },
     entropy: {
       title:'Discrete Shannon entropy',
-      describe:(p,r)=>`The three probability-weighted surprisal contributions total ${f(r.entropy)} bits. Each term is minus p times log base two of p, with zero contribution when p is zero. The maximum over three outcomes is log base two of three bits.`,
-      draw:(p,r)=>label(180,29,'H(X) = '+f(r.entropy)+' bits',C.gold,25)+r.rows.map((row,i)=>quantity('h'+i,row.entropyContribution,rect(66+i*112,131-row.entropyContribution*80,28,row.entropyContribution*80,[C.cyan,C.gold,C.mint][i])+label(80+i*112,151,'p'+i+' × I'+i,C.muted,12)+label(80+i*112,120-row.entropyContribution*80,f(row.entropyContribution),C.ink,17))).join('')+line(40,131,320,131,C.grid)+quantity('output',r.output,label(180,170,'Sum the weighted surprises',C.ink,17))+caption('Uncertainty, measured in bits.')
+      describe:(p,r)=>`The three probability-weighted surprisal contributions total ${counted(r.entropy,'bit')}. Each term is minus p times log base two of p, with zero contribution when p is zero. The maximum over three outcomes is log base two of three bits.`,
+      draw:(p,r)=>label(180,29,'H(X) = '+counted(r.entropy,'bit'),C.gold,25)+r.rows.map((row,i)=>quantity('h'+i,row.entropyContribution,rect(66+i*112,131-row.entropyContribution*80,28,row.entropyContribution*80,[C.cyan,C.gold,C.mint][i])+label(80+i*112,151,'p'+i+' × I'+i,C.muted,12)+label(80+i*112,120-row.entropyContribution*80,f(row.entropyContribution),C.ink,17))).join('')+line(40,131,320,131,C.grid)+quantity('output',r.output,label(180,170,'Sum the weighted surprises',C.ink,17))+caption('Uncertainty, measured in bits.')
     },
     countability: {
       title:'Countability and enumeration',
@@ -280,7 +286,7 @@
       describe: (p,r) => `The dot product is ${p.ux} × ${p.vx} + ${p.uy} × ${p.vy} = ${f(r.dot)}. The gold projected arrow lies along the violet reference direction.`,
       draw(p,r) {
         const x=54,y=138,s=38;
-        return line(35,y,225,y)+quantity('uNorm',r.uNorm,arrow(x,y,x+p.ux*s,y-p.uy*s,C.violet))+quantity('vNorm',r.vNorm,arrow(x,y,x+p.vx*s,y-p.vy*s,C.cyan))+line(x+p.vx*s,y-p.vy*s,x+r.projectionX*s,y-r.projectionY*s,C.gold,'stroke-dasharray="4 4"')+quantity('projection',r.projection,arrow(x,y,x+r.projectionX*s,y-r.projectionY*s,C.gold))+text(245,76,'u · v',C.muted,20)+quantity('output',r.dot,text(245,117,f(r.dot),C.mint,36))+label(180,184,'Alignment gives a signed result',C.ink,16);
+        return line(35,y,225,y)+quantity('uNorm',r.uNorm,arrow(x,y,x+p.ux*s,y-p.uy*s,C.violet))+quantity('vNorm',r.vNorm,arrow(x,y,x+p.vx*s,y-p.vy*s,C.cyan))+line(x+p.vx*s,y-p.vy*s,x+r.projectionX*s,y-r.projectionY*s,C.gold,'stroke-dasharray="4 4"')+quantity('projection',r.projection,arrow(x,y,x+r.projectionX*s,y-r.projectionY*s,C.gold))+text(245,76,'u · v',C.muted,20)+quantity('output',r.dot,text(245,117,f(r.dot),C.mint,36))+caption('Alignment gives a signed result');
       }
     },
     'matrix-linear-map': {
@@ -501,7 +507,7 @@
   function render(slug, options = {}) {
     if (!has(slug)) return '';
     const p = M.defaults(slug), r = M.evaluate(slug, p), record = records[slug], id = scope(options.id ?? slug), title = options.title ?? record.title, desc = record.describe(p, r);
-    return `<svg class="card-illustration" data-preview="${esc(slug)}" data-preview-output="${esc(r.output)}" viewBox="0 0 360 200" role="img" aria-labelledby="${id}-title ${id}-description" xmlns="http://www.w3.org/2000/svg"><title id="${id}-title">${esc(title)} visual preview</title><desc id="${id}-description">${esc(desc)}</desc><defs><radialGradient id="${id}-glow"><stop stop-color="${C.cyan}" stop-opacity=".11"/><stop offset="1" stop-color="${C.cyan}" stop-opacity="0"/></radialGradient><clipPath id="${id}-art"><rect width="360" height="172"/></clipPath></defs><rect width="360" height="200" fill="${C.bg}"/><circle cx="285" cy="32" r="160" fill="url(#${id}-glow)"/><g font-family="system-ui,sans-serif">${record.draw(p, r)}</g></svg>`;
+    return `<svg class="card-illustration" data-preview="${esc(slug)}" data-preview-output="${esc(r.output)}" viewBox="0 0 ${L.width} ${L.height}" data-preview-art-bottom="${L.artBottom}" data-preview-caption-top="${L.captionTop}" role="img" aria-labelledby="${id}-title ${id}-description" xmlns="http://www.w3.org/2000/svg"><title id="${id}-title">${esc(title)} visual preview</title><desc id="${id}-description">${esc(desc)}</desc><defs><radialGradient id="${id}-glow"><stop stop-color="${C.cyan}" stop-opacity=".11"/><stop offset="1" stop-color="${C.cyan}" stop-opacity="0"/></radialGradient><clipPath id="${id}-art"><rect width="${L.width}" height="${L.artBottom}"/></clipPath></defs><rect width="${L.width}" height="${L.height}" fill="${C.bg}"/><circle cx="285" cy="32" r="160" fill="url(#${id}-glow)"/><g font-family="system-ui,sans-serif">${record.draw(p, r)}</g></svg>`;
   }
-  return Object.freeze({ has, list: () => slugs.slice(), description, render });
+  return Object.freeze({ has, list: () => slugs.slice(), description, render, layout: L });
 });

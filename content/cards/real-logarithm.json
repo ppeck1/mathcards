@@ -338,7 +338,10 @@
         "expected": "Three doublings."
       },
       "limits": "This ratio model does not predict displayed brightness, scene appearance, clipping, processing, sensor response or perceived lightness. Exposure settings and photographic response need their own physical/contextual model.",
-      "preset": null,
+      "preset": {
+        "base": 2,
+        "argument": 8
+      },
       "provenance": {
         "kind": "original worked derivation",
         "mathematical_review": "draft",
@@ -382,7 +385,10 @@
         "expected": "1,2,4,8,16,32 at depths 0 through 5."
       },
       "limits": "An arbitrary binary tree with 32 leaves need not have height 5. The transferred structure depends on the perfect-tree assumptions; it does not equate the physical domains.",
-      "preset": null,
+      "preset": {
+        "base": 2,
+        "argument": 32
+      },
       "provenance": {
         "kind": "original worked derivation",
         "mathematical_review": "draft",
@@ -587,7 +593,7 @@
         "text_input_policy": "Display explicit undefined state for nonpositive entries."
       }
     ],
-    "compute": "For valid inputs use ln(argument)/ln(base); retain exact results only when a trusted exact case is established. Floating output is explicitly approximate.",
+    "compute": "For valid inputs use ln(argument)/ln(base). Certify exact integer results by an integer-power identity for the represented inputs using exact binary-rational arithmetic. When both inputs are powers of two, reduce the ratio of their binary exponents to an exact fraction. Uncertified results remain explicitly approximate.",
     "numeric_tolerance": 1e-12,
     "expected_cases": [
       {

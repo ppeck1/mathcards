@@ -66,3 +66,20 @@ test('text writes preserve existing text node identity and skip unchanged conten
   assert.equal(Values.writeText(element,'4.3'),true);
   assert.equal(element.firstChild,text);assert.equal(replacements,0);assert.equal(text.nodeValue,'4.3');
 });
+
+test('formula typography normalizes mathematical minus while preserving prose word hyphens',()=>{
+  assert.equal(Values.mathLiteral('-1 × 0 + -0.25 × 1'),'−1 × 0 − 0.25 × 1');
+  assert.equal(Values.mathLiteral('x-y; (1-x); -x; x-'),'x−y; (1−x); −x; x−');
+  assert.equal(Values.mathLiteral('read-only; first-order; x-axis; 3-step'),'read-only; first-order; x-axis; 3-step');
+  assert.equal(Values.mathLiteral('-1.25e-10 + 2E-8'),'−1.25e−10 + 2E−8');
+  assert.equal(Values.format(-1.25e-10),'−1.3e-10','The existing general formatting API is unchanged');
+});
+
+test('a signed mathematical term keeps its semantic sign when a preceding plus absorbs it',()=>{
+  assert.deepEqual(Values.mathTerm(-.25,{prefix:'x + ',settled:true}),{prefix:'x − ',text:'0.25',signedText:'−0.25'});
+  assert.deepEqual(Values.mathTerm(.25,{prefix:'x + ',settled:true}),{prefix:'x + ',text:'0.25',signedText:'0.25'});
+  assert.deepEqual(Values.mathTerm(-.25,{prefix:' - ',precededByValue:true,settled:true}),{prefix:' + ',text:'0.25',signedText:'−0.25'});
+  assert.deepEqual(Values.mathTerm(-.25,{prefix:'-',settled:true}),{prefix:'−',text:'(−0.25)',signedText:'−0.25'},'Unary negation stays explicit');
+  assert.deepEqual(Values.mathTerm(-1.25e-10,{prefix:' + ',settled:true}),{prefix:' − ',text:'1.25e−10',signedText:'−1.25e−10'});
+  assert.equal(Values.mathTerm(-0,{prefix:' + '}).text,'0');
+});

@@ -6,10 +6,10 @@
 .atlas-terrain-region-hit:hover .atlas-editorial-territory{fill:#fffdf3;fill-opacity:.12;stroke:#5e7154;stroke-opacity:.7}
 .atlas-terrain-region-hit.is-selected .atlas-editorial-territory{fill-opacity:.08;stroke:#795d27;stroke-opacity:.9;stroke-dasharray:3 5}
 .atlas-terrain-region-hit:focus-visible .atlas-editorial-territory{stroke:#263f38;stroke-width:3;stroke-dasharray:none;fill-opacity:.15}
-.atlas-map-label{fill:#263f38;paint-order:stroke fill;stroke:#f4f1e7;stroke-width:4;stroke-linejoin:round;letter-spacing:.05px}
+.atlas-map-label{fill:#263f38;paint-order:stroke fill;stroke:#f4f1e7;stroke-width:2.2;stroke-linejoin:round;letter-spacing:.05px}
 .atlas-map-label.region-label{font-family:Georgia,serif;font-weight:600}
 .atlas-map-label.topic-label{font-weight:600}
-.atlas-map-label.card-label{stroke-width:3}
+.atlas-map-label.card-label{stroke-width:1.8}
 .atlas-marker-target{fill:transparent;stroke:none;pointer-events:all}
 .atlas-topic-status{fill:#f4f1e7;stroke:#365c4c;stroke-width:1.8;pointer-events:none}
 .atlas-topic-status.has-cards{fill:#355a4c}

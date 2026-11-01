@@ -105,7 +105,7 @@ main { max-width: 1440px; padding: 45px 4.2% 72px; }
 .tile-content { padding: 22px 23px; }
 .tile-content h3 { font-size: 26px; letter-spacing: -.5px; margin: 10px 0; }
 .tile-content p { font-size: 12px; line-height: 1.75; }
-.badge { border-radius: 3px; font-size: 8px; letter-spacing: .9px; padding: 3px 5px; }
+.badge { border-radius: 3px; font-size: 11px; letter-spacing: .9px; padding: 3px 5px; }
 .tile-footer { padding-top: 17px; }
 .tile-footer a { font-size: 11px; color: #276b51; }
 .tile-footer a span { display: inline-grid; place-items: center; width: 23px; height: 23px; border-radius: 50%; background: #edf3e5; color: #3a6d4a; margin-left: 5px; font-size: 14px; }
@@ -431,3 +431,17 @@ main { max-width: 1440px; padding: 45px 4.2% 72px; }
   .card-tile:hover { transform: none; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0s !important; }
 }
+
+/* Collection navigation stays readable as the atlas grows. */
+.collection-status { font-size: 13px; line-height: 1.65; color: #4d6349; margin: 12px 0 16px; }
+.collection-more { grid-column: 1 / -1; text-align: center; padding: 18px 0 2px; }
+.collection-more p { color: #4d6349; font-size: 12px; line-height: 1.6; }
+.search-row { flex-wrap: wrap; gap: 12px 18px; }
+.search-row input { flex: 1 1 280px; min-width: 0; width: auto; }
+.search-row .muted { font-size: 12px; color: #4d6349; margin-left: 0; }
+.workspace-actions { margin-top: 28px; }
+.connection-target { font-size: 17px; margin: 9px 0 12px; }
+.connection-review summary { font-size: 12px; color: #4d6349; cursor: pointer; }
+.hero-footnote, .hero-copy > p.hero-support, .section-label .eyebrow { font-size: 11px; color: #4d6349; }
+.demo-kicker, .demo-kicker span, .demo-footer, .demo-footer a { font-size: 11px; }
+.demo-kicker span:first-child, .demo-footer { color: #b9c9c2; }

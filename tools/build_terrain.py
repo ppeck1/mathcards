@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RECIPE = ROOT / "src" / "atlas-terrain-recipe.json"
-OUTPUT = ROOT / "src" / "atlas-terrain.js"
+OUTPUT = ROOT / "qa-atlas-terrain.js"
 
 
 def smooth(value):

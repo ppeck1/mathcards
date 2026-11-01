@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:composition:numeric", "id": "math:example:composition:numeric", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:function-composition", "example_id": "math:example:composition:numeric", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.1-draft", "upstream_content_sha256": "83b04da6ca8db7e34cca2c2bd280e07016296080b83d0f060c6791e9708c1ee3"}, "purpose": "Describe one transformation whose output becomes the input of another.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "83b04da6ca8db7e34cca2c2bd280e07016296080b83d0f060c6791e9708c1ee3", "status": "draft", "title": "Does the order matter for a square and an affine function?", "topics": ["mathematics", "language", "functions", "composition of functions"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:composition:numeric", "id": "math:example:composition:numeric", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:function-composition", "example_id": "math:example:composition:numeric", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.1-draft", "upstream_content_sha256": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed"}, "purpose": "Describe one transformation whose output becomes the input of another.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed", "status": "draft", "title": "Does the order matter for a square and an affine function?", "topics": ["mathematics", "language", "functions", "composition of functions"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
 ---
 
 # Does the order matter for a square and an affine function?
@@ -47,6 +47,7 @@ Case unit math:example:composition:numeric. Setting: Real-valued functions Input
   - m: 2
   - n: 1
   - x: 3
+  - order: f_after_g
 - provenance:
   - kind: original worked derivation
   - mathematical review: draft

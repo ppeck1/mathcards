@@ -265,7 +265,7 @@
     const x = e => 78 + (e - emin) / (emax - emin) * 604;
     const ax = value => 78 + value / maximum * 604;
     let body = tag(30, 33, 'THE EXPONENTIAL RULER');
-    body += text(30, 65, `${formatNumber(p.base)} raised to ${formatNumber(z)} ${result.exactDisplay === null ? '≈' : '='} ${formatNumber(p.argument)}`, { fill: C.white, size: 20, weight: 650, extra: 'data-quantity="base output argument"' });
+    body += text(30, 65, `${formatNumber(p.base)} raised to ${result.exactDisplay ?? formatNumber(z)} ${result.exactDisplay === null ? '≈' : '='} ${formatNumber(p.argument)}`, { fill: C.white, size: 20, weight: 650, extra: 'data-quantity="base output argument"' });
     body += text(30, 103, 'EXPONENT · equal additions', { fill: C.cyan, size: 11 });
     body += text(30, 257, 'ARGUMENT · real magnitude on a linear ruler', { fill: C.mint, size: 11 });
     body += line(78, 145, 682, 145, C.cyan, 'stroke-width="2"');
@@ -287,14 +287,12 @@
     const minimum = Math.min(.125, p.argument);
     const argumentGrip = pointGrip(ax(p.argument), 295, C.mint) + circle(ax(p.argument), 295, 5, C.mint, 'data-role="argument-point" data-quantity="argument"');
     body += handle('argument', p.argument, minimum, maximum, ax(minimum), ax(maximum), argumentGrip, 'Logarithm argument. Drag along the lower ruler or use arrow keys.', { step: .125 });
-    body += text(x(z), 192, `log = ${formatNumber(z)}`, { fill: C.white, size: 14, anchor: 'middle' });
+    body += text(x(z), 192, `log ${result.exactDisplay === null ? '≈' : '='} ${result.exactDisplay ?? formatNumber(z)}`, { fill: C.white, size: 14, anchor: 'middle' });
     body += text(78, 323, '0', { size: 10, anchor: 'middle' }) + text(682, 323, formatNumber(maximum), { size: 10, anchor: 'middle' });
     const valueLabelX = Math.min(624, Math.max(140, ax(p.argument)));
     body += text(valueLabelX, 347, `argument = ${formatNumber(p.argument)}`, { fill: C.mint, anchor: 'middle', size: 13 });
-    const spacing = exponentTicks.length > 1 ? exponentTicks[1] - exponentTicks[0] : 1;
-    const factor = Math.exp(Math.log(p.base) * spacing);
-    body += text(380, 381, p.base < 1 ? 'A larger exponent makes the argument smaller.' : `Each exponent step multiplies the argument${finite(factor) && factor > 0 ? ' by ' + formatNumber(factor) : ' by a fixed factor'}.`, { anchor: 'middle', size: 11 });
-    const caption = `Drag the lower ruler’s green point to change the argument, or focus it and use arrow keys. The top ruler measures exponent with equal spacing; the lower ruler measures the actual argument with a linear scale. log base ${formatNumber(p.base)} of ${formatNumber(p.argument)} = ${formatNumber(z)}.${p.base < 1 ? ' Because the base is below one, exponent growth moves argument values toward zero.' : ' Equal exponent changes produce multiplicative argument growth.'}`;
+    body += text(380, 381, `Each +1 in the exponent multiplies the argument by ${formatNumber(p.base)}.`, { anchor: 'middle', size: 11 });
+    const caption = `Drag the lower ruler’s green point to change the argument, or focus it and use arrow keys. The top ruler measures exponent with equal spacing; the lower ruler measures the actual argument with a linear scale. log base ${formatNumber(p.base)} of ${formatNumber(p.argument)} ${result.exactDisplay === null ? '≈' : '='} ${result.exactDisplay ?? formatNumber(z)}.${p.base < 1 ? ' Because the base is below one, exponent growth moves argument values toward zero.' : ' Equal exponent changes produce multiplicative argument growth.'}`;
     return frame(id, 'Logarithms connect equal exponent steps to multiplicative growth', body, caption,
       legend([['Exponent', C.cyan], ['Argument magnitude', C.mint], ...(baseline && baseline.status === 'valid' ? [['Pinned comparison', C.orange]] : [])]));
   }
