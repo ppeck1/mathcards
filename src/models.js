@@ -70,6 +70,53 @@
     return a === 0 ? null : Math.sign(a);
   }
 
+  // A finite Number is an exact dyadic rational: odd mantissa × 2^exponent.
+  // Use that representation to certify integer powers, rather than comparing
+  // rounded floating powers or trusting a list of familiar examples.
+  function dyadic(value) {
+    const view = new DataView(new ArrayBuffer(8));
+    view.setFloat64(0, value);
+    const high = view.getUint32(0), low = view.getUint32(4);
+    const storedExponent = (high >>> 20) & 0x7ff;
+    let mantissa = (high & 0xfffff) * 4294967296 + low + (storedExponent ? 4503599627370496 : 0);
+    let exponent = storedExponent ? storedExponent - 1075 : -1074;
+    while (mantissa % 2 === 0) { mantissa /= 2; exponent++; }
+    return { mantissa: BigInt(mantissa), exponent };
+  }
+
+  function exactIntegerLog(base, argument, estimate) {
+    if (argument === 1) return 0;
+    if (argument === base) return 1;
+    const power = Math.round(estimate);
+    // No nontrivial represented dyadic integer-power identity needs an
+    // exponent outside the finite Number range, including subnormals.
+    if (!Number.isSafeInteger(power) || power === 0 || Math.abs(power) > 1074) return null;
+    const b = dyadic(base), a = dyadic(argument);
+    if (a.exponent !== b.exponent * power) return null;
+    if (b.mantissa === 1n) return a.mantissa === 1n ? power : null;
+    // A reciprocal of an odd factor cannot be a dyadic rational.
+    if (power < 0) return null;
+    // Bound the integer work before exponentiation. If it can match the
+    // target's <=53-bit mantissa, the computed power is at most 104 bits.
+    const baseBits = b.mantissa.toString(2).length, argumentBits = a.mantissa.toString(2).length;
+    if ((baseBits - 1) * power >= argumentBits) return null;
+    return b.mantissa ** BigInt(power) === a.mantissa ? power : null;
+  }
+
+  function exactLogDisplay(base, argument, estimate) {
+    const integer = exactIntegerLog(base, argument, estimate);
+    if (integer !== null) return String(integer).replace('-', '−');
+    const b = dyadic(base), a = dyadic(argument);
+    if (b.mantissa !== 1n || a.mantissa !== 1n) return null;
+    // For b=2^u and x=2^v, log_b(x)=v/u exactly. Only small integer
+    // binary exponents enter this Euclidean algorithm, not a root search.
+    let numerator = a.exponent, denominator = b.exponent;
+    if (denominator < 0) { numerator = -numerator; denominator = -denominator; }
+    let left = Math.abs(numerator), right = denominator;
+    while (right) { const remainder = left % right; left = right; right = remainder; }
+    return String(numerator / left).replace('-', '−') + '/' + String(denominator / left);
+  }
+
   function evaluate(slug, input) {
     if (Everyday?.has(slug)) return Everyday.evaluate(slug, input);
     const checked = validateParams(slug, input);
@@ -93,11 +140,9 @@
       const output = Math.log(p.argument) / Math.log(p.base);
       if (!Number.isFinite(output)) return { ...checked, valid: false, status: 'numerical_failure', output: null,
         message: 'The result exceeds this floating-point model’s range.' };
-      // Only stipulated exact identities are labeled exact. Near-integer floating results are not proofs.
-      const trusted = { '2|8': '3', '10|1000': '3', '0.5|8': '−3' };
-      const exactDisplay = p.argument === 1 ? '0' : p.argument === p.base ? '1' : trusted[p.base + '|' + p.argument] || null;
+      const exactDisplay = exactLogDisplay(p.base, p.argument, output);
       const warnings = [];
-      if (Math.abs(p.base - 1) < 0.000001) warnings.push('Base is close to 1: small changes in the base can cause large changes in the logarithm. The displayed result is floating-point.');
+      if (Math.abs(p.base - 1) < 0.000001) warnings.push('Base is close to 1: small changes in the base can cause large changes in the logarithm. Uncertified results remain floating-point approximations.');
       const inverse = Math.pow(p.base, output);
       return { ...checked, status: 'valid', output, exactDisplay, inverse: Number.isFinite(inverse) ? inverse : null,
         displayStatus: exactDisplay === null ? 'approximate' : 'exact',

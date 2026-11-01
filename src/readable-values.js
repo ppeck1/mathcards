@@ -38,6 +38,35 @@
     return String(text).replace(/[−-]?(?:(?:\d{1,3}(?:,\d{3})+|\d+)\.\d+(?:e[+−-]?\d+)?|\d+e[+−-]?\d+)/gi,
       token => format(Number(token.replace(/,/g, '').replace(/−/g, '-')), options));
   }
+  // These helpers are used only by formula renderers. Prose formatting keeps
+  // word hyphens and its existing API; no expression is evaluated here.
+  function mathLiteral(text) {
+    return String(text ?? '')
+      .replace(/(\d(?:\.\d+)?)([eE])-([0-9]+)/g, '$1$2−$3')
+      .replace(/(^|[\s=:+×*/^([{,;<>≤≥])-(?=\d|\.\d|[A-Za-zα-ωΑ-Ω(])/g, '$1−')
+      .replace(/([\d)\]}])-(?=$|\s|\d|\.\d|\(|[A-Za-zα-ωΑ-Ω](?:$|[\s₀-₉_)\]};,+×*/^=<>≤≥]))/g, '$1−')
+      .replace(/(^|[^A-Za-zα-ωΑ-Ω])([A-Za-zα-ωΑ-Ω])-(?=$|[A-Za-zα-ωΑ-Ω](?:$|[\s₀-₉_)\]};,+×*/^=<>≤≥]))/g, '$1$2−')
+      .replace(/^\s*-\s*$/, value => value.replace('-', '−'))
+      .replace(/\+\s*[−-]\s*(?=\d|\.\d|[A-Za-zα-ωΑ-Ω(])/g, '− ');
+  }
+  function mathTerm(value, {prefix = '', precededByValue = false, ...reading} = {}) {
+    let literal = mathLiteral(prefix);
+    const signedText = mathLiteral(format(value, reading));
+    let text = signedText;
+    if (typeof value === 'number' && Number.isFinite(value) && value < 0) {
+      if (/\+\s*$/.test(literal)) {
+        literal = literal.replace(/\+(\s*)$/, '−$1');
+        text = mathLiteral(format(-value, reading));
+      } else if (/−\s*$/.test(literal)) {
+        const before = literal.replace(/−\s*$/, '').trimEnd();
+        if (/[A-Za-zα-ωΑ-Ω\d)\]}₀-₉]$/.test(before) || !before && precededByValue) {
+          literal = literal.replace(/−(\s*)$/, '+$1');
+          text = mathLiteral(format(-value, reading));
+        } else text = '(' + signedText + ')';
+      }
+    }
+    return {prefix: literal, text, signedText};
+  }
   function writeText(element, value) {
     const next = String(value ?? '');
     if (element.textContent === next) return false;
@@ -47,5 +76,5 @@
     else element.textContent = next;
     return true;
   }
-  return Object.freeze({format, formatText, createPacer, writeText});
+  return Object.freeze({format, formatText, mathLiteral, mathTerm, createPacer, writeText});
 });

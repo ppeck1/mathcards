@@ -42,7 +42,7 @@
   },
   "definition": {
     "setting": "Finite sets of distinct labeled objects; the live universe consists of twelve candidate peg heights.",
-    "formal_latex": "U=\\{1,2,\\ldots,12\\},\\quad A=\\{u\\in U:u\\le a\\},\\quad B=\\{u\\in U:u\\ge b\\},\\quad R\\in\\{A\\cap B,A\\cup B,A\\setminus B\\},\\quad output=|R|.",
+    "formal_latex": "U=\\{1,2,\\ldots,12\\},\\quad A=\\{u\\in U:u\\le a\\},\\quad B=\\{u\\in U:u\\ge b\\},\\quad R\\in\\{A\\cap B,A\\cup B,A\\setminus B\\},\\quad \\text{selected count}=|R|.",
     "signature": {
       "U": "Fixed set of candidate labels 1 through 12.",
       "a,maxSize": "Maximum allowable height in [0,12] cm.",

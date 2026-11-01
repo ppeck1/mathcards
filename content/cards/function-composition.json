@@ -292,7 +292,8 @@
         "c": 0,
         "m": 2,
         "n": 1,
-        "x": 3
+        "x": 3,
+        "order": "f_after_g"
       },
       "provenance": {
         "kind": "original worked derivation",

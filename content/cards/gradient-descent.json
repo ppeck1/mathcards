@@ -60,7 +60,7 @@
       "The objective is the fixed strictly convex quadratic C(x,y)=(a*x²+b*y²)/2 with a,b positive. Its unique global minimizer is (0,0).",
       "The start point, positive coefficients and step size remain fixed during one run.",
       "The iteration control k is an integer from 0 to 16. No fractional gradient update or continuous-time interpretation is used.",
-      "The coordinate updates are xNext=(1-stepSize*a)*x and yNext=(1-stepSize*b)*y. Each gradient is evaluated at the current iterate.",
+      "The coordinate updates are xₖ₊₁=(1−ηa)xₖ and yₖ₊₁=(1−ηb)yₖ. Each gradient is evaluated at the current iterate.",
       "For all starting points in this particular family, convergence requires both coordinate multipliers to have magnitude below one: 0<stepSize<2/max(a,b).",
       "Zero step size leaves every iterate unchanged. A boundary factor of -1 can oscillate, and an oversized factor can grow in magnitude.",
       "Changing the step size recomputes the exact discrete trajectory from the original start; the Graph plots cost after the selected whole number of iterations.",
@@ -78,7 +78,7 @@
   "grammar": {
     "pronunciation": "Gradient descent",
     "expression_latex": "C(x,y)=\\frac{ax^2+by^2}{2},\\quad a>0,\\ b>0,\\quad x_{k+1}=x_k-\\eta a x_k,\\quad y_{k+1}=y_k-\\eta b y_k.",
-    "formation_rule": "contractionX=1-stepSize*a; contractionY=1-stepSize*b; currentX=startX*(contractionX^iteration); currentY=startY*(contractionY^iteration); partialX=a*currentX; partialY=b*currentY; output=cost=(a*currentX*currentX+b*currentY*currentY)/2; nextX=currentX-stepSize*partialX; nextY=currentY-stepSize*partialY. The Graph displays ln(1+C), where C denotes the current nonnegative normalized cost; logCost is this display value, while output remains the actual cost.",
+    "formation_rule": "At each whole update, multiply the first coordinate by (1−ηa) and the second by (1−ηb). Thus xₖ=x₀(1−ηa)ᵏ and yₖ=y₀(1−ηb)ᵏ. Evaluate the gradient (axₖ,byₖ) at that iterate, and evaluate C there using the stated quadratic formula. The Graph displays ln(1+C), while the primary reading remains the actual cost.",
     "precedence": "Start from the declared initial errors. At each whole update evaluate the gradient at the current point, multiply by the fixed step size and subtract. Only after k updates evaluate the current cost. Parenthesize a negative contraction factor before taking its integer power.",
     "symbols": [
       {
@@ -913,7 +913,7 @@
       "The objective is the fixed strictly convex quadratic C(x,y)=(a*x²+b*y²)/2 with a,b positive. Its unique global minimizer is (0,0).",
       "The start point, positive coefficients and step size remain fixed during one run.",
       "The iteration control k is an integer from 0 to 16. No fractional gradient update or continuous-time interpretation is used.",
-      "The coordinate updates are xNext=(1-stepSize*a)*x and yNext=(1-stepSize*b)*y. Each gradient is evaluated at the current iterate.",
+      "The coordinate updates are xₖ₊₁=(1−ηa)xₖ and yₖ₊₁=(1−ηb)yₖ. Each gradient is evaluated at the current iterate.",
       "For all starting points in this particular family, convergence requires both coordinate multipliers to have magnitude below one: 0<stepSize<2/max(a,b).",
       "Zero step size leaves every iterate unchanged. A boundary factor of -1 can oscillate, and an oversized factor can grow in magnitude.",
       "Changing the step size recomputes the exact discrete trajectory from the original start; the Graph plots cost after the selected whole number of iterations.",

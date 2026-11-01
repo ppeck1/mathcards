@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:log:binary-tree", "id": "math:example:log:binary-tree", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:real-logarithm", "example_id": "math:example:log:binary-tree", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.1-draft", "upstream_content_sha256": "6ca6dce7c59c287ebd573cb640c7b6df9136b54f1499905d882286c70300e0f2"}, "purpose": "Express the exponent needed to obtain a positive number from a chosen positive base.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "6ca6dce7c59c287ebd573cb640c7b6df9136b54f1499905d882286c70300e0f2", "status": "draft", "title": "How many edges from root to leaf in a perfect binary tree with 32 leaves?", "topics": ["mathematics", "functions", "scale", "logarithm to a base"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:log:binary-tree", "id": "math:example:log:binary-tree", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:real-logarithm", "example_id": "math:example:log:binary-tree", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.1-draft", "upstream_content_sha256": "ad3e4e1e4966e95d65966522ec2a645ecb1e8d570e32a19c08ef40607f723184"}, "purpose": "Express the exponent needed to obtain a positive number from a chosen positive base.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "ad3e4e1e4966e95d65966522ec2a645ecb1e8d570e32a19c08ef40607f723184", "status": "draft", "title": "How many edges from root to leaf in a perfect binary tree with 32 leaves?", "topics": ["mathematics", "functions", "scale", "logarithm to a base"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
 ---
 
 # How many edges from root to leaf in a perfect binary tree with 32 leaves?
@@ -34,7 +34,9 @@ Case unit math:example:log:binary-tree. Setting: Every internal node has exactly
   - method: Enumerate level counts.
   - expected: 1,2,4,8,16,32 at depths 0 through 5.
 - limits: An arbitrary binary tree with 32 leaves need not have height 5. The transferred structure depends on the perfect-tree assumptions; it does not equate the physical domains.
-- preset: null
+- preset:
+  - base: 2
+  - argument: 32
 - provenance:
   - kind: original worked derivation
   - mathematical review: draft
@@ -70,7 +72,7 @@ Case unit math:example:log:binary-tree. Setting: Every internal node has exactly
     - slider max: 64
     - slider step: 0.125
     - text input policy: Display explicit undefined state for nonpositive entries.
-- compute: For valid inputs use ln(argument)/ln(base); retain exact results only when a trusted exact case is established. Floating output is explicitly approximate.
+- compute: For valid inputs use ln(argument)/ln(base). Certify exact integer results by an integer-power identity for the represented inputs using exact binary-rational arithmetic. When both inputs are powers of two, reduce the ratio of their binary exponents to an exact fraction. Uncertified results remain explicitly approximate.
 - numeric tolerance: 1e-12
 - expected cases:
   - Item:

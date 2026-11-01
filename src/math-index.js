@@ -148,11 +148,12 @@
       const exactNotation=raw.startsWith('\\')||raw.length>0&&!/\s/.test(raw)&&rows.some(row=>row.entry.lookupAliases.includes(raw)||row.entry.symbols.includes(raw)||row.entry.usedBy.some(usage=>usage.contexts.some(context=>localUse(context)&&context.token===raw)));
       const patternIds=Notation?.classify(raw)||[];
       const symbolsOnly=patternIds.length>0||exactNotation||(raw.length>0&&(!/[A-Za-z]{2}/.test(raw))&&(!/\s/.test(raw)));
+      const analysis=queryAnalysis(raw,patternIds);
       return rows.filter(row=>(category==='all'||row.entry.category===category)&&(mode!=='symbols'||row.entry.symbols.length)&&(letter===null||row.entry.title[0]?.toUpperCase()===letter)).map(row=>{
         const exactSymbol=row.entry.symbols.includes(raw)||row.entry.lookupAliases.includes(raw),exactContext=row.entry.usedBy.some(usage=>usage.contexts.some(context=>localUse(context)&&context.token===raw));
         const score=!raw?1:exactSymbol?120:patternIds.includes(row.entry.id)?118:exactContext?115:symbolsOnly?0:row.title===q?110:row.aliases.includes(q)?100:row.title.startsWith(q)?85:row.title.includes(q)?75:row.aliases.some(alias=>alias.includes(q))?65:q.split(/\s+/).every(word=>row.text.includes(word))?40:0;
         return{...row,score};
-      }).filter(row=>row.score>0).sort((a,b)=>b.score-a.score||a.entry.title.localeCompare(b.entry.title,'en')||a.index-b.index).map(row=>notationQuery(raw)?freeze({...row.entry,usedBy:usesFor(row.entry,raw)}):row.entry);
+      }).filter(row=>row.score>0).sort((a,b)=>b.score-a.score||a.entry.title.localeCompare(b.entry.title,'en')||a.index-b.index).map(row=>analysis.notation?freeze({...row.entry,usedBy:usesFor(row.entry,raw,analysis)}):row.entry);
     }
     const forCard=slug=>bySlug.has(slug)?entries.filter(entry=>entry.usedBy.some(usage=>usage.slug===slug)):[];
     const labelCategory=id=>categoryList.find(category=>category.id===id)?.title||'Notation';
@@ -162,41 +163,59 @@
       return{query,category,mode,letter,entryId:get(options.entryId)?.id||matches[0]?.id||null};
     }
     function scopedToken(query=''){const token=query.trim();return /^[A-Za-z]$/.test(token)||(/^[A-Z]{2,}$/.test(token)&&entries.some(entry=>entry.symbols.includes(token)));}
-    function notationQuery(query=''){
-      const token=query.trim();
-      return !!token&&(scopedToken(token)||token.startsWith('\\')||(Notation?.classify(token)||[]).length>0||entries.some(entry=>
+    function isNotationToken(token,scoped,readers){
+      return !!token&&(scoped||token.startsWith('\\')||readers.length>0||entries.some(entry=>
         entry.symbols.includes(token)||entry.lookupAliases.includes(token)||entry.usedBy.some(usage=>usage.contexts.some(context=>localUse(context)&&context.token===token))
       ));
     }
-    function usesFor(entry,query=''){
-      const token=query.trim();if(!notationQuery(token))return entry.usedBy;
-      const structured=(Notation?.classify(token)||[]).includes(entry.id),same=value=>Notation?Notation.normalize(value)===Notation.normalize(token):value===token;
-      const exactForm=!scopedToken(token)&&token.length>1;
+    function notationQuery(query=''){
+      const token=query.trim();return isNotationToken(token,scopedToken(token),Notation?.classify(token)||[]);
+    }
+    function queryAnalysis(query='',patterns){
+      const token=query.trim(),scoped=scopedToken(token),readers=patterns||Notation?.classify(token)||[];
+      // These maps live for one search or detail render only. All readers of
+      // the same form share its normalization and ownership work; no growing
+      // cross-query cache or reduced version of the canonical data is needed.
+      const normalized=new Map(),classified=new Map(),normalizedToken=Notation?Notation.normalize(token):token;
+      const same=value=>{
+        if(!normalized.has(value))normalized.set(value,Notation?Notation.normalize(value):value);
+        return normalized.get(value)===normalizedToken;
+      };
+      const readerIds=value=>{
+        if(!classified.has(value))classified.set(value,Notation?.classify(value)||[]);
+        return classified.get(value);
+      };
+      let owners,ownerSlugs;
+      const exactOwners=()=>owners||(owners=entries.filter(candidate=>[...candidate.symbols,...candidate.lookupAliases].some(same)||candidate.usedBy.some(usage=>usage.contexts.some(context=>context.via!=='term'&&same(context.token)))));
+      const exactOwnerSlugs=()=>ownerSlugs||(ownerSlugs=new Set(exactOwners().flatMap(candidate=>candidate.usedBy.filter(usage=>usage.contexts.some(context=>context.via!=='term'&&same(context.token))).map(usage=>usage.slug))));
+      return{token,scoped,readers,same,readerIds,exactOwners,exactOwnerSlugs,exactForm:!scoped&&token.length>1,notation:isNotationToken(token,scoped,readers)};
+    }
+    function usesFor(entry,query='',analysis=queryAnalysis(query)){
+      if(!analysis.notation)return entry.usedBy;
+      const{token,scoped,readers,same,readerIds,exactForm}=analysis,structured=readers.includes(entry.id);
       const matches=entry.usedBy.map(usage=>({...usage,contexts:usage.contexts.filter(context=>{
         if(context.via==='term')return false;
-        if(scopedToken(token))return context.token===token&&(localUse(context)||context.via==='formula');
+        if(scoped)return context.token===token&&(localUse(context)||context.via==='formula');
         if(exactForm)return same(context.token);
         return true;
       })})).filter(usage=>usage.contexts.length);
-      if(matches.length||scopedToken(token))return matches;
+      if(matches.length||scoped)return matches;
       // A named compound form can also have a syntax reader (for example the
       // subscript in DᵤF). Keep that reader on cards actually declaring the form.
-      const owners=exactForm?entries.filter(candidate=>[...candidate.symbols,...candidate.lookupAliases].some(same)||candidate.usedBy.some(usage=>usage.contexts.some(context=>context.via!=='term'&&same(context.token)))):[];
-      const ownerSlugs=new Set(owners.flatMap(candidate=>candidate.usedBy.filter(usage=>usage.contexts.some(context=>context.via!=='term'&&same(context.token))).map(usage=>usage.slug)));
+      const owners=exactForm?analysis.exactOwners():[],ownerSlugs=exactForm?analysis.exactOwnerSlugs():new Set();
       if(ownerSlugs.size)return entry.usedBy.filter(usage=>ownerSlugs.has(usage.slug)).map(usage=>({...usage,contexts:usage.contexts.filter(context=>context.via!=='term')})).filter(usage=>usage.contexts.length);
       // A concrete component such as d₄ may be declared by its indexed family
       // dᵢ. When that family has a named meaning, keep its syntax readers on
       // the family's actual cards instead of borrowing every subscript use.
       if(structured&&exactForm&&['subscript','superscript'].includes(entry.id)){
-        const readers=new Set(Notation?.classify(token)||[]);
-        const families=owners.filter(candidate=>candidate.id!==entry.id&&readers.has(candidate.id));
-        const familySlugs=new Set(families.flatMap(candidate=>candidate.usedBy.filter(usage=>usage.contexts.some(context=>context.via!=='term'&&(Notation?.classify(context.token)||[]).includes(candidate.id))).map(usage=>usage.slug)));
-        if(familySlugs.size)return entry.usedBy.filter(usage=>familySlugs.has(usage.slug)).map(usage=>({...usage,contexts:usage.contexts.filter(context=>context.via!=='term'&&(Notation?.classify(context.token)||[]).includes(entry.id))})).filter(usage=>usage.contexts.length);
+        const families=owners.filter(candidate=>candidate.id!==entry.id&&readers.includes(candidate.id));
+        const familySlugs=new Set(families.flatMap(candidate=>candidate.usedBy.filter(usage=>usage.contexts.some(context=>context.via!=='term'&&readerIds(context.token).includes(candidate.id))).map(usage=>usage.slug)));
+        if(familySlugs.size)return entry.usedBy.filter(usage=>familySlugs.has(usage.slug)).map(usage=>({...usage,contexts:usage.contexts.filter(context=>context.via!=='term'&&readerIds(context.token).includes(entry.id))})).filter(usage=>usage.contexts.length);
       }
       if(!structured)return matches;
       // A familiar form with different argument names still has a useful reader.
       // Keep evidence from that same notation family; never borrow prose substrings.
-      return entry.usedBy.map(usage=>({...usage,contexts:usage.contexts.filter(context=>context.via!=='term'&&(Notation?.classify(context.token)||[]).includes(entry.id))})).filter(usage=>usage.contexts.length);
+      return entry.usedBy.map(usage=>({...usage,contexts:usage.contexts.filter(context=>context.via!=='term'&&readerIds(context.token).includes(entry.id))})).filter(usage=>usage.contexts.length);
     }
     function relatedMarkup(entry){
       const related=(entry.relatedIds||[]).map(get).filter(Boolean);

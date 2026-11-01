@@ -300,13 +300,13 @@
       "claim": "The expected count is 6p.",
       "status": "algebraic derivation",
       "conditions": "Use six indicators each with success probability p.",
-      "derivation": "E(X)=ΣE(Iᵢ)=6p."
+      "derivation": "E(X)=∑E(Iᵢ)=6p."
     },
     {
       "claim": "The seven probabilities sum to 1.",
       "status": "algebraic derivation",
       "conditions": "Use the binomial model with 0≤p≤1.",
-      "derivation": "Σ C(6,k)pᵏ(1−p)^(6−k)=(p+(1−p))⁶=1."
+      "derivation": "∑ C(6,k)pᵏ(1−p)^(6−k)=(p+(1−p))⁶=1."
     }
   ],
   "prompts": [

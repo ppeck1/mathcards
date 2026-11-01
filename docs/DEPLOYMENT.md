@@ -11,7 +11,10 @@ The [Pages workflow](../.github/workflows/pages.yml) rebuilds the application
 from canonical source on every push to `main`. It also accepts a manual run
 from the repository's Actions tab. A successful run on `main` publishes only
 `dist/` to GitHub Pages, after both the application tests and content checks
-pass. The deployment's `github-pages` environment links to the resulting URL.
+pass. A final generated-file gate also rejects uncommitted changes in the
+offline app, catalog, formula data, index and exports after rebuilding. Generated
+text uses LF on every platform, and the manifest hashes the actual HTML bytes.
+The deployment's `github-pages` environment links to the resulting URL.
 
 Pull requests into `main` build and run the same checks. They do not upload a
 Pages artifact or deploy. A manual run from another branch validates that
@@ -80,3 +83,10 @@ When updating an action, verify its official release and update both its pinned
 revision and version comment. GitHub's
 [custom Pages workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
 describes the deployment environment and permissions.
+
+The native MathML projection uses a pinned, MIT-licensed Temml compiler under
+`tools/vendor/temml/`. Its parser is used only during the build. The hosted and
+offline apps receive the compiled formula markup and need no external font,
+parser, CDN or network access to display it. The archived physical-terrain
+prototype can be regenerated to an ignored `qa-atlas-terrain.js`; its obsolete
+baked asset is not part of `src/` or the application.

@@ -17,8 +17,22 @@ from build import build, load_catalog, catalog_script
 from export_boh import canonical, build as build_export
 from release import application_version, stamp_template
 from validate_package import compute
+from check_generated import artifact_errors
 
 class PipelineTests(unittest.TestCase):
+    def test_offline_integrity_rejects_corruption_and_standalone_drift(self):
+        import hashlib
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);(root/'dist').mkdir()
+            raw=b'<!doctype html>\n<main>One verified artifact</main>\n'
+            (root/'dist/index.html').write_bytes(raw)
+            (root/'START_HERE.html').write_bytes(raw)
+            (root/'dist/build-manifest.json').write_text(json.dumps({'index_sha256':hashlib.sha256(raw).hexdigest()}),encoding='utf-8')
+            self.assertEqual(artifact_errors(root),[])
+            (root/'dist/index.html').write_bytes(raw+b'<!-- drift -->')
+            self.assertTrue(any('SHA-256' in e for e in artifact_errors(root)))
+            self.assertTrue(any('START_HERE' in e for e in artifact_errors(root)))
+
     def test_tape_reference_clears_binary_place_values_then_increments(self):
         for word,final,halt in [('0101',6,7),('1011',12,8),('1111',16,10),('0000',1,6)]:
             for step in range(11):
@@ -143,6 +157,10 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual(set(re.findall(r'[?&]v=([0-9.]+)',source)),{version})
             self.assertIn('data-application-version>'+version+'<',source)
             html=(a/'index.html').read_text(encoding='utf-8')
+            import hashlib
+            raw=(a/'index.html').read_bytes()
+            self.assertNotIn(b'\r\n',raw)
+            self.assertEqual(hashlib.sha256(raw).hexdigest(),ma['index_sha256'])
             self.assertEqual(html,(b/'index.html').read_text(encoding='utf-8'))
             self.assertIn('data-application-version>'+version+'<',html)
             self.assertNotIn('<!-- ATLAS_',html)

@@ -87,3 +87,28 @@ test('calculation readings keep number nodes and distinguish moving approximatio
     assert.equal(expression.childNodes.at(-2).firstChild,valueNode,'The number remains in the existing text node');
   }finally{f.dispose();}
 });
+
+test('live formula operators follow signed values across zero without replacing number nodes',()=>{
+  const story={slug:'signed-test',calculation:[{role:'input',label:'Signed terms',template:'-1 × {{x}} + {{y}} × 1',description:'A signed contribution.'},{role:'intermediate',label:'Small term',template:'{{tiny}} × {{scale}}',description:'A scientific-notation contribution.'},{role:'output',label:'Unary minus',template:'-{{y}}; read-only term',description:'Keep unary negation explicit.'}]};
+  const f=fixture(false,story);
+  try{
+    const rows=f.host.childNodes[1].childNodes,expression=rows[0].childNodes[1],yNode=expression.childNodes.find(node=>node.dataset?.flowKey==='y');
+    f.controller.update({x:0,y:-.25,tiny:-1.25e-10,scale:-1},{settled:true});
+    assert.equal(expression.textContent,'−1 × 0 − 0.25 × 1');
+    assert.equal(rows[1].childNodes[1].textContent,'−1.25e−10 × −1');
+    assert.equal(rows[2].childNodes[1].textContent,'−(−0.25); read-only term');
+    const textNode=yNode.firstChild,prefixNode=expression.childNodes[expression.childNodes.indexOf(yNode)-1];
+    let prefixValue=prefixNode.nodeValue,prefixWrites=0;
+    Object.defineProperty(prefixNode,'nodeValue',{get:()=>prefixValue,set:value=>{prefixWrites++;prefixValue=value;}});
+    f.controller.update({x:0,y:-.25,tiny:-1.25e-10,scale:-1},{settled:true});
+    assert.equal(prefixWrites,0,'An unchanged negative term does not repaint its sign');
+    f.controller.update({x:0,y:.25,tiny:-1.25e-10,scale:-1},{settled:true});
+    assert.equal(expression.textContent,'−1 × 0 + 0.25 × 1');
+    assert.equal(rows[2].childNodes[1].textContent,'−0.25; read-only term');
+    assert.equal(yNode.firstChild,textNode);
+    assert.equal(expression.childNodes[expression.childNodes.indexOf(yNode)-1],prefixNode);
+    f.controller.update({x:0,y:0,tiny:-1.25e-10,scale:-1},{settled:true});
+    assert.equal(expression.textContent,'−1 × 0 + 0 × 1');
+    assert.equal(f.frames.size,0,'Formatting does not introduce an animation clock');
+  }finally{f.dispose();}
+});
