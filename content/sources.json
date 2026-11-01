@@ -666,6 +666,33 @@
       "locator": "Section 1.1, Definitions 1.2–1.3, printed page 8: joint and conditional entropy. Section 2.3, Definition 2.3 and Theorems 2.3–2.4, printed pages 23–24: symmetry, nonnegativity, independence, entropy identities and average versus per-observation conditioning. Binary symmetric channel example, printed page 26 (PDF index 25).",
       "verification": "Definition-level material inspected 2026-11-01 on the official university publication. Supports the finite information identities and channel family, not independent mathematical review or empirical validation of the original sensor scenario.",
       "rights": "Reference only. Explanations, tray/lamp scenarios and worked derivations are originally authored; no source prose, examples or diagrams copied."
+    },
+    {
+      "id": "source:ucdavis:turing-configurations",
+      "title": "ECS 120: Turing Machines — David Doty, UC Davis",
+      "url": "https://web.cs.ucdavis.edu/~doty/ecs120slides/08a_TuringMachines-deck.html",
+      "kind": "institutional_teaching",
+      "locator": "Turing-machine read/write transitions and configuration (q,p,x)",
+      "verification": "Read/write/head-motion and configuration definitions inspected 2026-11-01. The source uses a right-unbounded tape variant; the original lesson explicitly chooses a two-sided tape and left/right-only moves. Not independent review.",
+      "rights": "Definition-level reference only; program, story, diagrams and worked traces are originally authored."
+    },
+    {
+      "id": "source:princeton:turing-tape",
+      "title": "COS 126: Turing Machines — Princeton University",
+      "url": "https://www.cs.princeton.edu/courses/archive/fall02/cs126/lectures/T1-4up.pdf",
+      "kind": "institutional_teaching",
+      "locator": "PDF pages 1–2, lecture slides 5–8: arbitrarily long tape, read/write head, left/right movement and halting",
+      "verification": "Tape/head/read-write and halt descriptions inspected 2026-11-01; the lesson states its own deterministic two-sided variant and six original transition rules. Not independent review.",
+      "rights": "Definition-level reference only; no lecture prose or example program copied."
+    },
+    {
+      "id": "source:openlogic:axiomatic-derivations",
+      "title": "Open Logic Text, Chapter 12: Axiomatic Derivations",
+      "url": "https://builds.openlogicproject.org/open-logic-complete.pdf",
+      "kind": "textbook",
+      "locator": "Revision 9620cc7, July 12, 2026; §12.1, printed pages 176–177, Definition 12.1 and Definition 12.3: derivation lines, earlier premises, modus ponens and Γ⊢φ",
+      "verification": "Definition-level derivation conditions, MP and existence-of-derivation reading inspected 2026-11-01. The lesson explicitly chooses only premise membership and MP, without the source’s additional axiom schemata; it does not claim completeness. Not independent review.",
+      "rights": "Definition-level reference; original library propositions, candidates, stories and checks. No exercises or source prose reproduced."
     }
   ]
 }

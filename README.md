@@ -20,28 +20,27 @@ preview commands. The offline entry points below remain available.
 
 ## Open the application
 
-Version 0.31 connects Joint distributions, Conditional entropy and Mutual
-information. A library tray and sensor lamp show how two variables share a
-probability model, how an observation changes a prediction, and how much
-uncertainty remains on average. The collection has 59 draft concepts, 299
-original examples and 598 canonical fixtures.
+Version 0.32 adds Writable Turing-machine tape and Formal proof and derivation.
+A library inventory counter exposes each read, write and head move during a
+binary increment. A return-desk rule becomes a cited five-line proof, with
+syntactic checking kept separate from truth in a selected situation. The
+collection has 61 draft concepts and 309 original worked examples.
 
-Each new lesson uses the existing playground controls and animation clock,
-with one guided variable and distinct Geometry/Graph views. A joint table
-connects whole outcomes, marginal totals and conditional columns. Weighted
-conditional entropies add to the average uncertainty remaining after reading
-the lamp. Mutual information fills the rest of the original entropy. A selected
-impossible observation has no defined conditional distribution; the global
-information quantities remain valid. A perfectly reversed lamp still carries
-information when its labeling rule is known.
+Each lesson uses the shared playground controls and animation clock, one
+guided variable and distinct Geometry/Graph views. Whole steps preserve the
+meaning of machine configurations and proof lines. A carry can temporarily
+lower the tape's numeric reading before the increment completes. An invalid
+candidate proof does not refute derivability from its premises. The examples
+include overflow, wrong consequents, future citations and a valid derivation
+whose premises do not all hold in the selected valuation.
 
 The [book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) preserves all 214 topic IDs from
 the supplied matrix. Its links distinguish bounded introductions, conceptual
 precursors and planned theories. The full collapsible notation catalog and
 lesson-count topography grow from the same records. The prepared reference has
-573 entries and 661 selectable notation forms, with direct links to the cards
+599 entries and 670 selectable notation forms, with direct links to the cards
 that use them. See the
-[current review](docs/BUILD_REVIEW_0_31_0.md).
+[current review](docs/BUILD_REVIEW_0_32_0.md).
 
 1. Extract this ZIP into a folder.
 2. Open **`START_HERE.html`** (or **`dist/index.html`**) in a modern browser such as Chrome, Edge, Firefox

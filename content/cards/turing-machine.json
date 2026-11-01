@@ -1,0 +1,736 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:turing-machine",
+  "slug": "turing-machine",
+  "type": "concept",
+  "title": "Writable Turing-machine tape",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-01T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "Turing machine",
+    "writable tape",
+    "binary increment machine",
+    "read-write head",
+    "machine configuration"
+  ],
+  "branches": [
+    "discrete-computation",
+    "logic",
+    "modeling"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Follow a binary library counter through a writable tape, a moving head and the exact carry that adds one.",
+  "meaning": "A Turing machine combines finite control with a writable tape and a read-write head. Its configuration includes the current state, head position and tape contents. This original binary-increment program scans to the word’s right edge, carries left, then halts; its intermediate tape reading is not yet the increment result.",
+  "prerequisites": {
+    "required": [
+      "math:concept:finite-state-machine"
+    ],
+    "helpful": [
+      "math:concept:recurrence",
+      "math:concept:function"
+    ],
+    "depth": [
+      "math:concept:computability"
+    ]
+  },
+  "definition": {
+    "setting": "A deterministic binary-increment machine with a two-sided tape, four selectable four-bit words and a finite view of exact whole transitions.",
+    "formal_latex": "\\delta(S,0)=(S,0,R),\\quad\\delta(S,1)=(S,1,R),\\quad\\delta(S,\\square)=(C,\\square,L),\\quad\\delta(C,1)=(C,0,L),\\quad\\delta(C,0)=(H,1,R),\\quad\\delta(C,\\square)=(H,1,R).",
+    "signature": {
+      "w": "Selected four-bit input word.",
+      "k": "Requested whole transition step.",
+      "qₖ": "Current finite control state after the selected transitions, stopping at halt.",
+      "hₖ": "Current head address on the integer-addressed tape.",
+      "vₖ": "Unsigned value of the current written binary numeral; intermediate until halt.",
+      "δ": "Transition function assigning next state, written symbol and head direction.",
+      "□": "Blank tape symbol, distinct from the digit 0.",
+      "S": "Scanning state.",
+      "C": "Carry state.",
+      "H": "Halting state.",
+      "L": "Move the tape head one address left.",
+      "R": "Move the tape head one address right."
+    },
+    "conditions": [
+      "The input alphabet consists of the two digits 0 and 1. The selected input word w is one of 0101, 1011, 1111 or 0000. Its four bits occupy integer tape addresses 0 through 3; all other cells are blank □. The head begins at address 0 in state S.",
+      "The writable tape extends in both directions. The read/write head selects one tape cell; a tape read obtains its current symbol. Each machine step reads that cell, writes one symbol, follows the head direction left or right, and changes the finite control state according to the transition rule. The finite viewport contains every visited cell for the four available inputs.",
+      "State S scans right without altering bits. On the first blank to the right, it enters carry state C and moves left. In C, a 1 becomes 0 and the head moves left; a 0 or blank becomes 1 and the machine enters H after moving right.",
+      "H is a halting state with no outgoing transition. Scrubbing beyond the actual halt leaves the configuration and actual transition count unchanged.",
+      "The displayed unsigned tape numeral vₖ can decrease while the carry is propagating. It equals the completed input-plus-one result only after the machine halts. Leading zeros remain visible; overflow can write one bit to the left of the original word."
+    ],
+    "domain_notes": "This is one explicitly stated Turing-machine variant and one small program. The display covers its selected inputs, not every tape configuration. It does not establish universality, the Church–Turing thesis or undecidability.",
+    "proof_status": "Definition-level sources and original restricted-family arguments; independent review pending.",
+    "source_refs": [
+      "source:ucdavis:turing-configurations",
+      "source:princeton:turing-tape"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Writable Turing-machine tape",
+    "expression_latex": "\\delta(S,0)=(S,0,R),\\quad\\delta(S,1)=(S,1,R),\\quad\\delta(S,\\square)=(C,\\square,L),\\quad\\delta(C,1)=(C,0,L),\\quad\\delta(C,0)=(H,1,R),\\quad\\delta(C,\\square)=(H,1,R).",
+    "formation_rule": "Start with w at addresses 0 through 3, state S and head address 0. Apply the stated read-write-move transition table at most k times, stopping immediately at H. Read the current unsigned binary numeral from the written tape; call it the completed increment result only if H has been reached.",
+    "precedence": "Start with w at addresses 0 through 3, state S and head address 0. Apply the stated read-write-move transition table at most k times, stopping immediately at H. Read the current unsigned binary numeral from the written tape; call it the completed increment result only if H has been reached.",
+    "symbols": [
+      {
+        "token": "w",
+        "role": "Selected four-bit input word.",
+        "type": "Declared symbol in the stated model"
+      },
+      {
+        "token": "k",
+        "role": "Requested whole transition step.",
+        "type": "Declared symbol in the stated model"
+      },
+      {
+        "token": "qₖ",
+        "role": "Current finite control state after the selected transitions, stopping at halt.",
+        "type": "Declared symbol in the stated model"
+      },
+      {
+        "token": "hₖ",
+        "role": "Current head address on the integer-addressed tape.",
+        "type": "Declared symbol in the stated model"
+      },
+      {
+        "token": "vₖ",
+        "role": "Unsigned value of the current written binary numeral; intermediate until halt.",
+        "type": "Declared symbol in the stated model"
+      },
+      {
+        "token": "δ",
+        "role": "Transition function assigning next state, written symbol and head direction.",
+        "type": "Declared symbol in the stated model"
+      },
+      {
+        "token": "□",
+        "role": "Blank tape symbol, distinct from the digit 0.",
+        "type": "Declared symbol in the stated model"
+      },
+      {
+        "token": "S",
+        "role": "Scanning state.",
+        "type": "Declared symbol in the stated model"
+      },
+      {
+        "token": "C",
+        "role": "Carry state.",
+        "type": "Declared symbol in the stated model"
+      },
+      {
+        "token": "H",
+        "role": "Halting state.",
+        "type": "Declared symbol in the stated model"
+      },
+      {
+        "token": "L",
+        "role": "Move the tape head one address left.",
+        "type": "Declared symbol in the stated model"
+      },
+      {
+        "token": "R",
+        "role": "Move the tape head one address right.",
+        "type": "Declared symbol in the stated model"
+      }
+    ],
+    "ast": {
+      "id": "ast:turing-machine:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:steps",
+          "kind": "variable",
+          "type": "Declared model input or inspection choice",
+          "symbol": "k",
+          "scope_ref": "scope:turing-machine:expression"
+        },
+        {
+          "id": "n:word",
+          "kind": "variable",
+          "type": "Declared model input or inspection choice",
+          "symbol": "w",
+          "scope_ref": "scope:turing-machine:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried rule for the declared executable family",
+          "ref": "Start with w at addresses 0 through 3, state S and head address 0. Apply the stated read-write-move transition table at most k times, stopping immediately at H. Read the current unsigned binary numeral from the written tape; call it the completed increment result only if H has been reached."
+        },
+        {
+          "id": "n:bound-steps",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:steps"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-steps",
+          "argument": "n:word"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:turing-machine:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "k",
+            "w"
+          ],
+          "domain_condition": "A deterministic binary-increment machine with a two-sided tape, four selectable four-bit words and a finite view of exact whole transitions."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Treat □ as the binary digit 0",
+        "status": "alphabet error",
+        "reason": "A blank marks unwritten tape; the transition rule may treat a blank differently from a written zero."
+      },
+      {
+        "input": "Count additional transitions after H",
+        "status": "halting error",
+        "reason": "H has no outgoing transition. A later requested viewing step preserves the halted configuration."
+      },
+      {
+        "input": "Use k=6.5",
+        "status": "domain error",
+        "reason": "A configuration follows a whole number of completed machine transitions."
+      }
+    ],
+    "ast_coverage": "A typed application outline of the declared finite executable family; it is not an arbitrary formula parser or a general proof checker.",
+    "output_symbol_bindings": {
+      "w": "word",
+      "k": "steps",
+      "qₖ": "state",
+      "hₖ": "head",
+      "vₖ": "tapeValue"
+    }
+  },
+  "properties": [
+    {
+      "claim": "The program increments each available input word by one.",
+      "conditions": "Use the stated scanning and carry transition table.",
+      "derivation": "Scanning leaves the word unchanged. In carry state, a trailing block of 1s becomes zeros; the first preceding 0 becomes 1, or a new leading 1 is written on a blank. This is binary addition of one.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:turing-machine:completed-carry"
+    },
+    {
+      "claim": "The finite state alone does not determine the configuration.",
+      "conditions": "A configuration includes state, head address and tape contents.",
+      "derivation": "Carry state C can occur with different head positions and different partially rewritten tape words; those differences determine subsequent reads.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:turing-machine:first-carry"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:finite-state-machine",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "Both use finite control states and a deterministic transition rule; the Turing program additionally writes memory and moves a tape head.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:recurrence",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "Successive configurations arise from repeated application of one transition rule.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:computability",
+      "type": "supports",
+      "conditions": "Use each connected card under its own stated domain and interpretation.",
+      "reason": "A tape machine provides a formal computation model, while universality and undecidability require separate arguments.",
+      "target_status": "planned",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:turing-machine:scanned-word",
+      "title": "Reach the blank without changing the count",
+      "role": "applied_model",
+      "question": "What is on the tape after four transitions from 1011?",
+      "setting": "An originally authored library scenario with stipulated inputs and rules.",
+      "assumptions": [
+        "The input alphabet consists of the two digits 0 and 1. The selected input word w is one of 0101, 1011, 1111 or 0000. Its four bits occupy integer tape addresses 0 through 3; all other cells are blank □. The head begins at address 0 in state S.",
+        "The writable tape extends in both directions. The read/write head selects one tape cell; a tape read obtains its current symbol. Each machine step reads that cell, writes one symbol, follows the head direction left or right, and changes the finite control state according to the transition rule. The finite viewport contains every visited cell for the four available inputs."
+      ],
+      "inputs": {
+        "steps": 4,
+        "word": "1011"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "S reads the four bits 1,0,1,1 and moves right four times.",
+          "reason": "Scanning preserves each read bit."
+        },
+        {
+          "index": 2,
+          "expression": "The head is at address 4, reading □; the tape still reads 1011.",
+          "reason": "The right-edge blank has not yet been processed."
+        }
+      ],
+      "result": {
+        "exact": "v₄=11; state S; head address 4; not halted"
+      },
+      "interpretation": "A moving head can change the configuration while leaving every tape bit unchanged.",
+      "independent_check": {
+        "method": "Separate exact trace or rule check",
+        "expected": "Four applications of the S digit rules preserve 1011; binary 8+2+1=11."
+      },
+      "limits": "The current tape reading is an intermediate reading, even though it still equals the input.",
+      "preset": {
+        "steps": 4,
+        "word": "1011"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The input alphabet consists of the two digits 0 and 1. The selected input word w is one of 0101, 1011, 1111 or 0000. Its four bits occupy integer tape addresses 0 through 3; all other cells are blank □. The head begins at address 0 in state S.",
+        "The writable tape extends in both directions. The read/write head selects one tape cell; a tape read obtains its current symbol. Each machine step reads that cell, writes one symbol, follows the head direction left or right, and changes the finite control state according to the transition rule. The finite viewport contains every visited cell for the four available inputs."
+      ]
+    },
+    {
+      "id": "math:example:turing-machine:first-carry",
+      "title": "Watch a stored bit actually change",
+      "role": "applied_model",
+      "question": "What happens at transition six from 1011?",
+      "setting": "An originally authored library scenario with stipulated inputs and rules.",
+      "assumptions": [
+        "The input alphabet consists of the two digits 0 and 1. The selected input word w is one of 0101, 1011, 1111 or 0000. Its four bits occupy integer tape addresses 0 through 3; all other cells are blank □. The head begins at address 0 in state S.",
+        "The writable tape extends in both directions. The read/write head selects one tape cell; a tape read obtains its current symbol. Each machine step reads that cell, writes one symbol, follows the head direction left or right, and changes the finite control state according to the transition rule. The finite viewport contains every visited cell for the four available inputs."
+      ],
+      "inputs": {
+        "steps": 6,
+        "word": "1011"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "After scanning, δ(S,□)=(C,□,L) moves from address 4 to address 3.",
+          "reason": "The blank stays blank while the control enters carry mode."
+        },
+        {
+          "index": 2,
+          "expression": "δ(C,1)=(C,0,L) writes 0 at address 3 and moves to address 2.",
+          "reason": "The carry crosses the first trailing 1."
+        },
+        {
+          "index": 3,
+          "expression": "The tape reads 1010, so v₆=10.",
+          "reason": "The previous 1 is now a stored 0."
+        }
+      ],
+      "result": {
+        "exact": "v₆=10; state C; head address 2; not halted"
+      },
+      "interpretation": "Writable memory changes independently of the finite control state; C continues while the tape changes.",
+      "independent_check": {
+        "method": "Separate exact trace or rule check",
+        "expected": "At address 3, changing its units bit from 1 to 0 subtracts one from 11, leaving 10."
+      },
+      "limits": "The tape reading can fall during a correct increment program; it is not the final arithmetic result yet.",
+      "preset": {
+        "steps": 6,
+        "word": "1011"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The input alphabet consists of the two digits 0 and 1. The selected input word w is one of 0101, 1011, 1111 or 0000. Its four bits occupy integer tape addresses 0 through 3; all other cells are blank □. The head begins at address 0 in state S.",
+        "The writable tape extends in both directions. The read/write head selects one tape cell; a tape read obtains its current symbol. Each machine step reads that cell, writes one symbol, follows the head direction left or right, and changes the finite control state according to the transition rule. The finite viewport contains every visited cell for the four available inputs."
+      ]
+    },
+    {
+      "id": "math:example:turing-machine:completed-carry",
+      "title": "Finish eleven plus one",
+      "role": "applied_model",
+      "question": "When does 1011 become the completed increment result?",
+      "setting": "An originally authored library scenario with stipulated inputs and rules.",
+      "assumptions": [
+        "The input alphabet consists of the two digits 0 and 1. The selected input word w is one of 0101, 1011, 1111 or 0000. Its four bits occupy integer tape addresses 0 through 3; all other cells are blank □. The head begins at address 0 in state S.",
+        "The writable tape extends in both directions. The read/write head selects one tape cell; a tape read obtains its current symbol. Each machine step reads that cell, writes one symbol, follows the head direction left or right, and changes the finite control state according to the transition rule. The finite viewport contains every visited cell for the four available inputs."
+      ],
+      "inputs": {
+        "steps": 8,
+        "word": "1011"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "The two trailing 1s become 0s as the carry moves left.",
+          "reason": "Transitions six and seven apply δ(C,1)."
+        },
+        {
+          "index": 2,
+          "expression": "At address 1, δ(C,0)=(H,1,R) changes 0 to 1, moves to address 2 and halts.",
+          "reason": "The first zero absorbs the carry."
+        },
+        {
+          "index": 3,
+          "expression": "The final word is 1100 and its value is 8+4=12.",
+          "reason": "Only the halting configuration is labeled the completed increment."
+        }
+      ],
+      "result": {
+        "exact": "1100₂=12; H after 8 transitions; head address 2"
+      },
+      "interpretation": "The carry rewrites the tape and then stops; state, head and tape together describe the result.",
+      "independent_check": {
+        "method": "Separate exact trace or rule check",
+        "expected": "11+1=12, and the independently read binary word 1100 also equals 12."
+      },
+      "limits": "The head has moved right after the last write; it need not remain on the changed bit.",
+      "preset": {
+        "steps": 8,
+        "word": "1011"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The input alphabet consists of the two digits 0 and 1. The selected input word w is one of 0101, 1011, 1111 or 0000. Its four bits occupy integer tape addresses 0 through 3; all other cells are blank □. The head begins at address 0 in state S.",
+        "The writable tape extends in both directions. The read/write head selects one tape cell; a tape read obtains its current symbol. Each machine step reads that cell, writes one symbol, follows the head direction left or right, and changes the finite control state according to the transition rule. The finite viewport contains every visited cell for the four available inputs."
+      ]
+    },
+    {
+      "id": "math:example:turing-machine:left-overflow",
+      "title": "Make room for the overflow bit",
+      "role": "applied_model",
+      "question": "How does the machine add one to 1111?",
+      "setting": "An originally authored library scenario with stipulated inputs and rules.",
+      "assumptions": [
+        "The input alphabet consists of the two digits 0 and 1. The selected input word w is one of 0101, 1011, 1111 or 0000. Its four bits occupy integer tape addresses 0 through 3; all other cells are blank □. The head begins at address 0 in state S.",
+        "The writable tape extends in both directions. The read/write head selects one tape cell; a tape read obtains its current symbol. Each machine step reads that cell, writes one symbol, follows the head direction left or right, and changes the finite control state according to the transition rule. The finite viewport contains every visited cell for the four available inputs."
+      ],
+      "inputs": {
+        "steps": 10,
+        "word": "1111"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "After scanning, four successive carry transitions rewrite 1111 as 0000 and reach address −1.",
+          "reason": "Every input digit was 1, so none absorbs the carry."
+        },
+        {
+          "index": 2,
+          "expression": "δ(C,□)=(H,1,R) writes a new 1 at address −1 and moves to address 0.",
+          "reason": "The writable tape supplies a cell beyond the original input."
+        },
+        {
+          "index": 3,
+          "expression": "The five-bit final numeral is 10000.",
+          "reason": "The added leading bit has value 16."
+        }
+      ],
+      "result": {
+        "exact": "10000₂=16; H after 10 transitions; head address 0"
+      },
+      "interpretation": "The program has a fixed finite control, while its tape can grow beyond the original word.",
+      "independent_check": {
+        "method": "Separate exact trace or rule check",
+        "expected": "15+1=16 and 10000₂=16."
+      },
+      "limits": "One overflow example illustrates writable memory; it does not show a universal computer.",
+      "preset": {
+        "steps": 10,
+        "word": "1111"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The input alphabet consists of the two digits 0 and 1. The selected input word w is one of 0101, 1011, 1111 or 0000. Its four bits occupy integer tape addresses 0 through 3; all other cells are blank □. The head begins at address 0 in state S.",
+        "The writable tape extends in both directions. The read/write head selects one tape cell; a tape read obtains its current symbol. Each machine step reads that cell, writes one symbol, follows the head direction left or right, and changes the finite control state according to the transition rule. The finite viewport contains every visited cell for the four available inputs."
+      ]
+    },
+    {
+      "id": "math:example:turing-machine:halt-is-stable",
+      "title": "Stop counting transitions when the machine stops",
+      "role": "applied_model",
+      "question": "What does requested step ten show for input 0000?",
+      "setting": "An originally authored library scenario with stipulated inputs and rules.",
+      "assumptions": [
+        "The input alphabet consists of the two digits 0 and 1. The selected input word w is one of 0101, 1011, 1111 or 0000. Its four bits occupy integer tape addresses 0 through 3; all other cells are blank □. The head begins at address 0 in state S.",
+        "The writable tape extends in both directions. The read/write head selects one tape cell; a tape read obtains its current symbol. Each machine step reads that cell, writes one symbol, follows the head direction left or right, and changes the finite control state according to the transition rule. The finite viewport contains every visited cell for the four available inputs."
+      ],
+      "inputs": {
+        "steps": 10,
+        "word": "0000"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "Four scan transitions and one blank transition prepare the carry.",
+          "reason": "No input bit has changed yet."
+        },
+        {
+          "index": 2,
+          "expression": "The last digit 0 becomes 1 at transition six, and the machine halts.",
+          "reason": "δ(C,0) writes 1, moves right and enters H."
+        },
+        {
+          "index": 3,
+          "expression": "Requested viewing step ten still shows 0001 and only six actual transitions.",
+          "reason": "A halted configuration has no next machine transition."
+        }
+      ],
+      "result": {
+        "exact": "0001₂=1; H after 6 actual transitions; requested step 10"
+      },
+      "interpretation": "A viewing timeline can extend past the actual computation without inventing further work.",
+      "independent_check": {
+        "method": "Separate exact trace or rule check",
+        "expected": "The input value is zero, the final value is one, and the exact rule trace has length six."
+      },
+      "limits": "The requested step and the count of actual transitions are separate quantities.",
+      "preset": {
+        "steps": 10,
+        "word": "0000"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The input alphabet consists of the two digits 0 and 1. The selected input word w is one of 0101, 1011, 1111 or 0000. Its four bits occupy integer tape addresses 0 through 3; all other cells are blank □. The head begins at address 0 in state S.",
+        "The writable tape extends in both directions. The read/write head selects one tape cell; a tape read obtains its current symbol. Each machine step reads that cell, writes one symbol, follows the head direction left or right, and changes the finite control state according to the transition rule. The finite viewport contains every visited cell for the four available inputs."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:turing-machine",
+    "renderer_id": "turing-machine-visual-model",
+    "renderer_version": "1",
+    "model_id": "turing-machine-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:turing-machine:expression",
+    "interaction_status": "implemented",
+    "description": "A writable tape shows each actual cell, the head and its current state. The active rule identifies the symbol read, symbol written and head direction; changed digits explain the current tape numeral.",
+    "controls": [
+      {
+        "id": "steps",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 1
+      },
+      {
+        "id": "word",
+        "type": "enum",
+        "default": "1011",
+        "values": [
+          "0101",
+          "1011",
+          "1111",
+          "0000"
+        ]
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "steps": 0,
+          "word": "1011"
+        },
+        "output": 11
+      },
+      {
+        "input": {
+          "steps": 4,
+          "word": "1011"
+        },
+        "output": 11
+      },
+      {
+        "input": {
+          "steps": 5,
+          "word": "1011"
+        },
+        "output": 11
+      },
+      {
+        "input": {
+          "steps": 6,
+          "word": "1011"
+        },
+        "output": 10
+      },
+      {
+        "input": {
+          "steps": 7,
+          "word": "1011"
+        },
+        "output": 8
+      },
+      {
+        "input": {
+          "steps": 8,
+          "word": "1011"
+        },
+        "output": 12
+      },
+      {
+        "input": {
+          "steps": 10,
+          "word": "1111"
+        },
+        "output": 16
+      },
+      {
+        "input": {
+          "steps": 10,
+          "word": "0000"
+        },
+        "output": 1
+      },
+      {
+        "input": {
+          "steps": 7,
+          "word": "0101"
+        },
+        "output": 6
+      },
+      {
+        "input": {
+          "steps": 6.5,
+          "word": "1011"
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "steps": 11,
+          "word": "1011"
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "steps": 3,
+          "word": "101"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Start with w at addresses 0 through 3, state S and head address 0. Apply the stated read-write-move transition table at most k times, stopping immediately at H. Read the current unsigned binary numeral from the written tape; call it the completed increment result only if H has been reached.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The input alphabet consists of the two digits 0 and 1. The selected input word w is one of 0101, 1011, 1111 or 0000. Its four bits occupy integer tape addresses 0 through 3; all other cells are blank □. The head begins at address 0 in state S.",
+      "The writable tape extends in both directions. The read/write head selects one tape cell; a tape read obtains its current symbol. Each machine step reads that cell, writes one symbol, follows the head direction left or right, and changes the finite control state according to the transition rule. The finite viewport contains every visited cell for the four available inputs.",
+      "State S scans right without altering bits. On the first blank to the right, it enters carry state C and moves left. In C, a 1 becomes 0 and the head moves left; a 0 or blank becomes 1 and the machine enters H after moving right.",
+      "H is a halting state with no outgoing transition. Scrubbing beyond the actual halt leaves the configuration and actual transition count unchanged.",
+      "The displayed unsigned tape numeral vₖ can decrease while the carry is propagating. It equals the completed input-plus-one result only after the machine halts. Leading zeros remain visible; overflow can write one bit to the left of the original word."
+    ],
+    "limits": [
+      "This is one explicitly stated Turing-machine variant and one small program. The display covers its selected inputs, not every tape configuration. It does not establish universality, the Church–Turing thesis or undecidability."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Can the current tape value decrease during a correct increment?",
+      "answer": "Yes. Changing a trailing 1 to 0 lowers that intermediate reading while the carry continues left. The final increment is read only at halt."
+    },
+    {
+      "prompt": "Does the head remain on the last bit written?",
+      "answer": "Not in this convention. Each transition also moves left or right; the transition into H moves right after writing."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "A writable tape shows each actual cell, the head and its current state. The active rule identifies the symbol read, symbol written and head direction; changed digits explain the current tape numeral."
+    },
+    {
+      "kind": "graph",
+      "description": "Discrete samples on fixed axes show the current unsigned tape value from 0 through 16 at whole transition steps. Equal readings after halt reflect an unchanged configuration. The selection ring marks the requested step, not a fractional state or a separate halt marker."
+    },
+    {
+      "kind": "substitution",
+      "description": "Follow the selected whole step through its rule into the labelled configuration or checked proof line."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Constructed library example",
+      "mapping": "Follow a binary library counter through a writable tape, a moving head and the exact carry that adds one.",
+      "limitations": "This is one explicitly stated Turing-machine variant and one small program. The display covers its selected inputs, not every tape configuration. It does not establish universality, the Church–Turing thesis or undecidability.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:turing-machine:scanned-word"
+    },
+    {
+      "context": "Watch a stored bit actually change",
+      "mapping": "Writable memory changes independently of the finite control state; C continues while the tape changes.",
+      "limitations": "The tape reading can fall during a correct increment program; it is not the final arithmetic result yet.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:turing-machine:first-carry"
+    }
+  ],
+  "source_refs": [
+    "source:ucdavis:turing-configurations",
+    "source:princeton:turing-tape"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.32.0: Added an original modular story, Geometry and Graph views, five worked examples and twelve fixtures in the computation-and-proof sequence."
+  ]
+}

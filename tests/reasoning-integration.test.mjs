@@ -83,7 +83,7 @@ test('relation, equivalence, entailment, force units and torque symbols preserve
   assert.deepEqual(uses('Rₕ(x,y)','binary-relation'),['relation']);assert.deepEqual(uses('Rₕ(x,y)','function-notation'),[]);
   assert.deepEqual(uses('D×D','cartesian-product'),['relation']);
   assert.deepEqual(uses('≡','logical-equivalence'),['equivalence']);assert.ok(!uses('≡','identity').includes('equivalence'));
-  assert.deepEqual(uses('⊨','semantic-entailment'),['inference']);
+  assert.deepEqual(new Set(uses('⊨','semantic-entailment')),new Set(['inference','proof']));
   assert.deepEqual(uses('τ_z','torque'),['torque']);assert.deepEqual(uses('N·m','torque-unit'),['torque']);
   assert.ok(uses('N','newton').includes('torque'));assert.ok(!uses('N','population-size').includes('torque'));
   assert.deepEqual(Notation.classify('N',{kind:'unit'}),['newton']);assert.ok(Notation.classify('ℕ').includes('natural-number'));

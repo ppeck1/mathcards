@@ -33,6 +33,16 @@
   const caption = value => label(180, 184, value, C.ink, 17);
 
   const records = {
+    'turing-machine':{
+      title:'Writable Turing-machine tape',
+      describe:(p,r)=>`The current tape holds ${r.tapeWord}, value ${r.tapeValue}. A read/write head starts at cell ${r.head}. The scan-and-carry rule increments the binary word only once it reaches halt. This preview shows the actual initial configuration.`,
+      draw:(p,r)=>label(180,25,'READ · WRITE · MOVE',C.muted,12)+r.cells.map((cell,i)=>quantity('cell:'+cell.position,cell.symbol,rect(26+i*44,66,40,44,cell.head?C.cyan:C.grid,'rx="4" fill-opacity=".25" stroke="'+(cell.head?C.cyan:C.muted)+'"')+label(46+i*44,96,cell.symbol,cell.head?C.cyan:C.ink,25))).join('')+quantity('head',r.head,arrow(46+r.cells.findIndex(cell=>cell.head)*44,130,46+r.cells.findIndex(cell=>cell.head)*44,114,C.cyan))+quantity('output',r.output,label(180,155,'Tape value '+f(r.tapeValue)+' · not halted',C.ink,18))+caption('Finite rules. Writable memory.')
+    },
+    proof:{
+      title:'Formal proof and derivation',
+      describe:(p,r)=>`The selected candidate has ${r.acceptedLines} accepted lines among ${p.steps} revealed lines. From assumptions p, p→q and q→r, a valid chain can derive r. A derivation and one valuation of its formulas answer different questions.`,
+      draw:(p,r)=>label(180,26,'Γ = {p, p→q, q→r}',C.muted,18)+label(57,69,'p',C.cyan,26)+label(138,69,'p→q',C.cyan,24)+arrow(98,85,98,106,C.gold)+label(98,130,'q',C.gold,27)+label(229,69,'q→r',C.mint,24)+arrow(229,85,229,106,C.mint)+label(229,130,'r',C.mint,27)+arrow(120,124,207,124,C.gold)+quantity('output',r.output,label(180,158,f(r.acceptedLines)+' accepted lines · reveal the chain',C.ink,16))+caption('Each conclusion needs a cited rule.')
+    },
     'joint-distribution':{
       title:'Joint distributions',
       describe:(p,r)=>`A binary library tray and lamp have joint probabilities ${[r.p00,r.p01,r.p10,r.p11].map(f).join(', ')}. Row and column sums give the marginals; P(X=1,Y=1) is ${f(r.p11)}.`,

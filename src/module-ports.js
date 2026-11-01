@@ -12,6 +12,24 @@
   const port=(direction,key,label,type,unit,description)=>Object.freeze({id:direction+':'+key,label,direction,key,type,unit,description});
   const input=(...args)=>port('input',...args),output=(...args)=>port('output',...args);
   const definitions={
+    'turing-machine':[
+      input('steps','Requested machine transitions','machine-transition-count','1','A whole transition budget; the machine stops at halt even if more steps are requested.'),
+      output('output','Current tape numeral','integer-value','1','The unsigned value currently written on the tape. It is the increment result only after the machine halts.'),
+      output('tapeValue','Current tape numeral','integer-value','1','The current writable tape numeral, including temporary values during the carry.'),
+      output('inputValue','Original input numeral','integer-value','1','The four-bit numeral supplied before computation.'),
+      output('transitionCount','Transitions actually executed','machine-transition-count','1','The actual count stops at halt; no phantom transitions follow.'),
+      output('head','Current head position','tape-cell-index','1','The integer index of the cell currently under the head.'),
+      output('halted','Halting status','truth-value','1','One if the designated halt state has been reached, zero otherwise.')
+    ],
+    proof:[
+      input('steps','Derivation lines revealed','derivation-line-count','1','The whole number of candidate lines currently visible.'),
+      output('output','Accepted proof-prefix length','derivation-line-count','1','The consecutive accepted prefix, stopping at the first invalid line. This is neither truth nor probability.'),
+      output('acceptedLines','Accepted proof-prefix length','derivation-line-count','1','The number of accepted lines before the first faulty citation or inference.'),
+      output('complete','Candidate derivation completed','truth-value','1','One only when all five candidate lines are present and valid.'),
+      output('targetDerived','Target in accepted prefix','truth-value','1','Whether r has been derived in the visible accepted prefix.'),
+      output('conclusionTruth','Selected-world conclusion truth','truth-value','1','Truth of r in the selected valuation; independent of the candidate proof checker.'),
+      output('premisesHold','Selected-world premises truth','truth-value','1','Whether all three assumptions are true in the selected valuation.')
+    ],
     'joint-distribution':[
       input('bookChance','Book-present probability','probability','1','The prior probability q that the binary return tray contains a book.'),
       input('errorChance','Symmetric lamp flip probability','probability','1','The same conditional error probability e for either tray state.'),

@@ -15,10 +15,10 @@
   Object.assign(named,{Pr:['probability'],span:['span'],tr:['matrix-trace'],ker:['kernel'],im:['image-of-map'],comp:['scalar-projection'],comp_u:['scalar-projection'],SD:['standard-deviation'],sd:['standard-deviation'],Bin:['binomial-distribution']});
   Object.assign(named,{D_uF:['directional-derivative'],R_h:['binary-relation'],p_X:['probability-mass-function'],p_Y:['marginal-distribution']});
   const informationCards=['joint-distribution','conditional-entropy','mutual-information'];
-  Object.assign(macros,{setminus:'∖',smallsetminus:'∖',land:'∧',wedge:'∧',lor:'∨',vee:'∨',neg:'¬',lnot:'¬',leftrightarrow:'↔',top:'⊤',bot:'⊥',odot:'⊙',otimes:'⊗',models:'⊨'});
+  Object.assign(macros,{setminus:'∖',smallsetminus:'∖',land:'∧',wedge:'∧',lor:'∨',vee:'∨',neg:'¬',lnot:'¬',leftrightarrow:'↔',top:'⊤',bot:'⊥',odot:'⊙',otimes:'⊗',models:'⊨',vdash:'⊢',square:'□',Box:'□'});
   const glyphs={'+':['addition'],'-':['subtraction'],'−':['subtraction'],'×':['multiplication'],'·':['multiplication'],'⋅':['multiplication'],'*':['multiplication'],'÷':['division'],'/':['division'],'=':['equality'],'≠':['not-equal'],'<':['less-than'],'>':['greater-than'],'≤':['less-or-equal'],'≥':['greater-or-equal'],'≈':['approximately-equal'],'±':['plus-minus'],'%':['percent'],'√':['square-root'],'∞':['infinity'],'ℕ':['natural-number'],'ℤ':['integer'],'ℚ':['rational-number'],'ℝ':['real-number'],'ℂ':['complex-number'],'∈':['element'],'∉':['element'],'∀':['for-all'],'∃':['there-exists'],'⇒':['implication','logical-conditional'],'⇔':['if-and-only-if'],'∘':['composition'],'∑':['summation'],'∫':['integral','indefinite-integral'],'∬':['multiple-integral'],'∭':['multiple-integral'],'∮':['contour-integral'],'∂':['partial-derivative'],'∇':['gradient'],'⊥':['orthogonal'],'≡':['identity'],'∼':['distribution-notation'],'…':['ellipses'],'⋯':['ellipses'],'|':['vertical-bar'],'‖':['magnitude'],'′':['prime-mark'],'″':['higher-derivative','prime-mark'],'^':['superscript','exponent'],'_':['subscript'],'(':['grouping-parentheses'],')':['grouping-parentheses'],'[':['square-brackets'],']':['square-brackets'],'{':['curly-braces'],'}':['curly-braces'],'→':['right-arrow'],'↦':['maps-to'],'⌊':['floor'],'⌋':['floor'],'⌈':['ceiling'],'⌉':['ceiling'],'!':['factorial']};
   const vulgar={'½':'1/2','¼':'1/4','¾':'3/4','⅓':'1/3','⅔':'2/3','⅛':'1/8','⅜':'3/8','⅝':'5/8','⅞':'7/8'};
-  Object.assign(glyphs,{'∖':['set-difference'],'~':['distribution-notation'],'∩':['set-intersection'],'∪':['set-union'],'∧':['logical-and'],'∨':['logical-or'],'¬':['logical-not'],'↔':['if-and-only-if'],'⊤':['truth-constants'],'⊥':['orthogonal','truth-constants'],'⊙':['normal-direction-glyphs'],'⊗':['normal-direction-glyphs'],'⊨':['semantic-entailment'],'ℵ':['aleph-null']});
+  Object.assign(glyphs,{'∖':['set-difference'],'~':['distribution-notation'],'∩':['set-intersection'],'∪':['set-union'],'∧':['logical-and'],'∨':['logical-or'],'¬':['logical-not'],'↔':['if-and-only-if'],'⊤':['truth-constants'],'⊥':['orthogonal','truth-constants'],'⊙':['normal-direction-glyphs'],'⊗':['normal-direction-glyphs'],'⊨':['semantic-entailment'],'ℵ':['aleph-null'],'⊢':['derivability'],'□':['tape-blank']});
   Object.assign(macros,{aleph:'ℵ',subseteq:'⊆',cap:'∩',cup:'∪',setminus:'∖',emptyset:'∅'});
   const mathLetter=c=>/[\u0370-\u03ff\u2100-\u214f]/u.test(c)||/\p{Script=Greek}/u.test(c)||(c.codePointAt(0)>=0x1d400&&c.codePointAt(0)<=0x1d7ff);
   function scriptRuns(value,characters,map,marker){let result='';for(let i=0;i<value.length;){const c=String.fromCodePoint(value.codePointAt(i));if(!characters.has(c)){result+=c;i+=c.length;continue;}let run='';while(i<value.length){const next=String.fromCodePoint(value.codePointAt(i));if(!characters.has(next))break;run+=map[next];i+=next.length;}result+=marker+(run.length===1?run:'{'+run+'}');}return result;}
@@ -76,6 +76,21 @@
     }
     if(options.slug==='countability'){
       if(/^f\([^()]+\)$/.test(q))add('enumeration');if(/^g\([^()]+\)$/.test(q))add('inverse-enumeration');
+    }
+
+    if(options.slug==='turing-machine'){
+      if(q==='δ'||/^δ\([^()]+,[01□]\)$/.test(q))add('tape-transition');
+      if(q==='Σ')add('input-alphabet');if(q==='w')add('binary-numeral');
+      if(q==='Q'||/^[SCH]$/.test(q)||/^q_(?:[0-9k]|\{[^{}]+\})$/.test(q))add('tape-control-state');
+      if(/^h_(?:[0-9k]|\{[^{}]+\})$/.test(q))add('tape-head');
+      if(/^v_(?:[0-9k]|\{[^{}]+\})$/.test(q))add('tape-numeral');
+      if(q==='L'||q==='R')add('tape-direction');if(q==='k')add('machine-step');
+    }
+    if(options.slug==='proof'){
+      if(q==='Γ')add('assumption-set');if(q==='D')add('formal-derivation');
+      if(q==='v'||q==='p'||q==='q'||q==='r')add('valuation');
+      if(q==='⊢'||q==='Γ⊢r')add('derivability');if(q==='Γ⊨r')add('semantic-entailment');
+      if(q==='MP')add('modus-ponens');if(q==='k')add('proof-line-count');
     }
     if(options.slug==='finite-state-machine'){
       if(/^δ\([^()]+,[01]\)$/.test(q)||q==='δ')add('transition-function');
@@ -150,6 +165,7 @@
     if(unit==='m² per unit setting')return['compound-unit','declared-unit'];
     if(q==='px')return['pixel-unit'];if(q==='°'||unit==='degrees')return['degree'];if(unit==='rad'||unit==='radians')return['radian'];
     if(['unitless','dimensionless','× reference','ratio'].includes(unit))return unit==='ratio'?['ratio','dimensionless']:['dimensionless'];
+    if(unit==='transitions')return['transition-count-unit'];if(unit==='lines')return['derivation-line-unit'];if(unit==='integer')return['integer'];
     if(unit==='symbols')return['symbol-count'];if(unit==='share')return['ratio','dimensionless'];
     if(['bit','bits'].includes(unit))return['bit'];if(['book','books','expected books','books per check-in'].includes(unit))return['book-count-unit'];
     if(['population fraction','fraction','of capacity','probability','fraction of flagged items'].includes(unit))return['ratio','probability'];
