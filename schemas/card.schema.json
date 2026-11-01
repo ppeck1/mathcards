@@ -1056,7 +1056,10 @@
             "quantifier-scope-visual-model",
             "probability-distribution-visual-model",
             "expected-value-visual-model",
-            "entropy-visual-model"
+            "entropy-visual-model",
+            "joint-distribution-visual-model",
+            "conditional-entropy-visual-model",
+            "mutual-information-visual-model"
           ]
         },
         "renderer_version": {

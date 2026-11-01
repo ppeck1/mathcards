@@ -73,6 +73,22 @@ The zero-probability entropy contribution is defined by continuity without
 evaluating a logarithm of zero. No random sampler or extra animation clock is
 needed to explain the distribution and its two summaries.
 
+## Fifth build: joint models and conditional information
+
+| Lesson | Matrix connection | Connected representation | Boundary |
+|---|---|---|---|
+| Joint distributions | Further probability prerequisites for MAT-052 and MAT-177 | A binary return tray and lamp produce four joint probabilities; row and column totals lead to marginal and conditional distributions | One binary symmetric channel family, rather than every possible two-variable law |
+| Conditional entropy | Further information-theory prerequisite | Follow normalized lamp columns into their weighted entropy contributions and average uncertainty | A particular observation can increase uncertainty; a zero-probability observation has no defined conditional distribution |
+| Mutual information | Further information-theory prerequisite | Split the tray's original entropy into remaining uncertainty and information supplied by the lamp | Measures dependence in the joint model; does not establish a causal effect or sensor accuracy |
+
+The models and scenes live in `information-links.js` and narrative in
+`information-link-stories.js`. They share the existing host, clock, readable
+numbers, comparison pins and Geometry/Graph. The binary presence question is
+stated separately from the earlier three-count return model. A perfectly
+inverted lamp remains informative when its labeling rule is known. The broad
+book topics keep their precursor status; this batch does not claim a theory of
+physical entropy or a formal definition of a morphological form.
+
 ## Expansion sequence
 
 Stage labels group prerequisite streams. They are an editorial roadmap, not a

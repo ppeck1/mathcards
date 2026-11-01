@@ -33,6 +33,14 @@ test('symbol bindings load offline, remain immutable and reject unknown inputs',
 test('every mapped canonical grammar token resolves to an actual rendered quantity mark', () => {
   assert.equal(cards.length, Modules.list().length);
   const textOnly = new Set(['probability-distribution:X','expected-value:X','entropy:X','entropy:log₂','function-composition:∘', 'real-logarithm:log', 'derivative:lim', 'probability:X','partial-derivative:h','computational-complexity:O(n)','recurrence:k','quantifier:x','stability:k','relation:x','relation:y','equivalence:c','inference:a','torque:N·m','countability:ℵ₀','finite-state-machine:Σ','finite-state-machine:ε','open-set:b','quantifier-scope:x','quantifier-scope:y','quantifier-scope:o']);
+  // These formal references are defined by the cards but are not values in
+  // their focused scenes. A mark must never pretend to show an unshown value.
+  for(const slug of ['joint-distribution','conditional-entropy','mutual-information'])for(const token of ['X','Y'])textOnly.add(slug+':'+token);
+  for(const [slug,tokens]of Object.entries({
+    'joint-distribution':['P(X=x|Y=y)','H(X,Y)'],
+    'conditional-entropy':['p₀₀','p₀₁','p₁₀','p₁₁','p_X(x)','H(Y|X)'],
+    'mutual-information':['yₛ','p₀₀','p₀₁','p₁₀','p₁₁','p_X(x)','p_Y(y)','P(X=x|Y=y)','H(Y)','H(X,Y)','X ⟂ Y']
+  }))for(const token of tokens)textOnly.add(slug+':'+token);
   let mapped = 0, unmapped = 0;
   for (const card of cards) {
     const p = Models.defaults(card.slug);

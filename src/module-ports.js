@@ -12,6 +12,31 @@
   const port=(direction,key,label,type,unit,description)=>Object.freeze({id:direction+':'+key,label,direction,key,type,unit,description});
   const input=(...args)=>port('input',...args),output=(...args)=>port('output',...args);
   const definitions={
+    'joint-distribution':[
+      input('bookChance','Book-present probability','probability','1','The prior probability q that the binary return tray contains a book.'),
+      input('errorChance','Symmetric lamp flip probability','probability','1','The same conditional error probability e for either tray state.'),
+      output('output','Book present and lamp on','probability','1','The joint event probability P(X=1,Y=1), not a conditional probability.'),
+      output('p11','Book present and lamp on','probability','1','The joint event probability q(1-e).'),
+      output('py1','Lamp-on probability','probability','1','The marginal chance of observing the lamp on.'),
+      output('hx','Tray entropy','information-entropy','bit','Uncertainty in the binary tray state before the lamp is observed.'),
+      output('hxy','Joint entropy','information-entropy','bit','Uncertainty in the ordered pair of tray and lamp states.')
+    ],
+    'conditional-entropy':[
+      input('bookChance','Book-present probability','probability','1','The prior probability q that the binary return tray contains a book.'),
+      input('errorChance','Symmetric lamp flip probability','probability','1','The same conditional error probability e for either tray state.'),
+      output('output','Averaged remaining entropy','information-entropy','bit','H(X|Y), averaged over all possible observations, rather than the selected observation alone.'),
+      output('hxGivenY','Averaged remaining entropy','information-entropy','bit','H(X|Y), averaged over the lamp distribution.'),
+      output('hx','Tray entropy before observing','information-entropy','bit','H(X), the prior uncertainty in the tray state.'),
+      output('posteriorBookChance','Book chance after selected lamp','probability','1','The selected conditional chance; null when the selected lamp observation has probability zero.')
+    ],
+    'mutual-information':[
+      input('bookChance','Book-present probability','probability','1','The prior probability q that the binary return tray contains a book.'),
+      input('errorChance','Symmetric lamp flip probability','probability','1','The same conditional error probability e for either tray state.'),
+      output('output','Mutual information','mutual-information','bit','The expected reduction H(X)-H(X|Y), not the surprisal of one outcome or a claim of causation.'),
+      output('mutualInformation','Mutual information','mutual-information','bit','The dependence measure I(X;Y), symmetric in X and Y.'),
+      output('hxGivenY','Averaged remaining entropy','information-entropy','bit','The uncertainty that remains in X after Y, on average.'),
+      output('hx','Tray entropy before observing','information-entropy','bit','The prior uncertainty H(X).')
+    ],
     'probability-distribution':[
       input('oneChance','One-book probability','probability','1','The probability q assigned to exactly one book.'),
       input('twoShare','Two-book share of remaining probability','probability-partition-share','1','The fraction r of the remaining probability 1-q assigned to two books.'),

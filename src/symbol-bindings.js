@@ -9,6 +9,9 @@
   // Empty lists are deliberate: a binder, operator or random variable is not
   // automatically a current numerical value or a physical mark in the scene.
   const records = {
+    'joint-distribution':{X:[],Y:[],q:['bookChance'],e:['errorChance'],'yₛ':['observed'],'pᵢⱼ':['p00','p01','p10','p11'],'p₀₀':['p00'],'p₀₁':['p01'],'p₁₀':['p10'],'p₁₁':['p11'],'p_X(x)':['px0','px1'],'p_Y(y)':['py0','py1'],'P(X=x,Y=y)':['cells'],'P(X=x|Y=y)':[],'H(X,Y)':[]},
+    'conditional-entropy':{X:[],Y:[],q:['bookChance'],e:['errorChance'],'yₛ':['observed'],'p₀₀':[],'p₀₁':[],'p₁₀':[],'p₁₁':[],'p_X(x)':[],'p_Y(y)':['py0','py1'],'P(X=x|Y=y)':['conditionals'],'H(X|Y)':['hxGivenY'],'H(X|Y=y)':['selectedEntropy'],'H(Y|X)':[],'H(X)':['hx'],'H(X,Y)':['hxy']},
+    'mutual-information':{X:[],Y:[],q:['bookChance'],e:['errorChance'],'yₛ':[],'p₀₀':[],'p₀₁':[],'p₁₀':[],'p₁₁':[],'p_X(x)':[],'p_Y(y)':[],'P(X=x|Y=y)':[],'I(X;Y)':['mutualInformation'],'H(X)':['hx'],'H(Y)':[],'H(X,Y)':[],'H(X|Y)':['hxGivenY'],'X ⟂ Y':[]},
     'probability-distribution':{q:['oneChance'],r:['twoShare'],X:[],'xᵢ':['outcomes'],'pᵢ':['p0','p1','p2'],'p₀':['p0'],'p₁':['p1'],'p₂':['p2'],'p_X(x)':['probabilities'],'P(X=0)':['p0'],'P(X=1)':['p1'],'P(X=2)':['p2'],'∑pᵢ':['massTotal']},
     'expected-value':{q:['oneChance'],r:['twoShare'],X:[],'xᵢ':['outcomes'],'pᵢ':['p0','p1','p2'],'p₀':['p0'],'p₁':['p1'],'p₂':['p2'],'E[X]':['mean'],'E(X)':['mean'],'μ':['mean'],'xᵢpᵢ':['c0','c1','c2'],'cᵢ':['c0','c1','c2'],'c₀':['c0'],'c₁':['c1'],'c₂':['c2']},
     entropy:{q:['oneChance'],r:['twoShare'],X:[],'xᵢ':['outcomes'],'pᵢ':['p0','p1','p2'],'p₀':['p0'],'p₁':['p1'],'p₂':['p2'],'H(X)':['entropy'],'I(xᵢ)':['surprisal0Label','surprisal1Label','surprisal2Label'],'I(x)':['surprisal0Label','surprisal1Label','surprisal2Label'],'hᵢ':['h0','h1','h2'],'h₀':['h0'],'h₁':['h1'],'h₂':['h2'],'−pᵢ log₂ pᵢ':['h0','h1','h2'],'−pᵢlog₂pᵢ':['h0','h1','h2'],'log₂':[]},

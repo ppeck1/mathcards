@@ -1,3 +1,20 @@
+# 0.31.0 — Joint models and conditional information
+
+- Connect three new lessons through one binary library tray and sensor model:
+  joint distributions, conditional entropy and mutual information.
+- Follow four joint masses into marginal totals and normalized conditional
+  columns, then into averaged remaining uncertainty and shared information.
+- Keep an observed conditional entropy distinct from its average, and show
+  why a perfectly reversed signal can still be fully informative.
+- Leave zero-probability observations undefined without invalidating the global
+  distribution, entropy or mutual information.
+- Reuse the shared host, Geometry/Graph, clock, readable values, comparison
+  pins and saved-state contracts through separate model and story providers.
+- Add 15 original examples and 36 canonical fixtures; reach 59 draft cards,
+  299 examples, 598 fixtures, 358 written exports and 125 views.
+- Extend sourced definitions, scoped notation, previews, learner order, atlas
+  placement and the book roadmap's bounded information-theory prerequisites.
+
 # 0.30.0 — Distributions, expectation and information
 
 - Add three linked lessons using one library return-desk model: a finite
