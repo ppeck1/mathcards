@@ -37,6 +37,8 @@ test('every mapped canonical grammar token resolves to an actual rendered quanti
   // their focused scenes. A mark must never pretend to show an unshown value.
   for(const slug of ['joint-distribution','conditional-entropy','mutual-information'])for(const token of ['X','Y'])textOnly.add(slug+':'+token);
   for(const [slug,tokens]of Object.entries({
+    'turing-machine':['δ','□','S','C','H','L','R'],
+    proof:['Γ','→','⊢','⊨','MP'],
     'joint-distribution':['P(X=x|Y=y)','H(X,Y)'],
     'conditional-entropy':['p₀₀','p₀₁','p₁₀','p₁₁','p_X(x)','H(Y|X)'],
     'mutual-information':['yₛ','p₀₀','p₀₁','p₁₀','p₁₁','p_X(x)','p_Y(y)','P(X=x|Y=y)','H(Y)','H(X,Y)','X ⟂ Y']

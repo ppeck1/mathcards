@@ -104,6 +104,41 @@ def checks(card, schema, source_ids, known):
     return errors
 
 def compute(model,p):
+    if model=='turing-machine-visual-model':
+        if set(p)!={'steps','word'} or type(p['word']) is not str or p['word'] not in {'0101','1011','1111','0000'} or type(p['steps']) not in (int,float) or not math.isfinite(p['steps']) or not 0<=p['steps']<=10 or p['steps']!=int(p['steps']):
+            return {'status':'invalid_parameters'}
+        # Arithmetic oracle, independent of the runtime transition table:
+        # scanning takes four moves, then a blank moves the head left. Each
+        # trailing one cleared by the carry subtracts its binary place value.
+        word=p['word'];value=int(word,2)
+        trailing=len(word)-len(word.rstrip('1'))
+        writes=max(0,int(p['steps'])-5)
+        output=value-(2**writes-1) if writes<=trailing else value+1
+        return {'status':'valid','output':output}
+    if model=='proof-visual-model':
+        if set(p)!={'steps','plan','world'} or type(p['plan']) is not str or p['plan'] not in {'chain','wrong-conclusion','forward-reference'} or type(p['world']) is not str or p['world'] not in {format(i,'03b') for i in range(8)} or type(p['steps']) not in (int,float) or not math.isfinite(p['steps']) or not 0<=p['steps']<=5 or p['steps']!=int(p['steps']):
+            return {'status':'invalid_parameters'}
+        # Structural formula tuples check the cited rule. A valuation is
+        # deliberately absent from this syntax calculation.
+        premises={'p',('implies','p','q'),('implies','q','r')}
+        rows=[('p',()),(('implies','p','q'),()),(('implies','q','r'),())]
+        candidates={
+            'chain':[('q',(1,2)),('r',(4,3))],
+            'wrong-conclusion':[('r',(1,2)),('q',(1,2))],
+            'forward-reference':[('r',(5,3)),('q',(1,2))],
+        }
+        rows+=candidates[p['plan']];accepted=[]
+        for formula,cites in rows[:int(p['steps'])]:
+            if not cites:
+                legal=formula in premises
+            else:
+                legal=False
+                if all(1<=j<=len(accepted) for j in cites):
+                    a,b=(accepted[j-1] for j in cites)
+                    legal=b==('implies',a,formula) or a==('implies',b,formula)
+            if not legal:break
+            accepted.append(formula)
+        return {'status':'valid','output':len(accepted)}
     if model in {'joint-distribution-visual-model','conditional-entropy-visual-model','mutual-information-visual-model'}:
         if set(p)!={'bookChance','errorChance','observed'} or type(p['observed']) is not str or p['observed'] not in {'0','1'} or any(type(p[key]) not in (int,float) or not math.isfinite(p[key]) or not 0<=p[key]<=1 for key in ('bookChance','errorChance')):
             return {'status':'invalid_parameters'}

@@ -67,7 +67,7 @@ test('index loads without DOM, timers, network or storage and projects immutable
 });
 
 test('pasted Greek symbols preserve case and remain distinct from partial derivatives',()=>{
-  assert.deepEqual(ids(index.search('δ')),['delta-small','transition-function']);
+  assert.deepEqual(new Set(ids(index.search('δ'))),new Set(['delta-small','transition-function','tape-transition']));
   assert.deepEqual(ids(index.search('Δ')),['delta-capital']);
   assert.deepEqual(ids(index.search('∂')),['partial-derivative']);
   assert.ok(ids(index.search('delta')).includes('delta-small'));
@@ -436,8 +436,8 @@ test('mounted search keeps its input stable, recovers from no results and cleans
   assert.match(host.nodes.detail.innerHTML,/No matching entry yet/);
   assert.equal(navigation.at(-1).entryId,null,'search navigation keeps a query route');
   query.value='δ';host.emit('input',query);
-  assert.equal(view.getState().entryId,'delta-small');
-  assert.match(host.nodes.detail.innerHTML,/Small delta/);
+  assert.equal(view.getState().entryId,index.search('δ')[0].id,'typing selects the first of all applicable delta meanings');
+  assert.ok(host.nodes.detail.innerHTML.includes(index.search('δ')[0].title));
   assert.equal(host.writes,1,'search never replaces its containing controls');
   assert.equal(host.nodes.search,query);
   assert.equal(query.focused,true);
@@ -535,7 +535,7 @@ test('catalog selection clears stale filters, retains other meanings, marks the 
   assert.equal(view.getState().entryId,'summation');
   assert.ok(!host.nodes.list.innerHTML.includes('data-index-entry="sigma-capital"'));
   const scrolls=host.nodes.detail.scrolls;host.nodes.search.value='δ';host.emit('input',host.nodes.search);
-  assert.equal(view.getState().entryId,'delta-small');
+  assert.equal(view.getState().entryId,index.search('δ')[0].id,'typing selects a current delta meaning');
   assert.equal(host.nodes.detail.scrolls,scrolls,'typing never forces a new scroll');
   view.destroy();
 });

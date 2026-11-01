@@ -1,0 +1,196 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:proof:complete-chain", "id": "math:example:proof:complete-chain", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:proof", "example_id": "math:example:proof:complete-chain", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "4b28f70e7d824a447fa30ab4fc0e130cfb01a22dda8464980040588e16dea38b"}, "purpose": "Check a short library-rule derivation line by line, then compare its syntactic justification with truth in a selected situation.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "4b28f70e7d824a447fa30ab4fc0e130cfb01a22dda8464980040588e16dea38b", "status": "draft", "title": "Follow the recorded return to its receipt", "topics": ["mathematics", "logic", "discrete-computation", "language-foundations", "formal derivation", "proof sequence", "provability", "syntactic derivability", "premise-and-modus-ponens calculus"], "type": "reference", "updated": "2026-11-01T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Follow the recorded return to its receipt
+
+Parent card: math:concept:proof; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:proof; revision 0.1.0-draft. Setting: A fixed three-premise propositional calculus with three selectable five-line candidates, the target r and all eight Boolean assignments. Expression: $\Gamma=\{p,p\to q,q\to r\},\quad\frac{A\qquad A\to B}{B}\;\mathrm{MP},\quad\Gamma\vdash r,\quad\Gamma\models r.$. Conditions required for a defined value (a case may test their violation): The fixed premise set, or assumption set, is Γ={p,p→q,q→r}. In the constructed library story, p means the return is recorded, q means the count is updated, and r means the receipt is ready. These rules are stipulated premises, not measured software guarantees. A candidate has five ordered lines. A premise line must belong to Γ. Each line citation in a modus ponens step must identify one of two earlier accepted lines containing A and A→B, and its conclusion must be B. The chain candidate writes p, p→q and q→r as its first three lines, then derives q from lines 1 and 2 and r from lines 4 and 3. The other candidates contain an incorrect conclusion or a future-line citation at line 4. Only a consecutive valid prefix is accepted. Checking stops accepting new lines at the first invalid line; a later correct line does not repair the rejected candidate prefix. The known chain witnesses Γ⊢r in this stated forward calculus. All eight Boolean assignments also verify Γ⊨r: no assignment makes every premise true and r false. A bad candidate does not refute the existence of this other valid derivation. The selected world v is a valuation supplying truth values for p,q,r. Changing it affects truth readings and premise satisfaction, not whether a syntactic step obeys the proof rules. A derivation from Γ does not assert that Γ describes the actual library. Scope: The checker handles only three stated candidates in a tiny premise-and-modus-ponens calculus. It is not a complete propositional proof system, an arbitrary theorem prover or a proof of soundness or completeness. The real-world meanings are a constructed scenario.
+
+Case unit math:example:proof:complete-chain. Setting: An originally authored library scenario with stipulated inputs and rules. Inputs: {"plan": "chain", "steps": 5, "world": "111"}. Result: {"exact": "5 accepted lines; complete valid candidate; Γ⊢r"}. Limits: The proof is conditional on Γ. It does not independently verify the library’s actual rules.
+
+## Complete worked case
+
+- id: math:example:proof:complete-chain
+- title: Follow the recorded return to its receipt
+- role: applied_model
+- question: How do the two justified steps derive r?
+- setting: An originally authored library scenario with stipulated inputs and rules.
+- assumptions:
+  - The fixed premise set, or assumption set, is Γ={p,p→q,q→r}. In the constructed library story, p means the return is recorded, q means the count is updated, and r means the receipt is ready. These rules are stipulated premises, not measured software guarantees.
+  - A candidate has five ordered lines. A premise line must belong to Γ. Each line citation in a modus ponens step must identify one of two earlier accepted lines containing A and A→B, and its conclusion must be B.
+- inputs:
+  - steps: 5
+  - plan: chain
+  - world: 111
+- steps:
+  - Item:
+    - index: 1
+    - expression: Line 4 is q by MP from line 1, p, and line 2, p→q.
+    - reason: The formula q is the consequent of the cited implication.
+  - Item:
+    - index: 2
+    - expression: Line 5 is r by MP from line 4, q, and line 3, q→r.
+    - reason: Both citations are earlier accepted lines.
+  - Item:
+    - index: 3
+    - expression: All five lines are accepted and the final target r has been derived.
+    - reason: This candidate is a witness for Γ⊢r.
+- result:
+  - exact: 5 accepted lines; complete valid candidate; Γ⊢r
+- interpretation: The dependencies explain exactly how each stated library rule is used.
+- independent check:
+  - method: Separate exact trace or rule check
+  - expected: Check MP twice: substitute A=p,B=q, then A=q,B=r.
+- limits: The proof is conditional on Γ. It does not independently verify the library’s actual rules.
+- preset:
+  - steps: 5
+  - plan: chain
+  - world: 111
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - The fixed premise set, or assumption set, is Γ={p,p→q,q→r}. In the constructed library story, p means the return is recorded, q means the count is updated, and r means the receipt is ready. These rules are stipulated premises, not measured software guarantees.
+  - A candidate has five ordered lines. A premise line must belong to Γ. Each line citation in a modus ponens step must identify one of two earlier accepted lines containing A and A→B, and its conclusion must be B.
+
+## Written exploration recipe
+
+- component id: component:proof
+- renderer id: proof-visual-model
+- renderer version: 1
+- model id: proof-visual-model
+- model revision: 1
+- expression id: ast:proof:expression
+- interaction status: implemented
+- description: Five large proof-line boxes reveal premises and cited dependencies. Each accepted step has an explicit reason; an invalid line stops the accepted prefix. A separate truth panel reports whether the selected world satisfies Γ and r.
+- controls:
+  - Item:
+    - id: steps
+    - type: number
+    - default: 0
+    - min: 0
+    - max: 5
+    - step: 1
+  - Item:
+    - id: plan
+    - type: enum
+    - default: chain
+    - values:
+      - chain
+      - wrong-conclusion
+      - forward-reference
+  - Item:
+    - id: world
+    - type: enum
+    - default: 111
+    - values:
+      - 000
+      - 001
+      - 010
+      - 011
+      - 100
+      - 101
+      - 110
+      - 111
+- expected cases:
+  - Item:
+    - input:
+      - steps: 0
+      - plan: chain
+      - world: 111
+    - output: 0
+  - Item:
+    - input:
+      - steps: 3
+      - plan: chain
+      - world: 111
+    - output: 3
+  - Item:
+    - input:
+      - steps: 4
+      - plan: chain
+      - world: 111
+    - output: 4
+  - Item:
+    - input:
+      - steps: 5
+      - plan: chain
+      - world: 111
+    - output: 5
+  - Item:
+    - input:
+      - steps: 5
+      - plan: chain
+      - world: 000
+    - output: 5
+  - Item:
+    - input:
+      - steps: 3
+      - plan: wrong-conclusion
+      - world: 111
+    - output: 3
+  - Item:
+    - input:
+      - steps: 4
+      - plan: wrong-conclusion
+      - world: 111
+    - output: 3
+  - Item:
+    - input:
+      - steps: 5
+      - plan: wrong-conclusion
+      - world: 111
+    - output: 3
+  - Item:
+    - input:
+      - steps: 5
+      - plan: forward-reference
+      - world: 111
+    - output: 3
+  - Item:
+    - input:
+      - steps: 2.5
+      - plan: chain
+      - world: 111
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - steps: 6
+      - plan: chain
+      - world: 111
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - steps: 5
+      - plan: chain
+      - world: 11
+    - status: invalid_parameters
+- compute: Reveal the first k lines of the selected candidate D. Accept a premise only if it belongs to Γ. Accept an MP line only if its cited earlier accepted lines contain A and A→B and the displayed conclusion is B. Stop the accepted prefix at the first bad line. Independently read p,q,r in the selected world v; these truth values never change the rule check.
+- numeric tolerance: 1e-10
+- invariants:
+  - The fixed premise set, or assumption set, is Γ={p,p→q,q→r}. In the constructed library story, p means the return is recorded, q means the count is updated, and r means the receipt is ready. These rules are stipulated premises, not measured software guarantees.
+  - A candidate has five ordered lines. A premise line must belong to Γ. Each line citation in a modus ponens step must identify one of two earlier accepted lines containing A and A→B, and its conclusion must be B.
+  - The chain candidate writes p, p→q and q→r as its first three lines, then derives q from lines 1 and 2 and r from lines 4 and 3. The other candidates contain an incorrect conclusion or a future-line citation at line 4.
+  - Only a consecutive valid prefix is accepted. Checking stops accepting new lines at the first invalid line; a later correct line does not repair the rejected candidate prefix.
+  - The known chain witnesses Γ⊢r in this stated forward calculus. All eight Boolean assignments also verify Γ⊨r: no assignment makes every premise true and r false. A bad candidate does not refute the existence of this other valid derivation.
+  - The selected world v is a valuation supplying truth values for p,q,r. Changing it affects truth readings and premise satisfaction, not whether a syntactic step obeys the proof rules. A derivation from Γ does not assert that Γ describes the actual library.
+- limits:
+  - The checker handles only three stated candidates in a tiny premise-and-modus-ponens calculus. It is not a complete propositional proof system, an arbitrary theorem prover or a proof of soundness or completeness. The real-world meanings are a constructed scenario.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:openlogic:axiomatic-derivations. [Open Logic Text, Chapter 12: Axiomatic Derivations](https://builds.openlogicproject.org/open-logic-complete.pdf). Locator: Revision 9620cc7, July 12, 2026; §12.1, printed pages 176–177, Definition 12.1 and Definition 12.3: derivation lines, earlier premises, modus ponens and Γ⊢φ. Verification: Definition-level derivation conditions, MP and existence-of-derivation reading inspected 2026-11-01. The lesson explicitly chooses only premise membership and MP, without the source’s additional axiom schemata; it does not claim completeness. Not independent review.. Rights: Definition-level reference; original library propositions, candidates, stories and checks. No exercises or source prose reproduced.

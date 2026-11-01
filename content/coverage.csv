@@ -8,7 +8,7 @@ math:concept:set,Set,language-foundations,draft_specimen,expansion,pending,pendi
 math:concept:relation,Predicates and Relations,language-foundations,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:function,Function,language-foundations,draft_specimen,first-eight,pending,pending,implemented
 math:concept:quantifier,Quantifier,language-foundations,draft_specimen,expansion,pending,pending,implemented
-math:concept:proof,Proof,language-foundations,planned,expansion,pending,pending,planned
+math:concept:proof,Formal proof and derivation,language-foundations,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:natural-number,Natural Number,number-arithmetic,planned,expansion,pending,pending,planned
 math:concept:integer,Integer,number-arithmetic,planned,expansion,pending,pending,planned
 math:concept:rational-number,Rational Number,number-arithmetic,planned,expansion,pending,pending,planned
@@ -199,3 +199,4 @@ math:concept:countability,Countability and Enumeration,number-arithmetic,draft_s
 math:concept:finite-state-machine,Finite-State Machines and Configurations,discrete-computation,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:quantifier-scope,Quantifier Order and Variable Scope,language-foundations,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:joint-distribution,Joint Probability Distributions,probability,draft_specimen,expansion,pending,pending,implemented
+math:concept:turing-machine,Writable Turing-machine tape,discrete-computation,draft_specimen,book-expansion,pending,pending,implemented

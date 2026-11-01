@@ -89,6 +89,20 @@ inverted lamp remains informative when its labeling rule is known. The broad
 book topics keep their precursor status; this batch does not claim a theory of
 physical entropy or a formal definition of a morphological form.
 
+## Sixth build: computation and proof
+
+| Lesson | Matrix connection | Connected representation | Boundary |
+|---|---|---|---|
+| Writable Turing-machine tape | MAT-094 and MAT-096; precursors for MAT-092–093 and MAT-097 | A library inventory counter scans four binary digits, rewrites a carry and halts; the head, last write and tape reading follow the exact transition | Four selectable inputs and one six-rule program; no universal simulation or undecidability result |
+| Formal proof and derivation | MAT-069; precursor for MAT-070 | A library return rule becomes a five-line derivation; highlighted citations show each modus-ponens dependency while a separate valuation reports truth | One explicit premise set and one rule, with two invalid candidate sequences; no arbitrary proof editor, complete calculus or general proof-search claim |
+
+The model provider `computation.js` and narrative provider `computation-stories.js`
+reuse the shared playground host. Configuration includes the tape and head,
+not just the machine's finite control state. A true conclusion does not repair
+an invalid cited step. An invalid candidate does not refute derivability: the
+valid chain remains available from the same premises. Conversely, a valid
+derivation does not establish that its premises hold in a selected situation.
+
 ## Expansion sequence
 
 Stage labels group prerequisite streams. They are an editorial roadmap, not a
@@ -98,14 +112,14 @@ claim that all earlier stages are required for every later topic.
 |---|---:|---|---|
 | 1 · Logic and language | 33 | Explicit interpretations; substitution and capture; formal derivations | Explicit domain, syntax and interpretation before arbitrary quantified arguments |
 | 2 · Vectors and mechanics | 41 | Located versus free vectors; general spatial cross product; triple products | Shared coordinate frames, units, orientation and location-sensitive meaning |
-| 3 · Proof, models and computation | 30 | Formal proof; small finite structures; tape machines; decidability | Separate truth from derivability and finite demonstrations from general theorems |
+| 3 · Proof, models and computation | 30 | Small finite structures; arbitrary derivation editing; decidability | Separate truth from derivability and finite demonstrations from general theorems |
 | 4 · Tensors and coordinate laws | 9 | Coordinate changes; metric; index notation; contraction | Transformation behavior before treating tensors as arrays |
 | 5 · Infinite sets and foundations | 16 | Cantor's diagonal argument; cardinal comparisons; ordinals | Actual proof structure before compactness, independence, forcing or incompleteness claims |
 | 6 · Topology and dynamics | 31 | Vector fields; continuous flows; basins; manifolds; structural stability | State space, neighborhood, continuity, smoothness and the specified type of perturbation |
 | 7 · Singularities and catastrophes | 21 | Fold first, then cusp and hysteresis; critical-point geometry | Equilibria, parameterized families, local derivatives and clear state/control axes |
 | 8 · Qualitative modeling and applications | 33 | Qualitative versus quantitative models; potentials; carefully bounded morphology examples | Distinguish a mathematical construction, a historical interpretation and empirically validated prediction |
 
-The CSV currently links 46 rows to draft introductions, 41 to precursors, and
+The CSV currently links 48 rows to draft introductions, 39 to precursors, and
 leaves 127 without a dedicated introduction or precursor link. These are
 topic-to-lesson links, not counts of independently reviewed or complete topics.
 All 214 rows still require scope review as expansion proceeds.

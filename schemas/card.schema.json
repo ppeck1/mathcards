@@ -1059,7 +1059,9 @@
             "entropy-visual-model",
             "joint-distribution-visual-model",
             "conditional-entropy-visual-model",
-            "mutual-information-visual-model"
+            "mutual-information-visual-model",
+            "turing-machine-visual-model",
+            "proof-visual-model"
           ]
         },
         "renderer_version": {

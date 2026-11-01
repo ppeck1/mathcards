@@ -1,3 +1,20 @@
+# 0.32.0 — Writable memory and formal derivations
+
+- Add a six-rule binary tape incrementer and a five-line formal proof lesson.
+- Trace actual reads, writes, head movement and halting; keep temporary tape
+  readings separate from the completed count, including left overflow.
+- Follow earlier-line citations through modus ponens, rejecting wrong
+  consequents and future references independently of truth assignments.
+- Preserve the valid derivation witness when a different candidate fails;
+  a false selected premise does not change syntactic checking.
+- Reuse the shared host, clock, Geometry/Graph, readable values, comparison
+  pins and saved-state contracts. Graph uses whole-step samples.
+- Add 10 original examples and 24 canonical fixtures; reach 61 draft cards,
+  309 examples, 622 fixtures, 370 written exports and 129 views.
+- Expand scoped terms and symbols, matching previews, learner order, atlas
+  placement and the book roadmap without claiming universal computation or
+  general proof systems complete.
+
 # 0.31.0 — Joint models and conditional information
 
 - Connect three new lessons through one binary library tray and sensor model:

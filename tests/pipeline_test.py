@@ -19,6 +19,27 @@ from release import application_version, stamp_template
 from validate_package import compute
 
 class PipelineTests(unittest.TestCase):
+    def test_tape_reference_clears_binary_place_values_then_increments(self):
+        for word,final,halt in [('0101',6,7),('1011',12,8),('1111',16,10),('0000',1,6)]:
+            for step in range(11):
+                with self.subTest(word=word,step=step):
+                    result=compute('turing-machine-visual-model',{'steps':step,'word':word})
+                    self.assertEqual(result['status'],'valid')
+                    if step<=5:self.assertEqual(result['output'],int(word,2))
+                    if step>=halt:self.assertEqual(result['output'],final)
+            self.assertEqual(compute('turing-machine-visual-model',{'steps':halt-1,'word':word})['output'],final-2**(halt-6))
+        for invalid in [{'steps':True,'word':'1011'},{'steps':1.5,'word':'1011'},{'steps':11,'word':'1011'},{'steps':0,'word':'111'},{'steps':0,'word':1011},{'steps':0}]:
+            self.assertEqual(compute('turing-machine-visual-model',invalid)['status'],'invalid_parameters')
+
+    def test_proof_reference_checks_citations_independently_of_truth(self):
+        for world in (format(i,'03b') for i in range(8)):
+            for plan in ('chain','wrong-conclusion','forward-reference'):
+                for step in range(6):
+                    expected=step if plan=='chain' else min(step,3)
+                    self.assertEqual(compute('proof-visual-model',{'steps':step,'plan':plan,'world':world}),{'status':'valid','output':expected})
+        for invalid in [{'steps':True,'plan':'chain','world':'111'},{'steps':.5,'plan':'chain','world':'111'},{'steps':6,'plan':'chain','world':'111'},{'steps':0,'plan':'other','world':'111'},{'steps':0,'plan':'chain','world':111},{'steps':0,'plan':'chain','world':'11'}]:
+            self.assertEqual(compute('proof-visual-model',invalid)['status'],'invalid_parameters')
+
     def test_information_channel_identities_match_direct_joint_sums(self):
         for q,e in [(0,0),(0,1),(1,0),(1,1),(.5,0),(.5,.5),(.5,1),(.5,.1),(.75,.25),(.2,.9)]:
             cells=[[(1-q)*(1-e),(1-q)*e],[q*e,q*(1-e)]]
@@ -72,9 +93,9 @@ class PipelineTests(unittest.TestCase):
         for card in catalog['cards']:
             source=json.loads((ROOT/'content/cards'/(card['slug']+'.json')).read_text(encoding='utf-8'))
             self.assertEqual(source,card)
-        self.assertEqual(len(catalog['cards']),59)
-        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),299)
-        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),598)
+        self.assertEqual(len(catalog['cards']),61)
+        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),309)
+        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),622)
 
     def test_book_roadmap_preserves_topic_identity_and_honest_card_links(self):
         with (ROOT/'docs/BOOK_CONCEPT_ROADMAP.csv').open(encoding='utf-8',newline='') as stream:
@@ -104,7 +125,7 @@ class PipelineTests(unittest.TestCase):
             a,b=Path(tmp)/'a',Path(tmp)/'b'
             ma,mb=build_export(a),build_export(b)
             self.assertEqual(ma,mb)
-            self.assertEqual(ma['document_count'],358)
+            self.assertEqual(ma['document_count'],370)
             for entry in ma['documents']:
                 self.assertEqual((a/entry['path']).read_bytes(),(b/entry['path']).read_bytes())
                 self.assertNotIn('notebook',entry['path'])
