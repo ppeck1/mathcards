@@ -2,12 +2,17 @@
 
 A visual field notebook for learning mathematics as a language of description.
 Change an input, follow it through a story and formula, and see its effect in a
-shape or graph. The collection includes 61 draft lessons, from ratios to
+shape or graph. The collection includes draft lessons, from ratios to
 fractals, information theory and writable tape machines.
 
 **[Open the live atlas](https://ppeck.me/mathcards/)** ·
 [Project story](https://ppeck.me/projects/mathematical-expression-atlas/) ·
 [Release history](CHANGELOG.md)
+
+The release version comes from [package.json](package.json). The generated
+[build manifest](dist/build-manifest.json) records the built card and example
+counts, source hash and review status; [content/cards/](content/cards/) contains
+the canonical lessons. Dated validation records describe the release they tested.
 
 ![Six model-derived card illustrations with separate, readable captions.](docs/presentation-0-33/previews.png)
 
@@ -56,9 +61,10 @@ Every validated push to `main` updates the hosted demo automatically.
 | [Architecture](docs/ARCHITECTURE.md) | Source layout and module boundaries |
 | [Playground modules](docs/PLAYGROUND_MODULES.md) | Host, views and typed connections |
 | [Reference index](docs/MATH_INDEX.md) | Definitions, symbols and actual card links |
-| [Book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) | 214 topic IDs, prerequisites and honest coverage |
+| [Book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) | Topic IDs, prerequisites and honest coverage |
 | [Build and deployment](docs/DEPLOYMENT.md) | Reproducible checks and publishing |
 | [Current review](docs/REVIEW_RESPONSE_0_33_0.md) | Findings, repairs and remaining work |
+| [Release validation](docs/VALIDATION_0_33_0.md) | Recorded checks for the reviewed release |
 
 ## Current limits
 
