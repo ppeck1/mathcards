@@ -16,7 +16,7 @@ test('calculation descriptions load offline and resolve against all installed sh
   assert.equal(Stories.all().length,cardCount);
   for(const story of Stories.all()){
     const stages=Flow.stages(story),values=Scenes.values(story.slug,story.parameters);
-    assert.deepEqual(stages.map(s=>s.role),['input','intermediate','output']);
+    assert.deepEqual(stages.map(s=>s.role),['input','intermediate','output'],story.slug+' must author its three calculation stages');
     for(const stage of stages){assert.ok(stage.label.length>3);assert.ok(stage.description.length>3);for(const part of Flow.parts(stage.template))if(part.key)assert.ok(Number.isFinite(values[part.key])||typeof values[part.key]==='string'&&values[part.key].trim().length>0,`${story.slug}.${part.key}`);}
   }
   assert.deepEqual(Flow.parts('x={{x}}; literal {{x + 1}}'),[{text:'x='},{key:'x'},{text:'; literal {{x + 1}}'}]);

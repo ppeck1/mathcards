@@ -10,7 +10,7 @@
     'integral-accumulation','signed-accumulation','chain-rule','partial-derivative',
     'gradient','directional-derivative','tangent-plane','gradient-descent',
     'wave-interference','resonance','graph-theory','computational-complexity','finite-state-machine','turing-machine','recurrence','stability',
-    'chaos-theory','fractal-geometry'
+    'partial-order','meet-join','lattice-distributivity','binomial-distribution','poisson-distribution','sampling-distribution','confidence-interval','hypothesis-test','linear-regression','correlation','factorial-interaction','chi-square-association','relative-entropy','vector-field','continuous-flow','basin-attraction','fold-bifurcation','cusp-potential','ideal-gas','heat-balance','gibbs-free-energy','artificial-neuron','hebbian-learning','chaos-theory','fractal-geometry'
   ]);
   const ranks=new Map(slugs.map((slug,i)=>[slug,i]));
   function order(cards=[]){return cards.slice().sort((a,b)=>(ranks.get(a.slug)??slugs.length)-(ranks.get(b.slug)??slugs.length)||String(a.title||a.slug).localeCompare(String(b.title||b.slug),'en'));}

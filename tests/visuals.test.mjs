@@ -41,6 +41,7 @@ function sceneHandles(html) {
 
 test('visual renderer works as an offline classic browser script', () => {
   const context = vm.createContext({});
+  vm.runInContext(fs.readFileSync(new URL('../src/legacy-models.js', import.meta.url), 'utf8'), context);
   vm.runInContext(fs.readFileSync(new URL('../src/models.js', import.meta.url), 'utf8'), context);
   vm.runInContext(fs.readFileSync(new URL('../src/visuals.js', import.meta.url), 'utf8'), context);
   assert.equal(typeof context.AtlasVisuals.render, 'function');

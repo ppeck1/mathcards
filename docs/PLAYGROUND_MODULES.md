@@ -12,7 +12,9 @@ the common host lives in [src/playground.js](../src/playground.js). This first
 pass adapts the existing mathematical models, renderers, and stories rather than
 requiring their replacement.
 
-The installed application contains forty-five topic adapters. The separate
+The installed application adapts every canonical executable lesson. Current
+counts are recorded in `dist/build-manifest.json`; the registry and catalog are
+checked for parity. The separate
 [module sandbox](../examples/module-sandbox.html), **One module. Two independent
 places to play.**, loads an additional module from
 [growth-frame-module.js](../examples/growth-frame-module.js). It renders
@@ -65,13 +67,13 @@ than replacing a running module.
 | `defaultView` | The ID of one of the declared views |
 
 Each declared view must be a distinct representation of the same module state.
-The forty-five installed topics supply Geometry and Graph. Composition,
+Installed topics supply Geometry and Graph. Composition,
 logarithm, derivative, partial derivatives, gradient, directional derivative and
-tangent plane also supply genuine 3D space, for 97 views: 45 Geometry, 45 Graph
-and seven Spatial. Do not offer another tab that
+tangent plane also supply genuine 3D space. Registered view lists determine
+representation totals, recorded in the release validation. Do not offer another tab that
 silently returns identical geometry. `src/plot-view.js` supplies the pure
-coordinate-plot renderer; `src/module-graphs.js` describes the twelve newer
-topics' axes, curves, current points, units, and approximation limits. The four
+coordinate-plot renderer; `src/module-graphs.js` describes topic axes, curves,
+current points, units, and approximation limits. The four
 foundation modules supply their own distinct graphs through `src/foundations.js`;
 `src/model-registry.js` routes those implementations through the same host.
 The four linear algebra modules similarly provide their pure Geometry and Graph
@@ -535,3 +537,21 @@ The application has 38 canonical topic adapters. The separate square-area
 sandbox registers a 39th example module without adding a canonical card. All
 existing identities/revisions remain unchanged. One new pure provider does not
 change the page lifecycle or create a new animation engine.
+
+
+## Original-family provider consolidation
+
+Composition, real logarithm and derivative at a point use
+`src/legacy-models.js` through `src/model-registry.js`, like newer providers.
+`src/models.js` remains the stable evaluation facade. Its classic-script entry
+requires the provider scripts to load first; the source page, standalone build
+and sandbox declare that order explicitly.
+
+The extraction keeps the original mathematical implementations, public slugs,
+model revision 1, exact-result strings and invalid-domain states. Legacy views
+resolve their existing Geometry/Graph or Spatial adapter on demand after those
+adapters have loaded. No renderer is loaded for a numeric calculation, and no
+new animation clock or private storage is introduced. Specialized story scenes
+keep their original physical settings instead of being replaced by a generic
+provider scene. The provider's control ranges remain viewing affordances;
+invalid-logarithm presets retain the ability to show the actual domain failure.

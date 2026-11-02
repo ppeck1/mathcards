@@ -1,0 +1,201 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:meet-join:case-3", "id": "math:example:meet-join:case-3", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:meet-join", "example_id": "math:example:meet-join:case-3", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "62cf2a30cf12baf3c5dd31574006c5fb48d20988323c2282a0a80fff7554914a", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9a84fd4abff30ad0b44cdbc7211fa42fe1c28f7851df756ff476620c69a72699"}, "purpose": "Which tools are shared, and which are available together?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9a84fd4abff30ad0b44cdbc7211fa42fe1c28f7851df756ff476620c69a72699", "status": "draft", "title": "Choose A = {lamp, ruler, brush}", "topics": ["mathematics", "logic", "meet and join"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Choose A = {lamp, ruler, brush}
+
+Parent card: math:concept:meet-join; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:meet-join; revision 0.1.0-draft. Setting: The volunteers need either a kit both can supply or a combined kit using everything either carries. Choose meet to keep shared tools and join to combine the kits. The highlighted result occupies the corresponding position in the inclusion diagram. Expression: $A\wedge B=A\cap B,\quad A\vee B=A\cup B.$. Conditions required for a defined value (a case may test their violation): In this powerset lattice meet is intersection and join is union. Other lattices need not use sets, and their operations need not be literal intersection and union. Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views. This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified. Scope: In this powerset lattice meet is intersection and join is union. Other lattices need not use sets, and their operations need not be literal intersection and union.
+
+Case unit math:example:meet-join:case-3. Setting: The volunteers need either a kit both can supply or a combined kit using everything either carries. Choose meet to keep shared tools and join to combine the kits. The highlighted result occupies the corresponding position in the inclusion diagram. Inputs: {"a": 7, "b": 5, "operation": "meet"}. Result: {"exact": "2 tools"}. Limits: In this powerset lattice meet is intersection and join is union. Other lattices need not use sets, and their operations need not be literal intersection and union.
+
+## Complete worked case
+
+- id: math:example:meet-join:case-3
+- title: Choose A = {lamp, ruler, brush}
+- role: applied_model
+- question: Which tools are shared, and which are available together?
+- setting: The volunteers need either a kit both can supply or a combined kit using everything either carries. Choose meet to keep shared tools and join to combine the kits. The highlighted result occupies the corresponding position in the inclusion diagram.
+- assumptions:
+  - In this powerset lattice meet is intersection and join is union. Other lattices need not use sets, and their operations need not be literal intersection and union.
+- inputs:
+  - a: 7
+  - b: 5
+  - operation: meet
+- steps:
+  - Item:
+    - index: 1
+    - expression: A = {lamp, ruler, brush}; B = {lamp, brush}; operation = meet
+    - reason: These are the stipulated inputs for this case.
+  - Item:
+    - index: 2
+    - expression: A ∧ B = A ∩ B; A ∨ B = A ∪ B
+    - reason: Take the intersection for meet or the union for join, then count selected tools.
+  - Item:
+    - index: 3
+    - expression: Result ≈ 2 tools
+    - reason: Evaluate the stated rule before rounding the display.
+- result:
+  - exact: 2 tools
+- interpretation: Gold marks the greatest shared lower bound or least combined upper bound in this powerset lattice.
+- independent check:
+  - method: Independent Python reference using sets, algebra or alternate analytic identities.
+  - expected: 2
+- limits: In this powerset lattice meet is intersection and join is union. Other lattices need not use sets, and their operations need not be literal intersection and union.
+- preset:
+  - a: 7
+  - b: 5
+  - operation: meet
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+- conditions to check:
+  - In this powerset lattice meet is intersection and join is union. Other lattices need not use sets, and their operations need not be literal intersection and union.
+
+## Written exploration recipe
+
+- component id: component:meet-join
+- renderer id: meet-join-visual-model
+- renderer version: 1
+- model id: meet-join-visual-model
+- model revision: 1
+- expression id: ast:meet-join:expression
+- interaction status: implemented
+- description: Gold marks the greatest shared lower bound or least combined upper bound in this powerset lattice.
+- controls:
+  - Item:
+    - id: a
+    - type: number
+    - default: 3
+    - min: 0
+    - max: 7
+    - step: 1
+    - value labels:
+      - 0: {}
+      - 1: {lamp}
+      - 2: {ruler}
+      - 3: {lamp, ruler}
+      - 4: {brush}
+      - 5: {lamp, brush}
+      - 6: {ruler, brush}
+      - 7: {lamp, ruler, brush}
+  - Item:
+    - id: b
+    - type: number
+    - default: 5
+    - min: 0
+    - max: 7
+    - step: 1
+    - value labels:
+      - 0: {}
+      - 1: {lamp}
+      - 2: {ruler}
+      - 3: {lamp, ruler}
+      - 4: {brush}
+      - 5: {lamp, brush}
+      - 6: {ruler, brush}
+      - 7: {lamp, ruler, brush}
+  - Item:
+    - id: operation
+    - type: enum
+    - default: meet
+    - values:
+      - meet
+      - join
+    - value labels:
+      - meet: Meet · shared tools
+      - join: Join · combined tools
+- expected cases:
+  - Item:
+    - input:
+      - a: 3
+      - b: 5
+      - operation: meet
+    - status: valid
+    - output: 1
+  - Item:
+    - input:
+      - a: 0
+      - b: 5
+      - operation: meet
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - a: 7
+      - b: 5
+      - operation: meet
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - a: 3
+      - b: 0
+      - operation: meet
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - a: 3
+      - b: 7
+      - operation: meet
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - a: 3
+      - b: 5
+      - operation: join
+    - status: valid
+    - output: 3
+  - Item:
+    - input:
+      - a: 2
+      - b: 5
+      - operation: meet
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - a: 5
+      - b: 5
+      - operation: meet
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - a: 8
+      - b: 5
+      - operation: meet
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - a: 0.5
+      - b: 5
+      - operation: meet
+    - status: invalid_parameters
+- compute: Take the intersection for meet or the union for join, then count selected tools.
+- numeric tolerance: 1e-10
+- invariants:
+  - In this powerset lattice meet is intersection and join is union. Other lattices need not use sets, and their operations need not be literal intersection and union.
+  - Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views.
+  - This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified.
+- limits:
+  - In this powerset lattice meet is intersection and join is union. Other lattices need not use sets, and their operations need not be literal intersection and union.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:systems:order. [Doerr and Levasseur · Lattices](https://math.libretexts.org/Bookshelves/Combinatorics_and_Discrete_Mathematics/Applied_Discrete_Structures_(Doerr_and_Levasseur)/13:_Boolean_Algebra/13.02:_Lattices). Locator: Lattice operations and distributivity; no exact-edition Grätzer coverage is asserted.. Verification: Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.. Rights: Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced.

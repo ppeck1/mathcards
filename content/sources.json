@@ -693,6 +693,186 @@
       "locator": "Revision 9620cc7, July 12, 2026; §12.1, printed pages 176–177, Definition 12.1 and Definition 12.3: derivation lines, earlier premises, modus ponens and Γ⊢φ",
       "verification": "Definition-level derivation conditions, MP and existence-of-derivation reading inspected 2026-11-01. The lesson explicitly chooses only premise membership and MP, without the source’s additional axiom schemata; it does not claim completeness. Not independent review.",
       "rights": "Definition-level reference; original library propositions, candidates, stories and checks. No exercises or source prose reproduced."
+    },
+    {
+      "id": "source:systems:flow",
+      "title": "OpenStax · Separable differential equations",
+      "url": "https://openstax.org/books/calculus-volume-2/pages/4-3-separable-equations",
+      "kind": "textbook",
+      "locator": "Exact separable autonomous scalar equations; the displayed families and algebraic solutions are original derivations.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:field",
+      "title": "OpenStax · Vector fields",
+      "url": "https://openstax.org/books/calculus-volume-3/pages/6-1-vector-fields",
+      "kind": "textbook",
+      "locator": "Definition of planar vector fields and their arrow representations.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:fold",
+      "title": "Kuznetsov · Saddle-node bifurcation",
+      "url": "https://www.scholarpedia.org/article/Saddle-node",
+      "kind": "reference",
+      "locator": "One-dimensional normal forms and simple-root stability. Our sign convention is dx/dt=μ−x².",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:cusp",
+      "title": "Kuznetsov · Cusp bifurcation",
+      "url": "https://www.scholarpedia.org/article/Cusp_bifurcation",
+      "kind": "reference",
+      "locator": "Two-parameter cubic equilibrium normal form; the specific potential and scene are original.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:order",
+      "title": "Doerr and Levasseur · Lattices",
+      "url": "https://math.libretexts.org/Bookshelves/Combinatorics_and_Discrete_Mathematics/Applied_Discrete_Structures_(Doerr_and_Levasseur)/13:_Boolean_Algebra/13.02:_Lattices",
+      "kind": "textbook",
+      "locator": "Lattice operations and distributivity; no exact-edition Grätzer coverage is asserted.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:heat",
+      "title": "OpenStax · Entropy",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/4-6-entropy",
+      "kind": "textbook",
+      "locator": "Entropy change from a reversible path between states; finite bodies with constant heat capacity use the integral of C/T.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:gibbs",
+      "title": "OpenStax · Free energy",
+      "url": "https://openstax.org/books/chemistry-2e/pages/16-4-free-energy",
+      "kind": "textbook",
+      "locator": "ΔG=ΔH−TΔS and constant-temperature, constant-pressure favorability; no rate inference.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:gas",
+      "title": "OpenStax · Molecular model of an ideal gas",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/2-1-molecular-model-of-an-ideal-gas",
+      "kind": "textbook",
+      "locator": "pV=nRT and the ideal-gas assumptions.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:neuron",
+      "title": "Dive into Deep Learning · Multilayer perceptrons",
+      "url": "https://d2l.ai/chapter_multilayer-perceptrons/mlp.html",
+      "kind": "textbook",
+      "locator": "Weighted preactivation and sigmoid activation; this card uses one scalar unit.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:hebb",
+      "title": "Gerstner et al. · Models of Hebbian learning",
+      "url": "https://neuronaldynamics.epfl.ch/online/Ch19.S2.html",
+      "kind": "textbook",
+      "locator": "Rate-based local correlation rules and the need for bounds or other stabilizing terms.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:inference:sampling",
+      "title": "Penn State STAT 500 · Sampling Distributions",
+      "url": "https://online.stat.psu.edu/stat500/Lesson04",
+      "kind": "lecture_notes",
+      "locator": "Lesson 4: sampling distributions and the sample mean",
+      "verification": "Definition-level source inspected 2026-11-02. Original bounded examples and implementation are not independently reviewed. No exact-edition eight-book mapping is asserted.",
+      "rights": "Original explanations, diagrams and examples. No source figures, exercise banks or extended prose reproduced."
+    },
+    {
+      "id": "source:inference:interval",
+      "title": "NIST · Confidence intervals for a binomial proportion",
+      "url": "https://itl.nist.gov/div898/handbook/prc/section2/prc241.htm",
+      "kind": "reference",
+      "locator": "Exact intervals: binomial-tail inversion",
+      "verification": "Definition-level source inspected 2026-11-02. Original bounded examples and implementation are not independently reviewed. No exact-edition eight-book mapping is asserted.",
+      "rights": "Original explanations, diagrams and examples. No source figures, exercise banks or extended prose reproduced."
+    },
+    {
+      "id": "source:inference:binomial",
+      "title": "NIST · Binomial Distribution",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm",
+      "kind": "reference",
+      "locator": "Probability mass, mean and standard deviation",
+      "verification": "Definition-level source inspected 2026-11-02. Original bounded examples and implementation are not independently reviewed. No exact-edition eight-book mapping is asserted.",
+      "rights": "Original explanations, diagrams and examples. No source figures, exercise banks or extended prose reproduced."
+    },
+    {
+      "id": "source:inference:poisson",
+      "title": "NIST · Poisson Distribution",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda366j.htm",
+      "kind": "reference",
+      "locator": "Probability mass, infinite support, mean and standard deviation",
+      "verification": "Definition-level source inspected 2026-11-02. Original bounded examples and implementation are not independently reviewed. No exact-edition eight-book mapping is asserted.",
+      "rights": "Original explanations, diagrams and examples. No source figures, exercise banks or extended prose reproduced."
+    },
+    {
+      "id": "source:inference:regression",
+      "title": "NIST · Linear Least Squares Regression",
+      "url": "https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd141.htm",
+      "kind": "reference",
+      "locator": "Linear parameters and vertical squared-deviation minimization",
+      "verification": "Definition-level source inspected 2026-11-02. Original bounded examples and implementation are not independently reviewed. No exact-edition eight-book mapping is asserted.",
+      "rights": "Original explanations, diagrams and examples. No source figures, exercise banks or extended prose reproduced."
+    },
+    {
+      "id": "source:inference:correlation",
+      "title": "NIST Dataplot · Correlation",
+      "url": "https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/correlat.htm",
+      "kind": "reference",
+      "locator": "Centered sums Sxx, Syy, Sxy and Pearson r",
+      "verification": "Definition-level source inspected 2026-11-02. Original bounded examples and implementation are not independently reviewed. No exact-edition eight-book mapping is asserted.",
+      "rights": "Original explanations, diagrams and examples. No source figures, exercise banks or extended prose reproduced."
+    },
+    {
+      "id": "source:inference:factorial",
+      "title": "NIST · Full factorial designs",
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri333.htm",
+      "kind": "reference",
+      "locator": "Two levels per factor and all combinations",
+      "verification": "Definition-level source inspected 2026-11-02. Original bounded examples and implementation are not independently reviewed. No exact-edition eight-book mapping is asserted.",
+      "rights": "Original explanations, diagrams and examples. No source figures, exercise banks or extended prose reproduced."
+    },
+    {
+      "id": "source:inference:interaction",
+      "title": "NIST · Effects plot",
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section5/pri597.htm",
+      "kind": "reference",
+      "locator": "Conventional high-minus-low effects; contrast scaling",
+      "verification": "Definition-level source inspected 2026-11-02. Original bounded examples and implementation are not independently reviewed. No exact-edition eight-book mapping is asserted.",
+      "rights": "Original explanations, diagrams and examples. No source figures, exercise banks or extended prose reproduced."
+    },
+    {
+      "id": "source:inference:association",
+      "title": "NIST · Contingency tables",
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc45.htm",
+      "kind": "reference",
+      "locator": "Independence and expected cell counts from row and column proportions",
+      "verification": "Definition-level source inspected 2026-11-02. Original bounded examples and implementation are not independently reviewed. No exact-edition eight-book mapping is asserted.",
+      "rights": "Original explanations, diagrams and examples. No source figures, exercise banks or extended prose reproduced."
+    },
+    {
+      "id": "source:inference:relative",
+      "title": "Stanford EE376A · Information Theory lecture notes",
+      "url": "https://web.stanford.edu/class/ee376a/files/lecture_notes.pdf",
+      "kind": "lecture_notes",
+      "locator": "Section 2: relative entropy definition and nonnegativity",
+      "verification": "Definition-level source inspected 2026-11-02. Original bounded examples and implementation are not independently reviewed. No exact-edition eight-book mapping is asserted.",
+      "rights": "Original explanations, diagrams and examples. No source figures, exercise banks or extended prose reproduced."
     }
   ]
 }

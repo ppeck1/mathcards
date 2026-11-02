@@ -43,7 +43,7 @@ test('every installed concept has a dedicated, accessible, finite and noninterac
 });
 
 test('the card library loads offline with the existing model helpers and escapes authored titles and IDs', () => {
-  const context = vm.createContext({ AtlasModels: Models, AtlasDiscovery: Discovery });
+  const context = vm.createContext({ AtlasModels: Models, AtlasDiscovery: Discovery, AtlasSystems: require('../src/systems-models.js'), AtlasInference: require('../src/inference-models.js'), AtlasInferencePreviews: require('../src/inference-previews.js') });
   vm.runInContext(fs.readFileSync(new URL('../src/card-previews.js', import.meta.url), 'utf8'), context);
   assert.equal(context.AtlasCardPreviews.list().length, Modules.list().length);
   for (const slug of Previews.list()) assert.equal(context.AtlasCardPreviews.render(slug), Previews.render(slug));

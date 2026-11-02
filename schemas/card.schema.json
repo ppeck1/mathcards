@@ -1061,7 +1061,30 @@
             "conditional-entropy-visual-model",
             "mutual-information-visual-model",
             "turing-machine-visual-model",
-            "proof-visual-model"
+            "proof-visual-model",
+            "vector-field-visual-model",
+            "continuous-flow-visual-model",
+            "basin-attraction-visual-model",
+            "fold-bifurcation-visual-model",
+            "cusp-potential-visual-model",
+            "partial-order-visual-model",
+            "meet-join-visual-model",
+            "lattice-distributivity-visual-model",
+            "heat-balance-visual-model",
+            "gibbs-free-energy-visual-model",
+            "ideal-gas-visual-model",
+            "artificial-neuron-visual-model",
+            "hebbian-learning-visual-model",
+            "sampling-distribution-visual-model",
+            "confidence-interval-visual-model",
+            "hypothesis-test-visual-model",
+            "linear-regression-visual-model",
+            "correlation-visual-model",
+            "factorial-interaction-visual-model",
+            "chi-square-association-visual-model",
+            "relative-entropy-visual-model",
+            "binomial-distribution-visual-model",
+            "poisson-distribution-visual-model"
           ]
         },
         "renderer_version": {
@@ -1155,6 +1178,13 @@
               "text_input_policy": {
                 "type": "string",
                 "minLength": 1
+              },
+              "value_labels": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string",
+                  "minLength": 1
+                }
               }
             },
             "additionalProperties": false

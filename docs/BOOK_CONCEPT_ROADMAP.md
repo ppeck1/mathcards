@@ -1,5 +1,13 @@
 # Book-guided concept expansion
 
+The November expansion also imports an
+[eight-book subject inventory](EIGHT_BOOK_EXPANSION.md), with a separately
+[searchable 295-row subject matrix](EIGHT_BOOK_SUBJECT_MATRIX.csv). The original
+214 `MAT-` identifiers below remain stable. The two inventories overlap and
+are not added together as a count of distinct mathematical concepts. Book
+evidence, precursor links, bounded draft introductions and independent review
+remain separate states.
+
 The supplied twelve-page matrix contains 214 normalized topics and 217
 book-specific records: 51 for *About Vectors*, 54 for *What Is Mathematical
 Logic?*, 85 for *Structural Stability and Morphogenesis*, and 27 for the
@@ -103,6 +111,26 @@ an invalid cited step. An invalid candidate does not refute derivability: the
 valid chain remains available from the same premises. Conversely, a valid
 derivation does not establish that its premises hold in a selected situation.
 
+## Seventh build: continuous dynamics and subject bridges
+
+The expansion branch adds distinct vector-field, continuous-flow,
+basin-attraction, fold-bifurcation and cusp-potential lessons. The first two use
+explicit linear rules; the basin family has an unstable central equilibrium;
+the fold and cusp use declared normal forms. These are bounded introductions,
+not completion of the book's structural-stability or singularity theory.
+
+| Roadmap rows | Branch introduction | Boundary |
+|---|---|---|
+| MAT-140 | Basins of attraction | One scalar autonomous flow; finite-time output is distinct from its limiting destination |
+| MAT-143, 152 | Continuous flow and vector field | An exact scalar solution and a stationary planar field, without a general ODE solver |
+| MAT-166 | Fold bifurcation | Coalescing roots in one local normal form; the repeated root has one-sided attraction |
+| MAT-164 | Cusp potential | Quartic potential and cubic stationary equation; a landscape does not determine a history-dependent trajectory |
+| MAT-142, 146, 150 | Further preparation | General bifurcation families, gradient dynamics and structural stability remain broader subjects |
+
+The eight-book subject inventory separately links new finite order/lattice,
+energy and artificial-learning examples. Neither inventory upgrades its book
+evidence or independent-review status when a lesson becomes available.
+
 ## Expansion sequence
 
 Stage labels group prerequisite streams. They are an editorial roadmap, not a
@@ -115,12 +143,12 @@ claim that all earlier stages are required for every later topic.
 | 3 · Proof, models and computation | 30 | Small finite structures; arbitrary derivation editing; decidability | Separate truth from derivability and finite demonstrations from general theorems |
 | 4 · Tensors and coordinate laws | 9 | Coordinate changes; metric; index notation; contraction | Transformation behavior before treating tensors as arrays |
 | 5 · Infinite sets and foundations | 16 | Cantor's diagonal argument; cardinal comparisons; ordinals | Actual proof structure before compactness, independence, forcing or incompleteness claims |
-| 6 · Topology and dynamics | 31 | Vector fields; continuous flows; basins; manifolds; structural stability | State space, neighborhood, continuity, smoothness and the specified type of perturbation |
-| 7 · Singularities and catastrophes | 21 | Fold first, then cusp and hysteresis; critical-point geometry | Equilibria, parameterized families, local derivatives and clear state/control axes |
+| 6 · Topology and dynamics | 31 | Coupled flows; manifolds; general fields; structural stability | State space, neighborhood, continuity, smoothness and the specified type of perturbation |
+| 7 · Singularities and catastrophes | 21 | Hysteresis dynamics; further singularity families; unfolding theory | The new bounded fold and cusp introductions, plus explicit state/control axes |
 | 8 · Qualitative modeling and applications | 33 | Qualitative versus quantitative models; potentials; carefully bounded morphology examples | Distinguish a mathematical construction, a historical interpretation and empirically validated prediction |
 
-The CSV currently links 48 rows to draft introductions, 39 to precursors, and
-leaves 127 without a dedicated introduction or precursor link. These are
+The CSV currently links 53 rows to draft introductions, 35 to precursors, and
+leaves 126 without a dedicated introduction or precursor link. These are
 topic-to-lesson links, not counts of independently reviewed or complete topics.
 All 214 rows still require scope review as expansion proceeds.
 

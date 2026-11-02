@@ -1,95 +1,40 @@
 # Implementation sequence and acceptance gates
 
-This plan is for a standalone local learning app with a BOH content projection. No changes to BOH core are required to begin. Task labels below are local planning IDs, not existing GitHub issues. Estimates are deliberately omitted until the target checkout and implementer's capacity are known.
+## Current branch: consolidation and eight-book expansion
 
-## Current priority: atlas gaps — 0.22.0
+The published baseline is 0.33.0: 61 draft lessons and 129 representations.
+This branch consolidates the shared provider contract and expands the editorial
+roadmap from the supplied eight-book inventory. Current build receipts own the
+changing totals. Importing an inventory is not completing its topics; original
+module mathematics, connected stories, views, reference terms, fixtures and
+source review must accompany executable lessons.
 
-The latest batch fills the three areas that had no playable lesson: Sets and
-proof, Statistics and Linear-time algorithms. All 24 areas now contain at least
-one available card, while the broader fields and the reviewed-card gate remain
-unfinished. Expansion priority comes from the map's actual availability rather
-than repeatedly deepening one already populated region.
+| Workstream | Acceptance gate |
+|---|---|
+| Existing provider migration | Original composition/logarithm/derivative slugs and revision 1 route through the common API with unchanged domain diagnostics, exact labels, views and saved-state replay |
+| Documentation and code hygiene | Running architecture replaces obsolete stack proposals; source syntax/whitespace checks exclude generated/vendor files and preserve mathematical strings |
+| Concept expansion | Reconciled old/new roadmap identities, bounded truthful introductions, separate original stories, distinct Geometry/Graph and actual reference-use links |
+| Performance | Measure startup, reference queries and payload; change loading only when it improves constrained-device behavior while retaining offline parity |
+| Private-state resilience | Preserve corrupt bytes and unavailable revisions, import atomically, restore full-precision configurations and roll back failed restoration |
+| Browser and accessibility qualification | Actual desktop/mobile layouts, keyboard, touch, reduced motion, native MathML and assistive technology; do not substitute controller tests for manual qualification |
+| Independent review | Separate mathematical, historical and learning review; drafts remain drafts until reviewed |
 
-| Area | Current implementation | Remaining acceptance gate |
-|---|---|---|
-| Atlas breadth | Thirty-eight canonical cards cover all 24 areas across eight territories; 70 distinct planned concepts remain mapped | One introductory lesson is not field completion; proof, inference and broader algorithm families remain |
-| Modular host | The three new providers use the same control, view, motion, pacing, trace, semantic-link and saved-state contracts | Preserve identity/version compatibility and avoid topic-specific host branches |
-| Sets and membership | Inclusive cutoff bands select fixed distinct pegs; result sets and numeric cardinalities stay separate | General set theory, proof methods and other objects are outside the finite demonstration |
-| Population and sample | Twelve known labeled crate observations support separate sample/population sums, means and a signed difference | The chosen cyclic window is deterministic, with no random-sampling, confidence or unbiasedness claim |
-| Linear-time method | One declared inspection per item gives w(n)=n; fixed cost c gives T(n)=cn, with an explicit doubled-input comparison | Finite plotted points do not prove an asymptotic class; benchmarks and arbitrary programs are not implemented |
-| Discrete domains | Sample size, starting index and item count declare whole-number domains; smooth tuning changes cutoffs, weights or cost | Preserve exact selection and boundary inclusion rather than interpolating fractional members/items |
-| Views and content | Thirty-eight Geometry and Graph views plus seven genuine Spatial views; 38 cards, 194 examples, 346 fixtures, 47 sources and 232 exports | Independent mathematics, history and learning/accessibility review remains open |
-| Reference | New set, descriptive-statistics and complexity vocabulary joins the 409-entry index with real card-use links | Every future word, formula and unit needs bounded readers, contextual meanings and actual usage evidence |
-| Continuing notation | The sealed baseline and 0.20/0.21 checkpoints remain preserved; the 0.22 gate resolves 39,023 occurrences across 916 forms with zero unresolved/callable reviews | Close actual new notation findings for each future batch rather than inheriting an exemption |
+The user requested background work without taking control of their PC. This
+branch therefore performs no visible browser or desktop interaction. The
+physical-device and independent-human gates remain open and named. A branch
+build does not publish the live site.
 
-The coverage inventory remains 192 rows: 38 draft specimens and 154 planned
-concepts. Draft breadth does not complete the independent reviewed-card gate,
-live BOH ingestion/retrieval work or T12 learning/accessibility qualification.
-See the [three updated matrices](BUILD_REVIEW_0_22_0.md) and
-[actual release verification](VALIDATION_0_22_0.md).
+[Architecture](ARCHITECTURE.md), [module contract](PLAYGROUND_MODULES.md),
+[book roadmap](BOOK_CONCEPT_ROADMAP.md), [workspace format](WORKSPACE_FORMAT.md)
+and the current branch review separate source ownership from generated results.
 
-## Prior local predictions and discrete optimization — 0.21.0
+## Original milestone gates
 
-The notation-first 29-card baseline and 32-card 0.20.0 release checkpoint remain
-preserved. The next coherent batch adds Directional derivative, Tangent plane
-and Gradient descent through the existing module/story/index contracts.
-
-| Area | Current implementation | Remaining acceptance gate |
-|---|---|---|
-| Shared modules | Thirty-five registered topics use one host for controls, readable values, motion, pins and private saved records | Preserve identity/version compatibility and avoid topic-specific host branches |
-| Shared mathematics | Two new field lessons reuse the analytic field, mesh and projection helpers; descent uses an exact positive quadratic recurrence | Keep the broad definitions distinct from the bounded executable families |
-| Connected stories | Each new lesson has four stages, three calculation phases and quantity marks joining text, formula and visible geometry | Qualify learner understanding of local slope, approximation and finite-step behavior |
-| Distinct views | Thirty-five Geometry and Graph views plus seven genuine Spatial views, for 77 total | Improve accessible alternatives and qualify real assistive-technology/device workflows |
-| Discrete algorithms | Integer iteration counts never interpolate; learning rate sweeps exact fixed-length runs and Graph explicitly displays ln(1+C) of normalized cost | Keep future discrete domains explicit and separate visual connections from fractional mathematical states |
-| Canonical content | Thirty-five draft cards, 179 examples, 310 numeric fixtures, 42 canonical sources and 214 written exports | Independent mathematical, historical and unit review remains open |
-| Reference and search | The new concepts extend the 386-entry index with exact notation and actual usage links | Continue notation delta checks and scope/function/value audits for every arrival |
-| Landscape | Eight territories and 24 areas contain eight Calculus and two Optimization lessons; 73 distinct planned concepts are mapped | T14 relationship filters and a multi-concept relation matrix remain |
-| Continuing notation gate | The expanded gate resolves 36,609 occurrences across 876 forms with zero unresolved/callable reviews, including the normalized shifted-log display | Repeat the same finite gate for each new formula, story unit and view label |
-| Verification | All 674 JavaScript tests pass; provider/story checks cover 36 new fixtures and 15 presets, with scalar/vector and discrete-role checks | Actual pipeline/browser evidence belongs to the release validation record; numerical checks do not replace independent review |
-
-The coverage inventory now has 192 rows: 35 draft specimens and 157 planned
-concepts. Draft breadth does not complete the original reviewed-card gate,
-live BOH ingestion/retrieval work or T12 learning/accessibility qualification.
-The [three updated matrices](BUILD_REVIEW_0_21_0.md) and
-[verification record](VALIDATION_0_21_0.md) keep those boundaries visible.
-
-## Prior consolidation and expansion — 0.20.0
-
-The original acceptance gates below remain in force. Thirty-two draft cards and
-164 worked examples exceed the initial breadth target, but do not establish that
-the first eight foundational requirements, independent review, or learning and
-accessibility qualification are complete.
-
-| Area | Current result | Remaining gate |
-|---|---|---|
-| Shared playground host | All 32 topics use registered controls, views, readouts, and optional inspectors; each slot has independent state | Preserve the [module contract](PLAYGROUND_MODULES.md) when extending the host; no new topic-specific host branches |
-| Distinct representations | All 32 topics expose Geometry and Graph; original composition/logarithm/derivative plus partial derivatives/gradient expose genuine 3D, for 69 views | Qualify useful text/table alternatives and representation clarity through T12 |
-| Extension example | A separate [square-area sandbox](../examples/module-sandbox.html) registers an additional module and mounts it twice | Runtime registration does not bypass canonical content review or build integration |
-| Grammar and quantity links | Authored bindings identify specific rendered quantities; operators without a geometric mark retain text explanations | Qualify clarity through the T12 learning and accessibility walkthroughs |
-| Notebook recovery | Unavailable revisions remain readable/exportable, replay checks exact availability, and corrupt stores retain raw recovery bytes | Complete fresh-profile and physical-browser recovery qualification under T12 |
-| Cross-module coordination | One explicit A → B or B → A connection uses declared quantity types and units; invalid values hold the last valid target and resume when valid; targeted [release checks](VALIDATION_0_13_0.md) pass | Broader T12 qualification; no automatic name matching, conversions, cycles, or multiple links |
-| Workspace continuity | Explicit named records keep both modules, parameters, views, cameras, pins, inspector settings, and the connection; restore starts paused | T15 selected exports and revision comparison remain; playback/speed, guided predictions, and temporary focus are outside the saved configuration |
-| Workspace recovery | Separate private storage and backup import/export, unavailable-version preservation, guarded deletion undo, preflight and rollback protect saved and live configurations | Qualify fresh-profile and physical-browser recovery under T12; no autosaved live session |
-| Notation before expansion | The recorded 29-card/common-reference baseline passed with 23,991 occurrences, 795 forms, zero unresolved and zero review items before new concepts were added | Apply the [notation contract](SYMBOL_NOTATION_COVERAGE.md) to every new mathematical form, story and view; keep final expanded-corpus evidence separate from the sealed baseline |
-| Coherent expansion | Chain rule, Partial derivatives and Gradient add 15 examples and 36 numeric fixtures; the two field topics share one analytic provider and genuine 3D surface capability | General theorems remain separate from square-after-affine and bounded quadratic-field implementations; no arbitrary symbolic differentiation or global-route claim |
-| Mathematical language | Common reference covers Greek case, typed/TeX forms, units, grouping and contextual roles; the index adds calculus vocabulary and card links | Final expanded index totals belong to the release record; qualify novice comprehension and continue scope/alias audits |
-| Search and map | Common header/full search finds definitions, cards and atlas areas; eight territories and 24 areas include six available Calculus lessons and 74 distinct mapped planned concepts | Preserve current/planned distinctions; T14 relation-level filters and the multi-concept matrix remain |
-
-The 0.20.0 build completed the notation gate before adding the calculus batch.
-The [sealed pre-expansion record](NOTATION_GATE_BEFORE_EXPANSION.json) retains
-that 29-card baseline; subsequent content and views extend its notation scope.
-The canonical inventory now has 190 entries: 32 draft specimens and 158 planned
-concepts. Its 274 numeric fixtures and 40 sources support 196 written BOH exports,
-without establishing live ingestion or independent mathematical/history review.
-
-Next, qualify the connected story/formula/shape and definition workflows with a
-focused learning and accessibility walkthrough, reconcile remaining foundational
-coverage identities under T09, and complete independent mathematical and
-historical review. Future batches should extend vocabulary, evidence and visual
-contracts alongside content. Every arrival must close its new notation findings
-before being treated as complete. The [updated build matrices](BUILD_REVIEW_0_20_0.md)
-separate implemented capabilities from the remaining acceptance gates; exceeding
-Gate 4's card count does not make its reviewed-card requirement complete.
+The following T00–T15 gates preserve the original acceptance requirements and
+historical scope. Counts such as eight or twenty-four are original milestone
+sizes, not claims about today's corpus or completed independent review. The
+initial technology selection has been resolved in favor of the implemented
+browser-native stack documented in Architecture.
 
 ## Phase 0 — Contracts and proof of the content pipeline
 

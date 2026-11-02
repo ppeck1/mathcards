@@ -1,3 +1,26 @@
+# 0.34.0 — Eight-book expansion and consolidation (review branch)
+
+- Add 23 bounded lessons in inference, modeling, information, continuous
+  dynamics, order structures, physical models and neural abstractions.
+- Connect original stories, three-stage calculations, Geometry/Graph, matching
+  thumbnails, meaningful quantity ports, worked examples and independent references.
+- Preserve and expose all 295 supplied concept IDs across 18 subjects and eight
+  books, including provisional evidence and the full searchable subject matrix.
+- Reconcile the earlier book roadmap without conflating preparation with a
+  completed introduction or counting overlapping inventories as distinct topics.
+- Migrate the original three model families behind the common provider API,
+  preserving revision 1, exact displays, invalid states and saved workspaces.
+- Add contextual readers for the new notation, units and reused glyphs; retain
+  separate lattice, logical, physical and information meanings.
+- Add pinned development-only formatting, source checks and current architecture
+  documentation. Keep generated/vendor files outside formatting.
+- Retain draft status and explicit human/device qualification gates. The live
+  site remains 0.33.0 until this branch is reviewed and merged.
+- Make generated writes recoverable through sibling staging, atomic replacement
+  and bounded Windows sharing-error retries. Preserve deterministic LF bytes.
+- Record background startup and payload measurements without claiming browser
+  or phone qualification. Compile all 84 formulas to native MathML.
+
 # 0.33.0 — Presentation and review repairs
 
 - Give every card illustration a separate caption band and readable labels;

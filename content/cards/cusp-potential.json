@@ -1,0 +1,627 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:cusp-potential",
+  "slug": "cusp-potential",
+  "type": "concept",
+  "title": "Cusp potential and competing wells",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "cusp potential and competing wells"
+  ],
+  "branches": [
+    "dynamics"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "How does tilting a two-well landscape change its resting points?",
+  "meaning": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b².",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:fold-bifurcation",
+      "math:concept:basin-attraction",
+      "math:concept:derivative"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A toy snap mechanism has a quartic potential. One dial changes the depth of its two wells and another tilts the landscape. Watch the stationary points meet or split. The scene reports available stationary positions; it does not silently choose a history or simulate a jump between wells.",
+    "formal_latex": "V(x)=\\frac{x^4}{4}-\\frac{a x^2}{2}-b x,\\quad V\\prime(x)=x^3-a x-b.",
+    "signature": {
+      "b": "Tilt b; the declared input",
+      "a": "Well parameter a; the declared input",
+      "result": "The primary reported quantity in stationary points."
+    },
+    "conditions": [
+      "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.",
+      "Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views.",
+      "This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified."
+    ],
+    "domain_notes": "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.",
+    "proof_status": "Author-derived for the bounded family; independent mathematical review pending.",
+    "source_refs": [
+      "source:systems:cusp"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Cusp potential and competing wells",
+    "expression_latex": "V(x)=\\frac{x^4}{4}-\\frac{a x^2}{2}-b x,\\quad V\\prime(x)=x^3-a x-b.",
+    "formation_rule": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b².",
+    "precedence": "Apply the stated grouping and units before rounding the displayed result.",
+    "symbols": [
+      {
+        "token": "b",
+        "role": "Tilt b; the declared input",
+        "type": "Declared input or result"
+      },
+      {
+        "token": "a",
+        "role": "Well parameter a; the declared input",
+        "type": "Declared input or result"
+      },
+      {
+        "token": "result",
+        "role": "The primary reported quantity in stationary points.",
+        "type": "Declared input or result"
+      }
+    ],
+    "ast": {
+      "id": "ast:cusp-potential:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:bias",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "b",
+          "scope_ref": "scope:cusp-potential"
+        },
+        {
+          "id": "n:shape",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "a",
+          "scope_ref": "scope:cusp-potential"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried evaluator for the stated family",
+          "ref": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b²."
+        },
+        {
+          "id": "n:bound-bias",
+          "kind": "apply",
+          "type": "Declared result",
+          "function": "n:rule",
+          "argument": "n:bias"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared result",
+          "function": "n:bound-bias",
+          "argument": "n:shape"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:cusp-potential",
+          "kind": "modelExpression",
+          "free_variables": [
+            "b",
+            "a"
+          ],
+          "domain_condition": "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use a value outside the declared range",
+        "status": "unsupported parameter",
+        "reason": "The executable family is deliberately bounded; its limits are part of its meaning."
+      }
+    ],
+    "ast_coverage": "A typed application outline of the bounded family; no arbitrary expression parser is claimed.",
+    "output_symbol_bindings": {
+      "b": "bias",
+      "a": "shape",
+      "result": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b².",
+      "conditions": "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.",
+      "derivation": "The landscape is the stated potential. Gold marks are computed stationary points, including a repeated point on the fold.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:cusp-potential:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:fold-bifurcation",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared assumptions.",
+      "reason": "Cusp potential and competing wells supplies a bounded connection to fold bifurcation.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:basin-attraction",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared assumptions.",
+      "reason": "Cusp potential and competing wells supplies a bounded connection to basin attraction.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:derivative",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared assumptions.",
+      "reason": "Cusp potential and competing wells supplies a bounded connection to derivative.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:cusp-potential:case-1",
+      "title": "Begin with the stated scenario",
+      "role": "applied_model",
+      "question": "How does tilting a two-well landscape change its resting points?",
+      "setting": "A toy snap mechanism has a quartic potential. One dial changes the depth of its two wells and another tilts the landscape. Watch the stationary points meet or split. The scene reports available stationary positions; it does not silently choose a history or simulate a jump between wells.",
+      "assumptions": [
+        "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies."
+      ],
+      "inputs": {
+        "bias": 0,
+        "shape": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "b = 0, a = 1",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "V(x) = x⁴/4 − a x²/2 − b x",
+          "reason": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b²."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 3 stationary points",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "3 stationary points"
+      },
+      "interpretation": "The landscape is the stated potential. Gold marks are computed stationary points, including a repeated point on the fold.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "3"
+      },
+      "limits": "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.",
+      "preset": {
+        "bias": 0,
+        "shape": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies."
+      ]
+    },
+    {
+      "id": "math:example:cusp-potential:case-2",
+      "title": "Change Tilt b to -1",
+      "role": "applied_model",
+      "question": "How does tilting a two-well landscape change its resting points?",
+      "setting": "A toy snap mechanism has a quartic potential. One dial changes the depth of its two wells and another tilts the landscape. Watch the stationary points meet or split. The scene reports available stationary positions; it does not silently choose a history or simulate a jump between wells.",
+      "assumptions": [
+        "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies."
+      ],
+      "inputs": {
+        "bias": -1,
+        "shape": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "b = -1, a = 1",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "V(x) = x⁴/4 − a x²/2 − b x",
+          "reason": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b²."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 1 stationary points",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "1 stationary points"
+      },
+      "interpretation": "The landscape is the stated potential. Gold marks are computed stationary points, including a repeated point on the fold.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "1"
+      },
+      "limits": "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.",
+      "preset": {
+        "bias": -1,
+        "shape": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies."
+      ]
+    },
+    {
+      "id": "math:example:cusp-potential:case-3",
+      "title": "Inspect the flat quartic minimum",
+      "role": "applied_model",
+      "question": "How does tilting a two-well landscape change its resting points?",
+      "setting": "A toy snap mechanism has a quartic potential. One dial changes the depth of its two wells and another tilts the landscape. Watch the stationary points meet or split. The scene reports available stationary positions; it does not silently choose a history or simulate a jump between wells.",
+      "assumptions": [
+        "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies."
+      ],
+      "inputs": {
+        "shape": 0,
+        "bias": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "a = 0, b = 0",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "V(x) = x⁴/4 − a x²/2 − b x",
+          "reason": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b²."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 1 stationary points",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "1 stationary points"
+      },
+      "interpretation": "The landscape is the stated potential. Gold marks are computed stationary points, including a repeated point on the fold.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "1"
+      },
+      "limits": "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.",
+      "preset": {
+        "shape": 0,
+        "bias": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies."
+      ]
+    },
+    {
+      "id": "math:example:cusp-potential:case-4",
+      "title": "Change Tilt b to 1",
+      "role": "applied_model",
+      "question": "How does tilting a two-well landscape change its resting points?",
+      "setting": "A toy snap mechanism has a quartic potential. One dial changes the depth of its two wells and another tilts the landscape. Watch the stationary points meet or split. The scene reports available stationary positions; it does not silently choose a history or simulate a jump between wells.",
+      "assumptions": [
+        "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies."
+      ],
+      "inputs": {
+        "bias": 1,
+        "shape": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "b = 1, a = 1",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "V(x) = x⁴/4 − a x²/2 − b x",
+          "reason": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b²."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 1 stationary points",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "1 stationary points"
+      },
+      "interpretation": "The landscape is the stated potential. Gold marks are computed stationary points, including a repeated point on the fold.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "1"
+      },
+      "limits": "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.",
+      "preset": {
+        "bias": 1,
+        "shape": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies."
+      ]
+    },
+    {
+      "id": "math:example:cusp-potential:case-5",
+      "title": "Inspect the flat quartic minimum",
+      "role": "applied_model",
+      "question": "How does tilting a two-well landscape change its resting points?",
+      "setting": "A toy snap mechanism has a quartic potential. One dial changes the depth of its two wells and another tilts the landscape. Watch the stationary points meet or split. The scene reports available stationary positions; it does not silently choose a history or simulate a jump between wells.",
+      "assumptions": [
+        "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies."
+      ],
+      "inputs": {
+        "bias": 0,
+        "shape": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "b = 0, a = 0",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "V(x) = x⁴/4 − a x²/2 − b x",
+          "reason": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b²."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 1 stationary points",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "1 stationary points"
+      },
+      "interpretation": "The landscape is the stated potential. Gold marks are computed stationary points, including a repeated point on the fold.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "1"
+      },
+      "limits": "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.",
+      "preset": {
+        "bias": 0,
+        "shape": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:cusp-potential",
+    "renderer_id": "cusp-potential-visual-model",
+    "renderer_version": "1",
+    "model_id": "cusp-potential-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:cusp-potential:expression",
+    "interaction_status": "implemented",
+    "description": "The landscape is the stated potential. Gold marks are computed stationary points, including a repeated point on the fold.",
+    "controls": [
+      {
+        "id": "bias",
+        "type": "number",
+        "default": 0,
+        "min": -1,
+        "max": 1,
+        "step": 0.05
+      },
+      {
+        "id": "shape",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "bias": 0,
+          "shape": 1
+        },
+        "status": "valid",
+        "output": 3
+      },
+      {
+        "input": {
+          "bias": -1,
+          "shape": 1
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "shape": 0,
+          "bias": 0
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "bias": 1,
+          "shape": 1
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "bias": 0,
+          "shape": 0
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "bias": 0,
+          "shape": 2
+        },
+        "status": "valid",
+        "output": 3
+      },
+      {
+        "input": {
+          "bias": -0.5,
+          "shape": 1
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "bias": 0.5,
+          "shape": 1
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "bias": 2,
+          "shape": 1
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b².",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.",
+      "Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views.",
+      "This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified."
+    ],
+    "limits": [
+      "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How does tilting a two-well landscape change its resting points?",
+      "answer": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b²."
+    },
+    {
+      "prompt": "What does this construction leave out?",
+      "answer": "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "The landscape is the stated potential. Gold marks are computed stationary points, including a repeated point on the fold."
+    },
+    {
+      "kind": "graph",
+      "description": "Hold other inputs fixed and plot the declared primary result against Tilt b. Discrete results use separate dots."
+    },
+    {
+      "kind": "substitution",
+      "description": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b²."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Originally authored teaching scenario",
+      "mapping": "How does tilting a two-well landscape change its resting points?",
+      "limitations": "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:cusp-potential:case-1"
+    },
+    {
+      "context": "Boundary comparison",
+      "mapping": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b².",
+      "limitations": "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:cusp-potential:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:systems:cusp"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0: Added bounded model, connected story, Geometry/Graph, original examples and reference coverage."
+  ]
+}

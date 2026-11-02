@@ -72,6 +72,7 @@
           const preferred=!unit?info.localBindings.get(record.normalizedToken||record.token):null;
           if(preferred?.size&&!preferred.has(entry.id))continue;
           if(entry.notationKinds?.length&&!entry.notationKinds.includes(record.kind)&&!entry.notationKinds.includes(record.sourceKind))continue;
+          if(entry.excludedFormulaCards?.includes(card.slug))continue;
           if(entry.formulaCards&&!entry.formulaCards.includes(card.slug))continue;
           if(entry.grammarCards&&!entry.grammarCards.includes(card.slug)&&record.kind==='identifier')continue;
           if((record.entryIds||[]).includes(entry.id)||notationForms.has(record.token))use(entry,card,{token:record.token,meaning:'Used here as '+entry.title.toLowerCase()+'.',role:unit?'unit':'notation',via:record.kind==='command'?'formula':'notation',location:record.location});

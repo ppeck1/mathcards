@@ -33,7 +33,7 @@ test('finite set cardinality bars retain their declared meaning without relabeli
 });
 
 test('sample means, indexed observations and population counts keep their exact statistical roles',()=>{
-  for(const query of ['x̄','xbar','\\bar{x}','\\overline{x}']){const mean=index.search(query).find(e=>e.id==='sample-mean');assert.ok(mean,query);assert.deepEqual(mean.usedBy.map(u=>u.slug),['population-sample']);assert.ok(!index.search(query).some(e=>e.id==='complex-conjugate'));}
+  for(const query of ['x̄','xbar','\\bar{x}','\\overline{x}']){const mean=index.search(query).find(e=>e.id==='sample-mean');assert.ok(mean,query);assert.deepEqual(mean.usedBy.map(u=>u.slug),['correlation','linear-regression','population-sample']);assert.ok(!index.search(query).some(e=>e.id==='complex-conjugate'));}
   assert.deepEqual(index.search('μ').find(e=>e.id==='population-mean').usedBy.map(u=>u.slug),['population-sample','variance']);
   assert.deepEqual(index.search('N').find(e=>e.id==='population-size').usedBy.map(u=>u.slug),['population-sample','variance']);
   assert.deepEqual(index.search('n').find(e=>e.id==='sample-size').usedBy.map(u=>u.slug),['population-sample']);
@@ -68,7 +68,7 @@ test('index loads without DOM, timers, network or storage and projects immutable
 
 test('pasted Greek symbols preserve case and remain distinct from partial derivatives',()=>{
   assert.deepEqual(new Set(ids(index.search('δ'))),new Set(['delta-small','transition-function','tape-transition']));
-  assert.deepEqual(ids(index.search('Δ')),['delta-capital']);
+  assert.deepEqual(ids(index.search('Δ')),['delta-capital','factorial-interaction-output','factorial-interaction']);
   assert.deepEqual(ids(index.search('∂')),['partial-derivative']);
   assert.ok(ids(index.search('delta')).includes('delta-small'));
   assert.ok(ids(index.search('DELTA')).includes('delta-capital'));
@@ -261,7 +261,7 @@ test('local-change vocabulary follows the actual lesson explanations and preserv
 test('new local symbols and typed compound forms keep their actual card scopes',()=>{
   const use=(query,id)=>index.search(query).find(entry=>entry.id===id)?.usedBy.map(usage=>usage.slug);
   for(const [query,id,slugs] of [
-    ['η','step-size',['gradient-descent']],['k','iteration-index',['gradient-descent','recurrence','stability']],
+    ['η','step-size',['hebbian-learning','gradient-descent']],['k','iteration-index',['gradient-descent','recurrence','stability']],
     ['R','approximation-error',['tangent-plane']],['L(x+Δx,y+Δy)','linear-approximation',['tangent-plane']],
     ['L(x+\\Delta x,y+\\Delta y)','linear-approximation',['tangent-plane']],
     ['C(xₖ,yₖ)','cost-function',['gradient-descent']],['C(x_k,y_k)','cost-function',['gradient-descent']],
@@ -468,7 +468,7 @@ test('the visual catalog contains every declared form and every variant without 
   assert.deepEqual(new Set(catalog.groups.flatMap(group=>group.forms.map(form=>form.symbol))),new Set(forms.keys()),'grouping omits no form');
   assert.equal(catalog.groups.reduce((sum,group)=>sum+group.forms.length,0),forms.size,'each form is grouped once');
   for(const token of ['Σ','∑','δ','Δ','ϵ','ϑ','∂F/∂y','C(xₖ,yₖ)','ms/item','m² per unit setting','∑xᵢ','∑Xᵢ','W₀','V(t)'])assert.ok(forms.has(token),token);
-  assert.deepEqual(forms.get('μ').entryIds,['mu','population-mean','probability-mean']);
+  assert.deepEqual(forms.get('μ').entryIds,['mu','population-mean','probability-mean','fold-bifurcation']);
   assert.deepEqual(forms.get('Σ').entryIds,['sigma-capital','input-alphabet']);
   assert.deepEqual(forms.get('∑').entryIds,['summation']);
   const initial=index.markup({query:'no-matching-word-8907',category:'calculus',mode:'az',letter:'P'});

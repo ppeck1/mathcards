@@ -25,7 +25,13 @@ const expectedIds = [
   'bayes-theorem', 'graph-theory', 'resonance', 'chaos-theory',
   'fractal-geometry', 'wave-interference', 'probability', 'vector-rotation',
   'pythagorean-theorem', 'ratio-scale', 'linear-model', 'exponential-change',
-  'function-composition', 'real-logarithm', 'derivative'
+  'function-composition', 'real-logarithm', 'derivative',
+  'vector-field', 'continuous-flow', 'basin-attraction', 'fold-bifurcation', 'cusp-potential',
+  'partial-order', 'meet-join', 'lattice-distributivity', 'heat-balance', 'gibbs-free-energy',
+  'ideal-gas', 'artificial-neuron', 'hebbian-learning',
+  'sampling-distribution', 'confidence-interval', 'hypothesis-test', 'linear-regression',
+  'correlation', 'factorial-interaction', 'chi-square-association', 'relative-entropy',
+  'binomial-distribution', 'poisson-distribution'
 ];
 const format = value => value == null ? 'undefined' : String(Number(value.toPrecision(7)));
 const context = (id, view) => ({ id, view, format, compact: false, camera: .65 });

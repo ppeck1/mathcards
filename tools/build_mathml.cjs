@@ -3,6 +3,7 @@
 'use strict';
 const fs = require('node:fs');
 const path = require('node:path');
+const {writeGenerated} = require('./generated_io.cjs');
 const Temml = require('./vendor/temml/temml.cjs');
 const ROOT = path.resolve(__dirname, '..');
 const settings = Object.freeze({displayMode:true,strict:true,throwOnError:true,trust:false,xml:true,annotate:true});
@@ -31,7 +32,7 @@ function script(data) {
 }
 function write(cards, target=path.join(ROOT,'src/formula-data.js')) {
   const data = compile(cards), output = script(data);
-  if (!fs.existsSync(target) || fs.readFileSync(target,'utf8') !== output) fs.writeFileSync(target,output,'utf8');
+  writeGenerated(target,output);
   return data;
 }
 if (require.main === module) {

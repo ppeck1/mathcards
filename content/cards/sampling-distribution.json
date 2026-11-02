@@ -1,0 +1,545 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:sampling-distribution",
+  "slug": "sampling-distribution",
+  "type": "concept",
+  "title": "Sampling distribution of a mean",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "sampling distribution",
+    "standard error",
+    "repeated sampling",
+    "with replacement"
+  ],
+  "branches": [
+    "statistics",
+    "probability"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "See why averaging more independent parcel masses narrows the distribution of the mean while its center stays fixed.",
+  "meaning": "A sampling distribution assigns probabilities to a statistic across repeated samples under an explicit sampling rule. Here every independent ordered sample with replacement is enumerated, and identical sample means are grouped by exact multiplicities.",
+  "prerequisites": {
+    "required": [
+      "math:concept:population-sample",
+      "math:concept:expected-value",
+      "math:concept:variance"
+    ],
+    "helpful": [],
+    "depth": []
+  },
+  "definition": {
+    "setting": "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+    "formal_latex": "X_i\\in\\{2,4,8,10\\},\\quad P(X_i=x)=\\tfrac14.\\quad\\bar X=\\frac1n\\sum_{i=1}^{n}X_i,\\quad E[\\bar X]=6,\\quad\\operatorname{Var}(\\bar X)=\\frac{10}{n},\\quad \\operatorname{SE}(\\bar X)=\\sqrt{10/n}.",
+    "signature": {
+      "n": "Number of independent draws.",
+      "SE(X̄)": "Standard deviation of the sample mean, in kg."
+    },
+    "conditions": [
+      "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+      "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.",
+      "Original constructed teaching examples. Exact-edition book coverage and independent mathematical review remain open."
+    ],
+    "domain_notes": "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.",
+    "proof_status": "Definition-level sources and original calculations; independent review pending.",
+    "source_refs": [
+      "source:inference:sampling"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Sampling distribution of a mean",
+    "expression_latex": "X_i\\in\\{2,4,8,10\\},\\quad P(X_i=x)=\\tfrac14.\\quad\\bar X=\\frac1n\\sum_{i=1}^{n}X_i,\\quad E[\\bar X]=6,\\quad\\operatorname{Var}(\\bar X)=\\frac{10}{n},\\quad \\operatorname{SE}(\\bar X)=\\sqrt{10/n}.",
+    "formation_rule": "A sampling distribution assigns probabilities to a statistic across repeated samples under an explicit sampling rule. Here every independent ordered sample with replacement is enumerated, and identical sample means are grouped by exact multiplicities.",
+    "precedence": "Evaluate declared inputs before the statistic. Retain sampling and domain conditions.",
+    "symbols": [
+      {
+        "token": "n",
+        "role": "Number of independent draws.",
+        "type": "Declared mathematical quantity"
+      },
+      {
+        "token": "SE(X̄)",
+        "role": "Standard deviation of the sample mean, in kg.",
+        "type": "Declared mathematical quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:sampling-distribution:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:sampleSize",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "n",
+          "scope_ref": "scope:sampling-distribution:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded numerical model",
+          "ref": "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample. SE(X̄) = σ/√n"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:sampleSize"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:sampling-distribution:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "n"
+          ],
+          "domain_condition": "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "The demonstration proves this model is true of collected data.",
+        "status": "interpretation error",
+        "reason": "The data are constructed. Empirical use needs validation of assumptions."
+      }
+    ],
+    "ast_coverage": "Typed application outline of a bounded family; not a parser for arbitrary statistical expressions.",
+    "output_symbol_bindings": {
+      "n": "sampleSize",
+      "SE(X̄)": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "A sampling distribution assigns probabilities to a statistic across repeated samples under an explicit sampling rule. Here every independent ordered sample with replacement is enumerated, and identical sample means are grouped by exact multiplicities.",
+      "conditions": "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+      "derivation": "A single draw has variance 10 kg² and standard error √10 kg.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "example_ref": "math:example:sampling-distribution:one-draw"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:population-sample",
+      "type": "supports",
+      "conditions": "Each concept retains its declared setting.",
+      "reason": "This lesson uses population sample.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:expected-value",
+      "type": "supports",
+      "conditions": "Each concept retains its declared setting.",
+      "reason": "This lesson uses expected value.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:variance",
+      "type": "supports",
+      "conditions": "Each concept retains its declared setting.",
+      "reason": "This lesson uses variance.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:sampling-distribution:one-draw",
+      "title": "One parcel is one observation",
+      "role": "applied_model",
+      "question": "One parcel is one observation under the stated inputs?",
+      "setting": "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+      "assumptions": [
+        "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+        "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance."
+      ],
+      "inputs": {
+        "sampleSize": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "sampleSize=1",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "A single draw has variance 10 kg² and standard error √10 kg.",
+          "reason": "A sampling distribution assigns probabilities to a statistic across repeated samples under an explicit sampling rule. Here every independent ordered sample with replacement is enumerated, and identical sample means are grouped by exact multiplicities."
+        }
+      ],
+      "result": {
+        "exact": "A single draw has variance 10 kg² and standard error √10 kg."
+      },
+      "interpretation": "A single draw has variance 10 kg² and standard error √10 kg.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 3.1622776601683795}"
+      },
+      "limits": "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.",
+      "preset": {
+        "sampleSize": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+        "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance."
+      ]
+    },
+    {
+      "id": "math:example:sampling-distribution:two-draws",
+      "title": "Average two parcels",
+      "role": "applied_model",
+      "question": "Average two parcels under the stated inputs?",
+      "setting": "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+      "assumptions": [
+        "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+        "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance."
+      ],
+      "inputs": {
+        "sampleSize": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "sampleSize=2",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "There are 16 equally likely ordered pairs; the mean has variance 5 kg².",
+          "reason": "A sampling distribution assigns probabilities to a statistic across repeated samples under an explicit sampling rule. Here every independent ordered sample with replacement is enumerated, and identical sample means are grouped by exact multiplicities."
+        }
+      ],
+      "result": {
+        "exact": "There are 16 equally likely ordered pairs; the mean has variance 5 kg²."
+      },
+      "interpretation": "There are 16 equally likely ordered pairs; the mean has variance 5 kg².",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 2.23606797749979}"
+      },
+      "limits": "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.",
+      "preset": {
+        "sampleSize": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+        "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance."
+      ]
+    },
+    {
+      "id": "math:example:sampling-distribution:three-draws",
+      "title": "Average three parcels",
+      "role": "applied_model",
+      "question": "Average three parcels under the stated inputs?",
+      "setting": "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+      "assumptions": [
+        "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+        "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance."
+      ],
+      "inputs": {
+        "sampleSize": 3
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "sampleSize=3",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "There are 64 equally likely ordered triples; standard error is √(10/3) kg.",
+          "reason": "A sampling distribution assigns probabilities to a statistic across repeated samples under an explicit sampling rule. Here every independent ordered sample with replacement is enumerated, and identical sample means are grouped by exact multiplicities."
+        }
+      ],
+      "result": {
+        "exact": "There are 64 equally likely ordered triples; standard error is √(10/3) kg."
+      },
+      "interpretation": "There are 64 equally likely ordered triples; standard error is √(10/3) kg.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 1.8257418583505538}"
+      },
+      "limits": "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.",
+      "preset": {
+        "sampleSize": 3
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+        "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance."
+      ]
+    },
+    {
+      "id": "math:example:sampling-distribution:four-draws",
+      "title": "Halve the standard error",
+      "role": "applied_model",
+      "question": "Halve the standard error under the stated inputs?",
+      "setting": "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+      "assumptions": [
+        "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+        "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance."
+      ],
+      "inputs": {
+        "sampleSize": 4
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "sampleSize=4",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "There are 256 ordered samples; standard error is √2.5 kg.",
+          "reason": "A sampling distribution assigns probabilities to a statistic across repeated samples under an explicit sampling rule. Here every independent ordered sample with replacement is enumerated, and identical sample means are grouped by exact multiplicities."
+        }
+      ],
+      "result": {
+        "exact": "There are 256 ordered samples; standard error is √2.5 kg."
+      },
+      "interpretation": "There are 256 ordered samples; standard error is √2.5 kg.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 1.5811388300841898}"
+      },
+      "limits": "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.",
+      "preset": {
+        "sampleSize": 4
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+        "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance."
+      ]
+    },
+    {
+      "id": "math:example:sampling-distribution:same-center",
+      "title": "Keep the population center",
+      "role": "applied_model",
+      "question": "Keep the population center under the stated inputs?",
+      "setting": "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+      "assumptions": [
+        "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+        "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance."
+      ],
+      "inputs": {
+        "sampleSize": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "sampleSize=2",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "The probability-weighted mean of the sample means remains (2+4+8+10)/4=6 kg.",
+          "reason": "A sampling distribution assigns probabilities to a statistic across repeated samples under an explicit sampling rule. Here every independent ordered sample with replacement is enumerated, and identical sample means are grouped by exact multiplicities."
+        }
+      ],
+      "result": {
+        "exact": "The probability-weighted mean of the sample means remains (2+4+8+10)/4=6 kg."
+      },
+      "interpretation": "The probability-weighted mean of the sample means remains (2+4+8+10)/4=6 kg.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 2.23606797749979}"
+      },
+      "limits": "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.",
+      "preset": {
+        "sampleSize": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+        "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:sampling-distribution",
+    "renderer_id": "sampling-distribution-visual-model",
+    "renderer_version": "1",
+    "model_id": "sampling-distribution-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:sampling-distribution:expression",
+    "interaction_status": "implemented",
+    "description": "See why averaging more independent parcel masses narrows the distribution of the mean while its center stays fixed.",
+    "controls": [
+      {
+        "id": "sampleSize",
+        "type": "number",
+        "default": 2,
+        "min": 1,
+        "max": 4,
+        "step": 1
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "sampleSize": 1
+        },
+        "status": "valid",
+        "output": 3.1622776601683795
+      },
+      {
+        "input": {
+          "sampleSize": 2
+        },
+        "status": "valid",
+        "output": 2.23606797749979
+      },
+      {
+        "input": {
+          "sampleSize": 3
+        },
+        "status": "valid",
+        "output": 1.8257418583505538
+      },
+      {
+        "input": {
+          "sampleSize": 4
+        },
+        "status": "valid",
+        "output": 1.5811388300841898
+      },
+      {
+        "input": {
+          "sampleSize": 0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "sampleSize": "2"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample. SE(X̄) = σ/√n",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.",
+      "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.",
+      "Original constructed teaching examples. Exact-edition book coverage and independent mathematical review remain open."
+    ],
+    "limits": [
+      "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance."
+    ],
+    "fallback": "Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How does taking four draws instead of one change the standard error of the mean?",
+      "answer": "Four draws reduce standard error from √10 to √(10/4)=√2.5 kg, exactly half. The expected mean remains 6 kg. No normal approximation is needed."
+    },
+    {
+      "prompt": "What is outside this demonstration?",
+      "answer": "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "See why averaging more independent parcel masses narrows the distribution of the mean while its center stays fixed."
+    },
+    {
+      "kind": "graph",
+      "description": "A discrete graph places standard error at n=1,2,3,4. No fractional draw counts are evaluated."
+    },
+    {
+      "kind": "substitution",
+      "description": "Follow the same inputs through story, formula and result."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Why is an average steadier than one parcel?",
+      "mapping": "See why averaging more independent parcel masses narrows the distribution of the mean while its center stays fixed.",
+      "limitations": "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:sampling-distribution:one-draw"
+    },
+    {
+      "context": "Average two parcels",
+      "mapping": "There are 16 equally likely ordered pairs; the mean has variance 5 kg².",
+      "limitations": "Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:sampling-distribution:two-draws"
+    }
+  ],
+  "source_refs": [
+    "source:inference:sampling"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 branch: Bounded inference model, connected story, Geometry/Graph, five original examples and numeric fixtures."
+  ]
+}

@@ -9,6 +9,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from generated_io import write_generated
 
 ROOT = Path(__file__).resolve().parents[1]
 VERSION = '0.2.0'
@@ -139,9 +140,9 @@ def build(output=None):
         target=output/name
         if not target.resolve().is_relative_to(output.resolve()): raise ValueError('unsafe output path')
         target.parent.mkdir(parents=True,exist_ok=True)
-        if not target.exists() or target.read_bytes()!=raw: target.write_bytes(raw)
+        write_generated(target, raw)
     manifest_text=json.dumps(manifest,ensure_ascii=False,indent=2,sort_keys=True)+'\n'
-    if not old.exists() or old.read_bytes()!=manifest_text.encode('utf-8'): old.write_text(manifest_text,encoding='utf-8',newline='\n')
+    write_generated(old, manifest_text)
     return manifest
 
 if __name__=='__main__':

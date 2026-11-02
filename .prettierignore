@@ -1,0 +1,16 @@
+# Generated public data and release artifacts.
+src/catalog.js
+src/math-index-data.js
+src/formula-data.js
+src/subject-inventory-data.js
+dist/
+export/
+START_HERE.html
+math_expression_atlas_handoff/
+
+# Upstream code and local/generated working files.
+tools/vendor/
+node_modules/
+qa-*
+.codex/
+.codex-remote-attachments/

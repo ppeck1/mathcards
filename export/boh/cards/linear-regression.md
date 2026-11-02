@@ -1,0 +1,511 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:linear-regression", "id": "math:concept:linear-regression", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:linear-regression", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "62cf2a30cf12baf3c5dd31574006c5fb48d20988323c2282a0a80fff7554914a", "source_revision": "0.1.0-draft", "upstream_content_sha256": "d3b6c7f41ccb5e5f168c467c428a4ccd3df0844aed595d610e8ab96e5c06dc7d"}, "purpose": "Connect a moved measurement to the fitted line, its slope and all its residuals.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "d3b6c7f41ccb5e5f168c467c428a4ccd3df0844aed595d610e8ab96e5c06dc7d", "status": "draft", "title": "Least squares and residuals", "topics": ["mathematics", "statistics", "algebra", "modeling", "linear regression", "least squares", "residual", "fitted value", "slope estimate"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Least squares and residuals
+
+Draft teaching specimen. A registered interactive renderer is available in the accompanying application; retained source fields describe the original specimen and its pending review.
+
+Definition unit math:concept:linear-regression; revision 0.1.0-draft. Setting: Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares. Expression: $\hat y_i=a+bx_i,\quad b=\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}{\sum_i(x_i-\bar x)^2},\quad a=\bar y-b\bar x,\quad SSE=\sum_i(y_i-\hat y_i)^2.$. Conditions required for a defined value (a case may test their violation): Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares. The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined. Original constructed teaching examples. Exact-edition book coverage and independent mathematical review remain open. Scope: The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+
+## Schema Version
+
+0.1.0
+
+## Id
+
+math:concept:linear-regression
+
+## Slug
+
+linear-regression
+
+## Type
+
+concept
+
+## Title
+
+Least squares and residuals
+
+## Revision
+
+0.1.0-draft
+
+## Publication Status
+
+draft
+
+## Updated
+
+2026-11-02T00:00:00Z
+
+## Review
+
+- mathematics: author-derived for stated conditions; independent mathematical review pending
+- history: source gap; no origin or priority assertions
+- interaction: implemented; numeric fixtures are not independent review
+
+## Source Policy
+
+Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.
+
+## Aliases
+
+- linear regression
+- least squares
+- residual
+- fitted value
+- slope estimate
+
+## Branches
+
+- statistics
+- algebra
+- modeling
+
+## Expressive Job
+
+- evaluate
+- visualize
+- compare
+
+## Purpose
+
+Connect a moved measurement to the fitted line, its slope and all its residuals.
+
+## Meaning
+
+Ordinary least squares chooses line parameters that minimize the sum of squared vertical residuals. A residual is an observed response minus its fitted response. This family refits five constructed seedling heights whenever the final height changes.
+
+## Prerequisites
+
+- required:
+  - math:concept:linear-model
+  - math:concept:variance
+- helpful:
+
+- depth:
+
+
+## Definition
+
+- setting: Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+- formal latex: \hat y_i=a+bx_i,\quad b=\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}{\sum_i(x_i-\bar x)^2},\quad a=\bar y-b\bar x,\quad SSE=\sum_i(y_i-\hat y_i)^2.
+- signature:
+  - h: Day-five measured height in cm.
+  - a: Fitted intercept in cm.
+  - b: Fitted slope in cm per day.
+- conditions:
+  - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+  - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - Original constructed teaching examples. Exact-edition book coverage and independent mathematical review remain open.
+- domain notes: The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+- proof status: Definition-level sources and original calculations; independent review pending.
+- source refs:
+  - source:inference:regression
+
+## Grammar
+
+- pronunciation: Least squares and residuals
+- expression latex: \hat y_i=a+bx_i,\quad b=\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}{\sum_i(x_i-\bar x)^2},\quad a=\bar y-b\bar x,\quad SSE=\sum_i(y_i-\hat y_i)^2.
+- formation rule: Ordinary least squares chooses line parameters that minimize the sum of squared vertical residuals. A residual is an observed response minus its fitted response. This family refits five constructed seedling heights whenever the final height changes.
+- precedence: Evaluate declared inputs before the statistic. Retain sampling and domain conditions.
+- symbols:
+  - Item:
+    - token: h
+    - role: Day-five measured height in cm.
+    - type: Declared mathematical quantity
+  - Item:
+    - token: a
+    - role: Fitted intercept in cm.
+    - type: Declared mathematical quantity
+  - Item:
+    - token: b
+    - role: Fitted slope in cm per day.
+    - type: Declared mathematical quantity
+- ast:
+  - id: ast:linear-regression:expression
+  - root: n:output
+  - nodes:
+    - Item:
+      - id: n:lastValue
+      - kind: variable
+      - type: Declared model input
+      - symbol: h
+      - scope ref: scope:linear-regression:expression
+    - Item:
+      - id: n:rule
+      - kind: functionRef
+      - type: Curried bounded numerical model
+      - ref: Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares. b = Sₓᵧ/Sₓₓ; a = ȳ − bx̄
+    - Item:
+      - id: n:output
+      - kind: apply
+      - type: Declared primary result
+      - function: n:rule
+      - argument: n:lastValue
+  - scopes:
+    - Item:
+      - id: scope:linear-regression:expression
+      - kind: modelExpression
+      - free variables:
+        - h
+      - domain condition: Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+- parse errors:
+  - Item:
+    - input: The demonstration proves this model is true of collected data.
+    - status: interpretation error
+    - reason: The data are constructed. Empirical use needs validation of assumptions.
+- ast coverage: Typed application outline of a bounded family; not a parser for arbitrary statistical expressions.
+- output symbol bindings:
+  - h: lastValue
+  - a: intercept
+  - b: slope
+
+## Properties
+
+- Item:
+  - claim: Ordinary least squares chooses line parameters that minimize the sum of squared vertical residuals. A residual is an observed response minus its fitted response. This family refits five constructed seedling heights whenever the final height changes.
+  - conditions: Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+  - derivation: Sₓᵧ=9, Sₓₓ=10, so b=0.9 and a=1.3.
+  - status: author-derived for stated conditions; independent review pending
+  - example ref: math:example:linear-regression:height-six
+
+## History
+
+- status: source_gap
+- claims:
+
+- research tasks:
+  - Research concept and notation development before adding historical priority claims.
+  - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
+- reader text: Historical development has not been researched for this draft. The scenarios and worked examples are original constructions.
+
+## Connections
+
+- Item:
+  - target: math:concept:linear-model
+  - type: supports
+  - conditions: Each concept retains its declared setting.
+  - reason: This lesson uses linear model.
+  - target status: available
+  - evidence status: definition-level connection; author explanation
+  - source refs:
+- Item:
+  - target: math:concept:variance
+  - type: supports
+  - conditions: Each concept retains its declared setting.
+  - reason: This lesson uses variance.
+  - target status: available
+  - evidence status: definition-level connection; author explanation
+  - source refs:
+
+## Examples
+
+- Item:
+  - id: math:example:linear-regression:height-six
+  - title: Fit the five heights
+  - role: applied_model
+  - question: Fit the five heights under the stated inputs?
+  - setting: Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+  - assumptions:
+    - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+    - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - inputs:
+    - lastValue: 6
+  - steps:
+    - Item:
+      - index: 1
+      - expression: lastValue=6
+      - reason: Set declared inputs without changing the family.
+    - Item:
+      - index: 2
+      - expression: Sₓᵧ=9, Sₓₓ=10, so b=0.9 and a=1.3.
+      - reason: Ordinary least squares chooses line parameters that minimize the sum of squared vertical residuals. A residual is an observed response minus its fitted response. This family refits five constructed seedling heights whenever the final height changes.
+  - result:
+    - exact: Sₓᵧ=9, Sₓₓ=10, so b=0.9 and a=1.3.
+  - interpretation: Sₓᵧ=9, Sₓₓ=10, so b=0.9 and a=1.3.
+  - independent check:
+    - method: Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.
+    - expected: {"status": "valid", "output": 0.9}
+  - limits: The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - preset:
+    - lastValue: 6
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+  - conditions to check:
+    - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+    - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+- Item:
+  - id: math:example:linear-regression:height-zero
+  - title: A low last reading reverses the trend
+  - role: applied_model
+  - question: A low last reading reverses the trend under the stated inputs?
+  - setting: Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+  - assumptions:
+    - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+    - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - inputs:
+    - lastValue: 0
+  - steps:
+    - Item:
+      - index: 1
+      - expression: lastValue=0
+      - reason: Set declared inputs without changing the family.
+    - Item:
+      - index: 2
+      - expression: Sₓᵧ=−3 and b=−0.3.
+      - reason: Ordinary least squares chooses line parameters that minimize the sum of squared vertical residuals. A residual is an observed response minus its fitted response. This family refits five constructed seedling heights whenever the final height changes.
+  - result:
+    - exact: Sₓᵧ=−3 and b=−0.3.
+  - interpretation: Sₓᵧ=−3 and b=−0.3.
+  - independent check:
+    - method: Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.
+    - expected: {"status": "valid", "output": -0.3}
+  - limits: The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - preset:
+    - lastValue: 0
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+  - conditions to check:
+    - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+    - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+- Item:
+  - id: math:example:linear-regression:height-ten
+  - title: A high last reading steepens the fit
+  - role: applied_model
+  - question: A high last reading steepens the fit under the stated inputs?
+  - setting: Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+  - assumptions:
+    - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+    - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - inputs:
+    - lastValue: 10
+  - steps:
+    - Item:
+      - index: 1
+      - expression: lastValue=10
+      - reason: Set declared inputs without changing the family.
+    - Item:
+      - index: 2
+      - expression: Sₓᵧ=17 and b=1.7.
+      - reason: Ordinary least squares chooses line parameters that minimize the sum of squared vertical residuals. A residual is an observed response minus its fitted response. This family refits five constructed seedling heights whenever the final height changes.
+  - result:
+    - exact: Sₓᵧ=17 and b=1.7.
+  - interpretation: Sₓᵧ=17 and b=1.7.
+  - independent check:
+    - method: Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.
+    - expected: {"status": "valid", "output": 1.7}
+  - limits: The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - preset:
+    - lastValue: 10
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+  - conditions to check:
+    - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+    - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+- Item:
+  - id: math:example:linear-regression:height-four
+  - title: Keep the final height level
+  - role: applied_model
+  - question: Keep the final height level under the stated inputs?
+  - setting: Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+  - assumptions:
+    - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+    - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - inputs:
+    - lastValue: 4
+  - steps:
+    - Item:
+      - index: 1
+      - expression: lastValue=4
+      - reason: Set declared inputs without changing the family.
+    - Item:
+      - index: 2
+      - expression: Sₓᵧ=5 gives b=0.5; the fit still uses all observations.
+      - reason: Ordinary least squares chooses line parameters that minimize the sum of squared vertical residuals. A residual is an observed response minus its fitted response. This family refits five constructed seedling heights whenever the final height changes.
+  - result:
+    - exact: Sₓᵧ=5 gives b=0.5; the fit still uses all observations.
+  - interpretation: Sₓᵧ=5 gives b=0.5; the fit still uses all observations.
+  - independent check:
+    - method: Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.
+    - expected: {"status": "valid", "output": 0.5}
+  - limits: The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - preset:
+    - lastValue: 4
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+  - conditions to check:
+    - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+    - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+- Item:
+  - id: math:example:linear-regression:flat-fit
+  - title: Find a zero fitted slope
+  - role: applied_model
+  - question: Find a zero fitted slope under the stated inputs?
+  - setting: Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+  - assumptions:
+    - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+    - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - inputs:
+    - lastValue: 1.5
+  - steps:
+    - Item:
+      - index: 1
+      - expression: lastValue=1.5
+      - reason: Set declared inputs without changing the family.
+    - Item:
+      - index: 2
+      - expression: Sₓᵧ=0, so b=0 while individual heights still vary.
+      - reason: Ordinary least squares chooses line parameters that minimize the sum of squared vertical residuals. A residual is an observed response minus its fitted response. This family refits five constructed seedling heights whenever the final height changes.
+  - result:
+    - exact: Sₓᵧ=0, so b=0 while individual heights still vary.
+  - interpretation: Sₓᵧ=0, so b=0 while individual heights still vary.
+  - independent check:
+    - method: Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.
+    - expected: {"status": "valid", "output": 0.0}
+  - limits: The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - preset:
+    - lastValue: 1.5
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+  - conditions to check:
+    - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+    - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+
+## Interactive
+
+- component id: component:linear-regression
+- renderer id: linear-regression-visual-model
+- renderer version: 1
+- model id: linear-regression-visual-model
+- model revision: 1
+- expression id: ast:linear-regression:expression
+- interaction status: implemented
+- description: Connect a moved measurement to the fitted line, its slope and all its residuals.
+- controls:
+  - Item:
+    - id: lastValue
+    - type: number
+    - default: 6
+    - min: 0
+    - max: 10
+    - step: 0.1
+- expected cases:
+  - Item:
+    - input:
+      - lastValue: 6
+    - status: valid
+    - output: 0.9
+  - Item:
+    - input:
+      - lastValue: 0
+    - status: valid
+    - output: -0.3
+  - Item:
+    - input:
+      - lastValue: 10
+    - status: valid
+    - output: 1.7
+  - Item:
+    - input:
+      - lastValue: 4
+    - status: valid
+    - output: 0.5
+  - Item:
+    - input:
+      - lastValue: 1.5
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - lastValue: -1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastValue: 6
+    - status: invalid_parameters
+- compute: Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares. b = Sₓᵧ/Sₓₓ; a = ȳ − bx̄
+- numeric tolerance: 1e-10
+- invariants:
+  - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
+  - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - Original constructed teaching examples. Exact-edition book coverage and independent mathematical review remain open.
+- limits:
+  - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+- fallback: Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Prompts
+
+- Item:
+  - prompt: When the fifth height is 6 cm, what slope minimizes squared vertical residuals?
+  - answer: At h=6, x̄=3, ȳ=4 and Sₓᵧ=9. The fitted slope is 0.9 cm/day and intercept is 1.3 cm. Residuals are −0.2,−0.1,1,−0.9,0.2 cm, with squared sum 1.9 cm².
+- Item:
+  - prompt: What is outside this demonstration?
+  - answer: The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+
+## Representations
+
+- Item:
+  - kind: geometry
+  - description: Connect a moved measurement to the fitted line, its slope and all its residuals.
+- Item:
+  - kind: graph
+  - description: A residual-versus-day graph uses the same fitted values as Geometry. Its zero line makes signed residuals visible.
+- Item:
+  - kind: substitution
+  - description: Follow the same inputs through story, formula and result.
+
+## Applications
+
+- Item:
+  - context: One late measurement changes the whole fit
+  - mapping: Connect a moved measurement to the fitted line, its slope and all its residuals.
+  - limitations: The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - evidence kind: constructed_example
+  - example ref: math:example:linear-regression:height-six
+- Item:
+  - context: A low last reading reverses the trend
+  - mapping: Sₓᵧ=−3 and b=−0.3.
+  - limitations: The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
+  - evidence kind: constructed_example
+  - example ref: math:example:linear-regression:height-zero
+
+## Source Refs
+
+- source:inference:regression
+
+## Review Gaps
+
+- Independent mathematical, unit and pedagogical review is pending.
+- Historical development and exact-edition book coverage have not been independently researched.
+- The bounded executable family does not replace the broader concept.
+
+## Change Log
+
+- 0.34.0 branch: Bounded inference model, connected story, Geometry/Graph, five original examples and numeric fixtures.
+
+## Referenced source registry
+
+- Source ID: source:inference:regression. [NIST · Linear Least Squares Regression](https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd141.htm). Locator: Linear parameters and vertical squared-deviation minimization. Verification: Definition-level source inspected 2026-11-02. Original bounded examples and implementation are not independently reviewed. No exact-edition eight-book mapping is asserted.. Rights: Original explanations, diagrams and examples. No source figures, exercise banks or extended prose reproduced.

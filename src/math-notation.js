@@ -12,20 +12,21 @@
   const formatting=new Set(['begin','end','left','right','middle','quad','qquad','enspace','thinspace','medspace','thickspace','hspace','vspace','operatorname','mathbb','mathcal','mathbf','mathrm','mathit','mathsf','mathtt','boldsymbol','text','textrm','displaystyle','textstyle','scriptstyle','scriptscriptstyle','limits','nolimits','underbrace','overbrace']);
   const named={sin:['sine'],cos:['cosine'],tan:['tangent-function'],sec:['secant-function'],csc:['cosecant-function'],cot:['cotangent-function'],arcsin:['arcsine'],arccos:['arccosine'],arctan:['arctangent'],ln:['logarithm'],log:['logarithm'],Log:['logarithm'],exp:['exponential-function'],sqrt:['square-root'],abs:['absolute-value'],norm:['magnitude'],hypot:['hypot'],atan2:['atan2'],floor:['floor'],ceil:['ceiling'],frac:['fractional-part'],det:['determinant'],rank:['rank'],dim:['vector-space-dimension'],min:['minimum'],max:['maximum'],argmin:['argmin'],argmax:['argmax'],arg:['complex-argument'],Re:['real-part'],Im:['imaginary-part'],Var:['variance'],Binomial:['binomial-distribution'],Apply:['function-notation'],AB:['matrix-product'],BA:['matrix-product'],T_A:['linear-map','function-notation'],dom:['domain'],codom:['codomain'],sign:['sign-function'],sgn:['sign-function'],proj:['projection','scalar-projection'],lim:['limit'],mod:['modulo'],bmod:['modulo'],pmod:['modulo']};
   const texFunctions=new Set(['sin','cos','tan','sec','csc','cot','arcsin','arccos','arctan','ln','log','exp','det','dim','min','max','lim','arg','Re','Im','bmod','pmod']);
-  Object.assign(named,{Pr:['probability'],span:['span'],tr:['matrix-trace'],ker:['kernel'],im:['image-of-map'],comp:['scalar-projection'],comp_u:['scalar-projection'],SD:['standard-deviation'],sd:['standard-deviation'],Bin:['binomial-distribution']});
+  Object.assign(named,{Pr:['probability'],span:['span'],tr:['matrix-trace'],ker:['kernel'],im:['image-of-map'],comp:['scalar-projection'],comp_u:['scalar-projection'],SD:['standard-deviation'],sd:['standard-deviation'],Bin:['binomial-distribution'],Poisson:['poisson-distribution'],SE:['standard-error'],SSE:['residual-sum-squares']});
   Object.assign(named,{D_uF:['directional-derivative'],R_h:['binary-relation'],p_X:['probability-mass-function'],p_Y:['marginal-distribution']});
   const informationCards=['joint-distribution','conditional-entropy','mutual-information'];
   Object.assign(macros,{setminus:'∖',smallsetminus:'∖',land:'∧',wedge:'∧',lor:'∨',vee:'∨',neg:'¬',lnot:'¬',leftrightarrow:'↔',top:'⊤',bot:'⊥',odot:'⊙',otimes:'⊗',models:'⊨',vdash:'⊢',square:'□',Box:'□'});
   const glyphs={'+':['addition'],'-':['subtraction'],'−':['subtraction'],'×':['multiplication'],'·':['multiplication'],'⋅':['multiplication'],'*':['multiplication'],'÷':['division'],'/':['division'],'=':['equality'],'≠':['not-equal'],'<':['less-than'],'>':['greater-than'],'≤':['less-or-equal'],'≥':['greater-or-equal'],'≈':['approximately-equal'],'±':['plus-minus'],'%':['percent'],'√':['square-root'],'∞':['infinity'],'ℕ':['natural-number'],'ℤ':['integer'],'ℚ':['rational-number'],'ℝ':['real-number'],'ℂ':['complex-number'],'∈':['element'],'∉':['element'],'∀':['for-all'],'∃':['there-exists'],'⇒':['implication','logical-conditional'],'⇔':['if-and-only-if'],'∘':['composition'],'∑':['summation'],'∫':['integral','indefinite-integral'],'∬':['multiple-integral'],'∭':['multiple-integral'],'∮':['contour-integral'],'∂':['partial-derivative'],'∇':['gradient'],'⊥':['orthogonal'],'≡':['identity'],'∼':['distribution-notation'],'…':['ellipses'],'⋯':['ellipses'],'|':['vertical-bar'],'‖':['magnitude'],'′':['prime-mark'],'″':['higher-derivative','prime-mark'],'^':['superscript','exponent'],'_':['subscript'],'(':['grouping-parentheses'],')':['grouping-parentheses'],'[':['square-brackets'],']':['square-brackets'],'{':['curly-braces'],'}':['curly-braces'],'→':['right-arrow'],'↦':['maps-to'],'⌊':['floor'],'⌋':['floor'],'⌈':['ceiling'],'⌉':['ceiling'],'!':['factorial']};
   const vulgar={'½':'1/2','¼':'1/4','¾':'3/4','⅓':'1/3','⅔':'2/3','⅛':'1/8','⅜':'3/8','⅝':'5/8','⅞':'7/8'};
   Object.assign(glyphs,{'∖':['set-difference'],'~':['distribution-notation'],'∩':['set-intersection'],'∪':['set-union'],'∧':['logical-and'],'∨':['logical-or'],'¬':['logical-not'],'↔':['if-and-only-if'],'⊤':['truth-constants'],'⊥':['orthogonal','truth-constants'],'⊙':['normal-direction-glyphs'],'⊗':['normal-direction-glyphs'],'⊨':['semantic-entailment'],'ℵ':['aleph-null'],'⊢':['derivability'],'□':['tape-blank']});
-  Object.assign(macros,{aleph:'ℵ',subseteq:'⊆',cap:'∩',cup:'∪',setminus:'∖',emptyset:'∅'});
+  Object.assign(macros,{aleph:'ℵ',subseteq:'⊆',nsubseteq:'⊈',Longleftrightarrow:'⇔',cap:'∩',cup:'∪',setminus:'∖',emptyset:'∅'});
+  Object.assign(glyphs,{'⊈':['not-subset']});
   const mathLetter=c=>/[\u0370-\u03ff\u2100-\u214f]/u.test(c)||/\p{Script=Greek}/u.test(c)||(c.codePointAt(0)>=0x1d400&&c.codePointAt(0)<=0x1d7ff);
   function scriptRuns(value,characters,map,marker){let result='';for(let i=0;i<value.length;){const c=String.fromCodePoint(value.codePointAt(i));if(!characters.has(c)){result+=c;i+=c.length;continue;}let run='';while(i<value.length){const next=String.fromCodePoint(value.codePointAt(i));if(!characters.has(next))break;run+=map[next];i+=next.length;}result+=marker+(run.length===1?run:'{'+run+'}');}return result;}
   function normalize(query){
     if(typeof query!=='string')return'';let value=query.normalize('NFC').trim().replace(/[−–]/g,'-').replace(/ϵ/g,'ε').replace(/ϕ/g,'φ').replace(/ϑ/g,'θ').replace(/ϰ/g,'κ').replace(/ς/g,'σ');
     value=value.replace(/\\vec\s*\{([^{}]+)\}/g,(_,name)=>name+'⃗');
-    value=value.replace(/\\(?:bar|overline)\s*\{([xz])\}/g,(_,letter)=>letter+'̅').replace(/([xz])[̄̅]/g,(_,letter)=>letter+'̅').replace(/\\mathcal\{O\}/g,'O');
+    value=value.replace(/\\(?:bar|overline)\s*(?:\{([xyXz])\}|([xyXz])(?![A-Za-z]))/g,(_,braced,bare)=>(braced||bare)+'̅').replace(/([xyXz])[̄̅]/g,(_,letter)=>letter+'̅').replace(/\\mathcal\{O\}/g,'O');
     if(value==='xbar')value='x̅';value=value.replace(/^Theta\(/,'Θ(');
     if(/^['’]+$/.test(value))value=value.replace(/['’]/g,'′');
     value=value.replace(/\b([A-Za-z])(['’]+)(?=\s*(?:\(|$))/g,(_,letter,marks)=>letter+'′'.repeat(marks.length)).replace(/″/g,'′′').replace(/‴/g,'′′′');
@@ -41,6 +42,7 @@
     value=value.replace(/([A-Z])\\([A-Z])\b/g,'$1∖$2').replace(/~/g,'∼').replace(/^m[·⋅*]s\^(?:\{-1\}|-1)$/,'m/s').replace(/^m[·⋅*]s\^(?:\{-2\}|-2)$/,'m/s^2');
     return value;
   }
+  Object.assign(macros,{preceq:'≼'});Object.assign(glyphs,{'≼':['partial-order']});
   function classify(query,options={}){
     if(typeof query!=='string'||!query.trim())return[];if(options.kind==='unit')return unitIds(query,options);const raw=query.trim(),q=normalize(raw),result=[];const add=(...ids)=>result.push(...ids);
     if(Object.hasOwn(vulgar,raw)||/^[-+]?\d+\/\d+$/.test(q))add('fraction');
@@ -107,7 +109,7 @@
     }
     if(/^(?:[uv]×[uv]|r×F|r⃗×F⃗)$/.test(q))add('cross-product');
     if(q==='r⃗')add('position-vector');if(q==='F⃗')add('force');if(q==='τ⃗')add('torque');
-    if(q==='x̅')add('sample-mean');if(q==='z̅')add('complex-conjugate');
+    if(q==='x̅'||q==='y̅'||q==='X̅')add('sample-mean');if(q==='z̅')add('complex-conjugate');
     if(q==='σ^2')add('population-variance');
     if(/^v_(?:[nk]|[0-9]+|\{[nk][+-]1\})$/.test(q))add('sequence');
     if(/^d_(?:i|[1-4])$/.test(q))add('deviation');
@@ -148,14 +150,19 @@
     if(/^(?:cm|mm|kg|ms)$/.test(q))add('measurement-unit-symbols');
     if(/^\\mathcal\{B\}$/.test(q))add('basis');
     const command=/^\\([A-Za-z]+)$/.exec(raw);if(command&&texFunctions.has(command[1]))add(...named[command[1]]);
+    if(command?.[1]==='hat'||q==='ŷ')add('estimate-hat');if(command?.[1]==='dot'||q==='ẋ')add('time-derivative-dot');
     if(Object.hasOwn(named,q))add(...named[q]);
     const call=/^([A-Za-z][A-Za-z0-9_]*)\([\s\S]*\)$/.exec(q);if(call){if(Object.hasOwn(named,call[1]))add(...(call[1]==='R_h'&&options.slug==='quantifier-scope'?['station-relation']:named[call[1]]));else if(/^[fghWVARdSvLTw]$/.test(call[1])&&!(options.slug==='relation'&&call[1]==='R'))add('function-notation');}
-    if(Object.hasOwn(glyphs,q)&&!(q==='⊥'&&informationCards.includes(options.slug)))add(...glyphs[q]);if(q==='⟂')add('random-variable-independence');if(Object.hasOwn(greekIds,q))add(greekIds[q]);
+    if((q==='∧'||q==='∨')&&['meet-join','lattice-distributivity'].includes(options.slug))add(q==='∧'?'lattice-meet':'lattice-join');else if(Object.hasOwn(glyphs,q)&&!(q==='⊥'&&informationCards.includes(options.slug)))add(...glyphs[q]);if(q==='⟂')add('random-variable-independence');if(Object.hasOwn(greekIds,q))add(greekIds[q]);
     if(subChars.has(raw))add('subscript');if(supChars.has(raw))add('superscript','exponent');
     return unique(result);
   }
   function unitIds(query,{slug}={}){
     const q=normalize(query),unit=String(query).trim().toLowerCase();
+    if(q==='K')return['kelvin'];if(q==='Pa'||q==='kPa')return['pascal'];if(q==='mol')return['mole'];if(q==='J/K')return['entropy-unit'];
+    if(unit==='reader'||unit==='readers')return['reader-count-unit'];if(unit==='packet'||unit==='packets')return['packet-count-unit'];if(unit==='draw'||unit==='draws')return['draw-count-unit'];if(unit==='arrivals/minute')return['arrival-rate-unit'];
+    if(unit==='cm/day')return['compound-unit'];if(unit==='minutes'||unit==='days')return['measurement-unit-symbols'];
+    if(['position units','units per time','equilibria','stationary points','tools','activation','weight units'].includes(unit))return['declared-unit'];
     if(q==='N')return['newton'];if(q==='J')return['joule'];
     if(['pair','pairs','ordered pairs'].includes(unit))return['declared-unit'];
     if(/^N[·.*]?m$/.test(q))return['compound-unit',...(!slug||slug==='torque'?['torque-unit']:[])];
@@ -220,13 +227,14 @@
       const probabilisticIndependence=/^X\s*(?:⟂|⊥|\\perp)\s*Y(?![A-Za-z0-9_])/.exec(rest);
       if(probabilisticIndependence){emit(probabilisticIndependence[0],i,'structured',{entryIds:['random-variable-independence']});i+=probabilisticIndependence[0].length;continue;}
 
-      const meanBar=/^[xz][̄̅]/u.exec(rest);if(meanBar){emit(meanBar[0],i,'structured');i+=meanBar[0].length;continue;}
+      const meanBar=/^[xyXz][̄̅]/u.exec(rest);if(meanBar){emit(meanBar[0],i,'structured');i+=meanBar[0].length;continue;}
+      if(c==='ŷ'||c==='ẋ'){emit(c,i,'structured');i+=c.length;continue;}
       const texVectorProduct=/^(\\vec\s*\{r\})\s*\\times\s*(\\vec\s*\{F\})/.exec(rest);if(texVectorProduct){emit(texVectorProduct[0],i,'structured',{entryIds:['cross-product']});emit(texVectorProduct[1],i,'structured',{entryIds:['position-vector']});emit(texVectorProduct[2],i+texVectorProduct[0].lastIndexOf(texVectorProduct[2]),'structured',{entryIds:['force']});i+=texVectorProduct[0].length;continue;}
       const texVector=/^\\vec\s*\{(?:[A-Za-zα-ωΑ-Ω]|\\[A-Za-z]+)\}/.exec(rest);if(texVector){emit(texVector[0],i,'structured');i+=texVector[0].length;continue;}
       const nativeVector=/^[A-Za-zα-ωΑ-Ω]⃗/.exec(rest);
       const arrowProduct=/^r⃗\s*×\s*F⃗/.exec(rest);if(arrowProduct){emit(arrowProduct[0],i,'structured',{entryIds:['cross-product']});i+=arrowProduct[0].length;continue;}
       if(nativeVector){emit(nativeVector[0],i,'structured');i+=nativeVector[0].length;continue;}
-      const texBar=/^\\(?:bar|overline)\s*\{([xz])\}/.exec(rest);if(texBar){emit(texBar[0],i,'structured');i+=texBar[0].length;continue;}
+      const texBar=/^\\(?:bar|overline)\s*(?:\{([xyXz])\}|([xyXz])(?![A-Za-z]))/.exec(rest);if(texBar){emit(texBar[0],i,'structured');i+=texBar[0].length;continue;}
       const thetaCall=/^\\Theta\s*\(/.exec(rest);if(thetaCall){const start=i+thetaCall[0].length-1,end=balanced(text,start,'(',')');if(end){emit(text.slice(i,end),i,'structured');delimiters(start,end-1);children(start+1,end-1);i=end;continue;}}
       const nativeDifference=kind!=='tex'&&/^[A-Z]\\[A-Z]\b/.exec(rest);if(nativeDifference){emit(nativeDifference[0],i,'structured',{entryIds:['set-difference']});i+=nativeDifference[0].length;continue;}
       if(c==='~'&&kind==='tex'){emit(c,i,'formatting',{reason:'TeX nonbreaking space'});i++;continue;}
@@ -300,6 +308,7 @@
       const resolved=candidates.filter(id=>{
         const entry=byId.get(id);if(!entry)return false;
         if(!reference&&Array.isArray(entry.formulaCards)&&!entry.formulaCards.includes(record.slug))return false;
+        if(!reference&&entry.excludedFormulaCards?.includes(record.slug))return false;
         if(!reference&&record.kind==='identifier'&&Array.isArray(entry.grammarCards)&&!entry.grammarCards.includes(record.slug))return false;
         return true;
       });
