@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:composition:geometry", "id": "math:example:composition:geometry", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:function-composition", "example_id": "math:example:composition:geometry", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.1-draft", "upstream_content_sha256": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed"}, "purpose": "Describe one transformation whose output becomes the input of another.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed", "status": "draft", "title": "Compare rotate-then-translate with translate-then-rotate.", "topics": ["mathematics", "language", "functions", "composition of functions"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:composition:geometry", "id": "math:example:composition:geometry", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:function-composition", "example_id": "math:example:composition:geometry", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.1-draft", "upstream_content_sha256": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed"}, "purpose": "Describe one transformation whose output becomes the input of another.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed", "status": "draft", "title": "Compare rotate-then-translate with translate-then-rotate.", "topics": ["mathematics", "language", "functions", "composition of functions"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
 ---
 
 # Compare rotate-then-translate with translate-then-rotate.
@@ -49,6 +49,7 @@ Case unit math:example:composition:geometry. Setting: Points in R²; R(x,y)=(-y,
   - kind: original worked derivation
   - mathematical review: draft
   - external source refs:
+    []
 - assumptions:
   - Points in R²; R(x,y)=(-y,x), T(x,y)=(x+1,y)
 - title: Compare rotate-then-translate with translate-then-rotate.

@@ -1,0 +1,203 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:linear-programming:case-1", "id": "math:example:linear-programming:case-1", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:linear-programming", "example_id": "math:example:linear-programming:case-1", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "96ca317a285601d738dcca196c5df7544358522e9c916c349e69242db1a594b1"}, "purpose": "Which paint mixture gives the largest contribution within the available material?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "96ca317a285601d738dcca196c5df7544358522e9c916c349e69242db1a594b1", "status": "draft", "title": "A five-litre production plan", "topics": ["mathematics", "algebra", "optimization", "linear programming and feasible choices"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# A five-litre production plan
+
+Parent card: math:concept:linear-programming; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:linear-programming; revision 0.1.0-draft. Setting: A paint workshop can make at most four litres of a first blend and three litres of a second. Both use one litre of base per litre made. The available base material moves one boundary of the feasible polygon. Contribution rates may be positive or negative, so leaving material unused can be best. Expression: $\max V=px+qy,\quad 0\le x\le4,\quad0\le y\le3,\quad x+y\le B.$. Conditions required for a defined value (a case may test their violation): The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness. Scope: The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.
+
+Case unit math:example:linear-programming:case-1. Setting: A paint workshop can make at most four litres of a first blend and three litres of a second. Both use one litre of base per litre made. The available base material moves one boundary of the feasible polygon. Contribution rates may be positive or negative, so leaving material unused can be best. Inputs: {"budget": 5, "rateX": 3, "rateY": 2}. Result: {"approximate": "14.0 credits"}. Limits: The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.
+
+## Complete worked case
+
+- id: math:example:linear-programming:case-1
+- title: A five-litre production plan
+- role: applied_model
+- question: Which paint mixture gives the largest contribution within the available material?
+- setting: A paint workshop can make at most four litres of a first blend and three litres of a second. Both use one litre of base per litre made. The available base material moves one boundary of the feasible polygon. Contribution rates may be positive or negative, so leaving material unused can be best.
+- assumptions:
+  - The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.
+- inputs:
+  - budget: 5
+  - rateX: 3
+  - rateY: 2
+- steps:
+  - Item:
+    - index: 1
+    - expression: B = 5; p = 3; q = 2
+    - reason: Declare the bounded inputs and preserve their units.
+  - Item:
+    - index: 2
+    - expression: maximize V = px + qy; x + y ≤ B; result ≈ 14.0
+    - reason: Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible.
+- result:
+  - approximate: 14.0 credits
+- interpretation: Four litres of the first blend and one of the second contribute fourteen credits.
+- independent check:
+  - method: Enumerate intersections of every pair of constraint lines with exact rational arithmetic; retain feasible intersections and compare their objective values.
+  - expected: 14.0
+- limits: The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.
+- preset:
+  - budget: 5
+  - rateX: 3
+  - rateY: 2
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.
+
+## Written exploration recipe
+
+- component id: component:linear-programming
+- renderer id: linear-programming-visual-model
+- renderer version: 1
+- model id: linear-programming-visual-model
+- model revision: 1
+- expression id: ast:linear-programming:expression
+- interaction status: implemented
+- description: A paint workshop can make at most four litres of a first blend and three litres of a second. Both use one litre of base per litre made. The available base material moves one boundary of the feasible polygon. Contribution rates may be positive or negative, so leaving material unused can be best.
+- controls:
+  - Item:
+    - id: budget
+    - type: number
+    - default: 5
+    - min: 0
+    - max: 7
+    - step: 0.05
+  - Item:
+    - id: rateX
+    - type: number
+    - default: 3
+    - min: -3
+    - max: 5
+    - step: 0.05
+  - Item:
+    - id: rateY
+    - type: number
+    - default: 2
+    - min: -3
+    - max: 5
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - budget: 5
+      - rateX: 3
+      - rateY: 2
+    - status: valid
+    - output: 14.0
+  - Item:
+    - input:
+      - budget: 5
+      - rateX: 1
+      - rateY: 4
+    - status: valid
+    - output: 14.0
+  - Item:
+    - input:
+      - budget: 5
+      - rateX: 2
+      - rateY: 2
+    - status: valid
+    - output: 10.0
+  - Item:
+    - input:
+      - budget: 5
+      - rateX: -1
+      - rateY: -2
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - budget: 5
+      - rateX: 0
+      - rateY: 0
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - budget: 0
+      - rateX: 3
+      - rateY: 2
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - budget: 7
+      - rateX: 3
+      - rateY: 2
+    - status: valid
+    - output: 18.0
+  - Item:
+    - input:
+      - budget: 3
+      - rateX: 2
+      - rateY: 2
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - budget: 4
+      - rateX: 2.0000000000000004
+      - rateY: 2
+    - status: valid
+    - output: 8.000000000000002
+  - Item:
+    - input:
+      - budget: 4
+      - rateX: 1.9999999999999998
+      - rateY: 2
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - budget: 5e-324
+      - rateX: 1
+      - rateY: 0
+    - status: valid
+    - output: 5e-324
+  - Item:
+    - input:
+      - budget: 5e-324
+      - rateX: 5e-324
+      - rateY: 0
+    - status: numeric_precision
+  - Item:
+    - input:
+      - budget: -1
+      - rateX: 3
+      - rateY: 2
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - budget: 5
+      - rateX: 3
+      - rateY: null
+    - status: invalid_parameters
+- compute: Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible.
+- numeric tolerance: 1e-10
+- invariants:
+  - The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.
+  - Story, controls, calculations and both views use one evaluated state.
+- limits:
+  - The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.
+- fallback: Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:algebra-extension:lp. [MIT · 18.310 Linear Programming](https://math.mit.edu/~djk/18.310/18.310F04/26and27.html). Locator: Sections 1–3: constraints, feasible regions, vertices and linear objectives.. Verification: Definition-level source inspected 2026-11-02. Bounded workshop family and exact candidate comparisons are author-derived; independent review remains open.. Rights: Original paint-mixture scenario and diagrams; no source exercise reproduced.

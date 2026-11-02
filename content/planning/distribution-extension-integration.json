@@ -1,0 +1,217 @@
+{
+  "slugs": [
+    "normal-distribution",
+    "exponential-distribution",
+    "sign-test"
+  ],
+  "sources": [
+    {
+      "id": "source:distribution-extensions:normal",
+      "title": "NIST/SEMATECH · Normal Distribution",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+      "kind": "reference",
+      "locator": "§1.3.6.6.1: normal density, cumulative probability, location and scale.",
+      "verification": "Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.",
+      "rights": "Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:distribution-extensions:exponential",
+      "title": "NIST/SEMATECH · Exponential Distribution",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3667.htm",
+      "kind": "reference",
+      "locator": "§1.3.6.6.7: density, CDF, survival and constant hazard. This lesson uses rate λ=1/β and zero location.",
+      "verification": "Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.",
+      "rights": "Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:distribution-extensions:sign",
+      "title": "NIST Dataplot · Sign Test",
+      "url": "https://www.itl.nist.gov/div898/software/dataplot/refman1/auxillar/signtest.htm",
+      "kind": "reference",
+      "locator": "Paired differences, omission of ties and binomial sign probabilities. The lesson states a conditional fair-sign null explicitly.",
+      "verification": "Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.",
+      "rights": "Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:distribution-extensions:median",
+      "title": "Penn State STAT 415 · The Sign Test for a Median",
+      "url": "https://online.stat.psu.edu/stat415/book/export/html/836",
+      "kind": "reference",
+      "locator": "§20.1: continuous difference/median interpretation and paired observations; no source exercise is reproduced.",
+      "verification": "Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.",
+      "rights": "Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:distribution-extensions:quadrature",
+      "title": "NIST DLMF · Gauss Quadrature",
+      "url": "https://dlmf.nist.gov/3.5#v",
+      "kind": "reference",
+      "locator": "§3.5(v): Gaussian quadrature. The bounded numerical implementation and error measurements are independently authored.",
+      "verification": "Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.",
+      "rights": "Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced."
+    }
+  ],
+  "bindings": {
+    "normal-distribution": {
+      "x": [
+        "threshold"
+      ],
+      "μ": [
+        "mean"
+      ],
+      "σ": [
+        "sigma"
+      ],
+      "z": [
+        "z"
+      ],
+      "f(x)": [
+        "density"
+      ],
+      "F(x)": [
+        "cumulative",
+        "output"
+      ],
+      "Φ(z)": [
+        "cumulative",
+        "output"
+      ]
+    },
+    "exponential-distribution": {
+      "t": [
+        "time"
+      ],
+      "λ": [
+        "rate"
+      ],
+      "F(t)": [
+        "cumulative",
+        "output"
+      ],
+      "S(t)": [
+        "survival"
+      ],
+      "f(t)": [
+        "density"
+      ],
+      "T": [
+        "waitingLaw"
+      ],
+      "E[T]": [
+        "meanWait"
+      ]
+    },
+    "sign-test": {
+      "h": [
+        "shift"
+      ],
+      "a_i": [
+        "pairs"
+      ],
+      "b_i": [
+        "pairs"
+      ],
+      "d_i": [
+        "pairs"
+      ],
+      "i": [
+        "pairs"
+      ],
+      "k": [
+        "positive"
+      ],
+      "n": [
+        "n"
+      ],
+      "K": [
+        "masses"
+      ],
+      "j": [
+        "masses"
+      ],
+      "p_+": [
+        "output"
+      ]
+    }
+  },
+  "ports": {
+    "normal-distribution": [
+      {
+        "direction": "input",
+        "key": "threshold",
+        "label": "Error threshold x",
+        "type": "measurement-length",
+        "unit": "mm",
+        "description": "Signed error threshold in mm"
+      },
+      {
+        "direction": "input",
+        "key": "mean",
+        "label": "Mean error μ",
+        "type": "measurement-length",
+        "unit": "mm",
+        "description": "Mean of the declared normal error model in mm"
+      },
+      {
+        "direction": "input",
+        "key": "sigma",
+        "label": "Standard deviation σ",
+        "type": "measurement-length",
+        "unit": "mm",
+        "description": "Positive standard deviation of the declared model in mm"
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Cumulative probability",
+        "type": "probability",
+        "unit": "1",
+        "description": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability."
+      }
+    ],
+    "exponential-distribution": [
+      {
+        "direction": "input",
+        "key": "time",
+        "label": "Waiting threshold t",
+        "type": "waiting-time",
+        "unit": "min",
+        "description": "Nonnegative waiting threshold in minutes"
+      },
+      {
+        "direction": "input",
+        "key": "rate",
+        "label": "Arrival rate λ",
+        "type": "arrival-rate",
+        "unit": "1/min",
+        "description": "Positive arrival rate per minute"
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Cumulative probability",
+        "type": "probability",
+        "unit": "1",
+        "description": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval."
+      }
+    ],
+    "sign-test": [
+      {
+        "direction": "input",
+        "key": "shift",
+        "label": "Added after-reading shift h",
+        "type": "measurement-length",
+        "unit": "mm",
+        "description": "Common added after-reading shift in mm"
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "One-sided sign-tail probability",
+        "type": "probability",
+        "unit": "1",
+        "description": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative."
+      }
+    ]
+  }
+}

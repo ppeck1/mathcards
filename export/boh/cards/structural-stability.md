@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:structural-stability", "id": "math:concept:structural-stability", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:structural-stability", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "38e3500cf1db40770084b50576e331c523c53c1aa4c95f89e7aa8e9cfc5a16e7"}, "purpose": "What survives when the correction rule itself changes?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "38e3500cf1db40770084b50576e331c523c53c1aa4c95f89e7aa8e9cfc5a16e7", "status": "draft", "title": "Perturbing a rule, not just a starting point", "topics": ["mathematics", "dynamics", "perturbing a rule, not just a starting point"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:structural-stability", "id": "math:concept:structural-stability", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:structural-stability", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "38e3500cf1db40770084b50576e331c523c53c1aa4c95f89e7aa8e9cfc5a16e7"}, "purpose": "What survives when the correction rule itself changes?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "38e3500cf1db40770084b50576e331c523c53c1aa4c95f89e7aa8e9cfc5a16e7", "status": "draft", "title": "Perturbing a rule, not just a starting point", "topics": ["mathematics", "dynamics", "perturbing a rule, not just a starting point"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Perturbing a rule, not just a starting point
@@ -75,13 +75,13 @@ Set each selected velocity rule equal to zero. Compare the number and local type
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:stability
   - math:concept:fold-bifurcation
   - math:concept:hysteresis
 - depth:
-
+  []
 
 ## Definition
 
@@ -190,7 +190,7 @@ Set each selected velocity rule equal to zero. Compare the number and local type
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -206,6 +206,7 @@ Set each selected velocity rule equal to zero. Compare the number and local type
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:fold-bifurcation
   - type: supports
@@ -214,6 +215,7 @@ Set each selected velocity rule equal to zero. Compare the number and local type
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:hysteresis
   - type: supports
@@ -222,6 +224,7 @@ Set each selected velocity rule equal to zero. Compare the number and local type
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -263,6 +266,7 @@ Set each selected velocity rule equal to zero. Compare the number and local type
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.
 - Item:
@@ -303,6 +307,7 @@ Set each selected velocity rule equal to zero. Compare the number and local type
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.
 - Item:
@@ -343,6 +348,7 @@ Set each selected velocity rule equal to zero. Compare the number and local type
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.
 - Item:
@@ -383,6 +389,7 @@ Set each selected velocity rule equal to zero. Compare the number and local type
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.
 - Item:
@@ -423,6 +430,7 @@ Set each selected velocity rule equal to zero. Compare the number and local type
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.
 

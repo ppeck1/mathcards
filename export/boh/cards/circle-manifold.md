@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:circle-manifold", "id": "math:concept:circle-manifold", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:circle-manifold", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "3bfb639201a87ce0b2560272c39746522947cf1d2549cc1b96d86a46e119d1ce"}, "purpose": "Can a smooth circle need a second coordinate map?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "3bfb639201a87ce0b2560272c39746522947cf1d2549cc1b96d86a46e119d1ce", "status": "draft", "title": "A circle needs more than one chart", "topics": ["mathematics", "geometry-topology", "a circle needs more than one chart"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:circle-manifold", "id": "math:concept:circle-manifold", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:circle-manifold", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "3bfb639201a87ce0b2560272c39746522947cf1d2549cc1b96d86a46e119d1ce"}, "purpose": "Can a smooth circle need a second coordinate map?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "3bfb639201a87ce0b2560272c39746522947cf1d2549cc1b96d86a46e119d1ce", "status": "draft", "title": "A circle needs more than one chart", "topics": ["mathematics", "geometry-topology", "a circle needs more than one chart"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # A circle needs more than one chart
@@ -75,13 +75,13 @@ Compute the unit-circle point from its angle. Project from the north or south po
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:open-set
   - math:concept:sphere-manifold
   - math:concept:function
 - depth:
-
+  []
 
 ## Definition
 
@@ -196,7 +196,7 @@ Compute the unit-circle point from its angle. Project from the north or south po
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -212,6 +212,7 @@ Compute the unit-circle point from its angle. Project from the north or south po
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:sphere-manifold
   - type: supports
@@ -220,6 +221,7 @@ Compute the unit-circle point from its angle. Project from the north or south po
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:function
   - type: supports
@@ -228,6 +230,7 @@ Compute the unit-circle point from its angle. Project from the north or south po
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -269,6 +272,7 @@ Compute the unit-circle point from its angle. Project from the north or south po
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The unit circle is covered by two stereographic charts. A chosen projection omits its own pole, although the circle is smooth there. Coordinate values are numerical and may leave the displayed window; a chart is not an isometric map.
 - Item:
@@ -309,6 +313,7 @@ Compute the unit-circle point from its angle. Project from the north or south po
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The unit circle is covered by two stereographic charts. A chosen projection omits its own pole, although the circle is smooth there. Coordinate values are numerical and may leave the displayed window; a chart is not an isometric map.
 - Item:
@@ -349,6 +354,7 @@ Compute the unit-circle point from its angle. Project from the north or south po
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The unit circle is covered by two stereographic charts. A chosen projection omits its own pole, although the circle is smooth there. Coordinate values are numerical and may leave the displayed window; a chart is not an isometric map.
 - Item:
@@ -389,6 +395,7 @@ Compute the unit-circle point from its angle. Project from the north or south po
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The unit circle is covered by two stereographic charts. A chosen projection omits its own pole, although the circle is smooth there. Coordinate values are numerical and may leave the displayed window; a chart is not an isometric map.
 - Item:
@@ -429,6 +436,7 @@ Compute the unit-circle point from its angle. Project from the north or south po
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The unit circle is covered by two stereographic charts. A chosen projection omits its own pole, although the circle is smooth there. Coordinate values are numerical and may leave the displayed window; a chart is not an isometric map.
 

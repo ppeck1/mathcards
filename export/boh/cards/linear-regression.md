@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:linear-regression", "id": "math:concept:linear-regression", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:linear-regression", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "d3b6c7f41ccb5e5f168c467c428a4ccd3df0844aed595d610e8ab96e5c06dc7d"}, "purpose": "Connect a moved measurement to the fitted line, its slope and all its residuals.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "d3b6c7f41ccb5e5f168c467c428a4ccd3df0844aed595d610e8ab96e5c06dc7d", "status": "draft", "title": "Least squares and residuals", "topics": ["mathematics", "statistics", "algebra", "modeling", "linear regression", "least squares", "residual", "fitted value", "slope estimate"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:linear-regression", "id": "math:concept:linear-regression", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:linear-regression", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "d3b6c7f41ccb5e5f168c467c428a4ccd3df0844aed595d610e8ab96e5c06dc7d"}, "purpose": "Connect a moved measurement to the fitted line, its slope and all its residuals.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "d3b6c7f41ccb5e5f168c467c428a4ccd3df0844aed595d610e8ab96e5c06dc7d", "status": "draft", "title": "Least squares and residuals", "topics": ["mathematics", "statistics", "algebra", "modeling", "linear regression", "least squares", "residual", "fitted value", "slope estimate"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Least squares and residuals
@@ -84,9 +84,9 @@ Ordinary least squares chooses line parameters that minimize the sum of squared 
   - math:concept:linear-model
   - math:concept:variance
 - helpful:
-
+  []
 - depth:
-
+  []
 
 ## Definition
 
@@ -176,7 +176,7 @@ Ordinary least squares chooses line parameters that minimize the sum of squared 
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -192,6 +192,7 @@ Ordinary least squares chooses line parameters that minimize the sum of squared 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:variance
   - type: supports
@@ -200,6 +201,7 @@ Ordinary least squares chooses line parameters that minimize the sum of squared 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -236,6 +238,7 @@ Ordinary least squares chooses line parameters that minimize the sum of squared 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
     - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
@@ -272,6 +275,7 @@ Ordinary least squares chooses line parameters that minimize the sum of squared 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
     - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
@@ -308,6 +312,7 @@ Ordinary least squares chooses line parameters that minimize the sum of squared 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
     - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
@@ -344,6 +349,7 @@ Ordinary least squares chooses line parameters that minimize the sum of squared 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
     - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.
@@ -380,6 +386,7 @@ Ordinary least squares chooses line parameters that minimize the sum of squared 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Five constructed seedling measurements have days x=(1,2,3,4,5) and heights y=(2,3,5,4,h) cm. Move the final height and refit an intercept and slope by ordinary least squares.
     - The fitted line minimizes vertical squared residuals for these five measurements. No causal growth law, extrapolation guarantee or regression uncertainty interval is inferred. The day values remain distinct, so the fit is defined.

@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:population-sample", "id": "math:concept:population-sample", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:population-sample", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.3.0-draft", "upstream_content_sha256": "ef5808a5e30de8ddf6eb5c3503b0edd1e21f4db00a1ccb78782f287f50de33c7"}, "purpose": "Compare a selected sample with the whole population and see how one changed value affects each mean.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "ef5808a5e30de8ddf6eb5c3503b0edd1e21f4db00a1ccb78782f287f50de33c7", "status": "draft", "title": "Population and sample", "topics": ["mathematics", "statistics", "probability", "modeling", "sample mean", "population mean", "sample selection"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.3.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:population-sample", "id": "math:concept:population-sample", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:population-sample", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.3.0-draft", "upstream_content_sha256": "ef5808a5e30de8ddf6eb5c3503b0edd1e21f4db00a1ccb78782f287f50de33c7"}, "purpose": "Compare a selected sample with the whole population and see how one changed value affects each mean.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "ef5808a5e30de8ddf6eb5c3503b0edd1e21f4db00a1ccb78782f287f50de33c7", "status": "draft", "title": "Population and sample", "topics": ["mathematics", "statistics", "probability", "modeling", "sample mean", "population mean", "sample selection"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.3.0-draft"}
 ---
 
 # Population and sample
@@ -291,7 +291,7 @@ A population is the complete collection under study, while a sample is a selecte
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of this idea and its notation using specialist historical evidence before adding origin or priority claims.
   - Distinguish historical attribution from a modern teaching formulation.
@@ -307,6 +307,7 @@ A population is the complete collection under study, while a sample is a selecte
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:probability
   - type: supports
@@ -315,6 +316,7 @@ A population is the complete collection under study, while a sample is a selecte
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:computational-complexity
   - type: supports
@@ -323,6 +325,7 @@ A population is the complete collection under study, while a sample is a selecte
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -369,6 +372,7 @@ A population is the complete collection under study, while a sample is a selecte
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
@@ -417,6 +421,7 @@ A population is the complete collection under study, while a sample is a selecte
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
@@ -465,6 +470,7 @@ A population is the complete collection under study, while a sample is a selecte
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
@@ -513,6 +519,7 @@ A population is the complete collection under study, while a sample is a selecte
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.
@@ -561,6 +568,7 @@ A population is the complete collection under study, while a sample is a selecte
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The twelve crate weights are original stipulated teaching values, not a measured warehouse dataset.
     - Each crate has its own label, even when several weights are equal.

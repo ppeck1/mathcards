@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:hysteresis:case-2", "id": "math:example:hysteresis:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:hysteresis", "example_id": "math:example:hysteresis:case-2", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "d382fdf75aacc697aeda194abeaf86b7c49a173a81d5f728f45a8e400424afc1"}, "purpose": "Why can the same dial setting hold two different positions?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "d382fdf75aacc697aeda194abeaf86b7c49a173a81d5f728f45a8e400424afc1", "status": "draft", "title": "Zero dial after the snap", "topics": ["mathematics", "dynamics", "hysteresis and remembered branches"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:hysteresis:case-2", "id": "math:example:hysteresis:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:hysteresis", "example_id": "math:example:hysteresis:case-2", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "d382fdf75aacc697aeda194abeaf86b7c49a173a81d5f728f45a8e400424afc1"}, "purpose": "Why can the same dial setting hold two different positions?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "d382fdf75aacc697aeda194abeaf86b7c49a173a81d5f728f45a8e400424afc1", "status": "draft", "title": "Zero dial after the snap", "topics": ["mathematics", "dynamics", "hysteresis and remembered branches"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Zero dial after the snap
@@ -49,6 +49,7 @@ Case unit math:example:hysteresis:case-2. Setting: A toy snap mechanism rests in
   - kind: original worked derivation
   - mathematical review: author-derived; independent review pending
   - external source refs:
+    []
 - conditions to check:
   - A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.
 

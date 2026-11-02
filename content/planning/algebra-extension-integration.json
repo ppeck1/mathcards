@@ -1,0 +1,203 @@
+{
+  "slugs": [
+    "complex-number",
+    "quadratic-equation",
+    "linear-programming"
+  ],
+  "sources": [
+    {
+      "id": "source:algebra-extension:complex",
+      "title": "OpenStax · Complex Numbers and Polar Form",
+      "url": "https://openstax.org/books/algebra-and-trigonometry-2e/pages/10-5-polar-form-of-complex-numbers",
+      "kind": "textbook",
+      "locator": "Definition of complex modulus as distance in the complex plane. Conjugation definition also inspected in section 2.4.",
+      "verification": "Definition-level source inspected 2026-11-02. Original bounded model and examples remain author-derived; independent review and exact-edition book checks are pending.",
+      "rights": "Original scenario, diagrams, calculations and examples; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:algebra-extension:conjugate",
+      "title": "OpenStax · Complex Numbers",
+      "url": "https://openstax.org/books/college-algebra-2e/pages/2-4-complex-numbers",
+      "kind": "textbook",
+      "locator": "Complex plane and conjugation of a real-plus-imaginary representation.",
+      "verification": "Definition-level source inspected 2026-11-02; independent mathematical and exact-edition book review remains open.",
+      "rights": "Original plotter scenario; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:algebra-extension:quadratic",
+      "title": "OpenStax · Quadratic Equations",
+      "url": "https://openstax.org/books/algebra-and-trigonometry-2e/pages/2-5-quadratic-equations",
+      "kind": "textbook",
+      "locator": "Quadratic formula and discriminant classification. The exact binary-sign and stable numerical implementation is author-derived.",
+      "verification": "Definition-level source inspected 2026-11-02; independent mathematical and exact-edition book review remains open.",
+      "rights": "Original calibration scenario and worked examples; no source exercise reproduced."
+    },
+    {
+      "id": "source:algebra-extension:lp",
+      "title": "MIT · 18.310 Linear Programming",
+      "url": "https://math.mit.edu/~djk/18.310/18.310F04/26and27.html",
+      "kind": "lecture_notes",
+      "locator": "Sections 1–3: constraints, feasible regions, vertices and linear objectives.",
+      "verification": "Definition-level source inspected 2026-11-02. Bounded workshop family and exact candidate comparisons are author-derived; independent review remains open.",
+      "rights": "Original paint-mixture scenario and diagrams; no source exercise reproduced."
+    }
+  ],
+  "bindings": {
+    "complex-number": {
+      "a": [
+        "real"
+      ],
+      "b": [
+        "imag"
+      ],
+      "z": [
+        "complexPoint"
+      ],
+      "i": [
+        "imaginaryUnit"
+      ],
+      "z̄": [
+        "conjugatePoint"
+      ],
+      "|z|": [
+        "output"
+      ]
+    },
+    "quadratic-equation": {
+      "a": [
+        "leading"
+      ],
+      "b": [
+        "linear"
+      ],
+      "c": [
+        "constant"
+      ],
+      "x": [
+        "roots"
+      ],
+      "D": [
+        "discriminant"
+      ],
+      "N": [
+        "output"
+      ]
+    },
+    "linear-programming": {
+      "B": [
+        "budget"
+      ],
+      "p": [
+        "rateX"
+      ],
+      "q": [
+        "rateY"
+      ],
+      "x": [
+        "bestX"
+      ],
+      "y": [
+        "bestY"
+      ],
+      "V": [
+        "output"
+      ]
+    }
+  },
+  "ports": {
+    "complex-number": [
+      {
+        "direction": "input",
+        "key": "imag",
+        "label": "Imaginary component b",
+        "type": "algebra-input",
+        "unit": "1",
+        "description": "Imaginary component b in the explicitly bounded complex-number model."
+      },
+      {
+        "direction": "input",
+        "key": "real",
+        "label": "Real component a",
+        "type": "algebra-input",
+        "unit": "1",
+        "description": "Real component a in the explicitly bounded complex-number model."
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Complex numbers, conjugates and modulus result",
+        "type": "complex-modulus",
+        "unit": "1",
+        "description": "A complex number records a real horizontal component and an imaginary vertical component. Reflect the vertical component to obtain the conjugate; the Pythagorean distance gives the common modulus."
+      }
+    ],
+    "quadratic-equation": [
+      {
+        "direction": "input",
+        "key": "constant",
+        "label": "Calibration offset c",
+        "type": "algebra-input",
+        "unit": "1",
+        "description": "Calibration offset c in the explicitly bounded quadratic-equation model."
+      },
+      {
+        "direction": "input",
+        "key": "linear",
+        "label": "Linear coefficient b",
+        "type": "algebra-input",
+        "unit": "1",
+        "description": "Linear coefficient b in the explicitly bounded quadratic-equation model."
+      },
+      {
+        "direction": "input",
+        "key": "leading",
+        "label": "Curvature coefficient a",
+        "type": "algebra-input",
+        "unit": "1",
+        "description": "Curvature coefficient a in the explicitly bounded quadratic-equation model."
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Quadratic equations and real roots result",
+        "type": "real-root-count",
+        "unit": "roots",
+        "description": "The discriminant separates two distinct real crossings, one double root and no real roots. The model classifies its exact represented inputs, then evaluates root positions numerically using a cancellation-resistant quadratic calculation."
+      }
+    ],
+    "linear-programming": [
+      {
+        "direction": "input",
+        "key": "budget",
+        "label": "Base material B",
+        "type": "volume",
+        "unit": "L",
+        "description": "Base material B in the explicitly bounded linear-programming model."
+      },
+      {
+        "direction": "input",
+        "key": "rateX",
+        "label": "First blend contribution p",
+        "type": "contribution-rate",
+        "unit": "credits/L",
+        "description": "First blend contribution p in the explicitly bounded linear-programming model."
+      },
+      {
+        "direction": "input",
+        "key": "rateY",
+        "label": "Second blend contribution q",
+        "type": "contribution-rate",
+        "unit": "credits/L",
+        "description": "Second blend contribution q in the explicitly bounded linear-programming model."
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Linear programming and feasible choices result",
+        "type": "contribution",
+        "unit": "credits",
+        "description": "Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible."
+      }
+    ]
+  }
+}

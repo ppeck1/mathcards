@@ -247,7 +247,14 @@ test('all continuation source namespaces preserve every older reference and reso
       key + ' preserves its existing title and URL'
     );
   }
-  for (const family of ['number-foundation', 'spatial-foundation', 'dynamics-extension']) {
+  for (const family of [
+    'number-foundation',
+    'spatial-foundation',
+    'dynamics-extension',
+    'algebra-extension',
+    'algorithm-extension',
+    'distribution-extension'
+  ]) {
     const provider = require('../src/' + family + '-terms.js');
     for (const [key, source] of Object.entries(provider.sources)) {
       assert.ok(!seen.has(key), family + ' reuses source key ' + key);

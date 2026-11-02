@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:continuous-flow:case-4", "id": "math:example:continuous-flow:case-4", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:continuous-flow", "example_id": "math:example:continuous-flow:case-4", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "266e39b8bb89bbf4455547ac0cc09be68e85380dbf056c8a4ea1dfa7270e5622"}, "purpose": "How does a continuous correction settle?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "266e39b8bb89bbf4455547ac0cc09be68e85380dbf056c8a4ea1dfa7270e5622", "status": "draft", "title": "Change Starting displacement x₀ to -3", "topics": ["mathematics", "dynamics", "continuous flows"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:continuous-flow:case-4", "id": "math:example:continuous-flow:case-4", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:continuous-flow", "example_id": "math:example:continuous-flow:case-4", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "266e39b8bb89bbf4455547ac0cc09be68e85380dbf056c8a4ea1dfa7270e5622"}, "purpose": "How does a continuous correction settle?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "266e39b8bb89bbf4455547ac0cc09be68e85380dbf056c8a4ea1dfa7270e5622", "status": "draft", "title": "Change Starting displacement x₀ to -3", "topics": ["mathematics", "dynamics", "continuous flows"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Change Starting displacement x₀ to -3
@@ -51,6 +51,7 @@ Case unit math:example:continuous-flow:case-4. Setting: The same ideal alignment
   - kind: original worked derivation
   - mathematical review: author-derived; independent review pending
   - external source refs:
+    []
 - conditions to check:
   - The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.
 

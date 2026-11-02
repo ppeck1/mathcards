@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:spatial-cross-product", "id": "math:concept:spatial-cross-product", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:spatial-cross-product", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "107db1ccec9cf33679bf5e35ac631dc10d86fbc51e9d17f7703c5db3b4713ba0"}, "purpose": "How does a spatial panel acquire a normal direction?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "107db1ccec9cf33679bf5e35ac631dc10d86fbc51e9d17f7703c5db3b4713ba0", "status": "draft", "title": "Cross products in space", "topics": ["mathematics", "linear-algebra", "geometry", "cross products in space"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:spatial-cross-product", "id": "math:concept:spatial-cross-product", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:spatial-cross-product", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "107db1ccec9cf33679bf5e35ac631dc10d86fbc51e9d17f7703c5db3b4713ba0"}, "purpose": "How does a spatial panel acquire a normal direction?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "107db1ccec9cf33679bf5e35ac631dc10d86fbc51e9d17f7703c5db3b4713ba0", "status": "draft", "title": "Cross products in space", "topics": ["mathematics", "linear-algebra", "geometry", "cross products in space"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Cross products in space
@@ -81,7 +81,7 @@ Form each signed two-component determinant in the stated right-handed frame, the
   - math:concept:scalar-triple-product
   - math:concept:inner-product
 - depth:
-
+  []
 
 ## Definition
 
@@ -284,7 +284,7 @@ Form each signed two-component determinant in the stated right-handed frame, the
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -300,6 +300,7 @@ Form each signed two-component determinant in the stated right-handed frame, the
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:scalar-triple-product
   - type: supports
@@ -308,6 +309,7 @@ Form each signed two-component determinant in the stated right-handed frame, the
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:inner-product
   - type: supports
@@ -316,6 +318,7 @@ Form each signed two-component determinant in the stated right-handed frame, the
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -366,6 +369,7 @@ Form each signed two-component determinant in the stated right-handed frame, the
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.
     - The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.
@@ -416,6 +420,7 @@ Form each signed two-component determinant in the stated right-handed frame, the
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.
     - The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.
@@ -466,6 +471,7 @@ Form each signed two-component determinant in the stated right-handed frame, the
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.
     - The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.
@@ -516,6 +522,7 @@ Form each signed two-component determinant in the stated right-handed frame, the
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.
     - The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.
@@ -566,6 +573,7 @@ Form each signed two-component determinant in the stated right-handed frame, the
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.
     - The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.

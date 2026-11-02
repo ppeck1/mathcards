@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:rational-number", "id": "math:concept:rational-number", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:rational-number", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "ad2b28db9be491d72dae82a0b5d6e28dcb2a344077b1604d00fb4224e9661778"}, "purpose": "Can a fraction change its name without changing its length?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "ad2b28db9be491d72dae82a0b5d6e28dcb2a344077b1604d00fb4224e9661778", "status": "draft", "title": "Rational numbers and fractions", "topics": ["mathematics", "numbers-number-theory", "rational numbers and fractions"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:rational-number", "id": "math:concept:rational-number", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:rational-number", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "ad2b28db9be491d72dae82a0b5d6e28dcb2a344077b1604d00fb4224e9661778"}, "purpose": "Can a fraction change its name without changing its length?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "ad2b28db9be491d72dae82a0b5d6e28dcb2a344077b1604d00fb4224e9661778", "status": "draft", "title": "Rational numbers and fractions", "topics": ["mathematics", "numbers-number-theory", "rational numbers and fractions"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Rational numbers and fractions
@@ -75,13 +75,13 @@ A rational number is expressible as a quotient of two integers with a nonzero de
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:greatest-common-divisor
   - math:concept:ratio-scale
   - math:concept:real-logarithm
 - depth:
-
+  []
 
 ## Definition
 
@@ -195,7 +195,7 @@ A rational number is expressible as a quotient of two integers with a nonzero de
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Check historical and notation development before adding priority claims.
   - Verify exact-edition book mappings independently.
@@ -211,6 +211,7 @@ A rational number is expressible as a quotient of two integers with a nonzero de
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:ratio-scale
   - type: supports
@@ -219,6 +220,7 @@ A rational number is expressible as a quotient of two integers with a nonzero de
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:real-logarithm
   - type: supports
@@ -227,6 +229,7 @@ A rational number is expressible as a quotient of two integers with a nonzero de
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -264,6 +267,7 @@ A rational number is expressible as a quotient of two integers with a nonzero de
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The numerator is an integer from −12 to 12 and the denominator is a positive integer from 1 to 12. Exact fraction strings remain distinct from their rounded decimal displays.
 - Item:
@@ -300,6 +304,7 @@ A rational number is expressible as a quotient of two integers with a nonzero de
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The numerator is an integer from −12 to 12 and the denominator is a positive integer from 1 to 12. Exact fraction strings remain distinct from their rounded decimal displays.
 - Item:
@@ -336,6 +341,7 @@ A rational number is expressible as a quotient of two integers with a nonzero de
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The numerator is an integer from −12 to 12 and the denominator is a positive integer from 1 to 12. Exact fraction strings remain distinct from their rounded decimal displays.
 - Item:
@@ -372,6 +378,7 @@ A rational number is expressible as a quotient of two integers with a nonzero de
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The numerator is an integer from −12 to 12 and the denominator is a positive integer from 1 to 12. Exact fraction strings remain distinct from their rounded decimal displays.
 - Item:
@@ -408,6 +415,7 @@ A rational number is expressible as a quotient of two integers with a nonzero de
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The numerator is an integer from −12 to 12 and the denominator is a positive integer from 1 to 12. Exact fraction strings remain distinct from their rounded decimal displays.
 

@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:chain-rule", "id": "math:concept:chain-rule", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:chain-rule", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "72b5e13ae51a696ac51929631f21a4c3817ad4f07c10b87a888d595ed4934b77"}, "purpose": "Follow a small change through an inner rule and an outer rule.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "72b5e13ae51a696ac51929631f21a4c3817ad4f07c10b87a888d595ed4934b77", "status": "draft", "title": "Chain rule", "topics": ["mathematics", "calculus", "algebra", "analysis", "derivative of a composition", "composite sensitivity", "inner and outer derivatives"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:chain-rule", "id": "math:concept:chain-rule", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:chain-rule", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "72b5e13ae51a696ac51929631f21a4c3817ad4f07c10b87a888d595ed4934b77"}, "purpose": "Follow a small change through an inner rule and an outer rule.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "72b5e13ae51a696ac51929631f21a4c3817ad4f07c10b87a888d595ed4934b77", "status": "draft", "title": "Chain rule", "topics": ["mathematics", "calculus", "algebra", "analysis", "derivative of a composition", "composite sensitivity", "inner and outer derivatives"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Chain rule
@@ -282,7 +282,7 @@ For a differentiable composition, the local sensitivity is the outer derivative 
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of this idea and its notation using specialist historical sources before adding attributions.
   - Distinguish an early use, later formalization and modern teaching convention; inspect evidence for each.
@@ -298,6 +298,7 @@ For a differentiable composition, the local sensitivity is the outer derivative 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:derivative
   - type: supports
@@ -306,6 +307,7 @@ For a differentiable composition, the local sensitivity is the outer derivative 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:partial-derivative
   - type: supports
@@ -314,6 +316,7 @@ For a differentiable composition, the local sensitivity is the outer derivative 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -360,6 +363,7 @@ For a differentiable composition, the local sensitivity is the outer derivative 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A configured drawing tool maps a setting x measured in metres to a finished panel side u=a*x+b measured in metres.
     - The calibration factor a is dimensionless and offset b is measured in metres; the outer rule f(u)=u² gives square area in m².
@@ -408,6 +412,7 @@ For a differentiable composition, the local sensitivity is the outer derivative 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A configured drawing tool maps a setting x measured in metres to a finished panel side u=a*x+b measured in metres.
     - The calibration factor a is dimensionless and offset b is measured in metres; the outer rule f(u)=u² gives square area in m².
@@ -456,6 +461,7 @@ For a differentiable composition, the local sensitivity is the outer derivative 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A configured drawing tool maps a setting x measured in metres to a finished panel side u=a*x+b measured in metres.
     - The calibration factor a is dimensionless and offset b is measured in metres; the outer rule f(u)=u² gives square area in m².
@@ -504,6 +510,7 @@ For a differentiable composition, the local sensitivity is the outer derivative 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A configured drawing tool maps a setting x measured in metres to a finished panel side u=a*x+b measured in metres.
     - The calibration factor a is dimensionless and offset b is measured in metres; the outer rule f(u)=u² gives square area in m².
@@ -552,6 +559,7 @@ For a differentiable composition, the local sensitivity is the outer derivative 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A configured drawing tool maps a setting x measured in metres to a finished panel side u=a*x+b measured in metres.
     - The calibration factor a is dimensionless and offset b is measured in metres; the outer rule f(u)=u² gives square area in m².

@@ -172,6 +172,9 @@
   }
   function unitIds(query,{slug}={}){
     const q=normalize(query),unit=String(query).trim().toLowerCase();
+    if(['per min','1/min','min⁻¹'].includes(unit))return['inverse-minute-unit','compound-unit'];
+    if(['credits','credits/l'].includes(unit))return['algebra-contribution-units'];
+    if(unit==='roots')return['algebra-real-root-count-units'];
     if(unit==='rad/s')return['angular-velocity-unit','compound-unit'];if(/^kg[·⋅.*]m\/s$/.test(unit))return['momentum-unit','compound-unit'];
     if(unit==='chart units')return['chart-coordinate-unit'];if(unit==='time units')return['model-time-unit'];if(unit==='per time unit')return['model-return-rate-unit'];if(unit==='cost units')return['model-cost-unit'];
     if(['item','factor','factors','piece','pieces','part','parts','people','person','role','roles','arrangement','arrangements','selection','selections','place','places'].includes(unit))return['number-count-unit'];

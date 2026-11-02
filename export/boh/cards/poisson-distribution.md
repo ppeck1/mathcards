@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:poisson-distribution", "id": "math:concept:poisson-distribution", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:poisson-distribution", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "db36b4e01e82124112f80b8a366c33dfa49d2e22875b3d3a1b6045bf1fff4485"}, "purpose": "Connect an arrival rate to count probabilities while retaining the undisplayed tail.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "db36b4e01e82124112f80b8a366c33dfa49d2e22875b3d3a1b6045bf1fff4485", "status": "draft", "title": "Poisson arrivals", "topics": ["mathematics", "probability", "statistics", "modeling", "Poisson distribution", "arrival count", "event rate", "Poisson probability"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:poisson-distribution", "id": "math:concept:poisson-distribution", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:poisson-distribution", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "db36b4e01e82124112f80b8a366c33dfa49d2e22875b3d3a1b6045bf1fff4485"}, "purpose": "Connect an arrival rate to count probabilities while retaining the undisplayed tail.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "db36b4e01e82124112f80b8a366c33dfa49d2e22875b3d3a1b6045bf1fff4485", "status": "draft", "title": "Poisson arrivals", "topics": ["mathematics", "probability", "statistics", "modeling", "Poisson distribution", "arrival count", "event rate", "Poisson probability"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Poisson arrivals
@@ -83,9 +83,9 @@ A Poisson distribution assigns probabilities to nonnegative counts using a nonne
   - math:concept:probability-distribution
   - math:concept:exponentiation
 - helpful:
-
+  []
 - depth:
-
+  []
 
 ## Definition
 
@@ -182,7 +182,7 @@ A Poisson distribution assigns probabilities to nonnegative counts using a nonne
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -198,6 +198,7 @@ A Poisson distribution assigns probabilities to nonnegative counts using a nonne
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:exponentiation
   - type: supports
@@ -206,6 +207,7 @@ A Poisson distribution assigns probabilities to nonnegative counts using a nonne
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -244,6 +246,7 @@ A Poisson distribution assigns probabilities to nonnegative counts using a nonne
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A return-slot model counts arrivals in one minute with mean λ. The homogeneous Poisson-process interpretation assumes independent increments and a constant rate. Inspect the count distribution rather than inventing a simulated arrival history.
     - The Poisson distribution has infinite support. Geometry displays counts 0–20 and a separately stated remaining probability; the displayed bars are never renormalized. At λ=0, zero arrivals are certain. Real arrival streams need model validation.
@@ -282,6 +285,7 @@ A Poisson distribution assigns probabilities to nonnegative counts using a nonne
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A return-slot model counts arrivals in one minute with mean λ. The homogeneous Poisson-process interpretation assumes independent increments and a constant rate. Inspect the count distribution rather than inventing a simulated arrival history.
     - The Poisson distribution has infinite support. Geometry displays counts 0–20 and a separately stated remaining probability; the displayed bars are never renormalized. At λ=0, zero arrivals are certain. Real arrival streams need model validation.
@@ -320,6 +324,7 @@ A Poisson distribution assigns probabilities to nonnegative counts using a nonne
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A return-slot model counts arrivals in one minute with mean λ. The homogeneous Poisson-process interpretation assumes independent increments and a constant rate. Inspect the count distribution rather than inventing a simulated arrival history.
     - The Poisson distribution has infinite support. Geometry displays counts 0–20 and a separately stated remaining probability; the displayed bars are never renormalized. At λ=0, zero arrivals are certain. Real arrival streams need model validation.
@@ -358,6 +363,7 @@ A Poisson distribution assigns probabilities to nonnegative counts using a nonne
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A return-slot model counts arrivals in one minute with mean λ. The homogeneous Poisson-process interpretation assumes independent increments and a constant rate. Inspect the count distribution rather than inventing a simulated arrival history.
     - The Poisson distribution has infinite support. Geometry displays counts 0–20 and a separately stated remaining probability; the displayed bars are never renormalized. At λ=0, zero arrivals are certain. Real arrival streams need model validation.
@@ -396,6 +402,7 @@ A Poisson distribution assigns probabilities to nonnegative counts using a nonne
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A return-slot model counts arrivals in one minute with mean λ. The homogeneous Poisson-process interpretation assumes independent increments and a constant rate. Inspect the count distribution rather than inventing a simulated arrival history.
     - The Poisson distribution has infinite support. Geometry displays counts 0–20 and a separately stated remaining probability; the displayed bars are never renormalized. At λ=0, zero arrivals are certain. Real arrival streams need model validation.

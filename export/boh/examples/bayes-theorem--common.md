@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:bayes-theorem:common", "id": "math:example:bayes-theorem:common", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:bayes-theorem", "example_id": "math:example:bayes-theorem:common", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b"}, "purpose": "Find the fraction of flagged items that truly belong to a target group.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b", "status": "draft", "title": "A more defect-heavy batch", "topics": ["mathematics", "probability", "modeling", "conditional probability update", "base rate"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:bayes-theorem:common", "id": "math:example:bayes-theorem:common", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:bayes-theorem", "example_id": "math:example:bayes-theorem:common", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b"}, "purpose": "Find the fraction of flagged items that truly belong to a target group.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b", "status": "draft", "title": "A more defect-heavy batch", "topics": ["mathematics", "probability", "modeling", "conditional probability update", "base rate"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # A more defect-heavy batch
@@ -49,6 +49,7 @@ Case unit math:example:bayes-theorem:common. Setting: Original constructed teach
   - kind: original worked derivation
   - mathematical review: draft
   - external source refs:
+    []
 - conditions to check:
   - Every item is either defective or nondefective in the stated model.
   - The conditional flag probabilities apply to the same population as the prior.

@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:basin-attraction", "id": "math:concept:basin-attraction", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:basin-attraction", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "b0a85a644bd26215f183f8427068668f068382e57dbb3f5098d009edd7ed9c5b"}, "purpose": "Which resting position will the mechanism approach?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "b0a85a644bd26215f183f8427068668f068382e57dbb3f5098d009edd7ed9c5b", "status": "draft", "title": "Basins of attraction", "topics": ["mathematics", "dynamics", "basins of attraction"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:basin-attraction", "id": "math:concept:basin-attraction", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:basin-attraction", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "b0a85a644bd26215f183f8427068668f068382e57dbb3f5098d009edd7ed9c5b"}, "purpose": "Which resting position will the mechanism approach?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "b0a85a644bd26215f183f8427068668f068382e57dbb3f5098d009edd7ed9c5b", "status": "draft", "title": "Basins of attraction", "topics": ["mathematics", "dynamics", "basins of attraction"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Basins of attraction
@@ -75,13 +75,13 @@ Use the exact solution for finite time; separately classify the limiting destina
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:continuous-flow
   - math:concept:stability
   - math:concept:cusp-potential
 - depth:
-
+  []
 
 ## Definition
 
@@ -184,7 +184,7 @@ Use the exact solution for finite time; separately classify the limiting destina
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -200,6 +200,7 @@ Use the exact solution for finite time; separately classify the limiting destina
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:stability
   - type: supports
@@ -208,6 +209,7 @@ Use the exact solution for finite time; separately classify the limiting destina
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:cusp-potential
   - type: supports
@@ -216,6 +218,7 @@ Use the exact solution for finite time; separately classify the limiting destina
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -257,6 +260,7 @@ Use the exact solution for finite time; separately classify the limiting destina
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One scalar autonomous system. Positive starts approach +1, negative starts approach −1, and zero remains at an unstable equilibrium. The finite-time value is not the limiting destination.
 - Item:
@@ -297,6 +301,7 @@ Use the exact solution for finite time; separately classify the limiting destina
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One scalar autonomous system. Positive starts approach +1, negative starts approach −1, and zero remains at an unstable equilibrium. The finite-time value is not the limiting destination.
 - Item:
@@ -337,6 +342,7 @@ Use the exact solution for finite time; separately classify the limiting destina
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One scalar autonomous system. Positive starts approach +1, negative starts approach −1, and zero remains at an unstable equilibrium. The finite-time value is not the limiting destination.
 - Item:
@@ -377,6 +383,7 @@ Use the exact solution for finite time; separately classify the limiting destina
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One scalar autonomous system. Positive starts approach +1, negative starts approach −1, and zero remains at an unstable equilibrium. The finite-time value is not the limiting destination.
 - Item:
@@ -417,6 +424,7 @@ Use the exact solution for finite time; separately classify the limiting destina
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One scalar autonomous system. Positive starts approach +1, negative starts approach −1, and zero remains at an unstable equilibrium. The finite-time value is not the limiting destination.
 

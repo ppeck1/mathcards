@@ -1,0 +1,762 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:sign-test",
+  "slug": "sign-test",
+  "type": "concept",
+  "title": "A paired sign test",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "a paired sign test"
+  ],
+  "branches": [
+    "statistics",
+    "probability"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "How unusual are this many positive paired changes under a fair-sign model?",
+  "meaning": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative.",
+  "prerequisites": {
+    "required": [
+      "math:concept:binomial-distribution"
+    ],
+    "helpful": [
+      "math:concept:binomial-distribution",
+      "math:concept:hypothesis-test",
+      "math:concept:population-sample"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A workshop measures six pieces before and after adjusting a gauge. The same pieces stay paired. Choose either different original changes or originally matching readings; add a common after-reading shift h. Follow each pair into a positive, negative or zero difference, then count the null sign patterns with at least as many positives.",
+    "formal_latex": "d_i=(a_i-b_i)+h,\\quad k=\\#\\{i:d_i>0\\},\\quad n=\\#\\{i:d_i\\ne0\\},\\quad K\\sim\\operatorname{Binomial}(n,\\tfrac12),\\quad p_+=\\sum_{j=k}^{n}\\binom{n}{j}2^{-n}.",
+    "signature": {
+      "h": "Common added after-reading shift in mm",
+      "a_i": "Unshifted after-reading for pair i in mm",
+      "b_i": "Before-reading for the same pair in mm",
+      "d_i": "Shifted after minus before for one pair in mm",
+      "i": "Pair index from 1 through 6",
+      "k": "Number of positive differences",
+      "n": "Number of nonzero differences after exact ties are omitted",
+      "K": "Positive-sign count under the conditional fair-sign null",
+      "j": "Bound summation index over possible positive-sign counts",
+      "p_+": "One-sided null tail probability for at least k positive signs"
+    },
+    "conditions": [
+      "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+    ],
+    "domain_notes": "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study.",
+    "proof_status": "Definition-level sources and original bounded calculations; independent mathematical review pending.",
+    "source_refs": [
+      "source:distribution-extensions:sign",
+      "source:distribution-extensions:median"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "A paired sign test",
+    "expression_latex": "d_i=(a_i-b_i)+h,\\quad k=\\#\\{i:d_i>0\\},\\quad n=\\#\\{i:d_i\\ne0\\},\\quad K\\sim\\operatorname{Binomial}(n,\\tfrac12),\\quad p_+=\\sum_{j=k}^{n}\\binom{n}{j}2^{-n}.",
+    "formation_rule": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative.",
+    "precedence": "Evaluate paired differences or standardized products before cumulative probability; retain units and the stated probability model.",
+    "symbols": [
+      {
+        "token": "h",
+        "role": "Common added after-reading shift in mm",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "a_i",
+        "role": "Unshifted after-reading for pair i in mm",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "b_i",
+        "role": "Before-reading for the same pair in mm",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "d_i",
+        "role": "Shifted after minus before for one pair in mm",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "i",
+        "role": "Pair index from 1 through 6",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "k",
+        "role": "Number of positive differences",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "n",
+        "role": "Number of nonzero differences after exact ties are omitted",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "K",
+        "role": "Positive-sign count under the conditional fair-sign null",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "j",
+        "role": "Bound summation index over possible positive-sign counts",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "p_+",
+        "role": "One-sided null tail probability for at least k positive signs",
+        "type": "Declared mathematical quantity or bound index"
+      }
+    ],
+    "ast": {
+      "id": "ast:sign-test:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:shift",
+          "kind": "variable",
+          "type": "Declared physical input",
+          "symbol": "h",
+          "scope_ref": "scope:sign-test"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried evaluation of the declared probability law",
+          "ref": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative."
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared probability result or partial application",
+          "function": "n:rule",
+          "argument": "n:shift"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:sign-test",
+          "kind": "modelExpression",
+          "free_variables": [
+            "h"
+          ],
+          "external_parameters": [
+            "Selected original paired-reading pattern"
+          ],
+          "domain_condition": "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Count an exact tie as a positive or negative sign",
+        "status": "model or role mismatch",
+        "reason": "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+      }
+    ],
+    "ast_coverage": "Typed application outline of the declared probability family, with the paired-data selector held external where applicable. This is not an arbitrary expression parser or a theorem checker.",
+    "output_symbol_bindings": {
+      "h": "shift",
+      "a_i": "pairs",
+      "b_i": "pairs",
+      "d_i": "pairs",
+      "i": "pairs",
+      "k": "positive",
+      "n": "n",
+      "K": "masses",
+      "j": "masses",
+      "p_+": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative.",
+      "conditions": "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study.",
+      "derivation": "Use the declared probability law and the independent reference on the bounded parameters.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:sign-test:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:binomial-distribution",
+      "type": "supports",
+      "conditions": "Use each connected model under its own explicit assumptions.",
+      "reason": "A paired sign test connects continuous probability, paired signs or accumulated quantities to binomial distribution.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:hypothesis-test",
+      "type": "supports",
+      "conditions": "Use each connected model under its own explicit assumptions.",
+      "reason": "A paired sign test connects continuous probability, paired signs or accumulated quantities to hypothesis test.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:population-sample",
+      "type": "supports",
+      "conditions": "Use each connected model under its own explicit assumptions.",
+      "reason": "A paired sign test connects continuous probability, paired signs or accumulated quantities to population sample.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:sign-test:case-1",
+      "title": "Five positives out of six nonzero changes",
+      "role": "applied_model",
+      "question": "How unusual are this many positive paired changes under a fair-sign model?",
+      "setting": "A workshop measures six pieces before and after adjusting a gauge. The same pieces stay paired. Choose either different original changes or originally matching readings; add a common after-reading shift h. Follow each pair into a positive, negative or zero difference, then count the null sign patterns with at least as many positives.",
+      "assumptions": [
+        "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+      ],
+      "inputs": {
+        "shift": 1.5,
+        "pattern": "varied"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "h = 1.5; different original changes",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "d_i=(a_i-b_i)+h,\\quad k=\\#\\{i:d_i>0\\},\\quad n=\\#\\{i:d_i\\ne0\\},\\quad K\\sim\\operatorname{Binomial}(n,\\tfrac12),\\quad p_+=\\sum_{j=k}^{n}\\binom{n}{j}2^{-n}.",
+          "reason": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative."
+        },
+        {
+          "index": 3,
+          "expression": "0.109375",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0.109375"
+      },
+      "interpretation": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative.",
+      "independent_check": {
+        "method": "Enumerate independent fair signs by exact binomial coefficients after excluding exact zero differences.",
+        "expected": "0.109375"
+      },
+      "limits": "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study.",
+      "preset": {
+        "shift": 1.5,
+        "pattern": "varied"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+      ]
+    },
+    {
+      "id": "math:example:sign-test:case-2",
+      "title": "An exact tied pair is omitted",
+      "role": "applied_model",
+      "question": "How unusual are this many positive paired changes under a fair-sign model?",
+      "setting": "A workshop measures six pieces before and after adjusting a gauge. The same pieces stay paired. Choose either different original changes or originally matching readings; add a common after-reading shift h. Follow each pair into a positive, negative or zero difference, then count the null sign patterns with at least as many positives.",
+      "assumptions": [
+        "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+      ],
+      "inputs": {
+        "shift": 0,
+        "pattern": "varied"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "h = 0; different original changes",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "d_i=(a_i-b_i)+h,\\quad k=\\#\\{i:d_i>0\\},\\quad n=\\#\\{i:d_i\\ne0\\},\\quad K\\sim\\operatorname{Binomial}(n,\\tfrac12),\\quad p_+=\\sum_{j=k}^{n}\\binom{n}{j}2^{-n}.",
+          "reason": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative."
+        },
+        {
+          "index": 3,
+          "expression": "0.5",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0.5"
+      },
+      "interpretation": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative.",
+      "independent_check": {
+        "method": "Enumerate independent fair signs by exact binomial coefficients after excluding exact zero differences.",
+        "expected": "0.5"
+      },
+      "limits": "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study.",
+      "preset": {
+        "shift": 0,
+        "pattern": "varied"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+      ]
+    },
+    {
+      "id": "math:example:sign-test:case-3",
+      "title": "All six changes are positive",
+      "role": "applied_model",
+      "question": "How unusual are this many positive paired changes under a fair-sign model?",
+      "setting": "A workshop measures six pieces before and after adjusting a gauge. The same pieces stay paired. Choose either different original changes or originally matching readings; add a common after-reading shift h. Follow each pair into a positive, negative or zero difference, then count the null sign patterns with at least as many positives.",
+      "assumptions": [
+        "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+      ],
+      "inputs": {
+        "shift": 2.5,
+        "pattern": "varied"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "h = 2.5; different original changes",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "d_i=(a_i-b_i)+h,\\quad k=\\#\\{i:d_i>0\\},\\quad n=\\#\\{i:d_i\\ne0\\},\\quad K\\sim\\operatorname{Binomial}(n,\\tfrac12),\\quad p_+=\\sum_{j=k}^{n}\\binom{n}{j}2^{-n}.",
+          "reason": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative."
+        },
+        {
+          "index": 3,
+          "expression": "0.015625",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0.015625"
+      },
+      "interpretation": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative.",
+      "independent_check": {
+        "method": "Enumerate independent fair signs by exact binomial coefficients after excluding exact zero differences.",
+        "expected": "0.015625"
+      },
+      "limits": "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study.",
+      "preset": {
+        "shift": 2.5,
+        "pattern": "varied"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+      ]
+    },
+    {
+      "id": "math:example:sign-test:case-4",
+      "title": "No positive changes",
+      "role": "applied_model",
+      "question": "How unusual are this many positive paired changes under a fair-sign model?",
+      "setting": "A workshop measures six pieces before and after adjusting a gauge. The same pieces stay paired. Choose either different original changes or originally matching readings; add a common after-reading shift h. Follow each pair into a positive, negative or zero difference, then count the null sign patterns with at least as many positives.",
+      "assumptions": [
+        "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+      ],
+      "inputs": {
+        "shift": -4,
+        "pattern": "varied"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "h = -4; different original changes",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "d_i=(a_i-b_i)+h,\\quad k=\\#\\{i:d_i>0\\},\\quad n=\\#\\{i:d_i\\ne0\\},\\quad K\\sim\\operatorname{Binomial}(n,\\tfrac12),\\quad p_+=\\sum_{j=k}^{n}\\binom{n}{j}2^{-n}.",
+          "reason": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative."
+        },
+        {
+          "index": 3,
+          "expression": "1",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "1"
+      },
+      "interpretation": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative.",
+      "independent_check": {
+        "method": "Enumerate independent fair signs by exact binomial coefficients after excluding exact zero differences.",
+        "expected": "1"
+      },
+      "limits": "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study.",
+      "preset": {
+        "shift": -4,
+        "pattern": "varied"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+      ]
+    },
+    {
+      "id": "math:example:sign-test:case-5",
+      "title": "Matching originals shifted together",
+      "role": "applied_model",
+      "question": "How unusual are this many positive paired changes under a fair-sign model?",
+      "setting": "A workshop measures six pieces before and after adjusting a gauge. The same pieces stay paired. Choose either different original changes or originally matching readings; add a common after-reading shift h. Follow each pair into a positive, negative or zero difference, then count the null sign patterns with at least as many positives.",
+      "assumptions": [
+        "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+      ],
+      "inputs": {
+        "shift": 1,
+        "pattern": "matched"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "h = 1; originally matching pairs",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "d_i=(a_i-b_i)+h,\\quad k=\\#\\{i:d_i>0\\},\\quad n=\\#\\{i:d_i\\ne0\\},\\quad K\\sim\\operatorname{Binomial}(n,\\tfrac12),\\quad p_+=\\sum_{j=k}^{n}\\binom{n}{j}2^{-n}.",
+          "reason": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative."
+        },
+        {
+          "index": 3,
+          "expression": "0.015625",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0.015625"
+      },
+      "interpretation": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative.",
+      "independent_check": {
+        "method": "Enumerate independent fair signs by exact binomial coefficients after excluding exact zero differences.",
+        "expected": "0.015625"
+      },
+      "limits": "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study.",
+      "preset": {
+        "shift": 1,
+        "pattern": "matched"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:sign-test",
+    "renderer_id": "sign-test-visual-model",
+    "renderer_version": "1",
+    "model_id": "sign-test-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:sign-test:expression",
+    "interaction_status": "implemented",
+    "description": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative.",
+    "controls": [
+      {
+        "id": "shift",
+        "type": "number",
+        "default": 1.5,
+        "min": -4,
+        "max": 4,
+        "step": 0.05
+      },
+      {
+        "id": "pattern",
+        "type": "enum",
+        "default": "varied",
+        "values": [
+          "varied",
+          "matched"
+        ],
+        "value_labels": {
+          "varied": "Different original changes",
+          "matched": "Originally matching pairs"
+        }
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "shift": 1.5,
+          "pattern": "varied"
+        },
+        "status": "valid",
+        "output": 0.109375
+      },
+      {
+        "input": {
+          "shift": 0,
+          "pattern": "varied"
+        },
+        "status": "valid",
+        "output": 0.5
+      },
+      {
+        "input": {
+          "shift": 2.5,
+          "pattern": "varied"
+        },
+        "status": "valid",
+        "output": 0.015625
+      },
+      {
+        "input": {
+          "shift": -4,
+          "pattern": "varied"
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "shift": 1,
+          "pattern": "matched"
+        },
+        "status": "valid",
+        "output": 0.015625
+      },
+      {
+        "input": {
+          "shift": 0,
+          "pattern": "matched"
+        },
+        "status": "no_nonzero_pairs"
+      },
+      {
+        "input": {
+          "shift": -1,
+          "pattern": "matched"
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "shift": -3,
+          "pattern": "varied"
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "shift": -2,
+          "pattern": "varied"
+        },
+        "status": "valid",
+        "output": 0.96875
+      },
+      {
+        "input": {
+          "shift": -1,
+          "pattern": "varied"
+        },
+        "status": "valid",
+        "output": 0.8125
+      },
+      {
+        "input": {
+          "shift": 1,
+          "pattern": "varied"
+        },
+        "status": "valid",
+        "output": 0.1875
+      },
+      {
+        "input": {
+          "shift": 2,
+          "pattern": "varied"
+        },
+        "status": "valid",
+        "output": 0.03125
+      },
+      {
+        "input": {
+          "shift": 3,
+          "pattern": "varied"
+        },
+        "status": "valid",
+        "output": 0.015625
+      },
+      {
+        "input": {
+          "shift": 1e-06,
+          "pattern": "matched"
+        },
+        "status": "valid",
+        "output": 0.015625
+      },
+      {
+        "input": {
+          "shift": 1.9999999999999996,
+          "pattern": "varied"
+        },
+        "status": "numeric_precision"
+      },
+      {
+        "input": {
+          "shift": 8.881784197001252e-16,
+          "pattern": "matched"
+        },
+        "status": "numeric_precision"
+      },
+      {
+        "input": {
+          "shift": 3.552713678800501e-15,
+          "pattern": "matched"
+        },
+        "status": "valid",
+        "output": 0.015625
+      },
+      {
+        "input": {
+          "shift": true,
+          "pattern": "varied"
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "shift": 100,
+          "pattern": "varied"
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "shift": 1.5,
+          "pattern": "other"
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "shift": "1",
+          "pattern": "varied"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative.",
+    "numeric_tolerance": 1e-12,
+    "invariants": [
+      "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study.",
+      "The story, calculation and visual use the same current parameters.",
+      "Geometry density scales and Graph probability scales have distinct meanings."
+    ],
+    "limits": [
+      "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How unusual are this many positive paired changes under a fair-sign model?",
+      "answer": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative."
+    },
+    {
+      "prompt": "What changes when the threshold or shift moves?",
+      "answer": "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Model-derived density area or paired physical readings, with explicit quantity marks."
+    },
+    {
+      "kind": "graph",
+      "description": "A fixed probability scale; discrete sign boundaries are not joined."
+    },
+    {
+      "kind": "substitution",
+      "description": "Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Originally authored workshop scenario",
+      "mapping": "A workshop measures six pieces before and after adjusting a gauge. The same pieces stay paired. Choose either different original changes or originally matching readings; add a common after-reading shift h. Follow each pair into a positive, negative or zero difference, then count the null sign patterns with at least as many positives.",
+      "limitations": "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:sign-test:case-1"
+    },
+    {
+      "context": "A changed model setting",
+      "mapping": "An exact tied pair is omitted. Compute each shifted after-reading minus its paired before-reading. Omit exact zeros, count k positives among n nonzero pairs, and sum the fair binomial masses from k through n for the predeclared positive-direction alternative.",
+      "limitations": "Six constructed pairs use independent-pair and conditional fair-sign assumptions: under the null each nonzero difference has probability 1/2 of either sign. A continuous difference distribution with median zero supplies the usual median interpretation. This does not assert equality of the raw before/after medians. A nonzero difference lost in a represented after-reading is a precision failure. Exact zeros are omitted; with substantial ties the conditional fair-sign model needs separate justification. All ties provide no sign evidence. The alternative, positive differences, is one-sided and predeclared; interactive exploration is not an inferential study.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:sign-test:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:distribution-extensions:sign",
+    "source:distribution-extensions:median"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 second continuation: added continuous-distribution and exact paired-sign modules."
+  ]
+}

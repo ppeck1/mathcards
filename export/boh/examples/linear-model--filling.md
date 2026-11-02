@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:linear-model:filling", "id": "math:example:linear-model:filling", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:linear-model", "example_id": "math:example:linear-model:filling", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa"}, "purpose": "Combine a starting amount with a constant rate of change.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa", "status": "draft", "title": "Five minutes at the tap", "topics": ["mathematics", "functions", "change", "modeling", "constant-rate model", "affine model", "starting amount plus rate"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:linear-model:filling", "id": "math:example:linear-model:filling", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:linear-model", "example_id": "math:example:linear-model:filling", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa"}, "purpose": "Combine a starting amount with a constant rate of change.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa", "status": "draft", "title": "Five minutes at the tap", "topics": ["mathematics", "functions", "change", "modeling", "constant-rate model", "affine model", "starting amount plus rate"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Five minutes at the tap
@@ -47,6 +47,7 @@ Case unit math:example:linear-model:filling. Setting: Constructed tank model wit
   - kind: original worked derivation
   - mathematical review: draft
   - external source refs:
+    []
 - conditions to check:
   - Elapsed time is nonnegative and measured in minutes.
   - The stipulated inflow is constant and nonnegative; there is no outflow during the interval.

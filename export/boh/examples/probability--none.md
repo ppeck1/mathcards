@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:probability:none", "id": "math:example:probability:none", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:probability", "example_id": "math:example:probability:none", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "4702089ce0aff1d717c0657629cf9caae0d788a22efe2bb8ea5e7c00de013d67"}, "purpose": "Connect a single success probability to the distribution of a six-trial count.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "4702089ce0aff1d717c0657629cf9caae0d788a22efe2bb8ea5e7c00de013d67", "status": "draft", "title": "No chance of success", "topics": ["mathematics", "probability", "modeling", "binomial distribution", "expected successes"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:probability:none", "id": "math:example:probability:none", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:probability", "example_id": "math:example:probability:none", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "4702089ce0aff1d717c0657629cf9caae0d788a22efe2bb8ea5e7c00de013d67"}, "purpose": "Connect a single success probability to the distribution of a six-trial count.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "4702089ce0aff1d717c0657629cf9caae0d788a22efe2bb8ea5e7c00de013d67", "status": "draft", "title": "No chance of success", "topics": ["mathematics", "probability", "modeling", "binomial distribution", "expected successes"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # No chance of success
@@ -45,6 +45,7 @@ Case unit math:example:probability:none. Setting: Original constructed teaching 
   - kind: original worked derivation
   - mathematical review: draft
   - external source refs:
+    []
 - conditions to check:
   - Use exactly six Bernoulli trials, each with two outcomes.
   - Trials are independent and share the same fixed success probability 0≤p≤1.

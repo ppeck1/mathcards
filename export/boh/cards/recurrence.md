@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:recurrence", "id": "math:concept:recurrence", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:recurrence", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "cfefa2396a896f83695f34ca0f5e1d7df61ec2bd29572b5f4cbcf859b37272c9"}, "purpose": "Follow a previous volume through retention and refill into the next exact completed-round state.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "cfefa2396a896f83695f34ca0f5e1d7df61ec2bd29572b5f4cbcf859b37272c9", "status": "draft", "title": "Recurrence relations", "topics": ["mathematics", "discrete-computation", "sequences", "modeling", "recursive sequence", "retain and refill", "iterative update"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:recurrence", "id": "math:concept:recurrence", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:recurrence", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "cfefa2396a896f83695f34ca0f5e1d7df61ec2bd29572b5f4cbcf859b37272c9"}, "purpose": "Follow a previous volume through retention and refill into the next exact completed-round state.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "cfefa2396a896f83695f34ca0f5e1d7df61ec2bd29572b5f4cbcf859b37272c9", "status": "draft", "title": "Recurrence relations", "topics": ["mathematics", "discrete-computation", "sequences", "modeling", "recursive sequence", "retain and refill", "iterative update"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Recurrence relations
@@ -266,7 +266,7 @@ A recurrence defines successive states from earlier ones and initial data. The w
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of this idea and its notation before adding origin or priority claims.
   - Distinguish historical attribution from a modern teaching formulation.
@@ -282,6 +282,7 @@ A recurrence defines successive states from earlier ones and initial data. The w
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:linear-model
   - type: supports
@@ -290,6 +291,7 @@ A recurrence defines successive states from earlier ones and initial data. The w
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:chaos-theory
   - type: supports
@@ -298,6 +300,7 @@ A recurrence defines successive states from earlier ones and initial data. The w
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:gradient-descent
   - type: supports
@@ -306,6 +309,7 @@ A recurrence defines successive states from earlier ones and initial data. The w
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -355,6 +359,7 @@ A recurrence defines successive states from earlier ones and initial data. The w
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.
     - Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.
@@ -407,6 +412,7 @@ A recurrence defines successive states from earlier ones and initial data. The w
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.
     - Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.
@@ -459,6 +465,7 @@ A recurrence defines successive states from earlier ones and initial data. The w
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.
     - Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.
@@ -511,6 +518,7 @@ A recurrence defines successive states from earlier ones and initial data. The w
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.
     - Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.
@@ -563,6 +571,7 @@ A recurrence defines successive states from earlier ones and initial data. The w
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Start with v₀ litres, where 0≤v₀≤40 L. Each completed round first retains fraction r of the current volume and then adds d litres.
     - Use 0≤r≤1 and 0≤d≤5 L. The number n of completed rounds is an integer from zero to twelve.

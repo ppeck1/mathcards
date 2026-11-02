@@ -1102,7 +1102,16 @@
             "gradient-flow-visual-model",
             "circle-manifold-visual-model",
             "sphere-manifold-visual-model",
-            "structural-stability-visual-model"
+            "structural-stability-visual-model",
+            "complex-number-visual-model",
+            "quadratic-equation-visual-model",
+            "linear-programming-visual-model",
+            "linear-search-visual-model",
+            "binary-search-visual-model",
+            "minimum-spanning-tree-visual-model",
+            "normal-distribution-visual-model",
+            "exponential-distribution-visual-model",
+            "sign-test-visual-model"
           ]
         },
         "renderer_version": {

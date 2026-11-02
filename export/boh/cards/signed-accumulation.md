@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:signed-accumulation", "id": "math:concept:signed-accumulation", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:signed-accumulation", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.1-draft", "upstream_content_sha256": "e77cdd1fe1db0abc58c3307d803eb1145575db6b51467c209ca345fa49cce194"}, "purpose": "Add positive and negative contributions while keeping net change distinct from total activity.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "e77cdd1fe1db0abc58c3307d803eb1145575db6b51467c209ca345fa49cce194", "status": "draft", "title": "Signed accumulation", "topics": ["mathematics", "calculus", "modeling", "signed area", "net displacement", "Riemann-sum approximation"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:signed-accumulation", "id": "math:concept:signed-accumulation", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:signed-accumulation", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.1-draft", "upstream_content_sha256": "e77cdd1fe1db0abc58c3307d803eb1145575db6b51467c209ca345fa49cce194"}, "purpose": "Add positive and negative contributions while keeping net change distinct from total activity.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "e77cdd1fe1db0abc58c3307d803eb1145575db6b51467c209ca345fa49cce194", "status": "draft", "title": "Signed accumulation", "topics": ["mathematics", "calculus", "modeling", "signed area", "net displacement", "Riemann-sum approximation"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
 ---
 
 # Signed accumulation
@@ -264,7 +264,7 @@ Area above zero adds to displacement; area below zero subtracts. The same motion
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of this idea and its notation using specialist historical sources before adding attributions.
   - Distinguish an early use, later formalization and modern teaching convention; inspect evidence for each.
@@ -280,6 +280,7 @@ Area above zero adds to displacement; area below zero subtracts. The same motion
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:limit
   - type: supports
@@ -288,6 +289,7 @@ Area above zero adds to displacement; area below zero subtracts. The same motion
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:derivative
   - type: supports
@@ -296,6 +298,7 @@ Area above zero adds to displacement; area below zero subtracts. The same motion
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -351,6 +354,7 @@ Area above zero adds to displacement; area below zero subtracts. The same motion
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Motion follows a single signed straight coordinate measured in metres, with time in seconds.
     - Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.
@@ -404,6 +408,7 @@ Area above zero adds to displacement; area below zero subtracts. The same motion
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Motion follows a single signed straight coordinate measured in metres, with time in seconds.
     - Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.
@@ -457,6 +462,7 @@ Area above zero adds to displacement; area below zero subtracts. The same motion
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Motion follows a single signed straight coordinate measured in metres, with time in seconds.
     - Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.
@@ -509,6 +515,7 @@ Area above zero adds to displacement; area below zero subtracts. The same motion
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Motion follows a single signed straight coordinate measured in metres, with time in seconds.
     - Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.
@@ -561,6 +568,7 @@ Area above zero adds to displacement; area below zero subtracts. The same motion
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Motion follows a single signed straight coordinate measured in metres, with time in seconds.
     - Initial velocity is in m/s and rate is constant acceleration in m/s²; v(t)=initial+rate×t on the whole stated interval.

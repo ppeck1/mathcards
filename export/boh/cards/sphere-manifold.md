@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:sphere-manifold", "id": "math:concept:sphere-manifold", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:sphere-manifold", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "b6dc8007cb12680ef467f90c859ad6cfc9a626c67da6fffa9e44339ce57eb00b"}, "purpose": "How can a curved sphere have two local coordinates?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "b6dc8007cb12680ef467f90c859ad6cfc9a626c67da6fffa9e44339ce57eb00b", "status": "draft", "title": "Local coordinates on a sphere", "topics": ["mathematics", "geometry-topology", "local coordinates on a sphere"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:sphere-manifold", "id": "math:concept:sphere-manifold", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:sphere-manifold", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "b6dc8007cb12680ef467f90c859ad6cfc9a626c67da6fffa9e44339ce57eb00b"}, "purpose": "How can a curved sphere have two local coordinates?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "b6dc8007cb12680ef467f90c859ad6cfc9a626c67da6fffa9e44339ce57eb00b", "status": "draft", "title": "Local coordinates on a sphere", "topics": ["mathematics", "geometry-topology", "local coordinates on a sphere"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Local coordinates on a sphere
@@ -75,13 +75,13 @@ Locate the unit-sphere point from latitude and longitude, then apply the selecte
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:circle-manifold
   - math:concept:vector
   - math:concept:open-set
 - depth:
-
+  []
 
 ## Definition
 
@@ -233,7 +233,7 @@ Locate the unit-sphere point from latitude and longitude, then apply the selecte
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -249,6 +249,7 @@ Locate the unit-sphere point from latitude and longitude, then apply the selecte
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:vector
   - type: supports
@@ -257,6 +258,7 @@ Locate the unit-sphere point from latitude and longitude, then apply the selecte
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:open-set
   - type: supports
@@ -265,6 +267,7 @@ Locate the unit-sphere point from latitude and longitude, then apply the selecte
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -308,6 +311,7 @@ Locate the unit-sphere point from latitude and longitude, then apply the selecte
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.
 - Item:
@@ -350,6 +354,7 @@ Locate the unit-sphere point from latitude and longitude, then apply the selecte
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.
 - Item:
@@ -392,6 +397,7 @@ Locate the unit-sphere point from latitude and longitude, then apply the selecte
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.
 - Item:
@@ -434,6 +440,7 @@ Locate the unit-sphere point from latitude and longitude, then apply the selecte
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.
 - Item:
@@ -476,6 +483,7 @@ Locate the unit-sphere point from latitude and longitude, then apply the selecte
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.
 

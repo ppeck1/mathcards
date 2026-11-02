@@ -11,8 +11,8 @@ browser are projections of this inventory plus a separately authored
 [lesson crosswalk](../content/planning/eight-book-crosswalk.json). Importing a
 subject never creates a completed lesson or a verified book attribution.
 
-The current branch crosswalk links 71 inventory subjects to bounded draft
-introductions and 56 to preparation only; 168 remain planned. These are
+The current branch crosswalk links 74 inventory subjects to bounded draft
+introductions and 56 to preparation only; 165 remain planned. These are
 concept-to-lesson links, so several subjects can lead to the same lesson. They
 are not counts of new cards or complete treatments of a book.
 
@@ -26,8 +26,30 @@ are not counts of new cards or complete treatments of a book.
 | Number and counting continuation | Modular remainders, gcd, prime factors, signed rational reduction, positional numerals, permutations and combinations | Exact finite domains; ordered assignments, unordered teams, prime factors and represented values retain separate meanings |
 | Spatial mechanics continuation | Spatial cross/triple products, passive orthonormal frame change, projection/residual, angular velocity and linear momentum | A viewing projection is not a measured area or volume; passive frames do not rotate the arrow; angular momentum remains separate |
 | Local coordinates and rule histories | Circle/sphere charts, continuous gradient flow, quasi-static hysteresis and restricted perturbation comparisons | Bounded examples prepare manifold and stability theory; chart poles are not singular spheres, and mechanical history is not neural memory |
+| Algebra and constrained choices | Complex modulus/conjugation, real quadratic roots and a bounded two-blend linear program | Exact discriminant and objective comparisons; numerical coordinates, explicit feasible region and tied optima; general polynomial/optimization engines remain separate |
+| Search and network procedures | Linear search, sorted binary search and a small minimum spanning tree | Whole comparison prefixes, separate full-run costs and exact tied tree totals; no sorting-cost or broad complexity claim |
+| Continuous probability and signs | Normal CDF/density, exponential waiting time and an exact paired sign test | Density differs from mass; full probability differs from a clipped window; a sign test is preparation for the broader nonparametric field |
 
-## What the continuation advances
+## Current atlas-gap continuation
+
+The next nine lessons take the branch to 111 draft cards and directly advance
+normal distributions, exponential distributions and quadratic equations. The
+new sign test changes nonparametric statistics from planned to preparation;
+rank methods and broader robustness theory remain planned. Normal sampling
+and central-limit theorems retain preparation status. The new normal law does
+not establish how sample means behave.
+
+Complex numbers, graph theory, optimization and complexity gain clearer
+prerequisites or contrasting examples without upgrading broad fields. The
+[current matrix](GAP_EXPANSION_MATRIX_0_34_0.md) records actual lesson coverage;
+the earlier 214-topic roadmap keeps 59 introductions, 36 precursors and 119
+planned rows. No book association or source evidence state was upgraded by
+adding these executable lessons.
+
+## Earlier number/spatial continuation
+
+The earlier eighteen-lesson continuation made the following roadmap changes;
+the nine current additions described above build on that checkpoint.
 
 Eleven inventory subjects gain direct bounded introductions through the number
 and counting family: numerals, numeral systems, rational numbers, fractions,

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Project explicitly installed family metadata into inert offline source data.
 
-Only the three trusted, locally authored family records listed here are read.
+Only the explicitly installed, locally authored family records listed here are read.
 Their data supplies IDs, symbol bindings and quantity ports, never JavaScript,
 module URLs or expression evaluation. Mathematical implementations remain in
 the source registry and the canonical card schema remains an independent gate.
@@ -16,7 +16,8 @@ import re
 from generated_io import write_generated
 
 ROOT = Path(__file__).resolve().parents[1]
-FAMILIES = ("number-foundation", "spatial-foundation", "dynamics-extension")
+FAMILIES = ("number-foundation", "spatial-foundation", "dynamics-extension",
+            "algebra-extension", "algorithm-extension", "distribution-extension")
 SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 KEY = re.compile(r"[A-Za-z][A-Za-z0-9]*\Z")
 TYPE = re.compile(r"[a-z][a-z0-9]*(?:-[a-z0-9]+)*\Z")
@@ -92,7 +93,7 @@ def script(data: dict) -> str:
     payload = json.dumps(data, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     for char, replacement in (("&", "\\u0026"), ("<", "\\u003c"), (">", "\\u003e"), ("\u2028", "\\u2028"), ("\u2029", "\\u2029")):
         payload = payload.replace(char, replacement)
-    return """/* Generated from the three installed family metadata records. Do not edit. */
+    return """/* Generated from the installed family metadata records. Do not edit. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;root.AtlasContinuationMetadata=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
 const data=""" + payload + """;

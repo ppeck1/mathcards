@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:finite-state-machine", "id": "math:concept:finite-state-machine", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:finite-state-machine", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "2d0add4d6b3e78a07a3df878988f0f48e9affa20f25281404b1f1baed8ceb6d9"}, "purpose": "Read a bead word one symbol at a time and distinguish the current state, unread suffix and full-word acceptance.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "2d0add4d6b3e78a07a3df878988f0f48e9affa20f25281404b1f1baed8ceb6d9", "status": "draft", "title": "Finite-state machines and configurations", "topics": ["mathematics", "discrete-computation", "logic", "modeling", "deterministic finite automaton", "DFA", "finite automaton configuration", "parity machine"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:finite-state-machine", "id": "math:concept:finite-state-machine", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:finite-state-machine", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "2d0add4d6b3e78a07a3df878988f0f48e9affa20f25281404b1f1baed8ceb6d9"}, "purpose": "Read a bead word one symbol at a time and distinguish the current state, unread suffix and full-word acceptance.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "2d0add4d6b3e78a07a3df878988f0f48e9affa20f25281404b1f1baed8ceb6d9", "status": "draft", "title": "Finite-state machines and configurations", "topics": ["mathematics", "discrete-computation", "logic", "modeling", "deterministic finite automaton", "DFA", "finite automaton configuration", "parity machine"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Finite-state machines and configurations
@@ -249,7 +249,7 @@ A deterministic finite-state machine uses a fixed finite state set and a transit
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -265,6 +265,7 @@ A deterministic finite-state machine uses a fixed finite state set and a transit
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:recurrence
   - type: supports
@@ -273,6 +274,7 @@ A deterministic finite-state machine uses a fixed finite state set and a transit
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:computability
   - type: supports
@@ -281,6 +283,7 @@ A deterministic finite-state machine uses a fixed finite state set and a transit
   - target status: planned
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -319,6 +322,7 @@ A deterministic finite-state machine uses a fixed finite state set and a transit
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The alphabet is Σ={0,1}, the states are Q={E,O}, and the initial state is E. Each 1 changes parity and each 0 preserves it.
     - Choose one of the four stated eight-symbol words and a whole processed-prefix length k from zero through eight. Leading zeros remain input symbols.
@@ -361,6 +365,7 @@ A deterministic finite-state machine uses a fixed finite state set and a transit
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The alphabet is Σ={0,1}, the states are Q={E,O}, and the initial state is E. Each 1 changes parity and each 0 preserves it.
     - Choose one of the four stated eight-symbol words and a whole processed-prefix length k from zero through eight. Leading zeros remain input symbols.
@@ -403,6 +408,7 @@ A deterministic finite-state machine uses a fixed finite state set and a transit
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The alphabet is Σ={0,1}, the states are Q={E,O}, and the initial state is E. Each 1 changes parity and each 0 preserves it.
     - Choose one of the four stated eight-symbol words and a whole processed-prefix length k from zero through eight. Leading zeros remain input symbols.
@@ -441,6 +447,7 @@ A deterministic finite-state machine uses a fixed finite state set and a transit
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The alphabet is Σ={0,1}, the states are Q={E,O}, and the initial state is E. Each 1 changes parity and each 0 preserves it.
     - Choose one of the four stated eight-symbol words and a whole processed-prefix length k from zero through eight. Leading zeros remain input symbols.
@@ -483,6 +490,7 @@ A deterministic finite-state machine uses a fixed finite state set and a transit
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The alphabet is Σ={0,1}, the states are Q={E,O}, and the initial state is E. Each 1 changes parity and each 0 preserves it.
     - Choose one of the four stated eight-symbol words and a whole processed-prefix length k from zero through eight. Leading zeros remain input symbols.

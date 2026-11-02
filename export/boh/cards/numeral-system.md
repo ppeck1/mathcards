@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:numeral-system", "id": "math:concept:numeral-system", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:numeral-system", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "1ac47e666e07444a363aa789429e965dc77909df88a7337c3251814e7513baa4"}, "purpose": "What changes when the same counter is written in another base?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "1ac47e666e07444a363aa789429e965dc77909df88a7337c3251814e7513baa4", "status": "draft", "title": "Positional numeral systems", "topics": ["mathematics", "numbers-number-theory", "positional numeral systems"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:numeral-system", "id": "math:concept:numeral-system", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:numeral-system", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "1ac47e666e07444a363aa789429e965dc77909df88a7337c3251814e7513baa4"}, "purpose": "What changes when the same counter is written in another base?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "1ac47e666e07444a363aa789429e965dc77909df88a7337c3251814e7513baa4", "status": "draft", "title": "Positional numeral systems", "topics": ["mathematics", "numbers-number-theory", "positional numeral systems"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Positional numeral systems
@@ -75,13 +75,13 @@ Use digits from zero through one less than the base, multiply each digit by its 
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:exponentiation
   - math:concept:turing-machine
   - math:concept:modular-arithmetic
 - depth:
-
+  []
 
 ## Definition
 
@@ -195,7 +195,7 @@ Use digits from zero through one less than the base, multiply each digit by its 
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Check historical and notation development before adding priority claims.
   - Verify exact-edition book mappings independently.
@@ -211,6 +211,7 @@ Use digits from zero through one less than the base, multiply each digit by its 
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:turing-machine
   - type: supports
@@ -219,6 +220,7 @@ Use digits from zero through one less than the base, multiply each digit by its 
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:modular-arithmetic
   - type: supports
@@ -227,6 +229,7 @@ Use digits from zero through one less than the base, multiply each digit by its 
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -264,6 +267,7 @@ Use digits from zero through one less than the base, multiply each digit by its 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.
 - Item:
@@ -300,6 +304,7 @@ Use digits from zero through one less than the base, multiply each digit by its 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.
 - Item:
@@ -336,6 +341,7 @@ Use digits from zero through one less than the base, multiply each digit by its 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.
 - Item:
@@ -372,6 +378,7 @@ Use digits from zero through one less than the base, multiply each digit by its 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.
 - Item:
@@ -408,6 +415,7 @@ Use digits from zero through one less than the base, multiply each digit by its 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.
 

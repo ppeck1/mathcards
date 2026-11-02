@@ -76,7 +76,14 @@ test('lesson availability is explicit and independent of attributed source evide
         row.id
       );
   }
-  assert.equal(browser.get('nonparametric-statistics').status, 'planned');
+  assert.ok(
+    browser.concepts.some(concept => concept.status === 'planned' && concept.lessons.length === 0)
+  );
+  assert.equal(browser.get('nonparametric-statistics').status, 'precursor');
+  assert.deepEqual(
+    browser.get('nonparametric-statistics').lessons.map(card => card.slug),
+    ['sign-test']
+  );
   assert.equal(browser.get('prime-conjectures').status, 'precursor');
   assert.deepEqual(
     browser.get('prime-conjectures').lessons.map(card => card.slug),
@@ -122,7 +129,9 @@ test('rendered subject navigation labels planned scope honestly and links only a
   assert.match(html, /showing 12/);
   for (const key of ['query', 'area', 'book', 'status'])
     assert.match(html, new RegExp('for="subject-browser-page-' + key + '"'));
-  const selected = browser.markup({ selected: 'nonparametric-statistics' });
+  const planned = browser.concepts.find(concept => concept.status === 'planned');
+  assert.ok(planned, 'the remaining roadmap retains explicitly planned concepts');
+  const selected = browser.markup({ selected: planned.id });
   assert.match(selected, /Planned lesson/);
   assert.match(selected, /no executable lesson/);
   assert.doesNotMatch(selected, /#card\//);

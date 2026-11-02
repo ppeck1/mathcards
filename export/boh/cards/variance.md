@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:variance", "id": "math:concept:variance", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:variance", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "d2322087113c078b4aeefa6d48b5ac3a354c0c28620368ba662d10a33d68953d"}, "purpose": "Follow changing lengths through their mean and squared deviations into population variance and standard deviation.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "d2322087113c078b4aeefa6d48b5ac3a354c0c28620368ba662d10a33d68953d", "status": "draft", "title": "Variance and standard deviation", "topics": ["mathematics", "statistics", "probability", "measurement", "population variance", "standard deviation", "spread of measurements"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:variance", "id": "math:concept:variance", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:variance", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "d2322087113c078b4aeefa6d48b5ac3a354c0c28620368ba662d10a33d68953d"}, "purpose": "Follow changing lengths through their mean and squared deviations into population variance and standard deviation.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "d2322087113c078b4aeefa6d48b5ac3a354c0c28620368ba662d10a33d68953d", "status": "draft", "title": "Variance and standard deviation", "topics": ["mathematics", "statistics", "probability", "measurement", "population variance", "standard deviation", "spread of measurements"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Variance and standard deviation
@@ -238,7 +238,7 @@ Variance averages squared deviations from a mean. Standard deviation is its nonn
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of this idea and its notation before adding origin or priority claims.
   - Distinguish historical attribution from a modern teaching formulation.
@@ -254,6 +254,7 @@ Variance averages squared deviations from a mean. Standard deviation is its nonn
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:exponentiation
   - type: supports
@@ -262,6 +263,7 @@ Variance averages squared deviations from a mean. Standard deviation is its nonn
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:conditional-probability
   - type: supports
@@ -270,6 +272,7 @@ Variance averages squared deviations from a mean. Standard deviation is its nonn
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -312,6 +315,7 @@ Variance averages squared deviations from a mean. Standard deviation is its nonn
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The complete group contains four known strip lengths: 8,10,12,x cm, with 0≤x≤20 cm.
     - Use population variance: divide the four squared deviations by N=4. This is not the sample estimator with denominator N−1.
@@ -356,6 +360,7 @@ Variance averages squared deviations from a mean. Standard deviation is its nonn
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The complete group contains four known strip lengths: 8,10,12,x cm, with 0≤x≤20 cm.
     - Use population variance: divide the four squared deviations by N=4. This is not the sample estimator with denominator N−1.
@@ -400,6 +405,7 @@ Variance averages squared deviations from a mean. Standard deviation is its nonn
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The complete group contains four known strip lengths: 8,10,12,x cm, with 0≤x≤20 cm.
     - Use population variance: divide the four squared deviations by N=4. This is not the sample estimator with denominator N−1.
@@ -444,6 +450,7 @@ Variance averages squared deviations from a mean. Standard deviation is its nonn
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The complete group contains four known strip lengths: 8,10,12,x cm, with 0≤x≤20 cm.
     - Use population variance: divide the four squared deviations by N=4. This is not the sample estimator with denominator N−1.
@@ -488,6 +495,7 @@ Variance averages squared deviations from a mean. Standard deviation is its nonn
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The complete group contains four known strip lengths: 8,10,12,x cm, with 0≤x≤20 cm.
     - Use population variance: divide the four squared deviations by N=4. This is not the sample estimator with denominator N−1.

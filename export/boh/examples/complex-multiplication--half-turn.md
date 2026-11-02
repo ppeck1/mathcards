@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:complex-multiplication:half-turn", "id": "math:example:complex-multiplication:half-turn", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:complex-multiplication", "example_id": "math:example:complex-multiplication:half-turn", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e"}, "purpose": "Use one complex multiplication to rotate and scale a point in the plane.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e", "status": "draft", "title": "Turn the graphic around", "topics": ["mathematics", "number-arithmetic", "modeling", "complex multiplication", "rotation and scale"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:complex-multiplication:half-turn", "id": "math:example:complex-multiplication:half-turn", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:complex-multiplication", "example_id": "math:example:complex-multiplication:half-turn", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e"}, "purpose": "Use one complex multiplication to rotate and scale a point in the plane.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e", "status": "draft", "title": "Turn the graphic around", "topics": ["mathematics", "number-arithmetic", "modeling", "complex multiplication", "rotation and scale"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Turn the graphic around
@@ -47,6 +47,7 @@ Case unit math:example:complex-multiplication:half-turn. Setting: Original const
   - kind: original worked derivation
   - mathematical review: draft
   - external source refs:
+    []
 - conditions to check:
   - Use the complex plane with i²=−1 and fixed input z=2+i.
   - The real and imaginary coordinates share the same chosen unit.

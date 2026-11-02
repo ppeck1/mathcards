@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:exponential-change", "id": "math:concept:exponential-change", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:exponential-change", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "7330ceb72bcb2b0d3ba38a120de01e72a056f5a8fff581b877a4fb4b2fca1d33"}, "purpose": "Track a quantity that changes by the same factor at every step.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "7330ceb72bcb2b0d3ba38a120de01e72a056f5a8fff581b877a4fb4b2fca1d33", "status": "draft", "title": "Exponential change", "topics": ["mathematics", "functions", "scale", "change", "modeling", "repeated scaling", "geometric change", "exponential decay and growth"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:exponential-change", "id": "math:concept:exponential-change", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:exponential-change", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "7330ceb72bcb2b0d3ba38a120de01e72a056f5a8fff581b877a4fb4b2fca1d33"}, "purpose": "Track a quantity that changes by the same factor at every step.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "7330ceb72bcb2b0d3ba38a120de01e72a056f5a8fff581b877a4fb4b2fca1d33", "status": "draft", "title": "Exponential change", "topics": ["mathematics", "functions", "scale", "change", "modeling", "repeated scaling", "geometric change", "exponential decay and growth"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Exponential change
@@ -89,7 +89,7 @@ Apply a scale factor to the current value again and again. The percentage stays 
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the concept and notation with specialist sources before adding historical attribution.
 - reader text: Historical account not yet sourced. Everyday scenarios are constructed examples, not historical anecdotes.
@@ -104,6 +104,7 @@ Apply a scale factor to the current value again and again. The percentage stays 
   - target status: available
   - evidence status: local_derivation
   - source refs:
+    []
 - Item:
   - target: math:concept:linear-model
   - type: compared_with
@@ -112,6 +113,7 @@ Apply a scale factor to the current value again and again. The percentage stays 
   - target status: available
   - evidence status: local_derivation
   - source refs:
+    []
 
 ## Examples
 
@@ -159,6 +161,7 @@ Apply a scale factor to the current value again and again. The percentage stays 
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - The initial width is positive and the same positive scale factor is applied at each completed pass.
     - Completed resize passes are nonnegative integers. Fractional inputs show declared geometric interpolation, not a fractionally executed operation.
@@ -199,6 +202,7 @@ Apply a scale factor to the current value again and again. The percentage stays 
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - The initial width is positive and the same positive scale factor is applied at each completed pass.
     - Completed resize passes are nonnegative integers. Fractional inputs show declared geometric interpolation, not a fractionally executed operation.
@@ -239,6 +243,7 @@ Apply a scale factor to the current value again and again. The percentage stays 
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - The initial width is positive and the same positive scale factor is applied at each completed pass.
     - Completed resize passes are nonnegative integers. Fractional inputs show declared geometric interpolation, not a fractionally executed operation.
@@ -279,6 +284,7 @@ Apply a scale factor to the current value again and again. The percentage stays 
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - The initial width is positive and the same positive scale factor is applied at each completed pass.
     - Completed resize passes are nonnegative integers. Fractional inputs show declared geometric interpolation, not a fractionally executed operation.
@@ -319,6 +325,7 @@ Apply a scale factor to the current value again and again. The percentage stays 
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - The initial width is positive and the same positive scale factor is applied at each completed pass.
     - Completed resize passes are nonnegative integers. Fractional inputs show declared geometric interpolation, not a fractionally executed operation.

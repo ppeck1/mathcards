@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:gradient-flow:case-1", "id": "math:example:gradient-flow:case-1", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:gradient-flow", "example_id": "math:example:gradient-flow:case-1", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "cab868ab9e0ad0f1568be4262e2308d3fb3abbe7e1015381047584f51f4c1f0e"}, "purpose": "What makes a continuously corrected position lose potential?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "cab868ab9e0ad0f1568be4262e2308d3fb3abbe7e1015381047584f51f4c1f0e", "status": "draft", "title": "Read the initial cost", "topics": ["mathematics", "dynamics", "gradient flow and falling potential"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:gradient-flow:case-1", "id": "math:example:gradient-flow:case-1", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:gradient-flow", "example_id": "math:example:gradient-flow:case-1", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "cab868ab9e0ad0f1568be4262e2308d3fb3abbe7e1015381047584f51f4c1f0e"}, "purpose": "What makes a continuously corrected position lose potential?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "cab868ab9e0ad0f1568be4262e2308d3fb3abbe7e1015381047584f51f4c1f0e", "status": "draft", "title": "Read the initial cost", "topics": ["mathematics", "dynamics", "gradient flow and falling potential"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Read the initial cost
@@ -51,6 +51,7 @@ Case unit math:example:gradient-flow:case-1. Setting: An ideal camera mount star
   - kind: original worked derivation
   - mathematical review: author-derived; independent review pending
   - external source refs:
+    []
 - conditions to check:
   - V(x,y)=(a x²+b y²)/2, with a,b positive and a fixed start (2,1). The exact continuous solution is used; there is no time-step parameter or numerical integrator. This is a constructed controller model.
 

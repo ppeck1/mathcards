@@ -1,6 +1,6 @@
 # 0.34.0 — Eight-book expansion and consolidation (review branch)
 
-- Add 41 bounded lessons in inference, modeling, information, number
+- Add 50 bounded lessons in inference, modeling, information, number
   foundations, spatial reasoning, dynamics, order, physical and neural models.
 - Connect original stories, three-stage calculations, Geometry/Graph, matching
   thumbnails, meaningful quantity ports, worked examples and independent references.
@@ -19,15 +19,24 @@
 - Make generated writes recoverable through sibling staging, atomic replacement
   and bounded Windows sharing-error retries. Preserve deterministic LF bytes.
 - Record background startup and payload measurements without claiming browser
-  or phone qualification. Compile all 102 formulas to native MathML.
+  or phone qualification. Compile all 111 formulas to native MathML.
 - Add 18 continuation lessons in remainders, divisibility, fractions, bases,
   counting, spatial vectors, coordinate frames, motion, hysteresis, gradient
   flow and explicit circle/sphere charts. Keep singular chart coordinates
   distinct from valid points, and discrete counts distinct from continuous flow.
 - Extend the shared provider contract with optional interpolation guards and
   generated, validated bindings/ports for independent lesson families.
-- Reach 102 draft cards, 514 worked examples, 1,023 numeric fixtures,
-  616 written exports and 211 representations. Preserve bounded draft status
+- Add nine atlas-gap lessons: complex numbers/conjugation/modulus, real
+  quadratic roots, a two-variable linear program, linear/binary search,
+  minimum spanning trees, normal and exponential laws, and a paired sign test.
+- Preserve exact discriminant signs, tied optima and integer tree costs;
+  distinguish search prefixes from completed costs and density from probability.
+- Use compact algebra layouts, valid standalone SVG and remembered-family
+  comparisons; retain meaningful input/output marks for pinned probabilities.
+- Preserve empty lists and objects explicitly in written exports, including
+  scopes with no external parameters.
+- Reach 111 draft cards, 559 worked examples, 1,256 numeric fixtures,
+  670 written exports and 229 representations. Preserve bounded draft status
   in both overlapping book roadmaps.
 
 # 0.33.0 — Presentation and review repairs

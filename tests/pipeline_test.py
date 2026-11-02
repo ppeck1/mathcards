@@ -14,12 +14,23 @@ from jsonschema import Draft202012Validator, FormatChecker
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
 from build import build, load_catalog, catalog_script
-from export_boh import canonical, build as build_export
+from export_boh import canonical, build as build_export, prose
 from release import application_version, stamp_template
 from validate_package import compute
 from check_generated import artifact_errors
 
 class PipelineTests(unittest.TestCase):
+    def test_written_export_keeps_empty_containers_explicit_without_blank_indentation(self):
+        self.assertEqual(prose([]), '[]')
+        self.assertEqual(prose({}), '{}')
+        rendered=prose({'parameters':[], 'metadata':{}, 'nested':[[],{}], 'value':0})
+        self.assertIn('- parameters:\n  []',rendered)
+        self.assertIn('- metadata:\n  {}',rendered)
+        self.assertIn('- value: 0',rendered)
+        self.assertEqual(rendered.count('[]'),2)
+        self.assertEqual(rendered.count('{}'),2)
+        self.assertTrue(all(line==line.rstrip() for line in rendered.splitlines()))
+
     def test_offline_integrity_rejects_corruption_and_standalone_drift(self):
         import hashlib
         with tempfile.TemporaryDirectory() as tmp:
@@ -107,9 +118,9 @@ class PipelineTests(unittest.TestCase):
         for card in catalog['cards']:
             source=json.loads((ROOT/'content/cards'/(card['slug']+'.json')).read_text(encoding='utf-8'))
             self.assertEqual(source,card)
-        self.assertEqual(len(catalog['cards']),102)
-        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),514)
-        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),1023)
+        self.assertEqual(len(catalog['cards']),111)
+        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),559)
+        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),1256)
 
     def test_book_roadmap_preserves_topic_identity_and_honest_card_links(self):
         with (ROOT/'docs/BOOK_CONCEPT_ROADMAP.csv').open(encoding='utf-8',newline='') as stream:
@@ -141,7 +152,7 @@ class PipelineTests(unittest.TestCase):
             a,b=Path(tmp)/'a',Path(tmp)/'b'
             ma,mb=build_export(a),build_export(b)
             self.assertEqual(ma,mb)
-            self.assertEqual(ma['document_count'],616)
+            self.assertEqual(ma['document_count'],670)
             for entry in ma['documents']:
                 self.assertEqual((a/entry['path']).read_bytes(),(b/entry['path']).read_bytes())
                 self.assertNotIn('notebook',entry['path'])

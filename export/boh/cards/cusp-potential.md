@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:cusp-potential", "id": "math:concept:cusp-potential", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:cusp-potential", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "61690f4e48dae64780490c30808bae1bcd9b87b9781cfffae281ef1af26154b4"}, "purpose": "How does tilting a two-well landscape change its resting points?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "61690f4e48dae64780490c30808bae1bcd9b87b9781cfffae281ef1af26154b4", "status": "draft", "title": "Cusp potential and competing wells", "topics": ["mathematics", "dynamics", "cusp potential and competing wells"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:cusp-potential", "id": "math:concept:cusp-potential", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:cusp-potential", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "61690f4e48dae64780490c30808bae1bcd9b87b9781cfffae281ef1af26154b4"}, "purpose": "How does tilting a two-well landscape change its resting points?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "61690f4e48dae64780490c30808bae1bcd9b87b9781cfffae281ef1af26154b4", "status": "draft", "title": "Cusp potential and competing wells", "topics": ["mathematics", "dynamics", "cusp potential and competing wells"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Cusp potential and competing wells
@@ -75,13 +75,13 @@ Find the real zeros of the potential derivative with a cubic formula; classify t
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:fold-bifurcation
   - math:concept:basin-attraction
   - math:concept:derivative
 - depth:
-
+  []
 
 ## Definition
 
@@ -184,7 +184,7 @@ Find the real zeros of the potential derivative with a cubic formula; classify t
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -200,6 +200,7 @@ Find the real zeros of the potential derivative with a cubic formula; classify t
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:basin-attraction
   - type: supports
@@ -208,6 +209,7 @@ Find the real zeros of the potential derivative with a cubic formula; classify t
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:derivative
   - type: supports
@@ -216,6 +218,7 @@ Find the real zeros of the potential derivative with a cubic formula; classify t
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -257,6 +260,7 @@ Find the real zeros of the potential derivative with a cubic formula; classify t
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.
 - Item:
@@ -297,6 +301,7 @@ Find the real zeros of the potential derivative with a cubic formula; classify t
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.
 - Item:
@@ -337,6 +342,7 @@ Find the real zeros of the potential derivative with a cubic formula; classify t
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.
 - Item:
@@ -377,6 +383,7 @@ Find the real zeros of the potential derivative with a cubic formula; classify t
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.
 - Item:
@@ -417,6 +424,7 @@ Find the real zeros of the potential derivative with a cubic formula; classify t
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.
 

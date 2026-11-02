@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:greatest-common-divisor", "id": "math:concept:greatest-common-divisor", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:greatest-common-divisor", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "3ed104aeed1d4b672a5963a318fff0b516338e54ee44d7d10f0f2517a0d7f16f"}, "purpose": "What is the longest piece that cuts both ribbons without waste?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "3ed104aeed1d4b672a5963a318fff0b516338e54ee44d7d10f0f2517a0d7f16f", "status": "draft", "title": "Greatest common divisor", "topics": ["mathematics", "numbers-number-theory", "greatest common divisor"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:greatest-common-divisor", "id": "math:concept:greatest-common-divisor", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:greatest-common-divisor", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "3ed104aeed1d4b672a5963a318fff0b516338e54ee44d7d10f0f2517a0d7f16f"}, "purpose": "What is the longest piece that cuts both ribbons without waste?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "3ed104aeed1d4b672a5963a318fff0b516338e54ee44d7d10f0f2517a0d7f16f", "status": "draft", "title": "Greatest common divisor", "topics": ["mathematics", "numbers-number-theory", "greatest common divisor"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Greatest common divisor
@@ -75,12 +75,12 @@ The greatest common divisor of two positive integers is the largest positive int
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:modular-arithmetic
   - math:concept:rational-number
 - depth:
-
+  []
 
 ## Definition
 
@@ -188,7 +188,7 @@ The greatest common divisor of two positive integers is the largest positive int
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Check historical and notation development before adding priority claims.
   - Verify exact-edition book mappings independently.
@@ -204,6 +204,7 @@ The greatest common divisor of two positive integers is the largest positive int
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:rational-number
   - type: supports
@@ -212,6 +213,7 @@ The greatest common divisor of two positive integers is the largest positive int
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -249,6 +251,7 @@ The greatest common divisor of two positive integers is the largest positive int
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Both lengths are positive integers from 1 to 60 cm. The gcd is the longest common whole-centimetre length, not the largest number of pieces or a measurement of arbitrary real lengths.
 - Item:
@@ -285,6 +288,7 @@ The greatest common divisor of two positive integers is the largest positive int
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Both lengths are positive integers from 1 to 60 cm. The gcd is the longest common whole-centimetre length, not the largest number of pieces or a measurement of arbitrary real lengths.
 - Item:
@@ -321,6 +325,7 @@ The greatest common divisor of two positive integers is the largest positive int
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Both lengths are positive integers from 1 to 60 cm. The gcd is the longest common whole-centimetre length, not the largest number of pieces or a measurement of arbitrary real lengths.
 - Item:
@@ -357,6 +362,7 @@ The greatest common divisor of two positive integers is the largest positive int
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Both lengths are positive integers from 1 to 60 cm. The gcd is the longest common whole-centimetre length, not the largest number of pieces or a measurement of arbitrary real lengths.
 - Item:
@@ -393,6 +399,7 @@ The greatest common divisor of two positive integers is the largest positive int
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Both lengths are positive integers from 1 to 60 cm. The gcd is the longest common whole-centimetre length, not the largest number of pieces or a measurement of arbitrary real lengths.
 

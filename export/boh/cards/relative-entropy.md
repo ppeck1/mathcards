@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:relative-entropy", "id": "math:concept:relative-entropy", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:relative-entropy", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "411bc0a1561d05547cdc6954329f2d0373ea5cc637a3bd202ed73a0e4523ed51"}, "purpose": "Compare a model with a forecast while preserving direction and support conditions.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "411bc0a1561d05547cdc6954329f2d0373ea5cc637a3bd202ed73a0e4523ed51", "status": "draft", "title": "Relative entropy", "topics": ["mathematics", "information", "probability", "statistics", "relative entropy", "KL divergence", "Kullback Leibler divergence", "distribution mismatch"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:relative-entropy", "id": "math:concept:relative-entropy", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:relative-entropy", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "411bc0a1561d05547cdc6954329f2d0373ea5cc637a3bd202ed73a0e4523ed51"}, "purpose": "Compare a model with a forecast while preserving direction and support conditions.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "411bc0a1561d05547cdc6954329f2d0373ea5cc637a3bd202ed73a0e4523ed51", "status": "draft", "title": "Relative entropy", "topics": ["mathematics", "information", "probability", "statistics", "relative entropy", "KL divergence", "Kullback Leibler divergence", "distribution mismatch"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Relative entropy
@@ -83,9 +83,9 @@ Relative entropy compares distributions in a specified direction using their pro
   - math:concept:entropy
   - math:concept:probability-distribution
 - helpful:
-
+  []
 - depth:
-
+  []
 
 ## Definition
 
@@ -188,7 +188,7 @@ Relative entropy compares distributions in a specified direction using their pro
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -204,6 +204,7 @@ Relative entropy compares distributions in a specified direction using their pro
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:probability-distribution
   - type: supports
@@ -212,6 +213,7 @@ Relative entropy compares distributions in a specified direction using their pro
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -250,6 +252,7 @@ Relative entropy compares distributions in a specified direction using their pro
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A teaching model gives sticker probability p. A forecast uses q. Compare the Bernoulli distributions P=(1−p,p) and Q=(1−q,q), keeping the direction P∥Q explicit.
     - KL divergence is not symmetric and is not a metric. A positive P mass assigned zero Q probability produces infinite divergence, represented as an explicit state rather than a finite bar. A zero P mass contributes zero, including when Q is also zero.
@@ -288,6 +291,7 @@ Relative entropy compares distributions in a specified direction using their pro
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A teaching model gives sticker probability p. A forecast uses q. Compare the Bernoulli distributions P=(1−p,p) and Q=(1−q,q), keeping the direction P∥Q explicit.
     - KL divergence is not symmetric and is not a metric. A positive P mass assigned zero Q probability produces infinite divergence, represented as an explicit state rather than a finite bar. A zero P mass contributes zero, including when Q is also zero.
@@ -326,6 +330,7 @@ Relative entropy compares distributions in a specified direction using their pro
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A teaching model gives sticker probability p. A forecast uses q. Compare the Bernoulli distributions P=(1−p,p) and Q=(1−q,q), keeping the direction P∥Q explicit.
     - KL divergence is not symmetric and is not a metric. A positive P mass assigned zero Q probability produces infinite divergence, represented as an explicit state rather than a finite bar. A zero P mass contributes zero, including when Q is also zero.
@@ -364,6 +369,7 @@ Relative entropy compares distributions in a specified direction using their pro
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A teaching model gives sticker probability p. A forecast uses q. Compare the Bernoulli distributions P=(1−p,p) and Q=(1−q,q), keeping the direction P∥Q explicit.
     - KL divergence is not symmetric and is not a metric. A positive P mass assigned zero Q probability produces infinite divergence, represented as an explicit state rather than a finite bar. A zero P mass contributes zero, including when Q is also zero.
@@ -402,6 +408,7 @@ Relative entropy compares distributions in a specified direction using their pro
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A teaching model gives sticker probability p. A forecast uses q. Compare the Bernoulli distributions P=(1−p,p) and Q=(1−q,q), keeping the direction P∥Q explicit.
     - KL divergence is not symmetric and is not a metric. A positive P mass assigned zero Q probability produces infinite divergence, represented as an explicit state rather than a finite bar. A zero P mass contributes zero, including when Q is also zero.

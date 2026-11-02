@@ -31,9 +31,10 @@
       "concept_id": "normal-sampling",
       "status": "precursor",
       "cards": [
-        "sampling-distribution"
+        "sampling-distribution",
+        "normal-distribution"
       ],
-      "scope_note": "An exact finite sample-mean distribution prepares for normal limits; no normal law or central-limit theorem proof is implemented."
+      "scope_note": "An exact finite sample-mean distribution and a normal density/CDF prepare for sampling models. Sampling from a normal population and central-limit theorems remain separate planned lessons."
     },
     {
       "concept_id": "two-sample-comparisons",
@@ -92,9 +93,11 @@
     },
     {
       "concept_id": "nonparametric-statistics",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "precursor",
+      "cards": [
+        "sign-test"
+      ],
+      "scope_note": "An exact one-sided paired sign test introduces fair-sign null patterns, omitted ties and paired-difference assumptions. Rank tests, robustness and the broader nonparametric field remain planned."
     },
     {
       "concept_id": "finite-population-sampling",
@@ -115,11 +118,12 @@
     },
     {
       "concept_id": "normal-distribution",
-      "status": "precursor",
+      "status": "draft-introduction",
       "cards": [
+        "normal-distribution",
         "sampling-distribution"
       ],
-      "scope_note": "An exact finite sample-mean distribution prepares for normal limits; no normal law or central-limit theorem proof is implemented."
+      "scope_note": "A declared normal density and full CDF connect standardized thresholds, density height and probability area. The bounded view does not infer normality from data or establish a central-limit theorem."
     },
     {
       "concept_id": "discrete-distributions",
@@ -343,9 +347,10 @@
       "cards": [
         "gradient-descent",
         "quadratic-optimization",
-        "gradient-flow"
+        "gradient-flow",
+        "linear-programming"
       ],
-      "scope_note": "A positive quadratic potential has an exact continuous negative-gradient solution, distinct from finite discrete descent updates. General optimization algorithms and convergence theorems remain outside these bounded families."
+      "scope_note": "Declared quadratic descent/flow and a bounded two-variable linear program introduce different objectives and feasible choices. Exact polygon vertices and tied optima do not supply general optimization algorithms or convergence theory."
     },
     {
       "concept_id": "neurons",
@@ -581,9 +586,11 @@
       "concept_id": "probability-distributions",
       "status": "draft-introduction",
       "cards": [
-        "probability-distribution"
+        "probability-distribution",
+        "normal-distribution",
+        "exponential-distribution"
       ],
-      "scope_note": "Three discrete return-count outcomes with authored probabilities; broader distribution families remain separate."
+      "scope_note": "Finite probability masses and two continuous density/CDF families distinguish sums of point probabilities from area under density. These examples do not enumerate all distribution families or validate a fitted model."
     },
     {
       "concept_id": "expected-value",
@@ -625,9 +632,12 @@
     },
     {
       "concept_id": "exponential-distribution",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "exponential-distribution",
+        "poisson-distribution"
+      ],
+      "scope_note": "A constant-rate waiting-time law connects density, cumulative probability, survival and mean wait. It is separate from the Poisson event count; real arrival assumptions remain unvalidated."
     },
     {
       "concept_id": "central-limit-theorem",
@@ -1090,15 +1100,18 @@
       "concept_id": "complex-numbers",
       "status": "draft-introduction",
       "cards": [
+        "complex-number",
         "complex-multiplication"
       ],
-      "scope_note": "Complex-plane multiplication as a scale and turn; broader complex analysis remains separate."
+      "scope_note": "Real and imaginary coordinates, modulus and conjugation now precede complex-plane multiplication as a scale and turn. Broader complex analysis remains separate."
     },
     {
       "concept_id": "quadratic-equations",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "quadratic-equation"
+      ],
+      "scope_note": "A positive-leading-coefficient quadratic family connects the discriminant, real root count and graph intersections. No general polynomial solver or complex-root lesson is implied."
     },
     {
       "concept_id": "cubic-equations",
@@ -1311,9 +1324,10 @@
       "concept_id": "graph-theory",
       "status": "draft-introduction",
       "cards": [
-        "graph-theory"
+        "graph-theory",
+        "minimum-spanning-tree"
       ],
-      "scope_note": "A fixed weighted network and shortest paths; graph theory is broader than routing."
+      "scope_note": "Small fixed weighted networks distinguish shortest routes from least-total-length spanning trees, including tied minima. Graph coloring and broader graph theory remain separate."
     },
     {
       "concept_id": "polyhedra",
@@ -1434,9 +1448,11 @@
       "concept_id": "complexity",
       "status": "precursor",
       "cards": [
-        "computational-complexity"
+        "computational-complexity",
+        "linear-search",
+        "binary-search"
       ],
-      "scope_note": "A linear scan counts comparisons; broader time and space complexity remains planned."
+      "scope_note": "A complete scan cost and two exact fixed-list search traces distinguish comparisons performed from full-run costs. Binary search presupposes sorted input; broad time/space complexity and sorting cost remain separate."
     },
     {
       "concept_id": "public-key-cryptography",

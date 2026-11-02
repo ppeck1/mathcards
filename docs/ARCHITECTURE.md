@@ -41,7 +41,7 @@ consistent. Never edit generated reference data or written exports as another
 source of truth.
 
 Installed continuation families keep their stable IDs, grammar bindings and
-typed ports in three explicit `content/planning/*-integration.json` records.
+typed ports in explicit `content/planning/*-integration.json` records.
 `tools/build_continuation_metadata.py` checks these against canonical cards and
 projects them into inert, frozen `src/continuation-metadata.js`. This registry
 data contains no executable formulas or downloaded module paths. Providers,
@@ -125,8 +125,8 @@ gates remain explicit in the current release/branch review matrix.
 
 Prettier 3.6.2 is pinned as a development-only tool in `package-lock.json`.
 `npm ci --ignore-scripts` installs it; `npm run check:format` checks the new
-systems, inference, inventory, expansion, number/spatial foundations, dynamics
-extensions and extracted legacy-provider modules,
+systems, inference, inventory, expansion, number/spatial foundations, dynamics,
+algebra, algorithm and distribution extensions and extracted legacy-provider modules,
 their new tests, generated-write helpers and startup measurement harness. `npm run format` rewrites
 only that declared scope. `.prettierignore` excludes generated projections,
 release artifacts, original handoff material and the vendored formula compiler.
@@ -136,6 +136,11 @@ This is an incremental migration, not a claim that the entire historical source
 already follows one formatter. Add a coherent file family to the explicit scope
 when consolidating it; keep mass formatting separate from mathematical changes.
 Syntax/whitespace checks continue to cover the broader authored source.
+
+Algebra, algorithm and distribution extensions follow the same explicit
+provider installation. Their metadata joins number, spatial and dynamics
+families through the allowlisted build projection. New families add authored
+files and data rather than another host or an external program loader.
 
 ## Generated-artifact writes
 

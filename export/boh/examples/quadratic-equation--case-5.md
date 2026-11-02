@@ -1,0 +1,196 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:quadratic-equation:case-5", "id": "math:example:quadratic-equation:case-5", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:quadratic-equation", "example_id": "math:example:quadratic-equation:case-5", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "f3c469f49a7e208d8fe152425138998d722f5b1f8721ea38c3ee425de39505bd"}, "purpose": "When does a calibration trace cross its target level?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "f3c469f49a7e208d8fe152425138998d722f5b1f8721ea38c3ee425de39505bd", "status": "draft", "title": "One crossing at the origin", "topics": ["mathematics", "algebra", "geometry", "quadratic equations and real roots"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# One crossing at the origin
+
+Parent card: math:concept:quadratic-equation; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:quadratic-equation; revision 0.1.0-draft. Setting: A calibration trace curves relative to a target line. The leading coefficient fixes the upward curvature, the linear coefficient tilts the trace, and the constant moves it vertically. Drag the constant offset and watch two crossings meet in a tangency before the trace rises clear of the target. Expression: $ax^2+bx+c=0,\quad a>0,\quad D=b^2-4ac,\quad x=\frac{-b\pm\sqrt D}{2a}\quad(D\ge0).$. Conditions required for a defined value (a case may test their violation): The leading coefficient is between 0.5 and 2; the other coefficients lie between −4 and 4. Only real solutions are drawn. A double root is one distinct real solution. Exact binary-input discriminant sign is separate from approximate root positions; unresolved numerical distinctions report a precision failure. The fixed drawing window can crop a root. Scope: The leading coefficient is between 0.5 and 2; the other coefficients lie between −4 and 4. Only real solutions are drawn. A double root is one distinct real solution. Exact binary-input discriminant sign is separate from approximate root positions; unresolved numerical distinctions report a precision failure. The fixed drawing window can crop a root.
+
+Case unit math:example:quadratic-equation:case-5. Setting: A calibration trace curves relative to a target line. The leading coefficient fixes the upward curvature, the linear coefficient tilts the trace, and the constant moves it vertically. Drag the constant offset and watch two crossings meet in a tangency before the trace rises clear of the target. Inputs: {"constant": 0, "leading": 1.5, "linear": -3}. Result: {"approximate": "2 roots"}. Limits: The leading coefficient is between 0.5 and 2; the other coefficients lie between −4 and 4. Only real solutions are drawn. A double root is one distinct real solution. Exact binary-input discriminant sign is separate from approximate root positions; unresolved numerical distinctions report a precision failure. The fixed drawing window can crop a root.
+
+## Complete worked case
+
+- id: math:example:quadratic-equation:case-5
+- title: One crossing at the origin
+- role: applied_model
+- question: When does a calibration trace cross its target level?
+- setting: A calibration trace curves relative to a target line. The leading coefficient fixes the upward curvature, the linear coefficient tilts the trace, and the constant moves it vertically. Drag the constant offset and watch two crossings meet in a tangency before the trace rises clear of the target.
+- assumptions:
+  - The leading coefficient is between 0.5 and 2; the other coefficients lie between −4 and 4. Only real solutions are drawn. A double root is one distinct real solution. Exact binary-input discriminant sign is separate from approximate root positions; unresolved numerical distinctions report a precision failure. The fixed drawing window can crop a root.
+- inputs:
+  - constant: 0
+  - linear: -3
+  - leading: 1.5
+- steps:
+  - Item:
+    - index: 1
+    - expression: c = 0; b = -3; a = 1.5
+    - reason: Declare the bounded inputs and preserve their units.
+  - Item:
+    - index: 2
+    - expression: ax² + bx + c = 0; D = b² − 4ac; result ≈ 2
+    - reason: The discriminant separates two distinct real crossings, one double root and no real roots. The model classifies its exact represented inputs, then evaluates root positions numerically using a cancellation-resistant quadratic calculation.
+- result:
+  - approximate: 2 roots
+- interpretation: The two distinct crossings are 0 and 2.
+- independent check:
+  - method: Substitute the numerical roots into the original polynomial; classify the represented discriminant independently with rational arithmetic.
+  - expected: 2
+- limits: The leading coefficient is between 0.5 and 2; the other coefficients lie between −4 and 4. Only real solutions are drawn. A double root is one distinct real solution. Exact binary-input discriminant sign is separate from approximate root positions; unresolved numerical distinctions report a precision failure. The fixed drawing window can crop a root.
+- preset:
+  - constant: 0
+  - linear: -3
+  - leading: 1.5
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - The leading coefficient is between 0.5 and 2; the other coefficients lie between −4 and 4. Only real solutions are drawn. A double root is one distinct real solution. Exact binary-input discriminant sign is separate from approximate root positions; unresolved numerical distinctions report a precision failure. The fixed drawing window can crop a root.
+
+## Written exploration recipe
+
+- component id: component:quadratic-equation
+- renderer id: quadratic-equation-visual-model
+- renderer version: 1
+- model id: quadratic-equation-visual-model
+- model revision: 1
+- expression id: ast:quadratic-equation:expression
+- interaction status: implemented
+- description: A calibration trace curves relative to a target line. The leading coefficient fixes the upward curvature, the linear coefficient tilts the trace, and the constant moves it vertically. Drag the constant offset and watch two crossings meet in a tangency before the trace rises clear of the target.
+- controls:
+  - Item:
+    - id: constant
+    - type: number
+    - default: -3
+    - min: -4
+    - max: 4
+    - step: 0.05
+  - Item:
+    - id: linear
+    - type: number
+    - default: -2
+    - min: -4
+    - max: 4
+    - step: 0.05
+  - Item:
+    - id: leading
+    - type: number
+    - default: 1
+    - min: 0.5
+    - max: 2
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - constant: -3
+      - linear: -2
+      - leading: 1
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - constant: 1
+      - linear: -2
+      - leading: 1
+    - status: valid
+    - output: 1
+  - Item:
+    - input:
+      - constant: 2
+      - linear: -2
+      - leading: 1
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - constant: -2
+      - linear: 0
+      - leading: 2
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - constant: 0
+      - linear: -3
+      - leading: 1.5
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - constant: 0.9999999999999999
+      - linear: -2
+      - leading: 1
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - constant: 1.0000000000000002
+      - linear: -2
+      - leading: 1
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - constant: 0
+      - linear: 0
+      - leading: 1
+    - status: valid
+    - output: 1
+  - Item:
+    - input:
+      - constant: 4
+      - linear: 4
+      - leading: 0.5
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - constant: -4
+      - linear: 4
+      - leading: 0.5
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - constant: 0
+      - linear: 5e-324
+      - leading: 1
+    - status: numeric_precision
+  - Item:
+    - input:
+      - constant: -3
+      - linear: -2
+      - leading: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - constant: 1
+      - linear: -2
+      - leading: 1
+    - status: invalid_parameters
+- compute: The discriminant separates two distinct real crossings, one double root and no real roots. The model classifies its exact represented inputs, then evaluates root positions numerically using a cancellation-resistant quadratic calculation.
+- numeric tolerance: 1e-10
+- invariants:
+  - The leading coefficient is between 0.5 and 2; the other coefficients lie between −4 and 4. Only real solutions are drawn. A double root is one distinct real solution. Exact binary-input discriminant sign is separate from approximate root positions; unresolved numerical distinctions report a precision failure. The fixed drawing window can crop a root.
+  - Story, controls, calculations and both views use one evaluated state.
+- limits:
+  - The leading coefficient is between 0.5 and 2; the other coefficients lie between −4 and 4. Only real solutions are drawn. A double root is one distinct real solution. Exact binary-input discriminant sign is separate from approximate root positions; unresolved numerical distinctions report a precision failure. The fixed drawing window can crop a root.
+- fallback: Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:algebra-extension:quadratic. [OpenStax · Quadratic Equations](https://openstax.org/books/algebra-and-trigonometry-2e/pages/2-5-quadratic-equations). Locator: Quadratic formula and discriminant classification. The exact binary-sign and stable numerical implementation is author-derived.. Verification: Definition-level source inspected 2026-11-02; independent mathematical and exact-edition book review remains open.. Rights: Original calibration scenario and worked examples; no source exercise reproduced.

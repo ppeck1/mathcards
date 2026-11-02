@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:modular-arithmetic", "id": "math:concept:modular-arithmetic", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:modular-arithmetic", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "ed619272206e805b0456e53b02d86d52136584a78d36a8edb559f0274ff3c59a"}, "purpose": "What is left after every full tray is packed?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "ed619272206e805b0456e53b02d86d52136584a78d36a8edb559f0274ff3c59a", "status": "draft", "title": "Modular arithmetic and remainders", "topics": ["mathematics", "numbers-number-theory", "modular arithmetic and remainders"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:modular-arithmetic", "id": "math:concept:modular-arithmetic", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:modular-arithmetic", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "ed619272206e805b0456e53b02d86d52136584a78d36a8edb559f0274ff3c59a"}, "purpose": "What is left after every full tray is packed?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "ed619272206e805b0456e53b02d86d52136584a78d36a8edb559f0274ff3c59a", "status": "draft", "title": "Modular arithmetic and remainders", "topics": ["mathematics", "numbers-number-theory", "modular arithmetic and remainders"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Modular arithmetic and remainders
@@ -75,12 +75,12 @@ Modular arithmetic groups integers by their remainders for a fixed positive modu
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:greatest-common-divisor
   - math:concept:recurrence
 - depth:
-
+  []
 
 ## Definition
 
@@ -188,7 +188,7 @@ Modular arithmetic groups integers by their remainders for a fixed positive modu
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Check historical and notation development before adding priority claims.
   - Verify exact-edition book mappings independently.
@@ -204,6 +204,7 @@ Modular arithmetic groups integers by their remainders for a fixed positive modu
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:recurrence
   - type: supports
@@ -212,6 +213,7 @@ Modular arithmetic groups integers by their remainders for a fixed positive modu
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -249,6 +251,7 @@ Modular arithmetic groups integers by their remainders for a fixed positive modu
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.
 - Item:
@@ -285,6 +288,7 @@ Modular arithmetic groups integers by their remainders for a fixed positive modu
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.
 - Item:
@@ -321,6 +325,7 @@ Modular arithmetic groups integers by their remainders for a fixed positive modu
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.
 - Item:
@@ -357,6 +362,7 @@ Modular arithmetic groups integers by their remainders for a fixed positive modu
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.
 - Item:
@@ -393,6 +399,7 @@ Modular arithmetic groups integers by their remainders for a fixed positive modu
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.
 

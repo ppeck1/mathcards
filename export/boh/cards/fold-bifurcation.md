@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:fold-bifurcation", "id": "math:concept:fold-bifurcation", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:fold-bifurcation", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "36c5ac53a097da819a7a9df2c20f39abf437d057fb98e254a1f9c15343698c69"}, "purpose": "When do two balance points disappear?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "36c5ac53a097da819a7a9df2c20f39abf437d057fb98e254a1f9c15343698c69", "status": "draft", "title": "Fold bifurcations", "topics": ["mathematics", "dynamics", "fold bifurcations"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:fold-bifurcation", "id": "math:concept:fold-bifurcation", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:fold-bifurcation", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "36c5ac53a097da819a7a9df2c20f39abf437d057fb98e254a1f9c15343698c69"}, "purpose": "When do two balance points disappear?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "36c5ac53a097da819a7a9df2c20f39abf437d057fb98e254a1f9c15343698c69", "status": "draft", "title": "Fold bifurcations", "topics": ["mathematics", "dynamics", "fold bifurcations"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Fold bifurcations
@@ -75,12 +75,12 @@ Solve the zero-velocity equation and inspect the sign of its derivative at each 
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:stability
   - math:concept:basin-attraction
 - depth:
-
+  []
 
 ## Definition
 
@@ -164,7 +164,7 @@ Solve the zero-velocity equation and inspect the sign of its derivative at each 
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -180,6 +180,7 @@ Solve the zero-velocity equation and inspect the sign of its derivative at each 
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:basin-attraction
   - type: supports
@@ -188,6 +189,7 @@ Solve the zero-velocity equation and inspect the sign of its derivative at each 
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -227,6 +229,7 @@ Solve the zero-velocity equation and inspect the sign of its derivative at each 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.
 - Item:
@@ -265,6 +268,7 @@ Solve the zero-velocity equation and inspect the sign of its derivative at each 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.
 - Item:
@@ -303,6 +307,7 @@ Solve the zero-velocity equation and inspect the sign of its derivative at each 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.
 - Item:
@@ -341,6 +346,7 @@ Solve the zero-velocity equation and inspect the sign of its derivative at each 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.
 - Item:
@@ -379,6 +385,7 @@ Solve the zero-velocity equation and inspect the sign of its derivative at each 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.
 

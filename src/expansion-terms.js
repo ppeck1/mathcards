@@ -6,19 +6,38 @@
       node ? require('./inference-terms.js') : root.AtlasInferenceTerms,
       node ? require('./number-foundation-terms.js') : root.AtlasNumberFoundationTerms,
       node ? require('./spatial-foundation-terms.js') : root.AtlasSpatialFoundationTerms,
-      node ? require('./dynamics-extension-terms.js') : root.AtlasDynamicsExtensionTerms
+      node ? require('./dynamics-extension-terms.js') : root.AtlasDynamicsExtensionTerms,
+      node ? require('./algebra-extension-terms.js') : root.AtlasAlgebraExtensionTerms,
+      node ? require('./algorithm-extension-terms.js') : root.AtlasAlgorithmExtensionTerms,
+      node ? require('./distribution-extension-terms.js') : root.AtlasDistributionExtensionTerms
     );
   if (node) module.exports = api;
   root.AtlasExpansionTerms = api;
 })(
   typeof globalThis !== 'undefined' ? globalThis : this,
-  function (Systems, Inference, Numbers, SpaceModels, DynamicsModels) {
+  function (
+    Systems,
+    Inference,
+    Numbers,
+    SpaceModels,
+    DynamicsModels,
+    AlgebraModels,
+    AlgorithmModels,
+    DistributionModels
+  ) {
     'use strict';
     const entries = new Map(),
       sources = {};
-    for (const provider of [Systems, Inference, Numbers, SpaceModels, DynamicsModels].filter(
-      Boolean
-    )) {
+    for (const provider of [
+      Systems,
+      Inference,
+      Numbers,
+      SpaceModels,
+      DynamicsModels,
+      AlgebraModels,
+      AlgorithmModels,
+      DistributionModels
+    ].filter(Boolean)) {
       for (const entry of provider.entries) {
         const previous = entries.get(entry.id),
           merged = { ...previous, ...entry };

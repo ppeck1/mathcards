@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:ideal-gas", "id": "math:concept:ideal-gas", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:ideal-gas", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "412a9344888c3de723194acd871017b37a5cf5f5bffa47a97355868d09366348"}, "purpose": "What happens to pressure when the same gas has more room?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "412a9344888c3de723194acd871017b37a5cf5f5bffa47a97355868d09366348", "status": "draft", "title": "The ideal gas law", "topics": ["mathematics", "physical-models", "the ideal gas law"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:ideal-gas", "id": "math:concept:ideal-gas", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:ideal-gas", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "412a9344888c3de723194acd871017b37a5cf5f5bffa47a97355868d09366348"}, "purpose": "What happens to pressure when the same gas has more room?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "412a9344888c3de723194acd871017b37a5cf5f5bffa47a97355868d09366348", "status": "draft", "title": "The ideal gas law", "topics": ["mathematics", "physical-models", "the ideal gas law"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # The ideal gas law
@@ -75,12 +75,12 @@ Multiply the amount and gas constant by kelvin temperature, then divide by volum
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:ratio-scale
   - math:concept:gibbs-free-energy
 - depth:
-
+  []
 
 ## Definition
 
@@ -183,7 +183,7 @@ Multiply the amount and gas constant by kelvin temperature, then divide by volum
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -199,6 +199,7 @@ Multiply the amount and gas constant by kelvin temperature, then divide by volum
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:gibbs-free-energy
   - type: supports
@@ -207,6 +208,7 @@ Multiply the amount and gas constant by kelvin temperature, then divide by volum
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -248,6 +250,7 @@ Multiply the amount and gas constant by kelvin temperature, then divide by volum
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One mole of ideal gas with R=8.31446261815324 L·kPa/(mol·K). Temperature uses kelvins. This dilute-gas model omits molecular volume and interactions; it does not model a compression path or heat transfer.
 - Item:
@@ -288,6 +291,7 @@ Multiply the amount and gas constant by kelvin temperature, then divide by volum
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One mole of ideal gas with R=8.31446261815324 L·kPa/(mol·K). Temperature uses kelvins. This dilute-gas model omits molecular volume and interactions; it does not model a compression path or heat transfer.
 - Item:
@@ -328,6 +332,7 @@ Multiply the amount and gas constant by kelvin temperature, then divide by volum
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One mole of ideal gas with R=8.31446261815324 L·kPa/(mol·K). Temperature uses kelvins. This dilute-gas model omits molecular volume and interactions; it does not model a compression path or heat transfer.
 - Item:
@@ -368,6 +373,7 @@ Multiply the amount and gas constant by kelvin temperature, then divide by volum
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One mole of ideal gas with R=8.31446261815324 L·kPa/(mol·K). Temperature uses kelvins. This dilute-gas model omits molecular volume and interactions; it does not model a compression path or heat transfer.
 - Item:
@@ -408,6 +414,7 @@ Multiply the amount and gas constant by kelvin temperature, then divide by volum
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One mole of ideal gas with R=8.31446261815324 L·kPa/(mol·K). Temperature uses kelvins. This dilute-gas model omits molecular volume and interactions; it does not model a compression path or heat transfer.
 

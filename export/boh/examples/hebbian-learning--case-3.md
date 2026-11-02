@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:hebbian-learning:case-3", "id": "math:example:hebbian-learning:case-3", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:hebbian-learning", "example_id": "math:example:hebbian-learning:case-3", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a8e9cb33e48af032fc65211f5eb1edea9d4a471728985fffdcd54ed7babc3243"}, "purpose": "How does simultaneous activity change one connection?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a8e9cb33e48af032fc65211f5eb1edea9d4a471728985fffdcd54ed7babc3243", "status": "draft", "title": "Change Presynaptic activity u to 1", "topics": ["mathematics", "computation", "a hebbian weight update"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:hebbian-learning:case-3", "id": "math:example:hebbian-learning:case-3", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:hebbian-learning", "example_id": "math:example:hebbian-learning:case-3", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a8e9cb33e48af032fc65211f5eb1edea9d4a471728985fffdcd54ed7babc3243"}, "purpose": "How does simultaneous activity change one connection?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a8e9cb33e48af032fc65211f5eb1edea9d4a471728985fffdcd54ed7babc3243", "status": "draft", "title": "Change Presynaptic activity u to 1", "topics": ["mathematics", "computation", "a hebbian weight update"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Change Presynaptic activity u to 1
@@ -51,6 +51,7 @@ Case unit math:example:hebbian-learning:case-3. Setting: Two idealized units are
   - kind: original worked derivation
   - mathematical review: author-derived; independent review pending
   - external source refs:
+    []
 - conditions to check:
   - One illustrative rate-based correlation update with fixed starting weight 0.2. No normalization, decay or saturation is included; repeated unconstrained updates can grow without bound. This rule is not a complete theory of memory.
 

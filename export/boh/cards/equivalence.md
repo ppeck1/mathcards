@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:equivalence", "id": "math:concept:equivalence", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:equivalence", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "60990c323a0741e093756ab4631d9ebf18797aee7f9a2e6b87993c5f64b16e54"}, "purpose": "Change a panel predicate and trace two formula paths while checking whether they agree on every truth assignment.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "60990c323a0741e093756ab4631d9ebf18797aee7f9a2e6b87993c5f64b16e54", "status": "draft", "title": "Logical equivalence", "topics": ["mathematics", "language-foundations", "logic", "formal-semantics", "De Morgan law", "equivalent statements", "truth-table equivalence", "tautological equivalence"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:equivalence", "id": "math:concept:equivalence", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:equivalence", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "60990c323a0741e093756ab4631d9ebf18797aee7f9a2e6b87993c5f64b16e54"}, "purpose": "Change a panel predicate and trace two formula paths while checking whether they agree on every truth assignment.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "60990c323a0741e093756ab4631d9ebf18797aee7f9a2e6b87993c5f64b16e54", "status": "draft", "title": "Logical equivalence", "topics": ["mathematics", "language-foundations", "logic", "formal-semantics", "De Morgan law", "equivalent statements", "truth-table equivalence", "tautological equivalence"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Logical equivalence
@@ -264,7 +264,7 @@ Two propositional formulas are logically equivalent when they have the same trut
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -280,6 +280,7 @@ Two propositional formulas are logically equivalent when they have the same trut
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:quantifier
   - type: supports
@@ -288,6 +289,7 @@ Two propositional formulas are logically equivalent when they have the same trut
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:inference
   - type: supports
@@ -296,6 +298,7 @@ Two propositional formulas are logically equivalent when they have the same trut
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -340,6 +343,7 @@ Two propositional formulas are logically equivalent when they have the same trut
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The panel dimensions x and y independently range from zero to 12 cm. P means x≥6 cm and Q means y≥4 cm, including equality.
     - All four assignments to P and Q are possible. The complete comparison uses all four, rather than only the selected dimensions.
@@ -384,6 +388,7 @@ Two propositional formulas are logically equivalent when they have the same trut
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The panel dimensions x and y independently range from zero to 12 cm. P means x≥6 cm and Q means y≥4 cm, including equality.
     - All four assignments to P and Q are possible. The complete comparison uses all four, rather than only the selected dimensions.
@@ -428,6 +433,7 @@ Two propositional formulas are logically equivalent when they have the same trut
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The panel dimensions x and y independently range from zero to 12 cm. P means x≥6 cm and Q means y≥4 cm, including equality.
     - All four assignments to P and Q are possible. The complete comparison uses all four, rather than only the selected dimensions.
@@ -472,6 +478,7 @@ Two propositional formulas are logically equivalent when they have the same trut
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The panel dimensions x and y independently range from zero to 12 cm. P means x≥6 cm and Q means y≥4 cm, including equality.
     - All four assignments to P and Q are possible. The complete comparison uses all four, rather than only the selected dimensions.
@@ -516,6 +523,7 @@ Two propositional formulas are logically equivalent when they have the same trut
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The panel dimensions x and y independently range from zero to 12 cm. P means x≥6 cm and Q means y≥4 cm, including equality.
     - All four assignments to P and Q are possible. The complete comparison uses all four, rather than only the selected dimensions.

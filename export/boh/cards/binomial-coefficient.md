@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:binomial-coefficient", "id": "math:concept:binomial-coefficient", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:binomial-coefficient", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "48ad5d2e611419be8f013613868f0531f1a58ef2fe061f9509385885972ef4c6"}, "purpose": "How many teams remain when listing order does not matter?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "48ad5d2e611419be8f013613868f0531f1a58ef2fe061f9509385885972ef4c6", "status": "draft", "title": "Combinations and binomial coefficients", "topics": ["mathematics", "discrete-mathematics", "combinations and binomial coefficients"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:binomial-coefficient", "id": "math:concept:binomial-coefficient", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:binomial-coefficient", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "48ad5d2e611419be8f013613868f0531f1a58ef2fe061f9509385885972ef4c6"}, "purpose": "How many teams remain when listing order does not matter?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "48ad5d2e611419be8f013613868f0531f1a58ef2fe061f9509385885972ef4c6", "status": "draft", "title": "Combinations and binomial coefficients", "topics": ["mathematics", "discrete-mathematics", "combinations and binomial coefficients"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Combinations and binomial coefficients
@@ -75,13 +75,13 @@ Count each unordered team once. Every team has k! ordered listings, so divide or
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:permutation-count
   - math:concept:set
   - math:concept:binomial-distribution
 - depth:
-
+  []
 
 ## Definition
 
@@ -189,7 +189,7 @@ Count each unordered team once. Every team has k! ordered listings, so divide or
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Check historical and notation development before adding priority claims.
   - Verify exact-edition book mappings independently.
@@ -205,6 +205,7 @@ Count each unordered team once. Every team has k! ordered listings, so divide or
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:set
   - type: supports
@@ -213,6 +214,7 @@ Count each unordered team once. Every team has k! ordered listings, so divide or
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:binomial-distribution
   - type: supports
@@ -221,6 +223,7 @@ Count each unordered team once. Every team has k! ordered listings, so divide or
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -258,6 +261,7 @@ Count each unordered team once. Every team has k! ordered listings, so divide or
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.
 - Item:
@@ -294,6 +298,7 @@ Count each unordered team once. Every team has k! ordered listings, so divide or
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.
 - Item:
@@ -330,6 +335,7 @@ Count each unordered team once. Every team has k! ordered listings, so divide or
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.
 - Item:
@@ -366,6 +372,7 @@ Count each unordered team once. Every team has k! ordered listings, so divide or
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.
 - Item:
@@ -402,6 +409,7 @@ Count each unordered team once. Every team has k! ordered listings, so divide or
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.
 

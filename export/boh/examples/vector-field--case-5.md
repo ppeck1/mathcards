@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:vector-field:case-5", "id": "math:example:vector-field:case-5", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:vector-field", "example_id": "math:example:vector-field:case-5", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "0269341da833dd0ddd48c42ee8f4f4b714906ae9ed496ab5ebf6a0634ef43d24"}, "purpose": "Which way does the alignment correction point?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "0269341da833dd0ddd48c42ee8f4f4b714906ae9ed496ab5ebf6a0634ef43d24", "status": "draft", "title": "Change Vertical position y to 2", "topics": ["mathematics", "dynamics", "vector fields"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:vector-field:case-5", "id": "math:example:vector-field:case-5", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:vector-field", "example_id": "math:example:vector-field:case-5", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "0269341da833dd0ddd48c42ee8f4f4b714906ae9ed496ab5ebf6a0634ef43d24"}, "purpose": "Which way does the alignment correction point?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "0269341da833dd0ddd48c42ee8f4f4b714906ae9ed496ab5ebf6a0634ef43d24", "status": "draft", "title": "Change Vertical position y to 2", "topics": ["mathematics", "dynamics", "vector fields"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Change Vertical position y to 2
@@ -51,6 +51,7 @@ Case unit math:example:vector-field:case-5. Setting: A camera mount is displaced
   - kind: original worked derivation
   - mathematical review: author-derived; independent review pending
   - external source refs:
+    []
 - conditions to check:
   - A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.
 

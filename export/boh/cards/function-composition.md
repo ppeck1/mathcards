@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:function-composition", "id": "math:concept:function-composition", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:function-composition", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.1-draft", "upstream_content_sha256": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed"}, "purpose": "Describe one transformation whose output becomes the input of another.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed", "status": "draft", "title": "Function composition", "topics": ["mathematics", "language", "functions", "composition of functions"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:function-composition", "id": "math:concept:function-composition", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:function-composition", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.1-draft", "upstream_content_sha256": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed"}, "purpose": "Describe one transformation whose output becomes the input of another.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed", "status": "draft", "title": "Function composition", "topics": ["mathematics", "language", "functions", "composition of functions"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
 ---
 
 # Function composition
@@ -223,7 +223,7 @@ In f composed with g, perform g first and then feed its result to f. Read the wr
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the evolution of function notation separately from the use of composition.
   - Find citable specialist/primary support before adding any first-use or attribution claim.
@@ -239,6 +239,7 @@ In f composed with g, perform g first and then feed its result to f. Read the wr
   - target status: planned
   - evidence status: editorial_proposal
   - source refs:
+    []
 - Item:
   - target: external:concept:workflow
   - type: personal_analogy_candidate
@@ -247,6 +248,7 @@ In f composed with g, perform g first and then feed its result to f. Read the wr
   - target status: external
   - evidence status: analogy_candidate
   - source refs:
+    []
 
 ## Examples
 
@@ -291,6 +293,7 @@ In f composed with g, perform g first and then feed its result to f. Read the wr
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - assumptions:
     - Real-valued functions
   - title: Does the order matter for a square and an affine function?
@@ -327,6 +330,7 @@ In f composed with g, perform g first and then feed its result to f. Read the wr
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - assumptions:
     - Finite strings → natural numbers → {even, odd}
   - title: What happens when word length is followed by parity?
@@ -371,6 +375,7 @@ In f composed with g, perform g first and then feed its result to f. Read the wr
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - assumptions:
     - Points in R²; R(x,y)=(-y,x), T(x,y)=(x+1,y)
   - title: Compare rotate-then-translate with translate-then-rotate.
@@ -407,6 +412,7 @@ In f composed with g, perform g first and then feed its result to f. Read the wr
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - assumptions:
     - An illustrative calibration model, not a measured device specification.
   - title: Convert a raw sensor reading to Celsius and then Fahrenheit.
@@ -447,6 +453,7 @@ In f composed with g, perform g first and then feed its result to f. Read the wr
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - assumptions:
     - g:R→R, g(x)=x−4; f:[0,∞)→[0,∞), f(u)=sqrt(u)
   - title: When is sqrt(x−4) a real-valued composition?
@@ -484,6 +491,7 @@ In f composed with g, perform g first and then feed its result to f. Read the wr
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - assumptions:
     - Declared nominal types, with no implicit coercion.
   - title: Can a 2D rotation consume a word length?

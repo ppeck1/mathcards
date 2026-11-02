@@ -40,7 +40,7 @@ class ContinuationMetadataTests(unittest.TestCase):
             root = Path(directory)
             self.project(root)
             data = load_metadata(root)
-            self.assertEqual(data["ids"], ["fixture-0", "fixture-1", "fixture-2"])
+            self.assertEqual(data["ids"], ["fixture-"+str(i) for i in range(len(FAMILIES))])
             rendered = script(data)
             self.assertEqual(rendered, script(copy.deepcopy(data)))
             self.assertNotIn("</script>", rendered)

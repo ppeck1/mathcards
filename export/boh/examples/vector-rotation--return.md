@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:vector-rotation:return", "id": "math:example:vector-rotation:return", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:vector-rotation", "example_id": "math:example:vector-rotation:return", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "5da0caf147fe5b055476a594ee66924ff0273e1aa91bdef4858a1c16053b166d"}, "purpose": "Turn a planar vector and follow its horizontal and vertical projections.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "5da0caf147fe5b055476a594ee66924ff0273e1aa91bdef4858a1c16053b166d", "status": "draft", "title": "Make a full turn", "topics": ["mathematics", "geometry", "trigonometry", "linear-algebra", "polar to Cartesian", "vector components"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:vector-rotation:return", "id": "math:example:vector-rotation:return", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:vector-rotation", "example_id": "math:example:vector-rotation:return", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "5da0caf147fe5b055476a594ee66924ff0273e1aa91bdef4858a1c16053b166d"}, "purpose": "Turn a planar vector and follow its horizontal and vertical projections.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "5da0caf147fe5b055476a594ee66924ff0273e1aa91bdef4858a1c16053b166d", "status": "draft", "title": "Make a full turn", "topics": ["mathematics", "geometry", "trigonometry", "linear-algebra", "polar to Cartesian", "vector components"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Make a full turn
@@ -47,6 +47,7 @@ Case unit math:example:vector-rotation:return. Setting: Original constructed tea
   - kind: original worked derivation
   - mathematical review: draft
   - external source refs:
+    []
 - conditions to check:
   - Use an orthonormal two-dimensional Cartesian coordinate system.
   - The angle is measured counterclockwise from positive x in degrees.

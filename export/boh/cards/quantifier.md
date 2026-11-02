@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:quantifier", "id": "math:concept:quantifier", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:quantifier", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9fc15feb4939210cf4eb85cd3a4387f1743c64866e3a5a3b7720fe89587dba88"}, "purpose": "Change one length requirement and see which known strips witness an existential claim or refute a universal claim.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9fc15feb4939210cf4eb85cd3a4387f1743c64866e3a5a3b7720fe89587dba88", "status": "draft", "title": "Universal and existential quantifiers", "topics": ["mathematics", "language-foundations", "logic", "sets", "for all", "there exists", "universal claim", "existential claim", "witness", "counterexample"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:quantifier", "id": "math:concept:quantifier", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:quantifier", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9fc15feb4939210cf4eb85cd3a4387f1743c64866e3a5a3b7720fe89587dba88"}, "purpose": "Change one length requirement and see which known strips witness an existential claim or refute a universal claim.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9fc15feb4939210cf4eb85cd3a4387f1743c64866e3a5a3b7720fe89587dba88", "status": "draft", "title": "Universal and existential quantifiers", "topics": ["mathematics", "language-foundations", "logic", "sets", "for all", "there exists", "universal claim", "existential claim", "witness", "counterexample"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Universal and existential quantifiers
@@ -221,7 +221,7 @@ A quantifier combines a predicate with a domain. A universal statement says ever
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of the concept and notation before adding historical priority claims.
   - Check book-specific statements against the exact edition before treating the supplied planning matrix as verified coverage.
@@ -237,6 +237,7 @@ A quantifier combines a predicate with a domain. A universal statement says ever
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:logical-connectives
   - type: supports
@@ -245,6 +246,7 @@ A quantifier combines a predicate with a domain. A universal statement says ever
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:proof
   - type: supports
@@ -253,6 +255,7 @@ A quantifier combines a predicate with a domain. A universal statement says ever
   - target status: planned
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -295,6 +298,7 @@ A quantifier combines a predicate with a domain. A universal statement says ever
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The complete domain D consists of six known strip lengths: 2,4,6,8,10 and 12 cm. Every strip is included in the check.
     - The free parameter h is a real required length from zero to fourteen centimetres. The predicate P(x) is x≥h, including equality.
@@ -337,6 +341,7 @@ A quantifier combines a predicate with a domain. A universal statement says ever
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The complete domain D consists of six known strip lengths: 2,4,6,8,10 and 12 cm. Every strip is included in the check.
     - The free parameter h is a real required length from zero to fourteen centimetres. The predicate P(x) is x≥h, including equality.
@@ -375,6 +380,7 @@ A quantifier combines a predicate with a domain. A universal statement says ever
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The complete domain D consists of six known strip lengths: 2,4,6,8,10 and 12 cm. Every strip is included in the check.
     - The free parameter h is a real required length from zero to fourteen centimetres. The predicate P(x) is x≥h, including equality.
@@ -413,6 +419,7 @@ A quantifier combines a predicate with a domain. A universal statement says ever
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The complete domain D consists of six known strip lengths: 2,4,6,8,10 and 12 cm. Every strip is included in the check.
     - The free parameter h is a real required length from zero to fourteen centimetres. The predicate P(x) is x≥h, including equality.
@@ -451,6 +458,7 @@ A quantifier combines a predicate with a domain. A universal statement says ever
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The complete domain D consists of six known strip lengths: 2,4,6,8,10 and 12 cm. Every strip is included in the check.
     - The free parameter h is a real required length from zero to fourteen centimetres. The predicate P(x) is x≥h, including equality.

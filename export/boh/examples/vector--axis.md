@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:vector:axis", "id": "math:example:vector:axis", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:vector", "example_id": "math:example:vector:axis", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1"}, "purpose": "Describe displacement with signed components and separate direction from length.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1", "status": "draft", "title": "A single-axis camera move", "topics": ["mathematics", "linear-algebra", "geometry", "component vector", "Euclidean norm", "magnitude and direction"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:vector:axis", "id": "math:example:vector:axis", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:vector", "example_id": "math:example:vector:axis", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1"}, "purpose": "Describe displacement with signed components and separate direction from length.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1", "status": "draft", "title": "A single-axis camera move", "topics": ["mathematics", "linear-algebra", "geometry", "component vector", "Euclidean norm", "magnitude and direction"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # A single-axis camera move
@@ -47,6 +47,7 @@ Case unit math:example:vector:axis. Setting: Original constructed teaching scena
   - kind: original worked derivation
   - mathematical review: author-derived; independent review pending
   - external source refs:
+    []
 - conditions to check:
   - Perpendicular equal-scale coordinate axes share the same length unit.
   - The arrow records net displacement; components are signed.

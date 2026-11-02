@@ -1,0 +1,760 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:exponential-distribution",
+  "slug": "exponential-distribution",
+  "type": "concept",
+  "title": "Exponential waiting time",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "exponential waiting time"
+  ],
+  "branches": [
+    "probability",
+    "statistics"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "What is the chance the next workshop order arrives within the wait?",
+  "meaning": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.",
+  "prerequisites": {
+    "required": [
+      "math:concept:probability-distribution"
+    ],
+    "helpful": [
+      "math:concept:poisson-distribution",
+      "math:concept:exponential-change",
+      "math:concept:expected-value"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A workshop receives independent arrivals under a chosen constant-rate model. Move the waiting threshold t, or change the assumed arrival rate λ. Gold marks the chance of an arrival by t; the remaining strip shows the chance of still waiting.",
+    "formal_latex": "F(t)=1-e^{-\\lambda t},\\quad S(t)=e^{-\\lambda t},\\quad f(t)=\\lambda e^{-\\lambda t},\\quad \\mathbb E[T]=\\frac{1}{\\lambda},\\qquad t\\ge0,\\ \\lambda>0.",
+    "signature": {
+      "t": "Nonnegative waiting threshold in minutes",
+      "λ": "Positive arrival rate per minute",
+      "F(t)": "Probability that the next arrival occurs by the waiting threshold",
+      "S(t)": "Probability of still waiting beyond the threshold",
+      "f(t)": "Waiting-time density height per minute",
+      "T": "Random waiting duration under the declared law",
+      "E[T]": "Mean waiting duration in minutes"
+    },
+    "conditions": [
+      "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+    ],
+    "domain_notes": "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.",
+    "proof_status": "Definition-level sources and original bounded calculations; independent mathematical review pending.",
+    "source_refs": [
+      "source:distribution-extensions:exponential"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Exponential waiting time",
+    "expression_latex": "F(t)=1-e^{-\\lambda t},\\quad S(t)=e^{-\\lambda t},\\quad f(t)=\\lambda e^{-\\lambda t},\\quad \\mathbb E[T]=\\frac{1}{\\lambda},\\qquad t\\ge0,\\ \\lambda>0.",
+    "formation_rule": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.",
+    "precedence": "Evaluate paired differences or standardized products before cumulative probability; retain units and the stated probability model.",
+    "symbols": [
+      {
+        "token": "t",
+        "role": "Nonnegative waiting threshold in minutes",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "λ",
+        "role": "Positive arrival rate per minute",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "F(t)",
+        "role": "Probability that the next arrival occurs by the waiting threshold",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "S(t)",
+        "role": "Probability of still waiting beyond the threshold",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "f(t)",
+        "role": "Waiting-time density height per minute",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "T",
+        "role": "Random waiting duration under the declared law",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "E[T]",
+        "role": "Mean waiting duration in minutes",
+        "type": "Declared mathematical quantity or bound index"
+      }
+    ],
+    "ast": {
+      "id": "ast:exponential-distribution:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:time",
+          "kind": "variable",
+          "type": "Declared physical input",
+          "symbol": "t",
+          "scope_ref": "scope:exponential-distribution"
+        },
+        {
+          "id": "n:rate",
+          "kind": "variable",
+          "type": "Declared physical input",
+          "symbol": "λ",
+          "scope_ref": "scope:exponential-distribution"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried evaluation of the declared probability law",
+          "ref": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval."
+        },
+        {
+          "id": "n:partial-0",
+          "kind": "apply",
+          "type": "Declared probability result or partial application",
+          "function": "n:rule",
+          "argument": "n:time"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared probability result or partial application",
+          "function": "n:partial-0",
+          "argument": "n:rate"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:exponential-distribution",
+          "kind": "modelExpression",
+          "free_variables": [
+            "t",
+            "λ"
+          ],
+          "external_parameters": [],
+          "domain_condition": "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Treat density height as point probability",
+        "status": "model or role mismatch",
+        "reason": "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+      }
+    ],
+    "ast_coverage": "Typed application outline of the declared probability family, with the paired-data selector held external where applicable. This is not an arbitrary expression parser or a theorem checker.",
+    "output_symbol_bindings": {
+      "T": "waitingLaw",
+      "t": "time",
+      "λ": "rate",
+      "F(t)": [
+        "cumulative",
+        "output"
+      ],
+      "S(t)": "survival",
+      "f(t)": "density",
+      "E[T]": "meanWait"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.",
+      "conditions": "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.",
+      "derivation": "Use the declared probability law and the independent reference on the bounded parameters.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:exponential-distribution:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:poisson-distribution",
+      "type": "supports",
+      "conditions": "Use each connected model under its own explicit assumptions.",
+      "reason": "Exponential waiting time connects continuous probability, paired signs or accumulated quantities to poisson distribution.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:exponential-change",
+      "type": "supports",
+      "conditions": "Use each connected model under its own explicit assumptions.",
+      "reason": "Exponential waiting time connects continuous probability, paired signs or accumulated quantities to exponential change.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:probability-distribution",
+      "type": "supports",
+      "conditions": "Use each connected model under its own explicit assumptions.",
+      "reason": "Exponential waiting time connects continuous probability, paired signs or accumulated quantities to probability distribution.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:expected-value",
+      "type": "supports",
+      "conditions": "Use each connected model under its own explicit assumptions.",
+      "reason": "Exponential waiting time connects continuous probability, paired signs or accumulated quantities to expected value.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:exponential-distribution:case-1",
+      "title": "Two-minute window at half an arrival per minute",
+      "role": "applied_model",
+      "question": "What is the chance the next workshop order arrives within the wait?",
+      "setting": "A workshop receives independent arrivals under a chosen constant-rate model. Move the waiting threshold t, or change the assumed arrival rate λ. Gold marks the chance of an arrival by t; the remaining strip shows the chance of still waiting.",
+      "assumptions": [
+        "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+      ],
+      "inputs": {
+        "time": 2,
+        "rate": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 2; λ = 0.5",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "F(t)=1-e^{-\\lambda t},\\quad S(t)=e^{-\\lambda t},\\quad f(t)=\\lambda e^{-\\lambda t},\\quad \\mathbb E[T]=\\frac{1}{\\lambda},\\qquad t\\ge0,\\ \\lambda>0.",
+          "reason": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval."
+        },
+        {
+          "index": 3,
+          "expression": "0.632120558828558",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0.632120558828558"
+      },
+      "interpretation": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.",
+      "independent_check": {
+        "method": "Python expm1 evaluates cumulative waiting probability directly and checks its complement against survival.",
+        "expected": "0.632120558828558"
+      },
+      "limits": "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.",
+      "preset": {
+        "time": 2,
+        "rate": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+      ]
+    },
+    {
+      "id": "math:example:exponential-distribution:case-2",
+      "title": "The moment waiting begins",
+      "role": "applied_model",
+      "question": "What is the chance the next workshop order arrives within the wait?",
+      "setting": "A workshop receives independent arrivals under a chosen constant-rate model. Move the waiting threshold t, or change the assumed arrival rate λ. Gold marks the chance of an arrival by t; the remaining strip shows the chance of still waiting.",
+      "assumptions": [
+        "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+      ],
+      "inputs": {
+        "time": 0,
+        "rate": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 0; λ = 0.5",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "F(t)=1-e^{-\\lambda t},\\quad S(t)=e^{-\\lambda t},\\quad f(t)=\\lambda e^{-\\lambda t},\\quad \\mathbb E[T]=\\frac{1}{\\lambda},\\qquad t\\ge0,\\ \\lambda>0.",
+          "reason": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval."
+        },
+        {
+          "index": 3,
+          "expression": "0",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0"
+      },
+      "interpretation": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.",
+      "independent_check": {
+        "method": "Python expm1 evaluates cumulative waiting probability directly and checks its complement against survival.",
+        "expected": "0"
+      },
+      "limits": "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.",
+      "preset": {
+        "time": 0,
+        "rate": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+      ]
+    },
+    {
+      "id": "math:example:exponential-distribution:case-3",
+      "title": "Faster arrivals, same deadline",
+      "role": "applied_model",
+      "question": "What is the chance the next workshop order arrives within the wait?",
+      "setting": "A workshop receives independent arrivals under a chosen constant-rate model. Move the waiting threshold t, or change the assumed arrival rate λ. Gold marks the chance of an arrival by t; the remaining strip shows the chance of still waiting.",
+      "assumptions": [
+        "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+      ],
+      "inputs": {
+        "time": 2,
+        "rate": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 2; λ = 1",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "F(t)=1-e^{-\\lambda t},\\quad S(t)=e^{-\\lambda t},\\quad f(t)=\\lambda e^{-\\lambda t},\\quad \\mathbb E[T]=\\frac{1}{\\lambda},\\qquad t\\ge0,\\ \\lambda>0.",
+          "reason": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval."
+        },
+        {
+          "index": 3,
+          "expression": "0.864664716763387",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0.864664716763387"
+      },
+      "interpretation": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.",
+      "independent_check": {
+        "method": "Python expm1 evaluates cumulative waiting probability directly and checks its complement against survival.",
+        "expected": "0.864664716763387"
+      },
+      "limits": "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.",
+      "preset": {
+        "time": 2,
+        "rate": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+      ]
+    },
+    {
+      "id": "math:example:exponential-distribution:case-4",
+      "title": "Longer wait at the original rate",
+      "role": "applied_model",
+      "question": "What is the chance the next workshop order arrives within the wait?",
+      "setting": "A workshop receives independent arrivals under a chosen constant-rate model. Move the waiting threshold t, or change the assumed arrival rate λ. Gold marks the chance of an arrival by t; the remaining strip shows the chance of still waiting.",
+      "assumptions": [
+        "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+      ],
+      "inputs": {
+        "time": 4,
+        "rate": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 4; λ = 0.5",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "F(t)=1-e^{-\\lambda t},\\quad S(t)=e^{-\\lambda t},\\quad f(t)=\\lambda e^{-\\lambda t},\\quad \\mathbb E[T]=\\frac{1}{\\lambda},\\qquad t\\ge0,\\ \\lambda>0.",
+          "reason": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval."
+        },
+        {
+          "index": 3,
+          "expression": "0.864664716763387",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0.864664716763387"
+      },
+      "interpretation": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.",
+      "independent_check": {
+        "method": "Python expm1 evaluates cumulative waiting probability directly and checks its complement against survival.",
+        "expected": "0.864664716763387"
+      },
+      "limits": "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.",
+      "preset": {
+        "time": 4,
+        "rate": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+      ]
+    },
+    {
+      "id": "math:example:exponential-distribution:case-5",
+      "title": "A very short wait",
+      "role": "applied_model",
+      "question": "What is the chance the next workshop order arrives within the wait?",
+      "setting": "A workshop receives independent arrivals under a chosen constant-rate model. Move the waiting threshold t, or change the assumed arrival rate λ. Gold marks the chance of an arrival by t; the remaining strip shows the chance of still waiting.",
+      "assumptions": [
+        "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+      ],
+      "inputs": {
+        "time": 0.05,
+        "rate": 0.25
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 0.05; λ = 0.25",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "F(t)=1-e^{-\\lambda t},\\quad S(t)=e^{-\\lambda t},\\quad f(t)=\\lambda e^{-\\lambda t},\\quad \\mathbb E[T]=\\frac{1}{\\lambda},\\qquad t\\ge0,\\ \\lambda>0.",
+          "reason": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval."
+        },
+        {
+          "index": 3,
+          "expression": "0.0124221995061186",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0.0124221995061186"
+      },
+      "interpretation": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.",
+      "independent_check": {
+        "method": "Python expm1 evaluates cumulative waiting probability directly and checks its complement against survival.",
+        "expected": "0.0124221995061186"
+      },
+      "limits": "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.",
+      "preset": {
+        "time": 0.05,
+        "rate": 0.25
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:exponential-distribution",
+    "renderer_id": "exponential-distribution-visual-model",
+    "renderer_version": "1",
+    "model_id": "exponential-distribution-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:exponential-distribution:expression",
+    "interaction_status": "implemented",
+    "description": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.",
+    "controls": [
+      {
+        "id": "time",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 8,
+        "step": 0.05
+      },
+      {
+        "id": "rate",
+        "type": "number",
+        "default": 0.5,
+        "min": 0.25,
+        "max": 2,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "time": 2,
+          "rate": 0.5
+        },
+        "status": "valid",
+        "output": 0.6321205588285577
+      },
+      {
+        "input": {
+          "time": 0,
+          "rate": 0.5
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "time": 2,
+          "rate": 1
+        },
+        "status": "valid",
+        "output": 0.8646647167633873
+      },
+      {
+        "input": {
+          "time": 4,
+          "rate": 0.5
+        },
+        "status": "valid",
+        "output": 0.8646647167633873
+      },
+      {
+        "input": {
+          "time": 0.05,
+          "rate": 0.25
+        },
+        "status": "valid",
+        "output": 0.012422199506118572
+      },
+      {
+        "input": {
+          "time": 8,
+          "rate": 0.25
+        },
+        "status": "valid",
+        "output": 0.8646647167633873
+      },
+      {
+        "input": {
+          "time": 8,
+          "rate": 2
+        },
+        "status": "valid",
+        "output": 0.9999998874648253
+      },
+      {
+        "input": {
+          "time": 0,
+          "rate": 2
+        },
+        "status": "valid",
+        "output": -0.0
+      },
+      {
+        "input": {
+          "time": 1,
+          "rate": 1
+        },
+        "status": "valid",
+        "output": 0.6321205588285577
+      },
+      {
+        "input": {
+          "time": 1e-06,
+          "rate": 0.25
+        },
+        "status": "valid",
+        "output": 2.499999687500026e-07
+      },
+      {
+        "input": {
+          "time": 4,
+          "rate": 0.25
+        },
+        "status": "valid",
+        "output": 0.6321205588285577
+      },
+      {
+        "input": {
+          "time": 1.5,
+          "rate": 2
+        },
+        "status": "valid",
+        "output": 0.950212931632136
+      },
+      {
+        "input": {
+          "time": 8,
+          "rate": 0.5
+        },
+        "status": "valid",
+        "output": 0.9816843611112658
+      },
+      {
+        "input": {
+          "time": true,
+          "rate": 0.5
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "time": 100,
+          "rate": 0.5
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "time": 2,
+          "rate": 0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "time": "1",
+          "rate": 0.5
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "time": 5e-324,
+          "rate": 0.25
+        },
+        "status": "numeric_precision"
+      },
+      {
+        "input": {
+          "time": 5e-324,
+          "rate": 0.5
+        },
+        "status": "numeric_precision"
+      },
+      {
+        "input": {
+          "time": 5e-324,
+          "rate": 1
+        },
+        "status": "valid",
+        "output": 5e-324
+      },
+      {
+        "input": {
+          "time": 5e-324,
+          "rate": 2
+        },
+        "status": "valid",
+        "output": 1e-323
+      }
+    ],
+    "compute": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.",
+    "numeric_tolerance": 1e-12,
+    "invariants": [
+      "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.",
+      "The story, calculation and visual use the same current parameters.",
+      "Geometry density scales and Graph probability scales have distinct meanings."
+    ],
+    "limits": [
+      "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "What is the chance the next workshop order arrives within the wait?",
+      "answer": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval."
+    },
+    {
+      "prompt": "What changes when the threshold or shift moves?",
+      "answer": "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Model-derived density area or paired physical readings, with explicit quantity marks."
+    },
+    {
+      "kind": "graph",
+      "description": "A fixed probability scale; discrete sign boundaries are not joined."
+    },
+    {
+      "kind": "substitution",
+      "description": "Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Originally authored workshop scenario",
+      "mapping": "A workshop receives independent arrivals under a chosen constant-rate model. Move the waiting threshold t, or change the assumed arrival rate λ. Gold marks the chance of an arrival by t; the remaining strip shows the chance of still waiting.",
+      "limitations": "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:exponential-distribution:case-1"
+    },
+    {
+      "context": "A changed model setting",
+      "mapping": "The moment waiting begins. Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.",
+      "limitations": "A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:exponential-distribution:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:distribution-extensions:exponential"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 second continuation: added continuous-distribution and exact paired-sign modules."
+  ]
+}

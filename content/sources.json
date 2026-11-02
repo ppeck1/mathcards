@@ -999,6 +999,114 @@
       "kind": "research",
       "verification": "Primary definition or model context inspected 2026-11-02; independently reviewed teaching status remains pending.",
       "rights": "Original explanations, scenarios, figures and examples. No source exercises or scans reproduced."
+    },
+    {
+      "id": "source:algebra-extension:complex",
+      "title": "OpenStax · Complex Numbers and Polar Form",
+      "url": "https://openstax.org/books/algebra-and-trigonometry-2e/pages/10-5-polar-form-of-complex-numbers",
+      "kind": "textbook",
+      "locator": "Definition of complex modulus as distance in the complex plane. Conjugation definition also inspected in section 2.4.",
+      "verification": "Definition-level source inspected 2026-11-02. Original bounded model and examples remain author-derived; independent review and exact-edition book checks are pending.",
+      "rights": "Original scenario, diagrams, calculations and examples; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:algebra-extension:conjugate",
+      "title": "OpenStax · Complex Numbers",
+      "url": "https://openstax.org/books/college-algebra-2e/pages/2-4-complex-numbers",
+      "kind": "textbook",
+      "locator": "Complex plane and conjugation of a real-plus-imaginary representation.",
+      "verification": "Definition-level source inspected 2026-11-02; independent mathematical and exact-edition book review remains open.",
+      "rights": "Original plotter scenario; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:algebra-extension:quadratic",
+      "title": "OpenStax · Quadratic Equations",
+      "url": "https://openstax.org/books/algebra-and-trigonometry-2e/pages/2-5-quadratic-equations",
+      "kind": "textbook",
+      "locator": "Quadratic formula and discriminant classification. The exact binary-sign and stable numerical implementation is author-derived.",
+      "verification": "Definition-level source inspected 2026-11-02; independent mathematical and exact-edition book review remains open.",
+      "rights": "Original calibration scenario and worked examples; no source exercise reproduced."
+    },
+    {
+      "id": "source:algebra-extension:lp",
+      "title": "MIT · 18.310 Linear Programming",
+      "url": "https://math.mit.edu/~djk/18.310/18.310F04/26and27.html",
+      "kind": "lecture_notes",
+      "locator": "Sections 1–3: constraints, feasible regions, vertices and linear objectives.",
+      "verification": "Definition-level source inspected 2026-11-02. Bounded workshop family and exact candidate comparisons are author-derived; independent review remains open.",
+      "rights": "Original paint-mixture scenario and diagrams; no source exercise reproduced."
+    },
+    {
+      "id": "source:algorithm-extensions:linear",
+      "title": "Sedgewick and Wayne · Sequential search",
+      "url": "https://raw.githubusercontent.com/kevin-wayne/algs4/master/src/main/java/edu/princeton/cs/algs4/SequentialSearchST.java",
+      "kind": "reference_implementation",
+      "locator": "Sequential lookup tests successive keys until equality or exhaustion. The card uses an original fixed array rather than the source linked-list symbol table.",
+      "verification": "Definition-level primary implementation inspected 2026-11-02. Original bounded models and examples; independent mathematics, learning and exact-edition book review remain pending.",
+      "rights": "Original workshop and sensor-network stories, calculations and diagrams. Algorithms are mathematical procedures; no source implementation, exercise or dataset is copied."
+    },
+    {
+      "id": "source:algorithm-extensions:binary",
+      "title": "Sedgewick and Wayne · Binary search in a sorted list",
+      "url": "https://github.com/kevin-wayne/algs4/blob/master/src/main/java/edu/princeton/cs/algs4/BinarySearch.java",
+      "kind": "reference_implementation",
+      "locator": "Sorted-array precondition; middle comparison and retained index interval. The card counts one three-way value comparison, not primitive language operators.",
+      "verification": "Definition-level primary implementation inspected 2026-11-02. Original bounded models and examples; independent mathematics, learning and exact-edition book review remain pending.",
+      "rights": "Original workshop and sensor-network stories, calculations and diagrams. Algorithms are mathematical procedures; no source implementation, exercise or dataset is copied."
+    },
+    {
+      "id": "source:algorithm-extensions:mst",
+      "title": "Sedgewick and Wayne · Minimum spanning trees",
+      "url": "https://github.com/kevin-wayne/algs4/blob/master/src/main/java/edu/princeton/cs/algs4/KruskalMST.java",
+      "kind": "reference_implementation",
+      "locator": "Minimum total edge weight, connected tree, equal weights and greedy cycle rejection. The card separately enumerates its finite tied minima; no source code or data is reproduced.",
+      "verification": "Definition-level primary implementation inspected 2026-11-02. Original bounded models and examples; independent mathematics, learning and exact-edition book review remain pending.",
+      "rights": "Original workshop and sensor-network stories, calculations and diagrams. Algorithms are mathematical procedures; no source implementation, exercise or dataset is copied."
+    },
+    {
+      "id": "source:distribution-extensions:normal",
+      "title": "NIST/SEMATECH · Normal Distribution",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+      "kind": "reference",
+      "locator": "§1.3.6.6.1: normal density, cumulative probability, location and scale.",
+      "verification": "Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.",
+      "rights": "Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:distribution-extensions:exponential",
+      "title": "NIST/SEMATECH · Exponential Distribution",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3667.htm",
+      "kind": "reference",
+      "locator": "§1.3.6.6.7: density, CDF, survival and constant hazard. This lesson uses rate λ=1/β and zero location.",
+      "verification": "Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.",
+      "rights": "Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:distribution-extensions:sign",
+      "title": "NIST Dataplot · Sign Test",
+      "url": "https://www.itl.nist.gov/div898/software/dataplot/refman1/auxillar/signtest.htm",
+      "kind": "reference",
+      "locator": "Paired differences, omission of ties and binomial sign probabilities. The lesson states a conditional fair-sign null explicitly.",
+      "verification": "Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.",
+      "rights": "Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:distribution-extensions:median",
+      "title": "Penn State STAT 415 · The Sign Test for a Median",
+      "url": "https://online.stat.psu.edu/stat415/book/export/html/836",
+      "kind": "reference",
+      "locator": "§20.1: continuous difference/median interpretation and paired observations; no source exercise is reproduced.",
+      "verification": "Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.",
+      "rights": "Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:distribution-extensions:quadrature",
+      "title": "NIST DLMF · Gauss Quadrature",
+      "url": "https://dlmf.nist.gov/3.5#v",
+      "kind": "reference",
+      "locator": "§3.5(v): Gaussian quadrature. The bounded numerical implementation and error measurements are independently authored.",
+      "verification": "Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.",
+      "rights": "Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced."
     }
   ]
 }

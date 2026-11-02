@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:scalar-triple-product", "id": "math:concept:scalar-triple-product", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:scalar-triple-product", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "b459ce0a24508966688a35b499fbfc422d734c346d57bc19590417a98faaf561"}, "purpose": "Why can a slanted storage frame keep the same volume?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "b459ce0a24508966688a35b499fbfc422d734c346d57bc19590417a98faaf561", "status": "draft", "title": "The scalar triple product", "topics": ["mathematics", "linear-algebra", "geometry", "the scalar triple product"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:scalar-triple-product", "id": "math:concept:scalar-triple-product", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:scalar-triple-product", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "b459ce0a24508966688a35b499fbfc422d734c346d57bc19590417a98faaf561"}, "purpose": "Why can a slanted storage frame keep the same volume?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "b459ce0a24508966688a35b499fbfc422d734c346d57bc19590417a98faaf561", "status": "draft", "title": "The scalar triple product", "topics": ["mathematics", "linear-algebra", "geometry", "the scalar triple product"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # The scalar triple product
@@ -81,7 +81,7 @@ For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the sig
   - math:concept:determinant
   - math:concept:vector-projection
 - depth:
-
+  []
 
 ## Definition
 
@@ -234,7 +234,7 @@ For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the sig
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -250,6 +250,7 @@ For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the sig
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:determinant
   - type: supports
@@ -258,6 +259,7 @@ For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the sig
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:vector-projection
   - type: supports
@@ -266,6 +268,7 @@ For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the sig
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -312,6 +315,7 @@ For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the sig
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A constructed storage frame has edges u=(a,0,0), v=(s,b,0) and w=(1,0.5,h) metres. Changing shear slants it without changing its perpendicular dimensions.
     - This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale.
@@ -358,6 +362,7 @@ For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the sig
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A constructed storage frame has edges u=(a,0,0), v=(s,b,0) and w=(1,0.5,h) metres. Changing shear slants it without changing its perpendicular dimensions.
     - This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale.
@@ -404,6 +409,7 @@ For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the sig
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A constructed storage frame has edges u=(a,0,0), v=(s,b,0) and w=(1,0.5,h) metres. Changing shear slants it without changing its perpendicular dimensions.
     - This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale.
@@ -450,6 +456,7 @@ For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the sig
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A constructed storage frame has edges u=(a,0,0), v=(s,b,0) and w=(1,0.5,h) metres. Changing shear slants it without changing its perpendicular dimensions.
     - This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale.
@@ -496,6 +503,7 @@ For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the sig
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A constructed storage frame has edges u=(a,0,0), v=(s,b,0) and w=(1,0.5,h) metres. Changing shear slants it without changing its perpendicular dimensions.
     - This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale.

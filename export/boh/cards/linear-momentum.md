@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:linear-momentum", "id": "math:concept:linear-momentum", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:linear-momentum", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "f318aede9f68c389f6f1cac7aa3dd590aea1139498f897b6352509f1c2d13251"}, "purpose": "What changes when the same cart velocity belongs to a heavier cart?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "f318aede9f68c389f6f1cac7aa3dd590aea1139498f897b6352509f1c2d13251", "status": "draft", "title": "Linear momentum", "topics": ["mathematics", "mechanics", "applied-mathematics", "linear momentum"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:linear-momentum", "id": "math:concept:linear-momentum", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:linear-momentum", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "f318aede9f68c389f6f1cac7aa3dd590aea1139498f897b6352509f1c2d13251"}, "purpose": "What changes when the same cart velocity belongs to a heavier cart?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "f318aede9f68c389f6f1cac7aa3dd590aea1139498f897b6352509f1c2d13251", "status": "draft", "title": "Linear momentum", "topics": ["mathematics", "mechanics", "applied-mathematics", "linear momentum"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Linear momentum
@@ -81,7 +81,7 @@ Multiply each velocity component by the positive mass in the same frame. The Euc
   - math:concept:ratio-scale
   - math:concept:angular-velocity
 - depth:
-
+  []
 
 ## Definition
 
@@ -221,7 +221,7 @@ Multiply each velocity component by the positive mass in the same frame. The Euc
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -237,6 +237,7 @@ Multiply each velocity component by the positive mass in the same frame. The Euc
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:ratio-scale
   - type: supports
@@ -245,6 +246,7 @@ Multiply each velocity component by the positive mass in the same frame. The Euc
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:angular-velocity
   - type: supports
@@ -253,6 +255,7 @@ Multiply each velocity component by the positive mass in the same frame. The Euc
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -297,6 +300,7 @@ Multiply each velocity component by the positive mass in the same frame. The Euc
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A cart of stated positive mass has a measured planar velocity. Resolve its momentum in the same frame; changing mass changes momentum without changing the stated velocity.
     - This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction.
@@ -341,6 +345,7 @@ Multiply each velocity component by the positive mass in the same frame. The Euc
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A cart of stated positive mass has a measured planar velocity. Resolve its momentum in the same frame; changing mass changes momentum without changing the stated velocity.
     - This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction.
@@ -385,6 +390,7 @@ Multiply each velocity component by the positive mass in the same frame. The Euc
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A cart of stated positive mass has a measured planar velocity. Resolve its momentum in the same frame; changing mass changes momentum without changing the stated velocity.
     - This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction.
@@ -429,6 +435,7 @@ Multiply each velocity component by the positive mass in the same frame. The Euc
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A cart of stated positive mass has a measured planar velocity. Resolve its momentum in the same frame; changing mass changes momentum without changing the stated velocity.
     - This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction.
@@ -473,6 +480,7 @@ Multiply each velocity component by the positive mass in the same frame. The Euc
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A cart of stated positive mass has a measured planar velocity. Resolve its momentum in the same frame; changing mass changes momentum without changing the stated velocity.
     - This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction.

@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:hysteresis", "id": "math:concept:hysteresis", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:hysteresis", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "d382fdf75aacc697aeda194abeaf86b7c49a173a81d5f728f45a8e400424afc1"}, "purpose": "Why can the same dial setting hold two different positions?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "d382fdf75aacc697aeda194abeaf86b7c49a173a81d5f728f45a8e400424afc1", "status": "draft", "title": "Hysteresis and remembered branches", "topics": ["mathematics", "dynamics", "hysteresis and remembered branches"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:hysteresis", "id": "math:concept:hysteresis", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:hysteresis", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "d382fdf75aacc697aeda194abeaf86b7c49a173a81d5f728f45a8e400424afc1"}, "purpose": "Why can the same dial setting hold two different positions?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "d382fdf75aacc697aeda194abeaf86b7c49a173a81d5f728f45a8e400424afc1", "status": "draft", "title": "Hysteresis and remembered branches", "topics": ["mathematics", "dynamics", "hysteresis and remembered branches"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Hysteresis and remembered branches
@@ -75,13 +75,13 @@ At each whole sweep step, solve the stationary cubic. Among its stable roots cho
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:cusp-potential
   - math:concept:fold-bifurcation
   - math:concept:basin-attraction
 - depth:
-
+  []
 
 ## Definition
 
@@ -196,7 +196,7 @@ At each whole sweep step, solve the stationary cubic. Among its stable roots cho
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -212,6 +212,7 @@ At each whole sweep step, solve the stationary cubic. Among its stable roots cho
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:fold-bifurcation
   - type: supports
@@ -220,6 +221,7 @@ At each whole sweep step, solve the stationary cubic. Among its stable roots cho
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:basin-attraction
   - type: supports
@@ -228,6 +230,7 @@ At each whole sweep step, solve the stationary cubic. Among its stable roots cho
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -269,6 +272,7 @@ At each whole sweep step, solve the stationary cubic. Among its stable roots cho
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.
 - Item:
@@ -309,6 +313,7 @@ At each whole sweep step, solve the stationary cubic. Among its stable roots cho
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.
 - Item:
@@ -349,6 +354,7 @@ At each whole sweep step, solve the stationary cubic. Among its stable roots cho
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.
 - Item:
@@ -389,6 +395,7 @@ At each whole sweep step, solve the stationary cubic. Among its stable roots cho
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.
 - Item:
@@ -429,6 +436,7 @@ At each whole sweep step, solve the stationary cubic. Among its stable roots cho
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.
 

@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:hypothesis-test", "id": "math:concept:hypothesis-test", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:hypothesis-test", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "ea60b4cdb127f0534a311684557600920285a642d638179f4dc5ba1dd71e8b80"}, "purpose": "Make a p-value visible as a complete probability tail, then compare it with a threshold declared in advance.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "ea60b4cdb127f0534a311684557600920285a642d638179f4dc5ba1dd71e8b80", "status": "draft", "title": "An exact one-sided hypothesis test", "topics": ["mathematics", "statistics", "probability", "hypothesis test", "p value", "p-value", "null hypothesis", "significance level", "one sided test"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:hypothesis-test", "id": "math:concept:hypothesis-test", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:hypothesis-test", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "ea60b4cdb127f0534a311684557600920285a642d638179f4dc5ba1dd71e8b80"}, "purpose": "Make a p-value visible as a complete probability tail, then compare it with a threshold declared in advance.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "ea60b4cdb127f0534a311684557600920285a642d638179f4dc5ba1dd71e8b80", "status": "draft", "title": "An exact one-sided hypothesis test", "topics": ["mathematics", "statistics", "probability", "hypothesis test", "p value", "p-value", "null hypothesis", "significance level", "one sided test"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # An exact one-sided hypothesis test
@@ -83,9 +83,9 @@ A p-value is the probability, under a specified null model, of a result at least
 - required:
   - math:concept:binomial-distribution
 - helpful:
-
+  []
 - depth:
-
+  []
 
 ## Definition
 
@@ -170,7 +170,7 @@ A p-value is the probability, under a specified null model, of a result at least
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -186,6 +186,7 @@ A p-value is the probability, under a specified null model, of a result at least
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -222,6 +223,7 @@ A p-value is the probability, under a specified null model, of a result at least
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.
     - The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.
@@ -258,6 +260,7 @@ A p-value is the probability, under a specified null model, of a result at least
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.
     - The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.
@@ -294,6 +297,7 @@ A p-value is the probability, under a specified null model, of a result at least
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.
     - The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.
@@ -330,6 +334,7 @@ A p-value is the probability, under a specified null model, of a result at least
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.
     - The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.
@@ -366,6 +371,7 @@ A p-value is the probability, under a specified null model, of a result at least
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.
     - The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.

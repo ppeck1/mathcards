@@ -1,0 +1,513 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:minimum-spanning-tree:case-2", "id": "math:example:minimum-spanning-tree:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:minimum-spanning-tree", "example_id": "math:example:minimum-spanning-tree:case-2", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "dbc8f3369c7a4c6683f8cbd70f6770f928e83742d2d5e2c5049e7ed5f060526a"}, "purpose": "Which three runs connect every sensor using the least cable?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "dbc8f3369c7a4c6683f8cbd70f6770f928e83742d2d5e2c5049e7ed5f060526a", "status": "draft", "title": "Two short alternate cable runs", "topics": ["mathematics", "discrete-mathematics", "computation", "optimization", "minimum spanning tree"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Two short alternate cable runs
+
+Parent card: math:concept:minimum-spanning-tree; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:minimum-spanning-tree; revision 0.1.0-draft. Setting: Connect four garden sensor stations using three of six available cable runs. Each run has a quoted routed length. Seek the least total cable while connecting every station without a loop. Expression: $W(T)=\sum_{e\in T}w_e,\qquad \min_{T\text{ spanning tree}} W(T).$. Conditions required for a defined value (a case may test their violation): Only this connected four-station graph is implemented. The two variable cable quotes are whole metres from 1 to 8; all sums and ties are exact integers. Node layout is schematic, while edge width and labels encode routed cable length. This is a network-wide connection problem; it does not minimize each station-to-station journey. Evaluate the fixed graph at the two declared cable quotes. Sort links by length, add links joining different components until all stations connect, and separately enumerate the sixteen spanning trees to retain every minimum. Scope: Only this connected four-station graph is implemented. The two variable cable quotes are whole metres from 1 to 8; all sums and ties are exact integers. Node layout is schematic, while edge width and labels encode routed cable length. This is a network-wide connection problem; it does not minimize each station-to-station journey.
+
+Case unit math:example:minimum-spanning-tree:case-2. Setting: Four garden sensor stations must share one cable network. The available cable runs are quoted in whole metres: AB is 2, AD is 6, BC is 3 and CD is 2. Change the AC and BD quotes. Keep all four connected with the least cable; there is no need to form a loop. Inputs: {"ac": 1, "bd": 1}. Result: {"exact": "4 m"}. Limits: Only this connected four-station graph is implemented. The two variable cable quotes are whole metres from 1 to 8; all sums and ties are exact integers. Node layout is schematic, while edge width and labels encode routed cable length. This is a network-wide connection problem; it does not minimize each station-to-station journey.
+
+## Complete worked case
+
+- id: math:example:minimum-spanning-tree:case-2
+- title: Two short alternate cable runs
+- role: applied_model
+- question: Which three runs connect every sensor using the least cable?
+- setting: Four garden sensor stations must share one cable network. The available cable runs are quoted in whole metres: AB is 2, AD is 6, BC is 3 and CD is 2. Change the AC and BD quotes. Keep all four connected with the least cable; there is no need to form a loop.
+- assumptions:
+  - Only this connected four-station graph is implemented. The two variable cable quotes are whole metres from 1 to 8; all sums and ties are exact integers. Node layout is schematic, while edge width and labels encode routed cable length. This is a network-wide connection problem; it does not minimize each station-to-station journey.
+- inputs:
+  - ac: 1
+  - bd: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: w = 1; v = 1
+    - reason: Use the declared whole-number choices and fixed list or network.
+  - Item:
+    - index: 2
+    - expression: W = 4 m; N = 2
+    - reason: Evaluate the fixed graph at the two declared cable quotes. Sort links by length, add links joining different components until all stations connect, and separately enumerate the sixteen spanning trees to retain every minimum.
+- result:
+  - exact: 4 m
+- interpretation: The least total connects every station using three runs. Equal totals remain alternative minimum trees.
+- independent check:
+  - method: Decode all sixteen length-two Prüfer sequences into distinct labeled trees, sum their quoted cable lengths, and compare the least total. Exactly 2 trees attain 4 m.
+  - expected: 4
+- limits: Only this connected four-station graph is implemented. The two variable cable quotes are whole metres from 1 to 8; all sums and ties are exact integers. Node layout is schematic, while edge width and labels encode routed cable length. This is a network-wide connection problem; it does not minimize each station-to-station journey.
+- preset:
+  - ac: 1
+  - bd: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Only this connected four-station graph is implemented. The two variable cable quotes are whole metres from 1 to 8; all sums and ties are exact integers. Node layout is schematic, while edge width and labels encode routed cable length. This is a network-wide connection problem; it does not minimize each station-to-station journey.
+
+## Written exploration recipe
+
+- component id: component:minimum-spanning-tree
+- renderer id: minimum-spanning-tree-visual-model
+- renderer version: 1
+- model id: minimum-spanning-tree-visual-model
+- model revision: 1
+- expression id: ast:minimum-spanning-tree:expression
+- interaction status: implemented
+- description: Four garden sensor stations must share one cable network. The available cable runs are quoted in whole metres: AB is 2, AD is 6, BC is 3 and CD is 2. Change the AC and BD quotes. Keep all four connected with the least cable; there is no need to form a loop.
+- controls:
+  - Item:
+    - id: ac
+    - type: number
+    - default: 4
+    - min: 1
+    - max: 8
+    - step: 1
+  - Item:
+    - id: bd
+    - type: number
+    - default: 4
+    - min: 1
+    - max: 8
+    - step: 1
+- expected cases:
+  - Item:
+    - input:
+      - ac: 1
+      - bd: 1
+    - status: valid
+    - output: 4
+  - Item:
+    - input:
+      - ac: 1
+      - bd: 2
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 1
+      - bd: 3
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 1
+      - bd: 4
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 1
+      - bd: 5
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 1
+      - bd: 6
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 1
+      - bd: 7
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 1
+      - bd: 8
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 2
+      - bd: 1
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 2
+      - bd: 2
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - ac: 2
+      - bd: 3
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - ac: 2
+      - bd: 4
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - ac: 2
+      - bd: 5
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - ac: 2
+      - bd: 6
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - ac: 2
+      - bd: 7
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - ac: 2
+      - bd: 8
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - ac: 3
+      - bd: 1
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 3
+      - bd: 2
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - ac: 3
+      - bd: 3
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 3
+      - bd: 4
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 3
+      - bd: 5
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 3
+      - bd: 6
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 3
+      - bd: 7
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 3
+      - bd: 8
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 4
+      - bd: 1
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 4
+      - bd: 2
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - ac: 4
+      - bd: 3
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 4
+      - bd: 4
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 4
+      - bd: 5
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 4
+      - bd: 6
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 4
+      - bd: 7
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 4
+      - bd: 8
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 5
+      - bd: 1
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 5
+      - bd: 2
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - ac: 5
+      - bd: 3
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 5
+      - bd: 4
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 5
+      - bd: 5
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 5
+      - bd: 6
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 5
+      - bd: 7
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 5
+      - bd: 8
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 6
+      - bd: 1
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 6
+      - bd: 2
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - ac: 6
+      - bd: 3
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 6
+      - bd: 4
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 6
+      - bd: 5
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 6
+      - bd: 6
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 6
+      - bd: 7
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 6
+      - bd: 8
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 7
+      - bd: 1
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 7
+      - bd: 2
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - ac: 7
+      - bd: 3
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 7
+      - bd: 4
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 7
+      - bd: 5
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 7
+      - bd: 6
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 7
+      - bd: 7
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 7
+      - bd: 8
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 8
+      - bd: 1
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - ac: 8
+      - bd: 2
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - ac: 8
+      - bd: 3
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 8
+      - bd: 4
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 8
+      - bd: 5
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 8
+      - bd: 6
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 8
+      - bd: 7
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 8
+      - bd: 8
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - ac: 0.9
+      - bd: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - ac: true
+      - bd: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - ac: 9
+      - bd: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - ac: 4
+      - bd: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - ac: 4
+      - bd: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - ac: false
+      - bd: 4
+    - status: invalid_parameters
+- compute: Evaluate the fixed graph at the two declared cable quotes. Sort links by length, add links joining different components until all stations connect, and separately enumerate the sixteen spanning trees to retain every minimum.
+- numeric tolerance: 1e-10
+- invariants:
+  - A minimum exists among the sixteen spanning trees.
+  - Only this connected four-station graph is implemented. The two variable cable quotes are whole metres from 1 to 8; all sums and ties are exact integers. Node layout is schematic, while edge width and labels encode routed cable length. This is a network-wide connection problem; it does not minimize each station-to-station journey.
+- limits:
+  - Only this connected four-station graph is implemented. The two variable cable quotes are whole metres from 1 to 8; all sums and ties are exact integers. Node layout is schematic, while edge width and labels encode routed cable length. This is a network-wide connection problem; it does not minimize each station-to-station journey.
+- fallback: Pause for readable values. Geometry, Graph, story and data share the same whole state.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:algorithm-extensions:mst. [Sedgewick and Wayne · Minimum spanning trees](https://github.com/kevin-wayne/algs4/blob/master/src/main/java/edu/princeton/cs/algs4/KruskalMST.java). Locator: Minimum total edge weight, connected tree, equal weights and greedy cycle rejection. The card separately enumerates its finite tied minima; no source code or data is reproduced.. Verification: Definition-level primary implementation inspected 2026-11-02. Original bounded models and examples; independent mathematics, learning and exact-edition book review remain pending.. Rights: Original workshop and sensor-network stories, calculations and diagrams. Algorithms are mathematical procedures; no source implementation, exercise or dataset is copied.

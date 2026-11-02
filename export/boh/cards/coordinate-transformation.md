@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:coordinate-transformation", "id": "math:concept:coordinate-transformation", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:coordinate-transformation", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "cd9df47ddd1c1350eb832e1b0aa6235027f20e3aa4bc2e8b2c6d47c775f123c0"}, "purpose": "How can the same displacement have different coordinates?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "cd9df47ddd1c1350eb832e1b0aa6235027f20e3aa4bc2e8b2c6d47c775f123c0", "status": "draft", "title": "Changing an orthonormal frame", "topics": ["mathematics", "linear-algebra", "geometry", "changing an orthonormal frame"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:coordinate-transformation", "id": "math:concept:coordinate-transformation", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:coordinate-transformation", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "cd9df47ddd1c1350eb832e1b0aa6235027f20e3aa4bc2e8b2c6d47c775f123c0"}, "purpose": "How can the same displacement have different coordinates?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "cd9df47ddd1c1350eb832e1b0aa6235027f20e3aa4bc2e8b2c6d47c775f123c0", "status": "draft", "title": "Changing an orthonormal frame", "topics": ["mathematics", "linear-algebra", "geometry", "changing an orthonormal frame"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Changing an orthonormal frame
@@ -81,7 +81,7 @@ Resolve the fixed world vector onto the two rotated unit directions. The coordin
   - math:concept:vector-rotation
   - math:concept:vector-projection
 - depth:
-
+  []
 
 ## Definition
 
@@ -221,7 +221,7 @@ Resolve the fixed world vector onto the two rotated unit directions. The coordin
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -237,6 +237,7 @@ Resolve the fixed world vector onto the two rotated unit directions. The coordin
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:vector-rotation
   - type: supports
@@ -245,6 +246,7 @@ Resolve the fixed world vector onto the two rotated unit directions. The coordin
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:vector-projection
   - type: supports
@@ -253,6 +255,7 @@ Resolve the fixed world vector onto the two rotated unit directions. The coordin
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -297,6 +300,7 @@ Resolve the fixed world vector onto the two rotated unit directions. The coordin
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A floor marker has a fixed world displacement. Turn the measuring frame counterclockwise while leaving the marker and physical vector fixed.
     - This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry.
@@ -341,6 +345,7 @@ Resolve the fixed world vector onto the two rotated unit directions. The coordin
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A floor marker has a fixed world displacement. Turn the measuring frame counterclockwise while leaving the marker and physical vector fixed.
     - This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry.
@@ -385,6 +390,7 @@ Resolve the fixed world vector onto the two rotated unit directions. The coordin
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A floor marker has a fixed world displacement. Turn the measuring frame counterclockwise while leaving the marker and physical vector fixed.
     - This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry.
@@ -429,6 +435,7 @@ Resolve the fixed world vector onto the two rotated unit directions. The coordin
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A floor marker has a fixed world displacement. Turn the measuring frame counterclockwise while leaving the marker and physical vector fixed.
     - This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry.
@@ -473,6 +480,7 @@ Resolve the fixed world vector onto the two rotated unit directions. The coordin
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A floor marker has a fixed world displacement. Turn the measuring frame counterclockwise while leaving the marker and physical vector fixed.
     - This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry.

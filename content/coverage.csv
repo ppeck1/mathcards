@@ -13,7 +13,7 @@ math:concept:natural-number,Natural Number,number-arithmetic,planned,expansion,p
 math:concept:integer,Integer,number-arithmetic,planned,expansion,pending,pending,planned
 math:concept:rational-number,Rational numbers and fractions,numbers-number-theory,draft_specimen,expansion,pending,pending,implemented
 math:concept:real-number,Real Number,number-arithmetic,planned,expansion,pending,pending,planned
-math:concept:complex-number,Complex Number,number-arithmetic,planned,expansion,pending,pending,planned
+math:concept:complex-number,"Complex numbers, conjugates and modulus",algebra,draft_specimen,atlas-gap-continuation,pending,pending,implemented
 math:concept:ratio,Ratio,number-arithmetic,planned,first-eight,pending,pending,planned
 math:concept:proportion,Proportion,number-arithmetic,planned,expansion,pending,pending,planned
 math:concept:absolute-value,Absolute Value,number-arithmetic,planned,expansion,pending,pending,planned
@@ -145,7 +145,7 @@ math:concept:feasible-set,Feasible Set,optimization,planned,expansion,pending,pe
 math:concept:local-global-optimum,Local Global Optimum,optimization,planned,expansion,pending,pending,planned
 math:concept:convexity,Convexity,optimization,planned,expansion,pending,pending,planned
 math:concept:lagrange-multiplier,Lagrange Multiplier,optimization,planned,expansion,pending,pending,planned
-math:concept:linear-programming,Linear Programming,optimization,planned,expansion,pending,pending,planned
+math:concept:linear-programming,Linear programming and feasible choices,algebra,draft_specimen,atlas-gap-continuation,pending,pending,implemented
 math:concept:integer-programming,Integer Programming,optimization,planned,expansion,pending,pending,planned
 math:concept:gradient-descent,Gradient descent,optimization,draft_specimen,expansion,pending,pending,implemented
 math:concept:multiobjective-tradeoff,Multiobjective Tradeoff,optimization,planned,expansion,pending,pending,planned
@@ -233,3 +233,10 @@ math:concept:gradient-flow,Gradient flow and falling potential,dynamics,draft_sp
 math:concept:circle-manifold,A circle needs more than one chart,geometry-topology,draft_specimen,foundation-continuation,pending,pending,implemented
 math:concept:sphere-manifold,Local coordinates on a sphere,geometry-topology,draft_specimen,foundation-continuation,pending,pending,implemented
 math:concept:structural-stability,"Perturbing a rule, not just a starting point",dynamics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:quadratic-equation,Quadratic equations and real roots,algebra,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:linear-search,"Linear search, one check at a time",discrete-mathematics,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:binary-search,Binary search and the remaining window,discrete-mathematics,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:minimum-spanning-tree,Minimum spanning tree,discrete-mathematics,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:normal-distribution,Normal distribution: height and area,probability,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:exponential-distribution,Exponential waiting time,probability,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:sign-test,A paired sign test,statistics,draft_specimen,atlas-gap-continuation,pending,pending,implemented

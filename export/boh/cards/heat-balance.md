@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:heat-balance", "id": "math:concept:heat-balance", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:heat-balance", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9a29852fe313dba39dd479746b7071ab8a01d54c9f7794d3c87b8b41971af7c0"}, "purpose": "Why can total entropy rise while energy stays balanced?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9a29852fe313dba39dd479746b7071ab8a01d54c9f7794d3c87b8b41971af7c0", "status": "draft", "title": "Heat exchange and physical entropy", "topics": ["mathematics", "physical-models", "heat exchange and physical entropy"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:heat-balance", "id": "math:concept:heat-balance", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:heat-balance", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9a29852fe313dba39dd479746b7071ab8a01d54c9f7794d3c87b8b41971af7c0"}, "purpose": "Why can total entropy rise while energy stays balanced?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9a29852fe313dba39dd479746b7071ab8a01d54c9f7794d3c87b8b41971af7c0", "status": "draft", "title": "Heat exchange and physical entropy", "topics": ["mathematics", "physical-models", "heat exchange and physical entropy"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Heat exchange and physical entropy
@@ -75,12 +75,12 @@ Subtract and add the same transferred energy divided by heat capacity, then add 
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:real-logarithm
   - math:concept:gibbs-free-energy
 - depth:
-
+  []
 
 ## Definition
 
@@ -164,7 +164,7 @@ Subtract and add the same transferred energy divided by heat capacity, then add 
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -180,6 +180,7 @@ Subtract and add the same transferred energy divided by heat capacity, then add 
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:gibbs-free-energy
   - type: supports
@@ -188,6 +189,7 @@ Subtract and add the same transferred energy divided by heat capacity, then add 
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -227,6 +229,7 @@ Subtract and add the same transferred energy divided by heat capacity, then add 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two insulated bodies each have constant heat capacity 1 J/K. Heat moves from 400 K toward 300 K until both reach 350 K. No work, phase change or environmental exchange is modeled. Entropy is in J/K, not bits.
 - Item:
@@ -265,6 +268,7 @@ Subtract and add the same transferred energy divided by heat capacity, then add 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two insulated bodies each have constant heat capacity 1 J/K. Heat moves from 400 K toward 300 K until both reach 350 K. No work, phase change or environmental exchange is modeled. Entropy is in J/K, not bits.
 - Item:
@@ -303,6 +307,7 @@ Subtract and add the same transferred energy divided by heat capacity, then add 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two insulated bodies each have constant heat capacity 1 J/K. Heat moves from 400 K toward 300 K until both reach 350 K. No work, phase change or environmental exchange is modeled. Entropy is in J/K, not bits.
 - Item:
@@ -341,6 +346,7 @@ Subtract and add the same transferred energy divided by heat capacity, then add 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two insulated bodies each have constant heat capacity 1 J/K. Heat moves from 400 K toward 300 K until both reach 350 K. No work, phase change or environmental exchange is modeled. Entropy is in J/K, not bits.
 - Item:
@@ -379,6 +385,7 @@ Subtract and add the same transferred energy divided by heat capacity, then add 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Two insulated bodies each have constant heat capacity 1 J/K. Heat moves from 400 K toward 300 K until both reach 350 K. No work, phase change or environmental exchange is modeled. Entropy is in J/K, not bits.
 

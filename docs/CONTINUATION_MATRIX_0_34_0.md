@@ -1,4 +1,8 @@
-# 0.34.0 continuation matrix
+# 0.34.0 number/spatial continuation checkpoint
+
+This matrix records the 102-card checkpoint. The
+[atlas-gap matrix](GAP_EXPANSION_MATRIX_0_34_0.md) contains the current branch
+counts, additional lessons and remaining work.
 
 This is the current source matrix for `codex/eight-book-expansion`, continuing
 [draft PR #13](https://github.com/ppeck1/mathcards/pull/13). It supersedes the

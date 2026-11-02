@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:correlation", "id": "math:concept:correlation", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:correlation", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "073e684d6d162ef570c159200d95f915ac6fbc1ffce4e0699cbe5927c0a00ebf"}, "purpose": "Separate trend direction from scatter and see why the same trend can have weaker correlation.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "073e684d6d162ef570c159200d95f915ac6fbc1ffce4e0699cbe5927c0a00ebf", "status": "draft", "title": "Correlation and scatter", "topics": ["mathematics", "statistics", "algebra", "correlation", "Pearson r", "linear association", "correlation coefficient"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:correlation", "id": "math:concept:correlation", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:correlation", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "073e684d6d162ef570c159200d95f915ac6fbc1ffce4e0699cbe5927c0a00ebf"}, "purpose": "Separate trend direction from scatter and see why the same trend can have weaker correlation.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "073e684d6d162ef570c159200d95f915ac6fbc1ffce4e0699cbe5927c0a00ebf", "status": "draft", "title": "Correlation and scatter", "topics": ["mathematics", "statistics", "algebra", "correlation", "Pearson r", "linear association", "correlation coefficient"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Correlation and scatter
@@ -82,9 +82,9 @@ Pearson correlation is the centered cross-product of paired observations divided
   - math:concept:variance
   - math:concept:linear-regression
 - helpful:
-
+  []
 - depth:
-
+  []
 
 ## Definition
 
@@ -187,7 +187,7 @@ Pearson correlation is the centered cross-product of paired observations divided
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -203,6 +203,7 @@ Pearson correlation is the centered cross-product of paired observations divided
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:linear-regression
   - type: supports
@@ -211,6 +212,7 @@ Pearson correlation is the centered cross-product of paired observations divided
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -249,6 +251,7 @@ Pearson correlation is the centered cross-product of paired observations divided
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.
     - Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.
@@ -287,6 +290,7 @@ Pearson correlation is the centered cross-product of paired observations divided
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.
     - Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.
@@ -325,6 +329,7 @@ Pearson correlation is the centered cross-product of paired observations divided
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.
     - Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.
@@ -363,6 +368,7 @@ Pearson correlation is the centered cross-product of paired observations divided
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.
     - Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.
@@ -401,6 +407,7 @@ Pearson correlation is the centered cross-product of paired observations divided
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.
     - Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.

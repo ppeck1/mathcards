@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:integral-accumulation", "id": "math:concept:integral-accumulation", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:integral-accumulation", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a00202611d82b03f7cf7593076caee9fb6c2b00e583e7d3e592dc597e895afc5"}, "purpose": "Recover a traveled distance by accumulating a changing velocity.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a00202611d82b03f7cf7593076caee9fb6c2b00e583e7d3e592dc597e895afc5", "status": "draft", "title": "Integrals & accumulation", "topics": ["mathematics", "calculus", "modeling", "definite integral", "area under a velocity curve"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:integral-accumulation", "id": "math:concept:integral-accumulation", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:integral-accumulation", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a00202611d82b03f7cf7593076caee9fb6c2b00e583e7d3e592dc597e895afc5"}, "purpose": "Recover a traveled distance by accumulating a changing velocity.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a00202611d82b03f7cf7593076caee9fb6c2b00e583e7d3e592dc597e895afc5", "status": "draft", "title": "Integrals & accumulation", "topics": ["mathematics", "calculus", "modeling", "definite integral", "area under a velocity curve"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Integrals & accumulation
@@ -87,14 +87,14 @@ Each thin time slice adds a little distance. The whole shaded area connects inst
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the concept and notation with specialist sources before adding historical attribution.
 - reader text: Historical account not yet sourced. Everyday scenarios are constructed examples, not historical anecdotes.
 
 ## Connections
 
-
+[]
 
 ## Examples
 
@@ -134,6 +134,7 @@ Each thin time slice adds a little distance. The whole shaded area connects inst
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - The cart starts from rest at position zero.
     - Acceleration is constant and positive; motion remains along one forward axis.
@@ -174,6 +175,7 @@ Each thin time slice adds a little distance. The whole shaded area connects inst
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - The cart starts from rest at position zero.
     - Acceleration is constant and positive; motion remains along one forward axis.
@@ -214,6 +216,7 @@ Each thin time slice adds a little distance. The whole shaded area connects inst
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - The cart starts from rest at position zero.
     - Acceleration is constant and positive; motion remains along one forward axis.
@@ -254,6 +257,7 @@ Each thin time slice adds a little distance. The whole shaded area connects inst
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - The cart starts from rest at position zero.
     - Acceleration is constant and positive; motion remains along one forward axis.
@@ -293,6 +297,7 @@ Each thin time slice adds a little distance. The whole shaded area connects inst
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - The cart starts from rest at position zero.
     - Acceleration is constant and positive; motion remains along one forward axis.

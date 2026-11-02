@@ -12,7 +12,7 @@ from pathlib import Path
 from generated_io import write_generated
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.2.0'
+VERSION = '0.2.1'
 
 def canonical(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf-8')
@@ -30,6 +30,8 @@ def scalar(value):
 
 def prose(value):
     """Loss-accounted inert field rendering: keys remain visible and values unabridged."""
+    if isinstance(value, (dict, list)) and not value:
+        return '{}' if isinstance(value, dict) else '[]'
     if isinstance(value, dict):
         return '\n'.join(f'- {k.replace("_", " ")}: {scalar(v)}' if not isinstance(v, (dict,list))
                          else f'- {k.replace("_", " ")}:\n'+ '\n'.join('  '+s for s in prose(v).splitlines())

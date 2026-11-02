@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:vector-projection", "id": "math:concept:vector-projection", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:vector-projection", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "c22b70cbd62487268635c817670bf0692f6b2b15420236d3d5f7245747b81f9a"}, "purpose": "How much of a survey displacement follows the guide direction?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "c22b70cbd62487268635c817670bf0692f6b2b15420236d3d5f7245747b81f9a", "status": "draft", "title": "Vector projection and its residual", "topics": ["mathematics", "linear-algebra", "geometry", "vector projection and its residual"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:vector-projection", "id": "math:concept:vector-projection", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:vector-projection", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "c22b70cbd62487268635c817670bf0692f6b2b15420236d3d5f7245747b81f9a"}, "purpose": "How much of a survey displacement follows the guide direction?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "c22b70cbd62487268635c817670bf0692f6b2b15420236d3d5f7245747b81f9a", "status": "draft", "title": "Vector projection and its residual", "topics": ["mathematics", "linear-algebra", "geometry", "vector projection and its residual"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Vector projection and its residual
@@ -81,7 +81,7 @@ Normalize the nonzero reference direction with a scaled norm, take the dot produ
   - math:concept:coordinate-transformation
   - math:concept:spatial-cross-product
 - depth:
-
+  []
 
 ## Definition
 
@@ -290,7 +290,7 @@ Normalize the nonzero reference direction with a scaled norm, take the dot produ
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -306,6 +306,7 @@ Normalize the nonzero reference direction with a scaled norm, take the dot produ
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:coordinate-transformation
   - type: supports
@@ -314,6 +315,7 @@ Normalize the nonzero reference direction with a scaled norm, take the dot produ
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:spatial-cross-product
   - type: supports
@@ -322,6 +324,7 @@ Normalize the nonzero reference direction with a scaled norm, take the dot produ
   - target status: available
   - evidence status: definition-level relationship; original explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -372,6 +375,7 @@ Normalize the nonzero reference direction with a scaled norm, take the dot produ
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.
     - The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.
@@ -422,6 +426,7 @@ Normalize the nonzero reference direction with a scaled norm, take the dot produ
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.
     - The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.
@@ -472,6 +477,7 @@ Normalize the nonzero reference direction with a scaled norm, take the dot produ
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.
     - The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.
@@ -522,6 +528,7 @@ Normalize the nonzero reference direction with a scaled norm, take the dot produ
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.
     - The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.
@@ -572,6 +579,7 @@ Normalize the nonzero reference direction with a scaled norm, take the dot produ
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.
     - The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.

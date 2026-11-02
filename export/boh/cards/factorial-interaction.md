@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:factorial-interaction", "id": "math:concept:factorial-interaction", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:factorial-interaction", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9abf8c4ee65b31cc645c8a57839c929066549f6454d671bdc4c1f8a1125fbe3c"}, "purpose": "Compare two changes in packing time and see interaction as nonparallel responses.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9abf8c4ee65b31cc645c8a57839c929066549f6454d671bdc4c1f8a1125fbe3c", "status": "draft", "title": "Two-factor interaction", "topics": ["mathematics", "statistics", "modeling", "factorial design", "interaction", "difference of differences", "two factors"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:factorial-interaction", "id": "math:concept:factorial-interaction", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:factorial-interaction", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9abf8c4ee65b31cc645c8a57839c929066549f6454d671bdc4c1f8a1125fbe3c"}, "purpose": "Compare two changes in packing time and see interaction as nonparallel responses.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9abf8c4ee65b31cc645c8a57839c929066549f6454d671bdc4c1f8a1125fbe3c", "status": "draft", "title": "Two-factor interaction", "topics": ["mathematics", "statistics", "modeling", "factorial design", "interaction", "difference of differences", "two factors"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Two-factor interaction
@@ -81,9 +81,9 @@ Two factors interact on an additive response scale when the effect of one depend
 - required:
   - math:concept:linear-model
 - helpful:
-
+  []
 - depth:
-
+  []
 
 ## Definition
 
@@ -168,7 +168,7 @@ Two factors interact on an additive response scale when the effect of one depend
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -184,6 +184,7 @@ Two factors interact on an additive response scale when the effect of one depend
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -220,6 +221,7 @@ Two factors interact on an additive response scale when the effect of one depend
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A constructed packing experiment combines a tool (off/on) and a guide (off/on). Mean packing times are 12, 10, 9 and c minutes in the four cells. Compare the tool effect with and without the guide.
     - This is a descriptive difference of differences, not an ANOVA or a significance test. Replication, randomization and an error model would be needed for experimental inference. The conventional ±1 factorial interaction effect is Δ/2; the display names Δ explicitly.
@@ -256,6 +258,7 @@ Two factors interact on an additive response scale when the effect of one depend
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A constructed packing experiment combines a tool (off/on) and a guide (off/on). Mean packing times are 12, 10, 9 and c minutes in the four cells. Compare the tool effect with and without the guide.
     - This is a descriptive difference of differences, not an ANOVA or a significance test. Replication, randomization and an error model would be needed for experimental inference. The conventional ±1 factorial interaction effect is Δ/2; the display names Δ explicitly.
@@ -292,6 +295,7 @@ Two factors interact on an additive response scale when the effect of one depend
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A constructed packing experiment combines a tool (off/on) and a guide (off/on). Mean packing times are 12, 10, 9 and c minutes in the four cells. Compare the tool effect with and without the guide.
     - This is a descriptive difference of differences, not an ANOVA or a significance test. Replication, randomization and an error model would be needed for experimental inference. The conventional ±1 factorial interaction effect is Δ/2; the display names Δ explicitly.
@@ -328,6 +332,7 @@ Two factors interact on an additive response scale when the effect of one depend
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A constructed packing experiment combines a tool (off/on) and a guide (off/on). Mean packing times are 12, 10, 9 and c minutes in the four cells. Compare the tool effect with and without the guide.
     - This is a descriptive difference of differences, not an ANOVA or a significance test. Replication, randomization and an error model would be needed for experimental inference. The conventional ±1 factorial interaction effect is Δ/2; the display names Δ explicitly.
@@ -364,6 +369,7 @@ Two factors interact on an additive response scale when the effect of one depend
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A constructed packing experiment combines a tool (off/on) and a guide (off/on). Mean packing times are 12, 10, 9 and c minutes in the four cells. Compare the tool effect with and without the guide.
     - This is a descriptive difference of differences, not an ANOVA or a significance test. Replication, randomization and an error model would be needed for experimental inference. The conventional ±1 factorial interaction effect is Δ/2; the display names Δ explicitly.

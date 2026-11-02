@@ -577,3 +577,31 @@ the point remains defined when its coordinates in that chart are unavailable.
 Changing chart poles is a discrete transition. Integer counts and hysteresis
 steps retain their whole-state semantics. Continuous gradient flow uses an
 exact solution, while hysteresis explicitly uses a quasi-static branch rule.
+
+## Algebra, algorithm and distribution gaps (0.34.0)
+
+Three further providers use the same family metadata and host contracts:
+`algebra-extensions.js`, `algorithm-extensions.js` and
+`distribution-extensions.js`. Their stories, previews, terms and Python
+references stay in separate files. They introduce no clock or UI lifecycle.
+
+Quadratic classification and linear-objective ties use exact arithmetic on
+represented binary inputs; displayed coordinates and objective magnitudes
+remain numerical. Unrepresentable values report precision failures. Geometry
+has a genuine compact layout; Graph samples each remembered quadratic family
+at its own critical offset. Whole optimal edges and a flat objective remain
+distinct from a single winning vertex.
+
+Search traces publish comparisons performed as their output and keep the cost
+of a completed run separate. Integer controls do not interpolate. Binary search
+requires the declared sorted list; its cost excludes sorting. Minimum spanning
+trees connect all stations by total cable cost, unlike shortest routes. Station
+and edge labels have actual grammar declarations, quantities and shape marks,
+so shared glyphs retain both graph and matrix meanings in the reference.
+
+Continuous laws distinguish density height, full cumulative probability and
+the mass within a finite drawing window. Remembered input lines and remembered
+probability ticks encode different quantities. Random waiting time `T` marks
+the whole law; a threshold `t` marks one position. A paired sign test retains
+exact zero ties and conditional null counts; its provider guard prevents
+invented intermediate sign configurations.

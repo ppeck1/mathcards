@@ -1,5 +1,9 @@
 # Startup and payload measurements — 0.34.0 continuation
 
+This is the earlier 102-card checkpoint. The
+[111-card measurements](STARTUP_MEASUREMENT_0_34_0_GAPS.md) identify the current
+candidate; timings and hashes below remain specific to this earlier artifact.
+
 Measured on 2026-11-02 after the successful 102-card build and regression
 suites had stopped. All processes ran sequentially in the background. No
 browser, desktop application, network or physical-device test was used.

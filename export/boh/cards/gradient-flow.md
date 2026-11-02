@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:gradient-flow", "id": "math:concept:gradient-flow", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:gradient-flow", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "cab868ab9e0ad0f1568be4262e2308d3fb3abbe7e1015381047584f51f4c1f0e"}, "purpose": "What makes a continuously corrected position lose potential?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "cab868ab9e0ad0f1568be4262e2308d3fb3abbe7e1015381047584f51f4c1f0e", "status": "draft", "title": "Gradient flow and falling potential", "topics": ["mathematics", "dynamics", "gradient flow and falling potential"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:gradient-flow", "id": "math:concept:gradient-flow", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:gradient-flow", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "cab868ab9e0ad0f1568be4262e2308d3fb3abbe7e1015381047584f51f4c1f0e"}, "purpose": "What makes a continuously corrected position lose potential?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "cab868ab9e0ad0f1568be4262e2308d3fb3abbe7e1015381047584f51f4c1f0e", "status": "draft", "title": "Gradient flow and falling potential", "topics": ["mathematics", "dynamics", "gradient flow and falling potential"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Gradient flow and falling potential
@@ -75,13 +75,13 @@ Evaluate the exact exponential response of each coordinate from the fixed start 
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:gradient
   - math:concept:gradient-descent
   - math:concept:continuous-flow
 - depth:
-
+  []
 
 ## Definition
 
@@ -221,7 +221,7 @@ Evaluate the exact exponential response of each coordinate from the fixed start 
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -237,6 +237,7 @@ Evaluate the exact exponential response of each coordinate from the fixed start 
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:gradient-descent
   - type: supports
@@ -245,6 +246,7 @@ Evaluate the exact exponential response of each coordinate from the fixed start 
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:continuous-flow
   - type: supports
@@ -253,6 +255,7 @@ Evaluate the exact exponential response of each coordinate from the fixed start 
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -296,6 +299,7 @@ Evaluate the exact exponential response of each coordinate from the fixed start 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - V(x,y)=(a x²+b y²)/2, with a,b positive and a fixed start (2,1). The exact continuous solution is used; there is no time-step parameter or numerical integrator. This is a constructed controller model.
 - Item:
@@ -338,6 +342,7 @@ Evaluate the exact exponential response of each coordinate from the fixed start 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - V(x,y)=(a x²+b y²)/2, with a,b positive and a fixed start (2,1). The exact continuous solution is used; there is no time-step parameter or numerical integrator. This is a constructed controller model.
 - Item:
@@ -380,6 +385,7 @@ Evaluate the exact exponential response of each coordinate from the fixed start 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - V(x,y)=(a x²+b y²)/2, with a,b positive and a fixed start (2,1). The exact continuous solution is used; there is no time-step parameter or numerical integrator. This is a constructed controller model.
 - Item:
@@ -422,6 +428,7 @@ Evaluate the exact exponential response of each coordinate from the fixed start 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - V(x,y)=(a x²+b y²)/2, with a,b positive and a fixed start (2,1). The exact continuous solution is used; there is no time-step parameter or numerical integrator. This is a constructed controller model.
 - Item:
@@ -464,6 +471,7 @@ Evaluate the exact exponential response of each coordinate from the fixed start 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - V(x,y)=(a x²+b y²)/2, with a,b positive and a fixed start (2,1). The exact continuous solution is used; there is no time-step parameter or numerical integrator. This is a constructed controller model.
 

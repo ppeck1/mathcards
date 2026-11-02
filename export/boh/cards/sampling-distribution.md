@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:sampling-distribution", "id": "math:concept:sampling-distribution", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:sampling-distribution", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "5bab4e1c273d073c9f18f7a162535b3d30afc57439b03e815540fbfba4baedf8"}, "purpose": "See why averaging more independent parcel masses narrows the distribution of the mean while its center stays fixed.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "5bab4e1c273d073c9f18f7a162535b3d30afc57439b03e815540fbfba4baedf8", "status": "draft", "title": "Sampling distribution of a mean", "topics": ["mathematics", "statistics", "probability", "sampling distribution", "standard error", "repeated sampling", "with replacement"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:sampling-distribution", "id": "math:concept:sampling-distribution", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:sampling-distribution", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "5bab4e1c273d073c9f18f7a162535b3d30afc57439b03e815540fbfba4baedf8"}, "purpose": "See why averaging more independent parcel masses narrows the distribution of the mean while its center stays fixed.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "5bab4e1c273d073c9f18f7a162535b3d30afc57439b03e815540fbfba4baedf8", "status": "draft", "title": "Sampling distribution of a mean", "topics": ["mathematics", "statistics", "probability", "sampling distribution", "standard error", "repeated sampling", "with replacement"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Sampling distribution of a mean
@@ -83,9 +83,9 @@ A sampling distribution assigns probabilities to a statistic across repeated sam
   - math:concept:expected-value
   - math:concept:variance
 - helpful:
-
+  []
 - depth:
-
+  []
 
 ## Definition
 
@@ -169,7 +169,7 @@ A sampling distribution assigns probabilities to a statistic across repeated sam
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -185,6 +185,7 @@ A sampling distribution assigns probabilities to a statistic across repeated sam
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:expected-value
   - type: supports
@@ -193,6 +194,7 @@ A sampling distribution assigns probabilities to a statistic across repeated sam
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:variance
   - type: supports
@@ -201,6 +203,7 @@ A sampling distribution assigns probabilities to a statistic across repeated sam
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -237,6 +240,7 @@ A sampling distribution assigns probabilities to a statistic across repeated sam
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.
     - Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.
@@ -273,6 +277,7 @@ A sampling distribution assigns probabilities to a statistic across repeated sam
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.
     - Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.
@@ -309,6 +314,7 @@ A sampling distribution assigns probabilities to a statistic across repeated sam
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.
     - Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.
@@ -345,6 +351,7 @@ A sampling distribution assigns probabilities to a statistic across repeated sam
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.
     - Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.
@@ -381,6 +388,7 @@ A sampling distribution assigns probabilities to a statistic across repeated sam
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Draw independently with replacement from four equally likely parcel masses 2, 4, 8 and 10 kg. Enumerate every ordered sample, rather than drawing an animated random sample.
     - Sample size is a whole number from 1 to 4. The complete finite sampling distribution is exact; its standard error is evaluated numerically. Sampling without replacement has a different variance.

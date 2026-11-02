@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:artificial-neuron", "id": "math:concept:artificial-neuron", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:artificial-neuron", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "6d8b1988a3f584420d1d2d7ece8601aaca7328db7dda82e4b8a7078da673c39c"}, "purpose": "How does a weighted signal become an activation?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "6d8b1988a3f584420d1d2d7ece8601aaca7328db7dda82e4b8a7078da673c39c", "status": "draft", "title": "An artificial neuron", "topics": ["mathematics", "computation", "an artificial neuron"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:artificial-neuron", "id": "math:concept:artificial-neuron", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:artificial-neuron", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "6d8b1988a3f584420d1d2d7ece8601aaca7328db7dda82e4b8a7078da673c39c"}, "purpose": "How does a weighted signal become an activation?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "6d8b1988a3f584420d1d2d7ece8601aaca7328db7dda82e4b8a7078da673c39c", "status": "draft", "title": "An artificial neuron", "topics": ["mathematics", "computation", "an artificial neuron"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # An artificial neuron
@@ -75,13 +75,13 @@ Multiply signal by weight, add bias, then apply the sigmoid function.
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:function-composition
   - math:concept:exponentiation
   - math:concept:hebbian-learning
 - depth:
-
+  []
 
 ## Definition
 
@@ -203,7 +203,7 @@ Multiply signal by weight, add bias, then apply the sigmoid function.
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -219,6 +219,7 @@ Multiply signal by weight, add bias, then apply the sigmoid function.
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:exponentiation
   - type: supports
@@ -227,6 +228,7 @@ Multiply signal by weight, add bias, then apply the sigmoid function.
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:hebbian-learning
   - type: supports
@@ -235,6 +237,7 @@ Multiply signal by weight, add bias, then apply the sigmoid function.
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -278,6 +281,7 @@ Multiply signal by weight, add bias, then apply the sigmoid function.
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One scalar sigmoid unit with stipulated weights, not an anatomical neuron or a calibrated probability. No biological mechanism or trained performance is inferred.
 - Item:
@@ -320,6 +324,7 @@ Multiply signal by weight, add bias, then apply the sigmoid function.
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One scalar sigmoid unit with stipulated weights, not an anatomical neuron or a calibrated probability. No biological mechanism or trained performance is inferred.
 - Item:
@@ -362,6 +367,7 @@ Multiply signal by weight, add bias, then apply the sigmoid function.
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One scalar sigmoid unit with stipulated weights, not an anatomical neuron or a calibrated probability. No biological mechanism or trained performance is inferred.
 - Item:
@@ -404,6 +410,7 @@ Multiply signal by weight, add bias, then apply the sigmoid function.
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One scalar sigmoid unit with stipulated weights, not an anatomical neuron or a calibrated probability. No biological mechanism or trained performance is inferred.
 - Item:
@@ -446,6 +453,7 @@ Multiply signal by weight, add bias, then apply the sigmoid function.
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - One scalar sigmoid unit with stipulated weights, not an anatomical neuron or a calibrated probability. No biological mechanism or trained performance is inferred.
 

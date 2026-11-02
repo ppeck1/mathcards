@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:logical-connectives", "id": "math:concept:logical-connectives", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:logical-connectives", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "6f706c8a5a153f42bea090207dd4999e22342be57dcf4935f9613a90f19643e9"}, "purpose": "Test two stated workshop requirements separately, then follow their truth values through a chosen logical connective.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "6f706c8a5a153f42bea090207dd4999e22342be57dcf4935f9613a90f19643e9", "status": "draft", "title": "Logical connectives and truth tables", "topics": ["mathematics", "language-foundations", "logic", "formal-semantics", "conjunction", "disjunction", "truth table", "material conditional", "propositional logic"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:logical-connectives", "id": "math:concept:logical-connectives", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:logical-connectives", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "6f706c8a5a153f42bea090207dd4999e22342be57dcf4935f9613a90f19643e9"}, "purpose": "Test two stated workshop requirements separately, then follow their truth values through a chosen logical connective.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "6f706c8a5a153f42bea090207dd4999e22342be57dcf4935f9613a90f19643e9", "status": "draft", "title": "Logical connectives and truth tables", "topics": ["mathematics", "language-foundations", "logic", "formal-semantics", "conjunction", "disjunction", "truth table", "material conditional", "propositional logic"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Logical connectives and truth tables
@@ -255,7 +255,7 @@ A truth-functional connective determines a compound statement from the truth val
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of the concept and notation before adding historical priority claims.
   - Check book-specific statements against the exact edition before treating the supplied planning matrix as verified coverage.
@@ -271,6 +271,7 @@ A truth-functional connective determines a compound statement from the truth val
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:function
   - type: supports
@@ -279,6 +280,7 @@ A truth-functional connective determines a compound statement from the truth val
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:quantifier
   - type: supports
@@ -287,6 +289,7 @@ A truth-functional connective determines a compound statement from the truth val
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -327,6 +330,7 @@ A truth-functional connective determines a compound statement from the truth val
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.
     - Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true.
@@ -367,6 +371,7 @@ A truth-functional connective determines a compound statement from the truth val
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.
     - Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true.
@@ -407,6 +412,7 @@ A truth-functional connective determines a compound statement from the truth val
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.
     - Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true.
@@ -447,6 +453,7 @@ A truth-functional connective determines a compound statement from the truth val
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.
     - Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true.
@@ -487,6 +494,7 @@ A truth-functional connective determines a compound statement from the truth val
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Panel length x and width y are real centimetre measurements from zero to twelve. P means x≥6 cm and Q means y≥4 cm, with equality included.
     - Use classical True/False truth values. Inclusive OR is true when either or both inputs are true; AND is true only when both are true.

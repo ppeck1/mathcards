@@ -9,9 +9,9 @@ viewport, input method, assistive technology and reviewer/date with each result.
 Report pass/fail and an actual observation rather than inferring behavior from
 unit tests. Preserve failures as follow-up issues.
 
-This checklist applies to the current 102-card continuation as well as the
-initial 84-card checkpoint. Static preview and background numeric evidence is
-recorded separately in the [current validation](VALIDATION_0_34_0_CONTINUATION.md).
+This checklist applies to the current 111-card candidate as well as the earlier
+84/102-card checkpoints. Static preview and background numeric evidence is
+recorded separately in the [current validation](VALIDATION_0_34_0_GAPS.md).
 
 ## Complete learner journey
 
@@ -86,3 +86,10 @@ Check that a chart's missing coordinate does not suggest that the underlying
 circle or sphere point disappeared. Read near-pole values, clipped rays and
 off-window continuation marks at phone scale. Verify that story and playground
 transitions respect the same interpolation guard.
+
+For the atlas-gap lessons, include a quadratic tangency, a tied optimal edge,
+a flat objective, a missing search target, an unfinished search prefix and tied
+spanning trees. Compare normal density height with cumulative probability,
+inspect omitted tails, and test paired ties and a remembered probability from
+different parameters. Confirm that the compact diagrams remain readable in
+the actual page at enlarged text sizes; static SVGs cannot establish this.

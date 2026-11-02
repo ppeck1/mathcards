@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:prime-factorization", "id": "math:concept:prime-factorization", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:prime-factorization", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "c28e4c03aaa73a62520b9032f5ca11c721a619be96e06ab01ab25da1ac8db093", "source_revision": "0.1.0-draft", "upstream_content_sha256": "bdab90e42e091d33179feec3810246ac7ae45ef232386734df2d934157087d53"}, "purpose": "Which prime group sizes rebuild the original pack?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "bdab90e42e091d33179feec3810246ac7ae45ef232386734df2d934157087d53", "status": "draft", "title": "Prime factorization", "topics": ["mathematics", "numbers-number-theory", "prime factorization"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:prime-factorization", "id": "math:concept:prime-factorization", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:prime-factorization", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e0fe84459dc9b887af9fc5477a3aa47c71c409b32fd7284baf0a2a31cbdfd32", "source_revision": "0.1.0-draft", "upstream_content_sha256": "bdab90e42e091d33179feec3810246ac7ae45ef232386734df2d934157087d53"}, "purpose": "Which prime group sizes rebuild the original pack?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "bdab90e42e091d33179feec3810246ac7ae45ef232386734df2d934157087d53", "status": "draft", "title": "Prime factorization", "topics": ["mathematics", "numbers-number-theory", "prime factorization"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Prime factorization
@@ -75,12 +75,12 @@ A prime factorization expresses an integer larger than one as a product of prime
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:modular-arithmetic
   - math:concept:greatest-common-divisor
 - depth:
-
+  []
 
 ## Definition
 
@@ -169,7 +169,7 @@ A prime factorization expresses an integer larger than one as a product of prime
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Check historical and notation development before adding priority claims.
   - Verify exact-edition book mappings independently.
@@ -185,6 +185,7 @@ A prime factorization expresses an integer larger than one as a product of prime
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:greatest-common-divisor
   - type: supports
@@ -193,6 +194,7 @@ A prime factorization expresses an integer larger than one as a product of prime
   - target status: available
   - evidence status: editorial mathematical connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -228,6 +230,7 @@ A prime factorization expresses an integer larger than one as a product of prime
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.
 - Item:
@@ -262,6 +265,7 @@ A prime factorization expresses an integer larger than one as a product of prime
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.
 - Item:
@@ -296,6 +300,7 @@ A prime factorization expresses an integer larger than one as a product of prime
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.
 - Item:
@@ -330,6 +335,7 @@ A prime factorization expresses an integer larger than one as a product of prime
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.
 - Item:
@@ -364,6 +370,7 @@ A prime factorization expresses an integer larger than one as a product of prime
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.
 

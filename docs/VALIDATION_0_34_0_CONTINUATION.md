@@ -1,4 +1,8 @@
-# 0.34.0 continuation validation
+# 0.34.0 102-card continuation checkpoint validation
+
+Counts, timings and hashes in this record identify the earlier 102-card
+artifact. See [current validation](VALIDATION_0_34_0_GAPS.md) for the 111-card
+candidate; this historical evidence is preserved without rewriting its results.
 
 Validated on 2026-11-02 on `codex/eight-book-expansion`, continuing draft
 [PR #13](https://github.com/ppeck1/mathcards/pull/13). This record supersedes the
