@@ -1,4 +1,8 @@
-# 0.34.0 branch validation
+# 0.34.0 initial branch checkpoint validation
+
+This record covers the first 84-card checkpoint. The branch has since expanded;
+current evidence belongs in [the continuation validation](VALIDATION_0_34_0_CONTINUATION.md).
+Counts, timings and hashes below identify this earlier artifact only.
 
 Validated on 2026-11-02 on `codex/eight-book-expansion`. This is an unpublished
 review candidate. No desktop, browser, tab or panel was opened or controlled.

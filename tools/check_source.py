@@ -12,7 +12,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-GENERATED = {"catalog.js", "math-index-data.js", "formula-data.js", "subject-inventory-data.js"}
+GENERATED = {"catalog.js", "math-index-data.js", "formula-data.js", "subject-inventory-data.js", "continuation-metadata.js"}
 
 
 def main() -> int:

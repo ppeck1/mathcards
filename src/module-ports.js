@@ -4,10 +4,10 @@
    A host must validate the receiving model, including bounds and domain, before
    applying a linked value. A matching type and unit never imply equal ranges. */
 (function(root,factory){
-  const api=factory();
+  const api=factory(typeof module==='object'&&module.exports?require('./continuation-metadata.js'):root.AtlasContinuationMetadata);
   if(typeof module==='object'&&module.exports)module.exports=api;
   root.AtlasModulePorts=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(){
+})(typeof globalThis!=='undefined'?globalThis:this,function(Continuation){
   'use strict';
   const port=(direction,key,label,type,unit,description)=>Object.freeze({id:direction+':'+key,label,direction,key,type,unit,description});
   const input=(...args)=>port('input',...args),output=(...args)=>port('output',...args);
@@ -688,6 +688,7 @@
       output('dampingTerm','Damping term','response-damping-term','1','Twice the damping ratio times the drive frequency ratio.')
     ]
   };
+  for(const [id,ports]of Object.entries(Continuation?.ports||{})){if(Object.hasOwn(definitions,id))throw new RangeError('Duplicate quantity declaration: '+id);definitions[id]=ports;}
   for(const ports of Object.values(definitions))Object.freeze(ports);
   Object.freeze(definitions);
   const empty=Object.freeze([]);

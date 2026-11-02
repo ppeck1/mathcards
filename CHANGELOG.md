@@ -1,7 +1,7 @@
 # 0.34.0 — Eight-book expansion and consolidation (review branch)
 
-- Add 23 bounded lessons in inference, modeling, information, continuous
-  dynamics, order structures, physical models and neural abstractions.
+- Add 41 bounded lessons in inference, modeling, information, number
+  foundations, spatial reasoning, dynamics, order, physical and neural models.
 - Connect original stories, three-stage calculations, Geometry/Graph, matching
   thumbnails, meaningful quantity ports, worked examples and independent references.
 - Preserve and expose all 295 supplied concept IDs across 18 subjects and eight
@@ -19,7 +19,16 @@
 - Make generated writes recoverable through sibling staging, atomic replacement
   and bounded Windows sharing-error retries. Preserve deterministic LF bytes.
 - Record background startup and payload measurements without claiming browser
-  or phone qualification. Compile all 84 formulas to native MathML.
+  or phone qualification. Compile all 102 formulas to native MathML.
+- Add 18 continuation lessons in remainders, divisibility, fractions, bases,
+  counting, spatial vectors, coordinate frames, motion, hysteresis, gradient
+  flow and explicit circle/sphere charts. Keep singular chart coordinates
+  distinct from valid points, and discrete counts distinct from continuous flow.
+- Extend the shared provider contract with optional interpolation guards and
+  generated, validated bindings/ports for independent lesson families.
+- Reach 102 draft cards, 514 worked examples, 1,023 numeric fixtures,
+  616 written exports and 211 representations. Preserve bounded draft status
+  in both overlapping book roadmaps.
 
 # 0.33.0 — Presentation and review repairs
 

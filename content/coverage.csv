@@ -11,7 +11,7 @@ math:concept:quantifier,Quantifier,language-foundations,draft_specimen,expansion
 math:concept:proof,Formal proof and derivation,language-foundations,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:natural-number,Natural Number,number-arithmetic,planned,expansion,pending,pending,planned
 math:concept:integer,Integer,number-arithmetic,planned,expansion,pending,pending,planned
-math:concept:rational-number,Rational Number,number-arithmetic,planned,expansion,pending,pending,planned
+math:concept:rational-number,Rational numbers and fractions,numbers-number-theory,draft_specimen,expansion,pending,pending,implemented
 math:concept:real-number,Real Number,number-arithmetic,planned,expansion,pending,pending,planned
 math:concept:complex-number,Complex Number,number-arithmetic,planned,expansion,pending,pending,planned
 math:concept:ratio,Ratio,number-arithmetic,planned,first-eight,pending,pending,planned
@@ -101,10 +101,10 @@ math:concept:computability,Computability,discrete-computation,planned,expansion,
 math:concept:computational-complexity,Computational Complexity,discrete-computation,draft_specimen,expansion,pending,pending,implemented
 math:concept:divisibility,Divisibility,number-theory,planned,expansion,pending,pending,planned
 math:concept:prime,Prime,number-theory,planned,expansion,pending,pending,planned
-math:concept:greatest-common-divisor,Greatest Common Divisor,number-theory,planned,expansion,pending,pending,planned
+math:concept:greatest-common-divisor,Greatest common divisor,numbers-number-theory,draft_specimen,expansion,pending,pending,implemented
 math:concept:euclidean-algorithm,Euclidean Algorithm,number-theory,planned,expansion,pending,pending,planned
 math:concept:congruence-modulo,Congruence Modulo,number-theory,planned,expansion,pending,pending,planned
-math:concept:modular-arithmetic,Modular Arithmetic,number-theory,planned,expansion,pending,pending,planned
+math:concept:modular-arithmetic,Modular arithmetic and remainders,numbers-number-theory,draft_specimen,expansion,pending,pending,implemented
 math:concept:diophantine-equation,Diophantine Equation,number-theory,planned,expansion,pending,pending,planned
 math:concept:fermat-little-theorem,Fermat Little Theorem,number-theory,planned,expansion,pending,pending,planned
 math:concept:chinese-remainder-theorem,Chinese Remainder Theorem,number-theory,planned,expansion,pending,pending,planned
@@ -218,3 +218,18 @@ math:concept:meet-join,Meet and join,logic,draft_specimen,eight-book-expansion,p
 math:concept:partial-order,Partial orders,logic,draft_specimen,eight-book-expansion,pending,pending,implemented
 math:concept:poisson-distribution,Poisson arrivals,probability,draft_specimen,eight-book-expansion,pending,pending,implemented
 math:concept:vector-field,Vector fields,dynamics,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:prime-factorization,Prime factorization,numbers-number-theory,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:numeral-system,Positional numeral systems,numbers-number-theory,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:permutation-count,Permutations and factorials,discrete-mathematics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:binomial-coefficient,Combinations and binomial coefficients,discrete-mathematics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:spatial-cross-product,Cross products in space,linear-algebra,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:scalar-triple-product,The scalar triple product,linear-algebra,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:coordinate-transformation,Changing an orthonormal frame,linear-algebra,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:vector-projection,Vector projection and its residual,linear-algebra,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:angular-velocity,Angular velocity and rim motion,mechanics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:linear-momentum,Linear momentum,mechanics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:hysteresis,Hysteresis and remembered branches,dynamics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:gradient-flow,Gradient flow and falling potential,dynamics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:circle-manifold,A circle needs more than one chart,geometry-topology,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:sphere-manifold,Local coordinates on a sphere,geometry-topology,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:structural-stability,"Perturbing a rule, not just a starting point",dynamics,draft_specimen,foundation-continuation,pending,pending,implemented

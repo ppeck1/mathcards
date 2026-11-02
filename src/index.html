@@ -42,7 +42,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar"><a class="brand" href="#explore" aria-label="Mathematical Expression Atlas home"><span class="brand-mark" aria-hidden="true">∑</span><span>EXPRESSION ATLAS<small>A field notebook for mathematics</small></span></a><nav aria-label="Main navigation"><a href="#explore" data-nav="explore">Explore</a><a href="#subjects" data-nav="subjects">Subjects</a><a href="#atlas" data-nav="atlas">Atlas</a><a href="#index" data-nav="index">Index</a><a href="#workbench" data-nav="workbench">Workbench</a><a href="#notebook" data-nav="notebook">Notebook <span id="note-count">0</span></a></nav><div data-site-search></div><span class="offline"><i></i> Works offline</span></header>
 <main id="main" tabindex="-1"></main>
-<footer class="footer"><span>MATHEMATICAL EXPRESSION ATLAS <b>·</b> <span data-application-version>0.34.0</span></span><span>Sixty-one ideas. Look closer.</span></footer>
+<footer class="footer"><span>MATHEMATICAL EXPRESSION ATLAS <b>·</b> <span data-application-version>0.34.0</span></span><span>Follow an idea. Look closer.</span></footer>
 <dialog id="capture-dialog" aria-labelledby="capture-title"><form id="capture-form"><p class="eyebrow">Your own field notes</p><h2 id="capture-title">Keep this experiment</h2><p id="capture-context" class="muted"></p><label for="note-text">What did you notice?</label><textarea id="note-text" rows="4" maxlength="20000" placeholder="What changed? What stayed fixed? Where might this structure be useful?"></textarea><label for="note-status">How would you describe it?</label><select id="note-status"><option value="observation">Observation</option><option value="conjecture">Conjecture</option><option value="tested_instance">Tested instance</option><option value="unresolved">Unresolved</option><option value="rejected">Rejected</option><option value="supported_relationship">Supported relationship</option></select><details class="connection-fields"><summary class="fine">Add a possible connection (optional)</summary><label for="connection-target">Compare with</label><select id="connection-target"><option value="">No specific card</option></select><label for="connection-mapping">Which roles correspond?</label><textarea id="connection-mapping" rows="2" maxlength="20000"></textarea><label for="connection-preserved">What seems to be preserved?</label><textarea id="connection-preserved" rows="2" maxlength="20000"></textarea><label for="connection-counterexample">A counterexample to try</label><textarea id="connection-counterexample" rows="2" maxlength="20000"></textarea><label for="connection-unresolved">Conditions still unresolved</label><textarea id="connection-unresolved" rows="2" maxlength="20000"></textarea></details><p class="fine">Saved on this browser. Export a backup to keep a durable copy. A tested instance is not a proof.</p><p id="capture-error" role="alert"></p><div class="actions"><button type="button" class="button secondary" id="cancel-capture">Cancel</button><button class="button" type="submit">Save to notebook</button></div></form></dialog>
 <div id="toast" role="status" class="toast" hidden></div>
 <!-- ATLAS_SCRIPTS -->
@@ -68,6 +68,9 @@
 <script src="legacy-models.js?v=0.34.0" data-development></script>
 <script src="systems-models.js?v=0.34.0" data-development></script>
 <script src="inference-models.js?v=0.34.0" data-development></script>
+<script src="number-foundations.js?v=0.34.0" data-development></script>
+<script src="spatial-foundations.js?v=0.34.0" data-development></script>
+<script src="dynamics-extensions.js?v=0.34.0" data-development></script>
 <script src="model-registry.js?v=0.34.0" data-development></script>
 <script src="models.js?v=0.34.0" data-development></script>
 <script src="catalog.js?v=0.34.0" data-development></script>
@@ -93,6 +96,9 @@
 <script src="computation-stories.js?v=0.34.0" data-development></script>
 <script src="systems-stories.js?v=0.34.0" data-development></script>
 <script src="inference-stories.js?v=0.34.0" data-development></script>
+<script src="number-foundation-stories.js?v=0.34.0" data-development></script>
+<script src="spatial-foundation-stories.js?v=0.34.0" data-development></script>
+<script src="dynamics-extension-stories.js?v=0.34.0" data-development></script>
 <script src="story-library.js?v=0.34.0" data-development></script>
 <script src="experiments.js?v=0.34.0" data-development></script>
 <script src="scene-input.js?v=0.34.0" data-development></script>
@@ -101,6 +107,7 @@
 <script src="scene-inspector.js?v=0.34.0" data-development></script>
 <script src="module-registry.js?v=0.34.0" data-development></script>
 <script src="semantic-links.js?v=0.34.0" data-development></script>
+<script src="continuation-metadata.js?v=0.34.0" data-development></script>
 <script src="inference-bindings.js?v=0.34.0" data-development></script>
 <script src="expansion-bindings.js?v=0.34.0" data-development></script>
 <script src="symbol-bindings.js?v=0.34.0" data-development></script>
@@ -119,6 +126,9 @@
 <script src="calculation-flow.js?v=0.34.0" data-development></script>
 <script src="life-story.js?v=0.34.0" data-development></script>
 <script src="inference-previews.js?v=0.34.0" data-development></script>
+<script src="number-foundation-previews.js?v=0.34.0" data-development></script>
+<script src="spatial-foundation-previews.js?v=0.34.0" data-development></script>
+<script src="dynamics-extension-previews.js?v=0.34.0" data-development></script>
 <script src="card-previews.js?v=0.34.0" data-development></script>
 <script src="concept-atlas.js?v=0.34.0" data-development></script>
 <script src="atlas-regions.js?v=0.34.0" data-development></script>
@@ -127,6 +137,9 @@
 <script src="atlas-explorer.js?v=0.34.0" data-development></script>
 <script src="systems-terms.js?v=0.34.0" data-development></script>
 <script src="inference-terms.js?v=0.34.0" data-development></script>
+<script src="number-foundation-terms.js?v=0.34.0" data-development></script>
+<script src="spatial-foundation-terms.js?v=0.34.0" data-development></script>
+<script src="dynamics-extension-terms.js?v=0.34.0" data-development></script>
 <script src="expansion-terms.js?v=0.34.0" data-development></script>
 <script src="math-terms.js?v=0.34.0" data-development></script>
 <script src="math-notation.js?v=0.34.0" data-development></script>

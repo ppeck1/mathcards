@@ -11,8 +11,8 @@ browser are projections of this inventory plus a separately authored
 [lesson crosswalk](../content/planning/eight-book-crosswalk.json). Importing a
 subject never creates a completed lesson or a verified book attribution.
 
-The current branch crosswalk links 60 inventory subjects to bounded draft
-introductions and 54 to preparation only; 181 remain planned. These are
+The current branch crosswalk links 71 inventory subjects to bounded draft
+introductions and 56 to preparation only; 168 remain planned. These are
 concept-to-lesson links, so several subjects can lead to the same lesson. They
 are not counts of new cards or complete treatments of a book.
 
@@ -23,6 +23,33 @@ are not counts of new cards or complete treatments of a book.
 | Information | Relative entropy | A finite KL-divergence family, including zero-probability and infinite-divergence states |
 | Dynamics and order | Fields, flows, basins, fold, cusp potential, partial order, meet/join and distributivity | Declared normal forms or a finite powerset lattice; no general catastrophe or lattice classification |
 | Energy and computational learning | Finite heat balance, Gibbs comparison, ideal gas, scalar sigmoid and one Hebbian update | Physical units and model limits; no biological validation or reaction-rate inference |
+| Number and counting continuation | Modular remainders, gcd, prime factors, signed rational reduction, positional numerals, permutations and combinations | Exact finite domains; ordered assignments, unordered teams, prime factors and represented values retain separate meanings |
+| Spatial mechanics continuation | Spatial cross/triple products, passive orthonormal frame change, projection/residual, angular velocity and linear momentum | A viewing projection is not a measured area or volume; passive frames do not rotate the arrow; angular momentum remains separate |
+| Local coordinates and rule histories | Circle/sphere charts, continuous gradient flow, quasi-static hysteresis and restricted perturbation comparisons | Bounded examples prepare manifold and stability theory; chart poles are not singular spheres, and mechanical history is not neural memory |
+
+## What the continuation advances
+
+Eleven inventory subjects gain direct bounded introductions through the number
+and counting family: numerals, numeral systems, rational numbers, fractions,
+prime numbers, modular arithmetic, factorials and their notation, binomial
+coefficients and their notation, and counting methods. Fractions advances from
+preparation only. Zero, negative numbers and prime conjectures receive explicit
+preparation links; the prime-conjecture link supplies vocabulary, not a claim
+about a conjecture’s current status or a proof.
+
+The remaining eleven new lessons strengthen existing preparation links in
+analytic geometry, topology, vector calculus, mechanics, optimization and
+catastrophe theory. They are not relabeled as completed fields. Unit-circle and
+unit-sphere charts do not supply sphere area/volume lessons. The linear-momentum
+lesson does not complete angular momentum. The restricted structural comparison
+does not certify arbitrary perturbations, and quasi-static branch selection does
+not simulate a switching rate or biological facilitation.
+
+The earlier four-book matrix now records 59 introductions, 36 precursors and
+119 planned rows, with all 214 topic IDs and 217 attributed associations kept.
+Its examples of manifold charts and local structural robustness remain
+precursors. The two inventories overlap and retain independent evidence and
+review states.
 
 ## Three independent questions
 

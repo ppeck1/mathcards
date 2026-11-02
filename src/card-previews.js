@@ -2,10 +2,10 @@
 (function (root, factory) {
   'use strict';
   const node = typeof module === 'object' && module.exports;
-  const api = factory(node ? require('./models.js') : root.AtlasModels, node ? require('./discovery.js') : root.AtlasDiscovery,node ? require('./systems-models.js') : root.AtlasSystems,node ? require('./inference-models.js') : root.AtlasInference,node ? require('./inference-previews.js') : root.AtlasInferencePreviews);
+  const api = factory(node ? require('./models.js') : root.AtlasModels, node ? require('./discovery.js') : root.AtlasDiscovery,node ? require('./systems-models.js') : root.AtlasSystems,node ? require('./inference-models.js') : root.AtlasInference,node ? require('./inference-previews.js') : root.AtlasInferencePreviews,node ? require('./number-foundations.js') : root.AtlasNumberFoundations,node ? require('./number-foundation-previews.js') : root.AtlasNumberFoundationPreviews,node ? require('./spatial-foundations.js') : root.AtlasSpatialFoundations,node ? require('./spatial-foundation-previews.js') : root.AtlasSpatialFoundationPreviews,node ? require('./dynamics-extensions.js') : root.AtlasDynamicsExtensions,node ? require('./dynamics-extension-previews.js') : root.AtlasDynamicsExtensionPreviews,node?require('./continuation-metadata.js'):root.AtlasContinuationMetadata);
   if (node) module.exports = api;
   root.AtlasCardPreviews = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function (M, D, Systems, Inference, InferencePreviews) {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (M, D, Systems, Inference, InferencePreviews, Numbers, NumberPreviews, SpaceModels, SpatialPreviews, DynamicsModels, DynamicsPreviews, Continuation) {
   'use strict';
   const C = Object.freeze({ bg: '#101e2b', grid: '#294352', ink: '#eef8f3', muted: '#9eb4bf', cyan: '#77d8e8', mint: '#c6f276', gold: '#f5cf78', violet: '#b8a1ff', orange: '#ffb08a' });
   // Every preview keeps explanatory text below the mathematical artwork.
@@ -518,6 +518,12 @@
     };
   }
   if(InferencePreviews)for(const id of InferencePreviews.list())records[id]={title:Inference.specs(id).title,describe:(p,r)=>InferencePreviews.describe(id,p,r),draw:(p,r)=>InferencePreviews.draw(id,p,r).replace(/<text\b[^>]*>[\s\S]*?<\/text>/,body=>quantity('output',r.output,body))};
+  for(const id of Continuation?.ids||[]){
+    const pair=[[Numbers,NumberPreviews],[SpaceModels,SpatialPreviews],[DynamicsModels,DynamicsPreviews]].find(([provider])=>provider?.has(id));
+    if(!pair?.[1]?.has(id))throw new RangeError('Missing authored illustration: '+id);
+    const [provider,preview]=pair;
+    records[id]={title:provider.specs(id).title,describe:(p,r)=>preview.describe(id,p,r),draw:(p,r)=>preview.draw(id,p,r)};
+  }
   const slugs = Object.freeze(Object.keys(records));
   function has(slug) { return typeof slug === 'string' && Object.hasOwn(records, slug); }
   function description(slug) { if (!has(slug)) return ''; const p = M.defaults(slug); return records[slug].describe(p, M.evaluate(slug, p)); }

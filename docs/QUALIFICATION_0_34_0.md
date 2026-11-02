@@ -9,6 +9,10 @@ viewport, input method, assistive technology and reviewer/date with each result.
 Report pass/fail and an actual observation rather than inferring behavior from
 unit tests. Preserve failures as follow-up issues.
 
+This checklist applies to the current 102-card continuation as well as the
+initial 84-card checkpoint. Static preview and background numeric evidence is
+recorded separately in the [current validation](VALIDATION_0_34_0_CONTINUATION.md).
+
 ## Complete learner journey
 
 | Check | Required observation | Result |
@@ -75,3 +79,10 @@ lessons. For each, record:
 Keep numerical validation, author review, independent expert review and learner
 observations distinct. Update publication status only after the applicable
 review requirements are met.
+
+For the continuation, include integer counting controls, a zero-vector
+projection, a reversed frame, a hysteresis return path and both chart poles.
+Check that a chart's missing coordinate does not suggest that the underlying
+circle or sphere point disappeared. Read near-pole values, clipped rays and
+off-window continuation marks at phone scale. Verify that story and playground
+transitions respect the same interpolation guard.

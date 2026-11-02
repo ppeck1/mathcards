@@ -9,8 +9,8 @@
     "check": "python tools/check.py",
     "check:generated": "python tools/check_generated.py",
     "check:source": "python tools/check_source.py",
-    "format": "prettier --write \"src/{legacy-models,inference-*,systems-*,subject-inventory,expansion-*}.js\" \"src/subject-inventory.css\" \"tests/{legacy-provider,inference-*,systems-*,subject-*,expansion-*}.test.mjs\" \"tools/{measure_startup,generated_io}.cjs\" \"tests/generated-io.test.mjs\"",
-    "check:format": "prettier --check \"src/{legacy-models,inference-*,systems-*,subject-inventory,expansion-*}.js\" \"src/subject-inventory.css\" \"tests/{legacy-provider,inference-*,systems-*,subject-*,expansion-*}.test.mjs\" \"tools/{measure_startup,generated_io}.cjs\" \"tests/generated-io.test.mjs\"",
+    "format": "prettier --write \"src/{legacy-models,inference-*,systems-*,subject-inventory,expansion-*,continuation-*,number-foundation*,spatial-foundation*,dynamics-extension*}.js\" \"src/subject-inventory.css\" \"tests/{legacy-provider,inference-*,systems-*,subject-*,expansion-*,continuation-*,number-foundation*,spatial-foundation*,dynamics-extension*}.test.mjs\" \"tools/{measure_startup,generated_io}.cjs\" \"tests/generated-io.test.mjs\"",
+    "check:format": "prettier --check \"src/{legacy-models,inference-*,systems-*,subject-inventory,expansion-*,continuation-*,number-foundation*,spatial-foundation*,dynamics-extension*}.js\" \"src/subject-inventory.css\" \"tests/{legacy-provider,inference-*,systems-*,subject-*,expansion-*,continuation-*,number-foundation*,spatial-foundation*,dynamics-extension*}.test.mjs\" \"tools/{measure_startup,generated_io}.cjs\" \"tests/generated-io.test.mjs\"",
     "measure:startup": "node tools/measure_startup.cjs"
   },
   "engines": {

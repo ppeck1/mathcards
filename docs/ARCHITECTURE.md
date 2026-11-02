@@ -40,6 +40,13 @@ drift after rebuilding. Explicit LF generation keeps Windows and Linux bytes
 consistent. Never edit generated reference data or written exports as another
 source of truth.
 
+Installed continuation families keep their stable IDs, grammar bindings and
+typed ports in three explicit `content/planning/*-integration.json` records.
+`tools/build_continuation_metadata.py` checks these against canonical cards and
+projects them into inert, frozen `src/continuation-metadata.js`. This registry
+data contains no executable formulas or downloaded module paths. Providers,
+stories and views remain authored code in separate files.
+
 ## Mathematics, representations and the shared host
 
 `src/model-registry.js` selects a trusted provider by a stable slug. A provider
@@ -62,6 +69,8 @@ labels, composition orders and analytic/finite derivative distinctions survive.
 `src/playground.js` host owns controls, input, animation, text pacing, comparison
 pins and teardown. A provider starts no animation clock and does not modify
 another slot. Discrete steps do not interpolate into invented mathematical states.
+An optional provider interpolation guard can also exclude a singularity between
+two valid endpoints, such as a stereographic chart's omitted pole.
 Geometry and Graph describe the same state with distinct encodings. Spatial is
 registered only when it represents a useful additional view.
 
@@ -116,7 +125,8 @@ gates remain explicit in the current release/branch review matrix.
 
 Prettier 3.6.2 is pinned as a development-only tool in `package-lock.json`.
 `npm ci --ignore-scripts` installs it; `npm run check:format` checks the new
-systems, inference, inventory, expansion and extracted legacy-provider modules,
+systems, inference, inventory, expansion, number/spatial foundations, dynamics
+extensions and extracted legacy-provider modules,
 their new tests, generated-write helpers and startup measurement harness. `npm run format` rewrites
 only that declared scope. `.prettierignore` excludes generated projections,
 release artifacts, original handoff material and the vendored formula compiler.

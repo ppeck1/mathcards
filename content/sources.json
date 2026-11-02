@@ -873,6 +873,132 @@
       "locator": "Section 2: relative entropy definition and nonnegativity",
       "verification": "Definition-level source inspected 2026-11-02. Original bounded examples and implementation are not independently reviewed. No exact-edition eight-book mapping is asserted.",
       "rights": "Original explanations, diagrams and examples. No source figures, exercise banks or extended prose reproduced."
+    },
+    {
+      "id": "source:number-foundations:integer",
+      "title": "James Aspnes · Number Theory",
+      "url": "https://www.cs.yale.edu/homes/aspnes/pinewiki/NumberTheory.html",
+      "kind": "lecture_notes",
+      "locator": "Sections 1, 2.1 and 4: nonnegative remainders, common divisors and the Euclidean recurrence. The archive warns that some formulas are broken; only the inspected definitions and algorithm are used.",
+      "verification": "Definition-level source inspected 2026-11-02. The bounded model and original examples remain author-derived; independent review and exact-edition book checks are pending.",
+      "rights": "Original workshop scenarios, explanations, diagrams and worked examples; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:number-foundations:prime",
+      "title": "OpenStax · Prime and Composite Numbers",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/3-1-prime-and-composite-numbers",
+      "kind": "textbook",
+      "locator": "Prime/composite definitions and prime factorization. No cryptographic timing or historical priority claims are used.",
+      "verification": "Definition-level source inspected 2026-11-02. The bounded model and original examples remain author-derived; independent review and exact-edition book checks are pending.",
+      "rights": "Original workshop scenarios, explanations, diagrams and worked examples; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:number-foundations:fraction",
+      "title": "OpenStax · Rational Numbers",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/3-4-rational-numbers",
+      "kind": "textbook",
+      "locator": "Rational numbers, equivalent fractions and simplification.",
+      "verification": "Definition-level source inspected 2026-11-02. The bounded model and original examples remain author-derived; independent review and exact-edition book checks are pending.",
+      "rights": "Original workshop scenarios, explanations, diagrams and worked examples; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:number-foundations:numeral",
+      "title": "Carl Burch · More About Binary Numbers",
+      "url": "https://www.cs.cmu.edu/~cburch/pgss97/binary.html",
+      "kind": "lecture_notes",
+      "locator": "Binary positional weights and conversion to/from base ten; the ordinary-base generalization is author-derived.",
+      "verification": "Definition-level source inspected 2026-11-02. The bounded model and original examples remain author-derived; independent review and exact-edition book checks are pending.",
+      "rights": "Original workshop scenarios, explanations, diagrams and worked examples; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:number-foundations:counting",
+      "title": "OpenStax · Counting Principles",
+      "url": "https://openstax.org/books/algebra-and-trigonometry/pages/13-5-counting-principles",
+      "kind": "textbook",
+      "locator": "Multiplication principle, ordered selections, factorials and unordered combinations.",
+      "verification": "Definition-level source inspected 2026-11-02. The bounded model and original examples remain author-derived; independent review and exact-edition book checks are pending.",
+      "rights": "Original workshop scenarios, explanations, diagrams and worked examples; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:spatial-foundations:cross",
+      "title": "OpenStax · The Cross Product",
+      "url": "https://openstax.org/books/calculus-volume-3/pages/2-4-the-cross-product",
+      "kind": "textbook",
+      "locator": "§2.4, component definition, normal orientation, parallelogram area and scalar triple product.",
+      "verification": "Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.",
+      "rights": "Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced."
+    },
+    {
+      "id": "source:spatial-foundations:dot",
+      "title": "OpenStax · The Dot Product",
+      "url": "https://openstax.org/books/calculus-volume-3/pages/2-3-the-dot-product",
+      "kind": "textbook",
+      "locator": "§2.3, signed scalar component, vector projection and orthogonal residual.",
+      "verification": "Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.",
+      "rights": "Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced."
+    },
+    {
+      "id": "source:spatial-foundations:frames",
+      "title": "University of Illinois Dynamics · Vectors and bases",
+      "url": "https://dynref.engr.illinois.edu/rvv.html",
+      "kind": "textbook",
+      "locator": "Orthonormal bases, components and passive planar frame rotation; same vector expressed in two bases.",
+      "verification": "Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.",
+      "rights": "Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced."
+    },
+    {
+      "id": "source:spatial-foundations:angular",
+      "title": "OpenStax · Rotation Angle and Angular Velocity",
+      "url": "https://openstax.org/books/college-physics-2e/pages/6-1-rotation-angle-and-angular-velocity",
+      "kind": "textbook",
+      "locator": "§6.1, radians, angular displacement per time and tangential speed.",
+      "verification": "Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.",
+      "rights": "Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced."
+    },
+    {
+      "id": "source:spatial-foundations:momentum",
+      "title": "OpenStax · Linear Momentum",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/9-1-linear-momentum",
+      "kind": "textbook",
+      "locator": "§9.1, Newtonian vector momentum as mass times velocity.",
+      "verification": "Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.",
+      "rights": "Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced."
+    },
+    {
+      "id": "source:dynamics-extension:hysteresis",
+      "title": "Joel W. Robbin · Thom’s Catastrophe Theory",
+      "url": "https://people.math.wisc.edu/~jwrobbin/catastrophe/catastrophe_talk.pdf",
+      "locator": "Cusp potential, fold curves and hysteresis in a quasi-static branch-following interpretation; original 2013 university seminar slides.",
+      "kind": "research",
+      "verification": "Primary definition or model context inspected 2026-11-02; independently reviewed teaching status remains pending.",
+      "rights": "Original explanations, scenarios, figures and examples. No source exercises or scans reproduced."
+    },
+    {
+      "id": "source:dynamics-extension:gradient",
+      "title": "Gautam Iyer · Lyapunov functions and Stability",
+      "url": "https://www.math.cmu.edu/~gautam/c/2026-632/notes/stability.html",
+      "locator": "Proposition 14, Gradient flows; the quadratic exact solution and controller story are original derivations.",
+      "kind": "textbook",
+      "verification": "Primary definition or model context inspected 2026-11-02; independently reviewed teaching status remains pending.",
+      "rights": "Original explanations, scenarios, figures and examples. No source exercises or scans reproduced."
+    },
+    {
+      "id": "source:dynamics-extension:charts",
+      "title": "Peter Petersen · Manifolds, Transversality, and de Rham Cohomology",
+      "url": "https://www.math.ucla.edu/~petersen/manifolds.pdf",
+      "locator": "§1.2.1 Spheres: stereographic charts from a pole to its orthogonal plane; §1.1 chart definition. Unit circle and sphere formulas derived directly here.",
+      "kind": "textbook",
+      "verification": "Primary definition or model context inspected 2026-11-02; independently reviewed teaching status remains pending.",
+      "rights": "Original explanations, scenarios, figures and examples. No source exercises or scans reproduced."
+    },
+    {
+      "id": "source:dynamics-extension:structural",
+      "title": "Rahman and Blackmore · One-dimensional structural stability",
+      "url": "https://arxiv.org/abs/2302.04941",
+      "locator": "Primary author preprint of SIAM Review 65(3), 869–886; local hyperbolicity and perturbation distinctions. The lesson does not reproduce or claim the full compact-domain theorem.",
+      "kind": "research",
+      "verification": "Primary definition or model context inspected 2026-11-02; independently reviewed teaching status remains pending.",
+      "rights": "Original explanations, scenarios, figures and examples. No source exercises or scans reproduced."
     }
   ]
 }

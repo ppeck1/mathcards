@@ -1,4 +1,8 @@
-# 0.34.0 branch completion matrix
+# 0.34.0 initial branch checkpoint matrix
+
+This matrix records the first 23 new lessons, at 84 cards. The
+[continuation matrix](CONTINUATION_MATRIX_0_34_0.md) supersedes its current-state
+counts and queue; descriptions below remain evidence for this earlier checkpoint.
 
 This is a review branch, `codex/eight-book-expansion`. The published site remains
 0.33.0. No browser, desktop app, tab or panel was opened or controlled during

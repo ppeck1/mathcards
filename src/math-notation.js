@@ -22,10 +22,16 @@
   Object.assign(macros,{aleph:'ℵ',subseteq:'⊆',nsubseteq:'⊈',Longleftrightarrow:'⇔',cap:'∩',cup:'∪',setminus:'∖',emptyset:'∅'});
   Object.assign(glyphs,{'⊈':['not-subset']});
   const mathLetter=c=>/[\u0370-\u03ff\u2100-\u214f]/u.test(c)||/\p{Script=Greek}/u.test(c)||(c.codePointAt(0)>=0x1d400&&c.codePointAt(0)<=0x1d7ff);
+  const vectorArgument=String.raw`\\vec\b\s*(?:\{(?:[A-Za-zα-ωΑ-Ω]|\\[A-Za-z]+)\}|[A-Za-zα-ωΑ-Ω])`;
+  const texVectorArgument=new RegExp('^'+vectorArgument);
+  const texCrossProduct=new RegExp('^('+vectorArgument+')\\s*\\\\times\\s*('+vectorArgument+')');
+  const texDotProduct=new RegExp('^('+vectorArgument+')\\s*\\\\cdot\\s*('+vectorArgument+')');
+  const texTripleProduct=new RegExp('^('+vectorArgument+')\\s*\\\\cdot\\s*\\(\\s*('+vectorArgument+')\\s*\\\\times\\s*('+vectorArgument+')\\s*\\)');
+  const spatialVectorCards=new Set(['spatial-cross-product','scalar-triple-product','vector-projection']);
   function scriptRuns(value,characters,map,marker){let result='';for(let i=0;i<value.length;){const c=String.fromCodePoint(value.codePointAt(i));if(!characters.has(c)){result+=c;i+=c.length;continue;}let run='';while(i<value.length){const next=String.fromCodePoint(value.codePointAt(i));if(!characters.has(next))break;run+=map[next];i+=next.length;}result+=marker+(run.length===1?run:'{'+run+'}');}return result;}
   function normalize(query){
     if(typeof query!=='string')return'';let value=query.normalize('NFC').trim().replace(/[−–]/g,'-').replace(/ϵ/g,'ε').replace(/ϕ/g,'φ').replace(/ϑ/g,'θ').replace(/ϰ/g,'κ').replace(/ς/g,'σ');
-    value=value.replace(/\\vec\s*\{([^{}]+)\}/g,(_,name)=>name+'⃗');
+    value=value.replace(/\\vec\b\s*(?:\{([^{}]+)\}|([A-Za-zα-ωΑ-Ω]))/g,(_,braced,bare)=>(braced||bare)+'⃗');
     value=value.replace(/\\(?:bar|overline)\s*(?:\{([xyXz])\}|([xyXz])(?![A-Za-z]))/g,(_,braced,bare)=>(braced||bare)+'̅').replace(/([xyXz])[̄̅]/g,(_,letter)=>letter+'̅').replace(/\\mathcal\{O\}/g,'O');
     if(value==='xbar')value='x̅';value=value.replace(/^Theta\(/,'Θ(');
     if(/^['’]+$/.test(value))value=value.replace(/['’]/g,'′');
@@ -43,10 +49,16 @@
     return value;
   }
   Object.assign(macros,{preceq:'≼'});Object.assign(glyphs,{'≼':['partial-order']});
+  Object.assign(macros,{prod:'∏'});Object.assign(glyphs,{'∏':['product-notation']});
+  Object.assign(named,{gcd:['greatest-common-divisor-function']});
+  texFunctions.add('gcd');
   function classify(query,options={}){
     if(typeof query!=='string'||!query.trim())return[];if(options.kind==='unit')return unitIds(query,options);const raw=query.trim(),q=normalize(raw),result=[];const add=(...ids)=>result.push(...ids);
     if(Object.hasOwn(vulgar,raw)||/^[-+]?\d+\/\d+$/.test(q))add('fraction');
     if(q==='∃!')add('unique-exists');
+    if((!options.slug||options.slug==='circle-manifold'||options.slug==='reference:unit-circle')&&q==='S^1')return['unit-circle','superscript'];
+    if((!options.slug||options.slug==='sphere-manifold'||options.slug==='reference:unit-sphere')&&q==='S^2')return['unit-sphere','superscript'];
+    if(q==='\\vec'||/^[A-Za-zα-ωΑ-Ω]⃗$/.test(q))add('vector-arrow-notation');
     if(q==='ℵ_0'||q==='ℵ')add('aleph-null');
     if(/^X(?:⟂|⊥)Y$/.test(q))add('random-variable-independence');
     if(informationCards.includes(options.slug)){
@@ -107,8 +119,9 @@
       if(q==='φ_h(x)')add('open-formula');if(q==='φ_h(x_p)')add('probe-coordinate');
       if(q==='A_h'||q==='B_h')add('quantifier-order');
     }
-    if(/^(?:[uv]×[uv]|r×F|r⃗×F⃗)$/.test(q))add('cross-product');
-    if(q==='r⃗')add('position-vector');if(q==='F⃗')add('force');if(q==='τ⃗')add('torque');
+    if(/^(?:[uv]×[uv]|r×F|r⃗×F⃗)$/.test(q)||/^[A-Za-zα-ωΑ-Ω]⃗×[A-Za-zα-ωΑ-Ω]⃗$/.test(q)||(spatialVectorCards.has(options.slug)&&/^[uvw]×[uvw]$/.test(q)))add('cross-product');
+    if((spatialVectorCards.has(options.slug)&&/^[uvrw]·[uvrw]$/.test(q))||/^[A-Za-zα-ωΑ-Ω]⃗·[A-Za-zα-ωΑ-Ω]⃗$/.test(q))add('dot-product');
+    if(q==='r⃗')add(options.slug==='vector-projection'?'orthogonal-residual':'position-vector');if(q==='F⃗')add('force');if(q==='τ⃗')add('torque');
     if(q==='x̅'||q==='y̅'||q==='X̅')add('sample-mean');if(q==='z̅')add('complex-conjugate');
     if(q==='σ^2')add('population-variance');
     if(/^v_(?:[nk]|[0-9]+|\{[nk][+-]1\})$/.test(q))add('sequence');
@@ -119,7 +132,7 @@
     if(/^lim_?\{?[\s\S]*→/.test(q))add('limit-arrow');
     if(/^[-+]?(?:\d+(?:\.\d*)?|\.\d+)[eE][-+]?\d+$/.test(q))add('scientific-notation');
     if(/^E(?:\[[\s\S]+\]|\([\s\S]+\))$/.test(q))add('expected-value');
-    if(/^P\([\s\S]+\)$/.test(q)){if(['quantifier','relation'].includes(options.slug))add('predicate');else {add(q.includes('|')?'conditional-probability':'probability');if(q==='P(x)'||/^P\([-+]?\d+(?:\.\d+)?\)$/.test(q))add('predicate');}}
+    if(/^P\([\s\S]+\)$/.test(q)){if(options.slug==='permutation-count'&&/^P\([^,()]+,[^,()]+\)$/.test(q))add('permutation-count');else if(['quantifier','relation'].includes(options.slug))add('predicate');else {add(q.includes('|')?'conditional-probability':'probability');if(q==='P(x)'||/^P\([-+]?\d+(?:\.\d+)?\)$/.test(q))add('predicate');}}
     if(/^R(?:_h)?\(x,y\)$/.test(q)&&options.slug!=='quantifier-scope')add('binary-relation');
     if(q==='D×D')add('cartesian-product');
     if(/^P_h\(x\)$/.test(q))add('predicate');
@@ -159,6 +172,9 @@
   }
   function unitIds(query,{slug}={}){
     const q=normalize(query),unit=String(query).trim().toLowerCase();
+    if(unit==='rad/s')return['angular-velocity-unit','compound-unit'];if(/^kg[·⋅.*]m\/s$/.test(unit))return['momentum-unit','compound-unit'];
+    if(unit==='chart units')return['chart-coordinate-unit'];if(unit==='time units')return['model-time-unit'];if(unit==='per time unit')return['model-return-rate-unit'];if(unit==='cost units')return['model-cost-unit'];
+    if(['item','factor','factors','piece','pieces','part','parts','people','person','role','roles','arrangement','arrangements','selection','selections','place','places'].includes(unit))return['number-count-unit'];
     if(q==='K')return['kelvin'];if(q==='Pa'||q==='kPa')return['pascal'];if(q==='mol')return['mole'];if(q==='J/K')return['entropy-unit'];
     if(unit==='reader'||unit==='readers')return['reader-count-unit'];if(unit==='packet'||unit==='packets')return['packet-count-unit'];if(unit==='draw'||unit==='draws')return['draw-count-unit'];if(unit==='arrivals/minute')return['arrival-rate-unit'];
     if(unit==='cm/day')return['compound-unit'];if(unit==='minutes'||unit==='days')return['measurement-unit-symbols'];
@@ -228,11 +244,14 @@
       if(probabilisticIndependence){emit(probabilisticIndependence[0],i,'structured',{entryIds:['random-variable-independence']});i+=probabilisticIndependence[0].length;continue;}
 
       const meanBar=/^[xyXz][̄̅]/u.exec(rest);if(meanBar){emit(meanBar[0],i,'structured');i+=meanBar[0].length;continue;}
+      const primedLetter=/^[A-Za-z]['’′″]+(?![A-Za-z0-9_])/.exec(rest);if(primedLetter&&!/^\s*[([]/.test(rest.slice(primedLetter[0].length))){emit(primedLetter[0],i,'structured');i+=primedLetter[0].length;continue;}
       if(c==='ŷ'||c==='ẋ'){emit(c,i,'structured');i+=c.length;continue;}
-      const texVectorProduct=/^(\\vec\s*\{r\})\s*\\times\s*(\\vec\s*\{F\})/.exec(rest);if(texVectorProduct){emit(texVectorProduct[0],i,'structured',{entryIds:['cross-product']});emit(texVectorProduct[1],i,'structured',{entryIds:['position-vector']});emit(texVectorProduct[2],i+texVectorProduct[0].lastIndexOf(texVectorProduct[2]),'structured',{entryIds:['force']});i+=texVectorProduct[0].length;continue;}
-      const texVector=/^\\vec\s*\{(?:[A-Za-zα-ωΑ-Ω]|\\[A-Za-z]+)\}/.exec(rest);if(texVector){emit(texVector[0],i,'structured');i+=texVector[0].length;continue;}
+      // Consume vector products before scalar operators, while retaining every argument's reader.
+      const vectorTriple=texTripleProduct.exec(rest);if(vectorTriple){emit(vectorTriple[0],i,'structured',{entryIds:['scalar-triple-product','dot-product']});const crossStart=vectorTriple[0].indexOf(vectorTriple[2]);emit(vectorTriple[0].slice(crossStart,vectorTriple[0].lastIndexOf(')')).trim(),i+crossStart,'structured',{entryIds:['cross-product']});delimiters(i+vectorTriple[0].indexOf('('),i+vectorTriple[0].lastIndexOf(')'));for(let part=1;part<=3;part++){const offset=part===1?0:vectorTriple[0].indexOf(vectorTriple[part],part===2?crossStart:crossStart+vectorTriple[2].length);emit(vectorTriple[part],i+offset,'structured');}i+=vectorTriple[0].length;continue;}
+      const vectorOperation=texCrossProduct.exec(rest)||texDotProduct.exec(rest);if(vectorOperation){emit(vectorOperation[0],i,'structured',{entryIds:[vectorOperation[0].includes('\\times')?'cross-product':'dot-product']});emit(vectorOperation[1],i,'structured');emit(vectorOperation[2],i+vectorOperation[0].lastIndexOf(vectorOperation[2]),'structured');i+=vectorOperation[0].length;continue;}
+      const texVector=texVectorArgument.exec(rest);if(texVector){emit(texVector[0],i,'structured');i+=texVector[0].length;continue;}
       const nativeVector=/^[A-Za-zα-ωΑ-Ω]⃗/.exec(rest);
-      const arrowProduct=/^r⃗\s*×\s*F⃗/.exec(rest);if(arrowProduct){emit(arrowProduct[0],i,'structured',{entryIds:['cross-product']});i+=arrowProduct[0].length;continue;}
+      const arrowProduct=/^([A-Za-zα-ωΑ-Ω]⃗)\s*([×·])\s*([A-Za-zα-ωΑ-Ω]⃗)/.exec(rest);if(arrowProduct){emit(arrowProduct[0],i,'structured',{entryIds:[arrowProduct[2]==='×'?'cross-product':'dot-product']});emit(arrowProduct[1],i,'structured');emit(arrowProduct[3],i+arrowProduct[0].lastIndexOf(arrowProduct[3]),'structured');i+=arrowProduct[0].length;continue;}
       if(nativeVector){emit(nativeVector[0],i,'structured');i+=nativeVector[0].length;continue;}
       const texBar=/^\\(?:bar|overline)\s*(?:\{([xyXz])\}|([xyXz])(?![A-Za-z]))/.exec(rest);if(texBar){emit(texBar[0],i,'structured');i+=texBar[0].length;continue;}
       const thetaCall=/^\\Theta\s*\(/.exec(rest);if(thetaCall){const start=i+thetaCall[0].length-1,end=balanced(text,start,'(',')');if(end){emit(text.slice(i,end),i,'structured');delimiters(start,end-1);children(start+1,end-1);i=end;continue;}}
@@ -265,7 +284,9 @@
       const fraction=/^[+−-]?\d+\/\d+(?!\d)/.exec(rest);if(fraction){emit(fraction[0],i,'structured');const slash=i+fraction[0].indexOf('/');emit('/',slash,'operator');i+=fraction[0].length;continue;}
       if(rest.startsWith('D×D')){emit('D×D',i,'structured',{entryIds:['cartesian-product']});i+=3;continue;}
       if(rest.startsWith('∃!')){emit('∃!',i,'structured');i+=2;continue;}
-      const vectorProduct=/^(?:[uv]\s*×\s*[uv]|r\s*×\s*F)(?![A-Za-z0-9_])/.exec(rest);if(vectorProduct){emit(vectorProduct[0],i,'structured',{entryIds:['cross-product']});i+=vectorProduct[0].length;continue;}
+      const nativeTriple=spatialVectorCards.has(slug)&&/^([uvw])\s*·\s*\(\s*([uvw])\s*×\s*([uvw])\s*\)/.exec(rest);if(nativeTriple){emit(nativeTriple[0],i,'structured',{entryIds:['scalar-triple-product','dot-product']});const crossStart=nativeTriple[0].indexOf(nativeTriple[2],nativeTriple[0].indexOf('('));emit(nativeTriple[0].slice(crossStart,nativeTriple[0].lastIndexOf(')')).trim(),i+crossStart,'structured',{entryIds:['cross-product']});delimiters(i+nativeTriple[0].indexOf('('),i+nativeTriple[0].lastIndexOf(')'));i+=nativeTriple[0].length;continue;}
+      const vectorProduct=(spatialVectorCards.has(slug)?/^[uvw]\s*×\s*[uvw](?![A-Za-z0-9_])/:/^(?:[uv]\s*×\s*[uv]|r\s*×\s*F)(?![A-Za-z0-9_])/).exec(rest);if(vectorProduct){emit(vectorProduct[0],i,'structured',{entryIds:['cross-product']});i+=vectorProduct[0].length;continue;}
+      const nativeDot=spatialVectorCards.has(slug)&&/^[uvrw]\s*·\s*[uvrw](?![A-Za-z0-9_])/.exec(rest);if(nativeDot){emit(nativeDot[0],i,'structured',{entryIds:['dot-product']});i+=nativeDot[0].length;continue;}
       if(rest.startsWith('||')||c==='‖'){
         const delimiter=c==='‖'?'‖':'||',end=text.indexOf(delimiter,i+delimiter.length);if(end>=0){const token=text.slice(i,end+delimiter.length);emit(token,i,'structured');children(i+delimiter.length,end);i+=token.length;continue;}
       }

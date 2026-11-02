@@ -45,7 +45,7 @@ boltzmann-machines,Boltzmann machines,computation,planned,,B02,B02:confirmed_sco
 network-learning,Network learning,computation,precursor,hebbian-learning,B02,B02:confirmed_scope,One local correlation-based weight update introduces a mathematical learning rule; it is not a physiological model or complete theory of memory.
 competitive-learning,Competitive learning,computation,planned,,B02,B02:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 recurrent-networks,Recurrent networks,computation,planned,,B02,B02:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
-optimization,Optimization,computation,precursor,gradient-descent;quadratic-optimization,B02;B05,B02:confirmed_scope;B05:provisional_book_mapping,Bounded quadratic optimization and four discrete descent updates precede general optimization methods.
+optimization,Optimization,computation,precursor,gradient-descent;quadratic-optimization;gradient-flow,B02;B05,B02:confirmed_scope;B05:provisional_book_mapping,"A positive quadratic potential has an exact continuous negative-gradient solution, distinct from finite discrete descent updates. General optimization algorithms and convergence theorems remain outside these bounded families."
 neurons,Neurons,neuroscience,precursor,artificial-neuron,B02,B02:confirmed_scope,One stipulated scalar sigmoid unit illustrates an artificial computational model; anatomy and biological membrane mechanisms are not implemented.
 synapses,Synapses,neuroscience,precursor,hebbian-learning,B02,B02:confirmed_scope,One local correlation-based weight update introduces a mathematical learning rule; it is not a physiological model or complete theory of memory.
 membrane-potentials,Membrane potentials,neuroscience,planned,,B02,B02:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
@@ -74,7 +74,7 @@ variance-inference,Variance inference,statistics,planned,,B03,B03:provisional_bo
 statistical-quality-control,Statistical quality control,statistics,planned,,B03,B03:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
 sample-spaces,Sample spaces,probability,precursor,probability;conditional-probability,B03,B03:provisional_book_mapping,Finite chance and conditioning models use events; a dedicated general treatment remains planned.
 events,Events,probability,precursor,probability;conditional-probability,B03,B03:provisional_book_mapping,Finite chance and conditioning models use events; a dedicated general treatment remains planned.
-counting-methods,Counting methods,probability,planned,,B03,B03:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
+counting-methods,Counting methods,probability,draft-introduction,permutation-count;binomial-coefficient,B03,B03:provisional_book_mapping,Multiplication of successive choices and removal of repeated orderings introduce two finite counting methods. This is not a complete combinatorics curriculum.
 conditional-probability,Conditional probability,probability,draft-introduction,conditional-probability,B03,B03:provisional_book_mapping,Finite event conditioning in a declared model; causal interpretation is not implied.
 independence,Independence,probability,precursor,chi-square-association;joint-distribution,B03,B03:provisional_book_mapping,Finite category counts and binary laws prepare for general categorical data and independence methods; no general inferential p-value is supplied.
 random-variables,Random variables,probability,draft-introduction,probability-distribution,B03,B03:provisional_book_mapping,Three discrete return-count outcomes with authored probabilities; broader distribution families remain separate.
@@ -87,7 +87,7 @@ poisson-distribution,Poisson distribution,probability,draft-introduction,poisson
 exponential-distribution,Exponential distribution,probability,planned,,B03,B03:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
 central-limit-theorem,Central limit theorem,probability,precursor,sampling-distribution,B03,B03:provisional_book_mapping,An exact finite sample-mean distribution prepares for normal limits; no normal law or central-limit theorem proof is implemented.
 symbol-history,Symbol history,notation,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
-numerals,Numerals,notation,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
+numerals,Numerals,notation,draft-introduction,numeral-system,B04,B04:confirmed_scope,"Ordinary positional numerals in bases two through ten name the same nonnegative integer. This introduces digit/place meaning, not historical numeral scripts."
 greek-letters,Greek letters,notation,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 variables,Variables,notation,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 absolute-value,Absolute value,notation,precursor,derivative,B04,B04:confirmed_scope,A corner preset and reference entry explain absolute value locally; a dedicated absolute-value lesson remains planned.
@@ -108,15 +108,15 @@ quantifiers,Quantifiers,notation,draft-introduction,quantifier;quantifier-scope,
 membership,Membership,notation,draft-introduction,set,B04,B04:confirmed_scope,Finite displayed sets with explicit membership and selected operations.
 union-and-intersection,Union and intersection,notation,draft-introduction,set,B04,B04:confirmed_scope,Finite displayed sets with explicit membership and selected operations.
 infinity-notation,Infinity notation,notation,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
-factorial-notation,Factorial notation,notation,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
+factorial-notation,Factorial notation,notation,draft-introduction,permutation-count,B04,B04:confirmed_scope,"Factorial notation and the empty product are explained through ordered selections, including zero roles. No gamma-function extension is implemented."
 summation-notation,Summation notation,notation,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 floor-and-ceiling,Floor and ceiling,notation,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
-binomial-notation,Binomial notation,notation,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
+binomial-notation,Binomial notation,notation,draft-introduction,binomial-coefficient;binomial-distribution,B04,B04:confirmed_scope,"Binomial-coefficient notation counts unordered teams, and the distribution lesson uses those coefficients for Bernoulli counts. Their meanings remain distinct."
 einstein-summation,Einstein summation,notation,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 proof-completion-notation,Proof-completion notation,notation,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
-zero,Zero,numbers,planned,,B04;B05,B04:confirmed_scope;B05:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
-negative-numbers,Negative numbers,numbers,planned,,B04;B05,B04:confirmed_scope;B05:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
-rational-numbers,Rational numbers,numbers,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
+zero,Zero,numbers,precursor,rational-number;numeral-system;permutation-count,B04;B05,B04:confirmed_scope;B05:confirmed_scope,"Zero balances, the single zero digit and one empty assignment give distinct examples. A dedicated treatment of zero and its algebraic roles remains planned."
+negative-numbers,Negative numbers,numbers,precursor,rational-number,B04;B05,B04:confirmed_scope;B05:confirmed_scope,Signed fractional ribbon balances locate negative values to the left of zero. Integer ordering and the full arithmetic of negative numbers remain separate.
+rational-numbers,Rational numbers,numbers,draft-introduction,rational-number,B04,B04:confirmed_scope,Signed bounded numerator and positive denominator illustrate quotient values and exact reduction. No construction of the complete number system is claimed.
 real-numbers,Real numbers,numbers,planned,,B04;B05,B04:confirmed_scope;B05:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 imaginary-unit,Imaginary unit,numbers,draft-introduction,complex-multiplication,B04,B04:confirmed_scope,Complex-plane multiplication as a scale and turn; broader complex analysis remains separate.
 pi,Pi,numbers,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
@@ -127,25 +127,25 @@ matrices,Matrices,algebra,draft-introduction,matrix-linear-map;matrix-product,B0
 roots,Roots,analysis,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 derivatives,Derivatives,analysis,draft-introduction,derivative,B04,B04:confirmed_scope,Declared scalar functions; finite secants and analytic tangent slopes remain separate.
 partial-derivatives,Partial derivatives,analysis,draft-introduction,partial-derivative,B04,B04:confirmed_scope,"One analytic quadratic field family, not arbitrary symbolic partial differentiation."
-vector-calculus,Vector calculus,analysis,precursor,derivative;integral-accumulation;gradient,B04,B04:confirmed_scope,Several local-change and accumulation families precede general analysis and vector-calculus theorems.
+vector-calculus,Vector calculus,analysis,precursor,derivative;integral-accumulation;gradient;spatial-cross-product;vector-projection;gradient-flow,B04,B04:confirmed_scope,"Concrete spatial vector operations and a quadratic gradient flow extend the local-change examples. General vector-calculus theorems, arbitrary fields and integration theory remain separate."
 limits,Limits,analysis,draft-introduction,limit,B04,B04:confirmed_scope,A bounded removable-discontinuity family; a picture is not a general limit proof.
 exponential-growth,Exponential growth,analysis,draft-introduction,exponential-change,B04,B04:confirmed_scope,A fixed multiplicative-change rule; no fitted real-world growth claim.
 empty-set,Empty set,logic,draft-introduction,set,B04,B04:confirmed_scope,Finite displayed sets with explicit membership and selected operations.
 cardinality,Cardinality,logic,precursor,set;countability,B04,B04:confirmed_scope,Finite set counts and one countable enumeration precede cardinal comparison and uncountable sets.
 infinite-sets,Infinite sets,logic,precursor,set;countability,B04,B04:confirmed_scope,Finite set counts and one countable enumeration precede cardinal comparison and uncountable sets.
-factorials,Factorials,discrete,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
-binomial-coefficients,Binomial coefficients,discrete,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
-modular-arithmetic,Modular arithmetic,discrete,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
+factorials,Factorials,discrete,draft-introduction,permutation-count,B04,B04:confirmed_scope,Finite products count assignments of distinct people to different roles. Counts are bounded by eight people; repetition and circular arrangements remain separate.
+binomial-coefficients,Binomial coefficients,discrete,draft-introduction,binomial-coefficient;binomial-distribution,B04,B04:confirmed_scope,Unordered selections are counted by Pascal recurrence and checked against repeated ordered listings; a bounded finite team family precedes the general binomial theorem.
+modular-arithmetic,Modular arithmetic,discrete,draft-introduction,modular-arithmetic,B04,B04:confirmed_scope,Exact nonnegative remainders and repeated residue classes in a finite packing family; general integer residue-ring operations remain outside the executable scope.
 trigonometry,Trigonometry,geometry,precursor,pythagorean-theorem;vector-rotation,B04,B04:confirmed_scope,Specific right-triangle and coordinate examples precede a complete geometry or trigonometry sequence.
 planck-constant,Planck constant,physics,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 speed-of-light,Speed of light,physics,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 scientific-publishing,Scientific publishing,history,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 notation-development,Notation development,history,planned,,B04,B04:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
-numeral-systems,Numeral systems,numbers,planned,,B05,B05:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
-fractions,Fractions,numbers,precursor,ratio-scale,B05,B05:confirmed_scope,Ratios and proportional scaling use fractions; number-system construction and fraction algorithms remain separate.
+numeral-systems,Numeral systems,numbers,draft-introduction,numeral-system,B05,B05:confirmed_scope,"A bounded positional representation uses digits and base powers for integers zero through sixty-three. Fractional, negative and non-positional bases remain separate."
+fractions,Fractions,numbers,draft-introduction,ratio-scale;rational-number;greatest-common-divisor,B05,B05:confirmed_scope,"The fraction lesson explicitly reduces signed fractions without changing their value; the gcd lesson supplies the common-divisor calculation, while ratio scaling remains an application."
 irrational-numbers,Irrational numbers,numbers,planned,,B05,B05:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 perfect-numbers,Perfect numbers,numbers,planned,,B05,B05:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
-prime-numbers,Prime numbers,numbers,planned,,B05,B05:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
+prime-numbers,Prime numbers,numbers,draft-introduction,prime-factorization;greatest-common-divisor,B05,B05:confirmed_scope,Prime/composite distinction and repeated prime factors are explicit for positive integers up to 120. The gcd lesson supports divisibility; no proof of unique factorization or primality-testing complexity is claimed.
 complex-numbers,Complex numbers,numbers,draft-introduction,complex-multiplication,B05,B05:confirmed_scope,Complex-plane multiplication as a scale and turn; broader complex analysis remains separate.
 quadratic-equations,Quadratic equations,algebra,planned,,B05,B05:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 cubic-equations,Cubic equations,algebra,planned,,B05,B05:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
@@ -173,10 +173,10 @@ electronic-computation,Electronic computation,computation,planned,,B05,B05:confi
 historical-cryptography,Historical cryptography,computation,planned,,B05,B05:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 mathematical-platonism,Mathematical Platonism,history,planned,,B05,B05:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
 history-of-mathematics,History of mathematics,history,planned,,B05,B05:confirmed_scope,No dedicated executable lesson has been mapped in this branch yet.
-prime-conjectures,Prime conjectures,numbers,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
+prime-conjectures,Prime conjectures,numbers,precursor,prime-factorization,B05,B05:provisional_book_mapping,"The bounded prime-factorization lesson prepares prime/composite vocabulary. No conjecture statement, current conjecture status or proof is supplied by this link."
 transcendence,Transcendence,numbers,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
 fermat-problems,Fermat problems,numbers,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
-calculus,Calculus,analysis,precursor,derivative;integral-accumulation;gradient,B05,B05:provisional_book_mapping,Several local-change and accumulation families precede general analysis and vector-calculus theorems.
+calculus,Calculus,analysis,precursor,derivative;integral-accumulation;gradient;gradient-flow,B05,B05:provisional_book_mapping,"The derivative, accumulation and gradient families now include an exact continuous quadratic gradient flow. This is preparation for general analysis rather than completion of calculus."
 series,Series,analysis,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
 fourier-analysis,Fourier analysis,analysis,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
 graph-theory,Graph theory,discrete,draft-introduction,graph-theory,B05,B05:provisional_book_mapping,A fixed weighted network and shortest paths; graph theory is broader than routing.
@@ -185,9 +185,9 @@ graph-coloring,Graph coloring,discrete,planned,,B05,B05:provisional_book_mapping
 combinatorial-designs,Combinatorial designs,discrete,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
 conic-sections,Conic sections,geometry,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
 perspective,Perspective,geometry,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
-analytic-geometry,Analytic geometry,geometry,precursor,pythagorean-theorem;vector-rotation,B05,B05:provisional_book_mapping,Specific right-triangle and coordinate examples precede a complete geometry or trigonometry sequence.
+analytic-geometry,Analytic geometry,geometry,precursor,pythagorean-theorem;vector-rotation;coordinate-transformation;vector-projection;spatial-cross-product,B05,B05:provisional_book_mapping,"Specific coordinate, projection and spatial-vector constructions prepare broader analytic geometry. Passive frame changes remain distinct from moving a physical vector."
 non-euclidean-geometry,Non-Euclidean geometry,geometry,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
-topology,Topology,geometry,precursor,open-set,B05,B05:provisional_book_mapping,Euclidean disk neighborhoods introduce openness; arbitrary topological spaces are not implemented.
+topology,Topology,geometry,precursor,open-set;circle-manifold;sphere-manifold,B05,B05:provisional_book_mapping,Disk neighborhoods and explicit circle/sphere chart examples prepare topology and manifolds. An omitted chart pole is not an intrinsic singularity; arbitrary topological spaces and a general smooth-atlas theory remain planned.
 sphere-packing,Sphere packing,geometry,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
 set-theoretic-foundations,Set-theoretic foundations,logic,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
 incompleteness,Incompleteness,logic,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
@@ -195,10 +195,10 @@ intuitionism,Intuitionism,logic,planned,,B05,B05:provisional_book_mapping,No ded
 game-theory,Game theory,dynamics,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
 fractals,Fractals,dynamics,draft-introduction,fractal-geometry,B05,B05:provisional_book_mapping,"A finite-detail self-similar construction with zoom, not an infinite-resolution object."
 logistic-dynamics,Logistic dynamics,dynamics,draft-introduction,chaos-theory,B05,B05:provisional_book_mapping,A bounded logistic-map experiment with nearby starting values; not every chaotic system.
-catastrophe-theory,Catastrophe theory,dynamics,precursor,fold-bifurcation;cusp-potential,B05,B05:provisional_book_mapping,One fold normal form and one quartic cusp-potential family precede general catastrophe classifications and unfolding theory.
+catastrophe-theory,Catastrophe theory,dynamics,precursor,fold-bifurcation;cusp-potential;hysteresis;structural-stability,B05,B05:provisional_book_mapping,"One fold/cusp family now includes an explicit quasi-static branch history and two simple perturbation comparisons. General catastrophe classification, unfolding theory and transient switching dynamics remain planned."
 complexity,Complexity,computation,precursor,computational-complexity,B05,B05:provisional_book_mapping,A linear scan counts comparisons; broader time and space complexity remains planned.
 public-key-cryptography,Public-key cryptography,computation,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
-mechanics,Mechanics,physics,precursor,torque;vector;cross-product,B05,B05:provisional_book_mapping,Planar vector and torque models precede dynamical mechanics; they do not simulate body motion.
+mechanics,Mechanics,physics,precursor,torque;vector;cross-product;angular-velocity;linear-momentum;spatial-cross-product;scalar-triple-product,B05,B05:provisional_book_mapping,"Newtonian instantaneous momentum, constant-rate rim velocity and spatial geometric products extend the planar torque examples. General forces, collisions, angular momentum and rigid-body dynamics remain separate."
 electromagnetism,Electromagnetism,physics,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
 relativity,Relativity,physics,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.
 quantum-theory,Quantum theory,physics,planned,,B05,B05:provisional_book_mapping,No dedicated executable lesson has been mapped in this branch yet.

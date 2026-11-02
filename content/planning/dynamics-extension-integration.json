@@ -1,0 +1,932 @@
+{
+  "slugs": [
+    "hysteresis",
+    "gradient-flow",
+    "circle-manifold",
+    "sphere-manifold",
+    "structural-stability"
+  ],
+  "global": "AtlasDynamicsExtensions",
+  "storyGlobal": "AtlasDynamicsExtensionStories",
+  "termsGlobal": "AtlasDynamicsExtensionTerms",
+  "previewsGlobal": "AtlasDynamicsExtensionPreviews",
+  "sources": [
+    {
+      "id": "source:dynamics-extension:hysteresis",
+      "title": "Joel W. Robbin · Thom’s Catastrophe Theory",
+      "url": "https://people.math.wisc.edu/~jwrobbin/catastrophe/catastrophe_talk.pdf",
+      "locator": "Cusp potential, fold curves and hysteresis in a quasi-static branch-following interpretation; original 2013 university seminar slides.",
+      "kind": "research",
+      "verification": "Primary definition or model context inspected 2026-11-02; independently reviewed teaching status remains pending.",
+      "rights": "Original explanations, scenarios, figures and examples. No source exercises or scans reproduced."
+    },
+    {
+      "id": "source:dynamics-extension:gradient",
+      "title": "Gautam Iyer · Lyapunov functions and Stability",
+      "url": "https://www.math.cmu.edu/~gautam/c/2026-632/notes/stability.html",
+      "locator": "Proposition 14, Gradient flows; the quadratic exact solution and controller story are original derivations.",
+      "kind": "textbook",
+      "verification": "Primary definition or model context inspected 2026-11-02; independently reviewed teaching status remains pending.",
+      "rights": "Original explanations, scenarios, figures and examples. No source exercises or scans reproduced."
+    },
+    {
+      "id": "source:dynamics-extension:charts",
+      "title": "Peter Petersen · Manifolds, Transversality, and de Rham Cohomology",
+      "url": "https://www.math.ucla.edu/~petersen/manifolds.pdf",
+      "locator": "§1.2.1 Spheres: stereographic charts from a pole to its orthogonal plane; §1.1 chart definition. Unit circle and sphere formulas derived directly here.",
+      "kind": "textbook",
+      "verification": "Primary definition or model context inspected 2026-11-02; independently reviewed teaching status remains pending.",
+      "rights": "Original explanations, scenarios, figures and examples. No source exercises or scans reproduced."
+    },
+    {
+      "id": "source:dynamics-extension:structural",
+      "title": "Rahman and Blackmore · One-dimensional structural stability",
+      "url": "https://arxiv.org/abs/2302.04941",
+      "locator": "Primary author preprint of SIAM Review 65(3), 869–886; local hyperbolicity and perturbation distinctions. The lesson does not reproduce or claim the full compact-domain theorem.",
+      "kind": "research",
+      "verification": "Primary definition or model context inspected 2026-11-02; independently reviewed teaching status remains pending.",
+      "rights": "Original explanations, scenarios, figures and examples. No source exercises or scans reproduced."
+    }
+  ],
+  "bindings": {
+    "hysteresis": {
+      "k": [
+        "steps"
+      ],
+      "H": [
+        "history"
+      ],
+      "b": [
+        "bias"
+      ],
+      "x": [
+        "currentX"
+      ],
+      "V": [
+        "potential"
+      ]
+    },
+    "gradient-flow": {
+      "t": [
+        "time"
+      ],
+      "a": [
+        "a"
+      ],
+      "b": [
+        "b"
+      ],
+      "x": [
+        "x"
+      ],
+      "y": [
+        "y"
+      ],
+      "V": [
+        "cost"
+      ],
+      "dV/dt": [
+        "dissipation"
+      ]
+    },
+    "circle-manifold": {
+      "θ": [
+        "angle"
+      ],
+      "P": [
+        "pole"
+      ],
+      "x": [
+        "x"
+      ],
+      "y": [
+        "y"
+      ],
+      "u": [
+        "u"
+      ]
+    },
+    "sphere-manifold": {
+      "φ": [
+        "latitude"
+      ],
+      "λ": [
+        "longitude"
+      ],
+      "P": [
+        "pole"
+      ],
+      "x": [
+        "x"
+      ],
+      "y": [
+        "y"
+      ],
+      "z": [
+        "z"
+      ],
+      "u": [
+        "u"
+      ],
+      "v": [
+        "v"
+      ],
+      "r": [
+        "chartRadius"
+      ]
+    },
+    "structural-stability": {
+      "ε": [
+        "perturbation"
+      ],
+      "F": [
+        "family"
+      ],
+      "x_*": [
+        "roots"
+      ],
+      "n": [
+        "output"
+      ]
+    }
+  },
+  "ports": {
+    "hysteresis": [
+      {
+        "direction": "input",
+        "key": "steps",
+        "label": "Whole sweep step",
+        "type": "iteration-count",
+        "unit": "count",
+        "description": "Whole selected step in the declared outward-and-return history."
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Selected resting position",
+        "type": "well-position",
+        "unit": "modelPosition",
+        "description": "Stable branch position selected by this declared history."
+      }
+    ],
+    "gradient-flow": [
+      {
+        "direction": "input",
+        "key": "time",
+        "label": "Elapsed time",
+        "type": "time",
+        "unit": "modelTime",
+        "description": "Elapsed continuous model time, not an iteration count."
+      },
+      {
+        "direction": "input",
+        "key": "a",
+        "label": "Horizontal return rate",
+        "type": "relaxation-rate",
+        "unit": "1/modelTime",
+        "description": "Positive horizontal gradient-flow coefficient."
+      },
+      {
+        "direction": "input",
+        "key": "b",
+        "label": "Vertical return rate",
+        "type": "relaxation-rate",
+        "unit": "1/modelTime",
+        "description": "Positive vertical gradient-flow coefficient."
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Current potential",
+        "type": "potential-value",
+        "unit": "modelCost",
+        "description": "Quadratic potential evaluated at the exact continuous-time position."
+      }
+    ],
+    "circle-manifold": [
+      {
+        "direction": "input",
+        "key": "angle",
+        "label": "Circle angle",
+        "type": "angle",
+        "unit": "deg",
+        "description": "Angle locating the point on the unit circle."
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Circle chart coordinate",
+        "type": "chart-coordinate",
+        "unit": "chartUnit",
+        "description": "Numerical coordinate in the selected circle chart; unavailable at its pole."
+      }
+    ],
+    "sphere-manifold": [
+      {
+        "direction": "input",
+        "key": "latitude",
+        "label": "Sphere latitude",
+        "type": "angle",
+        "unit": "deg",
+        "description": "Latitude locating the point on the unit sphere."
+      },
+      {
+        "direction": "input",
+        "key": "longitude",
+        "label": "Sphere longitude",
+        "type": "angle",
+        "unit": "deg",
+        "description": "Longitude locating the point away from the poles."
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Sphere chart radius",
+        "type": "chart-radius",
+        "unit": "chartUnit",
+        "description": "Magnitude of the two chart coordinates; not the physical sphere radius."
+      }
+    ],
+    "structural-stability": [
+      {
+        "direction": "input",
+        "key": "perturbation",
+        "label": "Rule offset",
+        "type": "rule-offset",
+        "unit": "modelUnit",
+        "description": "Signed offset applied to the selected velocity rule."
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Equilibrium count",
+        "type": "equilibrium-count",
+        "unit": "count",
+        "description": "Number of real equilibria for the selected perturbed rule."
+      }
+    ]
+  },
+  "atlas": {
+    "hysteresis": [
+      "change:dynamical-systems"
+    ],
+    "gradient-flow": [
+      "change:dynamical-systems"
+    ],
+    "circle-manifold": [
+      "spaces:fractals-and-spaces"
+    ],
+    "sphere-manifold": [
+      "spaces:fractals-and-spaces"
+    ],
+    "structural-stability": [
+      "change:dynamical-systems"
+    ]
+  },
+  "learningAfter": {
+    "hysteresis": "cusp-potential",
+    "gradient-flow": "gradient",
+    "circle-manifold": "open-set",
+    "sphere-manifold": "circle-manifold",
+    "structural-stability": "stability"
+  },
+  "lessons": [
+    {
+      "id": "hysteresis",
+      "title": "Hysteresis and remembered branches",
+      "axis": "steps",
+      "expression": "x³ − x − b = 0; retain the nearest stable branch",
+      "unit": "position units",
+      "setting": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.",
+      "limits": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.",
+      "primaryLabel": "Hysteresis and remembered branches",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "hysteresis-visual-model",
+      "sweeps": [
+        {
+          "key": "steps",
+          "label": "Sweep step k",
+          "min": 0,
+          "max": 80,
+          "step": 1,
+          "unit": "steps",
+          "discrete": true
+        }
+      ],
+      "controls": [
+        {
+          "key": "steps",
+          "label": "Sweep step k",
+          "min": 0,
+          "max": 80,
+          "step": 1,
+          "unit": "steps",
+          "discrete": true
+        },
+        {
+          "key": "history",
+          "label": "Initial sweep direction",
+          "type": "select",
+          "options": [
+            {
+              "value": "up-down",
+              "label": "Raise then lower"
+            },
+            {
+              "value": "down-up",
+              "label": "Lower then raise"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "steps": 20,
+        "history": "up-down"
+      },
+      "question": "Why can the same dial setting hold two different positions?",
+      "context": "A toy snap mechanism rests in one of two wells. Raise its control dial, then lower it again. The mechanism follows its current stable branch until that branch disappears. Returning the dial to zero can leave it in a different well. The chosen history is visible, so position is not silently inferred from the dial alone.",
+      "latex": "V(x;b)=\\frac{x^4}{4}-\\frac{x^2}{2}-bx,\\quad x^3-x-b=0,\\quad 3x^2-1>0.",
+      "symbols": {
+        "k": "steps",
+        "H": "history",
+        "b": "bias",
+        "x": "currentX",
+        "V": "potential"
+      },
+      "rule": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history.",
+      "presets": [
+        {
+          "steps": 20,
+          "history": "up-down"
+        },
+        {
+          "steps": 60,
+          "history": "up-down"
+        },
+        {
+          "steps": 20,
+          "history": "down-up"
+        },
+        {
+          "steps": 33,
+          "history": "up-down"
+        },
+        {
+          "steps": 73,
+          "history": "up-down"
+        }
+      ],
+      "titles": [
+        "Zero dial on the outward sweep",
+        "Zero dial after the snap",
+        "Reverse the starting history",
+        "Pass the upper switching region",
+        "Pass the lower switching region"
+      ],
+      "connections": [
+        "cusp-potential",
+        "fold-bifurcation",
+        "basin-attraction"
+      ],
+      "formula": "b={{bias}}; selected x={{currentX}}; switches={{snaps}}",
+      "calculation": [
+        [
+          "Select the history",
+          "k={{steps}}; {{phase}}"
+        ],
+        [
+          "Read the current control",
+          "b={{bias}}"
+        ],
+        [
+          "Keep the remembered branch",
+          "x={{output}}; {{branch}} branch"
+        ]
+      ],
+      "source": "hysteresis",
+      "branch": "dynamics",
+      "atlas": "change:dynamical-systems"
+    },
+    {
+      "id": "gradient-flow",
+      "title": "Gradient flow and falling potential",
+      "axis": "time",
+      "expression": "ṙ = −∇V; dV/dt = −‖∇V‖²",
+      "unit": "cost units",
+      "setting": "V(x,y)=(a x²+b y²)/2, with a,b positive and a fixed start (2,1). The exact continuous solution is used; there is no time-step parameter or numerical integrator. This is a constructed controller model.",
+      "limits": "V(x,y)=(a x²+b y²)/2, with a,b positive and a fixed start (2,1). The exact continuous solution is used; there is no time-step parameter or numerical integrator. This is a constructed controller model.",
+      "primaryLabel": "Gradient flow and falling potential",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "gradient-flow-visual-model",
+      "sweeps": [
+        {
+          "key": "time",
+          "label": "Elapsed time t",
+          "min": 0,
+          "max": 5,
+          "step": 0.05,
+          "unit": "time units"
+        },
+        {
+          "key": "a",
+          "label": "Horizontal return rate a",
+          "min": 0.25,
+          "max": 2,
+          "step": 0.05,
+          "unit": "per time unit"
+        },
+        {
+          "key": "b",
+          "label": "Vertical return rate b",
+          "min": 0.25,
+          "max": 2,
+          "step": 0.05,
+          "unit": "per time unit"
+        }
+      ],
+      "controls": [
+        {
+          "key": "time",
+          "label": "Elapsed time t",
+          "min": 0,
+          "max": 5,
+          "step": 0.05,
+          "unit": "time units"
+        },
+        {
+          "key": "a",
+          "label": "Horizontal return rate a",
+          "min": 0.25,
+          "max": 2,
+          "step": 0.05,
+          "unit": "per time unit"
+        },
+        {
+          "key": "b",
+          "label": "Vertical return rate b",
+          "min": 0.25,
+          "max": 2,
+          "step": 0.05,
+          "unit": "per time unit"
+        }
+      ],
+      "defaults": {
+        "time": 1,
+        "a": 1,
+        "b": 0.5
+      },
+      "question": "What makes a continuously corrected position lose potential?",
+      "context": "An ideal camera mount starts two units horizontally and one unit vertically from alignment. Its controller continuously corrects each coordinate using the negative gradient of a quadratic cost. Change the two return rates. The point can curve toward alignment while the cost falls continuously.",
+      "latex": "V(x,y)=\\frac{a x^2+b y^2}{2},\\quad \\dot x=-ax,\\quad\\dot y=-by,\\quad x(t)=2e^{-at},\\quad y(t)=e^{-bt},\\quad \\frac{dV}{dt}=-\\|\\nabla V\\|^2.",
+      "symbols": {
+        "t": "time",
+        "a": "a",
+        "b": "b",
+        "x": "x",
+        "y": "y",
+        "V": "cost",
+        "dV/dt": "dissipation"
+      },
+      "rule": "Evaluate the exact exponential response of each coordinate from the fixed start (2,1), substitute it into the quadratic potential, and use the chain rule to obtain minus the squared gradient norm.",
+      "presets": [
+        {
+          "time": 0,
+          "a": 1,
+          "b": 0.5
+        },
+        {
+          "time": 1,
+          "a": 1,
+          "b": 0.5
+        },
+        {
+          "time": 5,
+          "a": 1,
+          "b": 0.5
+        },
+        {
+          "time": 1,
+          "a": 0.5,
+          "b": 1
+        },
+        {
+          "time": 1,
+          "a": 1,
+          "b": 1
+        }
+      ],
+      "titles": [
+        "Read the initial cost",
+        "Follow one time unit",
+        "Wait while the cost falls",
+        "Swap the return rates",
+        "Give both coordinates the same rate"
+      ],
+      "connections": [
+        "gradient",
+        "gradient-descent",
+        "continuous-flow"
+      ],
+      "formula": "x={{x}}; y={{y}}; V={{cost}}; dV/dt={{dissipation}}",
+      "calculation": [
+        [
+          "Choose the elapsed time",
+          "t={{time}}"
+        ],
+        [
+          "Resolve the two coordinates",
+          "x={{x}}; y={{y}}"
+        ],
+        [
+          "Read the falling cost",
+          "V={{output}}; dV/dt={{dissipation}}"
+        ]
+      ],
+      "source": "gradient",
+      "branch": "dynamics",
+      "atlas": "change:dynamical-systems"
+    },
+    {
+      "id": "circle-manifold",
+      "title": "A circle needs more than one chart",
+      "axis": "angle",
+      "expression": "u = x/(1−y) or x/(1+y)",
+      "unit": "chart units",
+      "setting": "The unit circle is covered by two stereographic charts. A chosen projection omits its own pole, although the circle is smooth there. Coordinate values are numerical and may leave the displayed window; a chart is not an isometric map.",
+      "limits": "The unit circle is covered by two stereographic charts. A chosen projection omits its own pole, although the circle is smooth there. Coordinate values are numerical and may leave the displayed window; a chart is not an isometric map.",
+      "primaryLabel": "A circle needs more than one chart",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "circle-manifold-visual-model",
+      "sweeps": [
+        {
+          "key": "angle",
+          "label": "Position angle θ (degrees)",
+          "min": -180,
+          "max": 180,
+          "step": 1,
+          "unit": "degrees"
+        }
+      ],
+      "controls": [
+        {
+          "key": "angle",
+          "label": "Position angle θ (degrees)",
+          "min": -180,
+          "max": 180,
+          "step": 1,
+          "unit": "degrees"
+        },
+        {
+          "key": "pole",
+          "label": "Projection pole",
+          "type": "select",
+          "options": [
+            {
+              "value": "north",
+              "label": "Project from north"
+            },
+            {
+              "value": "south",
+              "label": "Project from south"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "angle": 30,
+        "pole": "north"
+      },
+      "question": "Can a smooth circle need a second coordinate map?",
+      "context": "A marker moves around a circular track. To give its position one straight-line coordinate, project a line from a chosen pole through the marker. The coordinate grows large near that pole and is unavailable at the pole itself. Switch the projection pole: the track and marker stay in place while their coordinate changes.",
+      "latex": "S^1=\\{(x,y):x^2+y^2=1\\},\\quad u_N=\\frac{x}{1-y},\\quad u_S=\\frac{x}{1+y}.",
+      "symbols": {
+        "θ": "angle",
+        "P": "pole",
+        "x": "x",
+        "y": "y",
+        "u": "u"
+      },
+      "rule": "Compute the unit-circle point from its angle. Project from the north or south pole to the horizontal coordinate line. A chart excludes its chosen pole; the other chart covers that point.",
+      "presets": [
+        {
+          "angle": 0,
+          "pole": "north"
+        },
+        {
+          "angle": 30,
+          "pole": "north"
+        },
+        {
+          "angle": 90,
+          "pole": "north"
+        },
+        {
+          "angle": 90,
+          "pole": "south"
+        },
+        {
+          "angle": 180,
+          "pole": "north"
+        }
+      ],
+      "titles": [
+        "Give the rightmost point a coordinate",
+        "Move above the horizontal diameter",
+        "Meet the omitted north pole",
+        "Cover that point with the other chart",
+        "Read a negative coordinate"
+      ],
+      "connections": [
+        "open-set",
+        "sphere-manifold",
+        "function"
+      ],
+      "formula": "Point ({{x}},{{y}}); u={{output}}",
+      "calculation": [
+        [
+          "Choose the track position",
+          "θ={{angle}} degrees"
+        ],
+        [
+          "Locate the circle point",
+          "x={{x}}; y={{y}}"
+        ],
+        [
+          "Read the chosen chart",
+          "u={{output}}"
+        ]
+      ],
+      "source": "charts",
+      "branch": "geometry-topology",
+      "atlas": "spaces:fractals-and-spaces"
+    },
+    {
+      "id": "sphere-manifold",
+      "title": "Local coordinates on a sphere",
+      "axis": "latitude",
+      "expression": "(u,v) = (x,y)/(1−z) or (x,y)/(1+z)",
+      "unit": "chart units",
+      "setting": "Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.",
+      "limits": "Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.",
+      "primaryLabel": "Local coordinates on a sphere",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "sphere-manifold-visual-model",
+      "sweeps": [
+        {
+          "key": "latitude",
+          "label": "Latitude φ (degrees)",
+          "min": -90,
+          "max": 90,
+          "step": 1,
+          "unit": "degrees"
+        },
+        {
+          "key": "longitude",
+          "label": "Longitude λ (degrees)",
+          "min": -180,
+          "max": 180,
+          "step": 1,
+          "unit": "degrees"
+        }
+      ],
+      "controls": [
+        {
+          "key": "latitude",
+          "label": "Latitude φ (degrees)",
+          "min": -90,
+          "max": 90,
+          "step": 1,
+          "unit": "degrees"
+        },
+        {
+          "key": "longitude",
+          "label": "Longitude λ (degrees)",
+          "min": -180,
+          "max": 180,
+          "step": 1,
+          "unit": "degrees"
+        },
+        {
+          "key": "pole",
+          "label": "Projection pole",
+          "type": "select",
+          "options": [
+            {
+              "value": "north",
+              "label": "Project from north"
+            },
+            {
+              "value": "south",
+              "label": "Project from south"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "latitude": 20,
+        "longitude": 35,
+        "pole": "north"
+      },
+      "question": "How can a curved sphere have two local coordinates?",
+      "context": "Place a marker on a globe and choose a projection pole. A line through that pole maps the marker to a coordinate plane. Change latitude, longitude or the projection pole. The globe point and its two plane coordinates are shown separately, so a missing coordinate at a pole is not mistaken for a defect in the globe.",
+      "latex": "S^2=\\{(x,y,z):x^2+y^2+z^2=1\\},\\quad (u_N,v_N)=\\frac{(x,y)}{1-z},\\quad (u_S,v_S)=\\frac{(x,y)}{1+z}.",
+      "symbols": {
+        "φ": "latitude",
+        "λ": "longitude",
+        "P": "pole",
+        "x": "x",
+        "y": "y",
+        "z": "z",
+        "u": "u",
+        "v": "v",
+        "r": "chartRadius"
+      },
+      "rule": "Locate the unit-sphere point from latitude and longitude, then apply the selected stereographic chart. The primary result is the plane-coordinate radius; it is different from the fixed sphere radius one.",
+      "presets": [
+        {
+          "latitude": 0,
+          "longitude": 0,
+          "pole": "north"
+        },
+        {
+          "latitude": 30,
+          "longitude": 90,
+          "pole": "north"
+        },
+        {
+          "latitude": 90,
+          "longitude": 35,
+          "pole": "north"
+        },
+        {
+          "latitude": 90,
+          "longitude": 35,
+          "pole": "south"
+        },
+        {
+          "latitude": -30,
+          "longitude": 180,
+          "pole": "north"
+        }
+      ],
+      "titles": [
+        "Project an equatorial point",
+        "Turn a point above the equator",
+        "Reach the omitted north pole",
+        "Cover the pole from the south",
+        "Project into the opposite half-plane"
+      ],
+      "connections": [
+        "circle-manifold",
+        "vector",
+        "open-set"
+      ],
+      "formula": "(u,v)=({{u}},{{v}}); plane radius={{output}}",
+      "calculation": [
+        [
+          "Choose the globe location",
+          "φ={{latitude}}; λ={{longitude}} degrees"
+        ],
+        [
+          "Locate the sphere point",
+          "({{x}},{{y}},{{z}})"
+        ],
+        [
+          "Read two plane coordinates",
+          "u={{u}}; v={{v}}; radius={{output}}"
+        ]
+      ],
+      "source": "charts",
+      "branch": "geometry-topology",
+      "atlas": "spaces:fractals-and-spaces"
+    },
+    {
+      "id": "structural-stability",
+      "title": "Perturbing a rule, not just a starting point",
+      "axis": "perturbation",
+      "expression": "fε(x)=−x+ε or ε−x²",
+      "unit": "equilibria",
+      "setting": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.",
+      "limits": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.",
+      "primaryLabel": "Perturbing a rule, not just a starting point",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "structural-stability-visual-model",
+      "sweeps": [
+        {
+          "key": "perturbation",
+          "label": "Rule perturbation ε",
+          "min": -0.5,
+          "max": 0.5,
+          "step": 0.01,
+          "unit": "model units"
+        }
+      ],
+      "controls": [
+        {
+          "key": "perturbation",
+          "label": "Rule perturbation ε",
+          "min": -0.5,
+          "max": 0.5,
+          "step": 0.01,
+          "unit": "model units"
+        },
+        {
+          "key": "family",
+          "label": "Rule family",
+          "type": "select",
+          "options": [
+            {
+              "value": "hyperbolic",
+              "label": "Attracting linear rule"
+            },
+            {
+              "value": "fold",
+              "label": "Critical fold rule"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "perturbation": 0.2,
+        "family": "hyperbolic"
+      },
+      "question": "What survives when the correction rule itself changes?",
+      "context": "Compare two toy alignment rules. One always pulls toward a shifted target; the other is balanced at a fold. Move a small offset in the rule rather than moving the starting position. One family keeps a single attracting balance point, while the critical family can gain or lose balance points.",
+      "latex": "f_\\varepsilon(x)=-x+\\varepsilon\\quad\\hbox{or}\\quad f_\\varepsilon(x)=\\varepsilon-x^2,\\qquad \\dot x=f_\\varepsilon(x).",
+      "symbols": {
+        "ε": "perturbation",
+        "F": "family",
+        "x_*": "roots",
+        "n": "output"
+      },
+      "rule": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness.",
+      "presets": [
+        {
+          "perturbation": -0.2,
+          "family": "hyperbolic"
+        },
+        {
+          "perturbation": 0.2,
+          "family": "hyperbolic"
+        },
+        {
+          "perturbation": 0,
+          "family": "fold"
+        },
+        {
+          "perturbation": -0.01,
+          "family": "fold"
+        },
+        {
+          "perturbation": 0.01,
+          "family": "fold"
+        }
+      ],
+      "titles": [
+        "Shift an attracting rule left",
+        "Shift the same rule right",
+        "Start at the critical fold",
+        "Perturb toward no balance points",
+        "Perturb toward two balance points"
+      ],
+      "connections": [
+        "stability",
+        "fold-bifurcation",
+        "hysteresis"
+      ],
+      "formula": "ε={{perturbation}}; equilibria={{output}}; {{classification}}",
+      "calculation": [
+        [
+          "Change the rule offset",
+          "ε={{perturbation}}"
+        ],
+        [
+          "Solve for balance",
+          "Roots: {{rootLabel}}"
+        ],
+        [
+          "Compare the phase pattern",
+          "{{output}} equilibria; {{classification}}"
+        ]
+      ],
+      "source": "structural",
+      "branch": "dynamics",
+      "atlas": "change:dynamical-systems"
+    }
+  ]
+}

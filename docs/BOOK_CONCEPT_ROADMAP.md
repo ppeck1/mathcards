@@ -131,6 +131,30 @@ The eight-book subject inventory separately links new finite order/lattice,
 energy and artificial-learning examples. Neither inventory upgrades its book
 evidence or independent-review status when a lesson becomes available.
 
+## Continuation: number, spatial and local-coordinate foundations
+
+This continuation adds eighteen bounded lessons without changing the 214 topic
+IDs or the 217 attributed book associations. Number/counting topics primarily
+belong to the eight-book inventory; they are not forced into unrelated formal
+arithmetic or logic rows in this older matrix.
+
+| New lesson family | Roadmap links | Implemented scope |
+|---|---|---|
+| Modular arithmetic, gcd, prime factorization, rational fractions, numeral systems, permutations and combinations | Eight-book notation, number and counting subjects | Exact finite integer families, named units, discrete states and explicit empty/invalid cases; no general number-system or proof engine |
+| Spatial cross product and scalar triple product | MAT-004, 005, 019, 041–042 | Arbitrary bounded three-component cross products and a signed triangular-edge volume family; fixed screen projections are viewing aids |
+| Passive coordinate transformation and vector projection | MAT-013, 024, 029; preparation for MAT-023, 026, 037 and 039 | A fixed arrow in rotated planar orthonormal frames; a spatial parallel part and orthogonal residual; no arbitrary tensor transformation engine |
+| Angular velocity and linear momentum | MAT-046–047 and 057; partial preparation for MAT-051 | Constant-rate rim motion and instantaneous Newtonian linear momentum; angular momentum remains planned |
+| Continuous gradient flow | MAT-146; extends MAT-143–144 and prepares MAT-115 | Exact negative-gradient dynamics for one positive quadratic potential, distinct from discrete descent |
+| Hysteresis | Extends MAT-164; prepares MAT-142 and 147 | An explicit 81-point quasi-static branch-following history, rather than transient switching motion or neural memory |
+| Circle and sphere charts | Preparation for MAT-133–135 | Two explicit stereographic charts show local coordinates and omitted poles on smooth examples; a general smooth-atlas definition remains planned |
+| Rule perturbation comparison | Preparation for MAT-150 | One attracting linear family and a fold respond differently to offset perturbations; no certificate over all small perturbations is claimed |
+
+The current matrix has 59 draft-introduction rows, 36 precursor rows and 119
+planned rows. These are coverage links to bounded drafts. A new named lesson
+does not automatically complete a broad historical topic: MAT-150 remains a
+precursor, and the combined linear-and-angular-momentum row remains partial.
+Book evidence and independent review status are unchanged.
+
 ## Expansion sequence
 
 Stage labels group prerequisite streams. They are an editorial roadmap, not a
@@ -139,16 +163,16 @@ claim that all earlier stages are required for every later topic.
 | Stream | Rows | Next useful modules | What must precede the advanced end |
 |---|---:|---|---|
 | 1 · Logic and language | 33 | Explicit interpretations; substitution and capture; formal derivations | Explicit domain, syntax and interpretation before arbitrary quantified arguments |
-| 2 · Vectors and mechanics | 41 | Located versus free vectors; general spatial cross product; triple products | Shared coordinate frames, units, orientation and location-sensitive meaning |
+| 2 · Vectors and mechanics | 41 | Located versus free vectors; orthonormal triads; angular momentum | Shared coordinate frames, units, orientation and location-sensitive meaning |
 | 3 · Proof, models and computation | 30 | Small finite structures; arbitrary derivation editing; decidability | Separate truth from derivability and finite demonstrations from general theorems |
-| 4 · Tensors and coordinate laws | 9 | Coordinate changes; metric; index notation; contraction | Transformation behavior before treating tensors as arrays |
+| 4 · Tensors and coordinate laws | 9 | General coordinate laws; metric; index notation; contraction | Transformation behavior before treating tensors as arrays |
 | 5 · Infinite sets and foundations | 16 | Cantor's diagonal argument; cardinal comparisons; ordinals | Actual proof structure before compactness, independence, forcing or incompleteness claims |
-| 6 · Topology and dynamics | 31 | Coupled flows; manifolds; general fields; structural stability | State space, neighborhood, continuity, smoothness and the specified type of perturbation |
-| 7 · Singularities and catastrophes | 21 | Hysteresis dynamics; further singularity families; unfolding theory | The new bounded fold and cusp introductions, plus explicit state/control axes |
+| 6 · Topology and dynamics | 31 | Coupled flows; smooth-atlas transitions; general fields; structural stability | State space, neighborhood, continuity, smoothness and the specified type of perturbation |
+| 7 · Singularities and catastrophes | 21 | Transient switching; further singularity families; unfolding theory | The new bounded fold and cusp introductions, plus explicit state/control axes |
 | 8 · Qualitative modeling and applications | 33 | Qualitative versus quantitative models; potentials; carefully bounded morphology examples | Distinguish a mathematical construction, a historical interpretation and empirically validated prediction |
 
-The CSV currently links 53 rows to draft introductions, 35 to precursors, and
-leaves 126 without a dedicated introduction or precursor link. These are
+The CSV currently links 59 rows to draft introductions, 36 to precursors, and
+leaves 119 without a dedicated introduction or precursor link. These are
 topic-to-lesson links, not counts of independently reviewed or complete topics.
 All 214 rows still require scope review as expansion proceeds.
 

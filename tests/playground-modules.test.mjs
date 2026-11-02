@@ -32,7 +32,7 @@ const expectedIds = [
   'sampling-distribution', 'confidence-interval', 'hypothesis-test', 'linear-regression',
   'correlation', 'factorial-interaction', 'chi-square-association', 'relative-entropy',
   'binomial-distribution', 'poisson-distribution'
-];
+].concat(["modular-arithmetic", "greatest-common-divisor", "prime-factorization", "rational-number", "numeral-system", "permutation-count", "binomial-coefficient", "spatial-cross-product", "scalar-triple-product", "coordinate-transformation", "vector-projection", "angular-velocity", "linear-momentum", "hysteresis", "gradient-flow", "circle-manifold", "sphere-manifold", "structural-stability"]);
 const format = value => value == null ? 'undefined' : String(Number(value.toPrecision(7)));
 const context = (id, view) => ({ id, view, format, compact: false, camera: .65 });
 const finiteScene = (html, label) => {

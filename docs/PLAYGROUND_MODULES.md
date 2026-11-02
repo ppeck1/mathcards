@@ -555,3 +555,25 @@ new animation clock or private storage is introduced. Specialized story scenes
 keep their original physical settings instead of being replaced by a generic
 provider scene. The provider's control ranges remain viewing affordances;
 invalid-logarithm presets retain the ability to show the actual domain failure.
+
+## Continuation families (0.34.0)
+
+`number-foundations.js`, `spatial-foundations.js` and `dynamics-extensions.js`
+are separate trusted providers. Each has its own narrative, preview, reference
+and independent Python-oracle files. The common host supplies controls, paced
+numbers, comparisons, saved states and Geometry/Graph views. Fixed projections
+are labeled as projections; they do not create an extra Spatial tab.
+
+Their explicit integration records in `content/planning/` declare installed
+slugs, all grammar bindings and numeric quantity ports. The build validates and
+freezes these into `continuation-metadata.js`; runtime code never executes JSON
+as mathematics or loads code from a declared URL. Add another trusted family to
+the build allowlist deliberately rather than scanning arbitrary files.
+
+A provider may declare `meta.canInterpolate(a,b)`. The adapter combines that
+guard with endpoint validity and the existing discrete-control checks. Circle
+charts use it to prevent a transition across the selected chart's omitted pole;
+the point remains defined when its coordinates in that chart are unavailable.
+Changing chart poles is a discrete transition. Integer counts and hysteresis
+steps retain their whole-state semantics. Continuous gradient flow uses an
+exact solution, while hysteresis explicitly uses a quasi-static branch rule.

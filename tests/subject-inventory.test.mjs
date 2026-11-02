@@ -76,7 +76,13 @@ test('lesson availability is explicit and independent of attributed source evide
         row.id
       );
   }
-  assert.equal(browser.get('prime-conjectures').status, 'planned');
+  assert.equal(browser.get('nonparametric-statistics').status, 'planned');
+  assert.equal(browser.get('prime-conjectures').status, 'precursor');
+  assert.deepEqual(
+    browser.get('prime-conjectures').lessons.map(card => card.slug),
+    ['prime-factorization'],
+    'prime vocabulary prepares a future conjecture lesson without completing it'
+  );
   assert.equal(browser.get('shannon-entropy').status, 'draft-introduction');
   assert.equal(browser.get('fractals').evidence[0].evidence_status, 'provisional_book_mapping');
   assert.equal(
@@ -116,10 +122,14 @@ test('rendered subject navigation labels planned scope honestly and links only a
   assert.match(html, /showing 12/);
   for (const key of ['query', 'area', 'book', 'status'])
     assert.match(html, new RegExp('for="subject-browser-page-' + key + '"'));
-  const selected = browser.markup({ selected: 'prime-conjectures' });
+  const selected = browser.markup({ selected: 'nonparametric-statistics' });
   assert.match(selected, /Planned lesson/);
   assert.match(selected, /no executable lesson/);
   assert.doesNotMatch(selected, /#card\//);
+  const preparation = browser.markup({ selected: 'prime-conjectures' });
+  assert.match(preparation, /Preparation only/);
+  assert.match(preparation, /#card\/prime-factorization/);
+  assert.match(preparation, /No conjecture statement, current conjecture status or proof/);
   const available = browser.markup({ selected: 'shannon-entropy' });
   assert.match(available, /#card\/entropy/);
   assert.match(available, /Draft introduction/);

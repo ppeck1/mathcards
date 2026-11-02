@@ -1084,7 +1084,25 @@
             "chi-square-association-visual-model",
             "relative-entropy-visual-model",
             "binomial-distribution-visual-model",
-            "poisson-distribution-visual-model"
+            "poisson-distribution-visual-model",
+            "modular-arithmetic-visual-model",
+            "greatest-common-divisor-visual-model",
+            "prime-factorization-visual-model",
+            "rational-number-visual-model",
+            "numeral-system-visual-model",
+            "permutation-count-visual-model",
+            "binomial-coefficient-visual-model",
+            "spatial-cross-product-visual-model",
+            "scalar-triple-product-visual-model",
+            "coordinate-transformation-visual-model",
+            "vector-projection-visual-model",
+            "angular-velocity-visual-model",
+            "linear-momentum-visual-model",
+            "hysteresis-visual-model",
+            "gradient-flow-visual-model",
+            "circle-manifold-visual-model",
+            "sphere-manifold-visual-model",
+            "structural-stability-visual-model"
           ]
         },
         "renderer_version": {

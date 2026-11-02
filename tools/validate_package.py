@@ -106,7 +106,10 @@ def checks(card, schema, source_ids, known):
 def compute(model,p):
     from systems_reference import compute as systems_compute
     from inference_reference import compute as inference_compute
-    for oracle in (systems_compute, inference_compute):
+    from number_foundation_reference import compute as number_compute
+    from spatial_foundation_reference import compute as spatial_compute
+    from dynamics_extension_reference import compute as dynamics_compute
+    for oracle in (systems_compute, inference_compute, number_compute, spatial_compute, dynamics_compute):
         result=oracle(model,p)
         if result is not None:return result
     if model=='turing-machine-visual-model':

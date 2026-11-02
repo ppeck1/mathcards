@@ -947,7 +947,10 @@
   append(entryById.get('machine-configuration'),'relatedIds',['tape-configuration']);
   append(entryById.get('transition-function'),'relatedIds',['tape-transition']);
 
-  if(Expansion){Object.assign(sources,Expansion.sources);for(const entry of Expansion.entries){const old=entries.findIndex(x=>x.id===entry.id);if(old>=0){const previous=entries[old],merged={...previous,...entry};for(const key of ['symbols','aliases','sourceKeys','grammarCards','formulaCards','lookupAliases','relatedIds'])if(previous[key]||entry[key])merged[key]=[...new Set([...(previous[key]||[]),...(entry[key]||[])])];entries[old]=merged;}else entries.push(entry);}}
+  if(Expansion){Object.assign(sources,Expansion.sources);for(const entry of Expansion.entries){const old=entries.findIndex(x=>x.id===entry.id);if(old>=0){const previous=entries[old],merged={...previous,...entry};for(const key of ['symbols','tokens','mathSymbols','aliases','sourceKeys','grammarCards','formulaCards','lookupAliases','relatedIds','excludedFormulaCards']){
+      if(['grammarCards','formulaCards'].includes(key)&&!Array.isArray(previous[key])){delete merged[key];continue;}
+      if(previous[key]||entry[key])merged[key]=[...new Set([...(previous[key]||[]),...(entry[key]||[])])];
+    }entries[old]=merged;}else entries.push(entry);}}
   {const entry=entries.find(e=>e.id==='step-size');if(entry)for(const key of ['grammarCards','formulaCards'])entry[key]=[...new Set([...(entry[key]||[]),'hebbian-learning'])];}
   if(Expansion){
     const extend=(id,key,values)=>{const index=entries.findIndex(row=>row.id===id);if(index>=0){const entry=entries[index];entries[index]={...entry,[key]:[...new Set([...(entry[key]||[]),...values])]};}};
@@ -981,6 +984,14 @@
     add('tool-collection','Tool collection labels','sets',['A','B','C'],'In the finite lattice lessons, A, B and C name selected subsets of the same three-tool set. Each can be empty or contain any of those tools. These labels are not matrices or numerical coordinates in this setting.','A={lamp} and B={brush} are two incomparable tool collections.','A, B or C, a selected tool collection',['tool collection labels'],{sourceKeys:['systemsorder'],tokens:['A','B','C'],mathSymbols:['A','B','C'],grammarCards:['partial-order','meet-join','lattice-distributivity'],formulaCards:['partial-order','meet-join','lattice-distributivity'],wordMatches:[],relatedIds:['set','powerset-lattice','lattice-meet','lattice-join']});
   }
   for(const id of ['logical-and','logical-or']){const entry=entries.find(e=>e.id===id);if(entry)entry.excludedFormulaCards=['meet-join','lattice-distributivity'];}
+  add('vector-arrow-notation','Arrow over a vector letter','notation',['u⃗','v⃗','w⃗','r⃗','p⃗','\\vec'],'An arrow over a letter marks a vector rather than an ordinary scalar. Its components depend on the stated coordinate frame. The arrow marks the kind of quantity; the lesson still defines what that particular vector represents.','The vector u⃗=(1,2,3) has three components in the chosen frame.','vector u; vector v',['vector arrow','arrow over a letter','vec notation'],{sourceKeys:['vectors','dlmfNotation'],lookupAliases:['\\vec{u}','\\vec u'],relatedIds:['vector','component','coordinate-vector','right-arrow']});
+  {
+    const extend=(id,key,values)=>{const index=entries.findIndex(row=>row.id===id);if(index>=0){const entry=entries[index];entries[index]={...entry,[key]:[...new Set([...(entry[key]||[]),...values])]};}};
+    for(const id of ['cross-product','oriented-area'])for(const key of ['grammarCards','formulaCards'])extend(id,key,['spatial-cross-product','scalar-triple-product']);
+    extend('scalar-projection','formulaCards',['vector-projection']);
+    extend('time-derivative-dot','formulaCards',['gradient-flow','structural-stability']);
+    extend('differential','formulaCards',['gradient-flow']);
+  }
   const freeze=value=>{if(value&&typeof value==='object'&&!Object.isFrozen(value)){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};
   return freeze({entries,sources});
 });

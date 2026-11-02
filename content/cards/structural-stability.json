@@ -1,0 +1,639 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:structural-stability",
+  "slug": "structural-stability",
+  "type": "concept",
+  "title": "Perturbing a rule, not just a starting point",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "perturbing a rule, not just a starting point"
+  ],
+  "branches": [
+    "dynamics"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "What survives when the correction rule itself changes?",
+  "meaning": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness.",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:stability",
+      "math:concept:fold-bifurcation",
+      "math:concept:hysteresis"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "Compare two toy alignment rules. One always pulls toward a shifted target; the other is balanced at a fold. Move a small offset in the rule rather than moving the starting position. One family keeps a single attracting balance point, while the critical family can gain or lose balance points.",
+    "formal_latex": "f_\\varepsilon(x)=-x+\\varepsilon\\quad\\text{or}\\quad f_\\varepsilon(x)=\\varepsilon-x^2,\\qquad \\dot x=f_\\varepsilon(x).",
+    "signature": {
+      "ε": "Rule perturbation ε",
+      "F": "Rule family",
+      "x_*": "roots",
+      "n": "Primary result"
+    },
+    "conditions": [
+      "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.",
+      "The displayed calculation, coordinates and marks are evaluated from the same declared input state.",
+      "The scenario is a constructed teaching model; source book and historical coverage are separate editorial questions."
+    ],
+    "domain_notes": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.",
+    "proof_status": "Author-derived for the stated bounded family; independent mathematical review pending.",
+    "source_refs": [
+      "source:dynamics-extension:structural"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Perturbing a rule, not just a starting point",
+    "expression_latex": "f_\\varepsilon(x)=-x+\\varepsilon\\quad\\text{or}\\quad f_\\varepsilon(x)=\\varepsilon-x^2,\\qquad \\dot x=f_\\varepsilon(x).",
+    "formation_rule": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness.",
+    "precedence": "Keep the selected pole, starting state, frame and input grouping explicit before evaluating.",
+    "symbols": [
+      {
+        "token": "ε",
+        "role": "Rule perturbation ε",
+        "type": "Declared quantity or model choice"
+      },
+      {
+        "token": "F",
+        "role": "Rule family",
+        "type": "Declared quantity or model choice"
+      },
+      {
+        "token": "x_*",
+        "role": "roots",
+        "type": "Declared quantity or model choice"
+      },
+      {
+        "token": "n",
+        "role": "Primary result",
+        "type": "Declared quantity or model choice"
+      }
+    ],
+    "ast": {
+      "id": "ast:structural-stability:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:perturbation",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "ε",
+          "scope_ref": "scope:structural-stability"
+        },
+        {
+          "id": "n:family",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "F",
+          "scope_ref": "scope:structural-stability"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried evaluation of the declared family",
+          "ref": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness."
+        },
+        {
+          "id": "n:bound-perturbation",
+          "kind": "apply",
+          "type": "Declared model result",
+          "function": "n:rule",
+          "argument": "n:perturbation"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared model result",
+          "function": "n:bound-perturbation",
+          "argument": "n:family"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:structural-stability",
+          "kind": "modelExpression",
+          "free_variables": [
+            "ε",
+            "F"
+          ],
+          "domain_condition": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Treat a different rule or history as the same input",
+        "status": "domain or model mismatch",
+        "reason": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+      }
+    ],
+    "ast_coverage": "Typed application outline of the declared family, not an arbitrary expression parser or a general theorem checker.",
+    "output_symbol_bindings": {
+      "ε": "perturbation",
+      "F": "family",
+      "x_*": "roots",
+      "n": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness.",
+      "conditions": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.",
+      "derivation": "Use the stated formulas under their declared hypotheses; the independent reference checks the executable cases.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:structural-stability:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:stability",
+      "type": "supports",
+      "conditions": "Use each connected family under its own stated assumptions.",
+      "reason": "Perturbing a rule, not just a starting point makes a bounded connection with stability.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:fold-bifurcation",
+      "type": "supports",
+      "conditions": "Use each connected family under its own stated assumptions.",
+      "reason": "Perturbing a rule, not just a starting point makes a bounded connection with fold bifurcation.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:hysteresis",
+      "type": "supports",
+      "conditions": "Use each connected family under its own stated assumptions.",
+      "reason": "Perturbing a rule, not just a starting point makes a bounded connection with hysteresis.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:structural-stability:case-1",
+      "title": "Shift an attracting rule left",
+      "role": "applied_model",
+      "question": "What survives when the correction rule itself changes?",
+      "setting": "Compare two toy alignment rules. One always pulls toward a shifted target; the other is balanced at a fold. Move a small offset in the rule rather than moving the starting position. One family keeps a single attracting balance point, while the critical family can gain or lose balance points.",
+      "assumptions": [
+        "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+      ],
+      "inputs": {
+        "perturbation": -0.2,
+        "family": "hyperbolic"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "ε = -0.2; F = Attracting linear rule",
+          "reason": "These conditions select the declared family, coordinate chart or whole history step."
+        },
+        {
+          "index": 2,
+          "expression": "fε(x)=−x+ε or ε−x²",
+          "reason": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness."
+        },
+        {
+          "index": 3,
+          "expression": "1 equilibria",
+          "reason": "Read the evaluated quantity, retaining its domain and units."
+        }
+      ],
+      "result": {
+        "exact": "1 equilibria"
+      },
+      "interpretation": "What survives when the correction rule itself changes? Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness.",
+      "independent_check": {
+        "method": "Separate Python implementation using bisection, reciprocal tangent or independent analytic identities.",
+        "expected": "1"
+      },
+      "limits": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.",
+      "preset": {
+        "perturbation": -0.2,
+        "family": "hyperbolic"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+      ]
+    },
+    {
+      "id": "math:example:structural-stability:case-2",
+      "title": "Shift the same rule right",
+      "role": "applied_model",
+      "question": "What survives when the correction rule itself changes?",
+      "setting": "Compare two toy alignment rules. One always pulls toward a shifted target; the other is balanced at a fold. Move a small offset in the rule rather than moving the starting position. One family keeps a single attracting balance point, while the critical family can gain or lose balance points.",
+      "assumptions": [
+        "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+      ],
+      "inputs": {
+        "perturbation": 0.2,
+        "family": "hyperbolic"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "ε = 0.2; F = Attracting linear rule",
+          "reason": "These conditions select the declared family, coordinate chart or whole history step."
+        },
+        {
+          "index": 2,
+          "expression": "fε(x)=−x+ε or ε−x²",
+          "reason": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness."
+        },
+        {
+          "index": 3,
+          "expression": "1 equilibria",
+          "reason": "Read the evaluated quantity, retaining its domain and units."
+        }
+      ],
+      "result": {
+        "exact": "1 equilibria"
+      },
+      "interpretation": "What survives when the correction rule itself changes? Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness.",
+      "independent_check": {
+        "method": "Separate Python implementation using bisection, reciprocal tangent or independent analytic identities.",
+        "expected": "1"
+      },
+      "limits": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.",
+      "preset": {
+        "perturbation": 0.2,
+        "family": "hyperbolic"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+      ]
+    },
+    {
+      "id": "math:example:structural-stability:case-3",
+      "title": "Start at the critical fold",
+      "role": "applied_model",
+      "question": "What survives when the correction rule itself changes?",
+      "setting": "Compare two toy alignment rules. One always pulls toward a shifted target; the other is balanced at a fold. Move a small offset in the rule rather than moving the starting position. One family keeps a single attracting balance point, while the critical family can gain or lose balance points.",
+      "assumptions": [
+        "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+      ],
+      "inputs": {
+        "perturbation": 0,
+        "family": "fold"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "ε = 0; F = Critical fold rule",
+          "reason": "These conditions select the declared family, coordinate chart or whole history step."
+        },
+        {
+          "index": 2,
+          "expression": "fε(x)=−x+ε or ε−x²",
+          "reason": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness."
+        },
+        {
+          "index": 3,
+          "expression": "1 equilibria",
+          "reason": "Read the evaluated quantity, retaining its domain and units."
+        }
+      ],
+      "result": {
+        "exact": "1 equilibria"
+      },
+      "interpretation": "What survives when the correction rule itself changes? Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness.",
+      "independent_check": {
+        "method": "Separate Python implementation using bisection, reciprocal tangent or independent analytic identities.",
+        "expected": "1"
+      },
+      "limits": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.",
+      "preset": {
+        "perturbation": 0,
+        "family": "fold"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+      ]
+    },
+    {
+      "id": "math:example:structural-stability:case-4",
+      "title": "Perturb toward no balance points",
+      "role": "applied_model",
+      "question": "What survives when the correction rule itself changes?",
+      "setting": "Compare two toy alignment rules. One always pulls toward a shifted target; the other is balanced at a fold. Move a small offset in the rule rather than moving the starting position. One family keeps a single attracting balance point, while the critical family can gain or lose balance points.",
+      "assumptions": [
+        "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+      ],
+      "inputs": {
+        "perturbation": -0.01,
+        "family": "fold"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "ε = -0.01; F = Critical fold rule",
+          "reason": "These conditions select the declared family, coordinate chart or whole history step."
+        },
+        {
+          "index": 2,
+          "expression": "fε(x)=−x+ε or ε−x²",
+          "reason": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness."
+        },
+        {
+          "index": 3,
+          "expression": "0 equilibria",
+          "reason": "Read the evaluated quantity, retaining its domain and units."
+        }
+      ],
+      "result": {
+        "exact": "0 equilibria"
+      },
+      "interpretation": "What survives when the correction rule itself changes? Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness.",
+      "independent_check": {
+        "method": "Separate Python implementation using bisection, reciprocal tangent or independent analytic identities.",
+        "expected": "0"
+      },
+      "limits": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.",
+      "preset": {
+        "perturbation": -0.01,
+        "family": "fold"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+      ]
+    },
+    {
+      "id": "math:example:structural-stability:case-5",
+      "title": "Perturb toward two balance points",
+      "role": "applied_model",
+      "question": "What survives when the correction rule itself changes?",
+      "setting": "Compare two toy alignment rules. One always pulls toward a shifted target; the other is balanced at a fold. Move a small offset in the rule rather than moving the starting position. One family keeps a single attracting balance point, while the critical family can gain or lose balance points.",
+      "assumptions": [
+        "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+      ],
+      "inputs": {
+        "perturbation": 0.01,
+        "family": "fold"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "ε = 0.01; F = Critical fold rule",
+          "reason": "These conditions select the declared family, coordinate chart or whole history step."
+        },
+        {
+          "index": 2,
+          "expression": "fε(x)=−x+ε or ε−x²",
+          "reason": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness."
+        },
+        {
+          "index": 3,
+          "expression": "2 equilibria",
+          "reason": "Read the evaluated quantity, retaining its domain and units."
+        }
+      ],
+      "result": {
+        "exact": "2 equilibria"
+      },
+      "interpretation": "What survives when the correction rule itself changes? Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness.",
+      "independent_check": {
+        "method": "Separate Python implementation using bisection, reciprocal tangent or independent analytic identities.",
+        "expected": "2"
+      },
+      "limits": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.",
+      "preset": {
+        "perturbation": 0.01,
+        "family": "fold"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:structural-stability",
+    "renderer_id": "structural-stability-visual-model",
+    "renderer_version": "1",
+    "model_id": "structural-stability-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:structural-stability:expression",
+    "interaction_status": "implemented",
+    "description": "Perturbing a rule, not just a starting point. Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness.",
+    "controls": [
+      {
+        "id": "perturbation",
+        "type": "number",
+        "default": 0.2,
+        "min": -0.5,
+        "max": 0.5,
+        "step": 0.01
+      },
+      {
+        "id": "family",
+        "type": "enum",
+        "default": "hyperbolic",
+        "values": [
+          "hyperbolic",
+          "fold"
+        ],
+        "value_labels": {
+          "hyperbolic": "Attracting linear rule",
+          "fold": "Critical fold rule"
+        }
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "perturbation": -0.2,
+          "family": "hyperbolic"
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "perturbation": 0.2,
+          "family": "hyperbolic"
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "perturbation": 0,
+          "family": "fold"
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "perturbation": -0.01,
+          "family": "fold"
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "perturbation": 0.01,
+          "family": "fold"
+        },
+        "status": "valid",
+        "output": 2
+      },
+      {
+        "input": {
+          "perturbation": -0.5,
+          "family": "hyperbolic"
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "perturbation": 0.5,
+          "family": "hyperbolic"
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "perturbation": 0.2,
+          "family": "fold"
+        },
+        "status": "valid",
+        "output": 2
+      },
+      {
+        "input": {
+          "perturbation": 1.5,
+          "family": "hyperbolic"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.",
+      "The displayed calculation, coordinates and marks are evaluated from the same declared input state.",
+      "The scenario is a constructed teaching model; source book and historical coverage are separate editorial questions."
+    ],
+    "limits": [
+      "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "What survives when the correction rule itself changes?",
+      "answer": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness."
+    },
+    {
+      "prompt": "Which assumption matters for this construction?",
+      "answer": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Perturbing a rule, not just a starting point uses model-derived positions and marks."
+    },
+    {
+      "kind": "graph",
+      "description": "A distinct history, response or coordinate graph retains declared domains and gaps."
+    },
+    {
+      "kind": "substitution",
+      "description": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Originally authored model scenario",
+      "mapping": "What survives when the correction rule itself changes?",
+      "limitations": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:structural-stability:case-1"
+    },
+    {
+      "context": "A changed history, parameter or chart",
+      "mapping": "Set each selected velocity rule equal to zero. Compare the number and local type of its equilibria with the zero-offset rule; the two explicit perturbation families illustrate different robustness.",
+      "limitations": "This compares two explicit one-dimensional families on the line. The linear family retains one attracting equilibrium; the fold at ε=0 changes its equilibrium count under arbitrarily small signed shifts. This is a bounded introduction to structural stability, not a general certificate over all perturbations or domains.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:structural-stability:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:dynamics-extension:structural"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 branch continuation: added bounded models, connected calculations, views and reference coverage."
+  ]
+}

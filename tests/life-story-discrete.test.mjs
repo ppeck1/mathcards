@@ -61,17 +61,18 @@ class Element{
   addEventListener(key,value){this.listeners.set(key,value);}
   removeEventListener(key){this.listeners.delete(key);}
 }
-function harness(story=gridStory(),valid=p=>[1,3,5,7,9].includes(p.n)&&p.fixed===7){
-  const host=new Element(),slider=new Element('input'),created=[],frames=new Map(),seen=[];let now=1000,nextFrame=0;
-  slider.dataset.storyParam='n';slider.value=String(story.timeline.from);
-  host.selectors.set('[data-story-param="n"]',slider);host.groups.set('[data-story-param]',[slider]);
+function harness(story=gridStory(),valid=p=>[1,3,5,7,9].includes(p.n)&&p.fixed===7,installedModule){
+  const host=new Element(),slider=new Element('input'),created=[],frames=new Map(),seen=[],key=story.timeline.key;let now=1000,nextFrame=0;
+  slider.dataset.storyParam=key;slider.value=String(story.timeline.from);
+  host.selectors.set('[data-story-param="'+key+'"]',slider);host.groups.set('[data-story-param]',[slider]);
   host.groups.set('input[type=range]',[slider,host.querySelector('[data-timeline]')]);host.groups.set('[data-step]',story.steps.map((_,i)=>{const button=host.querySelector('[data-step="'+i+'"]');button.dataset.step=String(i);return button;}));
   const request=callback=>{frames.set(++nextFrame,callback);return nextFrame;},cancel=id=>frames.delete(id);
   const context=vm.createContext({
     document:{hidden:false,createElement(name){const node=new Element(name);created.push(node);return node;},createTextNode:text,addEventListener(){},removeEventListener(){}},
     matchMedia:()=>({matches:false,addEventListener(){},removeEventListener(){}}),requestAnimationFrame:request,cancelAnimationFrame:cancel,
     AtlasModels:{validateParams:(_slug,p)=>({valid:valid(p),parameters:{...p}})},
-    AtlasStoryScenes:{render(_slug,p){assert.ok(valid(p),'every rendered frame is a legal state');seen.push(p.n);return'<svg/>';},values:(_slug,p)=>({...p,output:p.n}),primaryValue:(_slug,p)=>p.n},
+    ...(installedModule?{AtlasModules:{get:id=>id===story.slug?installedModule:null}}:{}),
+    AtlasStoryScenes:{render(_slug,p){assert.ok(valid(p),'every rendered frame is a legal state');seen.push(p[key]);return'<svg/>';},values:(_slug,p)=>({...p,output:p[key]}),primaryValue:(_slug,p)=>p[key]},
     AtlasMotion:{...Motion,createFollower:options=>Motion.createFollower({...options,requestFrame:request,cancelFrame:cancel,now:()=>now})},
     AtlasReadableValues:{...Readable,createPacer:()=>Readable.createPacer({now:()=>now})},AtlasPlayground:{renderInto:(node,html)=>{node.innerHTML=html;}},
     AtlasStoryLinks:{forSlug:()=>({variableLabel:'Position',effectLabel:'A legal selection',steps:story.steps}),quantityFor:(_slug,key)=>({label:key,role:key==='n'?'input':'output'}),paint(){},focusFor:()=>({focus:'input'})},
@@ -113,6 +114,27 @@ test('throttled frame callbacks preserve the authored replay duration and still 
     const play=h.host.querySelector('[data-play]');play.onclick();h.advanceFrame(1000);h.advanceFrame(1000);
     assert.equal(h.player.getParameters().n,9);assert.equal(play.getAttribute('aria-pressed'),'false');
   }finally{h.player.destroy();}
+});
+
+test('mounted story followers honor installed chart guards while keeping ordinary arcs continuous',()=>{
+  const Modules=require('../src/playground-modules.js'),module=Modules.get('circle-manifold');
+  const story={...gridStory(),slug:'circle-manifold',parameters:{angle:100,pole:'north'},
+    variables:[{key:'angle',symbol:'θ',label:'Circle angle',unit:'degrees',min:-180,max:180,step:1}],
+    timeline:{key:'angle',from:80,to:100,durationMs:1000}};
+  story.steps=story.steps.map(step=>({...step,body:'Angle θ={{angle}}.',formula:'u={{output}}'}));
+  const h=harness(story,p=>module.validateParams(p).valid,module);
+  try{
+    assert.deepEqual(h.seen,[80]);
+    h.slider.value='100';h.slider.oninput();
+    assert.equal(h.frames.size,0,'Crossing the excluded pole settles directly without an animation loop');
+    assert.deepEqual(h.seen,[80,100],'The mounted story never manufactures intermediate chart states');
+    h.slider.value='110';h.slider.oninput();
+    assert.equal(h.frames.size,1,'An ordinary arc in the same chart still uses the continuous follower');
+    h.advanceFrame(16);
+    assert.ok(h.seen.at(-1)>100&&h.seen.at(-1)<110);
+    h.advance(300);
+    assert.equal(h.seen.at(-1),110);
+  }finally{h.player.destroy();assert.equal(h.frames.size,0);}
 });
 
 test('mounted story formulas simplify signed addition while token accessibility retains the signed quantity',()=>{

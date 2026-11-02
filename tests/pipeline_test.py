@@ -107,9 +107,9 @@ class PipelineTests(unittest.TestCase):
         for card in catalog['cards']:
             source=json.loads((ROOT/'content/cards'/(card['slug']+'.json')).read_text(encoding='utf-8'))
             self.assertEqual(source,card)
-        self.assertEqual(len(catalog['cards']),84)
-        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),424)
-        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),829)
+        self.assertEqual(len(catalog['cards']),102)
+        self.assertEqual(sum(len(c['examples']) for c in catalog['cards']),514)
+        self.assertEqual(sum(len(c['interactive']['expected_cases']) for c in catalog['cards']),1023)
 
     def test_book_roadmap_preserves_topic_identity_and_honest_card_links(self):
         with (ROOT/'docs/BOOK_CONCEPT_ROADMAP.csv').open(encoding='utf-8',newline='') as stream:
@@ -125,7 +125,9 @@ class PipelineTests(unittest.TestCase):
             self.assertTrue(set(filter(None,row['related_cards'].split(';')))<=slugs)
         structural=next(row for row in rows if row['topic_id']=='MAT-150')
         self.assertEqual(structural['lesson_status'],'planned-with-precursor')
-        self.assertIn('rule',structural['scope_note'])
+        self.assertIn('structural-stability',structural['related_cards'].split(';'))
+        self.assertIn('does not define or certify equivalence',structural['scope_note'])
+        self.assertIn('all small perturbations',structural['scope_note'])
 
     def test_catalog_inline_is_inert(self):
         payload={'cards':[{'title':'</script><img src=x onerror=alert(1)>'}]}
@@ -139,7 +141,7 @@ class PipelineTests(unittest.TestCase):
             a,b=Path(tmp)/'a',Path(tmp)/'b'
             ma,mb=build_export(a),build_export(b)
             self.assertEqual(ma,mb)
-            self.assertEqual(ma['document_count'],508)
+            self.assertEqual(ma['document_count'],616)
             for entry in ma['documents']:
                 self.assertEqual((a/entry['path']).read_bytes(),(b/entry['path']).read_bytes())
                 self.assertNotIn('notebook',entry['path'])

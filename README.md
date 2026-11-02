@@ -2,9 +2,9 @@
 
 A visual field notebook for learning mathematics as a language of description.
 Change an input, follow it through a story and formula, and see its effect in a
-shape or graph. This branch prepares 0.34.0 with 84 draft lessons, adding
-statistical inference, order structures, continuous dynamics, physical energy
-and illustrative neural computation to the existing collection.
+shape or graph. This branch prepares 0.34.0 with 102 draft lessons, adding
+statistical inference, order structures, number foundations, spatial reasoning,
+continuous dynamics, physical energy and illustrative neural computation.
 
 **[Open the live atlas](https://ppeck.me/mathcards/)** ·
 [Project story](https://ppeck.me/projects/mathematical-expression-atlas/) ·
@@ -19,6 +19,8 @@ source hash and review status; [content/cards/](content/cards/) contains the
 canonical lessons. Dated validation records describe the release they tested.
 
 ![Sampling, interval coverage, regression, equilibrium changes, lattices and neural activation.](docs/presentation-0-34/overview.png)
+
+![Remainders, counting, cross products, changing coordinates, hysteresis and sphere charts.](docs/presentation-0-34-continuation/overview.png)
 
 ## Explore
 
@@ -76,8 +78,9 @@ Every validated push to `main` updates the hosted demo automatically.
 | [Reference index](docs/MATH_INDEX.md) | Definitions, symbols and actual card links |
 | [Book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) | Original 214 topic IDs, prerequisites and honest coverage |
 | [Eight-book expansion](docs/EIGHT_BOOK_EXPANSION.md) | 295 supplied subjects, evidence boundaries and actual lesson links |
-| [Branch matrix](docs/EXPANSION_MATRIX_0_34_0.md) | Completed expansion and remaining qualification |
-| [Branch validation](docs/VALIDATION_0_34_0.md) | Checks, artifact integrity and explicit limits |
+| [Branch matrix](docs/CONTINUATION_MATRIX_0_34_0.md) | Current expansion and remaining qualification |
+| [Branch validation](docs/VALIDATION_0_34_0_CONTINUATION.md) | Current checks, artifact integrity and explicit limits |
+| [Initial branch checkpoint](docs/EXPANSION_MATRIX_0_34_0.md) | First 23 lessons in this unreleased expansion |
 | [Build and deployment](docs/DEPLOYMENT.md) | Reproducible checks and publishing |
 | [Published review](docs/REVIEW_RESPONSE_0_33_0.md) | 0.33.0 findings, repairs and qualification limits |
 | [Published validation](docs/VALIDATION_0_33_0.md) | Recorded checks for the published baseline |

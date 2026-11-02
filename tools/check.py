@@ -38,6 +38,7 @@ def main():
         unittest.defaultTestLoader.discover(str(ROOT/'tests'),pattern='pipeline_test.py'),
         unittest.defaultTestLoader.discover(str(ROOT/'tests'),pattern='terrain_generation_test.py'),
         unittest.defaultTestLoader.discover(str(ROOT/'tests'),pattern='generated_io_test.py'),
+        unittest.defaultTestLoader.discover(str(ROOT/'tests'),pattern='continuation_metadata_test.py'),
     ])
     return 0 if unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful() else 1
 

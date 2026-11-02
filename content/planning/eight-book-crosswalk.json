@@ -342,9 +342,10 @@
       "status": "precursor",
       "cards": [
         "gradient-descent",
-        "quadratic-optimization"
+        "quadratic-optimization",
+        "gradient-flow"
       ],
-      "scope_note": "Bounded quadratic optimization and four discrete descent updates precede general optimization methods."
+      "scope_note": "A positive quadratic potential has an exact continuous negative-gradient solution, distinct from finite discrete descent updates. General optimization algorithms and convergence theorems remain outside these bounded families."
     },
     {
       "concept_id": "neurons",
@@ -544,9 +545,12 @@
     },
     {
       "concept_id": "counting-methods",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "permutation-count",
+        "binomial-coefficient"
+      ],
+      "scope_note": "Multiplication of successive choices and removal of repeated orderings introduce two finite counting methods. This is not a complete combinatorics curriculum."
     },
     {
       "concept_id": "conditional-probability",
@@ -641,9 +645,11 @@
     },
     {
       "concept_id": "numerals",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "numeral-system"
+      ],
+      "scope_note": "Ordinary positional numerals in bases two through ten name the same nonnegative integer. This introduces digit/place meaning, not historical numeral scripts."
     },
     {
       "concept_id": "greek-letters",
@@ -792,9 +798,11 @@
     },
     {
       "concept_id": "factorial-notation",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "permutation-count"
+      ],
+      "scope_note": "Factorial notation and the empty product are explained through ordered selections, including zero roles. No gamma-function extension is implemented."
     },
     {
       "concept_id": "summation-notation",
@@ -810,9 +818,12 @@
     },
     {
       "concept_id": "binomial-notation",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "binomial-coefficient",
+        "binomial-distribution"
+      ],
+      "scope_note": "Binomial-coefficient notation counts unordered teams, and the distribution lesson uses those coefficients for Bernoulli counts. Their meanings remain distinct."
     },
     {
       "concept_id": "einstein-summation",
@@ -828,21 +839,29 @@
     },
     {
       "concept_id": "zero",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "precursor",
+      "cards": [
+        "rational-number",
+        "numeral-system",
+        "permutation-count"
+      ],
+      "scope_note": "Zero balances, the single zero digit and one empty assignment give distinct examples. A dedicated treatment of zero and its algebraic roles remains planned."
     },
     {
       "concept_id": "negative-numbers",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "precursor",
+      "cards": [
+        "rational-number"
+      ],
+      "scope_note": "Signed fractional ribbon balances locate negative values to the left of zero. Integer ordering and the full arithmetic of negative numbers remain separate."
     },
     {
       "concept_id": "rational-numbers",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "rational-number"
+      ],
+      "scope_note": "Signed bounded numerator and positive denominator illustrate quotient values and exact reduction. No construction of the complete number system is claimed."
     },
     {
       "concept_id": "real-numbers",
@@ -921,9 +940,12 @@
       "cards": [
         "derivative",
         "integral-accumulation",
-        "gradient"
+        "gradient",
+        "spatial-cross-product",
+        "vector-projection",
+        "gradient-flow"
       ],
-      "scope_note": "Several local-change and accumulation families precede general analysis and vector-calculus theorems."
+      "scope_note": "Concrete spatial vector operations and a quadratic gradient flow extend the local-change examples. General vector-calculus theorems, arbitrary fields and integration theory remain separate."
     },
     {
       "concept_id": "limits",
@@ -969,21 +991,28 @@
     },
     {
       "concept_id": "factorials",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "permutation-count"
+      ],
+      "scope_note": "Finite products count assignments of distinct people to different roles. Counts are bounded by eight people; repetition and circular arrangements remain separate."
     },
     {
       "concept_id": "binomial-coefficients",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "binomial-coefficient",
+        "binomial-distribution"
+      ],
+      "scope_note": "Unordered selections are counted by Pascal recurrence and checked against repeated ordered listings; a bounded finite team family precedes the general binomial theorem."
     },
     {
       "concept_id": "modular-arithmetic",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "modular-arithmetic"
+      ],
+      "scope_note": "Exact nonnegative remainders and repeated residue classes in a finite packing family; general integer residue-ring operations remain outside the executable scope."
     },
     {
       "concept_id": "trigonometry",
@@ -1020,17 +1049,21 @@
     },
     {
       "concept_id": "numeral-systems",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "numeral-system"
+      ],
+      "scope_note": "A bounded positional representation uses digits and base powers for integers zero through sixty-three. Fractional, negative and non-positional bases remain separate."
     },
     {
       "concept_id": "fractions",
-      "status": "precursor",
+      "status": "draft-introduction",
       "cards": [
-        "ratio-scale"
+        "ratio-scale",
+        "rational-number",
+        "greatest-common-divisor"
       ],
-      "scope_note": "Ratios and proportional scaling use fractions; number-system construction and fraction algorithms remain separate."
+      "scope_note": "The fraction lesson explicitly reduces signed fractions without changing their value; the gcd lesson supplies the common-divisor calculation, while ratio scaling remains an application."
     },
     {
       "concept_id": "irrational-numbers",
@@ -1046,9 +1079,12 @@
     },
     {
       "concept_id": "prime-numbers",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "prime-factorization",
+        "greatest-common-divisor"
+      ],
+      "scope_note": "Prime/composite distinction and repeated prime factors are explicit for positive integers up to 120. The gcd lesson supports divisibility; no proof of unique factorization or primality-testing complexity is claimed."
     },
     {
       "concept_id": "complex-numbers",
@@ -1230,9 +1266,11 @@
     },
     {
       "concept_id": "prime-conjectures",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "precursor",
+      "cards": [
+        "prime-factorization"
+      ],
+      "scope_note": "The bounded prime-factorization lesson prepares prime/composite vocabulary. No conjecture statement, current conjecture status or proof is supplied by this link."
     },
     {
       "concept_id": "transcendence",
@@ -1252,9 +1290,10 @@
       "cards": [
         "derivative",
         "integral-accumulation",
-        "gradient"
+        "gradient",
+        "gradient-flow"
       ],
-      "scope_note": "Several local-change and accumulation families precede general analysis and vector-calculus theorems."
+      "scope_note": "The derivative, accumulation and gradient families now include an exact continuous quadratic gradient flow. This is preparation for general analysis rather than completion of calculus."
     },
     {
       "concept_id": "series",
@@ -1311,9 +1350,12 @@
       "status": "precursor",
       "cards": [
         "pythagorean-theorem",
-        "vector-rotation"
+        "vector-rotation",
+        "coordinate-transformation",
+        "vector-projection",
+        "spatial-cross-product"
       ],
-      "scope_note": "Specific right-triangle and coordinate examples precede a complete geometry or trigonometry sequence."
+      "scope_note": "Specific coordinate, projection and spatial-vector constructions prepare broader analytic geometry. Passive frame changes remain distinct from moving a physical vector."
     },
     {
       "concept_id": "non-euclidean-geometry",
@@ -1325,9 +1367,11 @@
       "concept_id": "topology",
       "status": "precursor",
       "cards": [
-        "open-set"
+        "open-set",
+        "circle-manifold",
+        "sphere-manifold"
       ],
-      "scope_note": "Euclidean disk neighborhoods introduce openness; arbitrary topological spaces are not implemented."
+      "scope_note": "Disk neighborhoods and explicit circle/sphere chart examples prepare topology and manifolds. An omitted chart pole is not an intrinsic singularity; arbitrary topological spaces and a general smooth-atlas theory remain planned."
     },
     {
       "concept_id": "sphere-packing",
@@ -1380,9 +1424,11 @@
       "status": "precursor",
       "cards": [
         "fold-bifurcation",
-        "cusp-potential"
+        "cusp-potential",
+        "hysteresis",
+        "structural-stability"
       ],
-      "scope_note": "One fold normal form and one quartic cusp-potential family precede general catastrophe classifications and unfolding theory."
+      "scope_note": "One fold/cusp family now includes an explicit quasi-static branch history and two simple perturbation comparisons. General catastrophe classification, unfolding theory and transient switching dynamics remain planned."
     },
     {
       "concept_id": "complexity",
@@ -1404,9 +1450,13 @@
       "cards": [
         "torque",
         "vector",
-        "cross-product"
+        "cross-product",
+        "angular-velocity",
+        "linear-momentum",
+        "spatial-cross-product",
+        "scalar-triple-product"
       ],
-      "scope_note": "Planar vector and torque models precede dynamical mechanics; they do not simulate body motion."
+      "scope_note": "Newtonian instantaneous momentum, constant-rate rim velocity and spatial geometric products extend the planar torque examples. General forces, collisions, angular momentum and rigid-body dynamics remain separate."
     },
     {
       "concept_id": "electromagnetism",

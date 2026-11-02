@@ -1,10 +1,13 @@
 /* Scoped mathematical symbols bind to actual marks in each installed model. */
 (function (root, factory) {
   const node = typeof module === 'object' && module.exports,
-    api = factory(node ? require('./inference-bindings.js') : root.AtlasInferenceBindings);
+    api = factory(
+      node ? require('./inference-bindings.js') : root.AtlasInferenceBindings,
+      node ? require('./continuation-metadata.js') : root.AtlasContinuationMetadata
+    );
   if (node) module.exports = api;
   root.AtlasExpansionBindings = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function (Inference) {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (Inference, Continuation) {
   'use strict';
   const records = {
     'vector-field': { x: ['x'], y: ['y'], a: ['rate'], result: ['output'] },
@@ -26,5 +29,5 @@
     'artificial-neuron': { x: ['signal'], w: ['weight'], b: ['bias'], result: ['output'] },
     'hebbian-learning': { u: ['pre'], v: ['post'], η: ['rate'], result: ['output'] }
   };
-  return Object.freeze({ ...records, ...Inference });
+  return Object.freeze({ ...records, ...Inference, ...(Continuation?.bindings || {}) });
 });

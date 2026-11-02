@@ -1,4 +1,8 @@
-# Startup and payload measurements — 0.34.0 branch
+# Startup and payload measurements — 0.34.0 initial checkpoint
+
+These measurements identify the earlier 84-card artifact. See the
+[102-card continuation measurements](STARTUP_MEASUREMENT_0_34_0_CONTINUATION.md)
+for the current candidate. Neither record is a browser or phone qualification.
 
 Measured on 2026-11-02 using background processes only. No browser, desktop
 application, network request or physical-phone test was used. The live site was
