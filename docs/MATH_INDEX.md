@@ -105,30 +105,41 @@ normalization; no implicit unit conversion is supplied.
 | [math-terms.js](../src/math-terms.js) | Authored definitions, read-as text, examples, aliases, matching rules and definition sources |
 | [math-notation.js](../src/math-notation.js) | Pure normalization, bounded notation readers, selected mathematical-field inventory and coverage audit |
 | [math-index.js](../src/math-index.js) | Immutable card-usage projection, definition search, index markup and scoped mounting |
+| [math-index-data.js](../src/math-index-data.js) | Complete inert reference projection, generated from authored definitions and public card/story evidence |
 | [math-index.css](../src/math-index.css) | Index presentation and responsive layout |
 | [atlas-search.js](../src/atlas-search.js) | One search adapter for definitions, cards and map areas; header and full-page search views |
 | [app.js](../src/app.js) | Provider composition, routes, card vocabulary links and page lifecycle |
-| [build.py](../tools/build.py) | Embeds these scripts, styles and canonical content into the offline application |
+| [build.py](../tools/build.py) | Compiles reference data and embeds runtime scripts, styles and canonical content into the offline application |
 
 The providers use the same UMD/CommonJS pattern as the rest of the application.
-In a browser, load `math-terms.js` and `math-notation.js` before `math-index.js`, then load
-`atlas-search.js` before the application composes them. Node callers can require
-the providers directly. Adding a definition does not require editing the page
-renderer or a playground module.
+In a browser, load `math-notation.js` before `math-index.js`, then the generated
+`math-index-data.js` and `atlas-search.js` before application composition.
+Authored `math-terms.js` and family `*-terms.js` files remain build dependencies;
+they no longer duplicate the prepared reference in the runtime. Node callers
+can require the providers directly. Adding a definition does not require
+editing the page renderer or a playground module; rebuild its projection.
 
 ## Definition provider
 
 ```js
-const index = AtlasMathIndex.create({cards, sources, stories});
+const index = AtlasMathIndex.hydrate(AtlasMathIndexData);
 const entry = index.get('delta-small');
 const uses = index.forCard('function-composition');
 const matches = index.search('projection', {category: 'linear'});
 ```
 
-`cards` is the canonical card array; `sources` is the canonical source array,
+Build/Node callers use `compile({cards, sources, stories})` to obtain prepared
+format-version-1 data, then `hydrate(data)` for the same runtime API.
+`create({cards, sources, stories})` remains a build-time convenience for both
+steps. Compilation fails explicitly when authoring data is absent; browser
+startup never scans the source corpus.
+
+For compilation, `cards` is the canonical card array; `sources` is the canonical source array,
 not the surrounding source-document object. Optional `stories` supplies the
 authored story array for mathematical labels, calculations and units. Creation
-owns its projected data and does not mutate or freeze those inputs.
+owns its projected data and does not mutate or freeze those inputs. Hydration
+keeps complete public contexts while deduplicating repeated meaning text only
+inside private search rows.
 
 | Member | Contract |
 |---|---|

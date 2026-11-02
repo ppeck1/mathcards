@@ -85,9 +85,22 @@ The host's readable-value pacer keeps numbers legible while the scene changes.
 represents declared lesson availability; overlapping territory membership does
 not multiply the number of distinct cards. `learning-order.js` owns the
 learner-facing sequence. Search and the symbol catalog derive actual card-use
-links from public content. The prepared reference is compiled before startup;
-query-local search reuse avoids repeated normalization without keeping an
+links from public content. Reference-authoring files (`math-terms.js` and the
+family `*-terms.js` files) are build dependencies, excluded from the runtime
+bundle and module sandbox. The complete prepared reference is compiled before startup;
+hydration deduplicates only repeated meaning text in private search rows, while
+retaining all public contexts and card links. Browser compilation without
+authoring data fails explicitly rather than scanning the corpus.
+Query-local search reuse avoids repeated normalization without keeping an
 unbounded history of unrelated queries.
+
+Module registration reuses only immutable metadata branches verified by a full
+descriptor/child walk. Mutable input, parameter validation and instance state
+still use independent copies; registration still validates defaults and numeric
+output ports immediately. Story lookup stops at the first matching provider.
+These optimizations belong in their existing registry/reference boundaries.
+See the [startup record](STARTUP_OPTIMIZATION_0_34_0.md) for the unchanged budget,
+fixed-attempt diagnostics and browser qualification limits.
 
 Book inventories are editorial planning evidence. A matching topic label does
 not prove exact-edition coverage or that a finite demonstration teaches a whole
@@ -127,7 +140,8 @@ Prettier 3.6.2 is pinned as a development-only tool in `package-lock.json`.
 `npm ci --ignore-scripts` installs it; `npm run check:format` checks the new
 systems, inference, inventory, expansion, number/spatial foundations, dynamics,
 algebra, algorithm and distribution extensions and extracted legacy-provider modules,
-their new tests, generated-write helpers and startup measurement harness. `npm run format` rewrites
+their new tests, generated-write helpers, startup regression tests and measurement
+harness. `npm run format` rewrites
 only that declared scope. `.prettierignore` excludes generated projections,
 release artifacts, original handoff material and the vendored formula compiler.
 The published application does not include Prettier or require npm installation.

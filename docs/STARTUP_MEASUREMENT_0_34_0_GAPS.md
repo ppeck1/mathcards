@@ -1,5 +1,9 @@
 # Startup and payload — 0.34.0 atlas-gap candidate
 
+Historical checkpoint before the startup optimization. The
+[current performance record](STARTUP_OPTIMIZATION_0_34_0.md) identifies the
+subsequent artifact and preserves the observations below.
+
 Measured on 2026-11-02 using background Node processes, after other repository
 checks stopped. No browser, desktop app, network or physical-device test ran.
 The PC remained in ordinary use; operating-system caches were not flushed.

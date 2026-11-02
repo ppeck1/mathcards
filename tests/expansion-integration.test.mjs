@@ -147,9 +147,9 @@ test('development script dependencies load offline in their actual declared orde
     ['inference-stories.js', 'story-library.js'],
     ['inference-bindings.js', 'expansion-bindings.js'],
     ['expansion-bindings.js', 'symbol-bindings.js'],
-    ['systems-terms.js', 'expansion-terms.js'],
-    ['inference-terms.js', 'expansion-terms.js'],
-    ['expansion-terms.js', 'math-terms.js'],
+    ['math-notation.js', 'math-index.js'],
+    ['math-index.js', 'app.js'],
+    ['math-index-data.js', 'app.js'],
     ['inference-previews.js', 'card-previews.js'],
     ['subject-inventory-data.js', 'app.js'],
     ['subject-inventory.js', 'app.js']
@@ -166,6 +166,8 @@ test('development script dependencies load offline in their actual declared orde
     });
   }
   assert.equal(context.AtlasModules.list().length, cards.length);
+  assert.equal(context.AtlasMathTerms, undefined, 'reference authorship is not runtime data');
+  assert.equal(context.AtlasExpansionTerms, undefined);
   for (const card of introduced) {
     const result = context.AtlasModels.evaluate(card.slug, context.AtlasModels.defaults(card.slug));
     assert.equal(result.valid, true, card.slug);

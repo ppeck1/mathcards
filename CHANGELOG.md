@@ -20,6 +20,12 @@
   and bounded Windows sharing-error retries. Preserve deterministic LF bytes.
 - Record background startup and payload measurements without claiming browser
   or phone qualification. Compile all 111 formulas to native MathML.
+- Remove duplicate reference-authoring scripts from the runtime, deduplicate
+  private search-row text, stop story lookup at its first match and reuse fully
+  verified immutable registration metadata. Preserve all public reference data,
+  independent parameters, eager validation and the unchanged 1500 ms gate.
+- Retain every fixed startup attempt, including failures, with optional
+  per-script CPU and separate built-prefix diagnostics.
 - Add 18 continuation lessons in remainders, divisibility, fractions, bases,
   counting, spatial vectors, coordinate frames, motion, hysteresis, gradient
   flow and explicit circle/sphere charts. Keep singular chart coordinates

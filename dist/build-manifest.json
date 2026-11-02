@@ -6,7 +6,7 @@
   "canonical_content_sha256": "375c43cd01a28bba6f98c37257640b5755d4e06e2ecb7175916331de81f97166",
   "cards": 111,
   "examples": 559,
-  "index_sha256": "c8363cecf9e072592ccbc304622d455cbc4d651c7f121c7546cd25a36b5990ff",
+  "index_sha256": "3acccadf55dc409358d8b665f4113c4e2eb4b4e4723481b7d53d4f6ea4a14883",
   "offline": "All app code and content are embedded in index.html.",
   "review_status": "Draft specimens; historical research and independent review remain incomplete.",
   "schema_version": "0.1.0"

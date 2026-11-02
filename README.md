@@ -62,7 +62,10 @@ To make a standalone ZIP, run `python tools/package.py`. Prettier is a pinned
 development tool; the published app has no npm runtime dependency.
 `npm run format` covers the declared incremental scope, excluding generated and
 vendored files. `npm run measure:startup` runs three sequential background Node
-measurements after a completed build; it does not launch a browser.
+measurements after a completed build; it does not launch a browser. Add
+`--profile --runs=5` to the underlying Node command for five fixed attempts,
+per-script CPU diagnostics and the separate built-prefix comparison. Failed
+attempts remain in the JSON report and make the command fail.
 
 ## Contribute a lesson
 
@@ -81,6 +84,7 @@ Every validated push to `main` updates the hosted demo automatically.
 | [Eight-book expansion](docs/EIGHT_BOOK_EXPANSION.md) | 295 supplied subjects, evidence boundaries and actual lesson links |
 | [Branch matrix](docs/GAP_EXPANSION_MATRIX_0_34_0.md) | Current expansion and remaining qualification |
 | [Branch validation](docs/VALIDATION_0_34_0_GAPS.md) | Current checks, artifact integrity and explicit limits |
+| [Startup optimization](docs/STARTUP_OPTIMIZATION_0_34_0.md) | Current artifact, fixed timing attempts and measurement limits |
 | [Number/spatial checkpoint](docs/CONTINUATION_MATRIX_0_34_0.md) | Previous 18-lesson continuation |
 | [Initial branch checkpoint](docs/EXPANSION_MATRIX_0_34_0.md) | First 23 lessons in this unreleased expansion |
 | [Build and deployment](docs/DEPLOYMENT.md) | Reproducible checks and publishing |
@@ -94,9 +98,10 @@ open. Finite demonstrations do not establish general theorems, and constructed
 stories are not empirical measurements. Written examples that require a different
 function or data type stay distinct from executable presets.
 
-Startup performance has limited measured headroom in this candidate; the
-[current measurements](docs/STARTUP_MEASUREMENT_0_34_0_GAPS.md) retain both
-passing runs and a budget miss. Browser and device qualification remain open.
+Startup removes duplicate reference-authoring data and repeated metadata work.
+The [current measurements](docs/STARTUP_OPTIMIZATION_0_34_0.md) compare the
+optimized candidate with a frozen baseline under the unchanged 1500 ms gate,
+retaining the earlier slow samples. Browser and device qualification remain open.
 
 The app stores personal notebooks and workspaces in browser storage; export a
 backup before clearing it. Build tools never read those private records.

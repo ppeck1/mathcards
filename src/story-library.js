@@ -6,5 +6,6 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(Everyday,Discovery,Frontier,Foundations,Linear,Workflows,Calculus,LocalChange,Gaps,DataIteration,BookFoundations,Reasoning,Structures,ChanceInformation,InformationLinks,Computation,Systems,Inference,Numbers,SpaceModels,DynamicsModels,AlgebraModels,AlgorithmModels,DistributionModels){
   'use strict';
   const providers=[Everyday,Discovery,Frontier,Foundations,Linear,Workflows,Calculus,LocalChange,Gaps,DataIteration,BookFoundations,Reasoning,Structures,ChanceInformation,InformationLinks,Computation,Systems,Inference,Numbers,SpaceModels,DynamicsModels,AlgebraModels,AlgorithmModels,DistributionModels].filter(Boolean);
-  return Object.freeze({all:()=>providers.flatMap(p=>p.all()),forSlug:slug=>providers.map(p=>p.forSlug(slug)).find(Boolean)||null,linksFor:slug=>providers.map(p=>p.linksFor?.(slug)).find(Boolean)||null,quantityFor:(slug,key)=>providers.map(p=>p.quantityFor?.(slug,key)).find(Boolean)||null,find:id=>providers.map(p=>p.find(id)).find(Boolean)||null});
+  const first=read=>{for(const provider of providers){const value=read(provider);if(value)return value;}return null;};
+  return Object.freeze({all:()=>providers.flatMap(p=>p.all()),forSlug:slug=>first(p=>p.forSlug(slug)),linksFor:slug=>first(p=>p.linksFor?.(slug)),quantityFor:(slug,key)=>first(p=>p.quantityFor?.(slug,key)),find:id=>first(p=>p.find(id))});
 });

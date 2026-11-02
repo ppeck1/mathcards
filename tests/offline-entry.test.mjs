@@ -56,7 +56,9 @@ test('the editable offline entry loads all installed working model and story fam
   assert.equal(typeof context.AtlasExplorer.create,'function');
   assert.equal(typeof context.AtlasMathIndex.create,'function');
   assert.equal(typeof context.AtlasSearch.create,'function');
-  const definitions=context.AtlasMathIndex.create(context.AtlasCatalog);
+  assert.equal(context.AtlasMathTerms,undefined,'authored reference data stays in the build tooling');
+  assert.throws(()=>context.AtlasMathIndex.create(context.AtlasCatalog),/requires authoring data/);
+  const definitions=context.AtlasMathIndex.hydrate(context.AtlasMathIndexData);
   assert.ok(definitions.entries.length>=180);
   assert.deepEqual(Array.from(definitions.search('δ'),entry=>entry.id).sort(),['delta-small','tape-transition','transition-function']);
   assert.ok(definitions.forCard('determinant').length>0);

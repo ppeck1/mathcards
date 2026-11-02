@@ -67,7 +67,7 @@ Binary search stays in Algorithms rather than being labeled linear-time.
 | Mathematics | Independent finite oracles, exact branch/tie checks, quantified Gaussian grid error and explicit precision failures | Independent expert and learner review at the stated depth |
 | Reference | 897 entries, 834 selectable forms and 677 meanings; all 76,271 audited occurrences resolve; retained new readers have actual card links | Real keyboard, visual browsing and screen-reader review |
 | Visuals | All nine previews and compact scenes rendered from actual SVG; preview glyph bounds have no collisions, overflow or undersized text | Actual page layout, touch, enlarged text and browser font behavior |
-| Build and performance | 1,139 JavaScript tests, 29 Python tests and 1,256 numeric fixtures pass; final cold-process median 1,422 ms against 1,500 ms, with an earlier 1,577.7 ms miss recorded | Startup headroom, browser delivery and physical-device qualification remain open |
+| Build and performance | 1,159 JavaScript tests, 29 Python tests and 1,256 numeric fixtures pass; five rebuilt-artifact startup attempts span 500.5–552.3 ms (median 513.1), with all five paired candidate attempts at most 697 ms under the unchanged 1,500 ms gate | Browser delivery, full first render and physical-device qualification remain open; [current performance record](STARTUP_OPTIMIZATION_0_34_0.md) retains historical slow samples |
 | Release | Existing draft PR contains the candidate | Review and a release decision; live remains unchanged |
 
 | Inventory | Stable topics | Draft introductions | Preparation only | Planned |

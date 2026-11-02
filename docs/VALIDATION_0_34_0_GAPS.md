@@ -6,6 +6,11 @@ Validated on 2026-11-02 on `codex/eight-book-expansion`, continuing draft
 artifact identity. Live 0.33.0 was not changed. No browser, app, tab or desktop
 panel was opened or controlled.
 
+This is the content/visual checkpoint before the startup optimization. The
+[current performance and validation record](STARTUP_OPTIMIZATION_0_34_0.md)
+supersedes its artifact identity, test total and startup conclusion; the
+canonical lesson content and counts below remain unchanged.
+
 ## Checks and corpus
 
 - **1,139 JavaScript tests pass**, two file workers, 236.0 seconds, no skips.
@@ -104,7 +109,9 @@ Standalone HTML SHA-256:
 The [startup record](STARTUP_MEASUREMENT_0_34_0_GAPS.md) includes three passes
 (median 1422 ms) and one 1577.7 ms miss against the unchanged
 1500 ms limit. Performance has little measured headroom on this machine and
-remains a release-review item. Node/V8 and local gzip do not establish browser
+remained a release-review item at this checkpoint. The
+[subsequent optimization](STARTUP_OPTIMIZATION_0_34_0.md) records current timings
+under the same gate. Node/V8 and local gzip do not establish browser
 delivery, layout or physical-phone performance.
 
 The [qualification checklist](QUALIFICATION_0_34_0.md) keeps real touch,

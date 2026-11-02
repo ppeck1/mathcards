@@ -32,6 +32,7 @@
     return math.includes(token);
   }
   function compile({cards=[],sources=[],stories=[]}={}){
+    if(!Terms||!Array.isArray(Terms.entries))throw new Error('Reference compilation requires authoring data. Run tools/build.py; the application hydrates its prepared reference.');
     if(!Array.isArray(cards)||!Array.isArray(sources))throw new TypeError('Index cards and sources must be arrays.');
     const validCards=cards.filter(card=>card&&typeof card.slug==='string'&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(card.slug));
     const sourceMap=new Map(sources.filter(source=>source&&typeof source.id==='string').map(source=>[source.id,{title:String(source.title||source.id),url:safeURL(source.url)}]));
@@ -114,7 +115,13 @@
     const byId=new Map(entries.map(entry=>[entry.id,entry]));
     const categoryList=categories.map(([id,title])=>freeze({id,title,count:entries.filter(entry=>entry.category===id).length})).filter(category=>category.count);
     const categoryIds=new Set(categoryList.map(item=>item.id));
-    const rows=entries.map((entry,index)=>({entry,index,title:fold(entry.title),aliases:entry.aliases.map(fold),text:fold([entry.title,entry.definition,entry.readAs,...entry.aliases,...entry.symbols,...entry.usedBy.flatMap(usage=>usage.contexts.map(context=>context.meaning))].join(' '))}));
+    const rows=entries.map((entry,index)=>{
+      // Search needs a meaning's text once. Keep every canonical use/context,
+      // while avoiding repeated normalization and temporary arrays for copies.
+      const meanings=new Set();
+      for(const usage of entry.usedBy)for(const context of usage.contexts)meanings.add(context.meaning);
+      return{entry,index,title:fold(entry.title),aliases:entry.aliases.map(fold),text:fold([entry.title,entry.definition,entry.readAs,...entry.aliases,...entry.symbols,...meanings].join(' '))};
+    });
     let cachedSymbols=null;
     // This projection is prepared only when the reference is opened. It reads
     // the inert index, never scans cards, and preserves literal case/variants.
