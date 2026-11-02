@@ -13,6 +13,11 @@ and illustrative neural computation to the existing collection.
 The live site remains on 0.33.0 while this expansion is reviewed on its separate
 branch. A local branch build does not publish it.
 
+The release version comes from [package.json](package.json). The generated
+[build manifest](dist/build-manifest.json) records built card and example counts,
+source hash and review status; [content/cards/](content/cards/) contains the
+canonical lessons. Dated validation records describe the release they tested.
+
 ![Sampling, interval coverage, regression, equilibrium changes, lattices and neural activation.](docs/presentation-0-34/overview.png)
 
 ## Explore
@@ -75,6 +80,7 @@ Every validated push to `main` updates the hosted demo automatically.
 | [Branch validation](docs/VALIDATION_0_34_0.md) | Checks, artifact integrity and explicit limits |
 | [Build and deployment](docs/DEPLOYMENT.md) | Reproducible checks and publishing |
 | [Published review](docs/REVIEW_RESPONSE_0_33_0.md) | 0.33.0 findings, repairs and qualification limits |
+| [Published validation](docs/VALIDATION_0_33_0.md) | Recorded checks for the published baseline |
 
 ## Current limits
 
