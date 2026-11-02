@@ -13,6 +13,14 @@ This checklist applies to the current 111-card candidate as well as the earlier
 84/102-card checkpoints. Static preview and background numeric evidence is
 recorded separately in the [current validation](VALIDATION_0_34_0_GAPS.md).
 
+The [background release checks](RELEASE_CHECKS_0_34_0.md) add full-catalog
+backup and strict scene-markup evidence, while the
+[current matrix](GAP_EXPANSION_MATRIX_0_34_0.md#browser-and-phone-review-still-pending)
+keeps desktop/browser and phone results explicitly pending. The stale notebook
+write correction still needs a real two-tab walkthrough; it detects changed
+stored bytes and retains a pending memory/export copy rather than providing
+an atomic storage transaction.
+
 ## Complete learner journey
 
 | Check | Required observation | Result |

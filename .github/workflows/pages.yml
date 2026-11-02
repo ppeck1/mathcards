@@ -51,6 +51,9 @@ jobs:
       - name: Check authored source
         run: python tools/check_source.py
 
+      - name: Check default scene markup and slot namespaces
+        run: npm run check:scenes
+
       - name: Test the application
         run: npm test
 

@@ -1,5 +1,11 @@
 # 0.34.0 — Eight-book expansion and consolidation (review branch)
 
+- Protect notebook saves from detected stale-tab writes; preserve externally
+  saved bytes and keep pending edits exportable with a useful warning. Keep
+  existing backup schemas and model revisions.
+- Validate every lesson's notebook backup and every declared workspace view;
+  add strict default-state scene reference/ID/slot checks to CI, with explicit
+  browser and phone review rows in the release matrix.
 - Add 50 bounded lessons in inference, modeling, information, number
   foundations, spatial reasoning, dynamics, order, physical and neural models.
 - Connect original stories, three-stage calculations, Geometry/Graph, matching

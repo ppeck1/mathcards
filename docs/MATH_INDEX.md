@@ -1,11 +1,23 @@
-# Math index, notation and shared search — 0.22.0
+# Math index, notation and shared search
 
 The index is a reference provider that can be used independently of the page
 renderer. The shared search adapter combines that provider with real cards and
 atlas areas. Neither provider starts an animation, accesses storage, or requires
 a browser when its script is loaded.
 
-This release projects **409 entries** over 38 draft cards: **389 authored
+The current 0.34.0 review candidate projects **897 entries** over **111 draft
+cards**: **854 authored definitions** and **43 contextual entries**. Its symbol
+catalog has **834 selectable forms across 677 meanings**. The
+[current notation audit](NOTATION_COVERAGE_0_34_0.json) resolves all 76,271
+occurrences across 47,355 selected fields and 1,472 tokens, with zero unresolved
+or review items. See the [release checks](RELEASE_CHECKS_0_34_0.md) for the
+current evidence and the browser/phone review still pending. The API and
+authoring sections below describe the current provider; versioned sections
+preserve earlier checkpoints.
+
+## Reference checkpoint (0.22.0)
+
+The 0.22.0 checkpoint projected **409 entries** over 38 draft cards: **389 authored
 definitions** and **20 contextual entries for exact card notation**. The common
 reference covers all 24 standard Greek letter names in both cases, basic and
 compound operations, grouping, set/logic notation, units and typed/TeX forms.
@@ -14,10 +26,10 @@ atlas-gap lessons to their existing prerequisites and related meanings.
 
 The completed 29-card pre-expansion checkpoint had 355 entries (335 authored
 and 20 contextual). Its [sealed audit](NOTATION_GATE_BEFORE_EXPANSION.json)
-records the required notation-first sequence. Current coverage follows the
+records the required notation-first sequence. That checkpoint followed the
 [finite notation contract](SYMBOL_NOTATION_COVERAGE.md), with an expanded
 [release report](NOTATION_COVERAGE_0_22_0.json). This is a reference for the stated
-current-app/common baseline, not a dictionary of every mathematical use.
+checkpoint's app/common baseline, not a dictionary of every mathematical use.
 
 The 0.20.0 checkpoint remains recorded separately: 32 cards, 372 index entries,
 29,760 occurrences and 826 normalized forms with no unresolved/callable reviews.
@@ -54,9 +66,9 @@ intervals or an unbiased-estimator claim. The full scan supplies an operation
 count formula for every positive integer input size; a bounded drawing or finite
 plot alone is not an asymptotic proof.
 
-The current gate is generated at `docs/NOTATION_COVERAGE_0_22_0.json`. It checks
-23,794 selected fields and resolves 39,023 occurrences across 916 forms, with
-zero unresolved forms or callable reviews. There are 21,602 public runtime
+The 0.22.0 gate was generated at `docs/NOTATION_COVERAGE_0_22_0.json`. It checked
+23,794 selected fields and resolved 39,023 occurrences across 916 forms, with
+zero unresolved forms or callable reviews. There were 21,602 public runtime
 fields, 929 reference fields, 796 classified formatting occurrences and 58
 explicitly reviewed UI gesture-icon exclusions. Actual full-suite and browser
 results belong to the release verification record.
@@ -351,8 +363,10 @@ the other's units.
 
 `tools/check_notation.cjs` combines selected canonical/story fields, reference
 examples and symbols, and public renderer/readout samples across declared
-controls and views. `python tools/check.py` runs that gate and writes
-`docs/NOTATION_COVERAGE_0_22_0.json`. The preserved 0.20.0 audit covered 18,000 fields,
+controls and views. `python tools/check.py` runs that gate and writes a report
+for the version in `package.json`, currently
+[`docs/NOTATION_COVERAGE_0_34_0.json`](NOTATION_COVERAGE_0_34_0.json).
+The preserved 0.20.0 audit covered 18,000 fields,
 29,760 occurrences and 826 normalized forms, with zero unresolved forms and
 zero pending callable reviews. Its 664 formatting records and 58 reviewed UI
 gesture-icon exclusions are accounted for separately. Counts describe this

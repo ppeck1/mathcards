@@ -28,21 +28,36 @@ website content is required.
 
 ## Develop and validate locally
 
-Use Node.js 22 and Python 3.11 to match CI. Install the two pinned Python
-validation dependencies, then run the same commands as the workflow from the
-repository root:
+Use Node.js 22 and Python 3.11 to match CI. From the repository root, install
+the pinned development tools and validation dependencies and run the checks
+in workflow order:
 
 ```sh
+npm ci --ignore-scripts --no-audit --no-fund
+npm run check:format
 python -m pip install --requirement requirements-checks.txt
 python tools/build.py
-node --test tests/*.test.mjs
+python tools/check_source.py
+npm run check:scenes
+npm test
 python tools/check.py
+python tools/check_generated.py
 ```
+
+`npm test` uses two file workers so the startup budget check does not compete
+with an unbounded number of reference compilers. The generated-file check
+expects matching source and projections to be committed; use its
+`--integrity-only` option to inspect artifact hashes before committing.
 
 The application has no npm runtime dependencies. On systems whose Python
 command is `python3`, substitute that command. The build regenerates the
 catalog, written exports, `START_HERE.html` and `dist/index.html`. The content
 check also verifies metadata, notation coverage and the export pipeline.
+
+The [current release checks](RELEASE_CHECKS_0_34_0.md) distinguish background
+evidence from browser, phone and independent-review work still required for
+the 0.34.0 draft. Passing CI does not perform that device review or deploy a
+pull-request build.
 
 Open `START_HERE.html` or `dist/index.html` directly to review the offline
 application. For a served preview, run `python -m http.server 8000 --directory

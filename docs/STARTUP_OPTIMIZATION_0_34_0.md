@@ -1,5 +1,10 @@
 # Startup optimization — 0.34.0 review candidate
 
+This is the optimization checkpoint at commit `8051418`. The subsequent
+[release checks](RELEASE_CHECKS_0_34_0.md) identify the artifact containing the
+notebook stale-write correction and record its startup recheck. All paired and
+intermediate observations below are preserved for their original artifact.
+
 Measured on 2026-11-02 using sequential background Node processes on the user's
 PC. No browser, desktop app, tab, panel or network measurement ran. The live
 0.33.0 site remains unchanged; this work stays in draft PR #13.

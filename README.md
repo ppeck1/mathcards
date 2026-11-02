@@ -51,6 +51,7 @@ python -m pip install -r requirements-checks.txt
 python tools/build.py
 npm run check:format
 python tools/check_source.py
+npm run check:scenes
 node --test --test-concurrency=2 tests/*.test.mjs
 python tools/check.py
 python -m http.server 4173 --directory src
@@ -84,7 +85,8 @@ Every validated push to `main` updates the hosted demo automatically.
 | [Eight-book expansion](docs/EIGHT_BOOK_EXPANSION.md) | 295 supplied subjects, evidence boundaries and actual lesson links |
 | [Branch matrix](docs/GAP_EXPANSION_MATRIX_0_34_0.md) | Current expansion and remaining qualification |
 | [Branch validation](docs/VALIDATION_0_34_0_GAPS.md) | Current checks, artifact integrity and explicit limits |
-| [Startup optimization](docs/STARTUP_OPTIMIZATION_0_34_0.md) | Current artifact, fixed timing attempts and measurement limits |
+| [Startup optimization](docs/STARTUP_OPTIMIZATION_0_34_0.md) | Paired timing checkpoint, fixed attempts and measurement limits |
+| [Release checks](docs/RELEASE_CHECKS_0_34_0.md) | Background release results and remaining browser/phone review |
 | [Number/spatial checkpoint](docs/CONTINUATION_MATRIX_0_34_0.md) | Previous 18-lesson continuation |
 | [Initial branch checkpoint](docs/EXPANSION_MATRIX_0_34_0.md) | First 23 lessons in this unreleased expansion |
 | [Build and deployment](docs/DEPLOYMENT.md) | Reproducible checks and publishing |

@@ -264,3 +264,78 @@ test('raw storage recovery remains exact and available after memory-only imports
     assert.equal(storage.getItem(storageKey), raw, 'The original store remains intact until explicitly recovered externally');
   }
 });
+
+test('a stale notebook opened empty preserves another tab’s bytes and its own pending note', () => {
+  const storage = memoryStorage(), current = fresh(storage), stale = fresh(storage);
+  const first = capture(current).note, externalRaw = storage.getItem(storageKey);
+  const added = capture(stale, cards[1]);
+  assert.equal(added.ok, true, added.error);
+  assert.equal(storage.getItem(storageKey), externalRaw);
+  assert.equal(stale.status().persistence, 'memory');
+  assert.match(stale.status().warning, /changed in another tab/);
+  assert.match(stale.status().warning, /Export a backup.*reloading/);
+  assert.deepEqual(JSON.parse(stale.exportBackup()).notes, [added.note]);
+  assert.deepEqual(fresh(storage).list(), [first]);
+  const next = capture(current, cards[2]);
+  assert.equal(next.ok, true, next.error);
+  assert.equal(current.status().persistence, 'local', 'A successful writer advances its raw-data guard');
+  assert.deepEqual(fresh(storage).list(), [first, next.note]);
+  const interrupted = fresh(storage), unseenRaw = '{unread external replacement';
+  storage.setItem(storageKey, unseenRaw);
+  const retained = capture(interrupted);
+  assert.equal(retained.ok, true, retained.error);
+  assert.equal(storage.getItem(storageKey), unseenRaw, 'New external bytes are neither parsed nor overwritten');
+  assert.equal(interrupted.status().persistence, 'memory');
+  assert.deepEqual(interrupted.get(retained.note.id), retained.note);
+});
+
+test('a stale notebook with a shared saved baseline keeps its pending addition separately', () => {
+  const storage = memoryStorage(), seed = fresh(storage), baseline = capture(seed).note;
+  const current = fresh(storage), stale = fresh(storage);
+  const external = capture(current, cards[1]).note, externalRaw = storage.getItem(storageKey);
+  const pending = capture(stale, cards[2]);
+  assert.equal(pending.ok, true, pending.error);
+  assert.equal(stale.status().persistence, 'memory');
+  assert.deepEqual(stale.list(), [baseline, pending.note]);
+  assert.deepEqual(fresh(storage).list(), [baseline, external]);
+  assert.equal(storage.getItem(storageKey), externalRaw);
+});
+
+test('stale notebook remove and import-replace operations cannot erase another tab’s addition', () => {
+  const storage = memoryStorage(), seed = fresh(storage), baseline = capture(seed).note;
+  const current = fresh(storage), removing = fresh(storage), replacing = fresh(storage);
+  const external = capture(current, cards[1]).note, externalRaw = storage.getItem(storageKey);
+  assert.equal(removing.remove(baseline.id).ok, true);
+  assert.equal(removing.status().persistence, 'memory');
+  assert.deepEqual(removing.list(), []);
+  assert.deepEqual(JSON.parse(removing.exportBackup()).notes, []);
+  assert.equal(storage.getItem(storageKey), externalRaw);
+  const replacement = fresh(), replacementNote = capture(replacement, cards[2]).note;
+  assert.equal(replacing.importBackup(replacement.exportBackup(), { mode: 'replace' }).ok, true);
+  assert.equal(replacing.status().persistence, 'memory');
+  assert.deepEqual(replacing.list(), [replacementNote]);
+  assert.deepEqual(JSON.parse(replacing.exportBackup()).notes, [replacementNote]);
+  assert.equal(storage.getItem(storageKey), externalRaw);
+  assert.deepEqual(fresh(storage).list(), [baseline, external]);
+});
+
+test('a notebook pre-write storage read failure preserves disk bytes and an exportable pending change', () => {
+  const storage = memoryStorage(), initial = fresh(storage), baseline = capture(initial).note;
+  let failRead = false, writes = 0;
+  const guardedStorage = {
+    getItem(key) { if (failRead) throw new Error('Storage became unreadable'); return storage.getItem(key); },
+    setItem(key, value) { writes++; storage.setItem(key, value); }
+  };
+  const book = fresh(guardedStorage), externalRaw = storage.getItem(storageKey);
+  failRead = true;
+  const pending = capture(book, cards[1]);
+  assert.equal(pending.ok, true, pending.error);
+  assert.equal(writes, 0);
+  assert.equal(storage.getItem(storageKey), externalRaw);
+  assert.equal(book.status().persistence, 'memory');
+  assert.match(book.status().warning, /could not be checked before writing/);
+  assert.match(book.status().warning, /Export a backup.*reload/);
+  assert.doesNotMatch(book.status().warning, /full or blocked/);
+  assert.deepEqual(JSON.parse(book.exportBackup()).notes, [baseline, pending.note]);
+  assert.equal(book.exportRecovery(), null, 'Unread external bytes cannot be invented as raw recovery');
+});

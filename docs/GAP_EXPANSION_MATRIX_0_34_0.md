@@ -64,11 +64,36 @@ Binary search stays in Algorithms rather than being labeled linear-time.
 | Area | Current evidence | Still needed |
 |---|---|---|
 | Modular integration | Independent slots, source order, actual bindings, typed ports and story primary-variable checks | Human comparison of the interactions in the workspace |
+| Saved work | All 111 notebook defaults and 229 workspace views round-trip with exact recorded data; stale notebook writes preserve external bytes and keep pending work exportable | Actual two-tab behavior, reload, file pickers/downloads, mobile storage and disconnected restore |
 | Mathematics | Independent finite oracles, exact branch/tie checks, quantified Gaussian grid error and explicit precision failures | Independent expert and learner review at the stated depth |
 | Reference | 897 entries, 834 selectable forms and 677 meanings; all 76,271 audited occurrences resolve; retained new readers have actual card links | Real keyboard, visual browsing and screen-reader review |
-| Visuals | All nine previews and compact scenes rendered from actual SVG; preview glyph bounds have no collisions, overflow or undersized text | Actual page layout, touch, enlarged text and browser font behavior |
-| Build and performance | 1,159 JavaScript tests, 29 Python tests and 1,256 numeric fixtures pass; five rebuilt-artifact startup attempts span 500.5–552.3 ms (median 513.1), with all five paired candidate attempts at most 697 ms under the unchanged 1,500 ms gate | Browser delivery, full first render and physical-device qualification remain open; [current performance record](STARTUP_OPTIMIZATION_0_34_0.md) retains historical slow samples |
+| Visuals | Nine new previews have static glyph bounds evidence; all 111 previews and 916 default desktop/compact view fragments pass strict SVG/ID/reference and two-slot namespace checks | Actual page layout, touch, enlarged text, font behavior and non-default visual states |
+| Build and performance | 39 focused JavaScript tests and 34 Python pipeline tests pass; full PR CI runs 1,165 JavaScript tests; all 1,256 numeric fixtures remain valid. The latest three startup attempts span 360.2–392.9 ms under the unchanged 1,500 ms gate | Browser delivery, full first render and physical-device qualification remain open; [current release evidence](RELEASE_CHECKS_0_34_0.md) and [paired performance checkpoint](STARTUP_OPTIMIZATION_0_34_0.md) retain their exact scopes and slower samples |
 | Release | Existing draft PR contains the candidate | Review and a release decision; live remains unchanged |
+
+The [current release-check record](RELEASE_CHECKS_0_34_0.md) records the notebook
+repair, reproducible scene preflight, artifact/package checks and exact
+qualification limits. The scene audit now runs in CI; its failure-detection
+fixtures join the Python pipeline. The mathematical corpus remains unchanged.
+
+## Browser and phone review still pending
+
+These are observations to collect on the candidate artifact, not checks
+completed by the background suite. The [review route and device plan](RELEASE_CHECKS_0_34_0.md#review-that-still-needs-a-browser-or-phone)
+gives a concrete sequence; the broader [qualification checklist](QUALIFICATION_0_34_0.md)
+also retains independent mathematical/history and learner review.
+
+| Review | Desktop/browser | Phone | Evidence still needed |
+|---|---|---|---|
+| Full startup | Pending | Pending | First useful content/input including delivery, storage and main rendering, on fresh and warm loads |
+| Story → formula → shape | Pending | Pending | Readable numbers and continuous drag response across Geometry/Graph/Spatial; invalid and boundary states |
+| Atlas, index and search | Pending | Pending | Overview fits eight territories; all symbols remain selectable; filters, paging and Back/Forward preserve context |
+| Layout and text | Pending | Pending | Long formulas, zoom/enlarged text, clipping, contrast, orientation and narrow-width labels |
+| Keyboard and assistive technology | Pending | Pending | Focus order/traps, screen-reader MathML/SVG/control names and operable touch/keyboard alternatives |
+| Motion and gestures | Pending | Pending | Pause/reset, live reduced-motion changes, fractal zoom and map/scene dragging without blocking page scrolling |
+| Save/restore and offline use | Pending | Pending | Real two-tab warnings, downloads/imports, storage restrictions and disconnected standalone recovery using disposable data |
+
+## Remaining concept coverage
 
 | Inventory | Stable topics | Draft introductions | Preparation only | Planned |
 |---|---:|---:|---:|---:|
