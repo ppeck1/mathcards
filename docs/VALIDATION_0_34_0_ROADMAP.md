@@ -66,6 +66,13 @@ formulas** compile strictly to native MathML. Incremental formatting and
 authored-source syntax/whitespace pass across 168 files. The full-catalog
 notebook and workspace checks now cover 117 defaults and 241 declared views.
 
+The first GitHub run stopped at formatting before application tests: the growing
+brace-glob argument exceeded Linux's filename-component limit when Prettier
+first checked it as a literal path (`ENAMETOOLONG`). Splitting the same explicit
+source/test scope into shorter arguments fixes this platform difference without
+changing the formatter, its coverage or the application artifact. Local checks
+and the subsequent GitHub run verify the correction.
+
 ## Static visual evidence
 
 The [six previews](presentation-0-34-roadmap/previews.png) and
