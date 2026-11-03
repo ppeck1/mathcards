@@ -308,7 +308,7 @@ test('a logarithmic cost display explains the shifted natural log without changi
 test('word coverage includes authored learner explanations while ignoring incidental metadata and control keys',()=>{
   const local=MathIndex.create({cards:[fixture({
     prompts:[{question:'Could this be an affine combination?',answer:'A convex combination adds nonnegative weights.'}],
-    examples:[{limits:'Only this basis is orthonormal.',independent_check:{method:'Check reconstruction.',expected:'The rank is one.'}}],
+    examples:[{limits:'Only this basis is orthonormal.',independent_check:{method:'Check reconstruction.',expected:'The matrix rank is one.'}}],
     review:{note:'matrix product'},metadata:{description:'shear'},interactive:{controls:[{id:'subspace',type:'number'}]}
   })]});
   for(const id of ['affine-combination','convex-combination','orthonormal','reconstruction','rank'])assert.equal(local.get(id).usedBy.length,1,id);

@@ -251,3 +251,6 @@ math:concept:one-way-anova,One-way ANOVA: between and within variation,statistic
 math:concept:covariance,Sample covariance and signed products,statistics,draft_specimen,design-expansion,pending,pending,implemented
 math:concept:normal-variance-interval,A normal-variance confidence interval,statistics,draft_specimen,design-expansion,pending,pending,implemented
 math:concept:normal-test-power,Replication and normal-test power,statistics,draft_specimen,design-expansion,pending,pending,implemented
+math:concept:covariance-matrix,A covariance matrix and its ellipse,statistics,draft_specimen,comparison-expansion,pending,pending,implemented
+math:concept:wilcoxon-signed-rank,Paired differences and signed ranks,statistics,draft_specimen,comparison-expansion,pending,pending,implemented
+math:concept:mann-whitney,Mann–Whitney ranks and pair comparisons,statistics,draft_specimen,comparison-expansion,pending,pending,implemented

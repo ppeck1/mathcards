@@ -66,9 +66,11 @@
         "hypothesis-test",
         "randomization-distribution",
         "one-way-anova",
-        "normal-test-power"
+        "normal-test-power",
+        "wilcoxon-signed-rank",
+        "mann-whitney"
       ],
-      "scope_note": "Bounded binomial, balanced-allocation and three-group F procedures retain separate hypotheses and assumptions. A one-sided normal two-group planning model shows rejection probability at an assumed true effect, with 5% rejection at the boundary null. This is not a probability that a null is true or a generated experiment."
+      "scope_note": "Bounded binomial, randomization, sign/rank and F procedures state separate hypotheses and exact or model-based references. Signed ranks require the declared symmetric paired-null signs; Mann–Whitney uses exchangeable equal-distribution labels and is not an unrestricted median test. P-values are not probabilities of the null."
     },
     {
       "concept_id": "degrees-of-freedom",
@@ -103,11 +105,13 @@
     },
     {
       "concept_id": "nonparametric-statistics",
-      "status": "precursor",
+      "status": "draft-introduction",
       "cards": [
-        "sign-test"
+        "sign-test",
+        "wilcoxon-signed-rank",
+        "mann-whitney"
       ],
-      "scope_note": "An exact one-sided paired sign test introduces fair-sign null patterns, omitted ties and paired-difference assumptions. Rank tests, robustness and the broader nonparametric field remain planned."
+      "scope_note": "Bounded sign, paired signed-rank and independent-group Mann–Whitney references enumerate their complete conditional null assignments. Zero omission, tied midranks, inclusive two-sided rules and paired versus independent assumptions are explicit. This does not complete general rank inference, robustness theory or arbitrary samples."
     },
     {
       "concept_id": "finite-population-sampling",
@@ -165,9 +169,10 @@
       "status": "draft-introduction",
       "cards": [
         "randomized-block-design",
-        "randomization-distribution"
+        "randomization-distribution",
+        "mann-whitney"
       ],
-      "scope_note": "All 70 balanced four-versus-four assignments of eight fixed outcomes are enumerated under a sharp no-effect null. The absolute-tail convention includes ties; no Monte Carlo sampler, arbitrary allocation design or general causal inference engine is implemented."
+      "scope_note": "Finite references enumerate all balanced raw-mean or pooled-rank label assignments under their stated nulls. The observed examples are constructions, with ties handled directly; no Monte Carlo sampler or general assignment engine is implemented."
     },
     {
       "concept_id": "replication",
@@ -304,9 +309,10 @@
       "status": "draft-introduction",
       "cards": [
         "matrix-linear-map",
-        "matrix-product"
+        "matrix-product",
+        "covariance-matrix"
       ],
-      "scope_note": "Small declared real matrices and transformations; no arbitrary-dimensional matrix engine."
+      "scope_note": "Small real maps/products and the displayed 2×2 covariance matrix connect entries to their declared quantities. Covariance entries have squared measurement units, rather than map coefficients by default."
     },
     {
       "concept_id": "matrix-regression",
@@ -646,9 +652,10 @@
       "concept_id": "covariance",
       "status": "draft-introduction",
       "cards": [
-        "covariance"
+        "covariance",
+        "covariance-matrix"
       ],
-      "scope_note": "Five paired constructed measurements are centered, their signed deviation products summed and divided by n−1. Physical product units and a covariance-preserving residual pattern are explicit. This is descriptive sample covariance, separate from normalized correlation, causal inference and general covariance matrices."
+      "scope_note": "Paired covariance and a separate same-unit 2×2 sample covariance matrix connect signed products to directional spread. A descriptive one-SD ellipse is not a confidence/prediction region. Only the stated five-pair construction is implemented."
     },
     {
       "concept_id": "poisson-distribution",
@@ -948,9 +955,10 @@
       "status": "draft-introduction",
       "cards": [
         "matrix-linear-map",
-        "matrix-product"
+        "matrix-product",
+        "covariance-matrix"
       ],
-      "scope_note": "Small declared real matrices and transformations; no arbitrary-dimensional matrix engine."
+      "scope_note": "Small real linear maps, products and a symmetric 2×2 sample covariance matrix illustrate distinct matrix roles. Positive semidefiniteness, singularity and geometric principal spreads are explicit for the covariance construction; no arbitrary-dimensional engine is supplied."
     },
     {
       "concept_id": "roots",

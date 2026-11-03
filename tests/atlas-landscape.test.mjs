@@ -88,9 +88,9 @@ test('field colors and count-based relief distinguish territory identity from le
   assert.doesNotMatch(html,/<image\b|<filter\b|data:image|AtlasTerrain|atlas-terrain-motif/i);
   assert.ok(html.includes('Territory colors identify fields.'));
   assert.ok(html.includes('Height = playable lessons'));
-  assert.ok(html.includes('data-contour-interval="2" data-highest-summit="'+Math.max(...regions.map(region=>region.availableCount))+'"'));
+  assert.ok(html.includes('data-contour-interval="5" data-highest-summit="'+Math.max(...regions.map(region=>region.availableCount))+'"'));
   assert.equal((html.match(/data-summit-height=/g)||[]).length,8);
-  assert.equal((html.match(/data-contour-level=/g)||[]).length,regions.reduce((sum,region)=>sum+Math.floor(region.availableCount/2),0));
+  assert.equal((html.match(/data-contour-level=/g)||[]).length,regions.reduce((sum,region)=>sum+Math.floor(region.availableCount/5),0));
   for(const region of regions)assert.match(Landscape.regionColor(region.id),/^#[a-f0-9]{6}$/i);
   assert.equal(Landscape.regionColor('not-a-field'),'#e8ecdf');
   assert.ok(!html.includes('atlas-terrain-motif'));

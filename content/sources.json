@@ -1215,6 +1215,33 @@
       "locator": "§7.2.2.2: predeclared alpha, beta, assumed effect and known spread in normal-test planning. This source states the one-sample planning equation. The equal-size two-group standard error and rejection-probability formula are derived here, using independence; they are not attributed as a quoted NIST two-group equation. The two-process setup in prc31.htm was inspected separately.",
       "verification": "Definition-level primary sources inspected 2026-11-03; original two-group normal derivation and independent numerical check, with independent mathematical/pedagogical and exact-edition book review pending.",
       "rights": "Original two-jig planning scenario, examples and figures; no source example, data or illustration reproduced."
+    },
+    {
+      "id": "source:comparison-extensions:covariance-matrix",
+      "title": "NIST/SEMATECH · Mean Vector and Covariance Matrix",
+      "url": "https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc541.htm",
+      "kind": "reference",
+      "locator": "§6.5.4.1: diagonal sample variances, off-diagonal sample covariances and the n−1 centered-product matrix. The five two-axis error pairs, eigenvalue calculations and descriptive one-standard-deviation ellipse are original derivations here; no normal confidence coverage is attributed to the shape.",
+      "verification": "Definition-level primary source inspected 2026-11-03. Independent mathematical/pedagogical and exact-edition book review remain pending.",
+      "rights": "Original laser-position scenario, patterns, prose, derivations and SVG; no source example, data or illustration reproduced."
+    },
+    {
+      "id": "source:comparison-extensions:signed-rank",
+      "title": "SciPy · Wilcoxon signed-rank test",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html",
+      "kind": "reference",
+      "locator": "Definition and zero_method notes: paired differences, symmetry about zero and Wilcoxon zero omission. Notes distinguish untied exact tables from ties/zeros and permutation enumeration. Mathcards independently enumerates all conditional sign assignments with midranks; it does not import SciPy or claim its untied exact table handles ties.",
+      "verification": "Official primary method documentation inspected 2026-11-03. Independent finite enumeration and original examples; independent mathematical/pedagogical and exact-edition book review remain pending.",
+      "rights": "Original five-pair packing construction and worked examples; no source sample, code, exercise or illustration reproduced."
+    },
+    {
+      "id": "source:comparison-extensions:mann-whitney",
+      "title": "SciPy · Mann–Whitney U rank test",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html",
+      "kind": "reference",
+      "locator": "Definition/Notes: independent samples, equal-distribution null, complementary U statistics and rank-sum relation. Location/median interpretations need additional assumptions. Tied small samples call for permutation methods; this original construction enumerates all 20 labeled three-versus-three allocations with fixed pooled midranks.",
+      "verification": "Official primary method documentation inspected 2026-11-03. Independent finite enumeration and original examples; independent mathematical/pedagogical and exact-edition book review remain pending.",
+      "rights": "Original six-learner score construction, calibration comparisons and figures; no source example, data or implementation reproduced."
     }
   ]
 }

@@ -79,10 +79,10 @@ test('lesson availability is explicit and independent of attributed source evide
   assert.ok(
     browser.concepts.some(concept => concept.status === 'planned' && concept.lessons.length === 0)
   );
-  assert.equal(browser.get('nonparametric-statistics').status, 'precursor');
+  assert.equal(browser.get('nonparametric-statistics').status, 'draft-introduction');
   assert.deepEqual(
     browser.get('nonparametric-statistics').lessons.map(card => card.slug),
-    ['sign-test']
+    ['sign-test', 'wilcoxon-signed-rank', 'mann-whitney']
   );
   assert.equal(browser.get('prime-conjectures').status, 'precursor');
   assert.deepEqual(

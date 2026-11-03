@@ -1123,7 +1123,10 @@
             "one-way-anova-visual-model",
             "covariance-visual-model",
             "normal-variance-interval-visual-model",
-            "normal-test-power-visual-model"
+            "normal-test-power-visual-model",
+            "covariance-matrix-visual-model",
+            "wilcoxon-signed-rank-visual-model",
+            "mann-whitney-visual-model"
           ]
         },
         "renderer_version": {

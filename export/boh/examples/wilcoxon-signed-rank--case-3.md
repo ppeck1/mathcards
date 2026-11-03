@@ -1,0 +1,559 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:wilcoxon-signed-rank:case-3", "id": "math:example:wilcoxon-signed-rank:case-3", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:wilcoxon-signed-rank", "example_id": "math:example:wilcoxon-signed-rank:case-3", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "760ac69e6a85f5bfc84b1907a84b46e20a099e36f1b6810d7adc5bc6e35eacbf", "source_revision": "0.1.0-draft", "upstream_content_sha256": "30ef51d527265a728d296ca08b40aba36f3ce2f9e9fa2672334bc761fa5cf1d3"}, "purpose": "How unusual is the balance of signed ranks for five paired packing comparisons?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "30ef51d527265a728d296ca08b40aba36f3ce2f9e9fa2672334bc761fa5cf1d3", "status": "draft", "title": "Equal absolute differences", "topics": ["mathematics", "statistics", "probability", "paired differences and signed ranks"], "type": "reference", "updated": "2026-11-03T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Equal absolute differences
+
+Parent card: math:concept:wilcoxon-signed-rank; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:wilcoxon-signed-rank; revision 0.1.0-draft. Setting: A workshop compares two packing methods on five paired tasks. Each constructed A time is 10 minutes; its B time adds the task’s difference. Choose the first four differences and drag the fifth difference d₅. Follow that task through its absolute difference, data rank and signed contribution before counting the null sign patterns. Expression: $W^+=\sum_{d_i>0}r_i,\quad W^-=\sum_{d_i<0}r_i,\quad T=W^+-W^-,\quad M=2^n,\quad p=\frac{m}{M}.$. Conditions required for a defined value (a case may test their violation): Five constructed paired differences use independent fair signs conditional on the nonzero magnitudes. Omit exact zeros before assigning tied average ranks. Scope: The five times are constructed. The conditional null requires independent fair signs given the nonzero absolute paired differences; a symmetric zero-centered difference model supplies the usual justification. Exact zeros are omitted before ranking, using the Wilcoxon convention rather than Pratt ranking. Tied absolute differences receive their average rank. This implementation enumerates all 2^n sign assignments of the observed midranks, with an inclusive two-sided absolute-score tail; it does not use an untied rank table or a normal approximation. Its doubled-rank comparisons are exact integers. n is four when d₅=0 and otherwise five. At most five nonzero pairs cannot produce a two-sided p below 2/32=0.0625 in this family, so even all-positive signs cannot meet a 0.05 cutoff. This is neither a probability that the null is true nor a general before/after median claim. Moving a difference changes the teaching construction, not evidence from a completed study.
+
+Case unit math:example:wilcoxon-signed-rank:case-3. Setting: A workshop compares two packing methods on five paired tasks. Each constructed A time is 10 minutes; its B time adds the task’s difference. Choose the first four differences and drag the fifth difference d₅. Follow that task through its absolute difference, data rank and signed contribution before counting the null sign patterns. Inputs: {"lastDifference": 2, "pattern": "tied"}. Result: {"approximate": "1.0"}. Limits: The inclusive conditional sign tail assumes the declared symmetric fair-sign null. With at most five nonzero pairs, the smallest two-sided p is 0.0625.
+
+## Complete worked case
+
+- id: math:example:wilcoxon-signed-rank:case-3
+- title: Equal absolute differences
+- role: applied_model
+- question: How unusual is the balance of signed ranks for five paired packing comparisons?
+- setting: A workshop compares two packing methods on five paired tasks. Each constructed A time is 10 minutes; its B time adds the task’s difference. Choose the first four differences and drag the fifth difference d₅. Follow that task through its absolute difference, data rank and signed contribution before counting the null sign patterns.
+- assumptions:
+  - Five constructed paired differences use independent fair signs conditional on the nonzero magnitudes. Omit exact zeros before assigning tied average ranks.
+- inputs:
+  - lastDifference: 2
+  - pattern: tied
+- steps:
+  - Item:
+    - index: 1
+    - expression: d₅ = 2; chosen first-four pattern = tied
+    - reason: Keep the declared construction and comparison assumptions explicit.
+  - Item:
+    - index: 2
+    - expression: W^+=\sum_{d_i>0}r_i,\quad W^-=\sum_{d_i<0}r_i,\quad T=W^+-W^-,\quad M=2^n,\quad p=\frac{m}{M}.
+    - reason: Keep each packing comparison paired, omit exact zero differences, rank the remaining absolute differences and average ranks at ties. Add ranks by sign, then compare the absolute signed score with every fair-sign assignment of those same ranks.
+  - Item:
+    - index: 3
+    - expression: 1.0
+    - reason: All five absolute differences equal two minutes, so each receives average rank three. The signed balance is small relative to this tied conditional distribution.
+- result:
+  - approximate: 1.0
+- interpretation: All five absolute differences equal two minutes, so each receives average rank three. The signed balance is small relative to this tied conditional distribution.
+- independent check:
+  - method: Independent Python average-rank assignment and exhaustive sign products using exact fractions; no runtime table or asymptotic approximation is copied.
+  - expected: 1.0
+- limits: The inclusive conditional sign tail assumes the declared symmetric fair-sign null. With at most five nonzero pairs, the smallest two-sided p is 0.0625.
+- preset:
+  - lastDifference: 2
+  - pattern: tied
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Five constructed paired differences use independent fair signs conditional on the nonzero magnitudes. Omit exact zeros before assigning tied average ranks.
+
+## Written exploration recipe
+
+- component id: component:wilcoxon-signed-rank
+- renderer id: wilcoxon-signed-rank-visual-model
+- renderer version: 1
+- model id: wilcoxon-signed-rank-visual-model
+- model revision: 1
+- expression id: ast:wilcoxon-signed-rank:expression
+- interaction status: implemented
+- description: Keep each packing comparison paired, omit exact zero differences, rank the remaining absolute differences and average ranks at ties. Add ranks by sign, then compare the absolute signed score with every fair-sign assignment of those same ranks.
+- controls:
+  - Item:
+    - id: lastDifference
+    - type: number
+    - default: 5
+    - min: -5
+    - max: 5
+    - step: 0.05
+  - Item:
+    - id: pattern
+    - type: enum
+    - default: mixed
+    - values:
+      - mixed
+      - tied
+      - positive
+- expected cases:
+  - Item:
+    - input:
+      - lastDifference: -5.0
+      - pattern: mixed
+    - status: valid
+    - output: 0.8125
+  - Item:
+    - input:
+      - lastDifference: -5.0
+      - pattern: tied
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - lastDifference: -5.0
+      - pattern: positive
+    - status: valid
+    - output: 0.625
+  - Item:
+    - input:
+      - lastDifference: -4.5
+      - pattern: mixed
+    - status: valid
+    - output: 0.8125
+  - Item:
+    - input:
+      - lastDifference: -4.5
+      - pattern: tied
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - lastDifference: -4.5
+      - pattern: positive
+    - status: valid
+    - output: 0.625
+  - Item:
+    - input:
+      - lastDifference: -4.0
+      - pattern: mixed
+    - status: valid
+    - output: 0.875
+  - Item:
+    - input:
+      - lastDifference: -4.0
+      - pattern: tied
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - lastDifference: -4.0
+      - pattern: positive
+    - status: valid
+    - output: 0.5
+  - Item:
+    - input:
+      - lastDifference: -3.5
+      - pattern: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: -3.5
+      - pattern: tied
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - lastDifference: -3.5
+      - pattern: positive
+    - status: valid
+    - output: 0.4375
+  - Item:
+    - input:
+      - lastDifference: -3.0
+      - pattern: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: -3.0
+      - pattern: tied
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - lastDifference: -3.0
+      - pattern: positive
+    - status: valid
+    - output: 0.375
+  - Item:
+    - input:
+      - lastDifference: -2.5
+      - pattern: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: -2.5
+      - pattern: tied
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - lastDifference: -2.5
+      - pattern: positive
+    - status: valid
+    - output: 0.3125
+  - Item:
+    - input:
+      - lastDifference: -2.0
+      - pattern: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: -2.0
+      - pattern: tied
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: -2.0
+      - pattern: positive
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - lastDifference: -1.5
+      - pattern: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: -1.5
+      - pattern: tied
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: -1.5
+      - pattern: positive
+    - status: valid
+    - output: 0.1875
+  - Item:
+    - input:
+      - lastDifference: -1.0
+      - pattern: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: -1.0
+      - pattern: tied
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: -1.0
+      - pattern: positive
+    - status: valid
+    - output: 0.1875
+  - Item:
+    - input:
+      - lastDifference: -0.5
+      - pattern: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: -0.5
+      - pattern: tied
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: -0.5
+      - pattern: positive
+    - status: valid
+    - output: 0.125
+  - Item:
+    - input:
+      - lastDifference: 0.0
+      - pattern: mixed
+    - status: valid
+    - output: 0.875
+  - Item:
+    - input:
+      - lastDifference: 0.0
+      - pattern: tied
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: 0.0
+      - pattern: positive
+    - status: valid
+    - output: 0.125
+  - Item:
+    - input:
+      - lastDifference: 0.5
+      - pattern: mixed
+    - status: valid
+    - output: 0.8125
+  - Item:
+    - input:
+      - lastDifference: 0.5
+      - pattern: tied
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: 0.5
+      - pattern: positive
+    - status: valid
+    - output: 0.0625
+  - Item:
+    - input:
+      - lastDifference: 1.0
+      - pattern: mixed
+    - status: valid
+    - output: 0.6875
+  - Item:
+    - input:
+      - lastDifference: 1.0
+      - pattern: tied
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: 1.0
+      - pattern: positive
+    - status: valid
+    - output: 0.0625
+  - Item:
+    - input:
+      - lastDifference: 1.5
+      - pattern: mixed
+    - status: valid
+    - output: 0.625
+  - Item:
+    - input:
+      - lastDifference: 1.5
+      - pattern: tied
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: 1.5
+      - pattern: positive
+    - status: valid
+    - output: 0.0625
+  - Item:
+    - input:
+      - lastDifference: 2.0
+      - pattern: mixed
+    - status: valid
+    - output: 0.625
+  - Item:
+    - input:
+      - lastDifference: 2.0
+      - pattern: tied
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: 2.0
+      - pattern: positive
+    - status: valid
+    - output: 0.0625
+  - Item:
+    - input:
+      - lastDifference: 2.5
+      - pattern: mixed
+    - status: valid
+    - output: 0.625
+  - Item:
+    - input:
+      - lastDifference: 2.5
+      - pattern: tied
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - lastDifference: 2.5
+      - pattern: positive
+    - status: valid
+    - output: 0.0625
+  - Item:
+    - input:
+      - lastDifference: 3.0
+      - pattern: mixed
+    - status: valid
+    - output: 0.5
+  - Item:
+    - input:
+      - lastDifference: 3.0
+      - pattern: tied
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - lastDifference: 3.0
+      - pattern: positive
+    - status: valid
+    - output: 0.0625
+  - Item:
+    - input:
+      - lastDifference: 3.5
+      - pattern: mixed
+    - status: valid
+    - output: 0.4375
+  - Item:
+    - input:
+      - lastDifference: 3.5
+      - pattern: tied
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - lastDifference: 3.5
+      - pattern: positive
+    - status: valid
+    - output: 0.0625
+  - Item:
+    - input:
+      - lastDifference: 4.0
+      - pattern: mixed
+    - status: valid
+    - output: 0.375
+  - Item:
+    - input:
+      - lastDifference: 4.0
+      - pattern: tied
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - lastDifference: 4.0
+      - pattern: positive
+    - status: valid
+    - output: 0.0625
+  - Item:
+    - input:
+      - lastDifference: 4.5
+      - pattern: mixed
+    - status: valid
+    - output: 0.4375
+  - Item:
+    - input:
+      - lastDifference: 4.5
+      - pattern: tied
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - lastDifference: 4.5
+      - pattern: positive
+    - status: valid
+    - output: 0.0625
+  - Item:
+    - input:
+      - lastDifference: 5.0
+      - pattern: mixed
+    - status: valid
+    - output: 0.4375
+  - Item:
+    - input:
+      - lastDifference: 5.0
+      - pattern: tied
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - lastDifference: 5.0
+      - pattern: positive
+    - status: valid
+    - output: 0.0625
+  - Item:
+    - input:
+      - lastDifference: -0.05
+      - pattern: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: -0.05
+      - pattern: tied
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: -0.05
+      - pattern: positive
+    - status: valid
+    - output: 0.125
+  - Item:
+    - input:
+      - lastDifference: 0.05
+      - pattern: mixed
+    - status: valid
+    - output: 0.8125
+  - Item:
+    - input:
+      - lastDifference: 0.05
+      - pattern: tied
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastDifference: 0.05
+      - pattern: positive
+    - status: valid
+    - output: 0.0625
+  - Item:
+    - input:
+      - lastDifference: -6
+      - pattern: mixed
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastDifference: 6
+      - pattern: mixed
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastDifference: true
+      - pattern: mixed
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastDifference: null
+      - pattern: mixed
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastDifference: 1
+      - pattern: mixed
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastDifference: 5
+      - pattern: other
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastDifference: 5
+      - pattern: null
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastDifference: 5
+      - pattern: 1
+    - status: invalid_parameters
+- compute: Keep each packing comparison paired, omit exact zero differences, rank the remaining absolute differences and average ranks at ties. Add ranks by sign, then compare the absolute signed score with every fair-sign assignment of those same ranks.
+- numeric tolerance: 5e-11
+- invariants:
+  - Five constructed paired differences use independent fair signs conditional on the nonzero magnitudes. Omit exact zeros before assigning tied average ranks.
+  - Story, calculation, Geometry and Graph use the same declared model values.
+  - Rank order, omitted zeros and finite tail counts remain discrete where their definitions change.
+- limits:
+  - The inclusive conditional sign tail assumes the declared symmetric fair-sign null. With at most five nonzero pairs, the smallest two-sided p is 0.0625.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:comparison-extensions:signed-rank. [SciPy · Wilcoxon signed-rank test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html). Locator: Definition and zero_method notes: paired differences, symmetry about zero and Wilcoxon zero omission. Notes distinguish untied exact tables from ties/zeros and permutation enumeration. Mathcards independently enumerates all conditional sign assignments with midranks; it does not import SciPy or claim its untied exact table handles ties.. Verification: Official primary method documentation inspected 2026-11-03. Independent finite enumeration and original examples; independent mathematical/pedagogical and exact-edition book review remain pending.. Rights: Original five-pair packing construction and worked examples; no source sample, code, exercise or illustration reproduced.

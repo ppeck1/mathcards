@@ -55,6 +55,7 @@
   texFunctions.add('gcd');
   function classify(query,options={}){
     if(typeof query!=='string'||!query.trim())return[];if(options.kind==='unit')return unitIds(query,options);const raw=query.trim(),q=normalize(raw),result=[];const add=(...ids)=>result.push(...ids);
+    if(q==='rank'&&['wilcoxon-signed-rank','mann-whitney'].includes(options.slug))return['comparison-data-rank'];
     if(Object.hasOwn(vulgar,raw)||/^[-+]?\d+\/\d+$/.test(q))add('fraction');
     if(q==='∃!')add('unique-exists');
     if((!options.slug||options.slug==='circle-manifold'||options.slug==='reference:unit-circle')&&q==='S^1')return['unit-circle','superscript'];
@@ -173,6 +174,11 @@
   }
   function unitIds(query,{slug}={}){
     const q=normalize(query),unit=String(query).trim().toLowerCase();
+    if(q==='mm^4'&&['covariance-matrix','reference:comparison-covariance-determinant-unit'].includes(slug))return['comparison-covariance-determinant-unit'];
+    if(q==='mm^2'&&slug==='covariance-matrix')return['design-variance-unit'];
+    if(['sign pattern','sign patterns'].includes(unit)&&['wilcoxon-signed-rank','reference:comparison-sign-pattern-unit'].includes(slug))return['comparison-sign-pattern-unit'];
+    if(['point','points'].includes(unit)&&slug==='mann-whitney')return['sampling-task-point-unit'];
+    if(['allocation','allocations'].includes(unit)&&slug==='mann-whitney')return['sampling-allocation-count-unit'];
     if(['m·min','m.min','m min'].includes(unit)&&['covariance','reference:design-covariance-product-unit'].includes(slug))return['design-covariance-product-unit'];
     if(unit==='min/m'&&['covariance','reference:design-time-per-length-unit'].includes(slug))return['design-time-per-length-unit'];
     if(q==='mm^2'&&['normal-variance-interval','reference:design-variance-unit'].includes(slug))return['design-variance-unit'];
@@ -313,6 +319,9 @@
       const predicateStart=/^(?:[PR](?:_h|_\{h\}|ₕ)|φ(?:_h|_\{h\}|ₕ)|B(?:ε|_ε|_\{ε\})|δ)\s*\(/.exec(rest);
       const nativeStart=/^([A-Za-z][A-Za-z0-9_]*)\s*[([]/.exec(rest),recognizedStart=predicateStart||functionStart||(['probability-distribution','expected-value','entropy',...informationCards].includes(slug)&&/^(?:H|I|p_X|p_Y)\s*[([]/.exec(rest))||(nativeStart&&Object.hasOwn(named,nativeStart[1])?nativeStart:null);
       if(recognizedStart){const open=rest[recognizedStart[0].length-1],start=i+recognizedStart[0].length-1,end=balanced(text,start,open,open==='('?')':']');if(end){const token=text.slice(i,end),ids=classify(token,{slug});if(ids.length){emit(token,i,'structured',{entryIds:ids});delimiters(start,end-1);children(start+1,end-1);i=end;continue;}}}
+      // This determinant's fourth-power unit must precede generic decorated identifiers.
+      const covarianceUnit=['covariance-matrix','reference:comparison-covariance-determinant-unit'].includes(slug)&&/^mm(?:⁴|\^(?:4|\{4\}))(?![\p{L}\p{N}_/])/u.exec(rest);
+      if(covarianceUnit){emit(covarianceUnit[0],i,'unit',{entryIds:unitIds(covarianceUnit[0],{slug})});i+=covarianceUnit[0].length;continue;}
       const decorated=/^[A-Za-zα-ωΑ-Ωℵℕ][A-Za-z0-9α-ωΑ-Ω]*(?:_[A-Za-z0-9]|_\{[^{}]+\}|\^[A-Za-z0-9+-]|\^\{[^{}]+\}|[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]+)(?:[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]*)/.exec(rest);
       if(decorated&&!/[A-Za-z_]/.test(rest[decorated[0].length]||'')){emit(decorated[0],i,'structured');for(const match of decorated[0].matchAll(/\{([^{}]*)\}/g)){const start=i+match.index;delimiters(start,start+match[0].length-1);children(start+1,start+match[0].length-1);}i+=decorated[0].length;continue;}
       const compound=/^(?:N(?:[·.]|\s+)m|m\/s(?:²|\^2)?|ms\/item|L\/min|km\/h|(?:cm|mm|m)[²³]|px)(?![\p{L}\p{N}_/])/u.exec(rest);if(compound){emit(compound[0],i,'unit',{entryIds:unitIds(compound[0],{slug})});if(/^N/.test(compound[0])){emit('N',i,'unit',{entryIds:['newton']});emit('m',i+compound[0].lastIndexOf('m'),'unit',{entryIds:['measurement-unit-symbols']});}i+=compound[0].length;continue;}

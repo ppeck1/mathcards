@@ -11,8 +11,8 @@ browser are projections of this inventory plus a separately authored
 [lesson crosswalk](../content/planning/eight-book-crosswalk.json). Importing a
 subject never creates a completed lesson or a verified book attribution.
 
-The current branch crosswalk links 81 inventory subjects to bounded draft
-introductions and 56 to preparation only; 158 remain planned. These are
+The current branch crosswalk links 82 inventory subjects to bounded draft
+introductions and 55 to preparation only; 158 remain planned. These are
 concept-to-lesson links, so several subjects can lead to the same lesson. They
 are not counts of new cards or complete treatments of a book.
 
@@ -34,8 +34,39 @@ are not counts of new cards or complete treatments of a book.
 | Normal-mean uncertainty | Fixed 95% interval under independent normal readings and known sigma | Separate from binomial intervals, posterior statements, prediction intervals and unknown-sigma procedures |
 | Estimated spread and assignment uncertainty | Fixed 95% Student interval, all 70 balanced four-versus-four allocations and one-way ANOVA | Unknown spread changes the Student multiplier; exact absolute randomization tails include ties; ANOVA separates within/between variation with declared error assumptions |
 | Covariance, variance and planning | Paired signed products, an iid-normal variance interval and known-spread two-group power | Physical product/squared units, unknown variance and per-group versus total readings remain distinct; general ANCOVA and replication design remain separate |
+| Joint spread and rank comparisons | Five-pair covariance matrix, Wilcoxon signed ranks and a three-versus-three Mann–Whitney comparison | Descriptive covariance geometry; exact finite references under separately stated symmetric paired-sign or exchangeable-label nulls; no general median-only or causal interpretation |
 
-## Current covariance, spread and planning continuation
+## Current comparison continuation
+
+The [126-card matrix](COMPARISON_EXPANSION_MATRIX_0_34_0.md) adds three lessons
+through one explicit local comparison family. The branch now contains 65 added
+lessons above the 61-card published baseline, including 42 continuation lessons
+in twelve families. It has 634 original examples, 2,215 numeric fixtures,
+760 written exports, 259 declared views and 126 MathML definitions.
+
+The covariance-matrix lesson constructs five centred error pairs and connects
+sample covariance entries to a one-standard-deviation ellipse on equal
+millimetre axes. That ellipse describes spread; it does not assert confidence,
+prediction coverage or a Gaussian probability region. Exact rank-one states,
+nonunique circular direction and unresolved floating-point contributions remain
+distinct.
+
+The paired signed-rank lesson omits zero differences and averages tied absolute
+ranks. Its reference enumerates independent fair signs conditional on the
+retained magnitudes under a symmetric paired null. The two-group lesson ranks
+all six scores, counts wins plus half ties and enumerates all twenty balanced
+label allocations under an exchangeable equal-distribution null. Both use
+inclusive two-sided tails, including ties, and retain their small-sample limits.
+Neither is presented as a general median-only test or a causal conclusion.
+
+Nonparametric statistics advances from preparation to a bounded introduction;
+the broader methods, assumptions and robustness theory still need dedicated
+lessons. Raw book associations and their evidence states remain unchanged.
+Current artifact checks and remaining browser/phone review belong in the
+[comparison validation record](VALIDATION_0_34_0_COMPARISON.md); independent
+mathematical, learning and exact-edition review remain open.
+
+## Earlier covariance, spread and planning continuation
 
 The [123-card matrix](DESIGN_EXPANSION_MATRIX_0_34_0.md) adds covariance,
 normal-variance inference and known-spread power planning. Covariance and

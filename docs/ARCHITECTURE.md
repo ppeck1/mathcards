@@ -139,8 +139,8 @@ gates remain explicit in the current release/branch review matrix.
 Prettier 3.6.2 is pinned as a development-only tool in `package-lock.json`.
 `npm ci --ignore-scripts` installs it; `npm run check:format` checks the new
 systems, inference, inventory, expansion, number/spatial foundations, dynamics,
-algebra, algorithm, distribution, analysis, discrete, estimation, sampling and design extensions
-and extracted legacy-provider modules,
+algebra, algorithm, distribution, analysis, discrete, estimation, sampling,
+design and comparison extensions and extracted legacy-provider modules,
 their new tests, generated-write helpers, startup regression tests and measurement
 harness. `npm run format` rewrites
 only that declared scope. `.prettierignore` excludes generated projections,
@@ -152,10 +152,40 @@ already follows one formatter. Add a coherent file family to the explicit scope
 when consolidating it; keep mass formatting separate from mathematical changes.
 Syntax/whitespace checks continue to cover the broader authored source.
 
-Algebra, algorithm, distribution, analysis, discrete, estimation, sampling and design extensions
-follow the same explicit provider installation. Their metadata joins number, spatial and dynamics
-families through the allowlisted build projection. New families add authored
+Algebra, algorithm, distribution, analysis, discrete, estimation, sampling,
+design and comparison extensions follow the same explicit provider installation.
+Their metadata joins number, spatial and dynamics families through the
+allowlisted build projection. New families add authored
 files and data rather than another host or an external program loader.
+
+The comparison family keeps covariance-matrix, Wilcoxon signed-rank and
+Mann–Whitney models in `comparison-extensions.js`, narratives in
+`comparison-extension-stories.js` and index meanings in
+`comparison-extension-terms.js`. Its
+integration record goes through the same allowlisted metadata projection; it
+adds no host, clock or runtime dependency. The independent Python reference
+uses exact rational observations and finite sign/label enumeration.
+
+Covariance Geometry uses equal millimetre axes and principal radii from the
+sample covariance eigenvalues. It draws exact rank one as a line, discloses
+nonunique or unstable principal directions, and rejects lost positive
+contributions rather than inventing a zero eigenvalue. This is descriptive
+spread geometry, not confidence or prediction coverage. Individual matrix
+cells and observation marks carry their actual input dependencies.
+
+Rank comparisons retain midranks and integer-doubled ranks for inclusive tail
+comparisons. Wilcoxon omits zero differences before conditioning on nonzero
+magnitudes and enumerating independent fair signs under its symmetric paired
+null. Mann–Whitney uses all balanced label allocations under its exchangeable
+equal-distribution null, including observed ties. Positive common calibration
+moves score strips without changing their order comparisons. Graph renders
+finite probability samples and rank-change events as dots; it does not
+interpolate a smooth probability through discontinuities. These declared
+finite references carry no general median-only or causal interpretation.
+
+The [current comparison matrix](COMPARISON_EXPANSION_MATRIX_0_34_0.md) and
+[validation record](VALIDATION_0_34_0_COMPARISON.md) separate implemented
+contracts from remaining mathematical, browser and phone qualification.
 
 `plot-view.js` also accepts an optional nonnegative vertical `log1p` scale.
 The renderer transforms projection and tick positions while retaining original

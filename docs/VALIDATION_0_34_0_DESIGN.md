@@ -1,5 +1,9 @@
 # 0.34.0 covariance, variance and planning validation
 
+Checkpoint record: the [126-card comparison validation](VALIDATION_0_34_0_COMPARISON.md)
+now identifies the current artifact. Results below retain this earlier
+checkpoint's evidence.
+
 Background checks on 2026-11-03 for `codex/eight-book-expansion`, continuing
 [draft PR #13](https://github.com/ppeck1/mathcards/pull/13). This identifies the
 123-card candidate after the [120-card checkpoint](VALIDATION_0_34_0_SAMPLING.md).

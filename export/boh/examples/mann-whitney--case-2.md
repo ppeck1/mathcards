@@ -1,0 +1,599 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:mann-whitney:case-2", "id": "math:example:mann-whitney:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:mann-whitney", "example_id": "math:example:mann-whitney:case-2", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "760ac69e6a85f5bfc84b1907a84b46e20a099e36f1b6810d7adc5bc6e35eacbf", "source_revision": "0.1.0-draft", "upstream_content_sha256": "6131b8b4974dc035970d253467b41be62aaa441e85261e15b46efbf7d9c8cc4d"}, "purpose": "How do two independent groups compare when the order of scores matters?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "6131b8b4974dc035970d253467b41be62aaa441e85261e15b46efbf7d9c8cc4d", "status": "draft", "title": "One cross-group tied score", "topics": ["mathematics", "statistics", "probability", "mann–whitney ranks and pair comparisons"], "type": "reference", "updated": "2026-11-03T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# One cross-group tied score
+
+Parent card: math:concept:mann-whitney; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:mann-whitney; revision 0.1.0-draft. Setting: Six learners complete a workshop challenge in two independent groups of three. The constructed uncalibrated A scores are 1, 3 and v; B scores are 2, 4 and 6. Drag the third A score v, or apply the same positive calibration multiplier k to every score. Follow the pooled ranks into nine cross-group pair comparisons and then the finite allocation tail. Expression: $U_A=R_A-\frac{3(3+1)}{2}=R_A-6,\quad U_B=9-U_A,\quad \theta=\frac{U_A}{9},\quad M=\binom{6}{3}=20,\quad p=\frac{m}{M}.$. Conditions required for a defined value (a case may test their violation): Two independent groups of three use the same positive score calibration. Under the declared equal-distribution null, all 20 labeled allocations are equally likely. Scope: These are constructed scores for independent groups. The conditional reference assumes group labels are exchangeable under equal population distributions, with every labeled three-versus-three allocation equally likely. Pooled ties receive midranks and remain separate learner identities in all 20 allocations. U_A counts A scores greater than B scores plus half of tied pairs; U_B=9−U_A. The two-sided convention includes allocations at least as far from 4.5 as the observed U_A, using doubled integer scores. This is not an untied exact table or a normal approximation. The empirical pair share θ=U_A/9 describes these nine comparisons; it is not a supplied population superiority probability. A general median comparison needs additional shape/location assumptions. No causal claim or probability that the null is true follows. Positive calibration preserves order and ties; numerical loss of a distinct scaled score is a precision failure. Use v from 0 to 7 points and k from 0.5 to 2.
+
+Case unit math:example:mann-whitney:case-2. Setting: Six learners complete a workshop challenge in two independent groups of three. The constructed uncalibrated A scores are 1, 3 and v; B scores are 2, 4 and 6. Drag the third A score v, or apply the same positive calibration multiplier k to every score. Follow the pooled ranks into nine cross-group pair comparisons and then the finite allocation tail. Inputs: {"lastScore": 2, "scale": 1}. Result: {"approximate": "0.3"}. Limits: This conditional label-allocation tail assumes exchangeable equal-distribution labels. It does not establish a causal effect or a general median difference.
+
+## Complete worked case
+
+- id: math:example:mann-whitney:case-2
+- title: One cross-group tied score
+- role: applied_model
+- question: How do two independent groups compare when the order of scores matters?
+- setting: Six learners complete a workshop challenge in two independent groups of three. The constructed uncalibrated A scores are 1, 3 and v; B scores are 2, 4 and 6. Drag the third A score v, or apply the same positive calibration multiplier k to every score. Follow the pooled ranks into nine cross-group pair comparisons and then the finite allocation tail.
+- assumptions:
+  - Two independent groups of three use the same positive score calibration. Under the declared equal-distribution null, all 20 labeled allocations are equally likely.
+- inputs:
+  - lastScore: 2
+  - scale: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: v = 2; k = 1
+    - reason: Keep the declared construction and comparison assumptions explicit.
+  - Item:
+    - index: 2
+    - expression: U_A=R_A-\frac{3(3+1)}{2}=R_A-6,\quad U_B=9-U_A,\quad \theta=\frac{U_A}{9},\quad M=\binom{6}{3}=20,\quad p=\frac{m}{M}.
+    - reason: Pool six learner scores, average the data ranks at ties, and sum group A’s ranks. Subtract six to obtain U_A, which also counts A-over-B wins with half a win for each tie. Compare it with all 20 labeled three-versus-three allocations under the exchangeable-label null.
+  - Item:
+    - index: 3
+    - expression: p = 6 allocations / 20 allocations = 0.3
+    - reason: The third A score ties the B score of two. Its cross-group comparison receives half credit, while pooled midranks and the tied allocation distribution are recomputed.
+- result:
+  - approximate: 0.3
+- interpretation: The third A score ties the B score of two. Its cross-group comparison receives half credit, while pooled midranks and the tied allocation distribution are recomputed.
+- independent check:
+  - method: Independent Python cross-group wins/ties counted as exact fractions for every labeled allocation; the rank-sum relation is checked separately from the runtime ranking implementation.
+  - expected: 0.3
+- limits: This conditional label-allocation tail assumes exchangeable equal-distribution labels. It does not establish a causal effect or a general median difference.
+- preset:
+  - lastScore: 2
+  - scale: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Two independent groups of three use the same positive score calibration. Under the declared equal-distribution null, all 20 labeled allocations are equally likely.
+
+## Written exploration recipe
+
+- component id: component:mann-whitney
+- renderer id: mann-whitney-visual-model
+- renderer version: 1
+- model id: mann-whitney-visual-model
+- model revision: 1
+- expression id: ast:mann-whitney:expression
+- interaction status: implemented
+- description: Pool six learner scores, average the data ranks at ties, and sum group A’s ranks. Subtract six to obtain U_A, which also counts A-over-B wins with half a win for each tie. Compare it with all 20 labeled three-versus-three allocations under the exchangeable-label null.
+- controls:
+  - Item:
+    - id: lastScore
+    - type: number
+    - default: 5
+    - min: 0
+    - max: 7
+    - step: 0.05
+  - Item:
+    - id: scale
+    - type: number
+    - default: 1
+    - min: 0.5
+    - max: 2
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - lastScore: 0.0
+      - scale: 0.5
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 0.0
+      - scale: 1
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 0.0
+      - scale: 2
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 0.5
+      - scale: 0.5
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 0.5
+      - scale: 1
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 0.5
+      - scale: 2
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 1.0
+      - scale: 0.5
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 1.0
+      - scale: 1
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 1.0
+      - scale: 2
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 1.5
+      - scale: 0.5
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 1.5
+      - scale: 1
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 1.5
+      - scale: 2
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 2.0
+      - scale: 0.5
+    - status: valid
+    - output: 0.3
+  - Item:
+    - input:
+      - lastScore: 2.0
+      - scale: 1
+    - status: valid
+    - output: 0.3
+  - Item:
+    - input:
+      - lastScore: 2.0
+      - scale: 2
+    - status: valid
+    - output: 0.3
+  - Item:
+    - input:
+      - lastScore: 2.5
+      - scale: 0.5
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 2.5
+      - scale: 1
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 2.5
+      - scale: 2
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 3.0
+      - scale: 0.5
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 3.0
+      - scale: 1
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 3.0
+      - scale: 2
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 3.5
+      - scale: 0.5
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 3.5
+      - scale: 1
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 3.5
+      - scale: 2
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 4.0
+      - scale: 0.5
+    - status: valid
+    - output: 0.5
+  - Item:
+    - input:
+      - lastScore: 4.0
+      - scale: 1
+    - status: valid
+    - output: 0.5
+  - Item:
+    - input:
+      - lastScore: 4.0
+      - scale: 2
+    - status: valid
+    - output: 0.5
+  - Item:
+    - input:
+      - lastScore: 4.5
+      - scale: 0.5
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 4.5
+      - scale: 1
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 4.5
+      - scale: 2
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 5.0
+      - scale: 0.5
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 5.0
+      - scale: 1
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 5.0
+      - scale: 2
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 5.5
+      - scale: 0.5
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 5.5
+      - scale: 1
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 5.5
+      - scale: 2
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 6.0
+      - scale: 0.5
+    - status: valid
+    - output: 0.8
+  - Item:
+    - input:
+      - lastScore: 6.0
+      - scale: 1
+    - status: valid
+    - output: 0.8
+  - Item:
+    - input:
+      - lastScore: 6.0
+      - scale: 2
+    - status: valid
+    - output: 0.8
+  - Item:
+    - input:
+      - lastScore: 6.5
+      - scale: 0.5
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastScore: 6.5
+      - scale: 1
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastScore: 6.5
+      - scale: 2
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastScore: 7.0
+      - scale: 0.5
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastScore: 7.0
+      - scale: 1
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastScore: 7.0
+      - scale: 2
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastScore: 0.95
+      - scale: 0.5
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 0.95
+      - scale: 1
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 0.95
+      - scale: 2
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 1.05
+      - scale: 0.5
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 1.05
+      - scale: 1
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 1.05
+      - scale: 2
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 1.95
+      - scale: 0.5
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 1.95
+      - scale: 1
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 1.95
+      - scale: 2
+    - status: valid
+    - output: 0.2
+  - Item:
+    - input:
+      - lastScore: 2.05
+      - scale: 0.5
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 2.05
+      - scale: 1
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 2.05
+      - scale: 2
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 2.95
+      - scale: 0.5
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 2.95
+      - scale: 1
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 2.95
+      - scale: 2
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 3.05
+      - scale: 0.5
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 3.05
+      - scale: 1
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 3.05
+      - scale: 2
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 3.95
+      - scale: 0.5
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 3.95
+      - scale: 1
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 3.95
+      - scale: 2
+    - status: valid
+    - output: 0.4
+  - Item:
+    - input:
+      - lastScore: 4.05
+      - scale: 0.5
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 4.05
+      - scale: 1
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 4.05
+      - scale: 2
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 5.95
+      - scale: 0.5
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 5.95
+      - scale: 1
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 5.95
+      - scale: 2
+    - status: valid
+    - output: 0.7
+  - Item:
+    - input:
+      - lastScore: 6.05
+      - scale: 0.5
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastScore: 6.05
+      - scale: 1
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastScore: 6.05
+      - scale: 2
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastScore: -1
+      - scale: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastScore: 8
+      - scale: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastScore: true
+      - scale: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastScore: null
+      - scale: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastScore: 5
+      - scale: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastScore: 5
+      - scale: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastScore: 5
+      - scale: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastScore: 5
+      - scale: false
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastScore: 5
+      - scale: 1
+    - status: invalid_parameters
+- compute: Pool six learner scores, average the data ranks at ties, and sum group A’s ranks. Subtract six to obtain U_A, which also counts A-over-B wins with half a win for each tie. Compare it with all 20 labeled three-versus-three allocations under the exchangeable-label null.
+- numeric tolerance: 5e-11
+- invariants:
+  - Two independent groups of three use the same positive score calibration. Under the declared equal-distribution null, all 20 labeled allocations are equally likely.
+  - Story, calculation, Geometry and Graph use the same declared model values.
+  - Rank order, omitted zeros and finite tail counts remain discrete where their definitions change.
+- limits:
+  - This conditional label-allocation tail assumes exchangeable equal-distribution labels. It does not establish a causal effect or a general median difference.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:comparison-extensions:mann-whitney. [SciPy · Mann–Whitney U rank test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html). Locator: Definition/Notes: independent samples, equal-distribution null, complementary U statistics and rank-sum relation. Location/median interpretations need additional assumptions. Tied small samples call for permutation methods; this original construction enumerates all 20 labeled three-versus-three allocations with fixed pooled midranks.. Verification: Official primary method documentation inspected 2026-11-03. Independent finite enumeration and original examples; independent mathematical/pedagogical and exact-edition book review remain pending.. Rights: Original six-learner score construction, calibration comparisons and figures; no source example, data or implementation reproduced.

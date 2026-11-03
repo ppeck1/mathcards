@@ -30,7 +30,10 @@ test('every calculation stage activates a real mark in each new story scene', ()
     'one-way-anova',
     'covariance',
     'normal-variance-interval',
-    'normal-test-power'
+    'normal-test-power',
+    'covariance-matrix',
+    'wilcoxon-signed-rank',
+    'mann-whitney'
   ]) {
     const story = Stories.forSlug(slug);
     const markup = Scenes.render(slug, story.parameters, { compact: true });
@@ -57,7 +60,8 @@ const familyTerms = [
   require('../src/discrete-extension-terms.js'),
   require('../src/estimation-extension-terms.js'),
   require('../src/sampling-extension-terms.js'),
-  require('../src/design-extension-terms.js')
+  require('../src/design-extension-terms.js'),
+  require('../src/comparison-extension-terms.js')
 ];
 const ids = [
   'inverse-function',
@@ -71,7 +75,10 @@ const ids = [
   'one-way-anova',
   'covariance',
   'normal-variance-interval',
-  'normal-test-power'
+  'normal-test-power',
+  'covariance-matrix',
+  'wilcoxon-signed-rank',
+  'mann-whitney'
 ];
 const cards = ids.map(id =>
   JSON.parse(fs.readFileSync(new URL('../content/cards/' + id + '.json', import.meta.url), 'utf8'))
@@ -96,7 +103,7 @@ const alternative = (module, card) => {
   return example.preset;
 };
 
-test('the twelve roadmap-gap lessons join the host in explicit family order with independent slots', () => {
+test('the fifteen roadmap-gap lessons join the host in explicit family order with independent slots', () => {
   assert.deepEqual(Metadata.ids.slice(-ids.length), ids);
   assert.deepEqual(
     Modules.list()
@@ -310,7 +317,7 @@ test('each new authored reference reader has actual new-card usage evidence', ()
   assert.deepEqual(withoutUse, [], 'Every new authored reader has actual new-card use');
 });
 
-test('all twelve scenes and remembered families are finite, immutable and strict standalone SVG', () => {
+test('all fifteen scenes and remembered families are finite, immutable and strict standalone SVG', () => {
   const documents = [];
   for (const canonical of cards) {
     const id = canonical.slug,
@@ -371,7 +378,7 @@ test('classic-script entries keep the new providers before their shared consumer
     ...template.matchAll(/<script\b[^>]*src="([^"?]+)(?:\?[^"]*)?"[^>]*data-development/g)
   ].map(([, name]) => name);
   const position = name => scripts.indexOf(name);
-  for (const family of ['analysis', 'discrete', 'estimation', 'sampling', 'design']) {
+  for (const family of ['analysis', 'discrete', 'estimation', 'sampling', 'design', 'comparison']) {
     for (const [dependency, consumer] of [
       [family + '-extensions.js', 'model-registry.js'],
       [family + '-extension-stories.js', 'story-library.js'],

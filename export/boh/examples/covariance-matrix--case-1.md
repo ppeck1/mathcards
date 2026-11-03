@@ -1,0 +1,483 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:covariance-matrix:case-1", "id": "math:example:covariance-matrix:case-1", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:covariance-matrix", "example_id": "math:example:covariance-matrix:case-1", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "760ac69e6a85f5bfc84b1907a84b46e20a099e36f1b6810d7adc5bc6e35eacbf", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a9847dbe1c021a81695084f1aae01bde4cdde87480f388280b0e6689235792a3"}, "purpose": "How do horizontal and vertical positioning errors vary together?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a9847dbe1c021a81695084f1aae01bde4cdde87480f388280b0e6689235792a3", "status": "draft", "title": "A tilted two-axis error cloud", "topics": ["mathematics", "statistics", "linear-algebra", "geometry", "a covariance matrix and its ellipse"], "type": "reference", "updated": "2026-11-03T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# A tilted two-axis error cloud
+
+Parent card: math:concept:covariance-matrix; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:covariance-matrix; revision 0.1.0-draft. Setting: A laser jig makes five constructed two-axis positioning errors. Horizontal errors follow a times the pattern −2, −1, 0, 1, 2. Vertical errors combine b times that same pattern with c times the residual pattern 1, −2, 2, −2, 1. Both coordinate means are zero millimetres. Change the shared coefficient b to tilt the cloud, a to widen it horizontally, or c to add the orthogonal residual pattern. Expression: $S=\begin{pmatrix}S_{xx}&S_{xy}\\S_{xy}&S_{yy}\end{pmatrix},\quad S_{xx}=2.5a^2,\quad S_{xy}=2.5ab,\quad S_{yy}=2.5b^2+3.5c^2,\quad \operatorname{tr}(S)=S_{xx}+S_{yy},\quad D=S_{xx}S_{yy}-S_{xy}^2.$. Conditions required for a defined value (a case may test their violation): Five paired errors use equal millimetre axes and the sample divisor n−1=4. The horizontal and vertical sample mean are both zero. Scope: This is a sample covariance matrix of five constructed paired errors, using divisor n−1=4 and the same millimetre unit on both axes. It is descriptive, not sampled evidence or a confidence/prediction region. The ellipse has principal semiaxes equal to the square roots of the two eigenvalues; it does not promise to enclose the five points or any stated probability. The matrix is positive semidefinite. Its matrix rank is one at c=0 and two for positive c when the quantities remain representable. A circular limit has no unique principal direction, and near-equal eigenvalues make orientation numerically unstable. Use b from −2 to 2 mm, a from 0.25 to 2 mm and c from 0 to 2 mm. Positive residuals lost to numerical precision must not be called exact zero spread.
+
+Case unit math:example:covariance-matrix:case-1. Setting: A laser jig makes five constructed two-axis positioning errors. Horizontal errors follow a times the pattern −2, −1, 0, 1, 2. Vertical errors combine b times that same pattern with c times the residual pattern 1, −2, 2, −2, 1. Both coordinate means are zero millimetres. Change the shared coefficient b to tilt the cloud, a to widen it horizontally, or c to add the orthogonal residual pattern. Inputs: {"horizontal": 1, "residual": 0.5, "shared": 0.75}. Result: {"approximate": "4.78125"}. Limits: This describes the five constructed error pairs. The ellipse has no stated confidence or probability coverage; circular spread has no unique orientation.
+
+## Complete worked case
+
+- id: math:example:covariance-matrix:case-1
+- title: A tilted two-axis error cloud
+- role: applied_model
+- question: How do horizontal and vertical positioning errors vary together?
+- setting: A laser jig makes five constructed two-axis positioning errors. Horizontal errors follow a times the pattern −2, −1, 0, 1, 2. Vertical errors combine b times that same pattern with c times the residual pattern 1, −2, 2, −2, 1. Both coordinate means are zero millimetres. Change the shared coefficient b to tilt the cloud, a to widen it horizontally, or c to add the orthogonal residual pattern.
+- assumptions:
+  - Five paired errors use equal millimetre axes and the sample divisor n−1=4. The horizontal and vertical sample mean are both zero.
+- inputs:
+  - shared: 0.75
+  - horizontal: 1
+  - residual: 0.5
+- steps:
+  - Item:
+    - index: 1
+    - expression: b = 0.75; a = 1; c = 0.5
+    - reason: Keep the declared construction and comparison assumptions explicit.
+  - Item:
+    - index: 2
+    - expression: S=\begin{pmatrix}S_{xx}&S_{xy}\\S_{xy}&S_{yy}\end{pmatrix},\quad S_{xx}=2.5a^2,\quad S_{xy}=2.5ab,\quad S_{yy}=2.5b^2+3.5c^2,\quad \operatorname{tr}(S)=S_{xx}+S_{yy},\quad D=S_{xx}S_{yy}-S_{xy}^2.
+    - reason: Center five paired positioning errors, place the two sample variances on a matrix diagonal and their sample covariance in both off-diagonal cells. The trace adds the two variances; the eigenvalues determine the squared radii of a descriptive covariance ellipse.
+  - Item:
+    - index: 3
+    - expression: tr(S) = 4.78125 mm²; D = 2.1875 mm⁴
+    - reason: The matrix entries are 2.5, 1.875 and 2.28125 mm². Their diagonal sum is 4.78125 mm²; the descriptive ellipse is tilted.
+- result:
+  - approximate: 4.78125
+- interpretation: The matrix entries are 2.5, 1.875 and 2.28125 mm². Their diagonal sum is 4.78125 mm²; the descriptive ellipse is tilted.
+- independent check:
+  - method: Independent exact-fraction reconstruction of all five paired coordinates, coordinate means and sample centered products; matrix trace is computed from the reconstructed diagonal.
+  - expected: 4.78125
+- limits: This describes the five constructed error pairs. The ellipse has no stated confidence or probability coverage; circular spread has no unique orientation.
+- preset:
+  - shared: 0.75
+  - horizontal: 1
+  - residual: 0.5
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Five paired errors use equal millimetre axes and the sample divisor n−1=4. The horizontal and vertical sample mean are both zero.
+
+## Written exploration recipe
+
+- component id: component:covariance-matrix
+- renderer id: covariance-matrix-visual-model
+- renderer version: 1
+- model id: covariance-matrix-visual-model
+- model revision: 1
+- expression id: ast:covariance-matrix:expression
+- interaction status: implemented
+- description: Center five paired positioning errors, place the two sample variances on a matrix diagonal and their sample covariance in both off-diagonal cells. The trace adds the two variances; the eigenvalues determine the squared radii of a descriptive covariance ellipse.
+- controls:
+  - Item:
+    - id: shared
+    - type: number
+    - default: 0.75
+    - min: -2
+    - max: 2
+    - step: 0.05
+  - Item:
+    - id: horizontal
+    - type: number
+    - default: 1
+    - min: 0.25
+    - max: 2
+    - step: 0.05
+  - Item:
+    - id: residual
+    - type: number
+    - default: 0.5
+    - min: 0
+    - max: 2
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - shared: -2
+      - horizontal: 0.25
+      - residual: 0
+    - status: valid
+    - output: 10.15625
+  - Item:
+    - input:
+      - shared: -2
+      - horizontal: 0.25
+      - residual: 0.5
+    - status: valid
+    - output: 11.03125
+  - Item:
+    - input:
+      - shared: -2
+      - horizontal: 0.25
+      - residual: 2
+    - status: valid
+    - output: 24.15625
+  - Item:
+    - input:
+      - shared: -2
+      - horizontal: 1
+      - residual: 0
+    - status: valid
+    - output: 12.5
+  - Item:
+    - input:
+      - shared: -2
+      - horizontal: 1
+      - residual: 0.5
+    - status: valid
+    - output: 13.375
+  - Item:
+    - input:
+      - shared: -2
+      - horizontal: 1
+      - residual: 2
+    - status: valid
+    - output: 26.5
+  - Item:
+    - input:
+      - shared: -2
+      - horizontal: 2
+      - residual: 0
+    - status: valid
+    - output: 20.0
+  - Item:
+    - input:
+      - shared: -2
+      - horizontal: 2
+      - residual: 0.5
+    - status: valid
+    - output: 20.875
+  - Item:
+    - input:
+      - shared: -2
+      - horizontal: 2
+      - residual: 2
+    - status: valid
+    - output: 34.0
+  - Item:
+    - input:
+      - shared: -0.75
+      - horizontal: 0.25
+      - residual: 0
+    - status: valid
+    - output: 1.5625
+  - Item:
+    - input:
+      - shared: -0.75
+      - horizontal: 0.25
+      - residual: 0.5
+    - status: valid
+    - output: 2.4375
+  - Item:
+    - input:
+      - shared: -0.75
+      - horizontal: 0.25
+      - residual: 2
+    - status: valid
+    - output: 15.5625
+  - Item:
+    - input:
+      - shared: -0.75
+      - horizontal: 1
+      - residual: 0
+    - status: valid
+    - output: 3.90625
+  - Item:
+    - input:
+      - shared: -0.75
+      - horizontal: 1
+      - residual: 0.5
+    - status: valid
+    - output: 4.78125
+  - Item:
+    - input:
+      - shared: -0.75
+      - horizontal: 1
+      - residual: 2
+    - status: valid
+    - output: 17.90625
+  - Item:
+    - input:
+      - shared: -0.75
+      - horizontal: 2
+      - residual: 0
+    - status: valid
+    - output: 11.40625
+  - Item:
+    - input:
+      - shared: -0.75
+      - horizontal: 2
+      - residual: 0.5
+    - status: valid
+    - output: 12.28125
+  - Item:
+    - input:
+      - shared: -0.75
+      - horizontal: 2
+      - residual: 2
+    - status: valid
+    - output: 25.40625
+  - Item:
+    - input:
+      - shared: 0
+      - horizontal: 0.25
+      - residual: 0
+    - status: valid
+    - output: 0.15625
+  - Item:
+    - input:
+      - shared: 0
+      - horizontal: 0.25
+      - residual: 0.5
+    - status: valid
+    - output: 1.03125
+  - Item:
+    - input:
+      - shared: 0
+      - horizontal: 0.25
+      - residual: 2
+    - status: valid
+    - output: 14.15625
+  - Item:
+    - input:
+      - shared: 0
+      - horizontal: 1
+      - residual: 0
+    - status: valid
+    - output: 2.5
+  - Item:
+    - input:
+      - shared: 0
+      - horizontal: 1
+      - residual: 0.5
+    - status: valid
+    - output: 3.375
+  - Item:
+    - input:
+      - shared: 0
+      - horizontal: 1
+      - residual: 2
+    - status: valid
+    - output: 16.5
+  - Item:
+    - input:
+      - shared: 0
+      - horizontal: 2
+      - residual: 0
+    - status: valid
+    - output: 10.0
+  - Item:
+    - input:
+      - shared: 0
+      - horizontal: 2
+      - residual: 0.5
+    - status: valid
+    - output: 10.875
+  - Item:
+    - input:
+      - shared: 0
+      - horizontal: 2
+      - residual: 2
+    - status: valid
+    - output: 24.0
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 0.25
+      - residual: 0
+    - status: valid
+    - output: 1.5625
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 0.25
+      - residual: 0.5
+    - status: valid
+    - output: 2.4375
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 0.25
+      - residual: 2
+    - status: valid
+    - output: 15.5625
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 1
+      - residual: 0
+    - status: valid
+    - output: 3.90625
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 1
+      - residual: 0.5
+    - status: valid
+    - output: 4.78125
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 1
+      - residual: 2
+    - status: valid
+    - output: 17.90625
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 2
+      - residual: 0
+    - status: valid
+    - output: 11.40625
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 2
+      - residual: 0.5
+    - status: valid
+    - output: 12.28125
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 2
+      - residual: 2
+    - status: valid
+    - output: 25.40625
+  - Item:
+    - input:
+      - shared: 2
+      - horizontal: 0.25
+      - residual: 0
+    - status: valid
+    - output: 10.15625
+  - Item:
+    - input:
+      - shared: 2
+      - horizontal: 0.25
+      - residual: 0.5
+    - status: valid
+    - output: 11.03125
+  - Item:
+    - input:
+      - shared: 2
+      - horizontal: 0.25
+      - residual: 2
+    - status: valid
+    - output: 24.15625
+  - Item:
+    - input:
+      - shared: 2
+      - horizontal: 1
+      - residual: 0
+    - status: valid
+    - output: 12.5
+  - Item:
+    - input:
+      - shared: 2
+      - horizontal: 1
+      - residual: 0.5
+    - status: valid
+    - output: 13.375
+  - Item:
+    - input:
+      - shared: 2
+      - horizontal: 1
+      - residual: 2
+    - status: valid
+    - output: 26.5
+  - Item:
+    - input:
+      - shared: 2
+      - horizontal: 2
+      - residual: 0
+    - status: valid
+    - output: 20.0
+  - Item:
+    - input:
+      - shared: 2
+      - horizontal: 2
+      - residual: 0.5
+    - status: valid
+    - output: 20.875
+  - Item:
+    - input:
+      - shared: 2
+      - horizontal: 2
+      - residual: 2
+    - status: valid
+    - output: 34.0
+  - Item:
+    - input:
+      - shared: 0
+      - horizontal: 1
+      - residual: 0.8451542547285166
+    - status: valid
+    - output: 5.0
+  - Item:
+    - input:
+      - shared: -3
+      - horizontal: 1
+      - residual: 0.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shared: 3
+      - horizontal: 1
+      - residual: 0.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shared: true
+      - horizontal: 1
+      - residual: 0.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 0
+      - residual: 0.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 3
+      - residual: 0.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 1
+      - residual: -1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 1
+      - residual: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shared: 0.75
+      - horizontal: 1
+      - residual: 1
+    - status: invalid_parameters
+- compute: Center five paired positioning errors, place the two sample variances on a matrix diagonal and their sample covariance in both off-diagonal cells. The trace adds the two variances; the eigenvalues determine the squared radii of a descriptive covariance ellipse.
+- numeric tolerance: 5e-11
+- invariants:
+  - Five paired errors use equal millimetre axes and the sample divisor n−1=4. The horizontal and vertical sample mean are both zero.
+  - Story, calculation, Geometry and Graph use the same declared model values.
+  - Rank order, omitted zeros and finite tail counts remain discrete where their definitions change.
+- limits:
+  - This describes the five constructed error pairs. The ellipse has no stated confidence or probability coverage; circular spread has no unique orientation.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:comparison-extensions:covariance-matrix. [NIST/SEMATECH · Mean Vector and Covariance Matrix](https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc541.htm). Locator: §6.5.4.1: diagonal sample variances, off-diagonal sample covariances and the n−1 centered-product matrix. The five two-axis error pairs, eigenvalue calculations and descriptive one-standard-deviation ellipse are original derivations here; no normal confidence coverage is attributed to the shape.. Verification: Definition-level primary source inspected 2026-11-03. Independent mathematical/pedagogical and exact-edition book review remain pending.. Rights: Original laser-position scenario, patterns, prose, derivations and SVG; no source example, data or illustration reproduced.

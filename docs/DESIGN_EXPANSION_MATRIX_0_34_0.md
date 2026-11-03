@@ -1,5 +1,9 @@
 # 0.34.0 covariance, spread and planning matrix
 
+Checkpoint record: the [126-card comparison matrix](COMPARISON_EXPANSION_MATRIX_0_34_0.md)
+now identifies the current candidate. The counts and results below retain this
+earlier checkpoint's evidence.
+
 Current review candidate, 2026-11-03, on `codex/eight-book-expansion` in
 [draft PR #13](https://github.com/ppeck1/mathcards/pull/13). This follows the
 [120-card checkpoint](SAMPLING_EXPANSION_MATRIX_0_34_0.md). Live remains

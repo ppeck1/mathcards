@@ -1,5 +1,10 @@
 # PR #13 release checks — background review
 
+The [126-card comparison matrix](COMPARISON_EXPANSION_MATRIX_0_34_0.md) and
+[current validation](VALIDATION_0_34_0_COMPARISON.md) identify the latest
+candidate. The device-review plan below remains open for that candidate;
+the results here retain this earlier checkpoint's evidence.
+
 This records the 111-card release checkpoint. The subsequent
 [six-lesson continuation](ROADMAP_EXPANSION_MATRIX_0_34_0.md) and its
 [validation](VALIDATION_0_34_0_ROADMAP.md) identify the expanded artifact. The
