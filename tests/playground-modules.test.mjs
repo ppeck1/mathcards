@@ -34,6 +34,7 @@ const expectedIds = [
   'binomial-distribution', 'poisson-distribution'
 ].concat(["modular-arithmetic", "greatest-common-divisor", "prime-factorization", "rational-number", "numeral-system", "permutation-count", "binomial-coefficient", "spatial-cross-product", "scalar-triple-product", "coordinate-transformation", "vector-projection", "angular-velocity", "linear-momentum", "hysteresis", "gradient-flow", "circle-manifold", "sphere-manifold", "structural-stability"]).concat(["complex-number", "quadratic-equation", "linear-programming", "linear-search", "binary-search", "minimum-spanning-tree", "normal-distribution", "exponential-distribution", "sign-test"]).concat(["inverse-function", "geometric-series", "graph-coloring", "inclusion-exclusion", "randomized-block-design", "normal-mean-interval"]);
 expectedIds.push('student-mean-interval', 'randomization-distribution', 'one-way-anova');
+expectedIds.push('covariance', 'normal-variance-interval', 'normal-test-power');
 const format = value => value == null ? 'undefined' : String(Number(value.toPrecision(7)));
 const context = (id, view) => ({ id, view, format, compact: false, camera: .65 });
 const finiteScene = (html, label) => {

@@ -1,5 +1,8 @@
 # 0.34.0 inference continuation matrix
 
+This records the 120-card checkpoint. The [current 123-card matrix](DESIGN_EXPANSION_MATRIX_0_34_0.md)
+adds covariance, variance inference and power, and resolves the flat ANOVA graph.
+
 Current review candidate, 2026-11-03, on `codex/eight-book-expansion` in
 [draft PR #13](https://github.com/ppeck1/mathcards/pull/13). This follows the
 [117-card roadmap checkpoint](ROADMAP_EXPANSION_MATRIX_0_34_0.md). The live

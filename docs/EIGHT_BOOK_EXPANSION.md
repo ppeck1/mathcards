@@ -11,8 +11,8 @@ browser are projections of this inventory plus a separately authored
 [lesson crosswalk](../content/planning/eight-book-crosswalk.json). Importing a
 subject never creates a completed lesson or a verified book attribution.
 
-The current branch crosswalk links 79 inventory subjects to bounded draft
-introductions and 56 to preparation only; 160 remain planned. These are
+The current branch crosswalk links 81 inventory subjects to bounded draft
+introductions and 56 to preparation only; 158 remain planned. These are
 concept-to-lesson links, so several subjects can lead to the same lesson. They
 are not counts of new cards or complete treatments of a book.
 
@@ -33,8 +33,18 @@ are not counts of new cards or complete treatments of a book.
 | Discrete counting and design | Four-session colorings, two-list inclusion–exclusion and complete-block comparisons | Exact finite enumeration/counts; blocked descriptive differences do not imply a causal finding or ANOVA |
 | Normal-mean uncertainty | Fixed 95% interval under independent normal readings and known sigma | Separate from binomial intervals, posterior statements, prediction intervals and unknown-sigma procedures |
 | Estimated spread and assignment uncertainty | Fixed 95% Student interval, all 70 balanced four-versus-four allocations and one-way ANOVA | Unknown spread changes the Student multiplier; exact absolute randomization tails include ties; ANOVA separates within/between variation with declared error assumptions |
+| Covariance, variance and planning | Paired signed products, an iid-normal variance interval and known-spread two-group power | Physical product/squared units, unknown variance and per-group versus total readings remain distinct; general ANCOVA and replication design remain separate |
 
-## Current inference continuation
+## Current covariance, spread and planning continuation
+
+The [123-card matrix](DESIGN_EXPANSION_MATRIX_0_34_0.md) adds covariance,
+normal-variance inference and known-spread power planning. Covariance and
+variance inference gain bounded introductions; replication retains preparation
+status. The ANOVA Graph now uses clearly labeled logarithmic spacing within
+its existing fixed bounds, retaining original F readings. Exact-edition and
+independent teaching review remain open.
+
+## Earlier inference continuation
 
 The [120-card matrix](SAMPLING_EXPANSION_MATRIX_0_34_0.md) adds three lessons.
 Randomization and analysis of variance advance from preparation to bounded

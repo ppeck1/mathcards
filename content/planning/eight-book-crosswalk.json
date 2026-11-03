@@ -34,9 +34,11 @@
         "sampling-distribution",
         "normal-distribution",
         "normal-mean-interval",
-        "student-mean-interval"
+        "student-mean-interval",
+        "normal-variance-interval",
+        "normal-test-power"
       ],
-      "scope_note": "Finite sample means and normal/Student interval models prepare for normal sampling. The summaries are entered rather than generated; general sample generation, central-limit theorems and distributional diagnostics remain separate."
+      "scope_note": "Finite sample-mean and normal-model interval/power examples prepare for sampling theory. Summary statistics and planning assumptions are entered rather than sampled; general sample generation, central-limit theorems and distributional diagnostics remain separate."
     },
     {
       "concept_id": "two-sample-comparisons",
@@ -52,9 +54,10 @@
       "cards": [
         "confidence-interval",
         "normal-mean-interval",
-        "student-mean-interval"
+        "student-mean-interval",
+        "normal-variance-interval"
       ],
-      "scope_note": "Exact binomial, known-sigma normal and unknown-sigma Student intervals are separate procedures with explicit sampling assumptions. The Student family uses independent normal readings, an estimated spread and n−1 degrees of freedom at fixed 95% confidence; no posterior or prediction interpretation."
+      "scope_note": "Exact binomial, known/estimated-spread normal-mean intervals and an iid-normal variance interval are distinct fixed-coverage procedures. Mean and variance endpoints have different physical units; none is a posterior probability for a fixed unknown parameter."
     },
     {
       "concept_id": "hypothesis-tests",
@@ -62,9 +65,10 @@
       "cards": [
         "hypothesis-test",
         "randomization-distribution",
-        "one-way-anova"
+        "one-way-anova",
+        "normal-test-power"
       ],
-      "scope_note": "Separate bounded binomial, exhaustive balanced-allocation and three-group F comparisons state their own null hypotheses, tails and assumptions. P-values are not probabilities that a null is true, and mean differences do not by themselves establish causation."
+      "scope_note": "Bounded binomial, balanced-allocation and three-group F procedures retain separate hypotheses and assumptions. A one-sided normal two-group planning model shows rejection probability at an assumed true effect, with 5% rejection at the boundary null. This is not a probability that a null is true or a generated experiment."
     },
     {
       "concept_id": "degrees-of-freedom",
@@ -169,9 +173,10 @@
       "concept_id": "replication",
       "status": "precursor",
       "cards": [
-        "one-way-anova"
+        "one-way-anova",
+        "normal-test-power"
       ],
-      "scope_note": "Three constructed readings in each group illustrate within-group variation and error degrees of freedom. No fresh randomized experiment, power calculation or general replication-design lesson is supplied."
+      "scope_note": "Three constructed readings per group and a separate known-spread two-group power model illustrate the roles of independent replication. The power model enters n per group, distinguishes total 2n, and assumes a true planning effect. Broader design, pseudoreplication diagnostics, empirical data generation and unknown-spread power remain separate."
     },
     {
       "concept_id": "blocking",
@@ -537,9 +542,11 @@
     },
     {
       "concept_id": "variance-inference",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "normal-variance-interval"
+      ],
+      "scope_note": "A fixed 95% chi-square interval for an unknown normal-population variance uses the observed sample standard deviation and n−1 degrees of freedom. Independent identically normal readings are assumed; displayed whole n is 6–31. This does not supply robust, nonnormal or multivariate variance inference."
     },
     {
       "concept_id": "statistical-quality-control",
@@ -637,9 +644,11 @@
     },
     {
       "concept_id": "covariance",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "covariance"
+      ],
+      "scope_note": "Five paired constructed measurements are centered, their signed deviation products summed and divided by n−1. Physical product units and a covariance-preserving residual pattern are explicit. This is descriptive sample covariance, separate from normalized correlation, causal inference and general covariance matrices."
     },
     {
       "concept_id": "poisson-distribution",

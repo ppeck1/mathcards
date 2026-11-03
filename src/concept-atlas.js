@@ -33,6 +33,7 @@
     'fractal-geometry':['geometry','dynamics'], 'chaos-theory':['dynamics','algebra'],
     'wave-interference':['dynamics','geometry','modeling'], resonance:['dynamics','modeling'],
     'student-mean-interval':['probability','modeling'], 'randomization-distribution':['probability','discrete','modeling'], 'one-way-anova':['probability','algebra','modeling'],
+    covariance:['probability','algebra','geometry','modeling'], 'normal-variance-interval':['probability','modeling'], 'normal-test-power':['probability','modeling'],
     probability:['probability','modeling'], 'bayes-theorem':['probability','modeling'], 'graph-theory':['discrete','modeling']
   };
   const branchFields={algebra:'algebra',functions:'algebra','algebra-functions':'algebra','number-arithmetic':'algebra',number:'algebra',geometry:'geometry',measurement:'geometry',trigonometry:'geometry','linear-algebra':'algebra',calculus:'calculus',analysis:'analysis',probability:'probability','discrete-computation':'discrete',dynamics:'dynamics',modeling:'modeling'};

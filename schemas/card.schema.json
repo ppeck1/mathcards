@@ -1120,7 +1120,10 @@
             "normal-mean-interval-visual-model",
             "student-mean-interval-visual-model",
             "randomization-distribution-visual-model",
-            "one-way-anova-visual-model"
+            "one-way-anova-visual-model",
+            "covariance-visual-model",
+            "normal-variance-interval-visual-model",
+            "normal-test-power-visual-model"
           ]
         },
         "renderer_version": {

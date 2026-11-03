@@ -1,0 +1,882 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:covariance",
+  "slug": "covariance",
+  "type": "concept",
+  "title": "Sample covariance and signed products",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-03T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "sample covariance and signed products"
+  ],
+  "branches": [
+    "statistics",
+    "algebra",
+    "geometry"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Do longer boards tend to take longer to finish, and how do their paired deviations combine?",
+  "meaning": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes.",
+  "prerequisites": {
+    "required": [
+      "math:concept:variance"
+    ],
+    "helpful": [
+      "math:concept:correlation",
+      "math:concept:inner-product"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A workshop compares five constructed board lengths of 1, 2, 3, 4 and 5 metres with finishing times. The mean length is 3 metres and the mean time is 10 minutes. The time pattern is 10 plus c times the length deviation, with the additional offsets w, −2w, 2w, −2w and w. Move the trend c or the scatter scale w and follow the paired rectangles into their signed total.",
+    "formal_latex": "p_i=(x_i-\\bar{x})(y_i-\\bar{y}),\\quad P=\\sum_{i=1}^{n}p_i,\\quad s_{xy}=\\frac{P}{n-1},\\quad n=5,\\quad s_{xy}=2.5c.",
+    "signature": {
+      "c": "Trend of finishing time per metre of centered board length",
+      "w": "Scale of the fixed finishing-time residual pattern, in minutes",
+      "xᵢ": "The five observed board lengths, in metres",
+      "yᵢ": "The five constructed finishing times, in minutes",
+      "x̄": "Sample mean board length, 3 metres",
+      "ȳ": "Sample mean finishing time, 10 minutes",
+      "pᵢ": "Signed product of the paired length and time deviations, in metre-minutes",
+      "P": "Sum of the five signed products, in metre-minutes",
+      "n": "Number of paired board observations, fixed at 5",
+      "s_xy": "Sample covariance of length and finishing time, in metre-minutes"
+    },
+    "conditions": [
+      "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+    ],
+    "domain_notes": "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship.",
+    "proof_status": "Definition-level primary references and original bounded derivation; independent mathematical review pending.",
+    "source_refs": [
+      "source:design-extensions:covariance"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Sample covariance and signed products",
+    "expression_latex": "p_i=(x_i-\\bar{x})(y_i-\\bar{y}),\\quad P=\\sum_{i=1}^{n}p_i,\\quad s_{xy}=\\frac{P}{n-1},\\quad n=5,\\quad s_{xy}=2.5c.",
+    "formation_rule": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes.",
+    "precedence": "Center and multiply before combining paired products; calculate degrees of freedom or standard error before the declared uncertainty result.",
+    "symbols": [
+      {
+        "token": "c",
+        "role": "Trend of finishing time per metre of centered board length",
+        "type": "Declared statistical quantity"
+      },
+      {
+        "token": "w",
+        "role": "Scale of the fixed finishing-time residual pattern, in minutes",
+        "type": "Declared statistical quantity"
+      },
+      {
+        "token": "xᵢ",
+        "role": "The five observed board lengths, in metres",
+        "type": "Declared statistical quantity"
+      },
+      {
+        "token": "yᵢ",
+        "role": "The five constructed finishing times, in minutes",
+        "type": "Declared statistical quantity"
+      },
+      {
+        "token": "x̄",
+        "role": "Sample mean board length, 3 metres",
+        "type": "Declared statistical quantity"
+      },
+      {
+        "token": "ȳ",
+        "role": "Sample mean finishing time, 10 minutes",
+        "type": "Declared statistical quantity"
+      },
+      {
+        "token": "pᵢ",
+        "role": "Signed product of the paired length and time deviations, in metre-minutes",
+        "type": "Declared statistical quantity"
+      },
+      {
+        "token": "P",
+        "role": "Sum of the five signed products, in metre-minutes",
+        "type": "Declared statistical quantity"
+      },
+      {
+        "token": "n",
+        "role": "Number of paired board observations, fixed at 5",
+        "type": "Declared statistical quantity"
+      },
+      {
+        "token": "s_xy",
+        "role": "Sample covariance of length and finishing time, in metre-minutes",
+        "type": "Declared statistical quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:covariance:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:trend",
+          "kind": "variable",
+          "type": "Declared numerical input or whole reading count",
+          "symbol": "c",
+          "scope_ref": "scope:covariance"
+        },
+        {
+          "id": "n:scatter",
+          "kind": "variable",
+          "type": "Declared numerical input or whole reading count",
+          "symbol": "w",
+          "scope_ref": "scope:covariance"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Declared bounded statistic or uncertainty rule",
+          "ref": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes."
+        },
+        {
+          "id": "n:partial-0",
+          "kind": "apply",
+          "type": "Partial application or bounded numerical result",
+          "function": "n:rule",
+          "argument": "n:trend"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Partial application or bounded numerical result",
+          "function": "n:partial-0",
+          "argument": "n:scatter"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:covariance",
+          "kind": "modelExpression",
+          "free_variables": [
+            "c",
+            "w"
+          ],
+          "external_parameters": [
+            "Five constructed pairs"
+          ],
+          "domain_condition": "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use an incompatible observation or sampling model without changing the formula",
+        "status": "model mismatch",
+        "reason": "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+      }
+    ],
+    "ast_coverage": "Typed application outline for the declared bounded statistic, not an arbitrary-data or general statistical model engine.",
+    "output_symbol_bindings": {
+      "c": "trend",
+      "w": "scatter",
+      "xᵢ": "xValues",
+      "yᵢ": "yValues",
+      "x̄": "meanX",
+      "ȳ": "meanY",
+      "pᵢ": "products",
+      "P": "sumProducts",
+      "n": "count",
+      "s_xy": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes.",
+      "conditions": "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship.",
+      "derivation": "The centered lengths are −2, −1, 0, 1 and 2, whose squares sum to 10. Their paired products with the residual pattern 1, −2, 2, −2, 1 sum to zero. Thus the total centered cross-product is 10c, and sample covariance is 10c/4=2.5c. Rectangles show signed products; their screen area has a stated coordinate scale rather than being a new measurement.",
+      "status": "author-derived under stated conditions; independent review pending",
+      "example_ref": "math:example:covariance:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:variance",
+      "type": "supports",
+      "conditions": "Retain each card’s own sampling assumptions, measurement units and mathematical scope.",
+      "reason": "Centering connects spread and paired variation.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author derivation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:correlation",
+      "type": "supports",
+      "conditions": "Retain each card’s own sampling assumptions, measurement units and mathematical scope.",
+      "reason": "Sample covariance keeps product units; correlation additionally normalizes by both sample spreads.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author derivation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:inner-product",
+      "type": "supports",
+      "conditions": "Retain each card’s own sampling assumptions, measurement units and mathematical scope.",
+      "reason": "The centered product total is the inner product of two centered coordinate lists.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author derivation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:covariance:case-1",
+      "title": "A rising time pattern with modest scatter",
+      "role": "applied_model",
+      "question": "Do longer boards tend to take longer to finish, and how do their paired deviations combine?",
+      "setting": "A workshop compares five constructed board lengths of 1, 2, 3, 4 and 5 metres with finishing times. The mean length is 3 metres and the mean time is 10 minutes. The time pattern is 10 plus c times the length deviation, with the additional offsets w, −2w, 2w, −2w and w. Move the trend c or the scatter scale w and follow the paired rectangles into their signed total.",
+      "assumptions": [
+        "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+      ],
+      "inputs": {
+        "trend": 1,
+        "scatter": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "c = 1; w = 0.5",
+          "reason": "Identify the actual constructed inputs or predeclared planning assumptions."
+        },
+        {
+          "index": 2,
+          "expression": "p_i=(x_i-\\bar{x})(y_i-\\bar{y}),\\quad P=\\sum_{i=1}^{n}p_i,\\quad s_{xy}=\\frac{P}{n-1},\\quad n=5,\\quad s_{xy}=2.5c.",
+          "reason": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes."
+        },
+        {
+          "index": 3,
+          "expression": "2.5 m·min",
+          "reason": "The centered products total 10 metre-minutes. Dividing by four gives sample covariance 2.5 metre-minutes."
+        }
+      ],
+      "result": {
+        "approximate": "2.5"
+      },
+      "interpretation": "The centered products total 10 metre-minutes. Dividing by four gives sample covariance 2.5 metre-minutes.",
+      "independent_check": {
+        "method": "Independent exact-fraction reconstruction of the five paired observations, sample means, centered products and n−1 divisor.",
+        "expected": "2.5"
+      },
+      "limits": "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship.",
+      "preset": {
+        "trend": 1,
+        "scatter": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+      ]
+    },
+    {
+      "id": "math:example:covariance:case-2",
+      "title": "Reverse the trend",
+      "role": "applied_model",
+      "question": "Do longer boards tend to take longer to finish, and how do their paired deviations combine?",
+      "setting": "A workshop compares five constructed board lengths of 1, 2, 3, 4 and 5 metres with finishing times. The mean length is 3 metres and the mean time is 10 minutes. The time pattern is 10 plus c times the length deviation, with the additional offsets w, −2w, 2w, −2w and w. Move the trend c or the scatter scale w and follow the paired rectangles into their signed total.",
+      "assumptions": [
+        "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+      ],
+      "inputs": {
+        "trend": -1,
+        "scatter": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "c = -1; w = 0.5",
+          "reason": "Identify the actual constructed inputs or predeclared planning assumptions."
+        },
+        {
+          "index": 2,
+          "expression": "p_i=(x_i-\\bar{x})(y_i-\\bar{y}),\\quad P=\\sum_{i=1}^{n}p_i,\\quad s_{xy}=\\frac{P}{n-1},\\quad n=5,\\quad s_{xy}=2.5c.",
+          "reason": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes."
+        },
+        {
+          "index": 3,
+          "expression": "-2.5 m·min",
+          "reason": "The residual pattern is unchanged, but reversing the trend changes the signed total to −10 and covariance to −2.5 metre-minutes."
+        }
+      ],
+      "result": {
+        "approximate": "-2.5"
+      },
+      "interpretation": "The residual pattern is unchanged, but reversing the trend changes the signed total to −10 and covariance to −2.5 metre-minutes.",
+      "independent_check": {
+        "method": "Independent exact-fraction reconstruction of the five paired observations, sample means, centered products and n−1 divisor.",
+        "expected": "-2.5"
+      },
+      "limits": "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship.",
+      "preset": {
+        "trend": -1,
+        "scatter": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+      ]
+    },
+    {
+      "id": "math:example:covariance:case-3",
+      "title": "Scatter without a centered linear trend",
+      "role": "applied_model",
+      "question": "Do longer boards tend to take longer to finish, and how do their paired deviations combine?",
+      "setting": "A workshop compares five constructed board lengths of 1, 2, 3, 4 and 5 metres with finishing times. The mean length is 3 metres and the mean time is 10 minutes. The time pattern is 10 plus c times the length deviation, with the additional offsets w, −2w, 2w, −2w and w. Move the trend c or the scatter scale w and follow the paired rectangles into their signed total.",
+      "assumptions": [
+        "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+      ],
+      "inputs": {
+        "trend": 0,
+        "scatter": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "c = 0; w = 2",
+          "reason": "Identify the actual constructed inputs or predeclared planning assumptions."
+        },
+        {
+          "index": 2,
+          "expression": "p_i=(x_i-\\bar{x})(y_i-\\bar{y}),\\quad P=\\sum_{i=1}^{n}p_i,\\quad s_{xy}=\\frac{P}{n-1},\\quad n=5,\\quad s_{xy}=2.5c.",
+          "reason": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes."
+        },
+        {
+          "index": 3,
+          "expression": "0.0 m·min",
+          "reason": "The times still vary, but positive and negative centered products cancel exactly. Covariance is zero without all finishing times being equal."
+        }
+      ],
+      "result": {
+        "approximate": "0.0"
+      },
+      "interpretation": "The times still vary, but positive and negative centered products cancel exactly. Covariance is zero without all finishing times being equal.",
+      "independent_check": {
+        "method": "Independent exact-fraction reconstruction of the five paired observations, sample means, centered products and n−1 divisor.",
+        "expected": "0.0"
+      },
+      "limits": "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship.",
+      "preset": {
+        "trend": 0,
+        "scatter": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+      ]
+    },
+    {
+      "id": "math:example:covariance:case-4",
+      "title": "Double the trend coefficient",
+      "role": "applied_model",
+      "question": "Do longer boards tend to take longer to finish, and how do their paired deviations combine?",
+      "setting": "A workshop compares five constructed board lengths of 1, 2, 3, 4 and 5 metres with finishing times. The mean length is 3 metres and the mean time is 10 minutes. The time pattern is 10 plus c times the length deviation, with the additional offsets w, −2w, 2w, −2w and w. Move the trend c or the scatter scale w and follow the paired rectangles into their signed total.",
+      "assumptions": [
+        "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+      ],
+      "inputs": {
+        "trend": 2,
+        "scatter": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "c = 2; w = 0.5",
+          "reason": "Identify the actual constructed inputs or predeclared planning assumptions."
+        },
+        {
+          "index": 2,
+          "expression": "p_i=(x_i-\\bar{x})(y_i-\\bar{y}),\\quad P=\\sum_{i=1}^{n}p_i,\\quad s_{xy}=\\frac{P}{n-1},\\quad n=5,\\quad s_{xy}=2.5c.",
+          "reason": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes."
+        },
+        {
+          "index": 3,
+          "expression": "5.0 m·min",
+          "reason": "The total signed product doubles from 10 to 20 metre-minutes, and sample covariance doubles from 2.5 to 5 metre-minutes."
+        }
+      ],
+      "result": {
+        "approximate": "5.0"
+      },
+      "interpretation": "The total signed product doubles from 10 to 20 metre-minutes, and sample covariance doubles from 2.5 to 5 metre-minutes.",
+      "independent_check": {
+        "method": "Independent exact-fraction reconstruction of the five paired observations, sample means, centered products and n−1 divisor.",
+        "expected": "5.0"
+      },
+      "limits": "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship.",
+      "preset": {
+        "trend": 2,
+        "scatter": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+      ]
+    },
+    {
+      "id": "math:example:covariance:case-5",
+      "title": "Widen the residual pattern",
+      "role": "applied_model",
+      "question": "Do longer boards tend to take longer to finish, and how do their paired deviations combine?",
+      "setting": "A workshop compares five constructed board lengths of 1, 2, 3, 4 and 5 metres with finishing times. The mean length is 3 metres and the mean time is 10 minutes. The time pattern is 10 plus c times the length deviation, with the additional offsets w, −2w, 2w, −2w and w. Move the trend c or the scatter scale w and follow the paired rectangles into their signed total.",
+      "assumptions": [
+        "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+      ],
+      "inputs": {
+        "trend": 1,
+        "scatter": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "c = 1; w = 2",
+          "reason": "Identify the actual constructed inputs or predeclared planning assumptions."
+        },
+        {
+          "index": 2,
+          "expression": "p_i=(x_i-\\bar{x})(y_i-\\bar{y}),\\quad P=\\sum_{i=1}^{n}p_i,\\quad s_{xy}=\\frac{P}{n-1},\\quad n=5,\\quad s_{xy}=2.5c.",
+          "reason": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes."
+        },
+        {
+          "index": 3,
+          "expression": "2.5 m·min",
+          "reason": "The point pattern spreads out, but this chosen residual vector is orthogonal to centered length. Covariance stays 2.5 metre-minutes; a normalized correlation need not stay the same."
+        }
+      ],
+      "result": {
+        "approximate": "2.5"
+      },
+      "interpretation": "The point pattern spreads out, but this chosen residual vector is orthogonal to centered length. Covariance stays 2.5 metre-minutes; a normalized correlation need not stay the same.",
+      "independent_check": {
+        "method": "Independent exact-fraction reconstruction of the five paired observations, sample means, centered products and n−1 divisor.",
+        "expected": "2.5"
+      },
+      "limits": "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship.",
+      "preset": {
+        "trend": 1,
+        "scatter": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:covariance",
+    "renderer_id": "covariance-visual-model",
+    "renderer_version": "1",
+    "model_id": "covariance-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:covariance:expression",
+    "interaction_status": "implemented",
+    "description": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes.",
+    "controls": [
+      {
+        "id": "trend",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "scatter",
+        "type": "number",
+        "default": 0.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "trend": -2,
+          "scatter": 0
+        },
+        "status": "valid",
+        "output": -5.0
+      },
+      {
+        "input": {
+          "trend": -2,
+          "scatter": 0.5
+        },
+        "status": "valid",
+        "output": -5.0
+      },
+      {
+        "input": {
+          "trend": -2,
+          "scatter": 1
+        },
+        "status": "valid",
+        "output": -5.0
+      },
+      {
+        "input": {
+          "trend": -2,
+          "scatter": 2
+        },
+        "status": "valid",
+        "output": -5.0
+      },
+      {
+        "input": {
+          "trend": -1,
+          "scatter": 0
+        },
+        "status": "valid",
+        "output": -2.5
+      },
+      {
+        "input": {
+          "trend": -1,
+          "scatter": 0.5
+        },
+        "status": "valid",
+        "output": -2.5
+      },
+      {
+        "input": {
+          "trend": -1,
+          "scatter": 1
+        },
+        "status": "valid",
+        "output": -2.5
+      },
+      {
+        "input": {
+          "trend": -1,
+          "scatter": 2
+        },
+        "status": "valid",
+        "output": -2.5
+      },
+      {
+        "input": {
+          "trend": -0.5,
+          "scatter": 0
+        },
+        "status": "valid",
+        "output": -1.25
+      },
+      {
+        "input": {
+          "trend": -0.5,
+          "scatter": 0.5
+        },
+        "status": "valid",
+        "output": -1.25
+      },
+      {
+        "input": {
+          "trend": -0.5,
+          "scatter": 1
+        },
+        "status": "valid",
+        "output": -1.25
+      },
+      {
+        "input": {
+          "trend": -0.5,
+          "scatter": 2
+        },
+        "status": "valid",
+        "output": -1.25
+      },
+      {
+        "input": {
+          "trend": 0,
+          "scatter": 0
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "trend": 0,
+          "scatter": 0.5
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "trend": 0,
+          "scatter": 1
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "trend": 0,
+          "scatter": 2
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "trend": 0.5,
+          "scatter": 0
+        },
+        "status": "valid",
+        "output": 1.25
+      },
+      {
+        "input": {
+          "trend": 0.5,
+          "scatter": 0.5
+        },
+        "status": "valid",
+        "output": 1.25
+      },
+      {
+        "input": {
+          "trend": 0.5,
+          "scatter": 1
+        },
+        "status": "valid",
+        "output": 1.25
+      },
+      {
+        "input": {
+          "trend": 0.5,
+          "scatter": 2
+        },
+        "status": "valid",
+        "output": 1.25
+      },
+      {
+        "input": {
+          "trend": 1,
+          "scatter": 0
+        },
+        "status": "valid",
+        "output": 2.5
+      },
+      {
+        "input": {
+          "trend": 1,
+          "scatter": 0.5
+        },
+        "status": "valid",
+        "output": 2.5
+      },
+      {
+        "input": {
+          "trend": 1,
+          "scatter": 1
+        },
+        "status": "valid",
+        "output": 2.5
+      },
+      {
+        "input": {
+          "trend": 1,
+          "scatter": 2
+        },
+        "status": "valid",
+        "output": 2.5
+      },
+      {
+        "input": {
+          "trend": 2,
+          "scatter": 0
+        },
+        "status": "valid",
+        "output": 5.0
+      },
+      {
+        "input": {
+          "trend": 2,
+          "scatter": 0.5
+        },
+        "status": "valid",
+        "output": 5.0
+      },
+      {
+        "input": {
+          "trend": 2,
+          "scatter": 1
+        },
+        "status": "valid",
+        "output": 5.0
+      },
+      {
+        "input": {
+          "trend": 2,
+          "scatter": 2
+        },
+        "status": "valid",
+        "output": 5.0
+      },
+      {
+        "input": {
+          "trend": -3,
+          "scatter": 0.5
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "trend": 3,
+          "scatter": 0.5
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "trend": true,
+          "scatter": 0.5
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "trend": null,
+          "scatter": 0.5
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "trend": 1,
+          "scatter": -1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "trend": 1,
+          "scatter": 3
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "trend": 1,
+          "scatter": "1"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes.",
+    "numeric_tolerance": 5e-11,
+    "invariants": [
+      "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship.",
+      "Story, calculation, geometry and graph share the same actual declared quantities.",
+      "Whole reading counts remain discrete; numerical quantiles and probability displays remain approximations."
+    ],
+    "limits": [
+      "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Do longer boards tend to take longer to finish, and how do their paired deviations combine?",
+      "answer": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes."
+    },
+    {
+      "prompt": "What does this construction assume?",
+      "answer": "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Paired lengths and times share fixed axes; rectangles measured from the two sample means show the signs and sizes of their products."
+    },
+    {
+      "kind": "graph",
+      "description": "Sample covariance versus the trend coefficient on a fixed signed product-unit axis. The orthogonal residual scale changes the scatter without changing this curve."
+    },
+    {
+      "kind": "substitution",
+      "description": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Originally authored workshop construction",
+      "mapping": "A workshop compares five constructed board lengths of 1, 2, 3, 4 and 5 metres with finishing times. The mean length is 3 metres and the mean time is 10 minutes. The time pattern is 10 plus c times the length deviation, with the additional offsets w, −2w, 2w, −2w and w. Move the trend c or the scatter scale w and follow the paired rectangles into their signed total.",
+      "limitations": "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:covariance:case-1"
+    },
+    {
+      "context": "Reverse the trend",
+      "mapping": "The residual pattern is unchanged, but reversing the trend changes the signed total to −10 and covariance to −2.5 metre-minutes.",
+      "limitations": "These are five constructed pairs, not sampled evidence about a population or a causal effect of length. Sample covariance divides by n−1=4; a complete-population descriptive covariance would use n=5 instead. It retains product units and is not normalized correlation. Use c from −2 to 2 min/m and w from 0 to 2 min; the constructed times stay between 4 and 16 minutes. The fixed residual pattern has zero mean and zero centered cross-product with the lengths, so changing its scale alters the shape while leaving this covariance unchanged. Zero covariance here means the signed products cancel; it does not prove independence or rule out a nonlinear relationship.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:covariance:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:design-extensions:covariance"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 continuation: added this bounded covariance, variance or planning lesson through the shared modular host."
+  ]
+}

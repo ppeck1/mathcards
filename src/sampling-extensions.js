@@ -660,6 +660,7 @@
           min: 0,
           max:
             slug === 'student-mean-interval' ? 18 : slug === 'randomization-distribution' ? 1 : 800,
+          ...(slug === 'one-way-anova' ? { scale: 'log1p' } : {}),
           label: d.primaryLabel + ' (' + d.unit + ')'
         },
         series: [
@@ -678,7 +679,7 @@
             ? 'Whole sample sizes are separate dots. The fixed vertical scale covers the supported margin range; entered summaries stay fixed as n changes.'
             : slug === 'randomization-distribution'
               ? 'Dots show tail proportions at separate input scores. No line interpolates across a jump in the finite tail count.'
-              : 'A fixed F scale from 0 to 800 preserves changes caused by both mean spacing and within-group spread.'
+              : 'Fixed 0–800 F bounds keep mean-spacing and within-group comparisons on the same scale. Logarithmic spacing makes smaller F values visible without moving those bounds.'
         ]
       },
       { ...o, ...(discrete ? { sceneControl: false } : {}) }

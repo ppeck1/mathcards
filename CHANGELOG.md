@@ -6,7 +6,7 @@
 - Validate every lesson's notebook backup and every declared workspace view;
   add strict default-state scene reference/ID/slot checks to CI, with explicit
   browser and phone review rows in the release matrix.
-- Add 59 bounded lessons in inference, modeling, information, number
+- Add 62 bounded lessons in inference, modeling, information, number
   foundations, spatial reasoning, dynamics, order, physical and neural models.
 - Add affine inverse calibration, signed geometric series, exact small-graph
   coloring, two-set inclusion–exclusion, descriptive complete blocks and a
@@ -16,8 +16,13 @@
 - Add unknown-spread Student intervals, all 70 balanced randomization
   assignments and a three-group one-way ANOVA through one shared local family.
   Keep ties exact, learner numbering ordinary and assignment dots separated.
-- Reach 120 draft lessons, 604 original examples, 1,780 fixtures, 724 written
-  exports and 247 views. Keep remaining concept and device-review work explicit.
+- Add signed-area sample covariance, a normal-population variance interval and
+  known-spread two-group power planning. Preserve per-group counts, independent
+  tail calculations, unknown variance and numerical precision boundaries.
+- Give ANOVA a declared fixed logarithmic vertical scale with original F ticks,
+  readings and pins; preserve linear defaults and horizontal drag behavior.
+- Reach 123 draft lessons, 619 original examples, 2,000 fixtures, 742 written
+  exports and 253 views. Keep remaining concept and device-review work explicit.
 - Connect original stories, three-stage calculations, Geometry/Graph, matching
   thumbnails, meaningful quantity ports, worked examples and independent references.
 - Preserve and expose all 295 supplied concept IDs across 18 subjects and eight
@@ -35,7 +40,7 @@
 - Make generated writes recoverable through sibling staging, atomic replacement
   and bounded Windows sharing-error retries. Preserve deterministic LF bytes.
 - Record background startup and payload measurements without claiming browser
-  or phone qualification. Compile all 120 formulas to native MathML.
+  or phone qualification. Compile all 123 formulas to native MathML.
 - Remove duplicate reference-authoring scripts from the runtime, deduplicate
   private search-row text, stop story lookup at its first match and reuse fully
   verified immutable registration metadata. Preserve all public reference data,

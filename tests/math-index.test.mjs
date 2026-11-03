@@ -33,7 +33,7 @@ test('finite set cardinality bars retain their declared meaning without relabeli
 });
 
 test('sample means, indexed observations and population counts keep their exact statistical roles',()=>{
-  for(const query of ['x̄','xbar','\\bar{x}','\\overline{x}']){const mean=index.search(query).find(e=>e.id==='sample-mean');assert.ok(mean,query);assert.deepEqual(mean.usedBy.map(u=>u.slug),['correlation','linear-regression','population-sample']);assert.ok(!index.search(query).some(e=>e.id==='complex-conjugate'));}
+  for(const query of ['x̄','xbar','\\bar{x}','\\overline{x}']){const mean=index.search(query).find(e=>e.id==='sample-mean');assert.ok(mean,query);assert.deepEqual(mean.usedBy.map(u=>u.slug),['correlation','linear-regression','population-sample','covariance']);assert.ok(!index.search(query).some(e=>e.id==='complex-conjugate'));}
   assert.deepEqual(index.search('μ').find(e=>e.id==='population-mean').usedBy.map(u=>u.slug),['population-sample','variance']);
   assert.deepEqual(index.search('N').find(e=>e.id==='population-size').usedBy.map(u=>u.slug),['population-sample','variance']);
   assert.deepEqual(index.search('n').find(e=>e.id==='sample-size').usedBy.map(u=>u.slug),['population-sample']);
@@ -67,7 +67,7 @@ test('index loads without DOM, timers, network or storage and projects immutable
 });
 
 test('pasted Greek symbols preserve case and remain distinct from partial derivatives',()=>{
-  assert.deepEqual(new Set(ids(index.search('δ'))),new Set(['delta-small','transition-function','tape-transition']));
+  assert.deepEqual(new Set(ids(index.search('δ'))),new Set(['delta-small','transition-function','tape-transition','normal-test-power-symbol-3']));
   assert.deepEqual(ids(index.search('Δ')),['delta-capital','factorial-interaction-output','factorial-interaction']);
   assert.deepEqual(ids(index.search('∂')),['partial-derivative']);
   assert.ok(ids(index.search('delta')).includes('delta-small'));

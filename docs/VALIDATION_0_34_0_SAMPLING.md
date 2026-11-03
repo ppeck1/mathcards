@@ -1,5 +1,8 @@
 # 0.34.0 inference continuation validation
 
+This records the 120-card checkpoint. See the [current validation](VALIDATION_0_34_0_DESIGN.md)
+for the following covariance, variance and power continuation.
+
 Background review on 2026-11-03 for `codex/eight-book-expansion`, continuing
 [draft PR #13](https://github.com/ppeck1/mathcards/pull/13). This records the
 120-card candidate after the [117-card checkpoint](VALIDATION_0_34_0_ROADMAP.md).

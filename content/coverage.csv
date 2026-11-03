@@ -248,3 +248,6 @@ math:concept:normal-mean-interval,A normal-mean interval with known spread,stati
 math:concept:student-mean-interval,A Student interval with estimated spread,statistics,draft_specimen,sampling-expansion,pending,pending,implemented
 math:concept:randomization-distribution,An exact randomization distribution,statistics,draft_specimen,sampling-expansion,pending,pending,implemented
 math:concept:one-way-anova,One-way ANOVA: between and within variation,statistics,draft_specimen,sampling-expansion,pending,pending,implemented
+math:concept:covariance,Sample covariance and signed products,statistics,draft_specimen,design-expansion,pending,pending,implemented
+math:concept:normal-variance-interval,A normal-variance confidence interval,statistics,draft_specimen,design-expansion,pending,pending,implemented
+math:concept:normal-test-power,Replication and normal-test power,statistics,draft_specimen,design-expansion,pending,pending,implemented

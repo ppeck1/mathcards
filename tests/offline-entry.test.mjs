@@ -60,7 +60,7 @@ test('the editable offline entry loads all installed working model and story fam
   assert.throws(()=>context.AtlasMathIndex.create(context.AtlasCatalog),/requires authoring data/);
   const definitions=context.AtlasMathIndex.hydrate(context.AtlasMathIndexData);
   assert.ok(definitions.entries.length>=180);
-  assert.deepEqual(Array.from(definitions.search('δ'),entry=>entry.id).sort(),['delta-small','tape-transition','transition-function']);
+  assert.deepEqual(Array.from(definitions.search('δ'),entry=>entry.id).sort(),['delta-small','normal-test-power-symbol-3','tape-transition','transition-function']);
   assert.ok(definitions.forCard('determinant').length>0);
   assert.equal(typeof context.AtlasLandscape.render,'function');
   assert.equal(typeof context.AtlasRegions.create,'function');

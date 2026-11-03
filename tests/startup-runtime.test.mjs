@@ -69,12 +69,12 @@ test('browser reference hydration is complete without authoring globals and neve
   assert.throws(() => api.create({ cards: [] }), /requires authoring data/);
   const browser = api.hydrate(context.AtlasMathIndexData);
   const node = Index.hydrate(plain(context.AtlasMathIndexData));
-  assert.equal(browser.entries.length, 1033);
+  assert.equal(browser.entries.length, 1079);
   assert.deepEqual(plain(browser.entries), node.entries);
   assert.deepEqual(plain(browser.categories), node.categories);
   assert.deepEqual(plain(browser.symbolCatalog()), node.symbolCatalog());
-  assert.equal(browser.symbolCatalog().forms.length, 880);
-  assert.equal(browser.symbolCatalog().meanings, 777);
+  assert.equal(browser.symbolCatalog().forms.length, 890);
+  assert.equal(browser.symbolCatalog().meanings, 813);
   for (const query of [
     'δ',
     'μ',

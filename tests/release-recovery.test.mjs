@@ -26,7 +26,7 @@ const notebook = disk => Notebook.createNotebook({ storage: disk, models: Models
 const workspace = disk => Workspaces.createStore({ storage: disk, modules: Modules });
 
 test('every installed lesson notebook default survives reload and portable backup without changing recorded values', () => {
-  assert.equal(cards.length, 120);
+  assert.equal(cards.length, 123);
   const disk = storage(),
     book = notebook(disk);
   for (const card of cards) {
@@ -101,5 +101,5 @@ test('every declared module view survives workspace save, reload and backup with
       count++;
     }
   }
-  assert.equal(count, 247);
+  assert.equal(count, 253);
 });

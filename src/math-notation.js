@@ -173,6 +173,10 @@
   }
   function unitIds(query,{slug}={}){
     const q=normalize(query),unit=String(query).trim().toLowerCase();
+    if(['m·min','m.min','m min'].includes(unit)&&['covariance','reference:design-covariance-product-unit'].includes(slug))return['design-covariance-product-unit'];
+    if(unit==='min/m'&&['covariance','reference:design-time-per-length-unit'].includes(slug))return['design-time-per-length-unit'];
+    if(q==='mm^2'&&['normal-variance-interval','reference:design-variance-unit'].includes(slug))return['design-variance-unit'];
+    if(['reading','readings','readings per group'].includes(unit)&&['normal-variance-interval','normal-test-power'].includes(slug))return['sampling-reading-count-unit'];
     if(['point','points'].includes(unit)&&(!slug||['randomization-distribution','reference:sampling-task-point-unit'].includes(slug)))return['sampling-task-point-unit'];
     if(['allocation','allocations'].includes(unit)&&(!slug||['randomization-distribution','reference:sampling-allocation-count-unit'].includes(slug)))return['sampling-allocation-count-unit'];
     if(['reading','readings'].includes(unit)&&['student-mean-interval','reference:sampling-reading-count-unit'].includes(slug))return['sampling-reading-count-unit'];
