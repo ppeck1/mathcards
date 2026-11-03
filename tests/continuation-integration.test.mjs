@@ -13,16 +13,16 @@ const Flow = require('../src/calculation-flow.js');
 const Scenes = require('../src/story-scenes.js');
 
 test('the continuation metadata supplies exact new identities, actual bindings and typed quantities', () => {
-  assert.equal(Metadata.ids.length, 27);
-  assert.equal(new Set(Metadata.ids).size, 27);
+  assert.equal(Metadata.ids.length, 33);
+  assert.equal(new Set(Metadata.ids).size, 33);
   assert.ok(Object.isFrozen(Metadata) && Object.isFrozen(Metadata.ids));
   assert.deepEqual(
     Modules.list()
-      .slice(-27)
+      .slice(-33)
       .map(m => m.id),
     Metadata.ids
   );
-  assert.deepEqual(Previews.list().slice(-27), Metadata.ids);
+  assert.deepEqual(Previews.list().slice(-33), Metadata.ids);
   for (const id of Metadata.ids) {
     const card = JSON.parse(
       fs.readFileSync(new URL('../content/cards/' + id + '.json', import.meta.url), 'utf8')

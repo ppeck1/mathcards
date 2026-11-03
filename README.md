@@ -2,10 +2,11 @@
 
 A visual field notebook for learning mathematics as a language of description.
 Change an input, follow it through a story and formula, and see its effect in a
-shape or graph. This branch prepares 0.34.0 with 111 draft lessons, adding
+shape or graph. This branch prepares 0.34.0 with 117 draft lessons, adding
 statistical inference, order structures, number foundations, spatial reasoning,
-algebra, search and networks, continuous probability, dynamics, physical energy
-and illustrative neural computation.
+algebra, search and networks, continuous probability, dynamics, physical energy,
+illustrative neural computation, inverse functions, series, coloring,
+inclusion–exclusion and model-based interval/design comparisons.
 
 **[Open the live atlas](https://ppeck.me/mathcards/)** ·
 [Project story](https://ppeck.me/projects/mathematical-expression-atlas/) ·
@@ -21,7 +22,7 @@ canonical lessons. Dated validation records describe the release they tested.
 
 ![Sampling, interval coverage, regression, equilibrium changes, lattices and neural activation.](docs/presentation-0-34/overview.png)
 
-![Complex numbers, quadratic roots, feasible choices, search, spanning trees, probability and paired signs.](docs/presentation-0-34-gaps/previews.png)
+![Inverse calibration, signed corrections, coloring, overlapping signup lists, blocked comparisons and a normal-mean interval.](docs/presentation-0-34-roadmap/previews.png)
 
 ## Explore
 
@@ -83,8 +84,8 @@ Every validated push to `main` updates the hosted demo automatically.
 | [Reference index](docs/MATH_INDEX.md) | Definitions, symbols and actual card links |
 | [Book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) | Original 214 topic IDs, prerequisites and honest coverage |
 | [Eight-book expansion](docs/EIGHT_BOOK_EXPANSION.md) | 295 supplied subjects, evidence boundaries and actual lesson links |
-| [Branch matrix](docs/GAP_EXPANSION_MATRIX_0_34_0.md) | Current expansion and remaining qualification |
-| [Branch validation](docs/VALIDATION_0_34_0_GAPS.md) | Current checks, artifact integrity and explicit limits |
+| [Branch matrix](docs/ROADMAP_EXPANSION_MATRIX_0_34_0.md) | Current expansion and remaining concepts/qualification |
+| [Branch validation](docs/VALIDATION_0_34_0_ROADMAP.md) | Current checks, artifact integrity and explicit limits |
 | [Startup optimization](docs/STARTUP_OPTIMIZATION_0_34_0.md) | Paired timing checkpoint, fixed attempts and measurement limits |
 | [Release checks](docs/RELEASE_CHECKS_0_34_0.md) | Background release results and remaining browser/phone review |
 | [Number/spatial checkpoint](docs/CONTINUATION_MATRIX_0_34_0.md) | Previous 18-lesson continuation |
@@ -101,9 +102,11 @@ stories are not empirical measurements. Written examples that require a differen
 function or data type stay distinct from executable presets.
 
 Startup removes duplicate reference-authoring data and repeated metadata work.
-The [current measurements](docs/STARTUP_OPTIMIZATION_0_34_0.md) compare the
-optimized candidate with a frozen baseline under the unchanged 1500 ms gate,
-retaining the earlier slow samples. Browser and device qualification remain open.
+The [current validation](docs/VALIDATION_0_34_0_ROADMAP.md) records this artifact's
+startup recheck under the unchanged 1500 ms gate. The
+[paired optimization checkpoint](docs/STARTUP_OPTIMIZATION_0_34_0.md) retains its
+baseline comparison and earlier slow samples. Browser and device qualification
+remain open.
 
 The app stores personal notebooks and workspaces in browser storage; export a
 backup before clearing it. Build tools never read those private records.

@@ -9,7 +9,10 @@
       node ? require('./dynamics-extension-terms.js') : root.AtlasDynamicsExtensionTerms,
       node ? require('./algebra-extension-terms.js') : root.AtlasAlgebraExtensionTerms,
       node ? require('./algorithm-extension-terms.js') : root.AtlasAlgorithmExtensionTerms,
-      node ? require('./distribution-extension-terms.js') : root.AtlasDistributionExtensionTerms
+      node ? require('./distribution-extension-terms.js') : root.AtlasDistributionExtensionTerms,
+      node ? require('./analysis-extension-terms.js') : root.AtlasAnalysisExtensionTerms,
+      node ? require('./discrete-extension-terms.js') : root.AtlasDiscreteExtensionTerms,
+      node ? require('./estimation-extension-terms.js') : root.AtlasEstimationExtensionTerms
     );
   if (node) module.exports = api;
   root.AtlasExpansionTerms = api;
@@ -23,7 +26,10 @@
     DynamicsModels,
     AlgebraModels,
     AlgorithmModels,
-    DistributionModels
+    DistributionModels,
+    AnalysisModels,
+    DiscreteModels,
+    EstimationModels
   ) {
     'use strict';
     const entries = new Map(),
@@ -36,7 +42,10 @@
       DynamicsModels,
       AlgebraModels,
       AlgorithmModels,
-      DistributionModels
+      DistributionModels,
+      AnalysisModels,
+      DiscreteModels,
+      EstimationModels
     ].filter(Boolean)) {
       for (const entry of provider.entries) {
         const previous = entries.get(entry.id),

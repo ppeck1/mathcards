@@ -1,5 +1,10 @@
 # 0.34.0 atlas-gap expansion matrix
 
+Historical 111-card checkpoint. The
+[117-card roadmap continuation](ROADMAP_EXPANSION_MATRIX_0_34_0.md) supersedes
+its current corpus counts. The browser/phone review rows below remain pending
+and also apply to the additional lessons.
+
 Current review candidate on `codex/eight-book-expansion`, continuing
 [draft PR #13](https://github.com/ppeck1/mathcards/pull/13). This supersedes the
 current-state counts in the [102-card checkpoint](CONTINUATION_MATRIX_0_34_0.md).

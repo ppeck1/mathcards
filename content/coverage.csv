@@ -21,7 +21,7 @@ math:concept:order,Order,number-arithmetic,planned,expansion,pending,pending,pla
 math:concept:infinity,Infinity,number-arithmetic,planned,expansion,pending,pending,planned
 math:concept:function-composition,Function Composition,algebra-functions,draft_specimen,first-eight,pending,pending,implemented
 math:concept:domain-codomain,Domain Codomain,algebra-functions,planned,expansion,pending,pending,planned
-math:concept:inverse-function,Inverse Function,algebra-functions,planned,expansion,pending,pending,planned
+math:concept:inverse-function,Inverse functions and calibration,algebra-functions,draft_specimen,roadmap-gaps,pending,pending,implemented
 math:concept:polynomial,Polynomial,algebra-functions,planned,expansion,pending,pending,planned
 math:concept:equation,Equation,algebra-functions,planned,expansion,pending,pending,planned
 math:concept:inequality,Inequality,algebra-functions,planned,expansion,pending,pending,planned
@@ -240,3 +240,8 @@ math:concept:minimum-spanning-tree,Minimum spanning tree,discrete-mathematics,dr
 math:concept:normal-distribution,Normal distribution: height and area,probability,draft_specimen,atlas-gap-continuation,pending,pending,implemented
 math:concept:exponential-distribution,Exponential waiting time,probability,draft_specimen,atlas-gap-continuation,pending,pending,implemented
 math:concept:sign-test,A paired sign test,statistics,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:geometric-series,Geometric series and partial sums,calculus,draft_specimen,roadmap-gaps,pending,pending,implemented
+math:concept:graph-coloring,Graph coloring and compatible sessions,discrete-mathematics,draft_specimen,roadmap-gaps,pending,pending,implemented
+math:concept:inclusion-exclusion,Inclusion–exclusion: count the overlap once,sets-logic,draft_specimen,roadmap-gaps,pending,pending,implemented
+math:concept:randomized-block-design,Randomized blocks and within-pair comparisons,statistics,draft_specimen,roadmap-gaps,pending,pending,implemented
+math:concept:normal-mean-interval,A normal-mean interval with known spread,statistics,draft_specimen,roadmap-gaps,pending,pending,implemented

@@ -32,7 +32,7 @@
   function normalize(query){
     if(typeof query!=='string')return'';let value=query.normalize('NFC').trim().replace(/[−–]/g,'-').replace(/ϵ/g,'ε').replace(/ϕ/g,'φ').replace(/ϑ/g,'θ').replace(/ϰ/g,'κ').replace(/ς/g,'σ');
     value=value.replace(/\\vec\b\s*(?:\{([^{}]+)\}|([A-Za-zα-ωΑ-Ω]))/g,(_,braced,bare)=>(braced||bare)+'⃗');
-    value=value.replace(/\\(?:bar|overline)\s*(?:\{([xyXz])\}|([xyXz])(?![A-Za-z]))/g,(_,braced,bare)=>(braced||bare)+'̅').replace(/([xyXz])[̄̅]/g,(_,letter)=>letter+'̅').replace(/\\mathcal\{O\}/g,'O');
+    value=value.replace(/\\(?:bar|overline)\s*(?:\{([xyXzd])\}|([xyXzd])(?![A-Za-z]))/g,(_,braced,bare)=>(braced||bare)+'̅').replace(/([xyXzd])[̄̅]/g,(_,letter)=>letter+'̅').replace(/\\mathcal\{O\}/g,'O');
     if(value==='xbar')value='x̅';value=value.replace(/^Theta\(/,'Θ(');
     if(/^['’]+$/.test(value))value=value.replace(/['’]/g,'′');
     value=value.replace(/\b([A-Za-z])(['’]+)(?=\s*(?:\(|$))/g,(_,letter,marks)=>letter+'′'.repeat(marks.length)).replace(/″/g,'′′').replace(/‴/g,'′′′');
@@ -51,6 +51,7 @@
   Object.assign(macros,{preceq:'≼'});Object.assign(glyphs,{'≼':['partial-order']});
   Object.assign(macros,{prod:'∏'});Object.assign(glyphs,{'∏':['product-notation']});
   Object.assign(named,{gcd:['greatest-common-divisor-function']});
+  Object.assign(named,{N_G:['graph-coloring-output-4']});
   texFunctions.add('gcd');
   function classify(query,options={}){
     if(typeof query!=='string'||!query.trim())return[];if(options.kind==='unit')return unitIds(query,options);const raw=query.trim(),q=normalize(raw),result=[];const add=(...ids)=>result.push(...ids);
@@ -172,6 +173,11 @@
   }
   function unitIds(query,{slug}={}){
     const q=normalize(query),unit=String(query).trim().toLowerCase();
+    if(['people','person'].includes(unit)&&['inclusion-exclusion','reference:discrete-person-count-unit'].includes(slug))return['discrete-person-count-unit'];
+    if(['slots','slot'].includes(unit)&&(!slug||['graph-coloring','reference:discrete-time-slot-count-unit'].includes(slug)))return['discrete-time-slot-count-unit'];
+    if(['assignments','assignment'].includes(unit)&&(!slug||['graph-coloring','reference:discrete-assignment-count-unit'].includes(slug)))return['discrete-assignment-count-unit'];
+    if(unit==='commands'&&(!slug||['geometric-series','reference:analysis-command-count'].includes(slug)))return['analysis-command-count'];
+    if(['reading','readings'].includes(unit)&&(!slug||['normal-mean-interval','reference:estimation-reading-count-unit'].includes(slug)))return['estimation-reading-count-unit'];
     if(['per min','1/min','min⁻¹'].includes(unit))return['inverse-minute-unit','compound-unit'];
     if(['credits','credits/l'].includes(unit))return['algebra-contribution-units'];
     if(unit==='roots')return['algebra-real-root-count-units'];
@@ -246,7 +252,7 @@
       const probabilisticIndependence=/^X\s*(?:⟂|⊥|\\perp)\s*Y(?![A-Za-z0-9_])/.exec(rest);
       if(probabilisticIndependence){emit(probabilisticIndependence[0],i,'structured',{entryIds:['random-variable-independence']});i+=probabilisticIndependence[0].length;continue;}
 
-      const meanBar=/^[xyXz][̄̅]/u.exec(rest);if(meanBar){emit(meanBar[0],i,'structured');i+=meanBar[0].length;continue;}
+      const meanBar=/^[xyXzd][̄̅]/u.exec(rest);if(meanBar){emit(meanBar[0],i,'structured');i+=meanBar[0].length;continue;}
       const primedLetter=/^[A-Za-z]['’′″]+(?![A-Za-z0-9_])/.exec(rest);if(primedLetter&&!/^\s*[([]/.test(rest.slice(primedLetter[0].length))){emit(primedLetter[0],i,'structured');i+=primedLetter[0].length;continue;}
       if(c==='ŷ'||c==='ẋ'){emit(c,i,'structured');i+=c.length;continue;}
       // Consume vector products before scalar operators, while retaining every argument's reader.
@@ -256,7 +262,7 @@
       const nativeVector=/^[A-Za-zα-ωΑ-Ω]⃗/.exec(rest);
       const arrowProduct=/^([A-Za-zα-ωΑ-Ω]⃗)\s*([×·])\s*([A-Za-zα-ωΑ-Ω]⃗)/.exec(rest);if(arrowProduct){emit(arrowProduct[0],i,'structured',{entryIds:[arrowProduct[2]==='×'?'cross-product':'dot-product']});emit(arrowProduct[1],i,'structured');emit(arrowProduct[3],i+arrowProduct[0].lastIndexOf(arrowProduct[3]),'structured');i+=arrowProduct[0].length;continue;}
       if(nativeVector){emit(nativeVector[0],i,'structured');i+=nativeVector[0].length;continue;}
-      const texBar=/^\\(?:bar|overline)\s*(?:\{([xyXz])\}|([xyXz])(?![A-Za-z]))/.exec(rest);if(texBar){emit(texBar[0],i,'structured');i+=texBar[0].length;continue;}
+      const texBar=/^\\(?:bar|overline)\s*(?:\{([xyXzd])\}|([xyXzd])(?![A-Za-z]))/.exec(rest);if(texBar){emit(texBar[0],i,'structured');i+=texBar[0].length;continue;}
       const thetaCall=/^\\Theta\s*\(/.exec(rest);if(thetaCall){const start=i+thetaCall[0].length-1,end=balanced(text,start,'(',')');if(end){emit(text.slice(i,end),i,'structured');delimiters(start,end-1);children(start+1,end-1);i=end;continue;}}
       const nativeDifference=kind!=='tex'&&/^[A-Z]\\[A-Z]\b/.exec(rest);if(nativeDifference){emit(nativeDifference[0],i,'structured',{entryIds:['set-difference']});i+=nativeDifference[0].length;continue;}
       if(c==='~'&&kind==='tex'){emit(c,i,'formatting',{reason:'TeX nonbreaking space'});i++;continue;}

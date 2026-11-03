@@ -1107,6 +1107,60 @@
       "locator": "§3.5(v): Gaussian quadrature. The bounded numerical implementation and error measurements are independently authored.",
       "verification": "Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.",
       "rights": "Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:analysis-extension:inverse",
+      "title": "OpenStax · Inverse Functions",
+      "url": "https://openstax.org/books/algebra-and-trigonometry-2e/pages/3-7-inverse-functions",
+      "kind": "textbook",
+      "locator": "Definition, inverse identities and reflected coordinates.",
+      "verification": "Definition-level public source inspected 2026-11-03. Original bounded scenario, diagrams and examples are author-derived; independent mathematical and exact-edition book review remain pending.",
+      "rights": "Original calibration/correction scenarios and diagrams. No source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:analysis-extension:series",
+      "title": "OpenStax · Series and Their Notations",
+      "url": "https://openstax.org/books/algebra-and-trigonometry-2e/pages/13-4-series-and-their-notations",
+      "kind": "textbook",
+      "locator": "Finite geometric-sum formula, the r=1 branch, and infinite-series convergence condition.",
+      "verification": "Definition-level public source inspected 2026-11-03. Original bounded scenario, diagrams and examples are author-derived; independent mathematical and exact-edition book review remain pending.",
+      "rights": "Original calibration/correction scenarios and diagrams. No source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:discrete-extension:coloring",
+      "title": "Joy Morris · Combinatorics · Vertex colouring",
+      "url": "https://opentext.uleth.ca/Combinatorics/sect_colouring-Vertices.html",
+      "kind": "textbook",
+      "locator": "Definitions 14.3.2–14.3.3 and notation 14.3.4: proper vertex coloring and chromatic number.",
+      "verification": "Definition-level original textbook source inspected 2026-11-03. The four-session example and exhaustive implementation are originally authored; independent review and exact-edition book mapping remain pending.",
+      "rights": "Original workshop scenario, diagrams and worked derivations; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:discrete-extension:inclusion",
+      "title": "OpenStax · Contemporary Mathematics · Set operations with two sets",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/1-4-set-operations-with-two-sets",
+      "kind": "textbook",
+      "locator": "Determining the cardinality of two sets: two-set inclusion–exclusion.",
+      "verification": "Definition-level primary OER source inspected 2026-11-03. Original chair-planning examples; independent mathematical and exact-edition book checks remain pending.",
+      "rights": "Original signup-list scenario, diagrams and worked examples; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:estimation-extensions:blocks",
+      "title": "NIST/SEMATECH · Randomized Block Designs",
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri332.htm",
+      "kind": "reference",
+      "locator": "§5.3.3.2: one primary factor, nuisance blocking factors, within-block randomization and additive block effects. The original three-day packing construction is not the source example.",
+      "verification": "Definition-level primary source inspected 2026-11-03; independent mathematical/pedagogical and exact-edition book review remain pending.",
+      "rights": "Original prose, constructed packing times, examples and SVG; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:estimation-extensions:normal-interval",
+      "title": "NIST/SEMATECH · What Are Confidence Intervals?",
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+      "kind": "reference",
+      "locator": "§7.1.4: repeated-interval confidence and the normal-mean interval with known population standard deviation; distinction from estimated spread.",
+      "verification": "Definition-level primary source inspected 2026-11-03; independent mathematical/pedagogical and exact-edition book review remain pending.",
+      "rights": "Original calibration scenario, prose, calculations and SVG; no source exercise, data or illustration reproduced."
     }
   ]
 }

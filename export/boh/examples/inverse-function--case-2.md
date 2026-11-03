@@ -1,0 +1,702 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:inverse-function:case-2", "id": "math:example:inverse-function:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:inverse-function", "example_id": "math:example:inverse-function:case-2", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "481b9ea70b00ad094a28650ee45f3d6fb733a770319c6a8122a89be2402792a7", "source_revision": "0.1.0-draft", "upstream_content_sha256": "8e38fe5baaec6b4ae19b1b5813ec808f9d3dba0a01a8e66bebdaab22e943a435"}, "purpose": "Which command produced the position shown by the calibrated stage?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "8e38fe5baaec6b4ae19b1b5813ec808f9d3dba0a01a8e66bebdaab22e943a435", "status": "draft", "title": "Reverse the coordinate axis", "topics": ["mathematics", "algebra", "functions", "inverse function"], "type": "reference", "updated": "2026-11-03T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Reverse the coordinate axis
+
+Parent card: math:concept:inverse-function; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:inverse-function; revision 0.1.0-draft. Setting: A workshop positioning stage accepts a signed command x in centimetres. Its declared calibration reports position y=ax+b in centimetres. After observing y, a technician removes the zero offset b, then divides by gain a to recover the command. A negative gain means the coordinate axis is reversed. Expression: $f(x)=ax+b,\quad a\ne0,\qquad f^{-1}(y)=\frac{y-b}{a},\qquad f^{-1}(f(x))=x.$. Conditions required for a defined value (a case may test their violation): The affine rule has domain and range all real numbers for nonzero a. This demonstration bounds y to [−8,8] cm and b to [−3,3] cm, with gain a in [−3,3] and |a| at least 0.25. The inverse domain is the original range; its inverse range is the original domain. The calibration is declared, not fitted to measurements. Numerical round trips approximate the exact algebraic identity. A nonzero recovered command that underflows is reported as a precision failure. Scope: The affine rule has domain and range all real numbers for nonzero a. This demonstration bounds y to [−8,8] cm and b to [−3,3] cm, with gain a in [−3,3] and |a| at least 0.25. The inverse domain is the original range; its inverse range is the original domain. The calibration is declared, not fitted to measurements. Numerical round trips approximate the exact algebraic identity. A nonzero recovered command that underflows is reported as a precision failure.
+
+Case unit math:example:inverse-function:case-2. Setting: A workshop positioning stage accepts a signed command x in centimetres. Its declared calibration reports position y=ax+b in centimetres. After observing y, a technician removes the zero offset b, then divides by gain a to recover the command. A negative gain means the coordinate axis is reversed. Inputs: {"gain": -2, "offset": 1, "reading": -5}. Result: {"approximate": "3.0 cm"}. Limits: The affine rule has domain and range all real numbers for nonzero a. This demonstration bounds y to [−8,8] cm and b to [−3,3] cm, with gain a in [−3,3] and |a| at least 0.25. The inverse domain is the original range; its inverse range is the original domain. The calibration is declared, not fitted to measurements. Numerical round trips approximate the exact algebraic identity. A nonzero recovered command that underflows is reported as a precision failure.
+
+## Complete worked case
+
+- id: math:example:inverse-function:case-2
+- title: Reverse the coordinate axis
+- role: applied_model
+- question: Which command produced the position shown by the calibrated stage?
+- setting: A workshop positioning stage accepts a signed command x in centimetres. Its declared calibration reports position y=ax+b in centimetres. After observing y, a technician removes the zero offset b, then divides by gain a to recover the command. A negative gain means the coordinate axis is reversed.
+- assumptions:
+  - The affine rule has domain and range all real numbers for nonzero a. This demonstration bounds y to [−8,8] cm and b to [−3,3] cm, with gain a in [−3,3] and |a| at least 0.25. The inverse domain is the original range; its inverse range is the original domain. The calibration is declared, not fitted to measurements. Numerical round trips approximate the exact algebraic identity. A nonzero recovered command that underflows is reported as a precision failure.
+- inputs:
+  - reading: -5
+  - gain: -2
+  - offset: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: y − b = -5 − (1) = -6 cm
+    - reason: Remove the additive offset first.
+  - Item:
+    - index: 2
+    - expression: x = (-6)/(-2) = 3.0 cm
+    - reason: Divide by the nonzero gain.
+  - Item:
+    - index: 3
+    - expression: ax+b = (-2)(3.0)+(1) = -5 cm
+    - reason: Check by applying the original calibration.
+- result:
+  - approximate: 3.0 cm
+- interpretation: The command is 3 cm even though the reported coordinate is negative. A negative gain reverses direction.
+- independent check:
+  - method: Substitute the recovered command into the original calibration.
+  - expected: 3.0
+- limits: The affine rule has domain and range all real numbers for nonzero a. This demonstration bounds y to [−8,8] cm and b to [−3,3] cm, with gain a in [−3,3] and |a| at least 0.25. The inverse domain is the original range; its inverse range is the original domain. The calibration is declared, not fitted to measurements. Numerical round trips approximate the exact algebraic identity. A nonzero recovered command that underflows is reported as a precision failure.
+- preset:
+  - reading: -5
+  - gain: -2
+  - offset: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - The affine rule has domain and range all real numbers for nonzero a. This demonstration bounds y to [−8,8] cm and b to [−3,3] cm, with gain a in [−3,3] and |a| at least 0.25. The inverse domain is the original range; its inverse range is the original domain. The calibration is declared, not fitted to measurements. Numerical round trips approximate the exact algebraic identity. A nonzero recovered command that underflows is reported as a precision failure.
+
+## Written exploration recipe
+
+- component id: component:inverse-function
+- renderer id: inverse-function-visual-model
+- renderer version: 1
+- model id: inverse-function-visual-model
+- model revision: 1
+- expression id: ast:inverse-function:expression
+- interaction status: implemented
+- description: A workshop positioning stage accepts a signed command x in centimetres. Its declared calibration reports position y=ax+b in centimetres. After observing y, a technician removes the zero offset b, then divides by gain a to recover the command. A negative gain means the coordinate axis is reversed.
+- controls:
+  - Item:
+    - id: reading
+    - type: number
+    - default: 5
+    - min: -8
+    - max: 8
+    - step: 0.05
+  - Item:
+    - id: gain
+    - type: number
+    - default: 2
+    - min: -3
+    - max: 3
+    - step: 0.05
+  - Item:
+    - id: offset
+    - type: number
+    - default: 1
+    - min: -3
+    - max: 3
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - reading: 5
+      - gain: 2
+      - offset: 1
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - reading: -5
+      - gain: -2
+      - offset: 1
+    - status: valid
+    - output: 3.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: 0.5
+      - offset: -2
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - reading: -3
+      - gain: 1
+      - offset: 0
+    - status: valid
+    - output: -3.0
+  - Item:
+    - input:
+      - reading: 8
+      - gain: 0.25
+      - offset: -3
+    - status: valid
+    - output: 44.0
+  - Item:
+    - input:
+      - reading: -8
+      - gain: -3
+      - offset: -3
+    - status: valid
+    - output: 1.6666666666666667
+  - Item:
+    - input:
+      - reading: -8
+      - gain: -3
+      - offset: 0
+    - status: valid
+    - output: 2.6666666666666665
+  - Item:
+    - input:
+      - reading: -8
+      - gain: -3
+      - offset: 3
+    - status: valid
+    - output: 3.6666666666666665
+  - Item:
+    - input:
+      - reading: -8
+      - gain: -0.5
+      - offset: -3
+    - status: valid
+    - output: 10.0
+  - Item:
+    - input:
+      - reading: -8
+      - gain: -0.5
+      - offset: 0
+    - status: valid
+    - output: 16.0
+  - Item:
+    - input:
+      - reading: -8
+      - gain: -0.5
+      - offset: 3
+    - status: valid
+    - output: 22.0
+  - Item:
+    - input:
+      - reading: -8
+      - gain: 0.25
+      - offset: -3
+    - status: valid
+    - output: -20.0
+  - Item:
+    - input:
+      - reading: -8
+      - gain: 0.25
+      - offset: 0
+    - status: valid
+    - output: -32.0
+  - Item:
+    - input:
+      - reading: -8
+      - gain: 0.25
+      - offset: 3
+    - status: valid
+    - output: -44.0
+  - Item:
+    - input:
+      - reading: -8
+      - gain: 1
+      - offset: -3
+    - status: valid
+    - output: -5.0
+  - Item:
+    - input:
+      - reading: -8
+      - gain: 1
+      - offset: 0
+    - status: valid
+    - output: -8.0
+  - Item:
+    - input:
+      - reading: -8
+      - gain: 1
+      - offset: 3
+    - status: valid
+    - output: -11.0
+  - Item:
+    - input:
+      - reading: -8
+      - gain: 3
+      - offset: -3
+    - status: valid
+    - output: -1.6666666666666667
+  - Item:
+    - input:
+      - reading: -8
+      - gain: 3
+      - offset: 0
+    - status: valid
+    - output: -2.6666666666666665
+  - Item:
+    - input:
+      - reading: -8
+      - gain: 3
+      - offset: 3
+    - status: valid
+    - output: -3.6666666666666665
+  - Item:
+    - input:
+      - reading: -1
+      - gain: -3
+      - offset: -3
+    - status: valid
+    - output: -0.6666666666666666
+  - Item:
+    - input:
+      - reading: -1
+      - gain: -3
+      - offset: 0
+    - status: valid
+    - output: 0.3333333333333333
+  - Item:
+    - input:
+      - reading: -1
+      - gain: -3
+      - offset: 3
+    - status: valid
+    - output: 1.3333333333333333
+  - Item:
+    - input:
+      - reading: -1
+      - gain: -0.5
+      - offset: -3
+    - status: valid
+    - output: -4.0
+  - Item:
+    - input:
+      - reading: -1
+      - gain: -0.5
+      - offset: 0
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - reading: -1
+      - gain: -0.5
+      - offset: 3
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - reading: -1
+      - gain: 0.25
+      - offset: -3
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - reading: -1
+      - gain: 0.25
+      - offset: 0
+    - status: valid
+    - output: -4.0
+  - Item:
+    - input:
+      - reading: -1
+      - gain: 0.25
+      - offset: 3
+    - status: valid
+    - output: -16.0
+  - Item:
+    - input:
+      - reading: -1
+      - gain: 1
+      - offset: -3
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - reading: -1
+      - gain: 1
+      - offset: 0
+    - status: valid
+    - output: -1.0
+  - Item:
+    - input:
+      - reading: -1
+      - gain: 1
+      - offset: 3
+    - status: valid
+    - output: -4.0
+  - Item:
+    - input:
+      - reading: -1
+      - gain: 3
+      - offset: -3
+    - status: valid
+    - output: 0.6666666666666666
+  - Item:
+    - input:
+      - reading: -1
+      - gain: 3
+      - offset: 0
+    - status: valid
+    - output: -0.3333333333333333
+  - Item:
+    - input:
+      - reading: -1
+      - gain: 3
+      - offset: 3
+    - status: valid
+    - output: -1.3333333333333333
+  - Item:
+    - input:
+      - reading: 0
+      - gain: -3
+      - offset: -3
+    - status: valid
+    - output: -1.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: -3
+      - offset: 0
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: -3
+      - offset: 3
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: -0.5
+      - offset: -3
+    - status: valid
+    - output: -6.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: -0.5
+      - offset: 0
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: -0.5
+      - offset: 3
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: 0.25
+      - offset: -3
+    - status: valid
+    - output: 12.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: 0.25
+      - offset: 0
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: 0.25
+      - offset: 3
+    - status: valid
+    - output: -12.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: 1
+      - offset: -3
+    - status: valid
+    - output: 3.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: 1
+      - offset: 0
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: 1
+      - offset: 3
+    - status: valid
+    - output: -3.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: 3
+      - offset: -3
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: 3
+      - offset: 0
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - reading: 0
+      - gain: 3
+      - offset: 3
+    - status: valid
+    - output: -1.0
+  - Item:
+    - input:
+      - reading: 1
+      - gain: -3
+      - offset: -3
+    - status: valid
+    - output: -1.3333333333333333
+  - Item:
+    - input:
+      - reading: 1
+      - gain: -3
+      - offset: 0
+    - status: valid
+    - output: -0.3333333333333333
+  - Item:
+    - input:
+      - reading: 1
+      - gain: -3
+      - offset: 3
+    - status: valid
+    - output: 0.6666666666666666
+  - Item:
+    - input:
+      - reading: 1
+      - gain: -0.5
+      - offset: -3
+    - status: valid
+    - output: -8.0
+  - Item:
+    - input:
+      - reading: 1
+      - gain: -0.5
+      - offset: 0
+    - status: valid
+    - output: -2.0
+  - Item:
+    - input:
+      - reading: 1
+      - gain: -0.5
+      - offset: 3
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - reading: 1
+      - gain: 0.25
+      - offset: -3
+    - status: valid
+    - output: 16.0
+  - Item:
+    - input:
+      - reading: 1
+      - gain: 0.25
+      - offset: 0
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - reading: 1
+      - gain: 0.25
+      - offset: 3
+    - status: valid
+    - output: -8.0
+  - Item:
+    - input:
+      - reading: 1
+      - gain: 1
+      - offset: -3
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - reading: 1
+      - gain: 1
+      - offset: 0
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - reading: 1
+      - gain: 1
+      - offset: 3
+    - status: valid
+    - output: -2.0
+  - Item:
+    - input:
+      - reading: 1
+      - gain: 3
+      - offset: -3
+    - status: valid
+    - output: 1.3333333333333333
+  - Item:
+    - input:
+      - reading: 1
+      - gain: 3
+      - offset: 0
+    - status: valid
+    - output: 0.3333333333333333
+  - Item:
+    - input:
+      - reading: 1
+      - gain: 3
+      - offset: 3
+    - status: valid
+    - output: -0.6666666666666666
+  - Item:
+    - input:
+      - reading: 8
+      - gain: -3
+      - offset: -3
+    - status: valid
+    - output: -3.6666666666666665
+  - Item:
+    - input:
+      - reading: 8
+      - gain: -3
+      - offset: 0
+    - status: valid
+    - output: -2.6666666666666665
+  - Item:
+    - input:
+      - reading: 8
+      - gain: -3
+      - offset: 3
+    - status: valid
+    - output: -1.6666666666666667
+  - Item:
+    - input:
+      - reading: 8
+      - gain: -0.5
+      - offset: -3
+    - status: valid
+    - output: -22.0
+  - Item:
+    - input:
+      - reading: 8
+      - gain: -0.5
+      - offset: 0
+    - status: valid
+    - output: -16.0
+  - Item:
+    - input:
+      - reading: 8
+      - gain: -0.5
+      - offset: 3
+    - status: valid
+    - output: -10.0
+  - Item:
+    - input:
+      - reading: 8
+      - gain: 0.25
+      - offset: -3
+    - status: valid
+    - output: 44.0
+  - Item:
+    - input:
+      - reading: 8
+      - gain: 0.25
+      - offset: 0
+    - status: valid
+    - output: 32.0
+  - Item:
+    - input:
+      - reading: 8
+      - gain: 0.25
+      - offset: 3
+    - status: valid
+    - output: 20.0
+  - Item:
+    - input:
+      - reading: 8
+      - gain: 1
+      - offset: -3
+    - status: valid
+    - output: 11.0
+  - Item:
+    - input:
+      - reading: 8
+      - gain: 1
+      - offset: 0
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - reading: 8
+      - gain: 1
+      - offset: 3
+    - status: valid
+    - output: 5.0
+  - Item:
+    - input:
+      - reading: 8
+      - gain: 3
+      - offset: -3
+    - status: valid
+    - output: 3.6666666666666665
+  - Item:
+    - input:
+      - reading: 8
+      - gain: 3
+      - offset: 0
+    - status: valid
+    - output: 2.6666666666666665
+  - Item:
+    - input:
+      - reading: 8
+      - gain: 3
+      - offset: 3
+    - status: valid
+    - output: 1.6666666666666667
+  - Item:
+    - input:
+      - reading: 1
+      - gain: 0
+      - offset: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - reading: 1
+      - gain: 0.1
+      - offset: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - reading: 9
+      - gain: 1
+      - offset: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - reading: true
+      - gain: 1
+      - offset: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - reading: 5e-324
+      - gain: 3
+      - offset: 0
+    - status: numeric_precision
+- compute: An inverse function reverses a one-to-one rule by exchanging its inputs and outputs. For an affine calibration, subtract the offset and divide by the nonzero gain. The inverse is a function, rather than the reciprocal of a function value.
+- numeric tolerance: 1e-10
+- invariants:
+  - The affine rule has domain and range all real numbers for nonzero a. This demonstration bounds y to [−8,8] cm and b to [−3,3] cm, with gain a in [−3,3] and |a| at least 0.25. The inverse domain is the original range; its inverse range is the original domain. The calibration is declared, not fitted to measurements. Numerical round trips approximate the exact algebraic identity. A nonzero recovered command that underflows is reported as a precision failure.
+  - Story, calculations and both views read one validated state.
+- limits:
+  - The affine rule has domain and range all real numbers for nonzero a. This demonstration bounds y to [−8,8] cm and b to [−3,3] cm, with gain a in [−3,3] and |a| at least 0.25. The inverse domain is the original range; its inverse range is the original domain. The calibration is declared, not fitted to measurements. Numerical round trips approximate the exact algebraic identity. A nonzero recovered command that underflows is reported as a precision failure.
+- fallback: Pause and inspect the same inputs through the story, formula, Geometry, Graph and numeric table.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:analysis-extension:inverse. [OpenStax · Inverse Functions](https://openstax.org/books/algebra-and-trigonometry-2e/pages/3-7-inverse-functions). Locator: Definition, inverse identities and reflected coordinates.. Verification: Definition-level public source inspected 2026-11-03. Original bounded scenario, diagrams and examples are author-derived; independent mathematical and exact-edition book review remain pending.. Rights: Original calibration/correction scenarios and diagrams. No source exercise or illustration reproduced.

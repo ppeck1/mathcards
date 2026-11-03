@@ -11,8 +11,8 @@ browser are projections of this inventory plus a separately authored
 [lesson crosswalk](../content/planning/eight-book-crosswalk.json). Importing a
 subject never creates a completed lesson or a verified book attribution.
 
-The current branch crosswalk links 74 inventory subjects to bounded draft
-introductions and 56 to preparation only; 165 remain planned. These are
+The current branch crosswalk links 77 inventory subjects to bounded draft
+introductions and 57 to preparation only; 161 remain planned. These are
 concept-to-lesson links, so several subjects can lead to the same lesson. They
 are not counts of new cards or complete treatments of a book.
 
@@ -29,8 +29,21 @@ are not counts of new cards or complete treatments of a book.
 | Algebra and constrained choices | Complex modulus/conjugation, real quadratic roots and a bounded two-blend linear program | Exact discriminant and objective comparisons; numerical coordinates, explicit feasible region and tied optima; general polynomial/optimization engines remain separate |
 | Search and network procedures | Linear search, sorted binary search and a small minimum spanning tree | Whole comparison prefixes, separate full-run costs and exact tied tree totals; no sorting-cost or broad complexity claim |
 | Continuous probability and signs | Normal CDF/density, exponential waiting time and an exact paired sign test | Density differs from mass; full probability differs from a clipped window; a sign test is preparation for the broader nonparametric field |
+| Functions and series | Affine inverse calibration and signed geometric partial sums | Nonzero gain and literal inverse reflection; finite sums and the restricted infinite limit remain distinct |
+| Discrete counting and design | Four-session colorings, two-list inclusion–exclusion and complete-block comparisons | Exact finite enumeration/counts; blocked descriptive differences do not imply a causal finding or ANOVA |
+| Normal-mean uncertainty | Fixed 95% interval under independent normal readings and known sigma | Separate from binomial intervals, posterior statements, prediction intervals and unknown-sigma procedures |
 
-## Current atlas-gap continuation
+## Current six-lesson continuation
+
+The [117-card matrix](ROADMAP_EXPANSION_MATRIX_0_34_0.md) records inverse
+functions, geometric series, graph coloring, inclusion–exclusion, randomized
+blocks and the known-sigma normal-mean interval. Blocking, series and graph
+coloring gain bounded introductory coverage; randomization gains preparation
+only. Normal sampling and general estimator theory retain precursor status.
+The raw inventory's evidence, all stable IDs and provisional book mappings
+remain unchanged.
+
+## Earlier nine-lesson atlas-gap continuation
 
 The next nine lessons take the branch to 111 draft cards and directly advance
 normal distributions, exponential distributions and quadratic equations. The
@@ -41,7 +54,7 @@ not establish how sample means behave.
 
 Complex numbers, graph theory, optimization and complexity gain clearer
 prerequisites or contrasting examples without upgrading broad fields. The
-[current matrix](GAP_EXPANSION_MATRIX_0_34_0.md) records actual lesson coverage;
+[checkpoint matrix](GAP_EXPANSION_MATRIX_0_34_0.md) records that lesson coverage;
 the earlier 214-topic roadmap keeps 59 introductions, 36 precursors and 119
 planned rows. No book association or source evidence state was upgraded by
 adding these executable lessons.

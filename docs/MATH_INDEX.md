@@ -5,12 +5,12 @@ renderer. The shared search adapter combines that provider with real cards and
 atlas areas. Neither provider starts an animation, accesses storage, or requires
 a browser when its script is loaded.
 
-The current 0.34.0 review candidate projects **897 entries** over **111 draft
-cards**: **854 authored definitions** and **43 contextual entries**. Its symbol
-catalog has **834 selectable forms across 677 meanings**. The
-[current notation audit](NOTATION_COVERAGE_0_34_0.json) resolves all 76,271
-occurrences across 47,355 selected fields and 1,472 tokens, with zero unresolved
-or review items. See the [release checks](RELEASE_CHECKS_0_34_0.md) for the
+The current 0.34.0 review candidate projects **981 entries** over **117 draft
+cards**: **938 authored definitions** and **43 contextual entries**. Its symbol
+catalog has **865 selectable forms across 739 meanings**. The
+[current notation audit](NOTATION_COVERAGE_0_34_0.json) resolves all 79,626
+occurrences across 49,182 selected fields and 1,497 tokens, with zero unresolved
+or review items. See the [current validation](VALIDATION_0_34_0_ROADMAP.md) for the
 current evidence and the browser/phone review still pending. The API and
 authoring sections below describe the current provider; versioned sections
 preserve earlier checkpoints.

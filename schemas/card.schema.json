@@ -1111,7 +1111,13 @@
             "minimum-spanning-tree-visual-model",
             "normal-distribution-visual-model",
             "exponential-distribution-visual-model",
-            "sign-test-visual-model"
+            "sign-test-visual-model",
+            "inverse-function-visual-model",
+            "geometric-series-visual-model",
+            "graph-coloring-visual-model",
+            "inclusion-exclusion-visual-model",
+            "randomized-block-design-visual-model",
+            "normal-mean-interval-visual-model"
           ]
         },
         "renderer_version": {

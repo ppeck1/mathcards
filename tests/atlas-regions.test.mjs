@@ -64,8 +64,8 @@ test('actual availability wins over coverage status without inventing cards for 
   assert.ok(!topic.plannedConcepts.some(card=>card.id===promoted.id));
   assert.equal(expanded.availableCount,cards.length+1);
   const absent=Regions.create({cards:cards.filter(card=>card.slug!=='graph-theory'),coverage}).getTopic('computation:graphs-and-networks');
-  assert.equal(absent.availableCount,1);
-  assert.deepEqual(absent.availableCards.map(card=>card.slug),['minimum-spanning-tree']);
+  assert.equal(absent.availableCount,2);
+  assert.deepEqual(absent.availableCards.map(card=>card.slug),['minimum-spanning-tree','graph-coloring']);
   assert.equal(absent.plannedConcepts.find(concept=>concept.id==='math:concept:graph-theory').status,'unavailable');
 });
 

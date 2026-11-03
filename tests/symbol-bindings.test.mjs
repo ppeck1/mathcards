@@ -37,6 +37,10 @@ test('every mapped canonical grammar token resolves to an actual rendered quanti
   // their focused scenes. A mark must never pretend to show an unshown value.
   for(const slug of ['joint-distribution','conditional-entropy','mutual-information'])for(const token of ['X','Y'])textOnly.add(slug+':'+token);
   for(const [slug,tokens]of Object.entries({
+    // Operators, function identities and the unknown population mean have no numerical scene value.
+    'inverse-function':['f','f⁻¹'],
+    'geometric-series':['∑','∞'],
+    'normal-mean-interval':['μ'],
     'turing-machine':['δ','□','S','C','H','L','R'],
     proof:['Γ','→','⊢','⊨','MP'],
     'joint-distribution':['P(X=x|Y=y)','H(X,Y)'],

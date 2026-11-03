@@ -1,5 +1,10 @@
 # PR #13 release checks — background review
 
+This records the 111-card release checkpoint. The subsequent
+[six-lesson continuation](ROADMAP_EXPANSION_MATRIX_0_34_0.md) and its
+[validation](VALIDATION_0_34_0_ROADMAP.md) identify the expanded artifact. The
+device-review plan below remains pending and applies to that continuation.
+
 Reviewed on 2026-11-02 on `codex/eight-book-expansion`, starting from
 `805141891e30b731b9d05f07bdb6b9ffcb9aaec7`. This continues
 [draft PR #13](https://github.com/ppeck1/mathcards/pull/13). The 111 lessons,

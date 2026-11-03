@@ -31,14 +31,14 @@ const card = id =>
   JSON.parse(fs.readFileSync(new URL('../content/cards/' + id + '.json', import.meta.url), 'utf8'));
 
 test('nine gap lessons join the installed host in declared order with independent states and meaningful ports', () => {
-  assert.deepEqual(Metadata.ids.slice(-9), ids);
+  assert.deepEqual(Metadata.ids.slice(18, 27), ids);
   assert.deepEqual(
     Modules.list()
-      .slice(-9)
+      .slice(102, 111)
       .map(module => module.id),
     ids
   );
-  assert.deepEqual(Previews.list().slice(-9), ids);
+  assert.deepEqual(Previews.list().slice(102, 111), ids);
   for (const id of ids) {
     const module = Modules.get(id),
       canonical = card(id);

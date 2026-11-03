@@ -32,9 +32,10 @@
       "status": "precursor",
       "cards": [
         "sampling-distribution",
-        "normal-distribution"
+        "normal-distribution",
+        "normal-mean-interval"
       ],
-      "scope_note": "An exact finite sample-mean distribution and a normal density/CDF prepare for sampling models. Sampling from a normal population and central-limit theorems remain separate planned lessons."
+      "scope_note": "A finite sample-mean distribution, normal density/CDF and known-sigma normal-mean interval prepare for normal sampling. General sample generation, unknown-sigma Student intervals and central-limit theorems remain separate."
     },
     {
       "concept_id": "two-sample-comparisons",
@@ -48,9 +49,10 @@
       "concept_id": "confidence-intervals",
       "status": "draft-introduction",
       "cards": [
-        "confidence-interval"
+        "confidence-interval",
+        "normal-mean-interval"
       ],
-      "scope_note": "A 95% exact binomial-tail inversion family with numerical endpoints; coverage is a repeated-procedure property, not a posterior probability for a fixed parameter."
+      "scope_note": "Exact binomial-tail intervals and a separate known-sigma normal-mean interval illustrate repeated-procedure confidence under explicit different sampling assumptions; neither is a posterior probability for a fixed parameter."
     },
     {
       "concept_id": "hypothesis-tests",
@@ -145,15 +147,18 @@
       "concept_id": "experimental-design",
       "status": "precursor",
       "cards": [
-        "factorial-interaction"
+        "factorial-interaction",
+        "randomized-block-design"
       ],
-      "scope_note": "A descriptive two-by-two interaction prepares for designed experiments; randomization, replication and an error model are not implemented."
+      "scope_note": "Constructed two-factor interaction and complete-block comparisons prepare for designed experiments. General design selection, replication, allocation and error-model inference remain separate."
     },
     {
       "concept_id": "randomization",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "precursor",
+      "cards": [
+        "randomized-block-design"
+      ],
+      "scope_note": "A stated randomized-within-block setup motivates paired comparisons. Allocation generation, randomization distributions and a general randomization lesson remain planned."
     },
     {
       "concept_id": "replication",
@@ -163,9 +168,11 @@
     },
     {
       "concept_id": "blocking",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "randomized-block-design"
+      ],
+      "scope_note": "A small constructed complete-block comparison follows within-block differences while common block offsets cancel. This descriptive contrast does not supply an ANOVA, randomization distribution or empirical treatment-effect claim."
     },
     {
       "concept_id": "analysis-of-variance",
@@ -506,9 +513,10 @@
       "status": "precursor",
       "cards": [
         "linear-regression",
-        "confidence-interval"
+        "confidence-interval",
+        "normal-mean-interval"
       ],
-      "scope_note": "Specific fitted coefficients and a binomial-proportion interval prepare for estimator theory; bias, consistency and general efficiency are not implemented."
+      "scope_note": "Specific fitted coefficients and sample-mean/proportion interval centers prepare for general estimator theory. Bias, consistency, sufficiency and broad efficiency results remain planned."
     },
     {
       "concept_id": "paired-comparisons",
@@ -553,9 +561,11 @@
       "status": "draft-introduction",
       "cards": [
         "permutation-count",
-        "binomial-coefficient"
+        "binomial-coefficient",
+        "inclusion-exclusion",
+        "graph-coloring"
       ],
-      "scope_note": "Multiplication of successive choices and removal of repeated orderings introduce two finite counting methods. This is not a complete combinatorics curriculum."
+      "scope_note": "Finite permutations/combinations, a two-collection inclusion-exclusion identity and proper coloring enumeration introduce distinct exact counting methods. This is not a complete combinatorics curriculum."
     },
     {
       "concept_id": "conditional-probability",
@@ -796,9 +806,10 @@
       "concept_id": "union-and-intersection",
       "status": "draft-introduction",
       "cards": [
-        "set"
+        "set",
+        "inclusion-exclusion"
       ],
-      "scope_note": "Finite displayed sets with explicit membership and selected operations."
+      "scope_note": "Explicit finite sets and a two-collection count show how union, overlap and double counting relate. General measure-theoretic inclusion-exclusion remains separate."
     },
     {
       "concept_id": "infinity-notation",
@@ -909,9 +920,10 @@
       "concept_id": "functions",
       "status": "draft-introduction",
       "cards": [
-        "function"
+        "function",
+        "inverse-function"
       ],
-      "scope_note": "A bounded real-valued function family with explicit input and output."
+      "scope_note": "Bounded real function and affine inverse families distinguish input/output, domain/range and inverse recovery. An inverse requires nonzero affine gain; reciprocal notation is separate."
     },
     {
       "concept_id": "matrices",
@@ -986,9 +998,10 @@
       "status": "precursor",
       "cards": [
         "set",
-        "countability"
+        "countability",
+        "inclusion-exclusion"
       ],
-      "scope_note": "Finite set counts and one countable enumeration precede cardinal comparison and uncountable sets."
+      "scope_note": "Exact finite set counts, inclusion-exclusion and one countable enumeration prepare for cardinal comparison and uncountable sets; this row retains its broader precursor scope."
     },
     {
       "concept_id": "infinite-sets",
@@ -1310,9 +1323,11 @@
     },
     {
       "concept_id": "series",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "geometric-series"
+      ],
+      "scope_note": "Finite signed geometric sums and the geometric limit only for absolute ratio below one. The r=1 branch remains a valid finite sum; no general convergence tests or arbitrary series engine are implemented."
     },
     {
       "concept_id": "fourier-analysis",
@@ -1325,9 +1340,10 @@
       "status": "draft-introduction",
       "cards": [
         "graph-theory",
-        "minimum-spanning-tree"
+        "minimum-spanning-tree",
+        "graph-coloring"
       ],
-      "scope_note": "Small fixed weighted networks distinguish shortest routes from least-total-length spanning trees, including tied minima. Graph coloring and broader graph theory remain separate."
+      "scope_note": "Small fixed networks compare shortest routes, least-total-length spanning trees and proper vertex colorings. Their finite certificates do not implement general graph theory."
     },
     {
       "concept_id": "polyhedra",
@@ -1337,9 +1353,11 @@
     },
     {
       "concept_id": "graph-coloring",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "graph-coloring"
+      ],
+      "scope_note": "Exhaustively count proper labeled colorings for a fixed four-vertex cycle with an optional diagonal and certify its minimum color count. Arbitrary graph algorithms, planar-map theorems and complexity proofs remain separate."
     },
     {
       "concept_id": "combinatorial-designs",

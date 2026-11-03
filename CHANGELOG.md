@@ -6,8 +6,15 @@
 - Validate every lesson's notebook backup and every declared workspace view;
   add strict default-state scene reference/ID/slot checks to CI, with explicit
   browser and phone review rows in the release matrix.
-- Add 50 bounded lessons in inference, modeling, information, number
+- Add 56 bounded lessons in inference, modeling, information, number
   foundations, spatial reasoning, dynamics, order, physical and neural models.
+- Add affine inverse calibration, signed geometric series, exact small-graph
+  coloring, two-set inclusion–exclusion, descriptive complete blocks and a
+  known-sigma normal-mean interval through three more explicit local families.
+- Preserve actual story/calculation/shape targets, text-only operators and an
+  unmarked unknown mean; reuse the common summation reader and scope new units.
+- Reach 117 draft lessons, 589 original examples, 1,565 fixtures, 706 written
+  exports and 241 views. Keep remaining concept and device-review work explicit.
 - Connect original stories, three-stage calculations, Geometry/Graph, matching
   thumbnails, meaningful quantity ports, worked examples and independent references.
 - Preserve and expose all 295 supplied concept IDs across 18 subjects and eight
@@ -47,7 +54,7 @@
   comparisons; retain meaningful input/output marks for pinned probabilities.
 - Preserve empty lists and objects explicitly in written exports, including
   scopes with no external parameters.
-- Reach 111 draft cards, 559 worked examples, 1,256 numeric fixtures,
+- At the earlier atlas-gap checkpoint, reach 111 draft cards, 559 worked examples, 1,256 numeric fixtures,
   670 written exports and 229 representations. Preserve bounded draft status
   in both overlapping book roadmaps.
 
