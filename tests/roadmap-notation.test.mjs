@@ -47,6 +47,21 @@ test('new count units keep their actual lesson meaning without replacing earlier
   assert.deepEqual(Notation.classify('readings', { slug: 'graph-coloring', kind: 'unit' }), []);
 });
 
+test('sampling units resolve to their scoped score, allocation and reading meanings', () => {
+  for (const [text, slug, id] of [
+    ['points', 'randomization-distribution', 'sampling-task-point-unit'],
+    ['allocations', 'randomization-distribution', 'sampling-allocation-count-unit'],
+    ['readings', 'student-mean-interval', 'sampling-reading-count-unit']
+  ]) {
+    assert.deepEqual(Notation.classify(text, { slug, kind: 'unit' }), [id]);
+    assert.equal(
+      Notation.audit({ entries: Terms.entries, fields: [{ slug, text, kind: 'unit' }] }).complete,
+      true
+    );
+    assert.deepEqual(Notation.classify(text, { slug: 'unrelated-card', kind: 'unit' }), []);
+  }
+});
+
 test('the coloring count is an explicit callable reader and remains scoped to its graph lesson', () => {
   assert.ok(Notation.classify('N_G(k)').includes('graph-coloring-output-4'));
   const readers = Terms.entries.filter(entry => entry.id === 'graph-coloring-output-4');

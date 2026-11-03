@@ -139,7 +139,7 @@ gates remain explicit in the current release/branch review matrix.
 Prettier 3.6.2 is pinned as a development-only tool in `package-lock.json`.
 `npm ci --ignore-scripts` installs it; `npm run check:format` checks the new
 systems, inference, inventory, expansion, number/spatial foundations, dynamics,
-algebra, algorithm, distribution, analysis, discrete and estimation extensions
+algebra, algorithm, distribution, analysis, discrete, estimation and sampling extensions
 and extracted legacy-provider modules,
 their new tests, generated-write helpers, startup regression tests and measurement
 harness. `npm run format` rewrites
@@ -152,7 +152,7 @@ already follows one formatter. Add a coherent file family to the explicit scope
 when consolidating it; keep mass formatting separate from mathematical changes.
 Syntax/whitespace checks continue to cover the broader authored source.
 
-Algebra, algorithm, distribution, analysis, discrete and estimation extensions
+Algebra, algorithm, distribution, analysis, discrete, estimation and sampling extensions
 follow the same explicit provider installation. Their metadata joins number, spatial and dynamics
 families through the allowlisted build projection. New families add authored
 files and data rather than another host or an external program loader.

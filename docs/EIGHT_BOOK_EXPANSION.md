@@ -11,15 +11,15 @@ browser are projections of this inventory plus a separately authored
 [lesson crosswalk](../content/planning/eight-book-crosswalk.json). Importing a
 subject never creates a completed lesson or a verified book attribution.
 
-The current branch crosswalk links 77 inventory subjects to bounded draft
-introductions and 57 to preparation only; 161 remain planned. These are
+The current branch crosswalk links 79 inventory subjects to bounded draft
+introductions and 56 to preparation only; 160 remain planned. These are
 concept-to-lesson links, so several subjects can lead to the same lesson. They
 are not counts of new cards or complete treatments of a book.
 
 | Expansion family | Working introductions on this branch | Scope retained |
 |---|---|---|
 | Inference and distributions | Sampling distribution, binomial confidence interval, one-sided hypothesis test, binomial and Poisson laws | Explicit finite sampling or stated distribution models; no unsupported general inference engine |
-| Statistical modeling and design | Five-point regression, Pearson correlation, two-by-two interaction and chi-square discrepancy | Descriptive constructions; causal claims, ANOVA and missing uncertainty methods remain separate |
+| Statistical modeling and design | Five-point regression, Pearson correlation, two-by-two interaction, chi-square discrepancy and a three-group ANOVA | Constructed measurements; the one-way F reference states its normal/common-variance assumptions; causal and pairwise claims remain separate |
 | Information | Relative entropy | A finite KL-divergence family, including zero-probability and infinite-divergence states |
 | Dynamics and order | Fields, flows, basins, fold, cusp potential, partial order, meet/join and distributivity | Declared normal forms or a finite powerset lattice; no general catastrophe or lattice classification |
 | Energy and computational learning | Finite heat balance, Gibbs comparison, ideal gas, scalar sigmoid and one Hebbian update | Physical units and model limits; no biological validation or reaction-rate inference |
@@ -32,8 +32,18 @@ are not counts of new cards or complete treatments of a book.
 | Functions and series | Affine inverse calibration and signed geometric partial sums | Nonzero gain and literal inverse reflection; finite sums and the restricted infinite limit remain distinct |
 | Discrete counting and design | Four-session colorings, two-list inclusion–exclusion and complete-block comparisons | Exact finite enumeration/counts; blocked descriptive differences do not imply a causal finding or ANOVA |
 | Normal-mean uncertainty | Fixed 95% interval under independent normal readings and known sigma | Separate from binomial intervals, posterior statements, prediction intervals and unknown-sigma procedures |
+| Estimated spread and assignment uncertainty | Fixed 95% Student interval, all 70 balanced four-versus-four allocations and one-way ANOVA | Unknown spread changes the Student multiplier; exact absolute randomization tails include ties; ANOVA separates within/between variation with declared error assumptions |
 
-## Current six-lesson continuation
+## Current inference continuation
+
+The [120-card matrix](SAMPLING_EXPANSION_MATRIX_0_34_0.md) adds three lessons.
+Randomization and analysis of variance advance from preparation to bounded
+introductions, and replication gains preparation. Normal sampling and general
+estimation still require dedicated expansions. All raw book evidence remains
+unchanged; the new source references support mathematical definitions rather
+than certifying exact-edition coverage.
+
+## Earlier six-lesson continuation
 
 The [117-card matrix](ROADMAP_EXPANSION_MATRIX_0_34_0.md) records inverse
 functions, geometric series, graph coloring, inclusion–exclusion, randomized

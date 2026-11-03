@@ -18,7 +18,7 @@ from generated_io import write_generated
 ROOT = Path(__file__).resolve().parents[1]
 FAMILIES = ("number-foundation", "spatial-foundation", "dynamics-extension",
             "algebra-extension", "algorithm-extension", "distribution-extension",
-            "analysis-extension", "discrete-extension", "estimation-extension")
+            "analysis-extension", "discrete-extension", "estimation-extension", "sampling-extension")
 SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 KEY = re.compile(r"[A-Za-z][A-Za-z0-9]*\Z")
 TYPE = re.compile(r"[a-z][a-z0-9]*(?:-[a-z0-9]+)*\Z")

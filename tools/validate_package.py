@@ -115,7 +115,8 @@ def compute(model,p):
     from analysis_extension_reference import compute as analysis_compute
     from discrete_extension_reference import compute as discrete_compute
     from estimation_extension_reference import compute as estimation_compute
-    for oracle in (systems_compute, inference_compute, number_compute, spatial_compute, dynamics_compute, algebra_compute, algorithm_compute, distribution_compute, analysis_compute, discrete_compute, estimation_compute):
+    from sampling_extension_reference import compute as sampling_compute
+    for oracle in (systems_compute, inference_compute, number_compute, spatial_compute, dynamics_compute, algebra_compute, algorithm_compute, distribution_compute, analysis_compute, discrete_compute, estimation_compute, sampling_compute):
         result=oracle(model,p)
         if result is not None:return result
     if model=='turing-machine-visual-model':

@@ -1,5 +1,8 @@
 # 0.34.0 six-lesson roadmap validation
 
+This records the 117-card checkpoint. See the [current 120-card validation](VALIDATION_0_34_0_SAMPLING.md)
+for the following Student, randomization and ANOVA continuation.
+
 Background validation on 2026-11-03 for `codex/eight-book-expansion`, continuing
 [draft PR #13](https://github.com/ppeck1/mathcards/pull/13) from `c0c34fe`.
 This identifies the 117-card candidate after the

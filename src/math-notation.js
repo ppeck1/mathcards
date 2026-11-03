@@ -173,6 +173,9 @@
   }
   function unitIds(query,{slug}={}){
     const q=normalize(query),unit=String(query).trim().toLowerCase();
+    if(['point','points'].includes(unit)&&(!slug||['randomization-distribution','reference:sampling-task-point-unit'].includes(slug)))return['sampling-task-point-unit'];
+    if(['allocation','allocations'].includes(unit)&&(!slug||['randomization-distribution','reference:sampling-allocation-count-unit'].includes(slug)))return['sampling-allocation-count-unit'];
+    if(['reading','readings'].includes(unit)&&['student-mean-interval','reference:sampling-reading-count-unit'].includes(slug))return['sampling-reading-count-unit'];
     if(['people','person'].includes(unit)&&['inclusion-exclusion','reference:discrete-person-count-unit'].includes(slug))return['discrete-person-count-unit'];
     if(['slots','slot'].includes(unit)&&(!slug||['graph-coloring','reference:discrete-time-slot-count-unit'].includes(slug)))return['discrete-time-slot-count-unit'];
     if(['assignments','assignment'].includes(unit)&&(!slug||['graph-coloring','reference:discrete-assignment-count-unit'].includes(slug)))return['discrete-assignment-count-unit'];

@@ -1161,6 +1161,33 @@
       "locator": "§7.1.4: repeated-interval confidence and the normal-mean interval with known population standard deviation; distinction from estimated spread.",
       "verification": "Definition-level primary source inspected 2026-11-03; independent mathematical/pedagogical and exact-edition book review remain pending.",
       "rights": "Original calibration scenario, prose, calculations and SVG; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:sampling-extensions:student-interval",
+      "title": "NIST/SEMATECH · Confidence Limits for the Mean",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+      "kind": "reference",
+      "locator": "§1.3.5.2: Student interval with sample standard deviation, N−1 degrees of freedom and repeated-procedure confidence. The calibration summaries and derivations here are original.",
+      "verification": "Definition-level primary source inspected 2026-11-03; independent mathematical, pedagogical and exact-edition book review remain pending.",
+      "rights": "Original wording, constructed calibration summaries and examples; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:sampling-extensions:randomization",
+      "title": "SciPy · permutation_test: exact independent partitions and finite-precision ties",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.permutation_test.html",
+      "kind": "reference",
+      "locator": "Notes: all distinct fixed-size partitions form an exact permutation distribution; equal statistics count in the tail; two-sided conventions must be declared. Mathcards uses its stated absolute-statistic tail on a symmetric equal-size assignment distribution, and does not import SciPy or reproduce its example.",
+      "verification": "Official primary software/method documentation inspected 2026-11-03. The finite assignment construction is independently enumerated; independent mathematical/pedagogical and exact-edition book review remain pending.",
+      "rights": "Original eight-task construction, prose, arithmetic and diagrams; no source example, data, code or illustration reproduced."
+    },
+    {
+      "id": "source:sampling-extensions:anova",
+      "title": "NIST/SEMATECH · The ANOVA Table and Tests of Hypotheses About Means",
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc433.htm",
+      "kind": "reference",
+      "locator": "§7.4.3.3: between/within sums of squares, degrees of freedom, mean squares and the F ratio. The three constructed packing groups and the explicit F(2,6) survival expression are derived here rather than copied from the reference example.",
+      "verification": "Definition-level primary source inspected 2026-11-03; independent mathematical, pedagogical and exact-edition book review remain pending.",
+      "rights": "Original nine packing times, wording and worked derivations; no source exercise, data or illustration reproduced."
     }
   ]
 }

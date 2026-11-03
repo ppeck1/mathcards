@@ -33,9 +33,10 @@
       "cards": [
         "sampling-distribution",
         "normal-distribution",
-        "normal-mean-interval"
+        "normal-mean-interval",
+        "student-mean-interval"
       ],
-      "scope_note": "A finite sample-mean distribution, normal density/CDF and known-sigma normal-mean interval prepare for normal sampling. General sample generation, unknown-sigma Student intervals and central-limit theorems remain separate."
+      "scope_note": "Finite sample means and normal/Student interval models prepare for normal sampling. The summaries are entered rather than generated; general sample generation, central-limit theorems and distributional diagnostics remain separate."
     },
     {
       "concept_id": "two-sample-comparisons",
@@ -50,17 +51,20 @@
       "status": "draft-introduction",
       "cards": [
         "confidence-interval",
-        "normal-mean-interval"
+        "normal-mean-interval",
+        "student-mean-interval"
       ],
-      "scope_note": "Exact binomial-tail intervals and a separate known-sigma normal-mean interval illustrate repeated-procedure confidence under explicit different sampling assumptions; neither is a posterior probability for a fixed parameter."
+      "scope_note": "Exact binomial, known-sigma normal and unknown-sigma Student intervals are separate procedures with explicit sampling assumptions. The Student family uses independent normal readings, an estimated spread and n−1 degrees of freedom at fixed 95% confidence; no posterior or prediction interpretation."
     },
     {
       "concept_id": "hypothesis-tests",
       "status": "draft-introduction",
       "cards": [
-        "hypothesis-test"
+        "hypothesis-test",
+        "randomization-distribution",
+        "one-way-anova"
       ],
-      "scope_note": "One predeclared upper-tail binomial test at alpha=0.05; a p-value is not the probability that the null hypothesis is true."
+      "scope_note": "Separate bounded binomial, exhaustive balanced-allocation and three-group F comparisons state their own null hypotheses, tails and assumptions. P-values are not probabilities that a null is true, and mean differences do not by themselves establish causation."
     },
     {
       "concept_id": "degrees-of-freedom",
@@ -154,17 +158,20 @@
     },
     {
       "concept_id": "randomization",
-      "status": "precursor",
+      "status": "draft-introduction",
       "cards": [
-        "randomized-block-design"
+        "randomized-block-design",
+        "randomization-distribution"
       ],
-      "scope_note": "A stated randomized-within-block setup motivates paired comparisons. Allocation generation, randomization distributions and a general randomization lesson remain planned."
+      "scope_note": "All 70 balanced four-versus-four assignments of eight fixed outcomes are enumerated under a sharp no-effect null. The absolute-tail convention includes ties; no Monte Carlo sampler, arbitrary allocation design or general causal inference engine is implemented."
     },
     {
       "concept_id": "replication",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "precursor",
+      "cards": [
+        "one-way-anova"
+      ],
+      "scope_note": "Three constructed readings in each group illustrate within-group variation and error degrees of freedom. No fresh randomized experiment, power calculation or general replication-design lesson is supplied."
     },
     {
       "concept_id": "blocking",
@@ -176,11 +183,12 @@
     },
     {
       "concept_id": "analysis-of-variance",
-      "status": "precursor",
+      "status": "draft-introduction",
       "cards": [
-        "factorial-interaction"
+        "factorial-interaction",
+        "one-way-anova"
       ],
-      "scope_note": "The four cell means illustrate one interaction contrast; ANOVA decomposition, sampling error and inferential F tests remain planned."
+      "scope_note": "A balanced three-group, nine-reading construction decomposes total variation into between/within sums of squares, divides by 2/6 degrees of freedom and compares their mean squares. The F(2,6) tail uses an explicitly stated independent-normal/common-variance model; general designs and pairwise procedures remain separate."
     },
     {
       "concept_id": "multiple-comparisons",
@@ -514,9 +522,10 @@
       "cards": [
         "linear-regression",
         "confidence-interval",
-        "normal-mean-interval"
+        "normal-mean-interval",
+        "student-mean-interval"
       ],
-      "scope_note": "Specific fitted coefficients and sample-mean/proportion interval centers prepare for general estimator theory. Bias, consistency, sufficiency and broad efficiency results remain planned."
+      "scope_note": "Specific fitted coefficients and observed sample-mean/proportion interval centers prepare for estimator theory. Bias, consistency, sufficiency and broad efficiency results remain planned."
     },
     {
       "concept_id": "paired-comparisons",

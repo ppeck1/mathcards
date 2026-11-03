@@ -1,20 +1,20 @@
 {
   "scope": "Canonical formulas, worked mathematics, story math/units, generated scene/readout labels across declared control boundaries, and the reference examples/symbols themselves. No private records or UI icon crawl.",
   "counts": {
-    "cards": 117,
-    "fields": 49182,
-    "occurrences": 79626,
-    "uniqueTokens": 1497,
-    "resolved": 79626,
+    "cards": 120,
+    "fields": 50081,
+    "occurrences": 81778,
+    "uniqueTokens": 1523,
+    "resolved": 81778,
     "unresolved": 0,
-    "formatting": 2111,
+    "formatting": 2296,
     "review": 0
   },
   "complete": true,
-  "indexEntries": 981,
-  "authoredEntries": 938,
-  "runtimeFields": 42927,
-  "referenceFields": 2179,
+  "indexEntries": 1033,
+  "authoredEntries": 990,
+  "runtimeFields": 43610,
+  "referenceFields": 2274,
   "uiExclusions": [
     {
       "slug": "function",

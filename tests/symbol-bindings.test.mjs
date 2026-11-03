@@ -41,6 +41,7 @@ test('every mapped canonical grammar token resolves to an actual rendered quanti
     'inverse-function':['f','f⁻¹'],
     'geometric-series':['∑','∞'],
     'normal-mean-interval':['μ'],
+    'student-mean-interval':['μ'],
     'turing-machine':['δ','□','S','C','H','L','R'],
     proof:['Γ','→','⊢','⊨','MP'],
     'joint-distribution':['P(X=x|Y=y)','H(X,Y)'],

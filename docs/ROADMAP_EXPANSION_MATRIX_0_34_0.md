@@ -1,5 +1,8 @@
 # 0.34.0 roadmap-gap expansion matrix
 
+This records the 117-card checkpoint. The [current inference continuation](SAMPLING_EXPANSION_MATRIX_0_34_0.md)
+adds Student intervals, exhaustive randomization and one-way ANOVA.
+
 Current review candidate, updated 2026-11-03 on `codex/eight-book-expansion` in
 [draft PR #13](https://github.com/ppeck1/mathcards/pull/13). This supersedes the
 current corpus counts in the [111-card checkpoint](GAP_EXPANSION_MATRIX_0_34_0.md).

@@ -245,3 +245,6 @@ math:concept:graph-coloring,Graph coloring and compatible sessions,discrete-math
 math:concept:inclusion-exclusion,Inclusion–exclusion: count the overlap once,sets-logic,draft_specimen,roadmap-gaps,pending,pending,implemented
 math:concept:randomized-block-design,Randomized blocks and within-pair comparisons,statistics,draft_specimen,roadmap-gaps,pending,pending,implemented
 math:concept:normal-mean-interval,A normal-mean interval with known spread,statistics,draft_specimen,roadmap-gaps,pending,pending,implemented
+math:concept:student-mean-interval,A Student interval with estimated spread,statistics,draft_specimen,sampling-expansion,pending,pending,implemented
+math:concept:randomization-distribution,An exact randomization distribution,statistics,draft_specimen,sampling-expansion,pending,pending,implemented
+math:concept:one-way-anova,One-way ANOVA: between and within variation,statistics,draft_specimen,sampling-expansion,pending,pending,implemented
