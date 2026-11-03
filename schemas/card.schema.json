@@ -1117,7 +1117,10 @@
             "graph-coloring-visual-model",
             "inclusion-exclusion-visual-model",
             "randomized-block-design-visual-model",
-            "normal-mean-interval-visual-model"
+            "normal-mean-interval-visual-model",
+            "student-mean-interval-visual-model",
+            "randomization-distribution-visual-model",
+            "one-way-anova-visual-model"
           ]
         },
         "renderer_version": {
