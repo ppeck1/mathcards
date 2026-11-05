@@ -1242,6 +1242,42 @@
       "locator": "Definition/Notes: independent samples, equal-distribution null, complementary U statistics and rank-sum relation. Location/median interpretations need additional assumptions. Tied small samples call for permutation methods; this original construction enumerates all 20 labeled three-versus-three allocations with fixed pooled midranks.",
       "verification": "Official primary method documentation inspected 2026-11-03. Independent finite enumeration and original examples; independent mathematical/pedagogical and exact-edition book review remain pending.",
       "rights": "Original six-learner score construction, calibration comparisons and figures; no source example, data or implementation reproduced."
+    },
+    {
+      "id": "source:number-extensions:least-common-multiple",
+      "title": "Wolfram MathWorld · Least Common Multiple",
+      "url": "https://mathworld.wolfram.com/LeastCommonMultiple.html",
+      "kind": "reference",
+      "locator": "Definition of the least positive common multiple; equation (13), lcm(a,b)=ab/gcd(a,b) for positive integers. The repeating workshop signals and finite timeline are original constructions.",
+      "verification": "Definition-level page inspected 2026-11-05. Independent mathematical and pedagogical review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored timing scenario, explanations and finite calculations. No source exercise, illustration or data reproduced."
+    },
+    {
+      "id": "source:number-extensions:perfect-number",
+      "title": "Wolfram MathWorld · Perfect Number",
+      "url": "https://mathworld.wolfram.com/PerfectNumber.html",
+      "kind": "reference",
+      "locator": "Opening definition: a positive integer is perfect when it equals the sum of its proper positive divisors. The divisor-strip exhibit, empty case and classifications are original teaching constructions.",
+      "verification": "Definition-level page inspected 2026-11-05. Independent mathematical and pedagogical review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored tile-strip scenario and divisor calculations; no historical priority claims. No source exercise, illustration or data reproduced."
+    },
+    {
+      "id": "source:geometry-extensions:regular-polygon",
+      "title": "Wolfram MathWorld · Regular Polygon",
+      "url": "https://mathworld.wolfram.com/RegularPolygon.html",
+      "kind": "reference",
+      "locator": "Equations (2), (4) and (9): side length, apothem and area of a regular convex polygon with circumradius R. The pavilion and triangulation explanations are original applications of these definitions.",
+      "verification": "Definition-level page inspected 2026-11-05. Independent mathematical and pedagogical review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored pavilion scenario, coordinates and worked calculations. No source exercise, illustration or data reproduced."
+    },
+    {
+      "id": "source:geometry-extensions:sphere-measurement",
+      "title": "Wolfram MathWorld · Sphere",
+      "url": "https://mathworld.wolfram.com/Sphere.html",
+      "kind": "reference",
+      "locator": "Radius and diameter, surface area 4πr², and enclosed volume 4πr³/3 for a Euclidean sphere. The full spherical tank and its comparison of surface and volume are original constructions.",
+      "verification": "Definition-level page inspected 2026-11-05. Independent mathematical and pedagogical review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored ideal tank scenario and dimensional comparisons. No source exercise, illustration or data reproduced."
     }
   ]
 }

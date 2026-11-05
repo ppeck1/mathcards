@@ -1,9 +1,12 @@
 # PR #13 release checks — background review
 
+The [130-card number/geometry matrix](NUMBER_GEOMETRY_EXPANSION_MATRIX_0_34_0.md)
+and [current validation](VALIDATION_0_34_0_NUMBER_GEOMETRY.md) identify the latest
+candidate. The device-review plan remains open for this candidate.
+
 The [126-card comparison matrix](COMPARISON_EXPANSION_MATRIX_0_34_0.md) and
-[current validation](VALIDATION_0_34_0_COMPARISON.md) identify the latest
-candidate. The device-review plan below remains open for that candidate;
-the results here retain this earlier checkpoint's evidence.
+[its validation](VALIDATION_0_34_0_COMPARISON.md) retain the previous
+continuation's evidence.
 
 This records the 111-card release checkpoint. The subsequent
 [six-lesson continuation](ROADMAP_EXPANSION_MATRIX_0_34_0.md) and its

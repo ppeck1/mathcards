@@ -140,8 +140,8 @@ Prettier 3.6.2 is pinned as a development-only tool in `package-lock.json`.
 `npm ci --ignore-scripts` installs it; `npm run check:format` checks the new
 systems, inference, inventory, expansion, number/spatial foundations, dynamics,
 algebra, algorithm, distribution, analysis, discrete, estimation, sampling,
-design and comparison extensions and extracted legacy-provider modules,
-their new tests, generated-write helpers, startup regression tests and measurement
+design, comparison, number/geometry extensions and extracted legacy-provider
+modules, their new tests, generated-write helpers, startup regression tests and measurement
 harness. `npm run format` rewrites
 only that declared scope. `.prettierignore` excludes generated projections,
 release artifacts, original handoff material and the vendored formula compiler.
@@ -153,8 +153,8 @@ when consolidating it; keep mass formatting separate from mathematical changes.
 Syntax/whitespace checks continue to cover the broader authored source.
 
 Algebra, algorithm, distribution, analysis, discrete, estimation, sampling,
-design and comparison extensions follow the same explicit provider installation.
-Their metadata joins number, spatial and dynamics families through the
+design, comparison, number and geometry extensions follow the same explicit
+provider installation. Their metadata joins number/spatial foundations and dynamics through the
 allowlisted build projection. New families add authored
 files and data rather than another host or an external program loader.
 
@@ -183,9 +183,29 @@ finite probability samples and rank-change events as dots; it does not
 interpolate a smooth probability through discontinuities. These declared
 finite references carry no general median-only or causal interpretation.
 
-The [current comparison matrix](COMPARISON_EXPANSION_MATRIX_0_34_0.md) and
-[validation record](VALIDATION_0_34_0_COMPARISON.md) separate implemented
-contracts from remaining mathematical, browser and phone qualification.
+The [comparison checkpoint](COMPARISON_EXPANSION_MATRIX_0_34_0.md) retains its
+recorded scope and [validation](VALIDATION_0_34_0_COMPARISON.md).
+
+`number-extensions.js` and `geometry-extensions.js` add their own pure providers,
+with connected narratives in their respective `*-extension-stories.js` files
+and reference meanings in `*-extension-terms.js`. Their two explicit integration
+records go through the same allowlisted projection. They reuse the host, clock,
+readable-value pacing, saved-state schemas and revision 1 provider contract.
+
+The workshop signals compute exact positive integer common multiples; shared
+zero is a starting event rather than the first reunion. The proper-divisor
+exhibit preserves the empty set and zero sum for one. Whole periods and counts
+remain discrete in both scenes and graphs. Physical radii can vary continuously:
+the pavilion uses equal-scale vertices and center triangles, while the full
+spherical tank distinguishes complete surface area, equatorial disk area and
+enclosed volume. Independent references scan shared ticks or divisor pairs,
+measure polygon vertices, and integrate spherical cross-sections.
+
+The [current number/geometry matrix](NUMBER_GEOMETRY_EXPANSION_MATRIX_0_34_0.md)
+and [validation record](VALIDATION_0_34_0_NUMBER_GEOMETRY.md) separate these
+implemented contracts from remaining mathematical, browser and phone
+qualification. A new module family does not imply a new timing result or a
+completed device review.
 
 `plot-view.js` also accepts an optional nonnegative vertical `log1p` scale.
 The renderer transforms projection and tick positions while retaining original

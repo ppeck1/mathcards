@@ -36,6 +36,7 @@ const expectedIds = [
 expectedIds.push('student-mean-interval', 'randomization-distribution', 'one-way-anova');
 expectedIds.push('covariance', 'normal-variance-interval', 'normal-test-power');
 expectedIds.push('covariance-matrix', 'wilcoxon-signed-rank', 'mann-whitney');
+expectedIds.push('least-common-multiple', 'perfect-number', 'regular-polygon', 'sphere-measurement');
 const format = value => value == null ? 'undefined' : String(Number(value.toPrecision(7)));
 const context = (id, view) => ({ id, view, format, compact: false, camera: .65 });
 const finiteScene = (html, label) => {

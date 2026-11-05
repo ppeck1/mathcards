@@ -1,5 +1,9 @@
 # 0.34.0 covariance matrix and rank-comparison matrix
 
+Checkpoint record: the [130-card number/geometry matrix](NUMBER_GEOMETRY_EXPANSION_MATRIX_0_34_0.md)
+identifies the current candidate. Counts and results below retain this earlier
+checkpoint's evidence.
+
 Current review candidate, 2026-11-03, on `codex/eight-book-expansion` in
 [draft PR #13](https://github.com/ppeck1/mathcards/pull/13). This follows the
 [123-card checkpoint](DESIGN_EXPANSION_MATRIX_0_34_0.md). Live remains 0.33.0.

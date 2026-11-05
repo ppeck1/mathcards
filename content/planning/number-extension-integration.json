@@ -1,0 +1,125 @@
+{
+  "slugs": [
+    "least-common-multiple",
+    "perfect-number"
+  ],
+  "sources": [
+    {
+      "id": "source:number-extensions:least-common-multiple",
+      "title": "Wolfram MathWorld · Least Common Multiple",
+      "url": "https://mathworld.wolfram.com/LeastCommonMultiple.html",
+      "kind": "reference",
+      "locator": "Definition of the least positive common multiple; equation (13), lcm(a,b)=ab/gcd(a,b) for positive integers. The repeating workshop signals and finite timeline are original constructions.",
+      "verification": "Definition-level page inspected 2026-11-05. Independent mathematical and pedagogical review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored timing scenario, explanations and finite calculations. No source exercise, illustration or data reproduced."
+    },
+    {
+      "id": "source:number-extensions:perfect-number",
+      "title": "Wolfram MathWorld · Perfect Number",
+      "url": "https://mathworld.wolfram.com/PerfectNumber.html",
+      "kind": "reference",
+      "locator": "Opening definition: a positive integer is perfect when it equals the sum of its proper positive divisors. The divisor-strip exhibit, empty case and classifications are original teaching constructions.",
+      "verification": "Definition-level page inspected 2026-11-05. Independent mathematical and pedagogical review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored tile-strip scenario and divisor calculations; no historical priority claims. No source exercise, illustration or data reproduced."
+    }
+  ],
+  "bindings": {
+    "least-common-multiple": {
+      "a": [
+        "first"
+      ],
+      "b": [
+        "second"
+      ],
+      "d": [
+        "gcd"
+      ],
+      "L": [
+        "output"
+      ],
+      "c_A": [
+        "firstCycles"
+      ],
+      "c_B": [
+        "secondCycles"
+      ]
+    },
+    "perfect-number": {
+      "n": [
+        "number"
+      ],
+      "D": [
+        "divisors"
+      ],
+      "s": [
+        "divisorSum"
+      ],
+      "Δ": [
+        "balance"
+      ],
+      "d": [
+        "divisors"
+      ]
+    }
+  },
+  "ports": {
+    "least-common-multiple": [
+      {
+        "id": "input:first",
+        "direction": "input",
+        "key": "first",
+        "label": "Signal A period",
+        "type": "positive-integer-period",
+        "unit": "min",
+        "description": "Signal A period. The receiving module validates its own domain and units."
+      },
+      {
+        "id": "input:second",
+        "direction": "input",
+        "key": "second",
+        "label": "Signal B period",
+        "type": "positive-integer-period",
+        "unit": "min",
+        "description": "Signal B period. The receiving module validates its own domain and units."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "First positive shared time",
+        "type": "duration",
+        "unit": "min",
+        "description": "For positive integers a and b, the least common multiple L is the smallest positive integer divisible by both. If two signals begin together and repeat every a and b minutes, L is their first positive reunion time. Divide ab by their greatest common divisor d to avoid counting the shared factor twice."
+      }
+    ],
+    "perfect-number": [
+      {
+        "id": "input:number",
+        "direction": "input",
+        "key": "number",
+        "label": "Target tile count",
+        "type": "positive-integer-count",
+        "unit": "items",
+        "description": "Target tile count. The receiving module validates its own domain and units."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Proper-divisor tile total",
+        "type": "item-count",
+        "unit": "items",
+        "description": "A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers."
+      },
+      {
+        "id": "output:balance",
+        "direction": "output",
+        "key": "balance",
+        "label": "Surplus or shortage of divisor tiles",
+        "type": "signed-item-count",
+        "unit": "items",
+        "description": "Surplus or shortage of divisor tiles. The receiving module validates its own domain and units."
+      }
+    ]
+  }
+}

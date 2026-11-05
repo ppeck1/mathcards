@@ -35,6 +35,7 @@
     'student-mean-interval':['probability','modeling'], 'randomization-distribution':['probability','discrete','modeling'], 'one-way-anova':['probability','algebra','modeling'],
     covariance:['probability','algebra','geometry','modeling'], 'normal-variance-interval':['probability','modeling'], 'normal-test-power':['probability','modeling'],
     'covariance-matrix':['probability','algebra','geometry','modeling'], 'wilcoxon-signed-rank':['probability','discrete','modeling'], 'mann-whitney':['probability','discrete','modeling'],
+    'least-common-multiple':['algebra','discrete','modeling'], 'perfect-number':['algebra','discrete'], 'regular-polygon':['geometry','algebra','modeling'], 'sphere-measurement':['geometry','modeling'],
     probability:['probability','modeling'], 'bayes-theorem':['probability','modeling'], 'graph-theory':['discrete','modeling']
   };
   const branchFields={algebra:'algebra',functions:'algebra','algebra-functions':'algebra','number-arithmetic':'algebra',number:'algebra',geometry:'geometry',measurement:'geometry',trigonometry:'geometry','linear-algebra':'algebra',calculus:'calculus',analysis:'analysis',probability:'probability','discrete-computation':'discrete',dynamics:'dynamics',modeling:'modeling'};

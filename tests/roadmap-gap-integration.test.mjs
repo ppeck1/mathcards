@@ -33,7 +33,11 @@ test('every calculation stage activates a real mark in each new story scene', ()
     'normal-test-power',
     'covariance-matrix',
     'wilcoxon-signed-rank',
-    'mann-whitney'
+    'mann-whitney',
+    'least-common-multiple',
+    'perfect-number',
+    'regular-polygon',
+    'sphere-measurement'
   ]) {
     const story = Stories.forSlug(slug);
     const markup = Scenes.render(slug, story.parameters, { compact: true });
@@ -61,7 +65,9 @@ const familyTerms = [
   require('../src/estimation-extension-terms.js'),
   require('../src/sampling-extension-terms.js'),
   require('../src/design-extension-terms.js'),
-  require('../src/comparison-extension-terms.js')
+  require('../src/comparison-extension-terms.js'),
+  require('../src/number-extension-terms.js'),
+  require('../src/geometry-extension-terms.js')
 ];
 const ids = [
   'inverse-function',
@@ -78,7 +84,11 @@ const ids = [
   'normal-test-power',
   'covariance-matrix',
   'wilcoxon-signed-rank',
-  'mann-whitney'
+  'mann-whitney',
+  'least-common-multiple',
+  'perfect-number',
+  'regular-polygon',
+  'sphere-measurement'
 ];
 const cards = ids.map(id =>
   JSON.parse(fs.readFileSync(new URL('../content/cards/' + id + '.json', import.meta.url), 'utf8'))
@@ -103,7 +113,7 @@ const alternative = (module, card) => {
   return example.preset;
 };
 
-test('the fifteen roadmap-gap lessons join the host in explicit family order with independent slots', () => {
+test('the nineteen roadmap-gap lessons join the host in explicit family order with independent slots', () => {
   assert.deepEqual(Metadata.ids.slice(-ids.length), ids);
   assert.deepEqual(
     Modules.list()
@@ -378,7 +388,16 @@ test('classic-script entries keep the new providers before their shared consumer
     ...template.matchAll(/<script\b[^>]*src="([^"?]+)(?:\?[^"]*)?"[^>]*data-development/g)
   ].map(([, name]) => name);
   const position = name => scripts.indexOf(name);
-  for (const family of ['analysis', 'discrete', 'estimation', 'sampling', 'design', 'comparison']) {
+  for (const family of [
+    'analysis',
+    'discrete',
+    'estimation',
+    'sampling',
+    'design',
+    'comparison',
+    'number',
+    'geometry'
+  ]) {
     for (const [dependency, consumer] of [
       [family + '-extensions.js', 'model-registry.js'],
       [family + '-extension-stories.js', 'story-library.js'],

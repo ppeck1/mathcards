@@ -254,3 +254,7 @@ math:concept:normal-test-power,Replication and normal-test power,statistics,draf
 math:concept:covariance-matrix,A covariance matrix and its ellipse,statistics,draft_specimen,comparison-expansion,pending,pending,implemented
 math:concept:wilcoxon-signed-rank,Paired differences and signed ranks,statistics,draft_specimen,comparison-expansion,pending,pending,implemented
 math:concept:mann-whitney,Mann–Whitney ranks and pair comparisons,statistics,draft_specimen,comparison-expansion,pending,pending,implemented
+math:concept:least-common-multiple,Least common multiple,numbers-number-theory,draft_specimen,number-geometry-expansion,pending,pending,implemented
+math:concept:perfect-number,Perfect numbers and proper divisors,numbers-number-theory,draft_specimen,number-geometry-expansion,pending,pending,implemented
+math:concept:regular-polygon,Regular polygon area,geometry,draft_specimen,number-geometry-expansion,pending,pending,implemented
+math:concept:sphere-measurement,Sphere surface and volume,geometry,draft_specimen,number-geometry-expansion,pending,pending,implemented

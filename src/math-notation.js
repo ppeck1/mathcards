@@ -51,11 +51,14 @@
   Object.assign(macros,{preceq:'≼'});Object.assign(glyphs,{'≼':['partial-order']});
   Object.assign(macros,{prod:'∏'});Object.assign(glyphs,{'∏':['product-notation']});
   Object.assign(named,{gcd:['greatest-common-divisor-function']});
+  Object.assign(named,{lcm:['least-common-multiple-function']});
   Object.assign(named,{N_G:['graph-coloring-output-4']});
   texFunctions.add('gcd');
   function classify(query,options={}){
     if(typeof query!=='string'||!query.trim())return[];if(options.kind==='unit')return unitIds(query,options);const raw=query.trim(),q=normalize(raw),result=[];const add=(...ids)=>result.push(...ids);
     if(q==='rank'&&['wilcoxon-signed-rank','mann-whitney'].includes(options.slug))return['comparison-data-rank'];
+    if(['least-common-multiple','reference:number-signal-labels'].includes(options.slug)&&['A','B'].includes(q))return['number-signal-labels'];
+    if(['least-common-multiple','perfect-number','reference:divisibility'].includes(options.slug)&&['|','∣','d|n','d∣n'].includes(q))return['divisibility'];
     if(Object.hasOwn(vulgar,raw)||/^[-+]?\d+\/\d+$/.test(q))add('fraction');
     if(q==='∃!')add('unique-exists');
     if((!options.slug||options.slug==='circle-manifold'||options.slug==='reference:unit-circle')&&q==='S^1')return['unit-circle','superscript'];
@@ -174,6 +177,8 @@
   }
   function unitIds(query,{slug}={}){
     const q=normalize(query),unit=String(query).trim().toLowerCase();
+    if(q==='min^2'&&['least-common-multiple','reference:number-period-product-unit'].includes(slug))return['number-period-product-unit'];
+    if(['tile','tiles','strip','strips','side','sides','cycle','cycles'].includes(unit)&&['least-common-multiple','perfect-number','regular-polygon','reference:number-count-unit'].includes(slug))return['number-count-unit'];
     if(q==='mm^4'&&['covariance-matrix','reference:comparison-covariance-determinant-unit'].includes(slug))return['comparison-covariance-determinant-unit'];
     if(q==='mm^2'&&slug==='covariance-matrix')return['design-variance-unit'];
     if(['sign pattern','sign patterns'].includes(unit)&&['wilcoxon-signed-rank','reference:comparison-sign-pattern-unit'].includes(slug))return['comparison-sign-pattern-unit'];
@@ -319,7 +324,9 @@
       const predicateStart=/^(?:[PR](?:_h|_\{h\}|ₕ)|φ(?:_h|_\{h\}|ₕ)|B(?:ε|_ε|_\{ε\})|δ)\s*\(/.exec(rest);
       const nativeStart=/^([A-Za-z][A-Za-z0-9_]*)\s*[([]/.exec(rest),recognizedStart=predicateStart||functionStart||(['probability-distribution','expected-value','entropy',...informationCards].includes(slug)&&/^(?:H|I|p_X|p_Y)\s*[([]/.exec(rest))||(nativeStart&&Object.hasOwn(named,nativeStart[1])?nativeStart:null);
       if(recognizedStart){const open=rest[recognizedStart[0].length-1],start=i+recognizedStart[0].length-1,end=balanced(text,start,open,open==='('?')':']');if(end){const token=text.slice(i,end),ids=classify(token,{slug});if(ids.length){emit(token,i,'structured',{entryIds:ids});delimiters(start,end-1);children(start+1,end-1);i=end;continue;}}}
-      // This determinant's fourth-power unit must precede generic decorated identifiers.
+      // Scoped physical powers must precede generic decorated identifiers.
+      const periodProductUnit=['least-common-multiple','reference:number-period-product-unit'].includes(slug)&&/^min(?:²|\^(?:2|\{2\}))(?![\p{L}\p{N}_/])/u.exec(rest);
+      if(periodProductUnit){emit(periodProductUnit[0],i,'unit',{entryIds:unitIds(periodProductUnit[0],{slug})});i+=periodProductUnit[0].length;continue;}
       const covarianceUnit=['covariance-matrix','reference:comparison-covariance-determinant-unit'].includes(slug)&&/^mm(?:⁴|\^(?:4|\{4\}))(?![\p{L}\p{N}_/])/u.exec(rest);
       if(covarianceUnit){emit(covarianceUnit[0],i,'unit',{entryIds:unitIds(covarianceUnit[0],{slug})});i+=covarianceUnit[0].length;continue;}
       const decorated=/^[A-Za-zα-ωΑ-Ωℵℕ][A-Za-z0-9α-ωΑ-Ω]*(?:_[A-Za-z0-9]|_\{[^{}]+\}|\^[A-Za-z0-9+-]|\^\{[^{}]+\}|[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]+)(?:[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]*)/.exec(rest);

@@ -11,8 +11,8 @@ browser are projections of this inventory plus a separately authored
 [lesson crosswalk](../content/planning/eight-book-crosswalk.json). Importing a
 subject never creates a completed lesson or a verified book attribution.
 
-The current branch crosswalk links 82 inventory subjects to bounded draft
-introductions and 55 to preparation only; 158 remain planned. These are
+The current branch crosswalk links 85 inventory subjects to bounded draft
+introductions and 55 to preparation only; 155 remain planned. These are
 concept-to-lesson links, so several subjects can lead to the same lesson. They
 are not counts of new cards or complete treatments of a book.
 
@@ -35,13 +35,45 @@ are not counts of new cards or complete treatments of a book.
 | Estimated spread and assignment uncertainty | Fixed 95% Student interval, all 70 balanced four-versus-four allocations and one-way ANOVA | Unknown spread changes the Student multiplier; exact absolute randomization tails include ties; ANOVA separates within/between variation with declared error assumptions |
 | Covariance, variance and planning | Paired signed products, an iid-normal variance interval and known-spread two-group power | Physical product/squared units, unknown variance and per-group versus total readings remain distinct; general ANCOVA and replication design remain separate |
 | Joint spread and rank comparisons | Five-pair covariance matrix, Wilcoxon signed ranks and a three-versus-three Mann–Whitney comparison | Descriptive covariance geometry; exact finite references under separately stated symmetric paired-sign or exchangeable-label nulls; no general median-only or causal interpretation |
+| Number extension | Least common multiples and perfect/deficient/abundant classification | Positive whole-minute periods and exact positive proper divisors; shared zero differs from the first positive reunion, and one has an empty divisor sum |
+| Geometry extension | Regular polygon area and sphere surface/volume | Convex planar regular polygons and a full ideal spherical tank; physical radii, straight edges, surface area, disk area and enclosed volume retain separate meanings |
 
-## Current comparison continuation
+## Current number and geometry continuation
+
+As of 2026-11-05, the [130-card matrix](NUMBER_GEOMETRY_EXPANSION_MATRIX_0_34_0.md)
+adds four lessons through two explicit local families. The branch contains
+69 added lessons above the 61-card published baseline, with 46 continuation
+lessons in fourteen families. It has 654 original examples, 2,471 numeric
+fixtures, 784 written exports, 267 declared views and 130 MathML definitions.
+
+The workshop signals use whole-minute periods from one through eight and a
+shared starting instant. LCM locates their first positive reunion and counts
+each signal's completed cycles. The divisor-strip exhibit uses positive integer
+targets from one through sixty; it lists every positive proper divisor once,
+including the empty set and zero sum for one, then compares that sum with the
+target to distinguish deficient, perfect and abundant numbers.
+
+The pavilion joins equally spaced vertices into a convex regular floor with
+three through twelve sides and a circumradius from one to four metres. Its
+center triangles connect side length, apothem and perimeter to floor area.
+The full ideal spherical tank uses radii from 0.25 to five metres and distinguishes
+diameter, complete curved surface area, equatorial disk area and enclosed volume.
+Radius changes can be continuous; integer periods and counts remain discrete.
+
+Perfect numbers, regular polygons and sphere measurement advance to bounded
+introductions. LCM supplies another bridge to divisibility and common factors.
+The eight-book crosswalk now has 85 introductions, 55 precursors and 155 planned
+subjects; the earlier 214-topic inventory retains 59 introductions, 36 precursors
+and 119 planned rows. Raw book associations and exact-edition evidence states
+remain unchanged. Current checks and open review belong in the
+[number/geometry validation record](VALIDATION_0_34_0_NUMBER_GEOMETRY.md).
+
+## Earlier comparison continuation
 
 The [126-card matrix](COMPARISON_EXPANSION_MATRIX_0_34_0.md) adds three lessons
-through one explicit local comparison family. The branch now contains 65 added
-lessons above the 61-card published baseline, including 42 continuation lessons
-in twelve families. It has 634 original examples, 2,215 numeric fixtures,
+through one explicit local comparison family. At that checkpoint the branch
+contains 65 added lessons above the 61-card published baseline, including
+42 continuation lessons in twelve families. It has 634 original examples, 2,215 numeric fixtures,
 760 written exports, 259 declared views and 126 MathML definitions.
 
 The covariance-matrix lesson constructs five centred error pairs and connects
@@ -62,8 +94,8 @@ Neither is presented as a general median-only test or a causal conclusion.
 Nonparametric statistics advances from preparation to a bounded introduction;
 the broader methods, assumptions and robustness theory still need dedicated
 lessons. Raw book associations and their evidence states remain unchanged.
-Current artifact checks and remaining browser/phone review belong in the
-[comparison validation record](VALIDATION_0_34_0_COMPARISON.md); independent
+That checkpoint's artifact checks and remaining browser/phone review belong in
+the [comparison validation record](VALIDATION_0_34_0_COMPARISON.md); independent
 mathematical, learning and exact-edition review remain open.
 
 ## Earlier covariance, spread and planning continuation
@@ -113,7 +145,7 @@ adding these executable lessons.
 ## Earlier number/spatial continuation
 
 The earlier eighteen-lesson continuation made the following roadmap changes;
-the nine current additions described above build on that checkpoint.
+the subsequent nine-lesson atlas-gap batch built on that checkpoint.
 
 Eleven inventory subjects gain direct bounded introductions through the number
 and counting family: numerals, numeral systems, rational numbers, fractions,
@@ -125,9 +157,10 @@ about a conjecture’s current status or a proof.
 
 The remaining eleven new lessons strengthen existing preparation links in
 analytic geometry, topology, vector calculus, mechanics, optimization and
-catastrophe theory. They are not relabeled as completed fields. Unit-circle and
-unit-sphere charts do not supply sphere area/volume lessons. The linear-momentum
-lesson does not complete angular momentum. The restricted structural comparison
+catastrophe theory. They are not relabeled as completed fields. At that checkpoint,
+unit-circle and unit-sphere charts do not supply sphere area/volume lessons; the
+current sphere measurement lesson adds that separate bounded introduction.
+The linear-momentum lesson does not complete angular momentum. The restricted structural comparison
 does not certify arbitrary perturbations, and quasi-static branch selection does
 not simulate a switching rate or biological facilitation.
 

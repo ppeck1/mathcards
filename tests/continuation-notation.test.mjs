@@ -72,6 +72,7 @@ test('number operators keep products distinct from Greek pi and ordered selectio
   assert.ok(Notation.classify('P(A)', { slug: 'probability' }).includes('probability'));
   assert.deepEqual(slugs(index.get('greatest-common-divisor-function')), [
     'greatest-common-divisor',
+    'least-common-multiple',
     'rational-number'
   ]);
 });

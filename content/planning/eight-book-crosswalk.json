@@ -1122,9 +1122,11 @@
     },
     {
       "concept_id": "perfect-numbers",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "perfect-number"
+      ],
+      "scope_note": "The proper positive divisors and their exact sum classify integers one through sixty as deficient, perfect or abundant. One has an empty proper-divisor set and sum zero. The definition extends beyond the finite examples; no theorem classifying all perfect numbers or claim about open problems is supplied."
     },
     {
       "concept_id": "prime-numbers",
@@ -1189,9 +1191,11 @@
       "status": "precursor",
       "cards": [
         "pythagorean-theorem",
-        "vector-rotation"
+        "vector-rotation",
+        "regular-polygon",
+        "sphere-measurement"
       ],
-      "scope_note": "Specific right-triangle and coordinate examples precede a complete geometry or trigonometry sequence."
+      "scope_note": "Right triangles, coordinate turns, convex regular polygon triangulations and spherical measurement provide bounded length, angle, area and volume examples. General Euclidean geometry, constructions and axiomatic development remain separate."
     },
     {
       "concept_id": "parallel-postulate",
@@ -1201,9 +1205,11 @@
     },
     {
       "concept_id": "regular-polygons",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "regular-polygon"
+      ],
+      "scope_note": "Convex regular polygons with three to twelve whole sides and a positive circumradius decompose into equal triangles. Side length, apothem, perimeter and area have separate meanings. The view does not implement arbitrary polygons, star polygons or a compass-and-straightedge construction theorem."
     },
     {
       "concept_id": "platonic-solids",
@@ -1225,9 +1231,11 @@
     },
     {
       "concept_id": "sphere-measurement",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "sphere-measurement"
+      ],
+      "scope_note": "Radius and diameter connect the surface area of a sphere to the volume of its enclosed ball in Euclidean three-space. The full ideal spherical-tank scenario keeps square and cubic units separate; the circle illustration does not measure surface area or volume."
     },
     {
       "concept_id": "tessellations",

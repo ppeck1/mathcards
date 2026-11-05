@@ -15,7 +15,9 @@
       node ? require('./estimation-extension-terms.js') : root.AtlasEstimationExtensionTerms,
       node ? require('./sampling-extension-terms.js') : root.AtlasSamplingExtensionTerms,
       node ? require('./design-extension-terms.js') : root.AtlasDesignExtensionTerms,
-      node ? require('./comparison-extension-terms.js') : root.AtlasComparisonExtensionTerms
+      node ? require('./comparison-extension-terms.js') : root.AtlasComparisonExtensionTerms,
+      node ? require('./number-extension-terms.js') : root.AtlasNumberExtensionTerms,
+      node ? require('./geometry-extension-terms.js') : root.AtlasGeometryExtensionTerms
     );
   if (node) module.exports = api;
   root.AtlasExpansionTerms = api;
@@ -35,7 +37,9 @@
     EstimationModels,
     SamplingModels,
     DesignModels,
-    ComparisonModels
+    ComparisonModels,
+    NumberExtensions,
+    GeometryExtensions
   ) {
     'use strict';
     const entries = new Map(),
@@ -54,7 +58,9 @@
       EstimationModels,
       SamplingModels,
       DesignModels,
-      ComparisonModels
+      ComparisonModels,
+      NumberExtensions,
+      GeometryExtensions
     ].filter(Boolean)) {
       for (const entry of provider.entries) {
         const previous = entries.get(entry.id),

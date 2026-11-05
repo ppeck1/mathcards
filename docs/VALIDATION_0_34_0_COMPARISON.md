@@ -1,5 +1,9 @@
 # 0.34.0 covariance matrix and rank-comparison validation
 
+Checkpoint record: the [130-card number/geometry validation](VALIDATION_0_34_0_NUMBER_GEOMETRY.md)
+identifies the current artifact. Results below retain this earlier checkpoint's
+evidence.
+
 Background checks on 2026-11-03 for `codex/eight-book-expansion`, continuing
 [draft PR #13](https://github.com/ppeck1/mathcards/pull/13). This identifies the
 126-card candidate after the [123-card checkpoint](VALIDATION_0_34_0_DESIGN.md).

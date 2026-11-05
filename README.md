@@ -2,17 +2,18 @@
 
 A visual field notebook for learning mathematics as a language of description.
 Change an input, follow it through a story and formula, and see its effect in a
-shape or graph. This branch prepares 0.34.0 with 126 draft lessons, adding
+shape or graph. This branch prepares 0.34.0 with 130 draft lessons, adding
 statistical inference, order structures, number foundations, spatial reasoning,
 algebra, search and networks, continuous probability, dynamics, physical energy,
 illustrative neural computation, inverse functions, series, coloring,
 inclusion–exclusion, Student intervals, exhaustive randomization, one-way ANOVA,
 covariance, variance intervals, replication/power planning, covariance matrices
-and exact finite rank comparisons.
+and exact finite rank comparisons, least common multiples, perfect numbers,
+regular polygon floors and spherical surface/capacity measurements.
 
-The branch adds 65 lessons to the 61-card published baseline. It now contains
-634 original examples, 2,215 numeric fixtures, 760 written exports, 259 declared
-views and 126 MathML definitions. Forty-two continuation lessons use twelve
+The branch adds 69 lessons to the 61-card published baseline. It now contains
+654 original examples, 2,471 numeric fixtures, 784 written exports, 267 declared
+views and 130 MathML definitions. Forty-six continuation lessons use fourteen
 explicit local families through the same shared playground.
 
 **[Open the live atlas](https://ppeck.me/mathcards/)** ·
@@ -26,6 +27,10 @@ The release version comes from [package.json](package.json). The generated
 [build manifest](dist/build-manifest.json) records built card and example counts,
 source hash and review status; [content/cards/](content/cards/) contains the
 canonical lessons. Dated validation records describe the release they tested.
+
+![Repeating workshop signals, proper-divisor strips, a regular pavilion floor and a full spherical tank.](docs/presentation-0-34-number-geometry/previews.png)
+
+![Compact connected scenes for the four number and geometry lessons.](docs/presentation-0-34-number-geometry/compact-scenes.png)
 
 ![Covariance ellipses, paired signed ranks and two-group rank comparisons.](docs/presentation-0-34-comparison/previews.png)
 
@@ -99,8 +104,9 @@ Every validated push to `main` updates the hosted demo automatically.
 | [Reference index](docs/MATH_INDEX.md) | Definitions, symbols and actual card links |
 | [Book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) | Original 214 topic IDs, prerequisites and honest coverage |
 | [Eight-book expansion](docs/EIGHT_BOOK_EXPANSION.md) | 295 supplied subjects, evidence boundaries and actual lesson links |
-| [Branch matrix](docs/COMPARISON_EXPANSION_MATRIX_0_34_0.md) | Current comparison expansion and remaining concepts/qualification |
-| [Branch validation](docs/VALIDATION_0_34_0_COMPARISON.md) | Current artifact checks and explicit qualification limits |
+| [Branch matrix](docs/NUMBER_GEOMETRY_EXPANSION_MATRIX_0_34_0.md) | Current number/geometry expansion and remaining concepts/qualification |
+| [Branch validation](docs/VALIDATION_0_34_0_NUMBER_GEOMETRY.md) | Current artifact checks and explicit qualification limits |
+| [Comparison checkpoint](docs/COMPARISON_EXPANSION_MATRIX_0_34_0.md) | Previous 126-card covariance-matrix and rank-comparison continuation |
 | [Covariance/planning checkpoint](docs/DESIGN_EXPANSION_MATRIX_0_34_0.md) | Previous covariance, variance interval and power-planning continuation |
 | [Inference checkpoint](docs/SAMPLING_EXPANSION_MATRIX_0_34_0.md) | Previous Student, randomization and ANOVA continuation |
 | [Previous roadmap checkpoint](docs/ROADMAP_EXPANSION_MATRIX_0_34_0.md) | Six preceding lessons and their recorded scope |
@@ -119,6 +125,13 @@ open. Finite demonstrations do not establish general theorems, and constructed
 stories are not empirical measurements. Written examples that require a different
 function or data type stay distinct from executable presets.
 
+The new signals use exact whole-minute periods from 1–8; proper-divisor strips
+classify positive integers from 1–60, including the empty divisor set for one.
+The pavilion uses 3–12 equal sides and a 1–4 metre circumradius. The full ideal
+spherical tank uses a 0.25–5 metre radius, with its curved surface, equatorial
+disk and enclosed volume kept distinct. These are original teaching constructions
+with the existing shared controls, pacing and saved-state contracts.
+
 The covariance ellipse describes constructed joint spread; it is not a
 confidence or prediction region. Wilcoxon enumerates fair independent signs
 conditional on the nonzero paired magnitudes under a symmetric paired null,
@@ -128,7 +141,7 @@ Both finite comparisons include ties in their two-sided tails; neither supplies
 a general median-only or causal interpretation.
 
 Startup removes duplicate reference-authoring data and repeated metadata work.
-The [current validation](docs/VALIDATION_0_34_0_COMPARISON.md) tracks this
+The [current validation](docs/VALIDATION_0_34_0_NUMBER_GEOMETRY.md) tracks this
 artifact's checks and remaining review under the unchanged 1500 ms gate. The
 [paired optimization checkpoint](docs/STARTUP_OPTIMIZATION_0_34_0.md) retains its
 baseline comparison and earlier slow samples. Browser and device qualification
