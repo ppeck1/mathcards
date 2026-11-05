@@ -1,0 +1,147 @@
+{
+  "slugs": [
+    "graph-coloring",
+    "inclusion-exclusion"
+  ],
+  "sources": [
+    {
+      "id": "source:discrete-extension:coloring",
+      "title": "Joy Morris · Combinatorics · Vertex colouring",
+      "url": "https://opentext.uleth.ca/Combinatorics/sect_colouring-Vertices.html",
+      "kind": "textbook",
+      "locator": "Definitions 14.3.2–14.3.3 and notation 14.3.4: proper vertex coloring and chromatic number.",
+      "verification": "Definition-level original textbook source inspected 2026-11-03. The four-session example and exhaustive implementation are originally authored; independent review and exact-edition book mapping remain pending.",
+      "rights": "Original workshop scenario, diagrams and worked derivations; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:discrete-extension:inclusion",
+      "title": "OpenStax · Contemporary Mathematics · Set operations with two sets",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/1-4-set-operations-with-two-sets",
+      "kind": "textbook",
+      "locator": "Determining the cardinality of two sets: two-set inclusion–exclusion.",
+      "verification": "Definition-level primary OER source inspected 2026-11-03. Original chair-planning examples; independent mathematical and exact-edition book checks remain pending.",
+      "rights": "Original signup-list scenario, diagrams and worked examples; no source exercise or illustration reproduced."
+    }
+  ],
+  "bindings": {
+    "graph-coloring": {
+      "k": [
+        "palette"
+      ],
+      "d": [
+        "diagonal"
+      ],
+      "G": [
+        "edges"
+      ],
+      "N_G(k)": [
+        "output"
+      ],
+      "χ(G)": [
+        "chromatic"
+      ],
+      "k⁴": [
+        "candidateCount"
+      ]
+    },
+    "inclusion-exclusion": {
+      "a": [
+        "wood"
+      ],
+      "b": [
+        "repair"
+      ],
+      "h": [
+        "overlap"
+      ],
+      "A": [
+        "woodMembers"
+      ],
+      "B": [
+        "repairMembers"
+      ],
+      "|A|": [
+        "wood"
+      ],
+      "|B|": [
+        "repair"
+      ],
+      "|A∩B|": [
+        "overlap"
+      ],
+      "|A∪B|": [
+        "output"
+      ]
+    }
+  },
+  "ports": {
+    "graph-coloring": [
+      {
+        "direction": "input",
+        "key": "palette",
+        "label": "Available time slots k",
+        "type": "time-slot-count",
+        "unit": "slots",
+        "description": "Available time slots k in the fixed original workshop scenario; receiving modules validate their own constraints."
+      },
+      {
+        "direction": "input",
+        "key": "diagonal",
+        "label": "Extra session conflict d",
+        "type": "conflict-switch",
+        "unit": "1",
+        "description": "Extra session conflict d in the fixed original workshop scenario; receiving modules validate their own constraints."
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Proper labeled assignments",
+        "type": "assignment-count",
+        "unit": "assignments",
+        "description": "Assign one numbered time slot to each session. A proper assignment gives different slots to every conflicting pair. Count proper assignments for the selected palette; the smallest palette with a proper assignment is the chromatic number."
+      },
+      {
+        "direction": "output",
+        "key": "chromatic",
+        "label": "Fewest compatible time slots",
+        "type": "time-slot-count",
+        "unit": "slots",
+        "description": "Minimum palette size allowing a proper assignment on the declared fixed four-session conflict graph."
+      }
+    ],
+    "inclusion-exclusion": [
+      {
+        "direction": "input",
+        "key": "overlap",
+        "label": "People on both lists h",
+        "type": "person-count",
+        "unit": "people",
+        "description": "People on both lists h in the fixed original workshop scenario; receiving modules validate their own constraints."
+      },
+      {
+        "direction": "input",
+        "key": "wood",
+        "label": "Woodcraft list size a",
+        "type": "person-count",
+        "unit": "people",
+        "description": "Woodcraft list size a in the fixed original workshop scenario; receiving modules validate their own constraints."
+      },
+      {
+        "direction": "input",
+        "key": "repair",
+        "label": "Repair list size b",
+        "type": "person-count",
+        "unit": "people",
+        "description": "Repair list size b in the fixed original workshop scenario; receiving modules validate their own constraints."
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Distinct attendees",
+        "type": "person-count",
+        "unit": "people",
+        "description": "Add the sizes of two finite lists, then subtract their shared people once. The overlap was included in both lists, while a distinct attendee needs only one chair."
+      }
+    ]
+  }
+}

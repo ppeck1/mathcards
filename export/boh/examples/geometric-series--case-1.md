@@ -1,0 +1,933 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:geometric-series:case-1", "id": "math:example:geometric-series:case-1", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:geometric-series", "example_id": "math:example:geometric-series:case-1", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "311f76259ebdfcb5a23de759b949a3911125f7767219ebb32fdc6848f13d46bf"}, "purpose": "Where does the stage finish after a whole number of repeated corrections?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "311f76259ebdfcb5a23de759b949a3911125f7767219ebb32fdc6848f13d46bf", "status": "draft", "title": "Shrinking forward corrections", "topics": ["mathematics", "algebra", "analysis", "sequences", "geometric series"], "type": "reference", "updated": "2026-11-03T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Shrinking forward corrections
+
+Parent card: math:concept:geometric-series; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:geometric-series; revision 0.1.0-draft. Setting: A positioning script sends a first forward correction a centimetres. Each later signed correction is r times the previous correction. Add exactly n commands to find the endpoint. A negative ratio alternates forward and backward corrections; the signed sum is net displacement, not distance travelled or a simulation of a mechanical controller. Expression: $S_n=\sum_{k=0}^{n-1}ar^k=\begin{cases}a\frac{1-r^n}{1-r},&r\ne1,\\na,&r=1.\end{cases}\qquad\sum_{k=0}^{\infty}ar^k=\frac{a}{1-r}\ \ (|r|<1).$. Conditions required for a defined value (a case may test their violation): The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly. Scope: The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.
+
+Case unit math:example:geometric-series:case-1. Setting: A positioning script sends a first forward correction a centimetres. Each later signed correction is r times the previous correction. Add exactly n commands to find the endpoint. A negative ratio alternates forward and backward corrections; the signed sum is net displacement, not distance travelled or a simulation of a mechanical controller. Inputs: {"first": 2, "ratio": 0.5, "terms": 6}. Result: {"approximate": "3.9375 cm"}. Limits: The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.
+
+## Complete worked case
+
+- id: math:example:geometric-series:case-1
+- title: Shrinking forward corrections
+- role: applied_model
+- question: Where does the stage finish after a whole number of repeated corrections?
+- setting: A positioning script sends a first forward correction a centimetres. Each later signed correction is r times the previous correction. Add exactly n commands to find the endpoint. A negative ratio alternates forward and backward corrections; the signed sum is net displacement, not distance travelled or a simulation of a mechanical controller.
+- assumptions:
+  - The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.
+- inputs:
+  - ratio: 0.5
+  - first: 2
+  - terms: 6
+- steps:
+  - Item:
+    - index: 1
+    - expression: Corrections: 2.0, 1.0, 0.5, 0.25, 0.125, 0.0625 cm
+    - reason: Generate each signed command by the declared common ratio.
+  - Item:
+    - index: 2
+    - expression: Sₙ = (2.0) + (1.0) + (0.5) + (0.25) + (0.125) + (0.0625) = 3.9375 cm
+    - reason: Add exactly the declared whole number of terms.
+  - Item:
+    - index: 3
+    - expression: Infinite sum = 4.0 cm
+    - reason: Keep an infinite-series claim separate from the finite partial sum.
+- result:
+  - approximate: 3.9375 cm
+- interpretation: The six commands total 3.9375 cm; the separate infinite-series limit is 4 cm.
+- independent check:
+  - method: Sum exact rational terms independently; compare with the finite closed form and its r=1 branch.
+  - expected: 3.9375
+- limits: The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.
+- preset:
+  - ratio: 0.5
+  - first: 2
+  - terms: 6
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.
+
+## Written exploration recipe
+
+- component id: component:geometric-series
+- renderer id: geometric-series-visual-model
+- renderer version: 1
+- model id: geometric-series-visual-model
+- model revision: 1
+- expression id: ast:geometric-series:expression
+- interaction status: implemented
+- description: A positioning script sends a first forward correction a centimetres. Each later signed correction is r times the previous correction. Add exactly n commands to find the endpoint. A negative ratio alternates forward and backward corrections; the signed sum is net displacement, not distance travelled or a simulation of a mechanical controller.
+- controls:
+  - Item:
+    - id: ratio
+    - type: number
+    - default: 0.5
+    - min: -1.5
+    - max: 1.5
+    - step: 0.05
+  - Item:
+    - id: first
+    - type: number
+    - default: 2
+    - min: 0.25
+    - max: 4
+    - step: 0.05
+  - Item:
+    - id: terms
+    - type: number
+    - default: 6
+    - min: 1
+    - max: 12
+    - step: 1
+- expected cases:
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 2
+      - terms: 6
+    - status: valid
+    - output: 3.9375
+  - Item:
+    - input:
+      - ratio: -0.5
+      - first: 3
+      - terms: 4
+    - status: valid
+    - output: 1.875
+  - Item:
+    - input:
+      - ratio: 1
+      - first: 1.5
+      - terms: 8
+    - status: valid
+    - output: 12.0
+  - Item:
+    - input:
+      - ratio: -1
+      - first: 2
+      - terms: 5
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: 0
+      - first: 4
+      - terms: 1
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: -1.5
+      - first: 0.25
+      - terms: 1
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - ratio: -1.5
+      - first: 0.25
+      - terms: 2
+    - status: valid
+    - output: -0.125
+  - Item:
+    - input:
+      - ratio: -1.5
+      - first: 0.25
+      - terms: 3
+    - status: valid
+    - output: 0.4375
+  - Item:
+    - input:
+      - ratio: -1.5
+      - first: 0.25
+      - terms: 12
+    - status: valid
+    - output: -12.8746337890625
+  - Item:
+    - input:
+      - ratio: -1.5
+      - first: 2
+      - terms: 1
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: -1.5
+      - first: 2
+      - terms: 2
+    - status: valid
+    - output: -1.0
+  - Item:
+    - input:
+      - ratio: -1.5
+      - first: 2
+      - terms: 3
+    - status: valid
+    - output: 3.5
+  - Item:
+    - input:
+      - ratio: -1.5
+      - first: 2
+      - terms: 12
+    - status: valid
+    - output: -102.9970703125
+  - Item:
+    - input:
+      - ratio: -1.5
+      - first: 4
+      - terms: 1
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: -1.5
+      - first: 4
+      - terms: 2
+    - status: valid
+    - output: -2.0
+  - Item:
+    - input:
+      - ratio: -1.5
+      - first: 4
+      - terms: 3
+    - status: valid
+    - output: 7.0
+  - Item:
+    - input:
+      - ratio: -1.5
+      - first: 4
+      - terms: 12
+    - status: valid
+    - output: -205.994140625
+  - Item:
+    - input:
+      - ratio: -1
+      - first: 0.25
+      - terms: 1
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - ratio: -1
+      - first: 0.25
+      - terms: 2
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - ratio: -1
+      - first: 0.25
+      - terms: 3
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - ratio: -1
+      - first: 0.25
+      - terms: 12
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - ratio: -1
+      - first: 2
+      - terms: 1
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: -1
+      - first: 2
+      - terms: 2
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - ratio: -1
+      - first: 2
+      - terms: 3
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: -1
+      - first: 2
+      - terms: 12
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - ratio: -1
+      - first: 4
+      - terms: 1
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: -1
+      - first: 4
+      - terms: 2
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - ratio: -1
+      - first: 4
+      - terms: 3
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: -1
+      - first: 4
+      - terms: 12
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - ratio: -0.5
+      - first: 0.25
+      - terms: 1
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - ratio: -0.5
+      - first: 0.25
+      - terms: 2
+    - status: valid
+    - output: 0.125
+  - Item:
+    - input:
+      - ratio: -0.5
+      - first: 0.25
+      - terms: 3
+    - status: valid
+    - output: 0.1875
+  - Item:
+    - input:
+      - ratio: -0.5
+      - first: 0.25
+      - terms: 12
+    - status: valid
+    - output: 0.1666259765625
+  - Item:
+    - input:
+      - ratio: -0.5
+      - first: 2
+      - terms: 1
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: -0.5
+      - first: 2
+      - terms: 2
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - ratio: -0.5
+      - first: 2
+      - terms: 3
+    - status: valid
+    - output: 1.5
+  - Item:
+    - input:
+      - ratio: -0.5
+      - first: 2
+      - terms: 12
+    - status: valid
+    - output: 1.3330078125
+  - Item:
+    - input:
+      - ratio: -0.5
+      - first: 4
+      - terms: 1
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: -0.5
+      - first: 4
+      - terms: 2
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: -0.5
+      - first: 4
+      - terms: 3
+    - status: valid
+    - output: 3.0
+  - Item:
+    - input:
+      - ratio: -0.5
+      - first: 4
+      - terms: 12
+    - status: valid
+    - output: 2.666015625
+  - Item:
+    - input:
+      - ratio: 0
+      - first: 0.25
+      - terms: 1
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - ratio: 0
+      - first: 0.25
+      - terms: 2
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - ratio: 0
+      - first: 0.25
+      - terms: 3
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - ratio: 0
+      - first: 0.25
+      - terms: 12
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - ratio: 0
+      - first: 2
+      - terms: 1
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: 0
+      - first: 2
+      - terms: 2
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: 0
+      - first: 2
+      - terms: 3
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: 0
+      - first: 2
+      - terms: 12
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: 0
+      - first: 4
+      - terms: 1
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: 0
+      - first: 4
+      - terms: 2
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: 0
+      - first: 4
+      - terms: 3
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: 0
+      - first: 4
+      - terms: 12
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 0.25
+      - terms: 1
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 0.25
+      - terms: 2
+    - status: valid
+    - output: 0.375
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 0.25
+      - terms: 3
+    - status: valid
+    - output: 0.4375
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 0.25
+      - terms: 12
+    - status: valid
+    - output: 0.4998779296875
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 2
+      - terms: 1
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 2
+      - terms: 2
+    - status: valid
+    - output: 3.0
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 2
+      - terms: 3
+    - status: valid
+    - output: 3.5
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 2
+      - terms: 12
+    - status: valid
+    - output: 3.9990234375
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 4
+      - terms: 1
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 4
+      - terms: 2
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 4
+      - terms: 3
+    - status: valid
+    - output: 7.0
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 4
+      - terms: 12
+    - status: valid
+    - output: 7.998046875
+  - Item:
+    - input:
+      - ratio: 0.9999999999999999
+      - first: 0.25
+      - terms: 1
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - ratio: 0.9999999999999999
+      - first: 0.25
+      - terms: 2
+    - status: valid
+    - output: 0.5
+  - Item:
+    - input:
+      - ratio: 0.9999999999999999
+      - first: 0.25
+      - terms: 3
+    - status: valid
+    - output: 0.7499999999999999
+  - Item:
+    - input:
+      - ratio: 0.9999999999999999
+      - first: 0.25
+      - terms: 12
+    - status: valid
+    - output: 2.9999999999999982
+  - Item:
+    - input:
+      - ratio: 0.9999999999999999
+      - first: 2
+      - terms: 1
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: 0.9999999999999999
+      - first: 2
+      - terms: 2
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: 0.9999999999999999
+      - first: 2
+      - terms: 3
+    - status: valid
+    - output: 5.999999999999999
+  - Item:
+    - input:
+      - ratio: 0.9999999999999999
+      - first: 2
+      - terms: 12
+    - status: valid
+    - output: 23.999999999999986
+  - Item:
+    - input:
+      - ratio: 0.9999999999999999
+      - first: 4
+      - terms: 1
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: 0.9999999999999999
+      - first: 4
+      - terms: 2
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - ratio: 0.9999999999999999
+      - first: 4
+      - terms: 3
+    - status: valid
+    - output: 11.999999999999998
+  - Item:
+    - input:
+      - ratio: 0.9999999999999999
+      - first: 4
+      - terms: 12
+    - status: valid
+    - output: 47.99999999999997
+  - Item:
+    - input:
+      - ratio: 1
+      - first: 0.25
+      - terms: 1
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - ratio: 1
+      - first: 0.25
+      - terms: 2
+    - status: valid
+    - output: 0.5
+  - Item:
+    - input:
+      - ratio: 1
+      - first: 0.25
+      - terms: 3
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - ratio: 1
+      - first: 0.25
+      - terms: 12
+    - status: valid
+    - output: 3.0
+  - Item:
+    - input:
+      - ratio: 1
+      - first: 2
+      - terms: 1
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: 1
+      - first: 2
+      - terms: 2
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: 1
+      - first: 2
+      - terms: 3
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - ratio: 1
+      - first: 2
+      - terms: 12
+    - status: valid
+    - output: 24.0
+  - Item:
+    - input:
+      - ratio: 1
+      - first: 4
+      - terms: 1
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: 1
+      - first: 4
+      - terms: 2
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - ratio: 1
+      - first: 4
+      - terms: 3
+    - status: valid
+    - output: 12.0
+  - Item:
+    - input:
+      - ratio: 1
+      - first: 4
+      - terms: 12
+    - status: valid
+    - output: 48.0
+  - Item:
+    - input:
+      - ratio: 1.0000000000000002
+      - first: 0.25
+      - terms: 1
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - ratio: 1.0000000000000002
+      - first: 0.25
+      - terms: 2
+    - status: valid
+    - output: 0.5
+  - Item:
+    - input:
+      - ratio: 1.0000000000000002
+      - first: 0.25
+      - terms: 3
+    - status: valid
+    - output: 0.7500000000000002
+  - Item:
+    - input:
+      - ratio: 1.0000000000000002
+      - first: 0.25
+      - terms: 12
+    - status: valid
+    - output: 3.0000000000000036
+  - Item:
+    - input:
+      - ratio: 1.0000000000000002
+      - first: 2
+      - terms: 1
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: 1.0000000000000002
+      - first: 2
+      - terms: 2
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: 1.0000000000000002
+      - first: 2
+      - terms: 3
+    - status: valid
+    - output: 6.000000000000002
+  - Item:
+    - input:
+      - ratio: 1.0000000000000002
+      - first: 2
+      - terms: 12
+    - status: valid
+    - output: 24.00000000000003
+  - Item:
+    - input:
+      - ratio: 1.0000000000000002
+      - first: 4
+      - terms: 1
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: 1.0000000000000002
+      - first: 4
+      - terms: 2
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - ratio: 1.0000000000000002
+      - first: 4
+      - terms: 3
+    - status: valid
+    - output: 12.000000000000004
+  - Item:
+    - input:
+      - ratio: 1.0000000000000002
+      - first: 4
+      - terms: 12
+    - status: valid
+    - output: 48.00000000000006
+  - Item:
+    - input:
+      - ratio: 1.5
+      - first: 0.25
+      - terms: 1
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - ratio: 1.5
+      - first: 0.25
+      - terms: 2
+    - status: valid
+    - output: 0.625
+  - Item:
+    - input:
+      - ratio: 1.5
+      - first: 0.25
+      - terms: 3
+    - status: valid
+    - output: 1.1875
+  - Item:
+    - input:
+      - ratio: 1.5
+      - first: 0.25
+      - terms: 12
+    - status: valid
+    - output: 64.3731689453125
+  - Item:
+    - input:
+      - ratio: 1.5
+      - first: 2
+      - terms: 1
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ratio: 1.5
+      - first: 2
+      - terms: 2
+    - status: valid
+    - output: 5.0
+  - Item:
+    - input:
+      - ratio: 1.5
+      - first: 2
+      - terms: 3
+    - status: valid
+    - output: 9.5
+  - Item:
+    - input:
+      - ratio: 1.5
+      - first: 2
+      - terms: 12
+    - status: valid
+    - output: 514.9853515625
+  - Item:
+    - input:
+      - ratio: 1.5
+      - first: 4
+      - terms: 1
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - ratio: 1.5
+      - first: 4
+      - terms: 2
+    - status: valid
+    - output: 10.0
+  - Item:
+    - input:
+      - ratio: 1.5
+      - first: 4
+      - terms: 3
+    - status: valid
+    - output: 19.0
+  - Item:
+    - input:
+      - ratio: 1.5
+      - first: 4
+      - terms: 12
+    - status: valid
+    - output: 1029.970703125
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 1
+      - terms: 2.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - ratio: 0.5
+      - first: 0
+      - terms: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - ratio: 2
+      - first: 1
+      - terms: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - ratio: true
+      - first: 1
+      - terms: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - ratio: 1e-200
+      - first: 1
+      - terms: 3
+    - status: numeric_precision
+- compute: A geometric series adds terms with one common ratio. A partial sum adds a finite whole number of terms. Its closed form has a separate r=1 case. With a nonzero first term, the infinite geometric series has a finite sum exactly when the ratio has magnitude less than one.
+- numeric tolerance: 1e-10
+- invariants:
+  - The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.
+  - Story, calculations and both views read one validated state.
+- limits:
+  - The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.
+- fallback: Pause and inspect the same inputs through the story, formula, Geometry, Graph and numeric table.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:analysis-extension:series. [OpenStax · Series and Their Notations](https://openstax.org/books/algebra-and-trigonometry-2e/pages/13-4-series-and-their-notations). Locator: Finite geometric-sum formula, the r=1 branch, and infinite-series convergence condition.. Verification: Definition-level public source inspected 2026-11-03. Original bounded scenario, diagrams and examples are author-derived; independent mathematical and exact-edition book review remain pending.. Rights: Original calibration/correction scenarios and diagrams. No source exercise or illustration reproduced.

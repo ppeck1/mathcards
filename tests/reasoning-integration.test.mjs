@@ -90,7 +90,7 @@ test('relation, equivalence, entailment, force units and torque symbols preserve
   assert.ok(Notation.extract('r⃗×F⃗',{slug:'torque'})[0].entryIds.includes('cross-product'));
   assert.ok(Notation.extract('\\vec{r}\\times\\vec{F}',{slug:'torque'})[0].entryIds.includes('cross-product'));
   assert.deepEqual(uses('r','application-distance'),['torque']);assert.deepEqual(uses('r⃗','position-vector'),['torque']);
-  assert.deepEqual(uses('J','joule'),['inner-product']);
+  assert.deepEqual(uses('J','joule'),['inner-product','gibbs-free-energy','heat-balance']);
   for(const [id,slug]of [['predicate-arity','relation'],['relation-extension','relation'],['logical-equivalence','equivalence'],['de-morgan','equivalence'],['premise','inference'],['conclusion','inference'],['modus-ponens','inference'],['modus-tollens','inference'],['affirming-consequent','inference'],['moment-arm','torque'],['line-of-action','torque']]){
     const entry=index.get(id);assert.ok(entry,id);assert.ok(entry.usedBy.some(u=>u.slug===slug),id+' in '+slug);assert.ok(entry.sources.length);
   }

@@ -1,0 +1,151 @@
+{
+  "slugs": [
+    "inverse-function",
+    "geometric-series"
+  ],
+  "sources": [
+    {
+      "id": "source:analysis-extension:inverse",
+      "title": "OpenStax · Inverse Functions",
+      "url": "https://openstax.org/books/algebra-and-trigonometry-2e/pages/3-7-inverse-functions",
+      "kind": "textbook",
+      "locator": "Definition, inverse identities and reflected coordinates.",
+      "verification": "Definition-level public source inspected 2026-11-03. Original bounded scenario, diagrams and examples are author-derived; independent mathematical and exact-edition book review remain pending.",
+      "rights": "Original calibration/correction scenarios and diagrams. No source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:analysis-extension:series",
+      "title": "OpenStax · Series and Their Notations",
+      "url": "https://openstax.org/books/algebra-and-trigonometry-2e/pages/13-4-series-and-their-notations",
+      "kind": "textbook",
+      "locator": "Finite geometric-sum formula, the r=1 branch, and infinite-series convergence condition.",
+      "verification": "Definition-level public source inspected 2026-11-03. Original bounded scenario, diagrams and examples are author-derived; independent mathematical and exact-edition book review remain pending.",
+      "rights": "Original calibration/correction scenarios and diagrams. No source exercise or illustration reproduced."
+    }
+  ],
+  "bindings": {
+    "inverse-function": {
+      "x": [
+        "output"
+      ],
+      "y": [
+        "reading"
+      ],
+      "a": [
+        "gain"
+      ],
+      "b": [
+        "offset"
+      ],
+      "f": [],
+      "f⁻¹": [],
+      "f⁻¹(y)": [
+        "output"
+      ],
+      "f(x)": [
+        "reading"
+      ],
+      "y − b": [
+        "adjusted"
+      ]
+    },
+    "geometric-series": {
+      "a": [
+        "first"
+      ],
+      "r": [
+        "ratio"
+      ],
+      "n": [
+        "terms"
+      ],
+      "k": [
+        "contributions"
+      ],
+      "arᵏ": [
+        "contributions"
+      ],
+      "Sₙ": [
+        "output"
+      ],
+      "∑": [],
+      "∞": [],
+      "S∞": [
+        "infiniteSum"
+      ],
+      "|r|": [
+        "ratio"
+      ]
+    }
+  },
+  "ports": {
+    "inverse-function": [
+      {
+        "direction": "input",
+        "key": "reading",
+        "label": "Observed position y",
+        "type": "length",
+        "unit": "cm",
+        "description": "Observed position y for the declared bounded inverse function teaching model."
+      },
+      {
+        "direction": "input",
+        "key": "gain",
+        "label": "Calibration gain a",
+        "type": "dimensionless",
+        "unit": "1",
+        "description": "Calibration gain a for the declared bounded inverse function teaching model."
+      },
+      {
+        "direction": "input",
+        "key": "offset",
+        "label": "Zero offset b",
+        "type": "length",
+        "unit": "cm",
+        "description": "Zero offset b for the declared bounded inverse function teaching model."
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Recovered command x",
+        "type": "length",
+        "unit": "cm",
+        "description": "An inverse function reverses a one-to-one rule by exchanging its inputs and outputs. For an affine calibration, subtract the offset and divide by the nonzero gain. The inverse is a function, rather than the reciprocal of a function value."
+      }
+    ],
+    "geometric-series": [
+      {
+        "direction": "input",
+        "key": "ratio",
+        "label": "Correction ratio r",
+        "type": "dimensionless",
+        "unit": "1",
+        "description": "Correction ratio r for the declared bounded geometric series teaching model."
+      },
+      {
+        "direction": "input",
+        "key": "first",
+        "label": "First correction a",
+        "type": "length",
+        "unit": "cm",
+        "description": "First correction a for the declared bounded geometric series teaching model."
+      },
+      {
+        "direction": "input",
+        "key": "terms",
+        "label": "Commands to add n",
+        "type": "command-count",
+        "unit": "commands",
+        "description": "Commands to add n for the declared bounded geometric series teaching model."
+      },
+      {
+        "direction": "output",
+        "key": "output",
+        "label": "Total signed displacement",
+        "type": "length",
+        "unit": "cm",
+        "description": "A geometric series adds terms with one common ratio. A partial sum adds a finite whole number of terms. Its closed form has a separate r=1 case. With a nonzero first term, the infinite geometric series has a finite sum exactly when the ratio has magnitude less than one."
+      }
+    ]
+  }
+}

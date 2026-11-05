@@ -1,0 +1,1345 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:student-mean-interval", "id": "math:concept:student-mean-interval", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:student-mean-interval", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "1d2e8ac4f15838504e781d8127471a3a8db786a0c19fa41a5295b8f0b019f326"}, "purpose": "How wide should a calibration interval be when the spread is estimated too?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "1d2e8ac4f15838504e781d8127471a3a8db786a0c19fa41a5295b8f0b019f326", "status": "draft", "title": "A Student interval with estimated spread", "topics": ["mathematics", "statistics", "probability", "a student interval with estimated spread"], "type": "reference", "updated": "2026-11-03T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# A Student interval with estimated spread
+
+Draft teaching specimen. A registered interactive renderer is available in the accompanying application; retained source fields describe the original specimen and its pending review.
+
+Definition unit math:concept:student-mean-interval; revision 0.1.0-draft. Setting: A workshop checks the cutting error of a calibration jig. The recorded sample is summarized by its mean x̄, sample standard deviation s and number of readings n. Move s and watch the standard-error segment and the interval endpoints move together; change n to see both the square-root divisor and the Student multiplier change. Expression: $\nu=n-1,\quad \mathrm{SE}=\frac{s}{\sqrt{n}},\quad h=t_{0.975,\nu}\,\mathrm{SE},\quad I=[\bar{x}-h,\bar{x}+h].$. Conditions required for a defined value (a case may test their violation): Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact. Scope: Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+
+## Schema Version
+
+0.1.0
+
+## Id
+
+math:concept:student-mean-interval
+
+## Slug
+
+student-mean-interval
+
+## Type
+
+concept
+
+## Title
+
+A Student interval with estimated spread
+
+## Revision
+
+0.1.0-draft
+
+## Publication Status
+
+draft
+
+## Updated
+
+2026-11-03T00:00:00Z
+
+## Review
+
+- mathematics: author-derived for stated conditions; independent mathematical review pending
+- history: source gap; no origin or priority assertions
+- interaction: implemented; numeric fixtures are not independent review
+
+## Source Policy
+
+Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.
+
+## Aliases
+
+- a student interval with estimated spread
+
+## Branches
+
+- statistics
+- probability
+
+## Expressive Job
+
+- evaluate
+- visualize
+- compare
+
+## Purpose
+
+How wide should a calibration interval be when the spread is estimated too?
+
+## Meaning
+
+Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+
+## Prerequisites
+
+- required:
+  - math:concept:normal-mean-interval
+- helpful:
+  - math:concept:confidence-interval
+  - math:concept:sampling-distribution
+  - math:concept:variance
+- depth:
+  []
+
+## Definition
+
+- setting: A workshop checks the cutting error of a calibration jig. The recorded sample is summarized by its mean x̄, sample standard deviation s and number of readings n. Move s and watch the standard-error segment and the interval endpoints move together; change n to see both the square-root divisor and the Student multiplier change.
+- formal latex: \nu=n-1,\quad \mathrm{SE}=\frac{s}{\sqrt{n}},\quad h=t_{0.975,\nu}\,\mathrm{SE},\quad I=[\bar{x}-h,\bar{x}+h].
+- signature:
+  - n: Whole number of independent calibration readings
+  - x̄: Observed sample mean error, in millimetres
+  - s: Observed sample standard deviation, in millimetres
+  - ν: Degrees of freedom n−1 for the estimated spread
+  - SE: Estimated standard error of the sample mean, in millimetres
+  - t₀.₉₇₅,ν: Numerical Student 0.975 quantile with ν degrees of freedom
+  - h: Margin from the observed mean to either interval endpoint, in millimetres
+  - I: Computed interval of candidate population mean errors
+  - L: Lower interval endpoint, in millimetres
+  - U: Upper interval endpoint, in millimetres
+  - μ: Fixed unknown population mean error; its value is not supplied
+- conditions:
+  - Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+- domain notes: Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+- proof status: Definition-level primary reference and original bounded construction; independent mathematical review pending.
+- source refs:
+  - source:sampling-extensions:student-interval
+
+## Grammar
+
+- pronunciation: A Student interval with estimated spread
+- expression latex: \nu=n-1,\quad \mathrm{SE}=\frac{s}{\sqrt{n}},\quad h=t_{0.975,\nu}\,\mathrm{SE},\quad I=[\bar{x}-h,\bar{x}+h].
+- formation rule: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+- precedence: Find n−1 before selecting the numerical Student multiplier; form standard error before margin and endpoints.
+- symbols:
+  - Item:
+    - token: n
+    - role: Whole number of independent calibration readings
+    - type: Declared inference quantity
+  - Item:
+    - token: x̄
+    - role: Observed sample mean error, in millimetres
+    - type: Declared inference quantity
+  - Item:
+    - token: s
+    - role: Observed sample standard deviation, in millimetres
+    - type: Declared inference quantity
+  - Item:
+    - token: ν
+    - role: Degrees of freedom n−1 for the estimated spread
+    - type: Declared inference quantity
+  - Item:
+    - token: SE
+    - role: Estimated standard error of the sample mean, in millimetres
+    - type: Declared inference quantity
+  - Item:
+    - token: t₀.₉₇₅,ν
+    - role: Numerical Student 0.975 quantile with ν degrees of freedom
+    - type: Declared inference quantity
+  - Item:
+    - token: h
+    - role: Margin from the observed mean to either interval endpoint, in millimetres
+    - type: Declared inference quantity
+  - Item:
+    - token: I
+    - role: Computed interval of candidate population mean errors
+    - type: Declared inference quantity
+  - Item:
+    - token: L
+    - role: Lower interval endpoint, in millimetres
+    - type: Declared inference quantity
+  - Item:
+    - token: U
+    - role: Upper interval endpoint, in millimetres
+    - type: Declared inference quantity
+  - Item:
+    - token: μ
+    - role: Fixed unknown population mean error; its value is not supplied
+    - type: Declared inference quantity
+- ast:
+  - id: ast:student-mean-interval:expression
+  - root: n:output
+  - nodes:
+    - Item:
+      - id: n:sampleSize
+      - kind: variable
+      - type: Declared numerical input or whole sample count
+      - symbol: n
+      - scope ref: scope:student-mean-interval
+    - Item:
+      - id: n:mean
+      - kind: variable
+      - type: Declared numerical input or whole sample count
+      - symbol: x̄
+      - scope ref: scope:student-mean-interval
+    - Item:
+      - id: n:sampleSpread
+      - kind: variable
+      - type: Declared numerical input or whole sample count
+      - symbol: s
+      - scope ref: scope:student-mean-interval
+    - Item:
+      - id: n:rule
+      - kind: functionRef
+      - type: Declared bounded inference rule
+      - ref: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+    - Item:
+      - id: n:partial-0
+      - kind: apply
+      - type: Partial application or bounded numerical result
+      - function: n:rule
+      - argument: n:sampleSize
+    - Item:
+      - id: n:partial-1
+      - kind: apply
+      - type: Partial application or bounded numerical result
+      - function: n:partial-0
+      - argument: n:mean
+    - Item:
+      - id: n:output
+      - kind: apply
+      - type: Partial application or bounded numerical result
+      - function: n:partial-1
+      - argument: n:sampleSpread
+  - scopes:
+    - Item:
+      - id: scope:student-mean-interval
+      - kind: modelExpression
+      - free variables:
+        - n
+        - x̄
+        - s
+      - external parameters:
+        - Fixed unknown population mean μ
+      - domain condition: Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+- parse errors:
+  - Item:
+    - input: Use a different sampling or assignment model without changing the procedure
+    - status: model or role mismatch
+    - reason: Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+- ast coverage: Typed application outline of this bounded model; not a general formula parser, random sampler or arbitrary-data analysis engine.
+- output symbol bindings:
+  - n: sampleSize
+  - x̄: mean
+  - s: sampleSpread
+  - ν: degreesFreedom
+  - SE: standardError
+  - t₀.₉₇₅,ν: criticalValue
+  - h: output
+  - I:
+    - interval
+    - lower
+    - upper
+  - L: lower
+  - U: upper
+
+## Properties
+
+- Item:
+  - claim: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+  - conditions: Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+  - derivation: For independent normal observations, (x̄−μ)/(s/√n) has a Student distribution with n−1 degrees of freedom. Inverting its central 0.95 region gives the stated interval.
+  - status: author-derived for stated conditions; independent review pending
+  - example ref: math:example:student-mean-interval:case-1
+
+## History
+
+- status: source_gap
+- claims:
+  []
+- research tasks:
+  - Research concept and notation development before adding historical priority claims.
+  - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
+- reader text: Historical development has not been researched for this draft. The scenarios and worked examples are original constructions.
+
+## Connections
+
+- Item:
+  - target: math:concept:normal-mean-interval
+  - type: supports
+  - conditions: Each lesson retains its own explicit assumptions and quantity meanings.
+  - reason: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+  - target status: available
+  - evidence status: editorial mathematical connection; author explanation
+  - source refs:
+    []
+- Item:
+  - target: math:concept:confidence-interval
+  - type: supports
+  - conditions: Each lesson retains its own explicit assumptions and quantity meanings.
+  - reason: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+  - target status: available
+  - evidence status: editorial mathematical connection; author explanation
+  - source refs:
+    []
+- Item:
+  - target: math:concept:sampling-distribution
+  - type: supports
+  - conditions: Each lesson retains its own explicit assumptions and quantity meanings.
+  - reason: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+  - target status: available
+  - evidence status: editorial mathematical connection; author explanation
+  - source refs:
+    []
+- Item:
+  - target: math:concept:variance
+  - type: supports
+  - conditions: Each lesson retains its own explicit assumptions and quantity meanings.
+  - reason: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+  - target status: available
+  - evidence status: editorial mathematical connection; author explanation
+  - source refs:
+    []
+
+## Examples
+
+- Item:
+  - id: math:example:student-mean-interval:case-1
+  - title: Ten readings with an estimated one-millimetre spread
+  - role: applied_model
+  - question: How wide should a calibration interval be when the spread is estimated too?
+  - setting: A workshop checks the cutting error of a calibration jig. The recorded sample is summarized by its mean x̄, sample standard deviation s and number of readings n. Move s and watch the standard-error segment and the interval endpoints move together; change n to see both the square-root divisor and the Student multiplier change.
+  - assumptions:
+    - Use the declared normal or sharp-null assignment model in the formal setting.
+  - inputs:
+    - sampleSize: 10
+    - mean: 0.5
+    - sampleSpread: 1
+  - steps:
+    - Item:
+      - index: 1
+      - expression: n = 10; x̄ = 0.5; s = 1
+      - reason: Keep the actual supplied summaries or constructed outcomes fixed as declared.
+    - Item:
+      - index: 2
+      - expression: \nu=n-1,\quad \mathrm{SE}=\frac{s}{\sqrt{n}},\quad h=t_{0.975,\nu}\,\mathrm{SE},\quad I=[\bar{x}-h,\bar{x}+h].
+      - reason: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+    - Item:
+      - index: 3
+      - expression: 0.7153569059706693 mm
+      - reason: At n=10 the Student multiplier uses nine degrees of freedom. The margin is about 0.715 mm, giving endpoints about −0.215 and 1.215 mm.
+  - result:
+    - approximate: 0.7153569059706693
+  - interpretation: At n=10 the Student multiplier uses nine degrees of freedom. The margin is about 0.715 mm, giving endpoints about −0.215 and 1.215 mm.
+  - independent check:
+    - method: Independent Python inversion of an analytic cosine-integral recurrence for the Student CDF; runtime criticals are generated separately by numerical quadrature.
+    - expected: 0.7153569059706693
+  - limits: Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+  - preset:
+    - sampleSize: 10
+    - mean: 0.5
+    - sampleSpread: 1
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+      []
+  - conditions to check:
+    - Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+- Item:
+  - id: math:example:student-mean-interval:case-2
+  - title: More readings, the same entered summaries
+  - role: applied_model
+  - question: How wide should a calibration interval be when the spread is estimated too?
+  - setting: A workshop checks the cutting error of a calibration jig. The recorded sample is summarized by its mean x̄, sample standard deviation s and number of readings n. Move s and watch the standard-error segment and the interval endpoints move together; change n to see both the square-root divisor and the Student multiplier change.
+  - assumptions:
+    - Use the declared normal or sharp-null assignment model in the formal setting.
+  - inputs:
+    - sampleSize: 31
+    - mean: 0.5
+    - sampleSpread: 1
+  - steps:
+    - Item:
+      - index: 1
+      - expression: n = 31; x̄ = 0.5; s = 1
+      - reason: Keep the actual supplied summaries or constructed outcomes fixed as declared.
+    - Item:
+      - index: 2
+      - expression: \nu=n-1,\quad \mathrm{SE}=\frac{s}{\sqrt{n}},\quad h=t_{0.975,\nu}\,\mathrm{SE},\quad I=[\bar{x}-h,\bar{x}+h].
+      - reason: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+    - Item:
+      - index: 3
+      - expression: 0.36680296133495643 mm
+      - reason: Holding the entered mean and spread fixed isolates the narrower standard error and the smaller Student multiplier. It does not simulate another sample.
+  - result:
+    - approximate: 0.36680296133495643
+  - interpretation: Holding the entered mean and spread fixed isolates the narrower standard error and the smaller Student multiplier. It does not simulate another sample.
+  - independent check:
+    - method: Independent Python inversion of an analytic cosine-integral recurrence for the Student CDF; runtime criticals are generated separately by numerical quadrature.
+    - expected: 0.36680296133495643
+  - limits: Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+  - preset:
+    - sampleSize: 31
+    - mean: 0.5
+    - sampleSpread: 1
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+      []
+  - conditions to check:
+    - Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+- Item:
+  - id: math:example:student-mean-interval:case-3
+  - title: A noisier set of readings
+  - role: applied_model
+  - question: How wide should a calibration interval be when the spread is estimated too?
+  - setting: A workshop checks the cutting error of a calibration jig. The recorded sample is summarized by its mean x̄, sample standard deviation s and number of readings n. Move s and watch the standard-error segment and the interval endpoints move together; change n to see both the square-root divisor and the Student multiplier change.
+  - assumptions:
+    - Use the declared normal or sharp-null assignment model in the formal setting.
+  - inputs:
+    - sampleSize: 10
+    - mean: 0.5
+    - sampleSpread: 2
+  - steps:
+    - Item:
+      - index: 1
+      - expression: n = 10; x̄ = 0.5; s = 2
+      - reason: Keep the actual supplied summaries or constructed outcomes fixed as declared.
+    - Item:
+      - index: 2
+      - expression: \nu=n-1,\quad \mathrm{SE}=\frac{s}{\sqrt{n}},\quad h=t_{0.975,\nu}\,\mathrm{SE},\quad I=[\bar{x}-h,\bar{x}+h].
+      - reason: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+    - Item:
+      - index: 3
+      - expression: 1.4307138119413385 mm
+      - reason: Doubling the sample standard deviation doubles standard error, margin and interval width at the same reading count.
+  - result:
+    - approximate: 1.4307138119413385
+  - interpretation: Doubling the sample standard deviation doubles standard error, margin and interval width at the same reading count.
+  - independent check:
+    - method: Independent Python inversion of an analytic cosine-integral recurrence for the Student CDF; runtime criticals are generated separately by numerical quadrature.
+    - expected: 1.4307138119413385
+  - limits: Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+  - preset:
+    - sampleSize: 10
+    - mean: 0.5
+    - sampleSpread: 2
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+      []
+  - conditions to check:
+    - Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+- Item:
+  - id: math:example:student-mean-interval:case-4
+  - title: A shifted observed calibration mean
+  - role: applied_model
+  - question: How wide should a calibration interval be when the spread is estimated too?
+  - setting: A workshop checks the cutting error of a calibration jig. The recorded sample is summarized by its mean x̄, sample standard deviation s and number of readings n. Move s and watch the standard-error segment and the interval endpoints move together; change n to see both the square-root divisor and the Student multiplier change.
+  - assumptions:
+    - Use the declared normal or sharp-null assignment model in the formal setting.
+  - inputs:
+    - sampleSize: 10
+    - mean: -1.5
+    - sampleSpread: 1
+  - steps:
+    - Item:
+      - index: 1
+      - expression: n = 10; x̄ = -1.5; s = 1
+      - reason: Keep the actual supplied summaries or constructed outcomes fixed as declared.
+    - Item:
+      - index: 2
+      - expression: \nu=n-1,\quad \mathrm{SE}=\frac{s}{\sqrt{n}},\quad h=t_{0.975,\nu}\,\mathrm{SE},\quad I=[\bar{x}-h,\bar{x}+h].
+      - reason: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+    - Item:
+      - index: 3
+      - expression: 0.7153569059706693 mm
+      - reason: Changing only the observed mean translates both endpoints equally while the margin stays unchanged.
+  - result:
+    - approximate: 0.7153569059706693
+  - interpretation: Changing only the observed mean translates both endpoints equally while the margin stays unchanged.
+  - independent check:
+    - method: Independent Python inversion of an analytic cosine-integral recurrence for the Student CDF; runtime criticals are generated separately by numerical quadrature.
+    - expected: 0.7153569059706693
+  - limits: Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+  - preset:
+    - sampleSize: 10
+    - mean: -1.5
+    - sampleSpread: 1
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+      []
+  - conditions to check:
+    - Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+- Item:
+  - id: math:example:student-mean-interval:case-5
+  - title: Two readings and one degree of freedom
+  - role: applied_model
+  - question: How wide should a calibration interval be when the spread is estimated too?
+  - setting: A workshop checks the cutting error of a calibration jig. The recorded sample is summarized by its mean x̄, sample standard deviation s and number of readings n. Move s and watch the standard-error segment and the interval endpoints move together; change n to see both the square-root divisor and the Student multiplier change.
+  - assumptions:
+    - Use the declared normal or sharp-null assignment model in the formal setting.
+  - inputs:
+    - sampleSize: 2
+    - mean: 0
+    - sampleSpread: 0.25
+  - steps:
+    - Item:
+      - index: 1
+      - expression: n = 2; x̄ = 0; s = 0.25
+      - reason: Keep the actual supplied summaries or constructed outcomes fixed as declared.
+    - Item:
+      - index: 2
+      - expression: \nu=n-1,\quad \mathrm{SE}=\frac{s}{\sqrt{n}},\quad h=t_{0.975,\nu}\,\mathrm{SE},\quad I=[\bar{x}-h,\bar{x}+h].
+      - reason: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+    - Item:
+      - index: 3
+      - expression: 2.2461608830234474 mm
+      - reason: With only one degree of freedom, the Student multiplier is about 12.706. Even a quarter-millimetre sample spread produces a wide mean interval.
+  - result:
+    - approximate: 2.2461608830234474
+  - interpretation: With only one degree of freedom, the Student multiplier is about 12.706. Even a quarter-millimetre sample spread produces a wide mean interval.
+  - independent check:
+    - method: Independent Python inversion of an analytic cosine-integral recurrence for the Student CDF; runtime criticals are generated separately by numerical quadrature.
+    - expected: 2.2461608830234474
+  - limits: Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+  - preset:
+    - sampleSize: 2
+    - mean: 0
+    - sampleSpread: 0.25
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+      []
+  - conditions to check:
+    - Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+
+## Interactive
+
+- component id: component:student-mean-interval
+- renderer id: student-mean-interval-visual-model
+- renderer version: 1
+- model id: student-mean-interval-visual-model
+- model revision: 1
+- expression id: ast:student-mean-interval:expression
+- interaction status: implemented
+- description: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+- controls:
+  - Item:
+    - id: sampleSize
+    - type: number
+    - default: 10
+    - min: 2
+    - max: 31
+    - step: 1
+  - Item:
+    - id: mean
+    - type: number
+    - default: 0.5
+    - min: -4
+    - max: 4
+    - step: 0.05
+  - Item:
+    - id: sampleSpread
+    - type: number
+    - default: 1
+    - min: 0.25
+    - max: 2
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - sampleSize: 2
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 2.2461608830234474
+  - Item:
+    - input:
+      - sampleSize: 2
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 8.98464353209379
+  - Item:
+    - input:
+      - sampleSize: 2
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 17.96928706418758
+  - Item:
+    - input:
+      - sampleSize: 3
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.6210344279375831
+  - Item:
+    - input:
+      - sampleSize: 3
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 2.4841377117503325
+  - Item:
+    - input:
+      - sampleSize: 3
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 4.968275423500665
+  - Item:
+    - input:
+      - sampleSize: 4
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.3978057881604624
+  - Item:
+    - input:
+      - sampleSize: 4
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 1.5912231526418497
+  - Item:
+    - input:
+      - sampleSize: 4
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 3.1824463052836993
+  - Item:
+    - input:
+      - sampleSize: 5
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.31041599955093974
+  - Item:
+    - input:
+      - sampleSize: 5
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 1.241663998203759
+  - Item:
+    - input:
+      - sampleSize: 5
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 2.483327996407518
+  - Item:
+    - input:
+      - sampleSize: 6
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.2623589099739972
+  - Item:
+    - input:
+      - sampleSize: 6
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 1.0494356398959888
+  - Item:
+    - input:
+      - sampleSize: 6
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 2.0988712797919775
+  - Item:
+    - input:
+      - sampleSize: 7
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.23121143707950978
+  - Item:
+    - input:
+      - sampleSize: 7
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.9248457483180391
+  - Item:
+    - input:
+      - sampleSize: 7
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 1.8496914966360782
+  - Item:
+    - input:
+      - sampleSize: 8
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.20900523040742686
+  - Item:
+    - input:
+      - sampleSize: 8
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.8360209216297074
+  - Item:
+    - input:
+      - sampleSize: 8
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 1.6720418432594149
+  - Item:
+    - input:
+      - sampleSize: 9
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.19216701126701366
+  - Item:
+    - input:
+      - sampleSize: 9
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.7686680450680546
+  - Item:
+    - input:
+      - sampleSize: 9
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 1.5373360901361093
+  - Item:
+    - input:
+      - sampleSize: 10
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.1788392264926673
+  - Item:
+    - input:
+      - sampleSize: 10
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.7153569059706693
+  - Item:
+    - input:
+      - sampleSize: 10
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 1.4307138119413385
+  - Item:
+    - input:
+      - sampleSize: 11
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.16795228529208314
+  - Item:
+    - input:
+      - sampleSize: 11
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.6718091411683326
+  - Item:
+    - input:
+      - sampleSize: 11
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 1.3436182823366651
+  - Item:
+    - input:
+      - sampleSize: 12
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.15884242183265945
+  - Item:
+    - input:
+      - sampleSize: 12
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.6353696873306378
+  - Item:
+    - input:
+      - sampleSize: 12
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 1.2707393746612756
+  - Item:
+    - input:
+      - sampleSize: 13
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.15107348801930962
+  - Item:
+    - input:
+      - sampleSize: 13
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.6042939520772385
+  - Item:
+    - input:
+      - sampleSize: 13
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 1.208587904154477
+  - Item:
+    - input:
+      - sampleSize: 14
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.144345702528728
+  - Item:
+    - input:
+      - sampleSize: 14
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.577382810114912
+  - Item:
+    - input:
+      - sampleSize: 14
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 1.154765620229824
+  - Item:
+    - input:
+      - sampleSize: 15
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.13844538539121723
+  - Item:
+    - input:
+      - sampleSize: 15
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.5537815415648689
+  - Item:
+    - input:
+      - sampleSize: 15
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 1.1075630831297378
+  - Item:
+    - input:
+      - sampleSize: 16
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.13321559659748622
+  - Item:
+    - input:
+      - sampleSize: 16
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.5328623863899449
+  - Item:
+    - input:
+      - sampleSize: 16
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 1.0657247727798898
+  - Item:
+    - input:
+      - sampleSize: 17
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.12853813919111473
+  - Item:
+    - input:
+      - sampleSize: 17
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.5141525567644589
+  - Item:
+    - input:
+      - sampleSize: 17
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 1.0283051135289178
+  - Item:
+    - input:
+      - sampleSize: 18
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.1243220751782473
+  - Item:
+    - input:
+      - sampleSize: 18
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.4972883007129892
+  - Item:
+    - input:
+      - sampleSize: 18
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.9945766014259784
+  - Item:
+    - input:
+      - sampleSize: 19
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.12049614291668306
+  - Item:
+    - input:
+      - sampleSize: 19
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.48198457166673225
+  - Item:
+    - input:
+      - sampleSize: 19
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.9639691433334645
+  - Item:
+    - input:
+      - sampleSize: 20
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.1170036016049812
+  - Item:
+    - input:
+      - sampleSize: 20
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.4680144064199248
+  - Item:
+    - input:
+      - sampleSize: 20
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.9360288128398496
+  - Item:
+    - input:
+      - sampleSize: 21
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.11379863564293753
+  - Item:
+    - input:
+      - sampleSize: 21
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.4551945425717501
+  - Item:
+    - input:
+      - sampleSize: 21
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.9103890851435003
+  - Item:
+    - input:
+      - sampleSize: 22
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.11084379035974712
+  - Item:
+    - input:
+      - sampleSize: 22
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.4433751614389885
+  - Item:
+    - input:
+      - sampleSize: 22
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.886750322877977
+  - Item:
+    - input:
+      - sampleSize: 23
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.10810810689568796
+  - Item:
+    - input:
+      - sampleSize: 23
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.43243242758275185
+  - Item:
+    - input:
+      - sampleSize: 23
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.8648648551655037
+  - Item:
+    - input:
+      - sampleSize: 24
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.10556574162607962
+  - Item:
+    - input:
+      - sampleSize: 24
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.4222629665043185
+  - Item:
+    - input:
+      - sampleSize: 24
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.844525933008637
+  - Item:
+    - input:
+      - sampleSize: 25
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.10319492808140032
+  - Item:
+    - input:
+      - sampleSize: 25
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.4127797123256013
+  - Item:
+    - input:
+      - sampleSize: 25
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.8255594246512026
+  - Item:
+    - input:
+      - sampleSize: 26
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.10097718528351828
+  - Item:
+    - input:
+      - sampleSize: 26
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.4039087411340731
+  - Item:
+    - input:
+      - sampleSize: 26
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.8078174822681462
+  - Item:
+    - input:
+      - sampleSize: 27
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.09889670622730491
+  - Item:
+    - input:
+      - sampleSize: 27
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.39558682490921965
+  - Item:
+    - input:
+      - sampleSize: 27
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.7911736498184393
+  - Item:
+    - input:
+      - sampleSize: 28
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.09693987998321547
+  - Item:
+    - input:
+      - sampleSize: 28
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.3877595199328619
+  - Item:
+    - input:
+      - sampleSize: 28
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.7755190398657238
+  - Item:
+    - input:
+      - sampleSize: 29
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.09509491422998614
+  - Item:
+    - input:
+      - sampleSize: 29
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.3803796569199446
+  - Item:
+    - input:
+      - sampleSize: 29
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.7607593138398892
+  - Item:
+    - input:
+      - sampleSize: 30
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.09335153418952605
+  - Item:
+    - input:
+      - sampleSize: 30
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.3734061367581042
+  - Item:
+    - input:
+      - sampleSize: 30
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.7468122735162084
+  - Item:
+    - input:
+      - sampleSize: 31
+      - mean: 0.5
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.09170074033373911
+  - Item:
+    - input:
+      - sampleSize: 31
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.36680296133495643
+  - Item:
+    - input:
+      - sampleSize: 31
+      - mean: 0.5
+      - sampleSpread: 2
+    - status: valid
+    - output: 0.7336059226699129
+  - Item:
+    - input:
+      - sampleSize: 2
+      - mean: -4
+      - sampleSpread: 1
+    - status: valid
+    - output: 8.98464353209379
+  - Item:
+    - input:
+      - sampleSize: 2
+      - mean: 4
+      - sampleSpread: 1
+    - status: valid
+    - output: 8.98464353209379
+  - Item:
+    - input:
+      - sampleSize: 10
+      - mean: -4
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.7153569059706693
+  - Item:
+    - input:
+      - sampleSize: 10
+      - mean: 4
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.7153569059706693
+  - Item:
+    - input:
+      - sampleSize: 31
+      - mean: -4
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.36680296133495643
+  - Item:
+    - input:
+      - sampleSize: 31
+      - mean: 4
+      - sampleSpread: 1
+    - status: valid
+    - output: 0.36680296133495643
+  - Item:
+    - input:
+      - sampleSize: 1
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 32
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 3.5
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: true
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 10
+      - mean: 0.5
+      - sampleSpread: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 10
+      - mean: 0.5
+      - sampleSpread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 10
+      - mean: 5
+      - sampleSpread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 10
+      - mean: null
+      - sampleSpread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 10
+      - mean: -5
+      - sampleSpread: 1
+    - status: invalid_parameters
+- compute: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+- numeric tolerance: 3e-12
+- invariants:
+  - Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+  - Story, calculation, geometry and graph use the same supplied parameters.
+  - Whole counts and fixed allocation labels remain discrete.
+- limits:
+  - Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Prompts
+
+- Item:
+  - prompt: How wide should a calibration interval be when the spread is estimated too?
+  - answer: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+- Item:
+  - prompt: What does this construction assume?
+  - answer: Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+
+## Representations
+
+- Item:
+  - kind: geometry
+  - description: Observed mean, standard-error segment and Student endpoints share a physical millimetre axis. Unknown μ has no invented marker.
+- Item:
+  - kind: graph
+  - description: Numerical margin versus each whole reading count from 2 to 31, with the current count highlighted.
+- Item:
+  - kind: substitution
+  - description: Divide the sample standard deviation by the square root of the reading count. Use the Student multiplier with one fewer degree of freedom, then place the resulting margin on both sides of the observed mean.
+
+## Applications
+
+- Item:
+  - context: Originally authored workshop construction
+  - mapping: A workshop checks the cutting error of a calibration jig. The recorded sample is summarized by its mean x̄, sample standard deviation s and number of readings n. Move s and watch the standard-error segment and the interval endpoints move together; change n to see both the square-root divisor and the Student multiplier change.
+  - limitations: Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+  - evidence kind: constructed_example
+  - example ref: math:example:student-mean-interval:case-1
+- Item:
+  - context: More readings, the same entered summaries
+  - mapping: Holding the entered mean and spread fixed isolates the narrower standard error and the smaller Student multiplier. It does not simulate another sample.
+  - limitations: Assume independent readings from one normal population with unknown mean μ and unknown positive spread. The entered s is the sample standard deviation using n−1 in its variance denominator. Use n from 2 to 31, x̄ from −4 to 4 mm and s from 0.25 to 2 mm. Summaries are entered rather than newly sampled as a control changes. The fixed 95% procedure covers fixed μ in 95% of repeated samples under this model; it gives neither a posterior probability for one computed interval nor a prediction interval for the next reading. Unknown μ is not plotted. Student quantiles are numerical approximations, rather than rounded table values treated as exact.
+  - evidence kind: constructed_example
+  - example ref: math:example:student-mean-interval:case-2
+
+## Source Refs
+
+- source:sampling-extensions:student-interval
+
+## Review Gaps
+
+- Independent mathematical, unit and pedagogical review is pending.
+- Historical development and exact-edition book coverage have not been independently researched.
+- The bounded executable family does not replace the broader concept.
+
+## Change Log
+
+- 0.34.0 continuation: added this bounded inference lesson through the shared modular host.
+
+## Referenced source registry
+
+- Source ID: source:sampling-extensions:student-interval. [NIST/SEMATECH · Confidence Limits for the Mean](https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm). Locator: §1.3.5.2: Student interval with sample standard deviation, N−1 degrees of freedom and repeated-procedure confidence. The calibration summaries and derivations here are original.. Verification: Definition-level primary source inspected 2026-11-03; independent mathematical, pedagogical and exact-edition book review remain pending.. Rights: Original wording, constructed calibration summaries and examples; no source exercise, data or illustration reproduced.

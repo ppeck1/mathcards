@@ -2,10 +2,10 @@
 (function (root, factory) {
   'use strict';
   const node = typeof module === 'object' && module.exports;
-  const api = factory(node ? require('./models.js') : root.AtlasModels, node ? require('./discovery.js') : root.AtlasDiscovery);
+  const api = factory(node ? require('./models.js') : root.AtlasModels, node ? require('./discovery.js') : root.AtlasDiscovery,node ? require('./systems-models.js') : root.AtlasSystems,node ? require('./inference-models.js') : root.AtlasInference,node ? require('./inference-previews.js') : root.AtlasInferencePreviews,node ? require('./number-foundations.js') : root.AtlasNumberFoundations,node ? require('./number-foundation-previews.js') : root.AtlasNumberFoundationPreviews,node ? require('./spatial-foundations.js') : root.AtlasSpatialFoundations,node ? require('./spatial-foundation-previews.js') : root.AtlasSpatialFoundationPreviews,node ? require('./dynamics-extensions.js') : root.AtlasDynamicsExtensions,node ? require('./dynamics-extension-previews.js') : root.AtlasDynamicsExtensionPreviews,node?require('./algebra-extensions.js'):root.AtlasAlgebraExtensions,node?require('./algebra-extension-previews.js'):root.AtlasAlgebraExtensionPreviews,node?require('./algorithm-extensions.js'):root.AtlasAlgorithmExtensions,node?require('./algorithm-extension-previews.js'):root.AtlasAlgorithmExtensionPreviews,node?require('./distribution-extensions.js'):root.AtlasDistributionExtensions,node?require('./distribution-extension-previews.js'):root.AtlasDistributionExtensionPreviews,node?require('./analysis-extensions.js'):root.AtlasAnalysisExtensions,node?require('./analysis-extension-previews.js'):root.AtlasAnalysisExtensionPreviews,node?require('./discrete-extensions.js'):root.AtlasDiscreteExtensions,node?require('./discrete-extension-previews.js'):root.AtlasDiscreteExtensionPreviews,node?require('./estimation-extensions.js'):root.AtlasEstimationExtensions,node?require('./estimation-extension-previews.js'):root.AtlasEstimationExtensionPreviews,node?require('./sampling-extensions.js'):root.AtlasSamplingExtensions,node?require('./sampling-extension-previews.js'):root.AtlasSamplingExtensionPreviews,node?require('./design-extensions.js'):root.AtlasDesignExtensions,node?require('./design-extension-previews.js'):root.AtlasDesignExtensionPreviews,node?require('./comparison-extensions.js'):root.AtlasComparisonExtensions,node?require('./comparison-extension-previews.js'):root.AtlasComparisonExtensionPreviews,node?require('./number-extensions.js'):root.AtlasNumberExtensions,node?require('./number-extension-previews.js'):root.AtlasNumberExtensionPreviews,node?require('./geometry-extensions.js'):root.AtlasGeometryExtensions,node?require('./geometry-extension-previews.js'):root.AtlasGeometryExtensionPreviews,node?require('./continuation-metadata.js'):root.AtlasContinuationMetadata);
   if (node) module.exports = api;
   root.AtlasCardPreviews = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function (M, D) {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (M, D, Systems, Inference, InferencePreviews, Numbers, NumberPreviews, SpaceModels, SpatialPreviews, DynamicsModels, DynamicsPreviews, AlgebraModels, AlgebraPreviews, AlgorithmModels, AlgorithmPreviews, DistributionModels, DistributionPreviews, AnalysisModels, AnalysisPreviews, DiscreteModels, DiscretePreviews, EstimationModels, EstimationPreviews, SamplingModels, SamplingPreviews, DesignModels, DesignPreviews, ComparisonModels, ComparisonPreviews, NumberExtensions, NumberExtensionPreviews, GeometryExtensions, GeometryExtensionPreviews, Continuation) {
   'use strict';
   const C = Object.freeze({ bg: '#101e2b', grid: '#294352', ink: '#eef8f3', muted: '#9eb4bf', cyan: '#77d8e8', mint: '#c6f276', gold: '#f5cf78', violet: '#b8a1ff', orange: '#ffb08a' });
   // Every preview keeps explanatory text below the mathematical artwork.
@@ -501,6 +501,29 @@
       }
     }
   };
+  for(const provider of [Systems,Inference])if(provider)for(const id of ['vector-field', 'continuous-flow', 'basin-attraction', 'fold-bifurcation', 'cusp-potential', 'partial-order', 'meet-join', 'lattice-distributivity', 'heat-balance', 'gibbs-free-energy', 'ideal-gas', 'artificial-neuron', 'hebbian-learning', 'sampling-distribution', 'confidence-interval', 'hypothesis-test', 'linear-regression', 'correlation', 'factorial-interaction', 'chi-square-association', 'relative-entropy', 'binomial-distribution', 'poisson-distribution'])if(provider.has(id)){
+    const meta=provider.specs(id),controls=provider.controls(id),axis=controls.find(c=>c.key===meta.axis)||controls.find(c=>c.type!=='select');
+    records[id]={title:meta.title,describe:(p,r)=>meta.expression+'. Current result '+f(r.output)+' '+meta.unit+'. '+meta.limits,draw:(p,r)=>{
+      const count=axis.discrete?Math.round(axis.max-axis.min):40,points=Array.from({length:count+1},(_,i)=>{const x=axis.min+(axis.max-axis.min)*i/count,v=provider.evaluate(id,{...p,[axis.key]:x});return{x,y:v.valid&&Number.isFinite(v.output)?v.output:null};}).filter(v=>v.y!==null),values=points.map(v=>v.y),lo=Math.min(0,...values),hi=Math.max(0,...values),span=hi-lo||1,xx=x=>34+292*(x-axis.min)/(axis.max-axis.min),yy=y=>174-88*(y-lo)/span,discrete=axis.discrete||['fold-bifurcation','cusp-potential'].includes(id);
+      return quantity('output',r.output,label(180,37,f(r.output)+' '+(meta.unit||''),C.gold,25))+label(180,65,axis.label,C.muted,13)+line(34,174,326,174)+quantity(axis.key+' output',r.output,discrete?points.map(v=>circle(xx(v.x),yy(v.y),3,C.cyan)).join(''):curve(points.map(v=>[xx(v.x),yy(v.y)]),C.cyan))+quantity('output',r.output,Number.isFinite(r.output)?circle(xx(p[axis.key]),yy(r.output),5,C.gold):'')+caption(meta.title);
+    }};
+  }
+  for(const id of ['partial-order','meet-join','lattice-distributivity']){
+    const meta=Systems.specs(id),record=records[id];record.draw=(p,r)=>{
+      const rows=[[0],[1,2,4],[3,5,6],[7]],pos=new Map();rows.forEach((row,k)=>row.forEach((mask,i)=>pos.set(mask,[40+(i+1)*280/(row.length+1),169-k*34])));
+      let body=quantity('output',r.output,label(180,28,id==='partial-order'?'A ⊆ B? '+(r.output?'True':'False'):f(r.output)+' selected '+(r.output===1?'tool':'tools'),C.gold,23));
+      for(let a=0;a<8;a++)for(let bit=0;bit<3;bit++)if(!(a&(1<<bit)))body+=line(...pos.get(a),...pos.get(a|(1<<bit)),C.grid);
+      for(let mask=0;mask<8;mask++){const[x,y]=pos.get(mask),active=mask===r.resultMask,selected=mask===p.a||mask===p.b||mask===p.c,color=active?C.gold:selected?C.cyan:C.grid,word=mask===0?'∅':Systems.elements(mask).map(x=>x[0].toUpperCase()).join('');body+=quantity('kit:'+mask,mask,circle(x,y,15,color)+label(x,y+5,word,active||selected?C.bg:C.ink,13));}
+      return body+caption(meta.title);
+    };
+  }
+  if(InferencePreviews)for(const id of InferencePreviews.list())records[id]={title:Inference.specs(id).title,describe:(p,r)=>InferencePreviews.describe(id,p,r),draw:(p,r)=>InferencePreviews.draw(id,p,r).replace(/<text\b[^>]*>[\s\S]*?<\/text>/,body=>quantity('output',r.output,body))};
+  for(const id of Continuation?.ids||[]){
+    const pair=[[Numbers,NumberPreviews],[SpaceModels,SpatialPreviews],[DynamicsModels,DynamicsPreviews],[AlgebraModels,AlgebraPreviews],[AlgorithmModels,AlgorithmPreviews],[DistributionModels,DistributionPreviews],[AnalysisModels,AnalysisPreviews],[DiscreteModels,DiscretePreviews],[EstimationModels,EstimationPreviews],[SamplingModels,SamplingPreviews],[DesignModels,DesignPreviews],[ComparisonModels,ComparisonPreviews],[NumberExtensions,NumberExtensionPreviews],[GeometryExtensions,GeometryExtensionPreviews]].find(([provider])=>provider?.has(id));
+    if(!pair?.[1]?.has(id))throw new RangeError('Missing authored illustration: '+id);
+    const [provider,preview]=pair;
+    records[id]={title:provider.specs(id).title,describe:(p,r)=>preview.describe(id,p,r),draw:(p,r)=>preview.draw(id,p,r)};
+  }
   const slugs = Object.freeze(Object.keys(records));
   function has(slug) { return typeof slug === 'string' && Object.hasOwn(records, slug); }
   function description(slug) { if (!has(slug)) return ''; const p = M.defaults(slug); return records[slug].describe(p, M.evaluate(slug, p)); }

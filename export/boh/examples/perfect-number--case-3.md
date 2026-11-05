@@ -1,0 +1,419 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:perfect-number:case-3", "id": "math:example:perfect-number:case-3", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:perfect-number", "example_id": "math:example:perfect-number:case-3", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "995d9e3cf545d73e71a50e678cbff4fdd62206b8807bdba829f2aff3ea71d3d0"}, "purpose": "Can the proper-divisor tile strips exactly match the target strip?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "995d9e3cf545d73e71a50e678cbff4fdd62206b8807bdba829f2aff3ea71d3d0", "status": "draft", "title": "Too many divisor tiles", "topics": ["mathematics", "numbers-number-theory", "discrete-mathematics", "perfect numbers and proper divisors"], "type": "reference", "updated": "2026-11-05T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Too many divisor tiles
+
+Parent card: math:concept:perfect-number; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:perfect-number; revision 0.1.0-draft. Setting: A number exhibit has a target strip of n unit tiles. For every positive proper divisor d of n, it builds one separate strip with d tiles. Collect these divisor strips and compare their total with the target. The picture counts each proper divisor once; it does not partition the original strip into those pieces. Expression: $D=\{d\in\mathbb{N}:d\mid n,\ 0<d<n\},\quad s=\sum_{d\in D}d,\quad \Delta=s-n,\quad n\text{ is perfect}\iff s=n.$. Conditions required for a defined value (a case may test their violation): The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero. Scope: This finite exhibit uses exact integer divisibility. Deficient means s<n, perfect means s=n, and abundant means s>n; these words classify the divisor sum. Zero and negative integers are outside the family. No claim about all perfect numbers or their historical discovery follows from the finite display.
+
+Case unit math:example:perfect-number:case-3. Setting: A number exhibit has a target strip of n unit tiles. For every positive proper divisor d of n, it builds one separate strip with d tiles. Collect these divisor strips and compare their total with the target. The picture counts each proper divisor once; it does not partition the original strip into those pieces. Inputs: {"number": 12}. Result: {"exact": "16"}. Limits: This finite exhibit uses exact integer divisibility. Deficient means s<n, perfect means s=n, and abundant means s>n; these words classify the divisor sum. Zero and negative integers are outside the family. No claim about all perfect numbers or their historical discovery follows from the finite display.
+
+## Complete worked case
+
+- id: math:example:perfect-number:case-3
+- title: Too many divisor tiles
+- role: applied_model
+- question: Can the proper-divisor tile strips exactly match the target strip?
+- setting: A number exhibit has a target strip of n unit tiles. For every positive proper divisor d of n, it builds one separate strip with d tiles. Collect these divisor strips and compare their total with the target. The picture counts each proper divisor once; it does not partition the original strip into those pieces.
+- assumptions:
+  - The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero.
+- inputs:
+  - number: 12
+- steps:
+  - Item:
+    - index: 1
+    - expression: n = 12
+    - reason: Place the selected inputs in the stated construction.
+  - Item:
+    - index: 2
+    - expression: D=\{d\in\mathbb{N}:d\mid n,\ 0<d<n\},\quad s=\sum_{d\in D}d,\quad \Delta=s-n,\quad n\text{ is perfect}\iff s=n.
+    - reason: A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers.
+  - Item:
+    - index: 3
+    - expression: s = 16 items
+    - reason: The proper divisors 1, 2, 3, 4 and 6 total 16. The four-tile surplus classifies 12 as abundant.
+- result:
+  - exact: 16
+- interpretation: The proper divisors 1, 2, 3, 4 and 6 total 16. The four-tile surplus classifies 12 as abundant.
+- independent check:
+  - method: Independently enumerate factor pairs up to the integer square root, exclude the target divisor, deduplicate a square root, and sum the remaining positive divisors.
+  - expected: 16.0
+- limits: This finite exhibit uses exact integer divisibility. Deficient means s<n, perfect means s=n, and abundant means s>n; these words classify the divisor sum. Zero and negative integers are outside the family. No claim about all perfect numbers or their historical discovery follows from the finite display.
+- preset:
+  - number: 12
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero.
+
+## Written exploration recipe
+
+- component id: component:perfect-number
+- renderer id: perfect-number-visual-model
+- renderer version: 1
+- model id: perfect-number-visual-model
+- model revision: 1
+- expression id: ast:perfect-number:expression
+- interaction status: implemented
+- description: A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers.
+- controls:
+  - Item:
+    - id: number
+    - type: number
+    - default: 6
+    - min: 1
+    - max: 60
+    - step: 1
+- expected cases:
+  - Item:
+    - input:
+      - number: 1
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - number: 2
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 3
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 4
+    - status: valid
+    - output: 3.0
+  - Item:
+    - input:
+      - number: 5
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 6
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - number: 7
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 8
+    - status: valid
+    - output: 7.0
+  - Item:
+    - input:
+      - number: 9
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - number: 10
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - number: 11
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 12
+    - status: valid
+    - output: 16.0
+  - Item:
+    - input:
+      - number: 13
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 14
+    - status: valid
+    - output: 10.0
+  - Item:
+    - input:
+      - number: 15
+    - status: valid
+    - output: 9.0
+  - Item:
+    - input:
+      - number: 16
+    - status: valid
+    - output: 15.0
+  - Item:
+    - input:
+      - number: 17
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 18
+    - status: valid
+    - output: 21.0
+  - Item:
+    - input:
+      - number: 19
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 20
+    - status: valid
+    - output: 22.0
+  - Item:
+    - input:
+      - number: 21
+    - status: valid
+    - output: 11.0
+  - Item:
+    - input:
+      - number: 22
+    - status: valid
+    - output: 14.0
+  - Item:
+    - input:
+      - number: 23
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 24
+    - status: valid
+    - output: 36.0
+  - Item:
+    - input:
+      - number: 25
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - number: 26
+    - status: valid
+    - output: 16.0
+  - Item:
+    - input:
+      - number: 27
+    - status: valid
+    - output: 13.0
+  - Item:
+    - input:
+      - number: 28
+    - status: valid
+    - output: 28.0
+  - Item:
+    - input:
+      - number: 29
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 30
+    - status: valid
+    - output: 42.0
+  - Item:
+    - input:
+      - number: 31
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 32
+    - status: valid
+    - output: 31.0
+  - Item:
+    - input:
+      - number: 33
+    - status: valid
+    - output: 15.0
+  - Item:
+    - input:
+      - number: 34
+    - status: valid
+    - output: 20.0
+  - Item:
+    - input:
+      - number: 35
+    - status: valid
+    - output: 13.0
+  - Item:
+    - input:
+      - number: 36
+    - status: valid
+    - output: 55.0
+  - Item:
+    - input:
+      - number: 37
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 38
+    - status: valid
+    - output: 22.0
+  - Item:
+    - input:
+      - number: 39
+    - status: valid
+    - output: 17.0
+  - Item:
+    - input:
+      - number: 40
+    - status: valid
+    - output: 50.0
+  - Item:
+    - input:
+      - number: 41
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 42
+    - status: valid
+    - output: 54.0
+  - Item:
+    - input:
+      - number: 43
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 44
+    - status: valid
+    - output: 40.0
+  - Item:
+    - input:
+      - number: 45
+    - status: valid
+    - output: 33.0
+  - Item:
+    - input:
+      - number: 46
+    - status: valid
+    - output: 26.0
+  - Item:
+    - input:
+      - number: 47
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 48
+    - status: valid
+    - output: 76.0
+  - Item:
+    - input:
+      - number: 49
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - number: 50
+    - status: valid
+    - output: 43.0
+  - Item:
+    - input:
+      - number: 51
+    - status: valid
+    - output: 21.0
+  - Item:
+    - input:
+      - number: 52
+    - status: valid
+    - output: 46.0
+  - Item:
+    - input:
+      - number: 53
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 54
+    - status: valid
+    - output: 66.0
+  - Item:
+    - input:
+      - number: 55
+    - status: valid
+    - output: 17.0
+  - Item:
+    - input:
+      - number: 56
+    - status: valid
+    - output: 64.0
+  - Item:
+    - input:
+      - number: 57
+    - status: valid
+    - output: 23.0
+  - Item:
+    - input:
+      - number: 58
+    - status: valid
+    - output: 32.0
+  - Item:
+    - input:
+      - number: 59
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - number: 60
+    - status: valid
+    - output: 108.0
+  - Item:
+    - input:
+      - number: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - number: 61
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - number: 6.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - number: true
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - number: null
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - number: 6
+    - status: invalid_parameters
+- compute: D=\{d\in\mathbb{N}:d\mid n,\ 0<d<n\},\quad s=\sum_{d\in D}d,\quad \Delta=s-n,\quad n\text{ is perfect}\iff s=n.
+- numeric tolerance: 5e-11
+- invariants:
+  - The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero.
+  - Story, calculation, Geometry and Graph use the same evaluated state.
+  - Whole-number counts change at exact integer choices; physical radii can vary continuously.
+- limits:
+  - This finite exhibit uses exact integer divisibility. Deficient means s<n, perfect means s=n, and abundant means s>n; these words classify the divisor sum. Zero and negative integers are outside the family. No claim about all perfect numbers or their historical discovery follows from the finite display.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:number-extensions:perfect-number. [Wolfram MathWorld · Perfect Number](https://mathworld.wolfram.com/PerfectNumber.html). Locator: Opening definition: a positive integer is perfect when it equals the sum of its proper positive divisors. The divisor-strip exhibit, empty case and classifications are original teaching constructions.. Verification: Definition-level page inspected 2026-11-05. Independent mathematical and pedagogical review and exact-edition book-page verification remain pending.. Rights: Originally authored tile-strip scenario and divisor calculations; no historical priority claims. No source exercise, illustration or data reproduced.

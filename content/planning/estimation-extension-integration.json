@@ -1,0 +1,170 @@
+{
+  "slugs": [
+    "randomized-block-design",
+    "normal-mean-interval"
+  ],
+  "sources": [
+    {
+      "id": "source:estimation-extensions:blocks",
+      "title": "NIST/SEMATECH · Randomized Block Designs",
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri332.htm",
+      "kind": "reference",
+      "locator": "§5.3.3.2: one primary factor, nuisance blocking factors, within-block randomization and additive block effects. The original three-day packing construction is not the source example.",
+      "verification": "Definition-level primary source inspected 2026-11-03; independent mathematical/pedagogical and exact-edition book review remain pending.",
+      "rights": "Original prose, constructed packing times, examples and SVG; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:estimation-extensions:normal-interval",
+      "title": "NIST/SEMATECH · What Are Confidence Intervals?",
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+      "kind": "reference",
+      "locator": "§7.1.4: repeated-interval confidence and the normal-mean interval with known population standard deviation; distinction from estimated spread.",
+      "verification": "Definition-level primary source inspected 2026-11-03; independent mathematical/pedagogical and exact-edition book review remain pending.",
+      "rights": "Original calibration scenario, prose, calculations and SVG; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:estimation-extensions:anova-reader",
+      "title": "NIST/SEMATECH · The ANOVA Table and Tests of Hypotheses About Means",
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc433.htm",
+      "kind": "reference",
+      "locator": "§7.4.3.3: sums of squares, treatment/error mean squares and their role in mean comparisons; used only for the glossary reader. No ANOVA is implemented by the blocked-comparison lesson.",
+      "verification": "Definition-level primary source inspected 2026-11-03. Independent mathematical and exact-edition book review remain pending.",
+      "rights": "Original glossary definition; no source example or illustration reproduced."
+    }
+  ],
+  "bindings": {
+    "randomized-block-design": {
+      "A": [
+        "aReadings"
+      ],
+      "B": [
+        "bReadings"
+      ],
+      "d": [
+        "change"
+      ],
+      "b": [
+        "blockSpread"
+      ],
+      "j": [
+        "blockIndex"
+      ],
+      "d₁": [
+        "firstDifference"
+      ],
+      "d₂": [
+        "secondDifference"
+      ],
+      "d₃": [
+        "thirdDifference"
+      ],
+      "d̄": [
+        "output"
+      ]
+    },
+    "normal-mean-interval": {
+      "n": [
+        "sampleSize"
+      ],
+      "x̄": [
+        "mean"
+      ],
+      "σ": [
+        "sigma"
+      ],
+      "SE": [
+        "standardError"
+      ],
+      "z₀.₉₇₅": [
+        "criticalValue"
+      ],
+      "h": [
+        "output"
+      ],
+      "I": [
+        "interval",
+        "lower",
+        "upper"
+      ],
+      "L": [
+        "lower"
+      ],
+      "U": [
+        "upper"
+      ],
+      "μ": [],
+      "Φ⁻¹": [
+        "criticalValue"
+      ]
+    }
+  },
+  "ports": {
+    "randomized-block-design": [
+      {
+        "id": "input:change",
+        "direction": "input",
+        "key": "change",
+        "label": "Common constructed B−A shift in minutes",
+        "type": "packing-time-difference",
+        "unit": "min",
+        "description": "Common constructed B−A shift in minutes. Receiving lessons must validate their own model/domain conditions."
+      },
+      {
+        "id": "input:blockSpread",
+        "direction": "input",
+        "key": "blockSpread",
+        "label": "Size of the additive day offset, in minutes",
+        "type": "day-offset",
+        "unit": "min",
+        "description": "Size of the additive day offset, in minutes. Receiving lessons must validate their own model/domain conditions."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Mean within-day B−A difference",
+        "type": "packing-time-difference",
+        "unit": "min",
+        "description": "Compare B with A within each of three days, then average those paired differences. An additive day offset moves both methods together and cancels from their same-day comparison."
+      }
+    ],
+    "normal-mean-interval": [
+      {
+        "id": "input:sampleSize",
+        "direction": "input",
+        "key": "sampleSize",
+        "label": "Whole number of independent readings",
+        "type": "sample-size",
+        "unit": "count",
+        "description": "Whole number of independent readings. Receiving lessons must validate their own model/domain conditions."
+      },
+      {
+        "id": "input:mean",
+        "direction": "input",
+        "key": "mean",
+        "label": "Observed sample mean error, in millimetres",
+        "type": "measurement-length",
+        "unit": "mm",
+        "description": "Observed sample mean error, in millimetres. Receiving lessons must validate their own model/domain conditions."
+      },
+      {
+        "id": "input:sigma",
+        "direction": "input",
+        "key": "sigma",
+        "label": "Known positive population standard deviation, in millimetres",
+        "type": "population-standard-deviation",
+        "unit": "mm",
+        "description": "Known positive population standard deviation, in millimetres. Receiving lessons must validate their own model/domain conditions."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Normal-mean interval margin",
+        "type": "mean-error-margin",
+        "unit": "mm",
+        "description": "Divide the known population standard deviation by the square root of the whole-number sample size. Multiply that standard error by the standard normal 0.975 quantile, then place the resulting margin on each side of the observed mean."
+      }
+    ]
+  }
+}

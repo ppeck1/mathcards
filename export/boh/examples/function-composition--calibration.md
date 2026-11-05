@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:composition:calibration", "id": "math:example:composition:calibration", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:function-composition", "example_id": "math:example:composition:calibration", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.1-draft", "upstream_content_sha256": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed"}, "purpose": "Describe one transformation whose output becomes the input of another.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed", "status": "draft", "title": "Convert a raw sensor reading to Celsius and then Fahrenheit.", "topics": ["mathematics", "language", "functions", "composition of functions"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:composition:calibration", "id": "math:example:composition:calibration", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:function-composition", "example_id": "math:example:composition:calibration", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.1-draft", "upstream_content_sha256": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed"}, "purpose": "Describe one transformation whose output becomes the input of another.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "82dd97eafcc4503910e8f5837203d3e218c9d2d14bea64ae768d331553ecafed", "status": "draft", "title": "Convert a raw sensor reading to Celsius and then Fahrenheit.", "topics": ["mathematics", "language", "functions", "composition of functions"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
 ---
 
 # Convert a raw sensor reading to Celsius and then Fahrenheit.
@@ -41,6 +41,7 @@ Case unit math:example:composition:calibration. Setting: An illustrative calibra
   - kind: original worked derivation
   - mathematical review: draft
   - external source refs:
+    []
 - assumptions:
   - An illustrative calibration model, not a measured device specification.
 - title: Convert a raw sensor reading to Celsius and then Fahrenheit.

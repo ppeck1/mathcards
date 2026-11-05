@@ -31,6 +31,12 @@ jobs:
           node-version: '22'
           package-manager-cache: false
 
+      - name: Install pinned source tooling
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Check incremental source formatting
+        run: npm run check:format
+
       - name: Set up Python
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
@@ -42,8 +48,14 @@ jobs:
       - name: Build the application from canonical source
         run: python tools/build.py
 
+      - name: Check authored source
+        run: python tools/check_source.py
+
+      - name: Check default scene markup and slot namespaces
+        run: npm run check:scenes
+
       - name: Test the application
-        run: node --test tests/*.test.mjs
+        run: npm test
 
       - name: Check the content and export pipeline
         run: python tools/check.py

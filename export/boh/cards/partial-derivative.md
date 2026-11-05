@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:partial-derivative", "id": "math:concept:partial-derivative", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:partial-derivative", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "58f75439113edc3c9a5d4d8532195fc60265999828af628b479d9bd40068d388"}, "purpose": "Change one coordinate while holding the other fixed, and read the slope of that slice.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "58f75439113edc3c9a5d4d8532195fc60265999828af628b479d9bd40068d388", "status": "draft", "title": "Partial derivatives", "topics": ["mathematics", "calculus", "analysis", "geometry", "partial differentiation", "slice derivative", "multivariable derivative", "cross-section slope"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:partial-derivative", "id": "math:concept:partial-derivative", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:partial-derivative", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "58f75439113edc3c9a5d4d8532195fc60265999828af628b479d9bd40068d388"}, "purpose": "Change one coordinate while holding the other fixed, and read the slope of that slice.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "58f75439113edc3c9a5d4d8532195fc60265999828af628b479d9bd40068d388", "status": "draft", "title": "Partial derivatives", "topics": ["mathematics", "calculus", "analysis", "geometry", "partial differentiation", "slice derivative", "multivariable derivative", "cross-section slope"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Partial derivatives
@@ -319,7 +319,7 @@ A partial derivative measures how a scalar field changes with one independent in
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of this idea and its notation using specialist historical sources before adding attributions.
   - Distinguish an early use, later formalization and modern teaching convention; inspect evidence for each.
@@ -335,6 +335,7 @@ A partial derivative measures how a scalar field changes with one independent in
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:chain-rule
   - type: supports
@@ -343,6 +344,7 @@ A partial derivative measures how a scalar field changes with one independent in
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:gradient
   - type: supports
@@ -351,6 +353,7 @@ A partial derivative measures how a scalar field changes with one independent in
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -401,6 +404,7 @@ A partial derivative measures how a scalar field changes with one independent in
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
     - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.
@@ -453,6 +457,7 @@ A partial derivative measures how a scalar field changes with one independent in
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
     - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.
@@ -505,6 +510,7 @@ A partial derivative measures how a scalar field changes with one independent in
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
     - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.
@@ -557,6 +563,7 @@ A partial derivative measures how a scalar field changes with one independent in
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
     - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.
@@ -609,6 +616,7 @@ A partial derivative measures how a scalar field changes with one independent in
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
     - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.

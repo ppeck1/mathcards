@@ -9,12 +9,16 @@ test('the editable offline entry loads all installed working model and story fam
   assert.ok(scripts.length>0);
   const context=vm.createContext({});
   for(const name of scripts){if(name==='app.js')break;vm.runInContext(fs.readFileSync(new URL('../src/'+name,import.meta.url),'utf8'),context,{filename:name});}
-  const modelFamilies=['AtlasEveryday','AtlasDiscovery','AtlasFrontier','AtlasFoundations','AtlasLinearAlgebra','AtlasLinearWorkflows','AtlasCalculusFields','AtlasLocalChange','AtlasGaps','AtlasDataIteration','AtlasBookFoundations','AtlasReasoning','AtlasStructures','AtlasChanceInformation','AtlasInformationLinks','AtlasComputation'];
+  const modelFamilies=['AtlasEveryday','AtlasDiscovery','AtlasFrontier','AtlasFoundations','AtlasLinearAlgebra','AtlasLinearWorkflows','AtlasCalculusFields','AtlasLocalChange','AtlasGaps','AtlasDataIteration','AtlasBookFoundations','AtlasReasoning','AtlasStructures','AtlasChanceInformation','AtlasInformationLinks','AtlasComputation','AtlasSystems','AtlasInference','AtlasNumberFoundations','AtlasSpatialFoundations','AtlasDynamicsExtensions'];
   for(const family of modelFamilies)for(const method of ['has','defaults','controls','specs','validateParams','evaluate','curveValue','render'])assert.equal(typeof context[family]?.[method],'function',family+' loads '+method+' before the registry');
-  const storyFamilies=['AtlasLifeStories','AtlasDiscoveryStories','AtlasFrontierStories','AtlasFoundationStories','AtlasLinearAlgebraStories','AtlasLinearWorkflowStories','AtlasCalculusFieldStories','AtlasLocalChangeStories','AtlasGapStories','AtlasDataIterationStories','AtlasBookFoundationStories','AtlasReasoningStories','AtlasStructureStories','AtlasChanceInformationStories','AtlasInformationLinkStories','AtlasComputationStories'];
+  const storyFamilies=['AtlasLifeStories','AtlasDiscoveryStories','AtlasFrontierStories','AtlasFoundationStories','AtlasLinearAlgebraStories','AtlasLinearWorkflowStories','AtlasCalculusFieldStories','AtlasLocalChangeStories','AtlasGapStories','AtlasDataIterationStories','AtlasBookFoundationStories','AtlasReasoningStories','AtlasStructureStories','AtlasChanceInformationStories','AtlasInformationLinkStories','AtlasComputationStories','AtlasSystemsStories','AtlasInferenceStories','AtlasNumberFoundationStories','AtlasSpatialFoundationStories','AtlasDynamicsExtensionStories'];
   for(const family of storyFamilies)for(const method of ['all','forSlug'])assert.equal(typeof context[family]?.[method],'function',family+' loads '+method+' before the story library');
   assert.ok(scripts.indexOf('computation.js')<scripts.indexOf('model-registry.js'));
   assert.ok(scripts.indexOf('computation-stories.js')<scripts.indexOf('story-library.js'));
+  for(const name of ['number-foundations','spatial-foundations','dynamics-extensions'])assert.ok(scripts.indexOf(name+'.js')<scripts.indexOf('model-registry.js'),name+' precedes model routing');
+  for(const name of ['number-foundation-stories','spatial-foundation-stories','dynamics-extension-stories'])assert.ok(scripts.indexOf(name+'.js')<scripts.indexOf('story-library.js'),name+' precedes story composition');
+  assert.ok(scripts.indexOf('continuation-metadata.js')<scripts.indexOf('module-ports.js'),'declared quantities precede consumers');
+
   assert.equal(typeof context.AtlasReadableValues.createPacer,'function');
   assert.equal(typeof context.AtlasPlayground.renderInto,'function');
   assert.equal(typeof context.AtlasStoryJourney.itinerary,'function');
@@ -52,9 +56,11 @@ test('the editable offline entry loads all installed working model and story fam
   assert.equal(typeof context.AtlasExplorer.create,'function');
   assert.equal(typeof context.AtlasMathIndex.create,'function');
   assert.equal(typeof context.AtlasSearch.create,'function');
-  const definitions=context.AtlasMathIndex.create(context.AtlasCatalog);
+  assert.equal(context.AtlasMathTerms,undefined,'authored reference data stays in the build tooling');
+  assert.throws(()=>context.AtlasMathIndex.create(context.AtlasCatalog),/requires authoring data/);
+  const definitions=context.AtlasMathIndex.hydrate(context.AtlasMathIndexData);
   assert.ok(definitions.entries.length>=180);
-  assert.deepEqual(Array.from(definitions.search('δ'),entry=>entry.id).sort(),['delta-small','tape-transition','transition-function']);
+  assert.deepEqual(Array.from(definitions.search('δ'),entry=>entry.id).sort(),['delta-small','normal-test-power-symbol-3','tape-transition','transition-function']);
   assert.ok(definitions.forCard('determinant').length>0);
   assert.equal(typeof context.AtlasLandscape.render,'function');
   assert.equal(typeof context.AtlasRegions.create,'function');

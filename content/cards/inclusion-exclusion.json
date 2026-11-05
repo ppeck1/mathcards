@@ -1,0 +1,771 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:inclusion-exclusion",
+  "slug": "inclusion-exclusion",
+  "type": "concept",
+  "title": "Inclusion–exclusion: count the overlap once",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-03T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "inclusion-exclusion",
+    "inclusion exclusion principle",
+    "two-set counting"
+  ],
+  "branches": [
+    "set-theory",
+    "discrete-mathematics"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "How many chairs are needed when two signup lists overlap?",
+  "meaning": "Add the sizes of two finite lists, then subtract their shared people once. The overlap was included in both lists, while a distinct attendee needs only one chair. Subtracting the overlap corrects double counting of attendees who appear on both lists.",
+  "prerequisites": {
+    "required": [
+      "math:concept:set"
+    ],
+    "helpful": [
+      "math:concept:binomial-coefficient",
+      "math:concept:probability"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "At a community workshop, list A records woodcraft signups and list B records repair signups. Each person attending either activity needs one chair at the joint opening talk.",
+    "formal_latex": "|A\\cup B|=|A|+|B|-|A\\cap B|=a+b-h,\\quad 0\\le h\\le\\min(a,b).",
+    "signature": {
+      "a": "People on the woodcraft signup list",
+      "b": "People on the repair signup list",
+      "h": "People registered for both activities",
+      "A": "Woodcraft signup set",
+      "B": "Repair signup set",
+      "|A|": "Cardinality of the woodcraft set",
+      "|B|": "Cardinality of the repair set",
+      "|A∩B|": "Shared people in both signup sets",
+      "|A∪B|": "Distinct people needing one chair"
+    },
+    "conditions": [
+      "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+    ],
+    "domain_notes": "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable.",
+    "proof_status": "Definition-level sources and original bounded calculations; independent review pending.",
+    "source_refs": [
+      "source:discrete-extension:inclusion"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Inclusion–exclusion: count the overlap once",
+    "expression_latex": "|A\\cup B|=|A|+|B|-|A\\cap B|=a+b-h,\\quad 0\\le h\\le\\min(a,b).",
+    "formation_rule": "Construct three disjoint groups: people only on the woodcraft list, people on both lists, and people only on the repair list. Their total is (a−h)+h+(b−h)=a+b−h.",
+    "precedence": "Evaluate whole inputs and the declared finite condition before counting valid objects.",
+    "symbols": [
+      {
+        "token": "a",
+        "role": "People on the woodcraft signup list",
+        "type": "Declared finite set or counting quantity"
+      },
+      {
+        "token": "b",
+        "role": "People on the repair signup list",
+        "type": "Declared finite set or counting quantity"
+      },
+      {
+        "token": "h",
+        "role": "People registered for both activities",
+        "type": "Declared finite set or counting quantity"
+      },
+      {
+        "token": "A",
+        "role": "Woodcraft signup set",
+        "type": "Declared finite set or counting quantity"
+      },
+      {
+        "token": "B",
+        "role": "Repair signup set",
+        "type": "Declared finite set or counting quantity"
+      },
+      {
+        "token": "|A|",
+        "role": "Cardinality of the woodcraft set",
+        "type": "Declared finite set or counting quantity"
+      },
+      {
+        "token": "|B|",
+        "role": "Cardinality of the repair set",
+        "type": "Declared finite set or counting quantity"
+      },
+      {
+        "token": "|A∩B|",
+        "role": "Shared people in both signup sets",
+        "type": "Declared finite set or counting quantity"
+      },
+      {
+        "token": "|A∪B|",
+        "role": "Distinct people needing one chair",
+        "type": "Declared finite set or counting quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:inclusion-exclusion:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:overlap",
+          "kind": "variable",
+          "type": "Declared whole-number input",
+          "symbol": "h",
+          "scope_ref": "scope:inclusion-exclusion"
+        },
+        {
+          "id": "n:wood",
+          "kind": "variable",
+          "type": "Declared whole-number input",
+          "symbol": "a",
+          "scope_ref": "scope:inclusion-exclusion"
+        },
+        {
+          "id": "n:repair",
+          "kind": "variable",
+          "type": "Declared whole-number input",
+          "symbol": "b",
+          "scope_ref": "scope:inclusion-exclusion"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Declared finite counting function",
+          "ref": "Construct three disjoint groups: people only on the woodcraft list, people on both lists, and people only on the repair list. Their total is (a−h)+h+(b−h)=a+b−h."
+        },
+        {
+          "id": "n:apply-0",
+          "kind": "apply",
+          "type": "Finite exact count or partially applied counting function",
+          "function": "n:rule",
+          "argument": "n:overlap"
+        },
+        {
+          "id": "n:apply-1",
+          "kind": "apply",
+          "type": "Finite exact count or partially applied counting function",
+          "function": "n:apply-0",
+          "argument": "n:wood"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Finite exact count or partially applied counting function",
+          "function": "n:apply-1",
+          "argument": "n:repair"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:inclusion-exclusion",
+          "kind": "modelExpression",
+          "free_variables": [
+            "h",
+            "a",
+            "b"
+          ],
+          "domain_condition": "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Fractional or inconsistent counts",
+        "status": "unsupported parameter",
+        "reason": "Executable counts are whole numbers satisfying the declared constraints; no silent rounding or clipping occurs."
+      }
+    ],
+    "ast_coverage": "Typed application outline of the declared bounded model; not a general graph or set-expression parser.",
+    "output_symbol_bindings": {
+      "a": "wood",
+      "b": "repair",
+      "h": "overlap",
+      "A": "woodMembers",
+      "B": "repairMembers",
+      "|A|": "wood",
+      "|B|": "repair",
+      "|A∩B|": "overlap",
+      "|A∪B|": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "The displayed finite count is a nonnegative whole number.",
+      "conditions": "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable.",
+      "derivation": "Construct three disjoint groups: people only on the woodcraft list, people on both lists, and people only on the repair list. Their total is (a−h)+h+(b−h)=a+b−h.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:inclusion-exclusion:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Check historical and notation development before adding priority claims.",
+      "Verify exact-edition book mappings independently."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The workshop stories, diagrams and examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:set",
+      "type": "supports",
+      "conditions": "Read the connected lesson under its own assumptions.",
+      "reason": "Finite union and intersection counts connect to set operations and probability when a separate probability model is supplied.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:binomial-coefficient",
+      "type": "supports",
+      "conditions": "Read the connected lesson under its own assumptions.",
+      "reason": "Finite union and intersection counts connect to set operations and probability when a separate probability model is supplied.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:probability",
+      "type": "supports",
+      "conditions": "Read the connected lesson under its own assumptions.",
+      "reason": "Finite union and intersection counts connect to set operations and probability when a separate probability model is supplied.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:inclusion-exclusion:case-1",
+      "title": "Subtract one copy of shared registrations",
+      "role": "applied_model",
+      "question": "How many chairs are needed when two signup lists overlap?",
+      "setting": "At a community workshop, list A records woodcraft signups and list B records repair signups. Each person attending either activity needs one chair at the joint opening talk.",
+      "assumptions": [
+        "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+      ],
+      "inputs": {
+        "overlap": 3,
+        "wood": 7,
+        "repair": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "h = 3; a = 7; b = 6",
+          "reason": "Use the declared finite whole-number state."
+        },
+        {
+          "index": 2,
+          "expression": "7 + 6 − 3 = 10",
+          "reason": "Construct three disjoint groups: people only on the woodcraft list, people on both lists, and people only on the repair list. Their total is (a−h)+h+(b−h)=a+b−h."
+        }
+      ],
+      "result": {
+        "exact": "10 people"
+      },
+      "interpretation": "10 distinct people need chairs. The shared group contributes once.",
+      "independent_check": {
+        "method": "Count the disjoint groups of 4 woodcraft-only, 3 shared and 3 repair-only people.",
+        "expected": "10"
+      },
+      "limits": "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable.",
+      "preset": {
+        "overlap": 3,
+        "wood": 7,
+        "repair": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+      ]
+    },
+    {
+      "id": "math:example:inclusion-exclusion:case-2",
+      "title": "Combine disjoint activity lists",
+      "role": "applied_model",
+      "question": "How many chairs are needed when two signup lists overlap?",
+      "setting": "At a community workshop, list A records woodcraft signups and list B records repair signups. Each person attending either activity needs one chair at the joint opening talk.",
+      "assumptions": [
+        "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+      ],
+      "inputs": {
+        "overlap": 0,
+        "wood": 5,
+        "repair": 4
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "h = 0; a = 5; b = 4",
+          "reason": "Use the declared finite whole-number state."
+        },
+        {
+          "index": 2,
+          "expression": "5 + 4 − 0 = 9",
+          "reason": "Construct three disjoint groups: people only on the woodcraft list, people on both lists, and people only on the repair list. Their total is (a−h)+h+(b−h)=a+b−h."
+        }
+      ],
+      "result": {
+        "exact": "9 people"
+      },
+      "interpretation": "9 distinct people need chairs. The shared group contributes once.",
+      "independent_check": {
+        "method": "Count the disjoint groups of 5 woodcraft-only, 0 shared and 4 repair-only people.",
+        "expected": "9"
+      },
+      "limits": "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable.",
+      "preset": {
+        "overlap": 0,
+        "wood": 5,
+        "repair": 4
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+      ]
+    },
+    {
+      "id": "math:example:inclusion-exclusion:case-3",
+      "title": "Both lists contain the same people",
+      "role": "applied_model",
+      "question": "How many chairs are needed when two signup lists overlap?",
+      "setting": "At a community workshop, list A records woodcraft signups and list B records repair signups. Each person attending either activity needs one chair at the joint opening talk.",
+      "assumptions": [
+        "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+      ],
+      "inputs": {
+        "overlap": 5,
+        "wood": 5,
+        "repair": 5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "h = 5; a = 5; b = 5",
+          "reason": "Use the declared finite whole-number state."
+        },
+        {
+          "index": 2,
+          "expression": "5 + 5 − 5 = 5",
+          "reason": "Construct three disjoint groups: people only on the woodcraft list, people on both lists, and people only on the repair list. Their total is (a−h)+h+(b−h)=a+b−h."
+        }
+      ],
+      "result": {
+        "exact": "5 people"
+      },
+      "interpretation": "5 distinct people need chairs. The shared group contributes once.",
+      "independent_check": {
+        "method": "Count the disjoint groups of 0 woodcraft-only, 5 shared and 0 repair-only people.",
+        "expected": "5"
+      },
+      "limits": "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable.",
+      "preset": {
+        "overlap": 5,
+        "wood": 5,
+        "repair": 5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+      ]
+    },
+    {
+      "id": "math:example:inclusion-exclusion:case-4",
+      "title": "Prepare for no registrations",
+      "role": "applied_model",
+      "question": "How many chairs are needed when two signup lists overlap?",
+      "setting": "At a community workshop, list A records woodcraft signups and list B records repair signups. Each person attending either activity needs one chair at the joint opening talk.",
+      "assumptions": [
+        "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+      ],
+      "inputs": {
+        "overlap": 0,
+        "wood": 0,
+        "repair": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "h = 0; a = 0; b = 0",
+          "reason": "Use the declared finite whole-number state."
+        },
+        {
+          "index": 2,
+          "expression": "0 + 0 − 0 = 0",
+          "reason": "Construct three disjoint groups: people only on the woodcraft list, people on both lists, and people only on the repair list. Their total is (a−h)+h+(b−h)=a+b−h."
+        }
+      ],
+      "result": {
+        "exact": "0 people"
+      },
+      "interpretation": "0 distinct people need chairs. The shared group contributes once.",
+      "independent_check": {
+        "method": "Count the disjoint groups of 0 woodcraft-only, 0 shared and 0 repair-only people.",
+        "expected": "0"
+      },
+      "limits": "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable.",
+      "preset": {
+        "overlap": 0,
+        "wood": 0,
+        "repair": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+      ]
+    },
+    {
+      "id": "math:example:inclusion-exclusion:case-5",
+      "title": "One list sits inside the other",
+      "role": "applied_model",
+      "question": "How many chairs are needed when two signup lists overlap?",
+      "setting": "At a community workshop, list A records woodcraft signups and list B records repair signups. Each person attending either activity needs one chair at the joint opening talk.",
+      "assumptions": [
+        "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+      ],
+      "inputs": {
+        "overlap": 2,
+        "wood": 2,
+        "repair": 8
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "h = 2; a = 2; b = 8",
+          "reason": "Use the declared finite whole-number state."
+        },
+        {
+          "index": 2,
+          "expression": "2 + 8 − 2 = 8",
+          "reason": "Construct three disjoint groups: people only on the woodcraft list, people on both lists, and people only on the repair list. Their total is (a−h)+h+(b−h)=a+b−h."
+        }
+      ],
+      "result": {
+        "exact": "8 people"
+      },
+      "interpretation": "8 distinct people need chairs. The shared group contributes once.",
+      "independent_check": {
+        "method": "Count the disjoint groups of 0 woodcraft-only, 2 shared and 6 repair-only people.",
+        "expected": "8"
+      },
+      "limits": "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable.",
+      "preset": {
+        "overlap": 2,
+        "wood": 2,
+        "repair": 8
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:inclusion-exclusion",
+    "renderer_id": "inclusion-exclusion-visual-model",
+    "renderer_version": "1",
+    "model_id": "inclusion-exclusion-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:inclusion-exclusion:expression",
+    "interaction_status": "implemented",
+    "description": "At a community workshop, list A records woodcraft signups and list B records repair signups. Each person attending either activity needs one chair at the joint opening talk.",
+    "controls": [
+      {
+        "id": "overlap",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 12,
+        "step": 1
+      },
+      {
+        "id": "wood",
+        "type": "number",
+        "default": 7,
+        "min": 0,
+        "max": 12,
+        "step": 1
+      },
+      {
+        "id": "repair",
+        "type": "number",
+        "default": 6,
+        "min": 0,
+        "max": 12,
+        "step": 1
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "overlap": 0,
+          "wood": 0,
+          "repair": 0
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "overlap": 0,
+          "wood": 12,
+          "repair": 12
+        },
+        "status": "valid",
+        "output": 24
+      },
+      {
+        "input": {
+          "overlap": 12,
+          "wood": 12,
+          "repair": 12
+        },
+        "status": "valid",
+        "output": 12
+      },
+      {
+        "input": {
+          "overlap": 3,
+          "wood": 7,
+          "repair": 6
+        },
+        "status": "valid",
+        "output": 10
+      },
+      {
+        "input": {
+          "overlap": 0,
+          "wood": 5,
+          "repair": 4
+        },
+        "status": "valid",
+        "output": 9
+      },
+      {
+        "input": {
+          "overlap": 5,
+          "wood": 5,
+          "repair": 5
+        },
+        "status": "valid",
+        "output": 5
+      },
+      {
+        "input": {
+          "overlap": 2,
+          "wood": 2,
+          "repair": 8
+        },
+        "status": "valid",
+        "output": 8
+      },
+      {
+        "input": {
+          "overlap": 0,
+          "wood": 0,
+          "repair": 12
+        },
+        "status": "valid",
+        "output": 12
+      },
+      {
+        "input": {
+          "overlap": 0,
+          "wood": 12,
+          "repair": 0
+        },
+        "status": "valid",
+        "output": 12
+      },
+      {
+        "input": {
+          "overlap": 4,
+          "wood": 8,
+          "repair": 5
+        },
+        "status": "valid",
+        "output": 9
+      },
+      {
+        "input": {
+          "overlap": 1,
+          "wood": 1,
+          "repair": 1
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "overlap": 1,
+          "wood": 12,
+          "repair": 12
+        },
+        "status": "valid",
+        "output": 23
+      },
+      {
+        "input": {
+          "overlap": 4,
+          "wood": 3,
+          "repair": 6
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "overlap": 1,
+          "wood": 3,
+          "repair": 0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "overlap": -1,
+          "wood": 3,
+          "repair": 6
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "overlap": 0.5,
+          "wood": 3,
+          "repair": 6
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "overlap": true,
+          "wood": 3,
+          "repair": 6
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "overlap": 0,
+          "wood": 13,
+          "repair": 6
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "overlap": 0,
+          "wood": 3,
+          "repair": "6"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Construct three disjoint groups: people only on the woodcraft list, people on both lists, and people only on the repair list. Their total is (a−h)+h+(b−h)=a+b−h.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Every valid primary result is a nonnegative exact integer.",
+      "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+    ],
+    "limits": [
+      "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+    ],
+    "fallback": "Pause for readable whole counts. Geometry, Graph, story and data share the same state.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How many chairs are needed when two signup lists overlap?",
+      "answer": "Construct three disjoint groups: people only on the woodcraft list, people on both lists, and people only on the repair list. Their total is (a−h)+h+(b−h)=a+b−h."
+    },
+    {
+      "prompt": "What can this demonstration establish?",
+      "answer": "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "At a community workshop, list A records woodcraft signups and list B records repair signups. Each person attending either activity needs one chair at the joint opening talk."
+    },
+    {
+      "kind": "graph",
+      "description": "Exact whole choices are dots. Other inputs stay fixed; invalid overlap choices remain gaps. Pins use their own fixed inputs."
+    },
+    {
+      "kind": "substitution",
+      "description": "Construct three disjoint groups: people only on the woodcraft list, people on both lists, and people only on the repair list. Their total is (a−h)+h+(b−h)=a+b−h."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Shared workshop opening",
+      "mapping": "How many chairs are needed when two signup lists overlap?",
+      "limitations": "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:inclusion-exclusion:case-1"
+    },
+    {
+      "context": "Combining RSVP lists",
+      "mapping": "Disjoint registration lists need no duplicate correction; identical lists need the whole overlap removed once.",
+      "limitations": "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:inclusion-exclusion:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:discrete-extension:inclusion"
+  ],
+  "review_gaps": [
+    "Independent mathematical and learning review is pending.",
+    "Historical priority and exact-edition book coverage are not certified.",
+    "Each list contains zero to twelve people. The overlap is a whole count no larger than either list. Dots show one constructed realization of those counts, not collected registrations or a probability distribution. Only the two-set formula is executable."
+  ],
+  "change_log": [
+    "Original bounded discrete continuation: connected story, Geometry/Graph, preview, reference readers and independent counting oracle."
+  ]
+}

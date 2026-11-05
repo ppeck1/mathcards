@@ -68,28 +68,36 @@
    */
   function render(spec, options = {}) {
     const id = scope(options.id), compact = Boolean(options.compact);
-    if (!validAxis(spec?.x) || !validAxis(spec?.y)) return unavailable(spec, id, compact);
+    const logY = spec?.y?.scale === 'log1p';
+    if (!validAxis(spec?.x) || !validAxis(spec?.y) ||
+      (spec.y.scale != null && !['linear','log1p'].includes(spec.y.scale)) ||
+      (logY && spec.y.min < 0)) return unavailable(spec, id, compact);
     const title = spec.title || 'Relationship graph';
-    const description = spec.description || 'The horizontal variable changes the vertical result.';
+    const scaleNote = logY ? ' The vertical scale uses logarithmic spacing after adding one; tick labels and point readings show the original values.' : '';
+    const description = (spec.description || 'The horizontal variable changes the vertical result.') + scaleNote;
     const px = value => R.x + fraction(value, spec.x.min, spec.x.max) * R.width;
-    const py = value => R.y + R.height - fraction(value, spec.y.min, spec.y.max) * R.height;
+    const yLow = logY ? Math.log1p(spec.y.min) : spec.y.min,
+      yHigh = logY ? Math.log1p(spec.y.max) : spec.y.max;
+    if (!(yHigh > yLow)) return unavailable(spec, id, compact);
+    const py = value => R.y + R.height - fraction(logY ? Math.log1p(value) : value, yLow, yHigh) * R.height;
     const point = value => {
-      if (!value || !finite(value.x) || !finite(value.y)) return null;
+      if (!value || !finite(value.x) || !finite(value.y) || (logY && value.y < 0)) return null;
       const x = px(value.x), y = py(value.y);
       return finite(x) && finite(y) ? { x, y } : null;
     };
     let body = text(34, 34, compact ? shortLabel(title, 43) : title, {color:C.white,size:compact ? 30 : 22,weight:650});
-    const yLabel = spec.y.label || 'Result';
+    const yLabel = (spec.y.label || 'Result') + (logY ? ' · logarithmic spacing' : '');
     body += text(R.x, 65, compact ? shortLabel(yLabel, 42) : yLabel, {color:C.mint,size:compact ? 28 : 18,fullLabel:compact ? yLabel : undefined});
     body += `<defs><clipPath id="${id}-clip"><rect x="${R.x}" y="${R.y}" width="${R.width}" height="${R.height}"/></clipPath></defs>`;
-    body += `<rect x="${R.x}" y="${R.y}" width="${R.width}" height="${R.height}" rx="4" fill="${C.white}" fill-opacity=".018" stroke="${C.grid}"/>`;
+    body += `<rect x="${R.x}" y="${R.y}" width="${R.width}" height="${R.height}" rx="4" fill="${C.white}" fill-opacity=".018" stroke="${C.grid}"${logY ? ' data-y-scale="log1p"' : ''}/>`;
     const intervals = compact ? 2 : 4;
     for (let index = 0; index <= intervals; index++) {
       const t = index / intervals, x = R.x + t * R.width, y = R.y + R.height - t * R.height;
       body += line(x, R.y, x, R.y + R.height, C.grid, 'stroke-opacity=".65"');
       body += text(x, 348, axisNumber(interpolate(spec.x.min, spec.x.max, t), compact), {anchor:'middle',size:compact ? 26 : 16});
       body += line(R.x, y, R.x + R.width, y, C.grid, 'stroke-opacity=".65"');
-      body += text(R.x - 12, y + 4, axisNumber(interpolate(spec.y.min, spec.y.max, t), compact), {anchor:'end',size:compact ? 26 : 16});
+      const yTick = !logY || t === 0 || t === 1 ? interpolate(spec.y.min, spec.y.max, t) : Math.expm1(interpolate(yLow, yHigh, t));
+      body += text(R.x - 12, y + 4, axisNumber(yTick, compact), {anchor:'end',size:compact ? 26 : 16});
     }
     if (spec.x.min <= 0 && spec.x.max >= 0) body += line(px(0), R.y, px(0), R.y + R.height, C.muted, 'data-role="zero-x" stroke-opacity=".55"');
     if (spec.y.min <= 0 && spec.y.max >= 0) body += line(R.x, py(0), R.x + R.width, py(0), C.muted, 'data-role="zero-y" stroke-opacity=".55"');

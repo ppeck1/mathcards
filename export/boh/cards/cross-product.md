@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:cross-product", "id": "math:concept:cross-product", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:cross-product", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "d3faf20e301e82884926a0775061975bd7a07baa96dfea2d8e303cdb9fa89add"}, "purpose": "Rotate one measured edge, follow the perpendicular component into parallelogram area, and keep the normal direction separate from magnitude.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "d3faf20e301e82884926a0775061975bd7a07baa96dfea2d8e303cdb9fa89add", "status": "draft", "title": "Cross product and oriented area", "topics": ["mathematics", "linear-algebra", "geometry", "measurement", "vector product", "oriented parallelogram area", "right-hand rule", "normal vector"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:cross-product", "id": "math:concept:cross-product", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:cross-product", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "d3faf20e301e82884926a0775061975bd7a07baa96dfea2d8e303cdb9fa89add"}, "purpose": "Rotate one measured edge, follow the perpendicular component into parallelogram area, and keep the normal direction separate from magnitude.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "d3faf20e301e82884926a0775061975bd7a07baa96dfea2d8e303cdb9fa89add", "status": "draft", "title": "Cross product and oriented area", "topics": ["mathematics", "linear-algebra", "geometry", "measurement", "vector product", "oriented parallelogram area", "right-hand rule", "normal vector"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Cross product and oriented area
@@ -86,7 +86,7 @@ In an oriented Euclidean three-dimensional space, the cross product of two vecto
   - math:concept:determinant
   - math:concept:basis
 - depth:
-
+  []
 
 ## Definition
 
@@ -254,7 +254,7 @@ In an oriented Euclidean three-dimensional space, the cross product of two vecto
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of the concept and notation before adding historical priority claims.
   - Check book-specific statements against the exact edition before treating the supplied planning matrix as verified coverage.
@@ -270,6 +270,7 @@ In an oriented Euclidean three-dimensional space, the cross product of two vecto
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:inner-product
   - type: supports
@@ -278,6 +279,7 @@ In an oriented Euclidean three-dimensional space, the cross product of two vecto
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:determinant
   - type: supports
@@ -286,6 +288,7 @@ In an oriented Euclidean three-dimensional space, the cross product of two vecto
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:basis
   - type: supports
@@ -294,6 +297,7 @@ In an oriented Euclidean three-dimensional space, the cross product of two vecto
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -338,6 +342,7 @@ In an oriented Euclidean three-dimensional space, the cross product of two vecto
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.
     - The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis.
@@ -382,6 +387,7 @@ In an oriented Euclidean three-dimensional space, the cross product of two vecto
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.
     - The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis.
@@ -426,6 +432,7 @@ In an oriented Euclidean three-dimensional space, the cross product of two vecto
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.
     - The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis.
@@ -466,6 +473,7 @@ In an oriented Euclidean three-dimensional space, the cross product of two vecto
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.
     - The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis.
@@ -506,6 +514,7 @@ In an oriented Euclidean three-dimensional space, the cross product of two vecto
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The reference frame is orthonormal and right-handed, with positive z directed out of the input plane.
     - The lengths a and b lie from zero to four metres. The signed planar angle θ lies from −180 to 180 degrees; negative angles turn below the positive x axis.

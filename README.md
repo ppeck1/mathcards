@@ -2,23 +2,53 @@
 
 A visual field notebook for learning mathematics as a language of description.
 Change an input, follow it through a story and formula, and see its effect in a
-shape or graph. The collection includes draft lessons, from ratios to
-fractals, information theory and writable tape machines.
+shape or graph. This branch prepares 0.34.0 with 130 draft lessons, adding
+statistical inference, order structures, number foundations, spatial reasoning,
+algebra, search and networks, continuous probability, dynamics, physical energy,
+illustrative neural computation, inverse functions, series, coloring,
+inclusion–exclusion, Student intervals, exhaustive randomization, one-way ANOVA,
+covariance, variance intervals, replication/power planning, covariance matrices
+and exact finite rank comparisons, least common multiples, perfect numbers,
+regular polygon floors and spherical surface/capacity measurements.
+
+The branch adds 69 lessons to the 61-card published baseline. It now contains
+654 original examples, 2,471 numeric fixtures, 784 written exports, 267 declared
+views and 130 MathML definitions. Forty-six continuation lessons use fourteen
+explicit local families through the same shared playground.
 
 **[Open the live atlas](https://ppeck.me/mathcards/)** ·
 [Project story](https://ppeck.me/projects/mathematical-expression-atlas/) ·
 [Release history](CHANGELOG.md)
 
-The release version comes from [package.json](package.json). The generated
-[build manifest](dist/build-manifest.json) records the built card and example
-counts, source hash and review status; [content/cards/](content/cards/) contains
-the canonical lessons. Dated validation records describe the release they tested.
+The live site remains on 0.33.0 while this expansion is reviewed on its separate
+branch. A local branch build does not publish it.
 
-![Six model-derived card illustrations with separate, readable captions.](docs/presentation-0-33/previews.png)
+The release version comes from [package.json](package.json). The generated
+[build manifest](dist/build-manifest.json) records built card and example counts,
+source hash and review status; [content/cards/](content/cards/) contains the
+canonical lessons. Dated validation records describe the release they tested.
+
+![Repeating workshop signals, proper-divisor strips, a regular pavilion floor and a full spherical tank.](docs/presentation-0-34-number-geometry/previews.png)
+
+![Compact connected scenes for the four number and geometry lessons.](docs/presentation-0-34-number-geometry/compact-scenes.png)
+
+![Covariance ellipses, paired signed ranks and two-group rank comparisons.](docs/presentation-0-34-comparison/previews.png)
+
+![Compact connected scenes for the three comparison lessons.](docs/presentation-0-34-comparison/compact-scenes.png)
+
+![Sampling, interval coverage, regression, equilibrium changes, lattices and neural activation.](docs/presentation-0-34/overview.png)
+
+![Inverse calibration, signed corrections, coloring, overlapping signup lists, blocked comparisons and a normal-mean interval.](docs/presentation-0-34-roadmap/previews.png)
+
+![Estimated-spread mean intervals, all balanced allocations and between/within variation.](docs/presentation-0-34-sampling/previews.png)
+
+![Signed covariance products, normal-variance bounds and planned rejection probability.](docs/presentation-0-34-design/previews.png)
 
 ## Explore
 
 - Browse the eight atlas territories or search the collection.
+- Search the 18-subject book inventory and distinguish available introductions
+  from preparation and planned lessons.
 - Follow a real-life story into its calculation and visual. Geometry and Graph
   share the same inputs; selected lessons also have Spatial views.
 - Look up unfamiliar words and symbols in the searchable reference, then open
@@ -37,8 +67,12 @@ That single file includes the app and works offline without an account or API ke
 For source development, use Node.js 22 and Python 3.11:
 
 ```sh
+npm ci --ignore-scripts
 python -m pip install -r requirements-checks.txt
 python tools/build.py
+npm run check:format
+python tools/check_source.py
+npm run check:scenes
 node --test --test-concurrency=2 tests/*.test.mjs
 python tools/check.py
 python -m http.server 4173 --directory src
@@ -46,7 +80,14 @@ python -m http.server 4173 --directory src
 
 Open `http://localhost:4173/`. The bounded test concurrency keeps the startup
 budget measurement from competing with many simultaneous reference compilers.
-To make a standalone ZIP, run `python tools/package.py`.
+To make a standalone ZIP, run `python tools/package.py`. Prettier is a pinned
+development tool; the published app has no npm runtime dependency.
+`npm run format` covers the declared incremental scope, excluding generated and
+vendored files. `npm run measure:startup` runs three sequential background Node
+measurements after a completed build; it does not launch a browser. Add
+`--profile --runs=5` to the underlying Node command for five fixed attempts,
+per-script CPU diagnostics and the separate built-prefix comparison. Failed
+attempts remain in the JSON report and make the command fail.
 
 ## Contribute a lesson
 
@@ -61,10 +102,21 @@ Every validated push to `main` updates the hosted demo automatically.
 | [Architecture](docs/ARCHITECTURE.md) | Source layout and module boundaries |
 | [Playground modules](docs/PLAYGROUND_MODULES.md) | Host, views and typed connections |
 | [Reference index](docs/MATH_INDEX.md) | Definitions, symbols and actual card links |
-| [Book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) | Topic IDs, prerequisites and honest coverage |
+| [Book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) | Original 214 topic IDs, prerequisites and honest coverage |
+| [Eight-book expansion](docs/EIGHT_BOOK_EXPANSION.md) | 295 supplied subjects, evidence boundaries and actual lesson links |
+| [Branch matrix](docs/NUMBER_GEOMETRY_EXPANSION_MATRIX_0_34_0.md) | Current number/geometry expansion and remaining concepts/qualification |
+| [Branch validation](docs/VALIDATION_0_34_0_NUMBER_GEOMETRY.md) | Current artifact checks and explicit qualification limits |
+| [Comparison checkpoint](docs/COMPARISON_EXPANSION_MATRIX_0_34_0.md) | Previous 126-card covariance-matrix and rank-comparison continuation |
+| [Covariance/planning checkpoint](docs/DESIGN_EXPANSION_MATRIX_0_34_0.md) | Previous covariance, variance interval and power-planning continuation |
+| [Inference checkpoint](docs/SAMPLING_EXPANSION_MATRIX_0_34_0.md) | Previous Student, randomization and ANOVA continuation |
+| [Previous roadmap checkpoint](docs/ROADMAP_EXPANSION_MATRIX_0_34_0.md) | Six preceding lessons and their recorded scope |
+| [Startup optimization](docs/STARTUP_OPTIMIZATION_0_34_0.md) | Paired timing checkpoint, fixed attempts and measurement limits |
+| [Release checks](docs/RELEASE_CHECKS_0_34_0.md) | Background release results and remaining browser/phone review |
+| [Number/spatial checkpoint](docs/CONTINUATION_MATRIX_0_34_0.md) | Previous 18-lesson continuation |
+| [Initial branch checkpoint](docs/EXPANSION_MATRIX_0_34_0.md) | First 23 lessons in this unreleased expansion |
 | [Build and deployment](docs/DEPLOYMENT.md) | Reproducible checks and publishing |
-| [Current review](docs/REVIEW_RESPONSE_0_33_0.md) | Findings, repairs and remaining work |
-| [Release validation](docs/VALIDATION_0_33_0.md) | Recorded checks for the reviewed release |
+| [Published review](docs/REVIEW_RESPONSE_0_33_0.md) | 0.33.0 findings, repairs and qualification limits |
+| [Published validation](docs/VALIDATION_0_33_0.md) | Recorded checks for the published baseline |
 
 ## Current limits
 
@@ -72,6 +124,28 @@ The lessons are drafts. Independent mathematical and learning review remains
 open. Finite demonstrations do not establish general theorems, and constructed
 stories are not empirical measurements. Written examples that require a different
 function or data type stay distinct from executable presets.
+
+The new signals use exact whole-minute periods from 1–8; proper-divisor strips
+classify positive integers from 1–60, including the empty divisor set for one.
+The pavilion uses 3–12 equal sides and a 1–4 metre circumradius. The full ideal
+spherical tank uses a 0.25–5 metre radius, with its curved surface, equatorial
+disk and enclosed volume kept distinct. These are original teaching constructions
+with the existing shared controls, pacing and saved-state contracts.
+
+The covariance ellipse describes constructed joint spread; it is not a
+confidence or prediction region. Wilcoxon enumerates fair independent signs
+conditional on the nonzero paired magnitudes under a symmetric paired null,
+omitting zeros and averaging tied ranks. Mann–Whitney enumerates all twenty
+balanced label allocations under an exchangeable equal-distribution null.
+Both finite comparisons include ties in their two-sided tails; neither supplies
+a general median-only or causal interpretation.
+
+Startup removes duplicate reference-authoring data and repeated metadata work.
+The [current validation](docs/VALIDATION_0_34_0_NUMBER_GEOMETRY.md) tracks this
+artifact's checks and remaining review under the unchanged 1500 ms gate. The
+[paired optimization checkpoint](docs/STARTUP_OPTIMIZATION_0_34_0.md) retains its
+baseline comparison and earlier slow samples. Browser and device qualification
+remain open.
 
 The app stores personal notebooks and workspaces in browser storage; export a
 backup before clearing it. Build tools never read those private records.

@@ -1,0 +1,362 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:randomized-block-design:case-2", "id": "math:example:randomized-block-design:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:randomized-block-design", "example_id": "math:example:randomized-block-design:case-2", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "1d643aa2724f9dc08ea3fc87b9065c9662008fcd55128c4388c59a3bec51b3bd"}, "purpose": "Can we compare two packing methods without confusing them with a busy day?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "1d643aa2724f9dc08ea3fc87b9065c9662008fcd55128c4388c59a3bec51b3bd", "status": "draft", "title": "Reverse the shown assignment order", "topics": ["mathematics", "statistics", "experimental-design", "randomized blocks and within-pair comparisons"], "type": "reference", "updated": "2026-11-03T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Reverse the shown assignment order
+
+Parent card: math:concept:randomized-block-design; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:randomized-block-design; revision 0.1.0-draft. Setting: A packing workshop plans two similar parcels on each of three days. Randomly assign the two methods within each day before measuring. For this teaching construction, method A takes 10−b, 10 and 10+b minutes; method B adds d−1, d and d+1 minutes. Slide the common shift d or the day offset b, and keep each day’s pair together. Expression: $d_j=B_j-A_j,\quad \bar{d}=\frac{d_1+d_2+d_3}{3}.$. Conditions required for a defined value (a case may test their violation): Every day contains both methods once. The displayed measurements are constructed and the assignment selector shows two fixed possible allocations, not a random sampler. The mean B−A is a descriptive contrast. Blocking cancels a shared additive day offset; it does not cancel treatment-by-day variation, validate randomization in actual data, establish causation or perform ANOVA. Use d from −4 to 4 and b from 0 to 4 minutes. Changes too small to survive the represented readings receive a precision state. Scope: Every day contains both methods once. The displayed measurements are constructed and the assignment selector shows two fixed possible allocations, not a random sampler. The mean B−A is a descriptive contrast. Blocking cancels a shared additive day offset; it does not cancel treatment-by-day variation, validate randomization in actual data, establish causation or perform ANOVA. Use d from −4 to 4 and b from 0 to 4 minutes. Changes too small to survive the represented readings receive a precision state.
+
+Case unit math:example:randomized-block-design:case-2. Setting: A packing workshop plans two similar parcels on each of three days. Randomly assign the two methods within each day before measuring. For this teaching construction, method A takes 10−b, 10 and 10+b minutes; method B adds d−1, d and d+1 minutes. Slide the common shift d or the day offset b, and keep each day’s pair together. Inputs: {"assignment": "reversed", "blockSpread": 3, "change": -2}. Result: {"approximate": "-2.0"}. Limits: Every day contains both methods once. The displayed measurements are constructed and the assignment selector shows two fixed possible allocations, not a random sampler. The mean B−A is a descriptive contrast. Blocking cancels a shared additive day offset; it does not cancel treatment-by-day variation, validate randomization in actual data, establish causation or perform ANOVA. Use d from −4 to 4 and b from 0 to 4 minutes. Changes too small to survive the represented readings receive a precision state.
+
+## Complete worked case
+
+- id: math:example:randomized-block-design:case-2
+- title: Reverse the shown assignment order
+- role: applied_model
+- question: Can we compare two packing methods without confusing them with a busy day?
+- setting: A packing workshop plans two similar parcels on each of three days. Randomly assign the two methods within each day before measuring. For this teaching construction, method A takes 10−b, 10 and 10+b minutes; method B adds d−1, d and d+1 minutes. Slide the common shift d or the day offset b, and keep each day’s pair together.
+- assumptions:
+  - Every day contains both methods once. The displayed measurements are constructed and the assignment selector shows two fixed possible allocations, not a random sampler. The mean B−A is a descriptive contrast. Blocking cancels a shared additive day offset; it does not cancel treatment-by-day variation, validate randomization in actual data, establish causation or perform ANOVA. Use d from −4 to 4 and b from 0 to 4 minutes. Changes too small to survive the represented readings receive a precision state.
+- inputs:
+  - change: -2
+  - blockSpread: 3
+  - assignment: reversed
+- steps:
+  - Item:
+    - index: 1
+    - expression: d = -2; b = 3
+    - reason: Declare the actual input quantities and stated design/model.
+  - Item:
+    - index: 2
+    - expression: d_j=B_j-A_j,\quad \bar{d}=\frac{d_1+d_2+d_3}{3}.
+    - reason: Compare B with A within each of three days, then average those paired differences. An additive day offset moves both methods together and cancels from their same-day comparison.
+  - Item:
+    - index: 3
+    - expression: -2.0 min
+    - reason: Read the mean within-day difference.
+- result:
+  - approximate: -2.0
+- interpretation: Compare B with A within each of three days, then average those paired differences. An additive day offset moves both methods together and cancels from their same-day comparison.
+- independent check:
+  - method: Independent Python paired arithmetic using math.fsum.
+  - expected: -2.0
+- limits: Every day contains both methods once. The displayed measurements are constructed and the assignment selector shows two fixed possible allocations, not a random sampler. The mean B−A is a descriptive contrast. Blocking cancels a shared additive day offset; it does not cancel treatment-by-day variation, validate randomization in actual data, establish causation or perform ANOVA. Use d from −4 to 4 and b from 0 to 4 minutes. Changes too small to survive the represented readings receive a precision state.
+- preset:
+  - change: -2
+  - blockSpread: 3
+  - assignment: reversed
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Every day contains both methods once. The displayed measurements are constructed and the assignment selector shows two fixed possible allocations, not a random sampler. The mean B−A is a descriptive contrast. Blocking cancels a shared additive day offset; it does not cancel treatment-by-day variation, validate randomization in actual data, establish causation or perform ANOVA. Use d from −4 to 4 and b from 0 to 4 minutes. Changes too small to survive the represented readings receive a precision state.
+
+## Written exploration recipe
+
+- component id: component:randomized-block-design
+- renderer id: randomized-block-design-visual-model
+- renderer version: 1
+- model id: randomized-block-design-visual-model
+- model revision: 1
+- expression id: ast:randomized-block-design:expression
+- interaction status: implemented
+- description: Compare B with A within each of three days, then average those paired differences. An additive day offset moves both methods together and cancels from their same-day comparison.
+- controls:
+  - Item:
+    - id: change
+    - type: number
+    - default: -2
+    - min: -4
+    - max: 4
+    - step: 0.05
+  - Item:
+    - id: blockSpread
+    - type: number
+    - default: 3
+    - min: 0
+    - max: 4
+    - step: 0.05
+  - Item:
+    - id: assignment
+    - type: enum
+    - default: alternating
+    - values:
+      - alternating
+      - reversed
+    - value labels:
+      - alternating: A first, B first, A first
+      - reversed: B first, A first, B first
+- expected cases:
+  - Item:
+    - input:
+      - change: -4
+      - blockSpread: 0
+      - assignment: alternating
+    - status: valid
+    - output: -4.0
+  - Item:
+    - input:
+      - change: -4
+      - blockSpread: 0
+      - assignment: reversed
+    - status: valid
+    - output: -4.0
+  - Item:
+    - input:
+      - change: -4
+      - blockSpread: 2
+      - assignment: alternating
+    - status: valid
+    - output: -4.0
+  - Item:
+    - input:
+      - change: -4
+      - blockSpread: 2
+      - assignment: reversed
+    - status: valid
+    - output: -4.0
+  - Item:
+    - input:
+      - change: -4
+      - blockSpread: 4
+      - assignment: alternating
+    - status: valid
+    - output: -4.0
+  - Item:
+    - input:
+      - change: -4
+      - blockSpread: 4
+      - assignment: reversed
+    - status: valid
+    - output: -4.0
+  - Item:
+    - input:
+      - change: -2
+      - blockSpread: 0
+      - assignment: alternating
+    - status: valid
+    - output: -2.0
+  - Item:
+    - input:
+      - change: -2
+      - blockSpread: 0
+      - assignment: reversed
+    - status: valid
+    - output: -2.0
+  - Item:
+    - input:
+      - change: -2
+      - blockSpread: 2
+      - assignment: alternating
+    - status: valid
+    - output: -2.0
+  - Item:
+    - input:
+      - change: -2
+      - blockSpread: 2
+      - assignment: reversed
+    - status: valid
+    - output: -2.0
+  - Item:
+    - input:
+      - change: -2
+      - blockSpread: 4
+      - assignment: alternating
+    - status: valid
+    - output: -2.0
+  - Item:
+    - input:
+      - change: -2
+      - blockSpread: 4
+      - assignment: reversed
+    - status: valid
+    - output: -2.0
+  - Item:
+    - input:
+      - change: 0
+      - blockSpread: 0
+      - assignment: alternating
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - change: 0
+      - blockSpread: 0
+      - assignment: reversed
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - change: 0
+      - blockSpread: 2
+      - assignment: alternating
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - change: 0
+      - blockSpread: 2
+      - assignment: reversed
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - change: 0
+      - blockSpread: 4
+      - assignment: alternating
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - change: 0
+      - blockSpread: 4
+      - assignment: reversed
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - change: 1.5
+      - blockSpread: 0
+      - assignment: alternating
+    - status: valid
+    - output: 1.5
+  - Item:
+    - input:
+      - change: 1.5
+      - blockSpread: 0
+      - assignment: reversed
+    - status: valid
+    - output: 1.5
+  - Item:
+    - input:
+      - change: 1.5
+      - blockSpread: 2
+      - assignment: alternating
+    - status: valid
+    - output: 1.5
+  - Item:
+    - input:
+      - change: 1.5
+      - blockSpread: 2
+      - assignment: reversed
+    - status: valid
+    - output: 1.5
+  - Item:
+    - input:
+      - change: 1.5
+      - blockSpread: 4
+      - assignment: alternating
+    - status: valid
+    - output: 1.5
+  - Item:
+    - input:
+      - change: 1.5
+      - blockSpread: 4
+      - assignment: reversed
+    - status: valid
+    - output: 1.5
+  - Item:
+    - input:
+      - change: 4
+      - blockSpread: 0
+      - assignment: alternating
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - change: 4
+      - blockSpread: 0
+      - assignment: reversed
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - change: 4
+      - blockSpread: 2
+      - assignment: alternating
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - change: 4
+      - blockSpread: 2
+      - assignment: reversed
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - change: 4
+      - blockSpread: 4
+      - assignment: alternating
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - change: 4
+      - blockSpread: 4
+      - assignment: reversed
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - change: true
+      - blockSpread: 3
+      - assignment: alternating
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - change: 1
+      - blockSpread: 3
+      - assignment: alternating
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - change: 5
+      - blockSpread: 3
+      - assignment: alternating
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - change: -2
+      - blockSpread: -1
+      - assignment: alternating
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - change: -2
+      - blockSpread: 3
+      - assignment: random
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - change: 5e-324
+      - blockSpread: 3
+      - assignment: alternating
+    - status: numeric_precision
+- compute: Compare B with A within each of three days, then average those paired differences. An additive day offset moves both methods together and cancels from their same-day comparison.
+- numeric tolerance: 2e-12
+- invariants:
+  - Every day contains both methods once. The displayed measurements are constructed and the assignment selector shows two fixed possible allocations, not a random sampler. The mean B−A is a descriptive contrast. Blocking cancels a shared additive day offset; it does not cancel treatment-by-day variation, validate randomization in actual data, establish causation or perform ANOVA. Use d from −4 to 4 and b from 0 to 4 minutes. Changes too small to survive the represented readings receive a precision state.
+  - Story, calculation, geometry and graph share the same current parameters.
+  - Discrete sample counts and assignment patterns do not interpolate into invented states.
+- limits:
+  - Every day contains both methods once. The displayed measurements are constructed and the assignment selector shows two fixed possible allocations, not a random sampler. The mean B−A is a descriptive contrast. Blocking cancels a shared additive day offset; it does not cancel treatment-by-day variation, validate randomization in actual data, establish causation or perform ANOVA. Use d from −4 to 4 and b from 0 to 4 minutes. Changes too small to survive the represented readings receive a precision state.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:estimation-extensions:blocks. [NIST/SEMATECH · Randomized Block Designs](https://www.itl.nist.gov/div898/handbook/pri/section3/pri332.htm). Locator: §5.3.3.2: one primary factor, nuisance blocking factors, within-block randomization and additive block effects. The original three-day packing construction is not the source example.. Verification: Definition-level primary source inspected 2026-11-03; independent mathematical/pedagogical and exact-edition book review remain pending.. Rights: Original prose, constructed packing times, examples and SVG; no source exercise, data or illustration reproduced.

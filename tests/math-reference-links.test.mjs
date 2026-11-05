@@ -33,10 +33,11 @@ test('related entries stay available in exact-letter and no-current-card context
   assert.match(background,/no identified use/);assert.match(background,/Related definitions/);
 });
 
-test('known multi-letter matrix notation takes precedence over English substrings',()=>{
+test('known multi-letter mathematical notation takes precedence over English substrings',()=>{
   for(const token of ['AB','BA']){
-    const hits=index.search(token);assert.deepEqual(hits.map(entry=>entry.id),['matrix-product']);
+    const hits=index.search(token);assert.deepEqual(hits.map(entry=>entry.id),token==='AB'?['matrix-product','minimum-spanning-tree-station-labels']:['matrix-product']);
     assert.deepEqual(hits[0].usedBy.map(usage=>usage.slug),['matrix-product'],'A card merely naming matrix multiplication does not claim this exact local token');
+    if(token==='AB')assert.deepEqual(hits[1].usedBy.map(usage=>usage.slug),['minimum-spanning-tree'],'The graph edge retains its own actual use');
     const markup=index.markup({query:token,entryId:'matrix-product'});assert.ok(!markup.includes('href="#card/basis"'));
   }
   assert.equal(index.search('absolute value')[0].id,'absolute-value');

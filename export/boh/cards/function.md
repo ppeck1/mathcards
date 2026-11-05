@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:function", "id": "math:concept:function", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:function", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "009b5e7e15ceb8acae26c225bd20c9d044024763bdde67f31ac0f8863004e4cc"}, "purpose": "Follow one input through a rule to its unique output, and distinguish the rule from its current value.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "009b5e7e15ceb8acae26c225bd20c9d044024763bdde67f31ac0f8863004e4cc", "status": "draft", "title": "Function", "topics": ["mathematics", "language-foundations", "algebra", "input–output rule", "function evaluation"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:function", "id": "math:concept:function", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:function", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "009b5e7e15ceb8acae26c225bd20c9d044024763bdde67f31ac0f8863004e4cc"}, "purpose": "Follow one input through a rule to its unique output, and distinguish the rule from its current value.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "009b5e7e15ceb8acae26c225bd20c9d044024763bdde67f31ac0f8863004e4cc", "status": "draft", "title": "Function", "topics": ["mathematics", "language-foundations", "algebra", "input–output rule", "function evaluation"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Function
@@ -218,7 +218,7 @@ A function assigns exactly one output to each input in its domain. The playgroun
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of this idea and its notation using specialist historical sources before adding attributions.
   - Distinguish an early use, later formalization and modern teaching convention; inspect evidence for each.
@@ -234,6 +234,7 @@ A function assigns exactly one output to each input in its domain. The playgroun
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:linear-model
   - type: supports
@@ -242,6 +243,7 @@ A function assigns exactly one output to each input in its domain. The playgroun
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:exponentiation
   - type: supports
@@ -250,6 +252,7 @@ A function assigns exactly one output to each input in its domain. The playgroun
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -295,6 +298,7 @@ A function assigns exactly one output to each input in its domain. The playgroun
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The input and output units are declared and compatible with a×x+b.
     - The stated affine rule applies throughout the short interval; coefficients remain fixed while x changes.
@@ -337,6 +341,7 @@ A function assigns exactly one output to each input in its domain. The playgroun
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The input and output units are declared and compatible with a×x+b.
     - The stated affine rule applies throughout the short interval; coefficients remain fixed while x changes.
@@ -379,6 +384,7 @@ A function assigns exactly one output to each input in its domain. The playgroun
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The input and output units are declared and compatible with a×x+b.
     - The stated affine rule applies throughout the short interval; coefficients remain fixed while x changes.
@@ -421,6 +427,7 @@ A function assigns exactly one output to each input in its domain. The playgroun
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The input and output units are declared and compatible with a×x+b.
     - The stated affine rule applies throughout the short interval; coefficients remain fixed while x changes.
@@ -463,6 +470,7 @@ A function assigns exactly one output to each input in its domain. The playgroun
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The input and output units are declared and compatible with a×x+b.
     - The stated affine rule applies throughout the short interval; coefficients remain fixed while x changes.

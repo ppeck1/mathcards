@@ -68,12 +68,13 @@ test('results and search markup stay accessible and escape authored text',()=>{
   assert.match(model.resultsMarkup('nothing'),/No matches yet/);
 });
 
-test('two-letter matrix products retain notation scope in shared results and URLs',()=>{
+test('two-letter forms retain matrix and actual network meanings in shared results and URLs',()=>{
   for(const token of ['AB','BA']){
-    assert.deepEqual(realSearch.search(token,{kind:'card'}).map(hit=>hit.id),['matrix-product']);
-    const definitions=realSearch.search(token,{kind:'term'});assert.deepEqual(definitions.map(hit=>hit.id),['matrix-product']);
+    const network=token==='AB';
+    assert.deepEqual(realSearch.search(token,{kind:'card'}).map(hit=>hit.id),network?['matrix-product','minimum-spanning-tree']:['matrix-product']);
+    const definitions=realSearch.search(token,{kind:'term'});assert.deepEqual(definitions.map(hit=>hit.id),network?['matrix-product','minimum-spanning-tree-station-labels']:['matrix-product']);
     assert.equal(definitions[0].href,'#index/matrix-product/search/'+token);
-    assert.deepEqual(realSearch.search(token,{kind:'area'}).map(hit=>hit.id),['structures:linear-algebra'],'Notation locates areas containing actual card usage rather than English substrings');
+    assert.deepEqual(realSearch.search(token,{kind:'area'}).map(hit=>hit.id),network?['structures:linear-algebra','computation:graphs-and-networks','computation:algorithms']:['structures:linear-algebra'],'Notation locates areas containing actual card usage rather than English substrings');
   }
 });
 

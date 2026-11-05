@@ -1,0 +1,607 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:normal-variance-interval:case-4", "id": "math:example:normal-variance-interval:case-4", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:normal-variance-interval", "example_id": "math:example:normal-variance-interval:case-4", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "c711c04cde928d4b0717d6bad25df38c32423d8d18614268e681f3b79be8b5b8"}, "purpose": "How uncertain is a calibration process’s variance when only its sample spread is known?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "c711c04cde928d4b0717d6bad25df38c32423d8d18614268e681f3b79be8b5b8", "status": "draft", "title": "Six readings at the readable range boundary", "topics": ["mathematics", "statistics", "probability", "a normal-variance confidence interval"], "type": "reference", "updated": "2026-11-03T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Six readings at the readable range boundary
+
+Parent card: math:concept:normal-variance-interval; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:normal-variance-interval; revision 0.1.0-draft. Setting: A workshop summarizes repeated cutting errors from a calibration jig by a sample standard deviation s and a reading count n. Square s to show the observed sample variance, then follow the chi-square quantiles into a lower bound L and upper bound U for the unknown process variance. Change the entered spread or the number of readings while keeping that summary-based comparison explicit. Expression: $\nu=n-1,\quad V=s^2,\quad q_L=\chi^2_{0.025,\nu},\quad q_U=\chi^2_{0.975,\nu},\quad L=\frac{\nu V}{q_U},\quad U=\frac{\nu V}{q_L},\quad I=[L,U].$. Conditions required for a defined value (a case may test their violation): Assume independent identically normal cutting errors with one unknown mean and unknown positive population variance. The sample standard deviation uses n−1 in its variance denominator. The central fixed 95% procedure has repeated-sampling coverage under this model; it does not assign posterior probability to the fixed variance or predict the next error. The general formula requires n≥2; these controls use whole n from 6 to 31 and s from 0.25 to 2 mm to keep the fixed variance axis readable. Changing n holds the entered spread fixed rather than generating observations. Chi-square quantiles are evaluated numerically. Unknown σ² has no supplied location, and the observed sample variance s² must not be presented as that unknown parameter. Scope: Assume independent identically normal cutting errors with one unknown mean and unknown positive population variance. The sample standard deviation uses n−1 in its variance denominator. The central fixed 95% procedure has repeated-sampling coverage under this model; it does not assign posterior probability to the fixed variance or predict the next error. The general formula requires n≥2; these controls use whole n from 6 to 31 and s from 0.25 to 2 mm to keep the fixed variance axis readable. Changing n holds the entered spread fixed rather than generating observations. Chi-square quantiles are evaluated numerically. Unknown σ² has no supplied location, and the observed sample variance s² must not be presented as that unknown parameter.
+
+Case unit math:example:normal-variance-interval:case-4. Setting: A workshop summarizes repeated cutting errors from a calibration jig by a sample standard deviation s and a reading count n. Square s to show the observed sample variance, then follow the chi-square quantiles into a lower bound L and upper bound U for the unknown process variance. Change the entered spread or the number of readings while keeping that summary-based comparison explicit. Inputs: {"sampleSize": 6, "sampleSpread": 2}. Result: {"approximate": "24.061261507291153"}. Limits: Assume independent identically normal cutting errors with one unknown mean and unknown positive population variance. The sample standard deviation uses n−1 in its variance denominator. The central fixed 95% procedure has repeated-sampling coverage under this model; it does not assign posterior probability to the fixed variance or predict the next error. The general formula requires n≥2; these controls use whole n from 6 to 31 and s from 0.25 to 2 mm to keep the fixed variance axis readable. Changing n holds the entered spread fixed rather than generating observations. Chi-square quantiles are evaluated numerically. Unknown σ² has no supplied location, and the observed sample variance s² must not be presented as that unknown parameter.
+
+## Complete worked case
+
+- id: math:example:normal-variance-interval:case-4
+- title: Six readings at the readable range boundary
+- role: applied_model
+- question: How uncertain is a calibration process’s variance when only its sample spread is known?
+- setting: A workshop summarizes repeated cutting errors from a calibration jig by a sample standard deviation s and a reading count n. Square s to show the observed sample variance, then follow the chi-square quantiles into a lower bound L and upper bound U for the unknown process variance. Change the entered spread or the number of readings while keeping that summary-based comparison explicit.
+- assumptions:
+  - Assume independent identically normal cutting errors with one unknown mean and unknown positive population variance. The sample standard deviation uses n−1 in its variance denominator. The central fixed 95% procedure has repeated-sampling coverage under this model; it does not assign posterior probability to the fixed variance or predict the next error. The general formula requires n≥2; these controls use whole n from 6 to 31 and s from 0.25 to 2 mm to keep the fixed variance axis readable. Changing n holds the entered spread fixed rather than generating observations. Chi-square quantiles are evaluated numerically. Unknown σ² has no supplied location, and the observed sample variance s² must not be presented as that unknown parameter.
+- inputs:
+  - sampleSize: 6
+  - sampleSpread: 2
+- steps:
+  - Item:
+    - index: 1
+    - expression: n = 6; s = 2
+    - reason: Identify the actual constructed inputs or predeclared planning assumptions.
+  - Item:
+    - index: 2
+    - expression: \nu=n-1,\quad V=s^2,\quad q_L=\chi^2_{0.025,\nu},\quad q_U=\chi^2_{0.975,\nu},\quad L=\frac{\nu V}{q_U},\quad U=\frac{\nu V}{q_L},\quad I=[L,U].
+    - reason: Square the observed sample spread and multiply by its degrees of freedom. Divide this same numerator by the upper and lower chi-square quantiles in reverse order to obtain a confidence interval for the population variance.
+  - Item:
+    - index: 3
+    - expression: 24.061261507291153 mm²
+    - reason: Five degrees of freedom produce a relatively wide interval. Both endpoints remain on the declared fixed variance scale.
+- result:
+  - approximate: 24.061261507291153
+- interpretation: Five degrees of freedom produce a relatively wide interval. Both endpoints remain on the declared fixed variance scale.
+- independent check:
+  - method: Independent inversion of the positive incomplete-gamma series for each chi-square quantile; the runtime constants come from a separate integer/half-integer recurrence.
+  - expected: 24.061261507291153
+- limits: Assume independent identically normal cutting errors with one unknown mean and unknown positive population variance. The sample standard deviation uses n−1 in its variance denominator. The central fixed 95% procedure has repeated-sampling coverage under this model; it does not assign posterior probability to the fixed variance or predict the next error. The general formula requires n≥2; these controls use whole n from 6 to 31 and s from 0.25 to 2 mm to keep the fixed variance axis readable. Changing n holds the entered spread fixed rather than generating observations. Chi-square quantiles are evaluated numerically. Unknown σ² has no supplied location, and the observed sample variance s² must not be presented as that unknown parameter.
+- preset:
+  - sampleSize: 6
+  - sampleSpread: 2
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Assume independent identically normal cutting errors with one unknown mean and unknown positive population variance. The sample standard deviation uses n−1 in its variance denominator. The central fixed 95% procedure has repeated-sampling coverage under this model; it does not assign posterior probability to the fixed variance or predict the next error. The general formula requires n≥2; these controls use whole n from 6 to 31 and s from 0.25 to 2 mm to keep the fixed variance axis readable. Changing n holds the entered spread fixed rather than generating observations. Chi-square quantiles are evaluated numerically. Unknown σ² has no supplied location, and the observed sample variance s² must not be presented as that unknown parameter.
+
+## Written exploration recipe
+
+- component id: component:normal-variance-interval
+- renderer id: normal-variance-interval-visual-model
+- renderer version: 1
+- model id: normal-variance-interval-visual-model
+- model revision: 1
+- expression id: ast:normal-variance-interval:expression
+- interaction status: implemented
+- description: Square the observed sample spread and multiply by its degrees of freedom. Divide this same numerator by the upper and lower chi-square quantiles in reverse order to obtain a confidence interval for the population variance.
+- controls:
+  - Item:
+    - id: sampleSize
+    - type: number
+    - default: 10
+    - min: 6
+    - max: 31
+    - step: 1
+  - Item:
+    - id: sampleSpread
+    - type: number
+    - default: 1
+    - min: 0.25
+    - max: 2
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - sampleSize: 6
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.37595721105142427
+  - Item:
+    - input:
+      - sampleSize: 6
+      - sampleSpread: 1
+    - status: valid
+    - output: 6.015315376822788
+  - Item:
+    - input:
+      - sampleSize: 6
+      - sampleSpread: 2
+    - status: valid
+    - output: 24.061261507291153
+  - Item:
+    - input:
+      - sampleSize: 7
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.30306844782731535
+  - Item:
+    - input:
+      - sampleSize: 7
+      - sampleSpread: 1
+    - status: valid
+    - output: 4.8490951652370455
+  - Item:
+    - input:
+      - sampleSize: 7
+      - sampleSpread: 2
+    - status: valid
+    - output: 19.396380660948182
+  - Item:
+    - input:
+      - sampleSize: 8
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.25889578021929227
+  - Item:
+    - input:
+      - sampleSize: 8
+      - sampleSpread: 1
+    - status: valid
+    - output: 4.142332483508676
+  - Item:
+    - input:
+      - sampleSize: 8
+      - sampleSpread: 2
+    - status: valid
+    - output: 16.569329934034705
+  - Item:
+    - input:
+      - sampleSize: 9
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.2293861297457056
+  - Item:
+    - input:
+      - sampleSize: 9
+      - sampleSpread: 1
+    - status: valid
+    - output: 3.6701780759312896
+  - Item:
+    - input:
+      - sampleSize: 9
+      - sampleSpread: 2
+    - status: valid
+    - output: 14.680712303725159
+  - Item:
+    - input:
+      - sampleSize: 10
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.20830328365744702
+  - Item:
+    - input:
+      - sampleSize: 10
+      - sampleSpread: 1
+    - status: valid
+    - output: 3.3328525385191523
+  - Item:
+    - input:
+      - sampleSize: 10
+      - sampleSpread: 2
+    - status: valid
+    - output: 13.33141015407661
+  - Item:
+    - input:
+      - sampleSize: 11
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.19248698473980155
+  - Item:
+    - input:
+      - sampleSize: 11
+      - sampleSpread: 1
+    - status: valid
+    - output: 3.079791755836825
+  - Item:
+    - input:
+      - sampleSize: 11
+      - sampleSpread: 2
+    - status: valid
+    - output: 12.3191670233473
+  - Item:
+    - input:
+      - sampleSize: 12
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.18017436019190014
+  - Item:
+    - input:
+      - sampleSize: 12
+      - sampleSpread: 1
+    - status: valid
+    - output: 2.8827897630704022
+  - Item:
+    - input:
+      - sampleSize: 12
+      - sampleSpread: 2
+    - status: valid
+    - output: 11.531159052281609
+  - Item:
+    - input:
+      - sampleSize: 13
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.17030790620643135
+  - Item:
+    - input:
+      - sampleSize: 13
+      - sampleSpread: 1
+    - status: valid
+    - output: 2.7249264993029017
+  - Item:
+    - input:
+      - sampleSize: 13
+      - sampleSpread: 2
+    - status: valid
+    - output: 10.899705997211607
+  - Item:
+    - input:
+      - sampleSize: 14
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.16221610521110477
+  - Item:
+    - input:
+      - sampleSize: 14
+      - sampleSpread: 1
+    - status: valid
+    - output: 2.5954576833776764
+  - Item:
+    - input:
+      - sampleSize: 14
+      - sampleSpread: 2
+    - status: valid
+    - output: 10.381830733510705
+  - Item:
+    - input:
+      - sampleSize: 15
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.15545258091834774
+  - Item:
+    - input:
+      - sampleSize: 15
+      - sampleSpread: 1
+    - status: valid
+    - output: 2.487241294693564
+  - Item:
+    - input:
+      - sampleSize: 15
+      - sampleSpread: 2
+    - status: valid
+    - output: 9.948965178774255
+  - Item:
+    - input:
+      - sampleSize: 16
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.14970925755451614
+  - Item:
+    - input:
+      - sampleSize: 16
+      - sampleSpread: 1
+    - status: valid
+    - output: 2.3953481208722582
+  - Item:
+    - input:
+      - sampleSize: 16
+      - sampleSpread: 2
+    - status: valid
+    - output: 9.581392483489033
+  - Item:
+    - input:
+      - sampleSize: 17
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.1447667328383943
+  - Item:
+    - input:
+      - sampleSize: 17
+      - sampleSpread: 1
+    - status: valid
+    - output: 2.316267725414309
+  - Item:
+    - input:
+      - sampleSize: 17
+      - sampleSpread: 2
+    - status: valid
+    - output: 9.265070901657236
+  - Item:
+    - input:
+      - sampleSize: 18
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.14046454395096733
+  - Item:
+    - input:
+      - sampleSize: 18
+      - sampleSpread: 1
+    - status: valid
+    - output: 2.2474327032154773
+  - Item:
+    - input:
+      - sampleSize: 18
+      - sampleSpread: 2
+    - status: valid
+    - output: 8.98973081286191
+  - Item:
+    - input:
+      - sampleSize: 19
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.13668262553359659
+  - Item:
+    - input:
+      - sampleSize: 19
+      - sampleSpread: 1
+    - status: valid
+    - output: 2.1869220085375454
+  - Item:
+    - input:
+      - sampleSize: 19
+      - sampleSpread: 2
+    - status: valid
+    - output: 8.747688034150181
+  - Item:
+    - input:
+      - sampleSize: 20
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.1333293440147483
+  - Item:
+    - input:
+      - sampleSize: 20
+      - sampleSpread: 1
+    - status: valid
+    - output: 2.133269504235973
+  - Item:
+    - input:
+      - sampleSize: 20
+      - sampleSpread: 2
+    - status: valid
+    - output: 8.533078016943891
+  - Item:
+    - input:
+      - sampleSize: 21
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.13033354324417415
+  - Item:
+    - input:
+      - sampleSize: 21
+      - sampleSpread: 1
+    - status: valid
+    - output: 2.0853366919067864
+  - Item:
+    - input:
+      - sampleSize: 21
+      - sampleSpread: 2
+    - status: valid
+    - output: 8.341346767627146
+  - Item:
+    - input:
+      - sampleSize: 22
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.12763911766494135
+  - Item:
+    - input:
+      - sampleSize: 22
+      - sampleSpread: 1
+    - status: valid
+    - output: 2.0422258826390616
+  - Item:
+    - input:
+      - sampleSize: 22
+      - sampleSpread: 2
+    - status: valid
+    - output: 8.168903530556246
+  - Item:
+    - input:
+      - sampleSize: 23
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.12520122415327517
+  - Item:
+    - input:
+      - sampleSize: 23
+      - sampleSpread: 1
+    - status: valid
+    - output: 2.0032195864524027
+  - Item:
+    - input:
+      - sampleSize: 23
+      - sampleSpread: 2
+    - status: valid
+    - output: 8.012878345809611
+  - Item:
+    - input:
+      - sampleSize: 24
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.12298358338458659
+  - Item:
+    - input:
+      - sampleSize: 24
+      - sampleSpread: 1
+    - status: valid
+    - output: 1.9677373341533855
+  - Item:
+    - input:
+      - sampleSize: 24
+      - sampleSpread: 2
+    - status: valid
+    - output: 7.870949336613542
+  - Item:
+    - input:
+      - sampleSize: 25
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.1209565220724431
+  - Item:
+    - input:
+      - sampleSize: 25
+      - sampleSpread: 1
+    - status: valid
+    - output: 1.9353043531590897
+  - Item:
+    - input:
+      - sampleSize: 25
+      - sampleSpread: 2
+    - status: valid
+    - output: 7.741217412636359
+  - Item:
+    - input:
+      - sampleSize: 26
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.1190955292513881
+  - Item:
+    - input:
+      - sampleSize: 26
+      - sampleSpread: 1
+    - status: valid
+    - output: 1.9055284680222095
+  - Item:
+    - input:
+      - sampleSize: 26
+      - sampleSpread: 2
+    - status: valid
+    - output: 7.622113872088838
+  - Item:
+    - input:
+      - sampleSize: 27
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.11738017576052068
+  - Item:
+    - input:
+      - sampleSize: 27
+      - sampleSpread: 1
+    - status: valid
+    - output: 1.8780828121683308
+  - Item:
+    - input:
+      - sampleSize: 27
+      - sampleSpread: 2
+    - status: valid
+    - output: 7.512331248673323
+  - Item:
+    - input:
+      - sampleSize: 28
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.11579329460901705
+  - Item:
+    - input:
+      - sampleSize: 28
+      - sampleSpread: 1
+    - status: valid
+    - output: 1.8526927137442728
+  - Item:
+    - input:
+      - sampleSize: 28
+      - sampleSpread: 2
+    - status: valid
+    - output: 7.410770854977091
+  - Item:
+    - input:
+      - sampleSize: 29
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.11432035155968481
+  - Item:
+    - input:
+      - sampleSize: 29
+      - sampleSpread: 1
+    - status: valid
+    - output: 1.829125624954957
+  - Item:
+    - input:
+      - sampleSize: 29
+      - sampleSpread: 2
+    - status: valid
+    - output: 7.316502499819828
+  - Item:
+    - input:
+      - sampleSize: 30
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.11294895632101726
+  - Item:
+    - input:
+      - sampleSize: 30
+      - sampleSpread: 1
+    - status: valid
+    - output: 1.8071833011362761
+  - Item:
+    - input:
+      - sampleSize: 30
+      - sampleSpread: 2
+    - status: valid
+    - output: 7.2287332045451045
+  - Item:
+    - input:
+      - sampleSize: 31
+      - sampleSpread: 0.25
+    - status: valid
+    - output: 0.1116684789921857
+  - Item:
+    - input:
+      - sampleSize: 31
+      - sampleSpread: 1
+    - status: valid
+    - output: 1.7866956638749711
+  - Item:
+    - input:
+      - sampleSize: 31
+      - sampleSpread: 2
+    - status: valid
+    - output: 7.146782655499885
+  - Item:
+    - input:
+      - sampleSize: 5
+      - sampleSpread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 32
+      - sampleSpread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 6.5
+      - sampleSpread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: true
+      - sampleSpread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 10
+      - sampleSpread: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 10
+      - sampleSpread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 10
+      - sampleSpread: null
+    - status: invalid_parameters
+- compute: Square the observed sample spread and multiply by its degrees of freedom. Divide this same numerator by the upper and lower chi-square quantiles in reverse order to obtain a confidence interval for the population variance.
+- numeric tolerance: 5e-11
+- invariants:
+  - Assume independent identically normal cutting errors with one unknown mean and unknown positive population variance. The sample standard deviation uses n−1 in its variance denominator. The central fixed 95% procedure has repeated-sampling coverage under this model; it does not assign posterior probability to the fixed variance or predict the next error. The general formula requires n≥2; these controls use whole n from 6 to 31 and s from 0.25 to 2 mm to keep the fixed variance axis readable. Changing n holds the entered spread fixed rather than generating observations. Chi-square quantiles are evaluated numerically. Unknown σ² has no supplied location, and the observed sample variance s² must not be presented as that unknown parameter.
+  - Story, calculation, geometry and graph share the same actual declared quantities.
+  - Whole reading counts remain discrete; numerical quantiles and probability displays remain approximations.
+- limits:
+  - Assume independent identically normal cutting errors with one unknown mean and unknown positive population variance. The sample standard deviation uses n−1 in its variance denominator. The central fixed 95% procedure has repeated-sampling coverage under this model; it does not assign posterior probability to the fixed variance or predict the next error. The general formula requires n≥2; these controls use whole n from 6 to 31 and s from 0.25 to 2 mm to keep the fixed variance axis readable. Changing n holds the entered spread fixed rather than generating observations. Chi-square quantiles are evaluated numerically. Unknown σ² has no supplied location, and the observed sample variance s² must not be presented as that unknown parameter.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:design-extensions:variance-interval. [NIST/SEMATECH · Chi-Square Test for the Variance](https://www.itl.nist.gov/div898/handbook/eda/section3/eda358.htm). Locator: §1.3.5.8: variance pivot with n−1 degrees of freedom and interval limits obtained by inversion; standard-deviation limits take square roots. Independent-normal assumptions and the bounded numerical quantile implementation are stated explicitly here.. Verification: Definition-level primary source inspected 2026-11-03; the chi-square CDF reference eda3666.htm was also inspected. Independent mathematical/pedagogical and exact-edition book review remain pending.. Rights: Original calibration scenario and numerical examples; no source exercise, data, code or illustration reproduced.

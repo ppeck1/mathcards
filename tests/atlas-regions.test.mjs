@@ -44,8 +44,8 @@ test('linear algebra and linear-time algorithms remain distinct navigable search
   const algebra=model.getTopic('structures:linear-algebra'),algorithms=model.getTopic('computation:linear-time-algorithms');
   assert.ok(algebra.availableCards.some(card=>card.slug==='vector-rotation'));
   assert.ok(algebra.availableCards.some(card=>card.slug==='complex-multiplication'));
-  assert.equal(algorithms.availableCount,1);
-  assert.deepEqual(algorithms.availableCards.map(card=>card.slug),['computational-complexity']);
+  assert.equal(algorithms.availableCount,2);
+  assert.deepEqual(algorithms.availableCards.map(card=>card.slug),['linear-search','computational-complexity']);
   assert.deepEqual(algorithms.plannedConcepts,[]);
   assert.match(algebra.description,/Algorithm running time is a separate topic/);
   assert.match(algorithms.description,/no linear-time claim/);
@@ -64,7 +64,8 @@ test('actual availability wins over coverage status without inventing cards for 
   assert.ok(!topic.plannedConcepts.some(card=>card.id===promoted.id));
   assert.equal(expanded.availableCount,cards.length+1);
   const absent=Regions.create({cards:cards.filter(card=>card.slug!=='graph-theory'),coverage}).getTopic('computation:graphs-and-networks');
-  assert.equal(absent.availableCount,0);
+  assert.equal(absent.availableCount,2);
+  assert.deepEqual(absent.availableCards.map(card=>card.slug),['minimum-spanning-tree','graph-coloring']);
   assert.equal(absent.plannedConcepts.find(concept=>concept.id==='math:concept:graph-theory').status,'unavailable');
 });
 

@@ -1,0 +1,374 @@
+/* Original controlled families, registered behind the same provider boundary. */
+(function (root, factory) {
+  'use strict';
+  const node = typeof module === 'object' && module.exports;
+  // Resolve view adapters only when drawing, after the mathematical providers
+  // and their views are installed. Numeric evaluation has no DOM dependency.
+  const api = factory({
+    geometry: () => (node ? require('./visuals.js') : root.AtlasVisuals),
+    spatial: () => (node ? require('./spatial.js') : root.AtlasSpatial)
+  });
+  if (node) module.exports = api;
+  root.AtlasLegacyModels = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (loadViews) {
+  'use strict';
+  // No formula text is executed. These are the complete, allowlisted model families.
+  const SPECS = {
+    'function-composition': {
+      a: { value: 1, min: -5, max: 5 },
+      b: { value: 0, min: -5, max: 5 },
+      c: { value: 0, min: -5, max: 5 },
+      m: { value: 2, min: -5, max: 5 },
+      n: { value: 1, min: -5, max: 5 },
+      x: { value: 3, min: -10, max: 10 },
+      order: { value: 'f_after_g', values: ['f_after_g', 'g_after_f'] }
+    },
+    'real-logarithm': { base: { value: 2 }, argument: { value: 8 } },
+    derivative: {
+      preset: { value: 'cubic', values: ['cubic', 'linear', 'absolute'] },
+      a: { value: 2, min: -3, max: 3 },
+      h: { value: 0.1, min: -1, max: 1 }
+    }
+  };
+
+  function defaults(slug) {
+    if (!Object.hasOwn(SPECS, slug)) throw new RangeError('Unknown model: ' + slug);
+    return Object.fromEntries(Object.entries(SPECS[slug]).map(([k, v]) => [k, v.value]));
+  }
+
+  /** Structural validation only. Domain failures are returned by evaluate, not clamped. */
+  function validateParams(slug, input) {
+    const errors = [],
+      parameters = {};
+    if (!Object.hasOwn(SPECS, slug))
+      return {
+        valid: false,
+        parameters,
+        errors: [{ field: 'model', message: 'Unknown model.' }],
+        warnings: []
+      };
+    if (input === undefined) input = {};
+    if (!input || typeof input !== 'object' || Array.isArray(input))
+      return {
+        valid: false,
+        parameters,
+        errors: [{ field: 'parameters', message: 'Parameters must be an object.' }],
+        warnings: []
+      };
+    const spec = SPECS[slug];
+    for (const field of Object.keys(input)) {
+      if (!Object.hasOwn(spec, field)) errors.push({ field, message: 'Unknown parameter.' });
+    }
+    for (const [field, rule] of Object.entries(spec)) {
+      const value = Object.hasOwn(input, field) ? input[field] : rule.value;
+      if (rule.values) {
+        if (!rule.values.includes(value))
+          errors.push({ field, message: 'Choose ' + rule.values.join(', ') + '.' });
+        else parameters[field] = value;
+      } else if (typeof value !== 'number' || !Number.isFinite(value)) {
+        errors.push({ field, message: 'Enter a finite number.' });
+      } else if (
+        (rule.min !== undefined && value < rule.min) ||
+        (rule.max !== undefined && value > rule.max)
+      ) {
+        errors.push({ field, message: 'Use a value from ' + rule.min + ' to ' + rule.max + '.' });
+      } else parameters[field] = value;
+    }
+    return { valid: errors.length === 0, parameters, errors, warnings: [] };
+  }
+
+  function quadratic(p, x) {
+    return (p.a * x + p.b) * x + p.c;
+  }
+  function affine(p, x) {
+    return p.m * x + p.n;
+  }
+  function derivativeFunction(preset, x) {
+    if (preset === 'cubic') return x * x * x;
+    if (preset === 'linear') return 3 * x + 1;
+    return Math.abs(x);
+  }
+  function analyticAt(preset, a) {
+    if (preset === 'cubic') return 3 * a * a;
+    if (preset === 'linear') return 3;
+    return a === 0 ? null : Math.sign(a);
+  }
+
+  // A finite Number is an exact dyadic rational: odd mantissa × 2^exponent.
+  // Use that representation to certify integer powers, rather than comparing
+  // rounded floating powers or trusting a list of familiar examples.
+  function dyadic(value) {
+    const view = new DataView(new ArrayBuffer(8));
+    view.setFloat64(0, value);
+    const high = view.getUint32(0),
+      low = view.getUint32(4);
+    const storedExponent = (high >>> 20) & 0x7ff;
+    let mantissa = (high & 0xfffff) * 4294967296 + low + (storedExponent ? 4503599627370496 : 0);
+    let exponent = storedExponent ? storedExponent - 1075 : -1074;
+    while (mantissa % 2 === 0) {
+      mantissa /= 2;
+      exponent++;
+    }
+    return { mantissa: BigInt(mantissa), exponent };
+  }
+
+  function exactIntegerLog(base, argument, estimate) {
+    if (argument === 1) return 0;
+    if (argument === base) return 1;
+    const power = Math.round(estimate);
+    // No nontrivial represented dyadic integer-power identity needs an
+    // exponent outside the finite Number range, including subnormals.
+    if (!Number.isSafeInteger(power) || power === 0 || Math.abs(power) > 1074) return null;
+    const b = dyadic(base),
+      a = dyadic(argument);
+    if (a.exponent !== b.exponent * power) return null;
+    if (b.mantissa === 1n) return a.mantissa === 1n ? power : null;
+    // A reciprocal of an odd factor cannot be a dyadic rational.
+    if (power < 0) return null;
+    // Bound the integer work before exponentiation. If it can match the
+    // target's <=53-bit mantissa, the computed power is at most 104 bits.
+    const baseBits = b.mantissa.toString(2).length,
+      argumentBits = a.mantissa.toString(2).length;
+    if ((baseBits - 1) * power >= argumentBits) return null;
+    return b.mantissa ** BigInt(power) === a.mantissa ? power : null;
+  }
+
+  function exactLogDisplay(base, argument, estimate) {
+    const integer = exactIntegerLog(base, argument, estimate);
+    if (integer !== null) return String(integer).replace('-', '−');
+    const b = dyadic(base),
+      a = dyadic(argument);
+    if (b.mantissa !== 1n || a.mantissa !== 1n) return null;
+    // For b=2^u and x=2^v, log_b(x)=v/u exactly. Only small integer
+    // binary exponents enter this Euclidean algorithm, not a root search.
+    let numerator = a.exponent,
+      denominator = b.exponent;
+    if (denominator < 0) {
+      numerator = -numerator;
+      denominator = -denominator;
+    }
+    let left = Math.abs(numerator),
+      right = denominator;
+    while (right) {
+      const remainder = left % right;
+      left = right;
+      right = remainder;
+    }
+    return String(numerator / left).replace('-', '−') + '/' + String(denominator / left);
+  }
+
+  function evaluate(slug, input) {
+    const checked = validateParams(slug, input);
+    const p = checked.parameters;
+    if (!checked.valid) return { ...checked, status: 'invalid_parameters', output: null };
+    if (slug === 'function-composition') {
+      const gx = affine(p, p.x),
+        fx = quadratic(p, p.x);
+      const both = {
+        f_after_g: { intermediate: gx, output: quadratic(p, gx), first: 'g', second: 'f' },
+        g_after_f: { intermediate: fx, output: affine(p, fx), first: 'f', second: 'g' }
+      };
+      return {
+        ...checked,
+        status: 'valid',
+        ...both[p.order],
+        both,
+        difference: both.f_after_g.output - both.g_after_f.output,
+        expressionId:
+          p.order === 'f_after_g'
+            ? 'ast:composition:apply-f-after-g'
+            : 'ast:composition:apply-g-after-f'
+      };
+    }
+    if (slug === 'real-logarithm') {
+      if (p.base <= 0 || p.base === 1)
+        return {
+          ...checked,
+          valid: false,
+          status: 'invalid_base',
+          output: null,
+          message: 'A real logarithm requires base > 0 and base ≠ 1.'
+        };
+      if (p.argument <= 0)
+        return {
+          ...checked,
+          valid: false,
+          status: 'undefined_argument',
+          output: null,
+          message: 'A real logarithm requires a strictly positive argument.'
+        };
+      const output = Math.log(p.argument) / Math.log(p.base);
+      if (!Number.isFinite(output))
+        return {
+          ...checked,
+          valid: false,
+          status: 'numerical_failure',
+          output: null,
+          message: 'The result exceeds this floating-point model’s range.'
+        };
+      const exactDisplay = exactLogDisplay(p.base, p.argument, output);
+      const warnings = [];
+      if (Math.abs(p.base - 1) < 0.000001)
+        warnings.push(
+          'Base is close to 1: small changes in the base can cause large changes in the logarithm. Uncertified results remain floating-point approximations.'
+        );
+      const inverse = Math.pow(p.base, output);
+      return {
+        ...checked,
+        status: 'valid',
+        output,
+        exactDisplay,
+        inverse: Number.isFinite(inverse) ? inverse : null,
+        displayStatus: exactDisplay === null ? 'approximate' : 'exact',
+        direction: p.base > 1 ? 'increasing' : 'decreasing',
+        warnings,
+        ladder: [-2, -1, 0, 1, 2, 3, 4].map(exponent => {
+          const argument = Math.pow(p.base, exponent);
+          return {
+            exponent,
+            argument: Number.isFinite(argument) && argument > 0 ? argument : null
+          };
+        })
+      };
+    }
+    const analytic = analyticAt(p.preset, p.a);
+    let output = null;
+    if (p.h !== 0) {
+      // Algebraically equivalent finite quotients avoid catastrophic cancellation at tiny h.
+      if (p.preset === 'cubic') output = 3 * p.a * p.a + 3 * p.a * p.h + p.h * p.h;
+      else if (p.preset === 'linear') output = 3;
+      else if (p.a >= 0 && p.a + p.h >= 0) output = 1;
+      else if (p.a <= 0 && p.a + p.h <= 0) output = -1;
+      else output = (Math.abs(p.a + p.h) - Math.abs(p.a)) / p.h;
+    }
+    const corner = p.preset === 'absolute' && p.a === 0;
+    return {
+      ...checked,
+      valid: p.h !== 0,
+      status: p.h === 0 ? 'undefined_step' : 'valid',
+      output,
+      secantStatus: p.h === 0 ? 'undefined' : 'valid',
+      analytic,
+      analyticStatus: analytic === null ? 'undefined' : 'valid',
+      oneSided: corner ? { left: -1, right: 1 } : { left: analytic, right: analytic },
+      fa: derivativeFunction(p.preset, p.a),
+      fah: derivativeFunction(p.preset, p.a + p.h),
+      warnings:
+        p.h !== 0 && Math.abs(p.h) < 1e-8
+          ? [
+              'The finite quotient remains distinct from the analytic derivative, even when rounded values agree.'
+            ]
+          : [],
+      message:
+        p.h === 0
+          ? 'The secant quotient divides by zero. The analytic derivative is evaluated separately.'
+          : corner
+            ? 'The left and right slopes disagree at this corner, so the derivative does not exist.'
+            : null
+    };
+  }
+
+  /** Value for a finite plot sample. null means no real point; never join across nulls. */
+  function curveValue(slug, input, x) {
+    if (typeof x !== 'number' || !Number.isFinite(x)) return null;
+    const c = validateParams(slug, input);
+    if (!c.valid) return null;
+    const p = c.parameters;
+    let y;
+    if (slug === 'function-composition')
+      y = p.order === 'f_after_g' ? quadratic(p, affine(p, x)) : affine(p, quadratic(p, x));
+    else if (slug === 'real-logarithm') {
+      if (p.base <= 0 || p.base === 1 || x <= 0) return null;
+      y = Math.log(x) / Math.log(p.base);
+    } else y = derivativeFunction(p.preset, x);
+    return Number.isFinite(y) ? y : null;
+  }
+
+  const METADATA = {
+    'function-composition': {
+      title: 'Function composition',
+      expression: 'f(g(x))',
+      axis: 'x',
+      rendererId: 'function-composition-quadratic-affine',
+      views: ['geometry', 'spatial', 'graph']
+    },
+    'real-logarithm': {
+      title: 'Real logarithm',
+      expression: 'logᵦ(x)',
+      axis: 'argument',
+      rendererId: 'real-logarithm-linked-exponential',
+      views: ['geometry', 'spatial', 'graph']
+    },
+    derivative: {
+      title: 'Derivative at a point',
+      expression: 'Δf / h',
+      axis: 'a',
+      rendererId: 'derivative-secant-tangent',
+      views: ['geometry', 'spatial', 'graph']
+    }
+  };
+  const LABELS = {
+    'function-composition': {
+      a: 'a (quadratic)',
+      b: 'b (linear)',
+      c: 'c (constant)',
+      m: 'm (slope)',
+      n: 'n (offset)',
+      x: 'Input x',
+      order: 'Operation order'
+    },
+    'real-logarithm': { base: 'Base b', argument: 'Argument x' },
+    derivative: { preset: 'Function', a: 'Point a', h: 'Signed step h' }
+  };
+  const OPTIONS = {
+    order: ['g first, then f', 'f first, then g'],
+    preset: ['Cubic · f(x) = x³', 'Linear · f(x) = 3x + 1', 'Corner · f(x) = |x|']
+  };
+  function has(slug) {
+    return typeof slug === 'string' && Object.hasOwn(SPECS, slug);
+  }
+  function specs(slug) {
+    if (!has(slug)) throw new RangeError('Unknown model: ' + slug);
+    return { ...METADATA[slug], unit: '', views: [...METADATA[slug].views] };
+  }
+  function controls(slug) {
+    if (!has(slug)) throw new RangeError('Unknown model: ' + slug);
+    return Object.entries(SPECS[slug]).map(([key, rule]) =>
+      rule.values
+        ? {
+            key,
+            label: LABELS[slug][key],
+            type: 'select',
+            options: rule.values.map((value, index) => ({ value, label: OPTIONS[key][index] }))
+          }
+        : {
+            key,
+            label: LABELS[slug][key],
+            type: 'number',
+            // Logarithm bounds are viewing controls only. Its numeric domain is
+            // validated separately, preserving deliberate invalid-case presets.
+            min: rule.min ?? (key === 'base' ? 0.25 : 0.125),
+            max: rule.max ?? (key === 'base' ? 8 : 64)
+          }
+    );
+  }
+  function render(slug, parameters, options = {}) {
+    if (!has(slug)) throw new RangeError('Unknown model: ' + slug);
+    const view = options.view === 'spatial' ? 'spatial' : 'geometry';
+    const renderer = loadViews[view]();
+    if (typeof renderer?.renderLegacy !== 'function')
+      throw new Error('Legacy view adapter is not loaded.');
+    return renderer.renderLegacy(slug, parameters, options);
+  }
+  return Object.freeze({
+    version: '1',
+    has,
+    defaults,
+    controls,
+    specs,
+    validateParams,
+    evaluate,
+    curveValue,
+    render
+  });
+});

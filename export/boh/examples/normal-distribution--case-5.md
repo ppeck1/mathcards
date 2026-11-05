@@ -1,0 +1,257 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:normal-distribution:case-5", "id": "math:example:normal-distribution:case-5", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:normal-distribution", "example_id": "math:example:normal-distribution:case-5", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9f13c908687061e87a54e6aade500cf054efa8d086cb3bc50253acea55b46d10"}, "purpose": "How much of a cutting-error model lies below a chosen tolerance?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9f13c908687061e87a54e6aade500cf054efa8d086cb3bc50253acea55b46d10", "status": "draft", "title": "A narrow offset error model", "topics": ["mathematics", "probability", "statistics", "normal distribution: height and area"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# A narrow offset error model
+
+Parent card: math:concept:normal-distribution; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:normal-distribution; revision 0.1.0-draft. Setting: A workshop measures signed cutting errors in millimetres around a target length. Its chosen model has mean error μ and standard deviation σ. Slide a tolerance x across the density, then follow the standardized distance z into the area below x. Expression: $z=\frac{x-\mu}{\sigma},\quad f(x)=\frac{\exp(-(x-\mu)^2/(2\sigma^2))}{\sigma\sqrt{2\pi}},\quad F(x)=\Phi(z).$. Conditions required for a defined value (a case may test their violation): A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred. Scope: A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.
+
+Case unit math:example:normal-distribution:case-5. Setting: A workshop measures signed cutting errors in millimetres around a target length. Its chosen model has mean error μ and standard deviation σ. Slide a tolerance x across the density, then follow the standardized distance z into the area below x. Inputs: {"mean": 1, "sigma": 0.25, "threshold": 0.5}. Result: {"approximate": "0.0227501319481792"}. Limits: A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.
+
+## Complete worked case
+
+- id: math:example:normal-distribution:case-5
+- title: A narrow offset error model
+- role: applied_model
+- question: How much of a cutting-error model lies below a chosen tolerance?
+- setting: A workshop measures signed cutting errors in millimetres around a target length. Its chosen model has mean error μ and standard deviation σ. Slide a tolerance x across the density, then follow the standardized distance z into the area below x.
+- assumptions:
+  - A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.
+- inputs:
+  - threshold: 0.5
+  - mean: 1
+  - sigma: 0.25
+- steps:
+  - Item:
+    - index: 1
+    - expression: x = 0.5; μ = 1; σ = 0.25
+    - reason: Declare the physical quantities and the selected probability model.
+  - Item:
+    - index: 2
+    - expression: z=\frac{x-\mu}{\sigma},\quad f(x)=\frac{\exp(-(x-\mu)^2/(2\sigma^2))}{\sigma\sqrt{2\pi}},\quad F(x)=\Phi(z).
+    - reason: Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.
+  - Item:
+    - index: 3
+    - expression: 0.0227501319481792
+    - reason: Read cumulative probability or the predeclared one-sided null tail.
+- result:
+  - approximate: 0.0227501319481792
+- interpretation: Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.
+- independent check:
+  - method: Python math.erfc evaluates the full normal CDF independently of the JavaScript Gaussian quadrature.
+  - expected: 0.0227501319481792
+- limits: A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.
+- preset:
+  - threshold: 0.5
+  - mean: 1
+  - sigma: 0.25
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.
+
+## Written exploration recipe
+
+- component id: component:normal-distribution
+- renderer id: normal-distribution-visual-model
+- renderer version: 1
+- model id: normal-distribution-visual-model
+- model revision: 1
+- expression id: ast:normal-distribution:expression
+- interaction status: implemented
+- description: Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.
+- controls:
+  - Item:
+    - id: threshold
+    - type: number
+    - default: 1
+    - min: -6
+    - max: 6
+    - step: 0.05
+  - Item:
+    - id: mean
+    - type: number
+    - default: 0
+    - min: -2
+    - max: 2
+    - step: 0.05
+  - Item:
+    - id: sigma
+    - type: number
+    - default: 1
+    - min: 0.25
+    - max: 2
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - threshold: 1
+      - mean: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.8413447460685428
+  - Item:
+    - input:
+      - threshold: 1
+      - mean: 1
+      - sigma: 0.5
+    - status: valid
+    - output: 0.5
+  - Item:
+    - input:
+      - threshold: -0.5
+      - mean: 0.5
+      - sigma: 1
+    - status: valid
+    - output: 0.15865525393145707
+  - Item:
+    - input:
+      - threshold: 1
+      - mean: 0
+      - sigma: 2
+    - status: valid
+    - output: 0.691462461274013
+  - Item:
+    - input:
+      - threshold: 0.5
+      - mean: 1
+      - sigma: 0.25
+    - status: valid
+    - output: 0.022750131948179216
+  - Item:
+    - input:
+      - threshold: -6
+      - mean: 2
+      - sigma: 0.25
+    - status: valid
+    - output: 5.452080603512892e-225
+  - Item:
+    - input:
+      - threshold: 6
+      - mean: -2
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - threshold: -4
+      - mean: 0
+      - sigma: 1
+    - status: valid
+    - output: 3.1671241833119965e-05
+  - Item:
+    - input:
+      - threshold: 4
+      - mean: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.9999683287581669
+  - Item:
+    - input:
+      - threshold: 0
+      - mean: -2
+      - sigma: 2
+    - status: valid
+    - output: 0.8413447460685428
+  - Item:
+    - input:
+      - threshold: 0
+      - mean: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.15865525393145707
+  - Item:
+    - input:
+      - threshold: -0.0001
+      - mean: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.4998404230920948
+  - Item:
+    - input:
+      - threshold: 0.0001
+      - mean: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.5001595769079051
+  - Item:
+    - input:
+      - threshold: -6
+      - mean: -2
+      - sigma: 2
+    - status: valid
+    - output: 0.022750131948179216
+  - Item:
+    - input:
+      - threshold: 6
+      - mean: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.9772498680518209
+  - Item:
+    - input:
+      - threshold: true
+      - mean: 0
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - threshold: 100
+      - mean: 0
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - threshold: 1
+      - mean: 0
+      - sigma: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - threshold: 1
+      - mean: 0
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - threshold: 5e-324
+      - mean: 0
+      - sigma: 2
+    - status: numeric_precision
+  - Item:
+    - input:
+      - threshold: 5e-324
+      - mean: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.5
+- compute: Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.
+- numeric tolerance: 2e-12
+- invariants:
+  - A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.
+  - The story, calculation and visual use the same current parameters.
+  - Geometry density scales and Graph probability scales have distinct meanings.
+- limits:
+  - A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:distribution-extensions:normal. [NIST/SEMATECH · Normal Distribution](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm). Locator: §1.3.6.6.1: normal density, cumulative probability, location and scale.. Verification: Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.. Rights: Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced.
+
+- Source ID: source:distribution-extensions:quadrature. [NIST DLMF · Gauss Quadrature](https://dlmf.nist.gov/3.5#v). Locator: §3.5(v): Gaussian quadrature. The bounded numerical implementation and error measurements are independently authored.. Verification: Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.. Rights: Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced.

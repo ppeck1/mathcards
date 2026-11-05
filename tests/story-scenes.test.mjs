@@ -23,7 +23,7 @@ const cart=(a,h=.1)=>({preset:'cubic',a,h});
 
 test('contextual scenes load in an offline browser without DOM or network dependencies',()=>{
   const context=vm.createContext({});
-  for(const name of ['everyday','models','story-scenes'])vm.runInContext(fs.readFileSync(new URL(`../src/${name}.js`,import.meta.url),'utf8'),context);
+  for(const name of ['everyday','legacy-models','model-registry','models','visuals','story-scenes'])vm.runInContext(fs.readFileSync(new URL(`../src/${name}.js`,import.meta.url),'utf8'),context);
   assert.equal(typeof context.AtlasStoryScenes.render,'function');
   assert.equal(context.AtlasStoryScenes.primaryValue('derivative',cart(2,.5)),12);
   for(const slug of slugs)assert.match(context.AtlasStoryScenes.render(slug,Models.defaults(slug),{id:slug}),/<svg/);

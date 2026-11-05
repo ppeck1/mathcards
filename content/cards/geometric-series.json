@@ -1,0 +1,1712 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:geometric-series",
+  "slug": "geometric-series",
+  "type": "concept",
+  "title": "Geometric series and partial sums",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-03T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "geometric series"
+  ],
+  "branches": [
+    "algebra",
+    "analysis",
+    "sequences"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Where does the stage finish after a whole number of repeated corrections?",
+  "meaning": "A geometric series adds terms with one common ratio. A partial sum adds a finite whole number of terms. Its closed form has a separate r=1 case. With a nonzero first term, the infinite geometric series has a finite sum exactly when the ratio has magnitude less than one.",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:recurrence",
+      "math:concept:exponential-change"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A positioning script sends a first forward correction a centimetres. Each later signed correction is r times the previous correction. Add exactly n commands to find the endpoint. A negative ratio alternates forward and backward corrections; the signed sum is net displacement, not distance travelled or a simulation of a mechanical controller.",
+    "formal_latex": "S_n=\\sum_{k=0}^{n-1}ar^k=\\begin{cases}a\\frac{1-r^n}{1-r},&r\\ne1,\\\\na,&r=1.\\end{cases}\\qquad\\sum_{k=0}^{\\infty}ar^k=\\frac{a}{1-r}\\ \\ (|r|<1).",
+    "signature": {
+      "a": "Positive first correction",
+      "r": "Common ratio",
+      "n": "Whole number of terms",
+      "k": "Bound summation index, from zero through n minus one",
+      "arᵏ": "Individual signed term",
+      "Sₙ": "Finite partial sum",
+      "∑": "Summation operator",
+      "∞": "Unbounded summation limit, not a finite term count",
+      "S∞": "Infinite-series sum when it exists",
+      "|r|": "Magnitude of the common ratio"
+    },
+    "conditions": [
+      "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+    ],
+    "domain_notes": "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.",
+    "proof_status": "Definition-level sources and original bounded calculations; independent review pending.",
+    "source_refs": [
+      "source:analysis-extension:series"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Geometric series and partial sums",
+    "expression_latex": "S_n=\\sum_{k=0}^{n-1}ar^k=\\begin{cases}a\\frac{1-r^n}{1-r},&r\\ne1,\\\\na,&r=1.\\end{cases}\\qquad\\sum_{k=0}^{\\infty}ar^k=\\frac{a}{1-r}\\ \\ (|r|<1).",
+    "formation_rule": "A geometric series adds terms with one common ratio. A partial sum adds a finite whole number of terms. Its closed form has a separate r=1 case. With a nonzero first term, the infinite geometric series has a finite sum exactly when the ratio has magnitude less than one.",
+    "precedence": "Keep the declared operations and parameter domains. Evaluate the finite sum before considering any infinite limit.",
+    "symbols": [
+      {
+        "token": "a",
+        "role": "Positive first correction",
+        "type": "Declared input, bound index or evaluated quantity"
+      },
+      {
+        "token": "r",
+        "role": "Common ratio",
+        "type": "Declared input, bound index or evaluated quantity"
+      },
+      {
+        "token": "n",
+        "role": "Whole number of terms",
+        "type": "Declared input, bound index or evaluated quantity"
+      },
+      {
+        "token": "k",
+        "role": "Bound summation index, from zero through n minus one",
+        "type": "Declared input, bound index or evaluated quantity"
+      },
+      {
+        "token": "arᵏ",
+        "role": "Individual signed term",
+        "type": "Declared input, bound index or evaluated quantity"
+      },
+      {
+        "token": "Sₙ",
+        "role": "Finite partial sum",
+        "type": "Declared input, bound index or evaluated quantity"
+      },
+      {
+        "token": "∑",
+        "role": "Summation operator",
+        "type": "Declared input, bound index or evaluated quantity"
+      },
+      {
+        "token": "∞",
+        "role": "Unbounded summation limit, not a finite term count",
+        "type": "Declared input, bound index or evaluated quantity"
+      },
+      {
+        "token": "S∞",
+        "role": "Infinite-series sum when it exists",
+        "type": "Declared input, bound index or evaluated quantity"
+      },
+      {
+        "token": "|r|",
+        "role": "Magnitude of the common ratio",
+        "type": "Declared input, bound index or evaluated quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:geometric-series:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:ratio",
+          "kind": "variable",
+          "type": "Real input in the declared bounded family",
+          "symbol": "r",
+          "scope_ref": "scope:geometric-series"
+        },
+        {
+          "id": "n:first",
+          "kind": "variable",
+          "type": "Real input in the declared bounded family",
+          "symbol": "a",
+          "scope_ref": "scope:geometric-series"
+        },
+        {
+          "id": "n:terms",
+          "kind": "variable",
+          "type": "Real input in the declared bounded family",
+          "symbol": "n",
+          "scope_ref": "scope:geometric-series"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded analysis rule",
+          "ref": "A geometric series adds terms with one common ratio. A partial sum adds a finite whole number of terms. Its closed form has a separate r=1 case. With a nonzero first term, the infinite geometric series has a finite sum exactly when the ratio has magnitude less than one."
+        },
+        {
+          "id": "n:bound-ratio",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:ratio"
+        },
+        {
+          "id": "n:bound-first",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-ratio",
+          "argument": "n:first"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-first",
+          "argument": "n:terms"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:geometric-series",
+          "kind": "modelExpression",
+          "free_variables": [
+            "r",
+            "a",
+            "n"
+          ],
+          "domain_condition": "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.",
+          "bound_variables": [
+            "k"
+          ]
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "An undeclared or unsupported input",
+        "status": "unsupported parameter",
+        "reason": "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+      }
+    ],
+    "ast_coverage": "Typed application outline for the bounded family; not a general expression parser.",
+    "output_symbol_bindings": {
+      "a": "first",
+      "r": "ratio",
+      "n": "terms",
+      "k": "contributions",
+      "arᵏ": "contributions",
+      "Sₙ": "output",
+      "S∞": "infiniteSum",
+      "|r|": "ratio"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Finite partial sums remain defined when no infinite-series sum exists.",
+      "conditions": "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.",
+      "derivation": "Subtract r times a finite sum from that sum to obtain (1−r)Sₙ=a(1−rⁿ). When r=1, add n equal terms. For |r|<1 the power tends to zero; for |r|≥1 with nonzero a the terms do not tend to zero.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "example_ref": "math:example:geometric-series:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Check historical and notation development before adding priority claims.",
+      "Verify exact-edition book mappings independently."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The workshop stories and examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:recurrence",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared domains and units.",
+      "reason": "Geometric series and partial sums supplies a bounded bridge to recurrence.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:exponential-change",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared domains and units.",
+      "reason": "Geometric series and partial sums supplies a bounded bridge to exponential change.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:signed-accumulation",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared domains and units.",
+      "reason": "Geometric series and partial sums supplies a bounded bridge to signed accumulation.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:limit",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared domains and units.",
+      "reason": "Geometric series and partial sums supplies a bounded bridge to limit.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:exponentiation",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared domains and units.",
+      "reason": "Geometric series and partial sums supplies a bounded bridge to exponentiation.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:geometric-series:case-1",
+      "title": "Shrinking forward corrections",
+      "role": "applied_model",
+      "question": "Where does the stage finish after a whole number of repeated corrections?",
+      "setting": "A positioning script sends a first forward correction a centimetres. Each later signed correction is r times the previous correction. Add exactly n commands to find the endpoint. A negative ratio alternates forward and backward corrections; the signed sum is net displacement, not distance travelled or a simulation of a mechanical controller.",
+      "assumptions": [
+        "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+      ],
+      "inputs": {
+        "ratio": 0.5,
+        "first": 2,
+        "terms": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "Corrections: 2.0, 1.0, 0.5, 0.25, 0.125, 0.0625 cm",
+          "reason": "Generate each signed command by the declared common ratio."
+        },
+        {
+          "index": 2,
+          "expression": "Sₙ = (2.0) + (1.0) + (0.5) + (0.25) + (0.125) + (0.0625) = 3.9375 cm",
+          "reason": "Add exactly the declared whole number of terms."
+        },
+        {
+          "index": 3,
+          "expression": "Infinite sum = 4.0 cm",
+          "reason": "Keep an infinite-series claim separate from the finite partial sum."
+        }
+      ],
+      "result": {
+        "approximate": "3.9375 cm"
+      },
+      "interpretation": "The six commands total 3.9375 cm; the separate infinite-series limit is 4 cm.",
+      "independent_check": {
+        "method": "Sum exact rational terms independently; compare with the finite closed form and its r=1 branch.",
+        "expected": "3.9375"
+      },
+      "limits": "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.",
+      "preset": {
+        "ratio": 0.5,
+        "first": 2,
+        "terms": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+      ]
+    },
+    {
+      "id": "math:example:geometric-series:case-2",
+      "title": "Alternating corrections",
+      "role": "applied_model",
+      "question": "Where does the stage finish after a whole number of repeated corrections?",
+      "setting": "A positioning script sends a first forward correction a centimetres. Each later signed correction is r times the previous correction. Add exactly n commands to find the endpoint. A negative ratio alternates forward and backward corrections; the signed sum is net displacement, not distance travelled or a simulation of a mechanical controller.",
+      "assumptions": [
+        "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+      ],
+      "inputs": {
+        "ratio": -0.5,
+        "first": 3,
+        "terms": 4
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "Corrections: 3.0, -1.5, 0.75, -0.375 cm",
+          "reason": "Generate each signed command by the declared common ratio."
+        },
+        {
+          "index": 2,
+          "expression": "Sₙ = (3.0) + (-1.5) + (0.75) + (-0.375) = 1.875 cm",
+          "reason": "Add exactly the declared whole number of terms."
+        },
+        {
+          "index": 3,
+          "expression": "Infinite sum = 2.0 cm",
+          "reason": "Keep an infinite-series claim separate from the finite partial sum."
+        }
+      ],
+      "result": {
+        "approximate": "1.875 cm"
+      },
+      "interpretation": "The commands 3, −1.5, 0.75 and −0.375 cm total 1.875 cm. The infinite limit is 2 cm, not the total distance travelled.",
+      "independent_check": {
+        "method": "Sum exact rational terms independently; compare with the finite closed form and its r=1 branch.",
+        "expected": "1.875"
+      },
+      "limits": "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.",
+      "preset": {
+        "ratio": -0.5,
+        "first": 3,
+        "terms": 4
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+      ]
+    },
+    {
+      "id": "math:example:geometric-series:case-3",
+      "title": "Equal commands",
+      "role": "applied_model",
+      "question": "Where does the stage finish after a whole number of repeated corrections?",
+      "setting": "A positioning script sends a first forward correction a centimetres. Each later signed correction is r times the previous correction. Add exactly n commands to find the endpoint. A negative ratio alternates forward and backward corrections; the signed sum is net displacement, not distance travelled or a simulation of a mechanical controller.",
+      "assumptions": [
+        "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+      ],
+      "inputs": {
+        "ratio": 1,
+        "first": 1.5,
+        "terms": 8
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "Corrections: 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5 cm",
+          "reason": "Generate each signed command by the declared common ratio."
+        },
+        {
+          "index": 2,
+          "expression": "Sₙ = (1.5) + (1.5) + (1.5) + (1.5) + (1.5) + (1.5) + (1.5) + (1.5) = 12.0 cm",
+          "reason": "Add exactly the declared whole number of terms."
+        },
+        {
+          "index": 3,
+          "expression": "No finite infinite-series sum because |r| ≥ 1 and a ≠ 0.",
+          "reason": "Keep an infinite-series claim separate from the finite partial sum."
+        }
+      ],
+      "result": {
+        "approximate": "12.0 cm"
+      },
+      "interpretation": "Eight identical 1.5 cm commands total 12 cm. The finite sum is valid, while the infinite series has no finite sum.",
+      "independent_check": {
+        "method": "Sum exact rational terms independently; compare with the finite closed form and its r=1 branch.",
+        "expected": "12.0"
+      },
+      "limits": "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.",
+      "preset": {
+        "ratio": 1,
+        "first": 1.5,
+        "terms": 8
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+      ]
+    },
+    {
+      "id": "math:example:geometric-series:case-4",
+      "title": "Unshrinking alternation",
+      "role": "applied_model",
+      "question": "Where does the stage finish after a whole number of repeated corrections?",
+      "setting": "A positioning script sends a first forward correction a centimetres. Each later signed correction is r times the previous correction. Add exactly n commands to find the endpoint. A negative ratio alternates forward and backward corrections; the signed sum is net displacement, not distance travelled or a simulation of a mechanical controller.",
+      "assumptions": [
+        "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+      ],
+      "inputs": {
+        "ratio": -1,
+        "first": 2,
+        "terms": 5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "Corrections: 2.0, -2.0, 2.0, -2.0, 2.0 cm",
+          "reason": "Generate each signed command by the declared common ratio."
+        },
+        {
+          "index": 2,
+          "expression": "Sₙ = (2.0) + (-2.0) + (2.0) + (-2.0) + (2.0) = 2.0 cm",
+          "reason": "Add exactly the declared whole number of terms."
+        },
+        {
+          "index": 3,
+          "expression": "No finite infinite-series sum because |r| ≥ 1 and a ≠ 0.",
+          "reason": "Keep an infinite-series claim separate from the finite partial sum."
+        }
+      ],
+      "result": {
+        "approximate": "2.0 cm"
+      },
+      "interpretation": "The partial sums alternate between 2 and 0 cm. The fifth sum is 2 cm, and the infinite sequence of sums does not converge.",
+      "independent_check": {
+        "method": "Sum exact rational terms independently; compare with the finite closed form and its r=1 branch.",
+        "expected": "2.0"
+      },
+      "limits": "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.",
+      "preset": {
+        "ratio": -1,
+        "first": 2,
+        "terms": 5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+      ]
+    },
+    {
+      "id": "math:example:geometric-series:case-5",
+      "title": "Only the first command",
+      "role": "applied_model",
+      "question": "Where does the stage finish after a whole number of repeated corrections?",
+      "setting": "A positioning script sends a first forward correction a centimetres. Each later signed correction is r times the previous correction. Add exactly n commands to find the endpoint. A negative ratio alternates forward and backward corrections; the signed sum is net displacement, not distance travelled or a simulation of a mechanical controller.",
+      "assumptions": [
+        "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+      ],
+      "inputs": {
+        "ratio": 0,
+        "first": 4,
+        "terms": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "Corrections: 4.0 cm",
+          "reason": "Generate each signed command by the declared common ratio."
+        },
+        {
+          "index": 2,
+          "expression": "Sₙ = (4.0) = 4.0 cm",
+          "reason": "Add exactly the declared whole number of terms."
+        },
+        {
+          "index": 3,
+          "expression": "Infinite sum = 4.0 cm",
+          "reason": "Keep an infinite-series claim separate from the finite partial sum."
+        }
+      ],
+      "result": {
+        "approximate": "4.0 cm"
+      },
+      "interpretation": "One command gives 4 cm; all later corrections would be zero. The finite and infinite sums coincide.",
+      "independent_check": {
+        "method": "Sum exact rational terms independently; compare with the finite closed form and its r=1 branch.",
+        "expected": "4.0"
+      },
+      "limits": "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.",
+      "preset": {
+        "ratio": 0,
+        "first": 4,
+        "terms": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:geometric-series",
+    "renderer_id": "geometric-series-visual-model",
+    "renderer_version": "1",
+    "model_id": "geometric-series-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:geometric-series:expression",
+    "interaction_status": "implemented",
+    "description": "A positioning script sends a first forward correction a centimetres. Each later signed correction is r times the previous correction. Add exactly n commands to find the endpoint. A negative ratio alternates forward and backward corrections; the signed sum is net displacement, not distance travelled or a simulation of a mechanical controller.",
+    "controls": [
+      {
+        "id": "ratio",
+        "type": "number",
+        "default": 0.5,
+        "min": -1.5,
+        "max": 1.5,
+        "step": 0.05
+      },
+      {
+        "id": "first",
+        "type": "number",
+        "default": 2,
+        "min": 0.25,
+        "max": 4,
+        "step": 0.05
+      },
+      {
+        "id": "terms",
+        "type": "number",
+        "default": 6,
+        "min": 1,
+        "max": 12,
+        "step": 1
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 2,
+          "terms": 6
+        },
+        "status": "valid",
+        "output": 3.9375
+      },
+      {
+        "input": {
+          "ratio": -0.5,
+          "first": 3,
+          "terms": 4
+        },
+        "status": "valid",
+        "output": 1.875
+      },
+      {
+        "input": {
+          "ratio": 1,
+          "first": 1.5,
+          "terms": 8
+        },
+        "status": "valid",
+        "output": 12.0
+      },
+      {
+        "input": {
+          "ratio": -1,
+          "first": 2,
+          "terms": 5
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": 0,
+          "first": 4,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": -1.5,
+          "first": 0.25,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 0.25
+      },
+      {
+        "input": {
+          "ratio": -1.5,
+          "first": 0.25,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": -0.125
+      },
+      {
+        "input": {
+          "ratio": -1.5,
+          "first": 0.25,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 0.4375
+      },
+      {
+        "input": {
+          "ratio": -1.5,
+          "first": 0.25,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": -12.8746337890625
+      },
+      {
+        "input": {
+          "ratio": -1.5,
+          "first": 2,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": -1.5,
+          "first": 2,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": -1.0
+      },
+      {
+        "input": {
+          "ratio": -1.5,
+          "first": 2,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 3.5
+      },
+      {
+        "input": {
+          "ratio": -1.5,
+          "first": 2,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": -102.9970703125
+      },
+      {
+        "input": {
+          "ratio": -1.5,
+          "first": 4,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": -1.5,
+          "first": 4,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": -2.0
+      },
+      {
+        "input": {
+          "ratio": -1.5,
+          "first": 4,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 7.0
+      },
+      {
+        "input": {
+          "ratio": -1.5,
+          "first": 4,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": -205.994140625
+      },
+      {
+        "input": {
+          "ratio": -1,
+          "first": 0.25,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 0.25
+      },
+      {
+        "input": {
+          "ratio": -1,
+          "first": 0.25,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "ratio": -1,
+          "first": 0.25,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 0.25
+      },
+      {
+        "input": {
+          "ratio": -1,
+          "first": 0.25,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "ratio": -1,
+          "first": 2,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": -1,
+          "first": 2,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "ratio": -1,
+          "first": 2,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": -1,
+          "first": 2,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "ratio": -1,
+          "first": 4,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": -1,
+          "first": 4,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "ratio": -1,
+          "first": 4,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": -1,
+          "first": 4,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "ratio": -0.5,
+          "first": 0.25,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 0.25
+      },
+      {
+        "input": {
+          "ratio": -0.5,
+          "first": 0.25,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 0.125
+      },
+      {
+        "input": {
+          "ratio": -0.5,
+          "first": 0.25,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 0.1875
+      },
+      {
+        "input": {
+          "ratio": -0.5,
+          "first": 0.25,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 0.1666259765625
+      },
+      {
+        "input": {
+          "ratio": -0.5,
+          "first": 2,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": -0.5,
+          "first": 2,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "ratio": -0.5,
+          "first": 2,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 1.5
+      },
+      {
+        "input": {
+          "ratio": -0.5,
+          "first": 2,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 1.3330078125
+      },
+      {
+        "input": {
+          "ratio": -0.5,
+          "first": 4,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": -0.5,
+          "first": 4,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": -0.5,
+          "first": 4,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 3.0
+      },
+      {
+        "input": {
+          "ratio": -0.5,
+          "first": 4,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 2.666015625
+      },
+      {
+        "input": {
+          "ratio": 0,
+          "first": 0.25,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 0.25
+      },
+      {
+        "input": {
+          "ratio": 0,
+          "first": 0.25,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 0.25
+      },
+      {
+        "input": {
+          "ratio": 0,
+          "first": 0.25,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 0.25
+      },
+      {
+        "input": {
+          "ratio": 0,
+          "first": 0.25,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 0.25
+      },
+      {
+        "input": {
+          "ratio": 0,
+          "first": 2,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": 0,
+          "first": 2,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": 0,
+          "first": 2,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": 0,
+          "first": 2,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": 0,
+          "first": 4,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": 0,
+          "first": 4,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": 0,
+          "first": 4,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": 0,
+          "first": 4,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 0.25,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 0.25
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 0.25,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 0.375
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 0.25,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 0.4375
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 0.25,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 0.4998779296875
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 2,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 2,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 3.0
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 2,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 3.5
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 2,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 3.9990234375
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 4,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 4,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 6.0
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 4,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 7.0
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 4,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 7.998046875
+      },
+      {
+        "input": {
+          "ratio": 0.9999999999999999,
+          "first": 0.25,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 0.25
+      },
+      {
+        "input": {
+          "ratio": 0.9999999999999999,
+          "first": 0.25,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 0.5
+      },
+      {
+        "input": {
+          "ratio": 0.9999999999999999,
+          "first": 0.25,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 0.7499999999999999
+      },
+      {
+        "input": {
+          "ratio": 0.9999999999999999,
+          "first": 0.25,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 2.9999999999999982
+      },
+      {
+        "input": {
+          "ratio": 0.9999999999999999,
+          "first": 2,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": 0.9999999999999999,
+          "first": 2,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": 0.9999999999999999,
+          "first": 2,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 5.999999999999999
+      },
+      {
+        "input": {
+          "ratio": 0.9999999999999999,
+          "first": 2,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 23.999999999999986
+      },
+      {
+        "input": {
+          "ratio": 0.9999999999999999,
+          "first": 4,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": 0.9999999999999999,
+          "first": 4,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 8.0
+      },
+      {
+        "input": {
+          "ratio": 0.9999999999999999,
+          "first": 4,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 11.999999999999998
+      },
+      {
+        "input": {
+          "ratio": 0.9999999999999999,
+          "first": 4,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 47.99999999999997
+      },
+      {
+        "input": {
+          "ratio": 1,
+          "first": 0.25,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 0.25
+      },
+      {
+        "input": {
+          "ratio": 1,
+          "first": 0.25,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 0.5
+      },
+      {
+        "input": {
+          "ratio": 1,
+          "first": 0.25,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 0.75
+      },
+      {
+        "input": {
+          "ratio": 1,
+          "first": 0.25,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 3.0
+      },
+      {
+        "input": {
+          "ratio": 1,
+          "first": 2,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": 1,
+          "first": 2,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": 1,
+          "first": 2,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 6.0
+      },
+      {
+        "input": {
+          "ratio": 1,
+          "first": 2,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 24.0
+      },
+      {
+        "input": {
+          "ratio": 1,
+          "first": 4,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": 1,
+          "first": 4,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 8.0
+      },
+      {
+        "input": {
+          "ratio": 1,
+          "first": 4,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 12.0
+      },
+      {
+        "input": {
+          "ratio": 1,
+          "first": 4,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 48.0
+      },
+      {
+        "input": {
+          "ratio": 1.0000000000000002,
+          "first": 0.25,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 0.25
+      },
+      {
+        "input": {
+          "ratio": 1.0000000000000002,
+          "first": 0.25,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 0.5
+      },
+      {
+        "input": {
+          "ratio": 1.0000000000000002,
+          "first": 0.25,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 0.7500000000000002
+      },
+      {
+        "input": {
+          "ratio": 1.0000000000000002,
+          "first": 0.25,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 3.0000000000000036
+      },
+      {
+        "input": {
+          "ratio": 1.0000000000000002,
+          "first": 2,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": 1.0000000000000002,
+          "first": 2,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": 1.0000000000000002,
+          "first": 2,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 6.000000000000002
+      },
+      {
+        "input": {
+          "ratio": 1.0000000000000002,
+          "first": 2,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 24.00000000000003
+      },
+      {
+        "input": {
+          "ratio": 1.0000000000000002,
+          "first": 4,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": 1.0000000000000002,
+          "first": 4,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 8.0
+      },
+      {
+        "input": {
+          "ratio": 1.0000000000000002,
+          "first": 4,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 12.000000000000004
+      },
+      {
+        "input": {
+          "ratio": 1.0000000000000002,
+          "first": 4,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 48.00000000000006
+      },
+      {
+        "input": {
+          "ratio": 1.5,
+          "first": 0.25,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 0.25
+      },
+      {
+        "input": {
+          "ratio": 1.5,
+          "first": 0.25,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 0.625
+      },
+      {
+        "input": {
+          "ratio": 1.5,
+          "first": 0.25,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 1.1875
+      },
+      {
+        "input": {
+          "ratio": 1.5,
+          "first": 0.25,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 64.3731689453125
+      },
+      {
+        "input": {
+          "ratio": 1.5,
+          "first": 2,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ratio": 1.5,
+          "first": 2,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 5.0
+      },
+      {
+        "input": {
+          "ratio": 1.5,
+          "first": 2,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 9.5
+      },
+      {
+        "input": {
+          "ratio": 1.5,
+          "first": 2,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 514.9853515625
+      },
+      {
+        "input": {
+          "ratio": 1.5,
+          "first": 4,
+          "terms": 1
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "ratio": 1.5,
+          "first": 4,
+          "terms": 2
+        },
+        "status": "valid",
+        "output": 10.0
+      },
+      {
+        "input": {
+          "ratio": 1.5,
+          "first": 4,
+          "terms": 3
+        },
+        "status": "valid",
+        "output": 19.0
+      },
+      {
+        "input": {
+          "ratio": 1.5,
+          "first": 4,
+          "terms": 12
+        },
+        "status": "valid",
+        "output": 1029.970703125
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 1,
+          "terms": 2.5
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "ratio": 0.5,
+          "first": 0,
+          "terms": 4
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "ratio": 2,
+          "first": 1,
+          "terms": 4
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "ratio": true,
+          "first": 1,
+          "terms": 4
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "ratio": 1e-200,
+          "first": 1,
+          "terms": 3
+        },
+        "status": "numeric_precision"
+      }
+    ],
+    "compute": "A geometric series adds terms with one common ratio. A partial sum adds a finite whole number of terms. Its closed form has a separate r=1 case. With a nonzero first term, the infinite geometric series has a finite sum exactly when the ratio has magnitude less than one.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.",
+      "Story, calculations and both views read one validated state."
+    ],
+    "limits": [
+      "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+    ],
+    "fallback": "Pause and inspect the same inputs through the story, formula, Geometry, Graph and numeric table.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Where does the stage finish after a whole number of repeated corrections?",
+      "answer": "A geometric series adds terms with one common ratio. A partial sum adds a finite whole number of terms. Its closed form has a separate r=1 case. With a nonzero first term, the infinite geometric series has a finite sum exactly when the ratio has magnitude less than one."
+    },
+    {
+      "prompt": "Which domains and limits matter?",
+      "answer": "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Signed correction bars share one length scale."
+    },
+    {
+      "kind": "graph",
+      "description": "Dots show finite partial sums after whole commands; dashed connectors do not create fractional states."
+    },
+    {
+      "kind": "substitution",
+      "description": "A geometric series adds terms with one common ratio. A partial sum adds a finite whole number of terms. Its closed form has a separate r=1 case. With a nonzero first term, the infinite geometric series has a finite sum exactly when the ratio has magnitude less than one."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Shrinking forward corrections",
+      "mapping": "The six commands total 3.9375 cm; the separate infinite-series limit is 4 cm.",
+      "limitations": "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:geometric-series:case-1"
+    },
+    {
+      "context": "Alternating corrections",
+      "mapping": "The commands 3, −1.5, 0.75 and −0.375 cm total 1.875 cm. The infinite limit is 2 cm, not the total distance travelled.",
+      "limitations": "The first correction a lies in [0.25,4] cm, ratio r in [−1.5,1.5], and n is a whole number from 1 through 12. Every finite sum is defined, including r=1. Because a is nonzero, the infinite series has a finite sum only for |r|<1. Integer commands do not interpolate into fractional terms. Numeric sums use a compensated recurrence; nonzero term underflow is reported explicitly.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:geometric-series:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:analysis-extension:series"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded family is an introduction, not completion of a broad subject."
+  ],
+  "change_log": [
+    "Added a bounded analysis bridge with original story, independent exact-rational reference, matching preview and connected Geometry/Graph."
+  ]
+}

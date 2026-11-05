@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:tangent-plane", "id": "math:concept:tangent-plane", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:tangent-plane", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "caee5799e2708633f7bb47816b32353d78d5e3c917779268f13dd2b9e4a0f088"}, "purpose": "Move away from a known surface point and compare a local plane with the actual height.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "caee5799e2708633f7bb47816b32353d78d5e3c917779268f13dd2b9e4a0f088", "status": "draft", "title": "Tangent plane", "topics": ["mathematics", "calculus", "analysis", "geometry", "local plane approximation", "two-variable linear approximation", "surface linearization"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:tangent-plane", "id": "math:concept:tangent-plane", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:tangent-plane", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "caee5799e2708633f7bb47816b32353d78d5e3c917779268f13dd2b9e4a0f088"}, "purpose": "Move away from a known surface point and compare a local plane with the actual height.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "caee5799e2708633f7bb47816b32353d78d5e3c917779268f13dd2b9e4a0f088", "status": "draft", "title": "Tangent plane", "topics": ["mathematics", "calculus", "analysis", "geometry", "local plane approximation", "two-variable linear approximation", "surface linearization"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Tangent plane
@@ -380,7 +380,7 @@ A tangent plane gives the first-order linear approximation of a differentiable t
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of the idea and its notation using specialist historical evidence before adding origin or priority claims.
   - Distinguish historical attribution from a modern teaching formulation.
@@ -396,6 +396,7 @@ A tangent plane gives the first-order linear approximation of a differentiable t
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:gradient
   - type: supports
@@ -404,6 +405,7 @@ A tangent plane gives the first-order linear approximation of a differentiable t
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:directional-derivative
   - type: supports
@@ -412,6 +414,7 @@ A tangent plane gives the first-order linear approximation of a differentiable t
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -466,6 +469,7 @@ A tangent plane gives the first-order linear approximation of a differentiable t
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is an original constructed smooth height sketch, not measured terrain or navigation advice.
     - Both horizontal coordinates and height use metres; the quadratic coefficients use inverse metres and the constant offset uses metres.
@@ -522,6 +526,7 @@ A tangent plane gives the first-order linear approximation of a differentiable t
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is an original constructed smooth height sketch, not measured terrain or navigation advice.
     - Both horizontal coordinates and height use metres; the quadratic coefficients use inverse metres and the constant offset uses metres.
@@ -578,6 +583,7 @@ A tangent plane gives the first-order linear approximation of a differentiable t
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is an original constructed smooth height sketch, not measured terrain or navigation advice.
     - Both horizontal coordinates and height use metres; the quadratic coefficients use inverse metres and the constant offset uses metres.
@@ -634,6 +640,7 @@ A tangent plane gives the first-order linear approximation of a differentiable t
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is an original constructed smooth height sketch, not measured terrain or navigation advice.
     - Both horizontal coordinates and height use metres; the quadratic coefficients use inverse metres and the constant offset uses metres.
@@ -690,6 +697,7 @@ A tangent plane gives the first-order linear approximation of a differentiable t
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is an original constructed smooth height sketch, not measured terrain or navigation advice.
     - Both horizontal coordinates and height use metres; the quadratic coefficients use inverse metres and the constant offset uses metres.

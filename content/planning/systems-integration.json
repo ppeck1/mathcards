@@ -1,0 +1,1453 @@
+{
+  "lessons": [
+    {
+      "id": "vector-field",
+      "title": "Vector fields",
+      "axis": "x",
+      "expression": "F(x,y) = (−a x, −a y)",
+      "unit": "units per time",
+      "controls": [
+        {
+          "key": "x",
+          "label": "Horizontal position x",
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "y",
+          "label": "Vertical position y",
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "rate",
+          "label": "Inward rate a",
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        }
+      ],
+      "limits": "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "vector-field-visual-model",
+      "primaryLabel": "Vector fields",
+      "sweeps": [
+        {
+          "key": "x",
+          "label": "Horizontal position x",
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "y",
+          "label": "Vertical position y",
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "rate",
+          "label": "Inward rate a",
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        }
+      ],
+      "defaults": {
+        "x": 1,
+        "y": 1,
+        "rate": 1
+      },
+      "question": "Which way does the alignment correction point?",
+      "context": "A camera mount is displaced horizontally and vertically from its target. A deliberately simple controller asks for a velocity proportional to the opposite displacement. Drag the measured position to see both components of that command. These are stipulated control rules, not measurements of a real device.",
+      "rule": "Evaluate each signed velocity component, then compute the Euclidean magnitude.",
+      "scene": "A velocity arrow begins at the selected position. Its direction and length follow the two computed components.",
+      "symbols": {
+        "x": "x",
+        "y": "y",
+        "rate": "a"
+      },
+      "source": "source:systems:field"
+    },
+    {
+      "id": "continuous-flow",
+      "title": "Continuous flows",
+      "axis": "time",
+      "expression": "x(t) = x₀ exp(−a t)",
+      "unit": "position units",
+      "controls": [
+        {
+          "key": "time",
+          "label": "Elapsed time t",
+          "min": 0,
+          "max": 5,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "initial",
+          "label": "Starting displacement x₀",
+          "min": -3,
+          "max": 3,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "rate",
+          "label": "Return rate a",
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        }
+      ],
+      "limits": "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "continuous-flow-visual-model",
+      "primaryLabel": "Continuous flows",
+      "sweeps": [
+        {
+          "key": "time",
+          "label": "Elapsed time t",
+          "min": 0,
+          "max": 5,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "initial",
+          "label": "Starting displacement x₀",
+          "min": -3,
+          "max": 3,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "rate",
+          "label": "Return rate a",
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        }
+      ],
+      "defaults": {
+        "time": 1,
+        "initial": 2,
+        "rate": 0.5
+      },
+      "question": "How does a continuous correction settle?",
+      "context": "The same ideal alignment controller continuously pulls a displaced mount toward zero. A whole correction step is no longer the unit of change: position has a value at every elapsed time. Hold the rate fixed and follow the exact response from the initial displacement.",
+      "rule": "Multiply the initial displacement by the exponential response factor.",
+      "scene": "The violet dot stays at the starting position. The gold dot moves to the exact finite-time position.",
+      "symbols": {
+        "time": "t",
+        "initial": "x₀",
+        "rate": "a"
+      },
+      "source": "source:systems:flow"
+    },
+    {
+      "id": "basin-attraction",
+      "title": "Basins of attraction",
+      "axis": "initial",
+      "expression": "dx/dt = x − x³",
+      "unit": "position units",
+      "controls": [
+        {
+          "key": "initial",
+          "label": "Starting position x₀",
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "time",
+          "label": "Elapsed time t",
+          "min": 0,
+          "max": 5,
+          "step": 0.05,
+          "unit": ""
+        }
+      ],
+      "limits": "One scalar autonomous system. Positive starts approach +1, negative starts approach −1, and zero remains at an unstable equilibrium. The finite-time value is not the limiting destination.",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "basin-attraction-visual-model",
+      "primaryLabel": "Basins of attraction",
+      "sweeps": [
+        {
+          "key": "initial",
+          "label": "Starting position x₀",
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "time",
+          "label": "Elapsed time t",
+          "min": 0,
+          "max": 5,
+          "step": 0.05,
+          "unit": ""
+        }
+      ],
+      "defaults": {
+        "initial": 0.3,
+        "time": 2
+      },
+      "question": "Which resting position will the mechanism approach?",
+      "context": "Imagine a symmetric snap mechanism with two resting positions. Its illustrative relaxation law pushes small positive starts toward the right rest and small negative starts toward the left. Put it exactly at the central balance point, then change the start by a small amount. The law is a mathematical construction, not an identified spring.",
+      "rule": "Use the exact solution for finite time; separately classify the limiting destination by the sign of the start.",
+      "scene": "The starting dot and the current dot remain distinct. The two outer resting points and the central unstable point are marked.",
+      "symbols": {
+        "initial": "x₀",
+        "time": "t"
+      },
+      "source": "source:systems:flow"
+    },
+    {
+      "id": "fold-bifurcation",
+      "title": "Fold bifurcations",
+      "axis": "mu",
+      "expression": "dx/dt = μ − x²",
+      "unit": "equilibria",
+      "controls": [
+        {
+          "key": "mu",
+          "label": "Control parameter μ",
+          "min": -1,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        }
+      ],
+      "limits": "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "fold-bifurcation-visual-model",
+      "primaryLabel": "Fold bifurcations",
+      "sweeps": [
+        {
+          "key": "mu",
+          "label": "Control parameter μ",
+          "min": -1,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        }
+      ],
+      "defaults": {
+        "mu": 1
+      },
+      "question": "When do two balance points disappear?",
+      "context": "A control dial changes a toy actuator’s velocity rule. For positive dial values, one balance point attracts nearby positions and the other repels them. Lower the dial through zero: the pair meets, then no real balance point remains. Read balance points from zeros of velocity rather than from the height of an arbitrary mountain.",
+      "rule": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root.",
+      "scene": "The cyan velocity curve changes with the dial. Gold dots mark its actual zeros.",
+      "symbols": {
+        "mu": "μ"
+      },
+      "source": "source:systems:fold"
+    },
+    {
+      "id": "cusp-potential",
+      "title": "Cusp potential and competing wells",
+      "axis": "bias",
+      "expression": "V(x) = x⁴/4 − a x²/2 − b x",
+      "unit": "stationary points",
+      "controls": [
+        {
+          "key": "bias",
+          "label": "Tilt b",
+          "min": -1,
+          "max": 1,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "shape",
+          "label": "Well parameter a",
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        }
+      ],
+      "limits": "Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "cusp-potential-visual-model",
+      "primaryLabel": "Cusp potential and competing wells",
+      "sweeps": [
+        {
+          "key": "bias",
+          "label": "Tilt b",
+          "min": -1,
+          "max": 1,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "shape",
+          "label": "Well parameter a",
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        }
+      ],
+      "defaults": {
+        "bias": 0,
+        "shape": 1
+      },
+      "question": "How does tilting a two-well landscape change its resting points?",
+      "context": "A toy snap mechanism has a quartic potential. One dial changes the depth of its two wells and another tilts the landscape. Watch the stationary points meet or split. The scene reports available stationary positions; it does not silently choose a history or simulate a jump between wells.",
+      "rule": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b².",
+      "scene": "The landscape is the stated potential. Gold marks are computed stationary points, including a repeated point on the fold.",
+      "symbols": {
+        "bias": "b",
+        "shape": "a"
+      },
+      "source": "source:systems:cusp"
+    },
+    {
+      "id": "partial-order",
+      "title": "Partial orders",
+      "axis": "a",
+      "expression": "A ≤ B exactly when A ⊆ B",
+      "unit": "truth value",
+      "controls": [
+        {
+          "key": "a",
+          "label": "First collection A",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        },
+        {
+          "key": "b",
+          "label": "Second collection B",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        }
+      ],
+      "limits": "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation.",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "partial-order-visual-model",
+      "primaryLabel": "Partial orders",
+      "sweeps": [
+        {
+          "key": "a",
+          "label": "First collection A",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        },
+        {
+          "key": "b",
+          "label": "Second collection B",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        }
+      ],
+      "defaults": {
+        "a": 3,
+        "b": 5
+      },
+      "question": "Can two tool kits always be ranked?",
+      "context": "Two volunteers each carry some of three tools: a lamp, a ruler and a brush. One kit is below another when every tool in the first is also in the second. Choose two kits. Sometimes neither contains the other, even when they have the same number of tools.",
+      "rule": "Compare element membership, not the integer encoding of the kit.",
+      "scene": "The diagram contains every subset. Edges add exactly one tool, so upward paths represent inclusion.",
+      "symbols": {
+        "a": "A",
+        "b": "B"
+      },
+      "source": "source:systems:order"
+    },
+    {
+      "id": "meet-join",
+      "title": "Meet and join",
+      "axis": "a",
+      "expression": "A ∧ B = A ∩ B; A ∨ B = A ∪ B",
+      "unit": "tools",
+      "controls": [
+        {
+          "key": "a",
+          "label": "First collection A",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        },
+        {
+          "key": "b",
+          "label": "Second collection B",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        },
+        {
+          "key": "operation",
+          "label": "Lattice operation",
+          "type": "select",
+          "options": [
+            {
+              "value": "meet",
+              "label": "Meet · shared tools"
+            },
+            {
+              "value": "join",
+              "label": "Join · combined tools"
+            }
+          ]
+        }
+      ],
+      "limits": "In this powerset lattice meet is intersection and join is union. Other lattices need not use sets, and their operations need not be literal intersection and union.",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "meet-join-visual-model",
+      "primaryLabel": "Meet and join",
+      "sweeps": [
+        {
+          "key": "a",
+          "label": "First collection A",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        },
+        {
+          "key": "b",
+          "label": "Second collection B",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        }
+      ],
+      "defaults": {
+        "a": 3,
+        "b": 5,
+        "operation": "meet"
+      },
+      "question": "Which tools are shared, and which are available together?",
+      "context": "The volunteers need either a kit both can supply or a combined kit using everything either carries. Choose meet to keep shared tools and join to combine the kits. The highlighted result occupies the corresponding position in the inclusion diagram.",
+      "rule": "Take the intersection for meet or the union for join, then count selected tools.",
+      "scene": "Gold marks the greatest shared lower bound or least combined upper bound in this powerset lattice.",
+      "symbols": {
+        "a": "A",
+        "b": "B",
+        "operation": "operation"
+      },
+      "source": "source:systems:order"
+    },
+    {
+      "id": "lattice-distributivity",
+      "title": "Distributive lattices",
+      "axis": "a",
+      "expression": "A ∧ (B ∨ C) = (A ∧ B) ∨ (A ∧ C)",
+      "unit": "tools",
+      "controls": [
+        {
+          "key": "a",
+          "label": "First collection A",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        },
+        {
+          "key": "b",
+          "label": "Second collection B",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        },
+        {
+          "key": "c",
+          "label": "Third collection C",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        }
+      ],
+      "limits": "This finite powerset lattice is distributive, as a membership argument establishes for every triple. Not every lattice is distributive.",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "lattice-distributivity-visual-model",
+      "primaryLabel": "Distributive lattices",
+      "sweeps": [
+        {
+          "key": "a",
+          "label": "First collection A",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        },
+        {
+          "key": "b",
+          "label": "Second collection B",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        },
+        {
+          "key": "c",
+          "label": "Third collection C",
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "unit": "",
+          "discrete": true
+        }
+      ],
+      "defaults": {
+        "a": 3,
+        "b": 5,
+        "c": 6
+      },
+      "question": "Do two ways of selecting tools agree?",
+      "context": "Three volunteers bring kits A, B and C. We need tools in A that can also be supplied by B or C. First combine B and C, then intersect with A. Compare that with taking each overlap with A and combining those overlaps. Both routes select the same actual tools.",
+      "rule": "Compute both set expressions independently; an element belongs to either expression exactly when it is in A and in at least one of B or C.",
+      "scene": "The gold subset is the identical output of both routes. The claim concerns this distributive lattice, not all lattices.",
+      "symbols": {
+        "a": "A",
+        "b": "B",
+        "c": "C"
+      },
+      "source": "source:systems:order"
+    },
+    {
+      "id": "heat-balance",
+      "title": "Heat exchange and physical entropy",
+      "axis": "heat",
+      "expression": "ΔS = C ln(Tₕ/400) + C ln(T_c/300)",
+      "unit": "J/K",
+      "controls": [
+        {
+          "key": "heat",
+          "label": "Energy transferred Q (J)",
+          "min": 0,
+          "max": 50,
+          "step": 0.5,
+          "unit": "J"
+        }
+      ],
+      "limits": "Two insulated bodies each have constant heat capacity 1 J/K. Heat moves from 400 K toward 300 K until both reach 350 K. No work, phase change or environmental exchange is modeled. Entropy is in J/K, not bits.",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "heat-balance-visual-model",
+      "primaryLabel": "Heat exchange and physical entropy",
+      "sweeps": [
+        {
+          "key": "heat",
+          "label": "Energy transferred Q (J)",
+          "min": 0,
+          "max": 50,
+          "step": 0.5,
+          "unit": "J"
+        }
+      ],
+      "defaults": {
+        "heat": 25
+      },
+      "question": "Why can total entropy rise while energy stays balanced?",
+      "context": "Two small insulated teaching bodies start at 400 K and 300 K. Each needs one joule per kelvin of temperature change. Transfer energy from the hot body to the cold one, stopping when both reach 350 K. Follow the two temperature changes and their separate entropy changes.",
+      "rule": "Subtract and add the same transferred energy divided by heat capacity, then add the logarithmic entropy changes.",
+      "scene": "The hot and cold columns use the same temperature scale. Their temperatures approach each other as total entropy rises.",
+      "symbols": {
+        "heat": "Q"
+      },
+      "source": "source:systems:heat"
+    },
+    {
+      "id": "gibbs-free-energy",
+      "title": "Gibbs free energy",
+      "axis": "temperature",
+      "expression": "ΔG = ΔH − T ΔS",
+      "unit": "J",
+      "controls": [
+        {
+          "key": "temperature",
+          "label": "Temperature T (K)",
+          "min": 100,
+          "max": 600,
+          "step": 1,
+          "unit": "K"
+        },
+        {
+          "key": "enthalpy",
+          "label": "Enthalpy change ΔH (J)",
+          "min": -4000,
+          "max": 4000,
+          "step": 50,
+          "unit": "J"
+        },
+        {
+          "key": "entropy",
+          "label": "Entropy change ΔS (J/K)",
+          "min": -10,
+          "max": 10,
+          "step": 0.1,
+          "unit": "J/K"
+        }
+      ],
+      "limits": "A constructed constant-temperature, constant-pressure comparison. ΔH and ΔS are held fixed during the temperature sweep. A favorable ΔG does not give a reaction rate or remove an activation barrier.",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "gibbs-free-energy-visual-model",
+      "primaryLabel": "Gibbs free energy",
+      "sweeps": [
+        {
+          "key": "temperature",
+          "label": "Temperature T (K)",
+          "min": 100,
+          "max": 600,
+          "step": 1,
+          "unit": "K"
+        },
+        {
+          "key": "enthalpy",
+          "label": "Enthalpy change ΔH (J)",
+          "min": -4000,
+          "max": 4000,
+          "step": 50,
+          "unit": "J"
+        },
+        {
+          "key": "entropy",
+          "label": "Entropy change ΔS (J/K)",
+          "min": -10,
+          "max": 10,
+          "step": 0.1,
+          "unit": "J/K"
+        }
+      ],
+      "defaults": {
+        "temperature": 300,
+        "enthalpy": 2000,
+        "entropy": 5
+      },
+      "question": "Can temperature change which transformation is favorable?",
+      "context": "A fictional material has a declared enthalpy difference and entropy difference between two states. At fixed pressure and temperature, compare these contributions to free energy. Change temperature while holding the two declared differences constant. This is a comparison model, not data for a named chemical.",
+      "rule": "Multiply temperature by the entropy difference, then subtract this energy contribution from the enthalpy difference.",
+      "scene": "The three signed bars share a zero origin: enthalpy, the negative thermal contribution, and their sum.",
+      "symbols": {
+        "temperature": "T",
+        "enthalpy": "ΔH",
+        "entropy": "ΔS"
+      },
+      "source": "source:systems:gibbs"
+    },
+    {
+      "id": "ideal-gas",
+      "title": "The ideal gas law",
+      "axis": "volume",
+      "expression": "p = n R T / V",
+      "unit": "kPa",
+      "controls": [
+        {
+          "key": "volume",
+          "label": "Volume V (L)",
+          "min": 5,
+          "max": 40,
+          "step": 0.1,
+          "unit": "L"
+        },
+        {
+          "key": "temperature",
+          "label": "Temperature T (K)",
+          "min": 150,
+          "max": 600,
+          "step": 1,
+          "unit": "K"
+        }
+      ],
+      "limits": "One mole of ideal gas with R=8.31446261815324 L·kPa/(mol·K). Temperature uses kelvins. This dilute-gas model omits molecular volume and interactions; it does not model a compression path or heat transfer.",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "ideal-gas-visual-model",
+      "primaryLabel": "The ideal gas law",
+      "sweeps": [
+        {
+          "key": "volume",
+          "label": "Volume V (L)",
+          "min": 5,
+          "max": 40,
+          "step": 0.1,
+          "unit": "L"
+        },
+        {
+          "key": "temperature",
+          "label": "Temperature T (K)",
+          "min": 150,
+          "max": 600,
+          "step": 1,
+          "unit": "K"
+        }
+      ],
+      "defaults": {
+        "volume": 20,
+        "temperature": 300
+      },
+      "question": "What happens to pressure when the same gas has more room?",
+      "context": "A sealed piston contains one mole of an ideal gas. Set its volume and temperature, then calculate its pressure. Increasing the available volume at the same temperature lowers the pressure; changing temperature changes the numerator as well. The drawing represents an equilibrium state, not a real-time piston experiment.",
+      "rule": "Multiply the amount and gas constant by kelvin temperature, then divide by volume in litres to obtain kilopascals.",
+      "scene": "The chamber width encodes volume. The separate pressure arrow responds to the calculated pressure.",
+      "symbols": {
+        "volume": "V",
+        "temperature": "T"
+      },
+      "source": "source:systems:gas"
+    },
+    {
+      "id": "artificial-neuron",
+      "title": "An artificial neuron",
+      "axis": "signal",
+      "expression": "z = w x + b; y = 1/(1 + exp(−z))",
+      "unit": "activation",
+      "controls": [
+        {
+          "key": "signal",
+          "label": "Input signal x",
+          "min": -3,
+          "max": 3,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "weight",
+          "label": "Weight w",
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "bias",
+          "label": "Bias b",
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        }
+      ],
+      "limits": "One scalar sigmoid unit with stipulated weights, not an anatomical neuron or a calibrated probability. No biological mechanism or trained performance is inferred.",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "artificial-neuron-visual-model",
+      "primaryLabel": "An artificial neuron",
+      "sweeps": [
+        {
+          "key": "signal",
+          "label": "Input signal x",
+          "min": -3,
+          "max": 3,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "weight",
+          "label": "Weight w",
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "bias",
+          "label": "Bias b",
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "unit": ""
+        }
+      ],
+      "defaults": {
+        "signal": 1,
+        "weight": 1,
+        "bias": 0
+      },
+      "question": "How does a weighted signal become an activation?",
+      "context": "A toy light-sensitive unit receives a normalized sensor signal. A weight changes its influence and a bias shifts its baseline. Trace the weighted sum into a smooth sigmoid response. This artificial unit is a mathematical abstraction, not a biological neuron or a tested light classifier.",
+      "rule": "Multiply signal by weight, add bias, then apply the sigmoid function.",
+      "scene": "Three stages show the input signal, preactivation and output activation. The graph shows the nonlinear transfer rule.",
+      "symbols": {
+        "signal": "x",
+        "weight": "w",
+        "bias": "b"
+      },
+      "source": "source:systems:neuron"
+    },
+    {
+      "id": "hebbian-learning",
+      "title": "A Hebbian weight update",
+      "axis": "pre",
+      "expression": "Δw = η u v; w₁ = w₀ + Δw",
+      "unit": "weight units",
+      "controls": [
+        {
+          "key": "pre",
+          "label": "Presynaptic activity u",
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "post",
+          "label": "Postsynaptic activity v",
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "rate",
+          "label": "Learning rate η",
+          "min": 0,
+          "max": 0.2,
+          "step": 0.01,
+          "unit": ""
+        }
+      ],
+      "limits": "One illustrative rate-based correlation update with fixed starting weight 0.2. No normalization, decay or saturation is included; repeated unconstrained updates can grow without bound. This rule is not a complete theory of memory.",
+      "views": [
+        "geometry",
+        "graph"
+      ],
+      "rendererId": "hebbian-learning-visual-model",
+      "primaryLabel": "A Hebbian weight update",
+      "sweeps": [
+        {
+          "key": "pre",
+          "label": "Presynaptic activity u",
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "post",
+          "label": "Postsynaptic activity v",
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "unit": ""
+        },
+        {
+          "key": "rate",
+          "label": "Learning rate η",
+          "min": 0,
+          "max": 0.2,
+          "step": 0.01,
+          "unit": ""
+        }
+      ],
+      "defaults": {
+        "pre": 0.5,
+        "post": 0.5,
+        "rate": 0.1
+      },
+      "question": "How does simultaneous activity change one connection?",
+      "context": "Two idealized units are active together. A simple correlation rule strengthens their connection by the activity product times a learning rate. Change either activity and watch the proposed weight increment. This is one update from a fixed starting weight, without claiming to explain all biological learning.",
+      "rule": "Multiply the two activity levels and learning rate, then add that increment to the fixed starting weight.",
+      "scene": "The middle stage is the activity product. The final stage shows the new weight, distinct from the increment.",
+      "symbols": {
+        "pre": "u",
+        "post": "v",
+        "rate": "η"
+      },
+      "source": "source:systems:hebb"
+    }
+  ],
+  "sources": [
+    {
+      "id": "source:systems:flow",
+      "title": "OpenStax · Separable differential equations",
+      "url": "https://openstax.org/books/calculus-volume-2/pages/4-3-separable-equations",
+      "kind": "textbook",
+      "locator": "Exact separable autonomous scalar equations; the displayed families and algebraic solutions are original derivations.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:field",
+      "title": "OpenStax · Vector fields",
+      "url": "https://openstax.org/books/calculus-volume-3/pages/6-1-vector-fields",
+      "kind": "textbook",
+      "locator": "Definition of planar vector fields and their arrow representations.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:fold",
+      "title": "Kuznetsov · Saddle-node bifurcation",
+      "url": "https://www.scholarpedia.org/article/Saddle-node",
+      "kind": "reference",
+      "locator": "One-dimensional normal forms and simple-root stability. Our sign convention is dx/dt=μ−x².",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:cusp",
+      "title": "Kuznetsov · Cusp bifurcation",
+      "url": "https://www.scholarpedia.org/article/Cusp_bifurcation",
+      "kind": "reference",
+      "locator": "Two-parameter cubic equilibrium normal form; the specific potential and scene are original.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:order",
+      "title": "Doerr and Levasseur · Lattices",
+      "url": "https://math.libretexts.org/Bookshelves/Combinatorics_and_Discrete_Mathematics/Applied_Discrete_Structures_(Doerr_and_Levasseur)/13:_Boolean_Algebra/13.02:_Lattices",
+      "kind": "textbook",
+      "locator": "Lattice operations and distributivity; no exact-edition Grätzer coverage is asserted.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:heat",
+      "title": "OpenStax · Entropy",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/4-6-entropy",
+      "kind": "textbook",
+      "locator": "Entropy change from a reversible path between states; finite bodies with constant heat capacity use the integral of C/T.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:gibbs",
+      "title": "OpenStax · Free energy",
+      "url": "https://openstax.org/books/chemistry-2e/pages/16-4-free-energy",
+      "kind": "textbook",
+      "locator": "ΔG=ΔH−TΔS and constant-temperature, constant-pressure favorability; no rate inference.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:gas",
+      "title": "OpenStax · Molecular model of an ideal gas",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/2-1-molecular-model-of-an-ideal-gas",
+      "kind": "textbook",
+      "locator": "pV=nRT and the ideal-gas assumptions.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:neuron",
+      "title": "Dive into Deep Learning · Multilayer perceptrons",
+      "url": "https://d2l.ai/chapter_multilayer-perceptrons/mlp.html",
+      "kind": "textbook",
+      "locator": "Weighted preactivation and sigmoid activation; this card uses one scalar unit.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    },
+    {
+      "id": "source:systems:hebb",
+      "title": "Gerstner et al. · Models of Hebbian learning",
+      "url": "https://neuronaldynamics.epfl.ch/online/Ch19.S2.html",
+      "kind": "textbook",
+      "locator": "Rate-based local correlation rules and the need for bounds or other stabilizing terms.",
+      "verification": "Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.",
+      "rights": "Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced."
+    }
+  ],
+  "entries": [
+    {
+      "id": "vector-field",
+      "title": "Vector fields",
+      "category": "dynamics",
+      "symbols": [],
+      "definition": "Evaluate each signed velocity component, then compute the Euclidean magnitude. A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.",
+      "example": "F(x,y) = (−a x, −a y)",
+      "readAs": "Vector fields",
+      "aliases": [
+        "vector fields"
+      ],
+      "sourceKeys": [
+        "systemsfield"
+      ],
+      "grammarCards": [
+        "vector-field"
+      ],
+      "formulaCards": [
+        "vector-field"
+      ]
+    },
+    {
+      "id": "continuous-flow",
+      "title": "Continuous flows",
+      "category": "dynamics",
+      "symbols": [],
+      "definition": "Multiply the initial displacement by the exponential response factor. The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.",
+      "example": "x(t) = x₀ exp(−a t)",
+      "readAs": "Continuous flows",
+      "aliases": [
+        "continuous flows"
+      ],
+      "sourceKeys": [
+        "systemsflow"
+      ],
+      "grammarCards": [
+        "continuous-flow"
+      ],
+      "formulaCards": [
+        "continuous-flow"
+      ]
+    },
+    {
+      "id": "basin-attraction",
+      "title": "Basins of attraction",
+      "category": "dynamics",
+      "symbols": [],
+      "definition": "Use the exact solution for finite time; separately classify the limiting destination by the sign of the start. One scalar autonomous system. Positive starts approach +1, negative starts approach −1, and zero remains at an unstable equilibrium. The finite-time value is not the limiting destination.",
+      "example": "dx/dt = x − x³",
+      "readAs": "Basins of attraction",
+      "aliases": [
+        "basins of attraction"
+      ],
+      "sourceKeys": [
+        "systemsflow"
+      ],
+      "grammarCards": [
+        "basin-attraction"
+      ],
+      "formulaCards": [
+        "basin-attraction"
+      ]
+    },
+    {
+      "id": "fold-bifurcation",
+      "title": "Fold bifurcations",
+      "category": "dynamics",
+      "symbols": [],
+      "definition": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root. A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.",
+      "example": "dx/dt = μ − x²",
+      "readAs": "Fold bifurcations",
+      "aliases": [
+        "fold bifurcations"
+      ],
+      "sourceKeys": [
+        "systemsfold"
+      ],
+      "grammarCards": [
+        "fold-bifurcation"
+      ],
+      "formulaCards": [
+        "fold-bifurcation"
+      ]
+    },
+    {
+      "id": "cusp-potential",
+      "title": "Cusp potential and competing wells",
+      "category": "dynamics",
+      "symbols": [],
+      "definition": "Find the real zeros of the potential derivative with a cubic formula; classify the root-count regime with 4a³−27b². Stationary points solve x³−a x−b=0. Numerical roots are approximate, especially near a repeated root. A potential landscape alone does not determine which well a history-dependent system occupies.",
+      "example": "V(x) = x⁴/4 − a x²/2 − b x",
+      "readAs": "Cusp potential and competing wells",
+      "aliases": [
+        "cusp potential and competing wells"
+      ],
+      "sourceKeys": [
+        "systemscusp"
+      ],
+      "grammarCards": [
+        "cusp-potential"
+      ],
+      "formulaCards": [
+        "cusp-potential"
+      ]
+    },
+    {
+      "id": "partial-order",
+      "title": "Partial orders",
+      "category": "language",
+      "symbols": [],
+      "definition": "Compare element membership, not the integer encoding of the kit. All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation.",
+      "example": "A ≤ B exactly when A ⊆ B",
+      "readAs": "Partial orders",
+      "aliases": [
+        "partial orders"
+      ],
+      "sourceKeys": [
+        "systemsorder"
+      ],
+      "grammarCards": [
+        "partial-order"
+      ],
+      "formulaCards": [
+        "partial-order"
+      ]
+    },
+    {
+      "id": "meet-join",
+      "title": "Meet and join",
+      "category": "language",
+      "symbols": [],
+      "definition": "Take the intersection for meet or the union for join, then count selected tools. In this powerset lattice meet is intersection and join is union. Other lattices need not use sets, and their operations need not be literal intersection and union.",
+      "example": "A ∧ B = A ∩ B; A ∨ B = A ∪ B",
+      "readAs": "Meet and join",
+      "aliases": [
+        "meet and join"
+      ],
+      "sourceKeys": [
+        "systemsorder"
+      ],
+      "grammarCards": [
+        "meet-join"
+      ],
+      "formulaCards": [
+        "meet-join"
+      ]
+    },
+    {
+      "id": "lattice-distributivity",
+      "title": "Distributive lattices",
+      "category": "language",
+      "symbols": [],
+      "definition": "Compute both set expressions independently; an element belongs to either expression exactly when it is in A and in at least one of B or C. This finite powerset lattice is distributive, as a membership argument establishes for every triple. Not every lattice is distributive.",
+      "example": "A ∧ (B ∨ C) = (A ∧ B) ∨ (A ∧ C)",
+      "readAs": "Distributive lattices",
+      "aliases": [
+        "distributive lattices"
+      ],
+      "sourceKeys": [
+        "systemsorder"
+      ],
+      "grammarCards": [
+        "lattice-distributivity"
+      ],
+      "formulaCards": [
+        "lattice-distributivity"
+      ]
+    },
+    {
+      "id": "heat-balance",
+      "title": "Heat exchange and physical entropy",
+      "category": "language",
+      "symbols": [],
+      "definition": "Subtract and add the same transferred energy divided by heat capacity, then add the logarithmic entropy changes. Two insulated bodies each have constant heat capacity 1 J/K. Heat moves from 400 K toward 300 K until both reach 350 K. No work, phase change or environmental exchange is modeled. Entropy is in J/K, not bits.",
+      "example": "ΔS = C ln(Tₕ/400) + C ln(T_c/300)",
+      "readAs": "Heat exchange and physical entropy",
+      "aliases": [
+        "heat exchange and physical entropy"
+      ],
+      "sourceKeys": [
+        "systemsheat"
+      ],
+      "grammarCards": [
+        "heat-balance"
+      ],
+      "formulaCards": [
+        "heat-balance"
+      ]
+    },
+    {
+      "id": "gibbs-free-energy",
+      "title": "Gibbs free energy",
+      "category": "language",
+      "symbols": [],
+      "definition": "Multiply temperature by the entropy difference, then subtract this energy contribution from the enthalpy difference. A constructed constant-temperature, constant-pressure comparison. ΔH and ΔS are held fixed during the temperature sweep. A favorable ΔG does not give a reaction rate or remove an activation barrier.",
+      "example": "ΔG = ΔH − T ΔS",
+      "readAs": "Gibbs free energy",
+      "aliases": [
+        "gibbs free energy"
+      ],
+      "sourceKeys": [
+        "systemsgibbs"
+      ],
+      "grammarCards": [
+        "gibbs-free-energy"
+      ],
+      "formulaCards": [
+        "gibbs-free-energy"
+      ]
+    },
+    {
+      "id": "ideal-gas",
+      "title": "The ideal gas law",
+      "category": "language",
+      "symbols": [],
+      "definition": "Multiply the amount and gas constant by kelvin temperature, then divide by volume in litres to obtain kilopascals. One mole of ideal gas with R=8.31446261815324 L·kPa/(mol·K). Temperature uses kelvins. This dilute-gas model omits molecular volume and interactions; it does not model a compression path or heat transfer.",
+      "example": "p = n R T / V",
+      "readAs": "The ideal gas law",
+      "aliases": [
+        "the ideal gas law"
+      ],
+      "sourceKeys": [
+        "systemsgas"
+      ],
+      "grammarCards": [
+        "ideal-gas"
+      ],
+      "formulaCards": [
+        "ideal-gas"
+      ]
+    },
+    {
+      "id": "artificial-neuron",
+      "title": "An artificial neuron",
+      "category": "language",
+      "symbols": [],
+      "definition": "Multiply signal by weight, add bias, then apply the sigmoid function. One scalar sigmoid unit with stipulated weights, not an anatomical neuron or a calibrated probability. No biological mechanism or trained performance is inferred.",
+      "example": "z = w x + b; y = 1/(1 + exp(−z))",
+      "readAs": "An artificial neuron",
+      "aliases": [
+        "an artificial neuron"
+      ],
+      "sourceKeys": [
+        "systemsneuron"
+      ],
+      "grammarCards": [
+        "artificial-neuron"
+      ],
+      "formulaCards": [
+        "artificial-neuron"
+      ]
+    },
+    {
+      "id": "hebbian-learning",
+      "title": "A Hebbian weight update",
+      "category": "language",
+      "symbols": [],
+      "definition": "Multiply the two activity levels and learning rate, then add that increment to the fixed starting weight. One illustrative rate-based correlation update with fixed starting weight 0.2. No normalization, decay or saturation is included; repeated unconstrained updates can grow without bound. This rule is not a complete theory of memory.",
+      "example": "Δw = η u v; w₁ = w₀ + Δw",
+      "readAs": "A Hebbian weight update",
+      "aliases": [
+        "a hebbian weight update"
+      ],
+      "sourceKeys": [
+        "systemshebb"
+      ],
+      "grammarCards": [
+        "hebbian-learning"
+      ],
+      "formulaCards": [
+        "hebbian-learning"
+      ]
+    }
+  ],
+  "bindings": {
+    "vector-field": {
+      "x": [
+        "x"
+      ],
+      "y": [
+        "y"
+      ],
+      "a": [
+        "rate"
+      ],
+      "result": [
+        "output"
+      ]
+    },
+    "continuous-flow": {
+      "t": [
+        "time"
+      ],
+      "x₀": [
+        "initial"
+      ],
+      "a": [
+        "rate"
+      ],
+      "result": [
+        "output"
+      ]
+    },
+    "basin-attraction": {
+      "x₀": [
+        "initial"
+      ],
+      "t": [
+        "time"
+      ],
+      "result": [
+        "output"
+      ]
+    },
+    "fold-bifurcation": {
+      "μ": [
+        "mu"
+      ],
+      "result": [
+        "output"
+      ]
+    },
+    "cusp-potential": {
+      "b": [
+        "bias"
+      ],
+      "a": [
+        "shape"
+      ],
+      "result": [
+        "output"
+      ]
+    },
+    "partial-order": {
+      "A": [
+        "a"
+      ],
+      "B": [
+        "b"
+      ],
+      "result": [
+        "output"
+      ]
+    },
+    "meet-join": {
+      "A": [
+        "a"
+      ],
+      "B": [
+        "b"
+      ],
+      "operation": [
+        "operation"
+      ],
+      "result": [
+        "output"
+      ]
+    },
+    "lattice-distributivity": {
+      "A": [
+        "a"
+      ],
+      "B": [
+        "b"
+      ],
+      "C": [
+        "c"
+      ],
+      "result": [
+        "output"
+      ]
+    },
+    "heat-balance": {
+      "Q": [
+        "heat"
+      ],
+      "result": [
+        "output"
+      ]
+    },
+    "gibbs-free-energy": {
+      "T": [
+        "temperature"
+      ],
+      "ΔH": [
+        "enthalpy"
+      ],
+      "ΔS": [
+        "entropy"
+      ],
+      "result": [
+        "output"
+      ]
+    },
+    "ideal-gas": {
+      "V": [
+        "volume"
+      ],
+      "T": [
+        "temperature"
+      ],
+      "result": [
+        "output"
+      ]
+    },
+    "artificial-neuron": {
+      "x": [
+        "signal"
+      ],
+      "w": [
+        "weight"
+      ],
+      "b": [
+        "bias"
+      ],
+      "result": [
+        "output"
+      ]
+    },
+    "hebbian-learning": {
+      "u": [
+        "pre"
+      ],
+      "v": [
+        "post"
+      ],
+      "η": [
+        "rate"
+      ],
+      "result": [
+        "output"
+      ]
+    }
+  }
+}

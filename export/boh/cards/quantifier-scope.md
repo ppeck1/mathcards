@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:quantifier-scope", "id": "math:concept:quantifier-scope", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:quantifier-scope", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "3a1165682a9daa093c5d7042f7c6da906c7d3aa2ad12b461193e75783b4db69b"}, "purpose": "Change a cable reach and distinguish a station for each desk from one station serving every desk, while keeping a selected probe separate.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "3a1165682a9daa093c5d7042f7c6da906c7d3aa2ad12b461193e75783b4db69b", "status": "draft", "title": "Quantifier order and variable scope", "topics": ["mathematics", "language-foundations", "logic", "formal-semantics", "forall exists order", "exists forall order", "free variable assignment", "bound variable scope", "quantifier dependency"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:quantifier-scope", "id": "math:concept:quantifier-scope", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:quantifier-scope", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "3a1165682a9daa093c5d7042f7c6da906c7d3aa2ad12b461193e75783b4db69b"}, "purpose": "Change a cable reach and distinguish a station for each desk from one station serving every desk, while keeping a selected probe separate.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "3a1165682a9daa093c5d7042f7c6da906c7d3aa2ad12b461193e75783b4db69b", "status": "draft", "title": "Quantifier order and variable scope", "topics": ["mathematics", "language-foundations", "logic", "formal-semantics", "forall exists order", "exists forall order", "free variable assignment", "bound variable scope", "quantifier dependency"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Quantifier order and variable scope
@@ -286,7 +286,7 @@ The order of quantifiers controls which choices may depend on earlier ones. “E
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -302,6 +302,7 @@ The order of quantifiers controls which choices may depend on earlier ones. “E
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:relation
   - type: supports
@@ -310,6 +311,7 @@ The order of quantifiers controls which choices may depend on earlier ones. “E
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:open-set
   - type: supports
@@ -318,6 +320,7 @@ The order of quantifiers controls which choices may depend on earlier ones. “E
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:proof
   - type: supports
@@ -326,6 +329,7 @@ The order of quantifiers controls which choices may depend on earlier ones. “E
   - target status: planned
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -370,6 +374,7 @@ The order of quantifiers controls which choices may depend on earlier ones. “E
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Desk positions are D={2,4,6,8,10,12} m and station positions are E={1,5,9} m on one straight line. Reach h ranges from zero to twelve metres, and Rₕ uses the inclusive distance test |x−y|≤h.
     - Each desk may use a station without station-capacity, routing or allocation constraints. The model compares distance statements, not a capacity-constrained matching problem.
@@ -414,6 +419,7 @@ The order of quantifiers controls which choices may depend on earlier ones. “E
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Desk positions are D={2,4,6,8,10,12} m and station positions are E={1,5,9} m on one straight line. Reach h ranges from zero to twelve metres, and Rₕ uses the inclusive distance test |x−y|≤h.
     - Each desk may use a station without station-capacity, routing or allocation constraints. The model compares distance statements, not a capacity-constrained matching problem.
@@ -458,6 +464,7 @@ The order of quantifiers controls which choices may depend on earlier ones. “E
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Desk positions are D={2,4,6,8,10,12} m and station positions are E={1,5,9} m on one straight line. Reach h ranges from zero to twelve metres, and Rₕ uses the inclusive distance test |x−y|≤h.
     - Each desk may use a station without station-capacity, routing or allocation constraints. The model compares distance statements, not a capacity-constrained matching problem.
@@ -502,6 +509,7 @@ The order of quantifiers controls which choices may depend on earlier ones. “E
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Desk positions are D={2,4,6,8,10,12} m and station positions are E={1,5,9} m on one straight line. Reach h ranges from zero to twelve metres, and Rₕ uses the inclusive distance test |x−y|≤h.
     - Each desk may use a station without station-capacity, routing or allocation constraints. The model compares distance statements, not a capacity-constrained matching problem.
@@ -546,6 +554,7 @@ The order of quantifiers controls which choices may depend on earlier ones. “E
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Desk positions are D={2,4,6,8,10,12} m and station positions are E={1,5,9} m on one straight line. Reach h ranges from zero to twelve metres, and Rₕ uses the inclusive distance test |x−y|≤h.
     - Each desk may use a station without station-capacity, routing or allocation constraints. The model compares distance statements, not a capacity-constrained matching problem.

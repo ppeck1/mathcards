@@ -1,0 +1,364 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:sphere-measurement:case-5", "id": "math:example:sphere-measurement:case-5", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:sphere-measurement", "example_id": "math:example:sphere-measurement:case-5", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "52ca676aeacbf233faf1bb3e48cdeee1734403996b3d4425417a577c36c6f8e6"}, "purpose": "How much does a full spherical tank hold as its radius grows?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "52ca676aeacbf233faf1bb3e48cdeee1734403996b3d4425417a577c36c6f8e6", "status": "draft", "title": "The upper radius boundary", "topics": ["mathematics", "geometry", "measurement", "sphere surface and volume"], "type": "reference", "updated": "2026-11-05T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# The upper radius boundary
+
+Parent card: math:concept:sphere-measurement; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:sphere-measurement; revision 0.1.0-draft. Setting: An ideal full spherical tank has inner radius r metres. A cutaway view shows the center-to-wall radius, the diameter and the equatorial disk. Follow a radius change into the complete curved surface area and the full enclosed volume, with each quantity labeled in its own physical unit. Expression: $d=2r,\quad A=4\pi r^2,\quad V=\frac{4}{3}\pi r^3.$. Conditions required for a defined value (a case may test their violation): The radius is positive, from 0.25 to 5 metres. The tank is exactly spherical and full. Surface area measures the complete ideal inner surface; volume measures its enclosed ball. Scope: The equatorial disk is a cross-section with area πr²; it is neither the sphere surface area nor its volume. Perspective and projection are illustrations, while all values come from the analytic Euclidean formulas. Wall thickness, supports, filling depth and practical construction are outside this full-tank model.
+
+Case unit math:example:sphere-measurement:case-5. Setting: An ideal full spherical tank has inner radius r metres. A cutaway view shows the center-to-wall radius, the diameter and the equatorial disk. Follow a radius change into the complete curved surface area and the full enclosed volume, with each quantity labeled in its own physical unit. Inputs: {"radius": 5}. Result: {"approximate": "523.5987755982989"}. Limits: The equatorial disk is a cross-section with area πr²; it is neither the sphere surface area nor its volume. Perspective and projection are illustrations, while all values come from the analytic Euclidean formulas. Wall thickness, supports, filling depth and practical construction are outside this full-tank model.
+
+## Complete worked case
+
+- id: math:example:sphere-measurement:case-5
+- title: The upper radius boundary
+- role: applied_model
+- question: How much does a full spherical tank hold as its radius grows?
+- setting: An ideal full spherical tank has inner radius r metres. A cutaway view shows the center-to-wall radius, the diameter and the equatorial disk. Follow a radius change into the complete curved surface area and the full enclosed volume, with each quantity labeled in its own physical unit.
+- assumptions:
+  - The radius is positive, from 0.25 to 5 metres. The tank is exactly spherical and full. Surface area measures the complete ideal inner surface; volume measures its enclosed ball.
+- inputs:
+  - radius: 5
+- steps:
+  - Item:
+    - index: 1
+    - expression: r = 5
+    - reason: Place the selected inputs in the stated construction.
+  - Item:
+    - index: 2
+    - expression: d=2r,\quad A=4\pi r^2,\quad V=\frac{4}{3}\pi r^3.
+    - reason: A sphere consists of points a fixed radius r from its center, and its enclosed ball has volume V=4πr³/3. The complete spherical surface has area A=4πr² and the diameter is d=2r. Radius changes length, surface and capacity at different rates: by the first, second and third powers of the scale factor.
+  - Item:
+    - index: 3
+    - expression: V ≈ 523.5987755982989 m³
+    - reason: At radius 5 metres the ideal surface area is 100π square metres and full capacity is 500π/3, about 523.599 cubic metres.
+- result:
+  - approximate: 523.5987755982989
+- interpretation: At radius 5 metres the ideal surface area is 100π square metres and full capacity is 500π/3, about 523.599 cubic metres.
+- independent check:
+  - method: Independently integrate the quadratic disk-area profile across the diameter using Simpson quadrature and compare doubling ratios; check surface area from four equatorial disks.
+  - expected: 523.5987755982989
+- limits: The equatorial disk is a cross-section with area πr²; it is neither the sphere surface area nor its volume. Perspective and projection are illustrations, while all values come from the analytic Euclidean formulas. Wall thickness, supports, filling depth and practical construction are outside this full-tank model.
+- preset:
+  - radius: 5
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - The radius is positive, from 0.25 to 5 metres. The tank is exactly spherical and full. Surface area measures the complete ideal inner surface; volume measures its enclosed ball.
+
+## Written exploration recipe
+
+- component id: component:sphere-measurement
+- renderer id: sphere-measurement-visual-model
+- renderer version: 1
+- model id: sphere-measurement-visual-model
+- model revision: 1
+- expression id: ast:sphere-measurement:expression
+- interaction status: implemented
+- description: A sphere consists of points a fixed radius r from its center, and its enclosed ball has volume V=4πr³/3. The complete spherical surface has area A=4πr² and the diameter is d=2r. Radius changes length, surface and capacity at different rates: by the first, second and third powers of the scale factor.
+- controls:
+  - Item:
+    - id: radius
+    - type: number
+    - default: 2
+    - min: 0.25
+    - max: 5
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - radius: 0.25
+    - status: valid
+    - output: 0.06544984694978735
+  - Item:
+    - input:
+      - radius: 0.35
+    - status: valid
+    - output: 0.17959438003021647
+  - Item:
+    - input:
+      - radius: 0.45
+    - status: valid
+    - output: 0.3817035074111599
+  - Item:
+    - input:
+      - radius: 0.55
+    - status: valid
+    - output: 0.6969099703213361
+  - Item:
+    - input:
+      - radius: 0.65
+    - status: valid
+    - output: 1.1503465099894628
+  - Item:
+    - input:
+      - radius: 0.75
+    - status: valid
+    - output: 1.7671458676442586
+  - Item:
+    - input:
+      - radius: 0.85
+    - status: valid
+    - output: 2.5724407845144417
+  - Item:
+    - input:
+      - radius: 0.95
+    - status: valid
+    - output: 3.591364001828732
+  - Item:
+    - input:
+      - radius: 1.05
+    - status: valid
+    - output: 4.849048260815846
+  - Item:
+    - input:
+      - radius: 1.15
+    - status: valid
+    - output: 6.3706263027045
+  - Item:
+    - input:
+      - radius: 1.25
+    - status: valid
+    - output: 8.18123086872342
+  - Item:
+    - input:
+      - radius: 1.35
+    - status: valid
+    - output: 10.305994700101317
+  - Item:
+    - input:
+      - radius: 1.45
+    - status: valid
+    - output: 12.770050538066913
+  - Item:
+    - input:
+      - radius: 1.55
+    - status: valid
+    - output: 15.598531123848923
+  - Item:
+    - input:
+      - radius: 1.65
+    - status: valid
+    - output: 18.816569198676063
+  - Item:
+    - input:
+      - radius: 1.75
+    - status: valid
+    - output: 22.449297503777064
+  - Item:
+    - input:
+      - radius: 1.85
+    - status: valid
+    - output: 26.521848780380633
+  - Item:
+    - input:
+      - radius: 1.95
+    - status: valid
+    - output: 31.05935576971549
+  - Item:
+    - input:
+      - radius: 2.05
+    - status: valid
+    - output: 36.086951213010344
+  - Item:
+    - input:
+      - radius: 2.15
+    - status: valid
+    - output: 41.629767851493945
+  - Item:
+    - input:
+      - radius: 2.25
+    - status: valid
+    - output: 47.71293842639499
+  - Item:
+    - input:
+      - radius: 2.35
+    - status: valid
+    - output: 54.361595678942194
+  - Item:
+    - input:
+      - radius: 2.45
+    - status: valid
+    - output: 61.600872350364284
+  - Item:
+    - input:
+      - radius: 2.55
+    - status: valid
+    - output: 69.45590118188994
+  - Item:
+    - input:
+      - radius: 2.65
+    - status: valid
+    - output: 77.95181491474794
+  - Item:
+    - input:
+      - radius: 2.75
+    - status: valid
+    - output: 87.11374629016696
+  - Item:
+    - input:
+      - radius: 2.85
+    - status: valid
+    - output: 96.96682804937576
+  - Item:
+    - input:
+      - radius: 2.95
+    - status: valid
+    - output: 107.53619293360303
+  - Item:
+    - input:
+      - radius: 3.05
+    - status: valid
+    - output: 118.84697368407745
+  - Item:
+    - input:
+      - radius: 3.15
+    - status: valid
+    - output: 130.92430304202784
+  - Item:
+    - input:
+      - radius: 3.25
+    - status: valid
+    - output: 143.79331374868283
+  - Item:
+    - input:
+      - radius: 3.35
+    - status: valid
+    - output: 157.47913854527118
+  - Item:
+    - input:
+      - radius: 3.45
+    - status: valid
+    - output: 172.00691017302157
+  - Item:
+    - input:
+      - radius: 3.55
+    - status: valid
+    - output: 187.4017613731627
+  - Item:
+    - input:
+      - radius: 3.65
+    - status: valid
+    - output: 203.6888248869234
+  - Item:
+    - input:
+      - radius: 3.75
+    - status: valid
+    - output: 220.89323345553234
+  - Item:
+    - input:
+      - radius: 3.85
+    - status: valid
+    - output: 239.04011982021822
+  - Item:
+    - input:
+      - radius: 3.95
+    - status: valid
+    - output: 258.1546167222097
+  - Item:
+    - input:
+      - radius: 4.05
+    - status: valid
+    - output: 278.26185690273553
+  - Item:
+    - input:
+      - radius: 4.15
+    - status: valid
+    - output: 299.3869731030246
+  - Item:
+    - input:
+      - radius: 4.25
+    - status: valid
+    - output: 321.55509806430524
+  - Item:
+    - input:
+      - radius: 4.35
+    - status: valid
+    - output: 344.79136452780654
+  - Item:
+    - input:
+      - radius: 4.45
+    - status: valid
+    - output: 369.1209052347572
+  - Item:
+    - input:
+      - radius: 4.55
+    - status: valid
+    - output: 394.56885292638566
+  - Item:
+    - input:
+      - radius: 4.65
+    - status: valid
+    - output: 421.16034034392084
+  - Item:
+    - input:
+      - radius: 4.75
+    - status: valid
+    - output: 448.92050022859144
+  - Item:
+    - input:
+      - radius: 4.85
+    - status: valid
+    - output: 477.87446532162613
+  - Item:
+    - input:
+      - radius: 4.95
+    - status: valid
+    - output: 508.0473683642538
+  - Item:
+    - input:
+      - radius: 5
+    - status: valid
+    - output: 523.5987755982989
+  - Item:
+    - input:
+      - radius: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: 0.24
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: 5.01
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: null
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: true
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: 2
+    - status: invalid_parameters
+- compute: d=2r,\quad A=4\pi r^2,\quad V=\frac{4}{3}\pi r^3.
+- numeric tolerance: 5e-11
+- invariants:
+  - The radius is positive, from 0.25 to 5 metres. The tank is exactly spherical and full. Surface area measures the complete ideal inner surface; volume measures its enclosed ball.
+  - Story, calculation, Geometry and Graph use the same evaluated state.
+  - Whole-number counts change at exact integer choices; physical radii can vary continuously.
+- limits:
+  - The equatorial disk is a cross-section with area πr²; it is neither the sphere surface area nor its volume. Perspective and projection are illustrations, while all values come from the analytic Euclidean formulas. Wall thickness, supports, filling depth and practical construction are outside this full-tank model.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:geometry-extensions:sphere-measurement. [Wolfram MathWorld · Sphere](https://mathworld.wolfram.com/Sphere.html). Locator: Radius and diameter, surface area 4πr², and enclosed volume 4πr³/3 for a Euclidean sphere. The full spherical tank and its comparison of surface and volume are original constructions.. Verification: Definition-level page inspected 2026-11-05. Independent mathematical and pedagogical review and exact-edition book-page verification remain pending.. Rights: Originally authored ideal tank scenario and dimensional comparisons. No source exercise, illustration or data reproduced.

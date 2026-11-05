@@ -1,11 +1,38 @@
-# Math index, notation and shared search — 0.22.0
+# Math index, notation and shared search
 
 The index is a reference provider that can be used independently of the page
 renderer. The shared search adapter combines that provider with real cards and
 atlas areas. Neither provider starts an animation, accesses storage, or requires
 a browser when its script is loaded.
 
-This release projects **409 entries** over 38 draft cards: **389 authored
+The current 0.34.0 review candidate projects **1,166 entries** over **130 draft
+cards**: **1,123 authored definitions** and **43 contextual entries**. Its symbol
+catalog has **923 selectable forms across 877 meanings**. The
+[current notation audit](NOTATION_COVERAGE_0_34_0.json) resolves all 89,051
+occurrences across 52,968 selected fields and 1,580 tokens, with zero unresolved
+or review items. See the
+[current validation](VALIDATION_0_34_0_NUMBER_GEOMETRY.md) for the
+current evidence and the browser/phone review still pending. The API and
+authoring sections below describe the current provider; versioned sections
+preserve earlier checkpoints.
+
+Data ranks and matrix rank keep separate definitions and actual card links.
+Searching “rank” offers both meanings. The comparison lessons also distinguish
+rank sums, pair-comparison scores, empirical win share, exact finite tails and
+their declared nulls. Covariance entries/radii/determinants use scoped mm², mm
+and mm⁴ units; a decorated unit is recognized before a generic indexed name.
+
+The number/geometry continuation adds LCM and proper-divisor meanings,
+polygon measurements and separate spherical surface/cross-section/volume
+readers. Signal labels A/B retain their local role alongside the lowercase
+periods a/b. Divisor bars remain distinct from absolute-value and conditional
+probability bars. A squared-minute intermediate has a time-product definition,
+separate from an area or duration. Existing pi and perimeter meanings retain
+their earlier card links.
+
+## Reference checkpoint (0.22.0)
+
+The 0.22.0 checkpoint projected **409 entries** over 38 draft cards: **389 authored
 definitions** and **20 contextual entries for exact card notation**. The common
 reference covers all 24 standard Greek letter names in both cases, basic and
 compound operations, grouping, set/logic notation, units and typed/TeX forms.
@@ -14,10 +41,10 @@ atlas-gap lessons to their existing prerequisites and related meanings.
 
 The completed 29-card pre-expansion checkpoint had 355 entries (335 authored
 and 20 contextual). Its [sealed audit](NOTATION_GATE_BEFORE_EXPANSION.json)
-records the required notation-first sequence. Current coverage follows the
+records the required notation-first sequence. That checkpoint followed the
 [finite notation contract](SYMBOL_NOTATION_COVERAGE.md), with an expanded
 [release report](NOTATION_COVERAGE_0_22_0.json). This is a reference for the stated
-current-app/common baseline, not a dictionary of every mathematical use.
+checkpoint's app/common baseline, not a dictionary of every mathematical use.
 
 The 0.20.0 checkpoint remains recorded separately: 32 cards, 372 index entries,
 29,760 occurrences and 826 normalized forms with no unresolved/callable reviews.
@@ -54,9 +81,9 @@ intervals or an unbiased-estimator claim. The full scan supplies an operation
 count formula for every positive integer input size; a bounded drawing or finite
 plot alone is not an asymptotic proof.
 
-The current gate is generated at `docs/NOTATION_COVERAGE_0_22_0.json`. It checks
-23,794 selected fields and resolves 39,023 occurrences across 916 forms, with
-zero unresolved forms or callable reviews. There are 21,602 public runtime
+The 0.22.0 gate was generated at `docs/NOTATION_COVERAGE_0_22_0.json`. It checked
+23,794 selected fields and resolved 39,023 occurrences across 916 forms, with
+zero unresolved forms or callable reviews. There were 21,602 public runtime
 fields, 929 reference fields, 796 classified formatting occurrences and 58
 explicitly reviewed UI gesture-icon exclusions. Actual full-suite and browser
 results belong to the release verification record.
@@ -105,30 +132,41 @@ normalization; no implicit unit conversion is supplied.
 | [math-terms.js](../src/math-terms.js) | Authored definitions, read-as text, examples, aliases, matching rules and definition sources |
 | [math-notation.js](../src/math-notation.js) | Pure normalization, bounded notation readers, selected mathematical-field inventory and coverage audit |
 | [math-index.js](../src/math-index.js) | Immutable card-usage projection, definition search, index markup and scoped mounting |
+| [math-index-data.js](../src/math-index-data.js) | Complete inert reference projection, generated from authored definitions and public card/story evidence |
 | [math-index.css](../src/math-index.css) | Index presentation and responsive layout |
 | [atlas-search.js](../src/atlas-search.js) | One search adapter for definitions, cards and map areas; header and full-page search views |
 | [app.js](../src/app.js) | Provider composition, routes, card vocabulary links and page lifecycle |
-| [build.py](../tools/build.py) | Embeds these scripts, styles and canonical content into the offline application |
+| [build.py](../tools/build.py) | Compiles reference data and embeds runtime scripts, styles and canonical content into the offline application |
 
 The providers use the same UMD/CommonJS pattern as the rest of the application.
-In a browser, load `math-terms.js` and `math-notation.js` before `math-index.js`, then load
-`atlas-search.js` before the application composes them. Node callers can require
-the providers directly. Adding a definition does not require editing the page
-renderer or a playground module.
+In a browser, load `math-notation.js` before `math-index.js`, then the generated
+`math-index-data.js` and `atlas-search.js` before application composition.
+Authored `math-terms.js` and family `*-terms.js` files remain build dependencies;
+they no longer duplicate the prepared reference in the runtime. Node callers
+can require the providers directly. Adding a definition does not require
+editing the page renderer or a playground module; rebuild its projection.
 
 ## Definition provider
 
 ```js
-const index = AtlasMathIndex.create({cards, sources, stories});
+const index = AtlasMathIndex.hydrate(AtlasMathIndexData);
 const entry = index.get('delta-small');
 const uses = index.forCard('function-composition');
 const matches = index.search('projection', {category: 'linear'});
 ```
 
-`cards` is the canonical card array; `sources` is the canonical source array,
+Build/Node callers use `compile({cards, sources, stories})` to obtain prepared
+format-version-1 data, then `hydrate(data)` for the same runtime API.
+`create({cards, sources, stories})` remains a build-time convenience for both
+steps. Compilation fails explicitly when authoring data is absent; browser
+startup never scans the source corpus.
+
+For compilation, `cards` is the canonical card array; `sources` is the canonical source array,
 not the surrounding source-document object. Optional `stories` supplies the
 authored story array for mathematical labels, calculations and units. Creation
-owns its projected data and does not mutate or freeze those inputs.
+owns its projected data and does not mutate or freeze those inputs. Hydration
+keeps complete public contexts while deduplicating repeated meaning text only
+inside private search rows.
 
 | Member | Contract |
 |---|---|
@@ -340,8 +378,10 @@ the other's units.
 
 `tools/check_notation.cjs` combines selected canonical/story fields, reference
 examples and symbols, and public renderer/readout samples across declared
-controls and views. `python tools/check.py` runs that gate and writes
-`docs/NOTATION_COVERAGE_0_22_0.json`. The preserved 0.20.0 audit covered 18,000 fields,
+controls and views. `python tools/check.py` runs that gate and writes a report
+for the version in `package.json`, currently
+[`docs/NOTATION_COVERAGE_0_34_0.json`](NOTATION_COVERAGE_0_34_0.json).
+The preserved 0.20.0 audit covered 18,000 fields,
 29,760 occurrences and 826 normalized forms, with zero unresolved forms and
 zero pending callable reviews. Its 664 formatting records and 58 reviewed UI
 gesture-icon exclusions are accounted for separately. Counts describe this

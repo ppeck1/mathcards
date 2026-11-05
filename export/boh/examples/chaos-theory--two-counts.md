@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:chaos-theory:two-counts", "id": "math:example:chaos-theory:two-counts", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:chaos-theory", "example_id": "math:example:chaos-theory:two-counts", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a"}, "purpose": "Explore how a deterministic nonlinear rule responds to nearby starting values.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a", "status": "draft", "title": "Two nearly identical pond estimates", "topics": ["mathematics", "dynamics", "modeling", "sensitivity to initial conditions", "logistic map"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:chaos-theory:two-counts", "id": "math:example:chaos-theory:two-counts", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:chaos-theory", "example_id": "math:example:chaos-theory:two-counts", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a"}, "purpose": "Explore how a deterministic nonlinear rule responds to nearby starting values.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "c5f23ce70b628dbb0dea920554bf5784e7d3b774ed1c9524c4af741cf4a7144a", "status": "draft", "title": "Two nearly identical pond estimates", "topics": ["mathematics", "dynamics", "modeling", "sensitivity to initial conditions", "logistic map"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Two nearly identical pond estimates
@@ -55,6 +55,7 @@ Case unit math:example:chaos-theory:two-counts. Setting: Original constructed te
   - kind: original worked derivation
   - mathematical review: draft
   - external source refs:
+    []
 - conditions to check:
   - Use a fixed rate and two starting values in [0,1].
   - The recurrence is a stipulated deterministic discrete model, not measured population data.

@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:resonance", "id": "math:concept:resonance", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:resonance", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "271210a3a2f60502ae321429ae14859a48ffb58bd0471d890f1ed8f184e46eca"}, "purpose": "Explore how drive frequency and damping determine a linear oscillator’s steady amplitude.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "271210a3a2f60502ae321429ae14859a48ffb58bd0471d890f1ed8f184e46eca", "status": "draft", "title": "Resonance & driven motion", "topics": ["mathematics", "dynamics", "modeling", "forced oscillator", "frequency response"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:resonance", "id": "math:concept:resonance", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:resonance", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "271210a3a2f60502ae321429ae14859a48ffb58bd0471d890f1ed8f184e46eca"}, "purpose": "Explore how drive frequency and damping determine a linear oscillator’s steady amplitude.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "271210a3a2f60502ae321429ae14859a48ffb58bd0471d890f1ed8f184e46eca", "status": "draft", "title": "Resonance & driven motion", "topics": ["mathematics", "dynamics", "modeling", "forced oscillator", "frequency response"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Resonance & driven motion
@@ -87,14 +87,14 @@ The drive does not produce the same motion at every frequency. Follow detuning a
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the concept and notation with specialist sources before adding historical attribution.
 - reader text: Historical account not yet sourced. Everyday scenarios are constructed examples, not historical anecdotes.
 
 ## Connections
 
-
+[]
 
 ## Examples
 
@@ -134,6 +134,7 @@ The drive does not produce the same motion at every frequency. Follow detuning a
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Use a linear oscillator with positive viscous damping and a sinusoidal drive.
     - The response is the settled steady-state amplitude, excluding startup transients.
@@ -174,6 +175,7 @@ The drive does not produce the same motion at every frequency. Follow detuning a
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Use a linear oscillator with positive viscous damping and a sinusoidal drive.
     - The response is the settled steady-state amplitude, excluding startup transients.
@@ -214,6 +216,7 @@ The drive does not produce the same motion at every frequency. Follow detuning a
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Use a linear oscillator with positive viscous damping and a sinusoidal drive.
     - The response is the settled steady-state amplitude, excluding startup transients.
@@ -254,6 +257,7 @@ The drive does not produce the same motion at every frequency. Follow detuning a
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Use a linear oscillator with positive viscous damping and a sinusoidal drive.
     - The response is the settled steady-state amplitude, excluding startup transients.
@@ -298,6 +302,7 @@ The drive does not produce the same motion at every frequency. Follow detuning a
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Use a linear oscillator with positive viscous damping and a sinusoidal drive.
     - The response is the settled steady-state amplitude, excluding startup transients.

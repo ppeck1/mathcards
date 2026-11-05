@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:stability", "id": "math:concept:stability", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:stability", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "e3f44c562b3477bb06c8e126d78c5d00f5642c797f319845324ac7262a04e8ce"}, "purpose": "Change a repeated correction multiplier and follow an initial displacement toward, around or away from the same equilibrium.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "e3f44c562b3477bb06c8e126d78c5d00f5642c797f319845324ac7262a04e8ce", "status": "draft", "title": "Stability of an equilibrium", "topics": ["mathematics", "dynamics", "discrete-computation", "modeling", "asymptotic stability", "linear error correction", "attracting equilibrium", "perturbation response"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:stability", "id": "math:concept:stability", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:stability", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "e3f44c562b3477bb06c8e126d78c5d00f5642c797f319845324ac7262a04e8ce"}, "purpose": "Change a repeated correction multiplier and follow an initial displacement toward, around or away from the same equilibrium.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "e3f44c562b3477bb06c8e126d78c5d00f5642c797f319845324ac7262a04e8ce", "status": "draft", "title": "Stability of an equilibrium", "topics": ["mathematics", "dynamics", "discrete-computation", "modeling", "asymptotic stability", "linear error correction", "attracting equilibrium", "perturbation response"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Stability of an equilibrium
@@ -255,7 +255,7 @@ Stability asks how trajectories respond to a small change in their starting stat
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of the concept and notation before adding historical priority claims.
   - Check book-specific statements against the exact edition before treating the supplied planning matrix as verified coverage.
@@ -271,6 +271,7 @@ Stability asks how trajectories respond to a small change in their starting stat
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:exponential-change
   - type: supports
@@ -279,6 +280,7 @@ Stability asks how trajectories respond to a small change in their starting stat
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:gradient-descent
   - type: supports
@@ -287,6 +289,7 @@ Stability asks how trajectories respond to a small change in their starting stat
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:chaos-theory
   - type: supports
@@ -295,6 +298,7 @@ Stability asks how trajectories respond to a small change in their starting stat
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:bifurcation
   - type: supports
@@ -303,6 +307,7 @@ Stability asks how trajectories respond to a small change in their starting stat
   - target status: planned
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -347,6 +352,7 @@ Stability asks how trajectories respond to a small change in their starting stat
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The equilibrium is e=0 cm. The initial signed displacement e₀ lies between−2 and 2 cm, with fixed multiplier r from −1.2 to 1.2.
     - The displayed count n is an integer from zero to eight. Each plotted point is one exact update, and n=0 returns the initial displacement unchanged.
@@ -387,6 +393,7 @@ Stability asks how trajectories respond to a small change in their starting stat
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The equilibrium is e=0 cm. The initial signed displacement e₀ lies between−2 and 2 cm, with fixed multiplier r from −1.2 to 1.2.
     - The displayed count n is an integer from zero to eight. Each plotted point is one exact update, and n=0 returns the initial displacement unchanged.
@@ -431,6 +438,7 @@ Stability asks how trajectories respond to a small change in their starting stat
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The equilibrium is e=0 cm. The initial signed displacement e₀ lies between−2 and 2 cm, with fixed multiplier r from −1.2 to 1.2.
     - The displayed count n is an integer from zero to eight. Each plotted point is one exact update, and n=0 returns the initial displacement unchanged.
@@ -471,6 +479,7 @@ Stability asks how trajectories respond to a small change in their starting stat
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The equilibrium is e=0 cm. The initial signed displacement e₀ lies between−2 and 2 cm, with fixed multiplier r from −1.2 to 1.2.
     - The displayed count n is an integer from zero to eight. Each plotted point is one exact update, and n=0 returns the initial displacement unchanged.
@@ -511,6 +520,7 @@ Stability asks how trajectories respond to a small change in their starting stat
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The equilibrium is e=0 cm. The initial signed displacement e₀ lies between−2 and 2 cm, with fixed multiplier r from −1.2 to 1.2.
     - The displayed count n is an integer from zero to eight. Each plotted point is one exact update, and n=0 returns the initial displacement unchanged.

@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:mutual-information", "id": "math:concept:mutual-information", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:mutual-information", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "6ef43602296c3983cb846c89887f80ea0282d14337ca65a531cb0b03e65e150a"}, "purpose": "Split book uncertainty into the part shared with the lamp and the part left after observing it.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "6ef43602296c3983cb846c89887f80ea0282d14337ca65a531cb0b03e65e150a", "status": "draft", "title": "Mutual information", "topics": ["mathematics", "information", "probability", "computation", "shared information", "information about one variable from another", "average uncertainty reduction"], "type": "reference", "updated": "2026-11-01T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:mutual-information", "id": "math:concept:mutual-information", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:mutual-information", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "6ef43602296c3983cb846c89887f80ea0282d14337ca65a531cb0b03e65e150a"}, "purpose": "Split book uncertainty into the part shared with the lamp and the part left after observing it.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "6ef43602296c3983cb846c89887f80ea0282d14337ca65a531cb0b03e65e150a", "status": "draft", "title": "Mutual information", "topics": ["mathematics", "information", "probability", "computation", "shared information", "information about one variable from another", "average uncertainty reduction"], "type": "reference", "updated": "2026-11-01T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Mutual information
@@ -303,7 +303,7 @@ Mutual information measures dependence between two random variables. For finite 
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -319,6 +319,7 @@ Mutual information measures dependence between two random variables. For finite 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:conditional-entropy
   - type: supports
@@ -327,6 +328,7 @@ Mutual information measures dependence between two random variables. For finite 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:entropy
   - type: supports
@@ -335,6 +337,7 @@ Mutual information measures dependence between two random variables. For finite 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:bayes-theorem
   - type: supports
@@ -343,6 +346,7 @@ Mutual information measures dependence between two random variables. For finite 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -383,6 +387,7 @@ Mutual information measures dependence between two random variables. For finite 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The prior book probability q=P(X=1) and symmetric flip probability e lie in [0,1]. The same channel rule gives P(Y≠X|X=x)=e for each possible input value x; a row with zero prior mass still has a specified channel rule.
     - The joint masses are p₀₀=(1−q)(1−e), p₀₁=(1−q)e, p₁₀=qe and p₁₁=q(1−e). The first index belongs to X and the second to Y. All four masses are nonnegative and add to one.
@@ -423,6 +428,7 @@ Mutual information measures dependence between two random variables. For finite 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The prior book probability q=P(X=1) and symmetric flip probability e lie in [0,1]. The same channel rule gives P(Y≠X|X=x)=e for each possible input value x; a row with zero prior mass still has a specified channel rule.
     - The joint masses are p₀₀=(1−q)(1−e), p₀₁=(1−q)e, p₁₀=qe and p₁₁=q(1−e). The first index belongs to X and the second to Y. All four masses are nonnegative and add to one.
@@ -463,6 +469,7 @@ Mutual information measures dependence between two random variables. For finite 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The prior book probability q=P(X=1) and symmetric flip probability e lie in [0,1]. The same channel rule gives P(Y≠X|X=x)=e for each possible input value x; a row with zero prior mass still has a specified channel rule.
     - The joint masses are p₀₀=(1−q)(1−e), p₀₁=(1−q)e, p₁₀=qe and p₁₁=q(1−e). The first index belongs to X and the second to Y. All four masses are nonnegative and add to one.
@@ -503,6 +510,7 @@ Mutual information measures dependence between two random variables. For finite 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The prior book probability q=P(X=1) and symmetric flip probability e lie in [0,1]. The same channel rule gives P(Y≠X|X=x)=e for each possible input value x; a row with zero prior mass still has a specified channel rule.
     - The joint masses are p₀₀=(1−q)(1−e), p₀₁=(1−q)e, p₁₀=qe and p₁₁=q(1−e). The first index belongs to X and the second to Y. All four masses are nonnegative and add to one.
@@ -543,6 +551,7 @@ Mutual information measures dependence between two random variables. For finite 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The prior book probability q=P(X=1) and symmetric flip probability e lie in [0,1]. The same channel rule gives P(Y≠X|X=x)=e for each possible input value x; a row with zero prior mass still has a specified channel rule.
     - The joint masses are p₀₀=(1−q)(1−e), p₀₁=(1−q)e, p₁₀=qe and p₁₁=q(1−e). The first index belongs to X and the second to Y. All four masses are nonnegative and add to one.

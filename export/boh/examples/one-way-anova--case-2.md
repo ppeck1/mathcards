@@ -1,0 +1,288 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:one-way-anova:case-2", "id": "math:example:one-way-anova:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:one-way-anova", "example_id": "math:example:one-way-anova:case-2", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "2778e3b1ebe3f7d4ac65fbc7e1c0def84408ab82f58eb37b41142b6f1c63135b"}, "purpose": "Is separation between three method means large compared with variation inside each method?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "2778e3b1ebe3f7d4ac65fbc7e1c0def84408ab82f58eb37b41142b6f1c63135b", "status": "draft", "title": "Equal group means", "topics": ["mathematics", "statistics", "experimental-design", "one-way anova: between and within variation"], "type": "reference", "updated": "2026-11-03T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Equal group means
+
+Parent card: math:concept:one-way-anova; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:one-way-anova; revision 0.1.0-draft. Setting: A workshop compares three packing methods A, B and C using three constructed times per method. Their means are 10−g, 10 and 10+g minutes. Each group has times one w below its mean, at its mean and one w above it. Move g to separate the centers, or w to spread observations around each center. Expression: $\mathrm{SSB}=6g^2,\quad \mathrm{SSW}=6w^2,\quad \mathrm{MSB}=\frac{\mathrm{SSB}}{2},\quad \mathrm{MSW}=\frac{\mathrm{SSW}}{6},\quad F=\frac{\mathrm{MSB}}{\mathrm{MSW}},\quad p=(1+F/3)^{-3}.$. Conditions required for a defined value (a case may test their violation): This is a bounded balanced construction with three groups of three outcomes, separation g from 0 to 4 minutes and within-group deviation w from 0.25 to 2 minutes. Times are constructed rather than measured or sampled. Between and within sums of squares have 2 and 6 degrees of freedom. The stated F(2,6) upper-tail probability additionally assumes independent normal errors with one common positive variance and the null of equal population means. Those conditions are declared, not tested. A small tail probability does not identify which means differ, show that every pair differs, estimate practical importance or establish causation. Extremely small nonzero separations that disappear in represented times receive a numerical precision state. Scope: This is a bounded balanced construction with three groups of three outcomes, separation g from 0 to 4 minutes and within-group deviation w from 0.25 to 2 minutes. Times are constructed rather than measured or sampled. Between and within sums of squares have 2 and 6 degrees of freedom. The stated F(2,6) upper-tail probability additionally assumes independent normal errors with one common positive variance and the null of equal population means. Those conditions are declared, not tested. A small tail probability does not identify which means differ, show that every pair differs, estimate practical importance or establish causation. Extremely small nonzero separations that disappear in represented times receive a numerical precision state. The Graph view uses logarithmic spacing after adding one, within fixed 0–800 F bounds. Tick labels and selected or pinned readings still show F itself.
+
+Case unit math:example:one-way-anova:case-2. Setting: A workshop compares three packing methods A, B and C using three constructed times per method. Their means are 10−g, 10 and 10+g minutes. Each group has times one w below its mean, at its mean and one w above it. Move g to separate the centers, or w to spread observations around each center. Inputs: {"separation": 0, "spread": 1}. Result: {"approximate": "0.0"}. Limits: This is a bounded balanced construction with three groups of three outcomes, separation g from 0 to 4 minutes and within-group deviation w from 0.25 to 2 minutes. Times are constructed rather than measured or sampled. Between and within sums of squares have 2 and 6 degrees of freedom. The stated F(2,6) upper-tail probability additionally assumes independent normal errors with one common positive variance and the null of equal population means. Those conditions are declared, not tested. A small tail probability does not identify which means differ, show that every pair differs, estimate practical importance or establish causation. Extremely small nonzero separations that disappear in represented times receive a numerical precision state.
+
+## Complete worked case
+
+- id: math:example:one-way-anova:case-2
+- title: Equal group means
+- role: applied_model
+- question: Is separation between three method means large compared with variation inside each method?
+- setting: A workshop compares three packing methods A, B and C using three constructed times per method. Their means are 10−g, 10 and 10+g minutes. Each group has times one w below its mean, at its mean and one w above it. Move g to separate the centers, or w to spread observations around each center.
+- assumptions:
+  - Use the declared normal or sharp-null assignment model in the formal setting.
+- inputs:
+  - separation: 0
+  - spread: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: g = 0; w = 1
+    - reason: Keep the actual supplied summaries or constructed outcomes fixed as declared.
+  - Item:
+    - index: 2
+    - expression: \mathrm{SSB}=6g^2,\quad \mathrm{SSW}=6w^2,\quad \mathrm{MSB}=\frac{\mathrm{SSB}}{2},\quad \mathrm{MSW}=\frac{\mathrm{SSW}}{6},\quad F=\frac{\mathrm{MSB}}{\mathrm{MSW}},\quad p=(1+F/3)^{-3}.
+    - reason: Separate the nine packing times into variation between three group means and variation within each group. Divide the two sums of squares by their degrees of freedom, then compare the mean squares with an F ratio.
+  - Item:
+    - index: 3
+    - expression: 0.0
+    - reason: All three means equal ten minutes while within-group variation remains positive. Between SS and F are zero, and the upper-tail probability is one.
+- result:
+  - approximate: 0.0
+- interpretation: All three means equal ten minutes while within-group variation remains positive. Between SS and F are zero, and the upper-tail probability is one.
+- independent check:
+  - method: Independent Python reconstructs all nine outcomes, recomputes sample means and sums of squares from their residuals, and forms the F ratio.
+  - expected: 0.0
+- limits: This is a bounded balanced construction with three groups of three outcomes, separation g from 0 to 4 minutes and within-group deviation w from 0.25 to 2 minutes. Times are constructed rather than measured or sampled. Between and within sums of squares have 2 and 6 degrees of freedom. The stated F(2,6) upper-tail probability additionally assumes independent normal errors with one common positive variance and the null of equal population means. Those conditions are declared, not tested. A small tail probability does not identify which means differ, show that every pair differs, estimate practical importance or establish causation. Extremely small nonzero separations that disappear in represented times receive a numerical precision state.
+- preset:
+  - separation: 0
+  - spread: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - This is a bounded balanced construction with three groups of three outcomes, separation g from 0 to 4 minutes and within-group deviation w from 0.25 to 2 minutes. Times are constructed rather than measured or sampled. Between and within sums of squares have 2 and 6 degrees of freedom. The stated F(2,6) upper-tail probability additionally assumes independent normal errors with one common positive variance and the null of equal population means. Those conditions are declared, not tested. A small tail probability does not identify which means differ, show that every pair differs, estimate practical importance or establish causation. Extremely small nonzero separations that disappear in represented times receive a numerical precision state.
+
+## Written exploration recipe
+
+- component id: component:one-way-anova
+- renderer id: one-way-anova-visual-model
+- renderer version: 1
+- model id: one-way-anova-visual-model
+- model revision: 1
+- expression id: ast:one-way-anova:expression
+- interaction status: implemented
+- description: Separate the nine packing times into variation between three group means and variation within each group. Divide the two sums of squares by their degrees of freedom, then compare the mean squares with an F ratio.
+- controls:
+  - Item:
+    - id: separation
+    - type: number
+    - default: 2
+    - min: 0
+    - max: 4
+    - step: 0.05
+  - Item:
+    - id: spread
+    - type: number
+    - default: 1
+    - min: 0.25
+    - max: 2
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - separation: 0
+      - spread: 0.25
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - separation: 0
+      - spread: 0.5
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - separation: 0
+      - spread: 1
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - separation: 0
+      - spread: 2
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - separation: 0.25
+      - spread: 0.25
+    - status: valid
+    - output: 3
+  - Item:
+    - input:
+      - separation: 0.25
+      - spread: 0.5
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - separation: 0.25
+      - spread: 1
+    - status: valid
+    - output: 0.1875
+  - Item:
+    - input:
+      - separation: 0.25
+      - spread: 2
+    - status: valid
+    - output: 0.046875
+  - Item:
+    - input:
+      - separation: 0.5
+      - spread: 0.25
+    - status: valid
+    - output: 12
+  - Item:
+    - input:
+      - separation: 0.5
+      - spread: 0.5
+    - status: valid
+    - output: 3
+  - Item:
+    - input:
+      - separation: 0.5
+      - spread: 1
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - separation: 0.5
+      - spread: 2
+    - status: valid
+    - output: 0.1875
+  - Item:
+    - input:
+      - separation: 1
+      - spread: 0.25
+    - status: valid
+    - output: 48
+  - Item:
+    - input:
+      - separation: 1
+      - spread: 0.5
+    - status: valid
+    - output: 12
+  - Item:
+    - input:
+      - separation: 1
+      - spread: 1
+    - status: valid
+    - output: 3
+  - Item:
+    - input:
+      - separation: 1
+      - spread: 2
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - separation: 2
+      - spread: 0.25
+    - status: valid
+    - output: 192
+  - Item:
+    - input:
+      - separation: 2
+      - spread: 0.5
+    - status: valid
+    - output: 48
+  - Item:
+    - input:
+      - separation: 2
+      - spread: 1
+    - status: valid
+    - output: 12
+  - Item:
+    - input:
+      - separation: 2
+      - spread: 2
+    - status: valid
+    - output: 3
+  - Item:
+    - input:
+      - separation: 4
+      - spread: 0.25
+    - status: valid
+    - output: 768
+  - Item:
+    - input:
+      - separation: 4
+      - spread: 0.5
+    - status: valid
+    - output: 192
+  - Item:
+    - input:
+      - separation: 4
+      - spread: 1
+    - status: valid
+    - output: 48
+  - Item:
+    - input:
+      - separation: 4
+      - spread: 2
+    - status: valid
+    - output: 12
+  - Item:
+    - input:
+      - separation: 5e-324
+      - spread: 1
+    - status: numeric_precision
+  - Item:
+    - input:
+      - separation: -1
+      - spread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - separation: 5
+      - spread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - separation: true
+      - spread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - separation: 2
+      - spread: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - separation: 2
+      - spread: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - separation: 2
+      - spread: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - separation: 2
+      - spread: null
+    - status: invalid_parameters
+- compute: Separate the nine packing times into variation between three group means and variation within each group. Divide the two sums of squares by their degrees of freedom, then compare the mean squares with an F ratio.
+- numeric tolerance: 3e-12
+- invariants:
+  - This is a bounded balanced construction with three groups of three outcomes, separation g from 0 to 4 minutes and within-group deviation w from 0.25 to 2 minutes. Times are constructed rather than measured or sampled. Between and within sums of squares have 2 and 6 degrees of freedom. The stated F(2,6) upper-tail probability additionally assumes independent normal errors with one common positive variance and the null of equal population means. Those conditions are declared, not tested. A small tail probability does not identify which means differ, show that every pair differs, estimate practical importance or establish causation. Extremely small nonzero separations that disappear in represented times receive a numerical precision state.
+  - Story, calculation, geometry and graph use the same supplied parameters.
+  - Whole counts and fixed allocation labels remain discrete.
+- limits:
+  - This is a bounded balanced construction with three groups of three outcomes, separation g from 0 to 4 minutes and within-group deviation w from 0.25 to 2 minutes. Times are constructed rather than measured or sampled. Between and within sums of squares have 2 and 6 degrees of freedom. The stated F(2,6) upper-tail probability additionally assumes independent normal errors with one common positive variance and the null of equal population means. Those conditions are declared, not tested. A small tail probability does not identify which means differ, show that every pair differs, estimate practical importance or establish causation. Extremely small nonzero separations that disappear in represented times receive a numerical precision state.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:sampling-extensions:anova. [NIST/SEMATECH · The ANOVA Table and Tests of Hypotheses About Means](https://www.itl.nist.gov/div898/handbook/prc/section4/prc433.htm). Locator: §7.4.3.3: between/within sums of squares, degrees of freedom, mean squares and the F ratio. The three constructed packing groups and the explicit F(2,6) survival expression are derived here rather than copied from the reference example.. Verification: Definition-level primary source inspected 2026-11-03; independent mathematical, pedagogical and exact-edition book review remain pending.. Rights: Original nine packing times, wording and worked derivations; no source exercise, data or illustration reproduced.

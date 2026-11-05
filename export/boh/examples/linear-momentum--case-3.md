@@ -1,0 +1,204 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:linear-momentum:case-3", "id": "math:example:linear-momentum:case-3", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:linear-momentum", "example_id": "math:example:linear-momentum:case-3", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "f318aede9f68c389f6f1cac7aa3dd590aea1139498f897b6352509f1c2d13251"}, "purpose": "What changes when the same cart velocity belongs to a heavier cart?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "f318aede9f68c389f6f1cac7aa3dd590aea1139498f897b6352509f1c2d13251", "status": "draft", "title": "Reverse the velocity", "topics": ["mathematics", "mechanics", "applied-mathematics", "linear momentum"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Reverse the velocity
+
+Parent card: math:concept:linear-momentum; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:linear-momentum; revision 0.1.0-draft. Setting: A cart of stated positive mass has a measured planar velocity. Resolve its momentum in the same frame; changing mass changes momentum without changing the stated velocity. Expression: $\vec p=m\vec v,\quad p_x=mv_x,\quad p_y=mv_y,\quad\|\vec p\|=m\sqrt{v_x^2+v_y^2}.$. Conditions required for a defined value (a case may test their violation): A cart of stated positive mass has a measured planar velocity. Resolve its momentum in the same frame; changing mass changes momentum without changing the stated velocity. This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction. All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure. Scope: This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction.
+
+Case unit math:example:linear-momentum:case-3. Setting: A warehouse cart has a stated mass and planar velocity. Keep the velocity fixed while changing its mass, then change direction without changing speed. The momentum arrow keeps the velocity direction but responds to both mass and speed. The two arrows use separate scales because their units differ. Inputs: {"mass": 2, "vx": -1, "vy": -1}. Result: {"approximate": "2.8284271247 kg·m/s"}. Limits: This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction.
+
+## Complete worked case
+
+- id: math:example:linear-momentum:case-3
+- title: Reverse the velocity
+- role: applied_model
+- question: What changes when the same cart velocity belongs to a heavier cart?
+- setting: A warehouse cart has a stated mass and planar velocity. Keep the velocity fixed while changing its mass, then change direction without changing speed. The momentum arrow keeps the velocity direction but responds to both mass and speed. The two arrows use separate scales because their units differ.
+- assumptions:
+  - A cart of stated positive mass has a measured planar velocity. Resolve its momentum in the same frame; changing mass changes momentum without changing the stated velocity.
+  - This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction.
+- inputs:
+  - mass: 2
+  - vx: -1
+  - vy: -1
+- steps:
+  - Item:
+    - index: 1
+    - expression: m = 2; v_x = -1; v_y = -1
+    - reason: Set these original constructed inputs in the declared frame.
+  - Item:
+    - index: 2
+    - expression: p = m v; |p| = m|v|
+    - reason: Multiply each velocity component by the positive mass in the same frame. The Euclidean norm of the momentum pair is its nonnegative magnitude.
+  - Item:
+    - index: 3
+    - expression: 2.8284271247 kg·m/s
+    - reason: Evaluate the bounded family before rounding its displayed values.
+- result:
+  - approximate: 2.8284271247 kg·m/s
+- interpretation: Momentum reverses direction while retaining the same magnitude.
+- independent check:
+  - method: Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.
+  - expected: {"status": "valid", "output": 2.8284271247461903}
+- limits: This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction.
+- preset:
+  - mass: 2
+  - vx: -1
+  - vy: -1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - A cart of stated positive mass has a measured planar velocity. Resolve its momentum in the same frame; changing mass changes momentum without changing the stated velocity.
+  - This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction.
+
+## Written exploration recipe
+
+- component id: component:linear-momentum
+- renderer id: linear-momentum-visual-model
+- renderer version: 1
+- model id: linear-momentum-visual-model
+- model revision: 1
+- expression id: ast:linear-momentum:expression
+- interaction status: implemented
+- description: A warehouse cart has a stated mass and planar velocity. Keep the velocity fixed while changing its mass, then change direction without changing speed. The momentum arrow keeps the velocity direction but responds to both mass and speed. The two arrows use separate scales because their units differ.
+- controls:
+  - Item:
+    - id: mass
+    - type: number
+    - default: 2
+    - min: 0.5
+    - max: 5
+    - step: 0.05
+  - Item:
+    - id: vx
+    - type: number
+    - default: 1
+    - min: -3
+    - max: 3
+    - step: 0.05
+  - Item:
+    - id: vy
+    - type: number
+    - default: 1
+    - min: -3
+    - max: 3
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - mass: 2
+      - vx: 1
+      - vy: 1
+    - status: valid
+    - output: 2.8284271247461903
+  - Item:
+    - input:
+      - mass: 4
+      - vx: 1
+      - vy: 1
+    - status: valid
+    - output: 5.656854249492381
+  - Item:
+    - input:
+      - mass: 2
+      - vx: -1
+      - vy: -1
+    - status: valid
+    - output: 2.8284271247461903
+  - Item:
+    - input:
+      - mass: 2
+      - vx: 0
+      - vy: 0
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - mass: 2
+      - vx: -3
+      - vy: 0
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - mass: 0.5
+      - vx: 1
+      - vy: 1
+    - status: valid
+    - output: 0.7071067811865476
+  - Item:
+    - input:
+      - mass: 5
+      - vx: 1
+      - vy: 1
+    - status: valid
+    - output: 7.0710678118654755
+  - Item:
+    - input:
+      - mass: 2
+      - vx: -3
+      - vy: 1
+    - status: valid
+    - output: 6.324555320336759
+  - Item:
+    - input:
+      - mass: 2
+      - vx: 3
+      - vy: 1
+    - status: valid
+    - output: 6.324555320336759
+  - Item:
+    - input:
+      - mass: 2
+      - vx: 1
+      - vy: -3
+    - status: valid
+    - output: 6.324555320336759
+  - Item:
+    - input:
+      - mass: 2
+      - vx: 1
+      - vy: 3
+    - status: valid
+    - output: 6.324555320336759
+  - Item:
+    - input:
+      - mass: 2
+      - vx: 4
+      - vy: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - mass: 2
+      - vx: 1
+      - vy: 1
+    - status: invalid_parameters
+- compute: Multiply each velocity component by the positive mass in the same frame. The Euclidean norm of the momentum pair is its nonnegative magnitude.
+- numeric tolerance: 1e-10
+- invariants:
+  - A cart of stated positive mass has a measured planar velocity. Resolve its momentum in the same frame; changing mass changes momentum without changing the stated velocity.
+  - This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction.
+  - All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure.
+- limits:
+  - This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:spatial-foundations:momentum. [OpenStax · Linear Momentum](https://openstax.org/books/university-physics-volume-1/pages/9-1-linear-momentum). Locator: §9.1, Newtonian vector momentum as mass times velocity.. Verification: Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.. Rights: Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced.

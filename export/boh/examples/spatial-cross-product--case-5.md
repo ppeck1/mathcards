@@ -1,0 +1,310 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:spatial-cross-product:case-5", "id": "math:example:spatial-cross-product:case-5", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:spatial-cross-product", "example_id": "math:example:spatial-cross-product:case-5", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "107db1ccec9cf33679bf5e35ac631dc10d86fbc51e9d17f7703c5db3b4713ba0"}, "purpose": "How does a spatial panel acquire a normal direction?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "107db1ccec9cf33679bf5e35ac631dc10d86fbc51e9d17f7703c5db3b4713ba0", "status": "draft", "title": "Stand one edge vertically", "topics": ["mathematics", "linear-algebra", "geometry", "cross products in space"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Stand one edge vertically
+
+Parent card: math:concept:spatial-cross-product; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:spatial-cross-product; revision 0.1.0-draft. Setting: Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel. Expression: $\vec u\times\vec v=(u_y v_z-u_z v_y,\ u_z v_x-u_x v_z,\ u_x v_y-u_y v_x),\quad A=\|\vec u\times\vec v\|.$. Conditions required for a defined value (a case may test their violation): Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel. The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement. All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure. Scope: The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.
+
+Case unit math:example:spatial-cross-product:case-5. Setting: Two rods form the edges of a triangular support panel. Their ends can move in all three coordinate directions. Follow the ordered cross product: its components describe the normal, and its magnitude gives the area of the corresponding parallelogram. The triangle uses half that area. Inputs: {"ux": 1, "uy": 0, "uz": 0, "vx": 0, "vy": 0, "vz": 2}. Result: {"approximate": "2.0 m²"}. Limits: The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.
+
+## Complete worked case
+
+- id: math:example:spatial-cross-product:case-5
+- title: Stand one edge vertically
+- role: applied_model
+- question: How does a spatial panel acquire a normal direction?
+- setting: Two rods form the edges of a triangular support panel. Their ends can move in all three coordinate directions. Follow the ordered cross product: its components describe the normal, and its magnitude gives the area of the corresponding parallelogram. The triangle uses half that area.
+- assumptions:
+  - Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.
+  - The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.
+- inputs:
+  - ux: 1
+  - uy: 0
+  - uz: 0
+  - vx: 0
+  - vy: 0
+  - vz: 2
+- steps:
+  - Item:
+    - index: 1
+    - expression: u_x = 1; u_y = 0; u_z = 0; v_x = 0; v_y = 0; v_z = 2
+    - reason: Set these original constructed inputs in the declared frame.
+  - Item:
+    - index: 2
+    - expression: n = u × v; A = ‖n‖
+    - reason: Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area.
+  - Item:
+    - index: 3
+    - expression: 2.0 m²
+    - reason: Evaluate the bounded family before rounding its displayed values.
+- result:
+  - approximate: 2.0 m²
+- interpretation: A spatial panel can have a horizontal normal; the earlier planar z-only construction is not enough.
+- independent check:
+  - method: Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.
+  - expected: {"status": "valid", "output": 2.0}
+- limits: The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.
+- preset:
+  - ux: 1
+  - uy: 0
+  - uz: 0
+  - vx: 0
+  - vy: 0
+  - vz: 2
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.
+  - The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.
+
+## Written exploration recipe
+
+- component id: component:spatial-cross-product
+- renderer id: spatial-cross-product-visual-model
+- renderer version: 1
+- model id: spatial-cross-product-visual-model
+- model revision: 1
+- expression id: ast:spatial-cross-product:expression
+- interaction status: implemented
+- description: Two rods form the edges of a triangular support panel. Their ends can move in all three coordinate directions. Follow the ordered cross product: its components describe the normal, and its magnitude gives the area of the corresponding parallelogram. The triangle uses half that area.
+- controls:
+  - Item:
+    - id: ux
+    - type: number
+    - default: 2
+    - min: -2
+    - max: 2
+    - step: 0.05
+  - Item:
+    - id: uy
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - step: 0.05
+  - Item:
+    - id: uz
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - step: 0.05
+  - Item:
+    - id: vx
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - step: 0.05
+  - Item:
+    - id: vy
+    - type: number
+    - default: 2
+    - min: -2
+    - max: 2
+    - step: 0.05
+  - Item:
+    - id: vz
+    - type: number
+    - default: -1
+    - min: -2
+    - max: 2
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - uz: 1
+      - vx: 1
+      - vy: 2
+      - vz: -1
+    - status: valid
+    - output: 5.196152422706632
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - uz: 1
+      - vx: 2
+      - vy: 1
+      - vz: 1
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - ux: 1
+      - uy: 2
+      - uz: -1
+      - vx: 2
+      - vy: 1
+      - vz: 1
+    - status: valid
+    - output: 5.196152422706632
+  - Item:
+    - input:
+      - ux: 0
+      - uy: 0
+      - uz: 0
+      - vx: 1
+      - vy: 2
+      - vz: -1
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - ux: 1
+      - uy: 0
+      - uz: 0
+      - vx: 0
+      - vy: 0
+      - vz: 2
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - ux: -2
+      - uy: 1
+      - uz: 1
+      - vx: 1
+      - vy: 2
+      - vz: -1
+    - status: valid
+    - output: 5.916079783099616
+  - Item:
+    - input:
+      - ux: 2
+      - uy: -2
+      - uz: 1
+      - vx: 1
+      - vy: 2
+      - vz: -1
+    - status: valid
+    - output: 6.708203932499369
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 2
+      - uz: 1
+      - vx: 1
+      - vy: 2
+      - vz: -1
+    - status: valid
+    - output: 5.385164807134504
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - uz: -2
+      - vx: 1
+      - vy: 2
+      - vz: -1
+    - status: valid
+    - output: 4.242640687119285
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - uz: 2
+      - vx: 1
+      - vy: 2
+      - vz: -1
+    - status: valid
+    - output: 7.0710678118654755
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - uz: 1
+      - vx: -2
+      - vy: 2
+      - vz: -1
+    - status: valid
+    - output: 6.708203932499369
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - uz: 1
+      - vx: 2
+      - vy: 2
+      - vz: -1
+    - status: valid
+    - output: 5.385164807134504
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - uz: 1
+      - vx: 1
+      - vy: -2
+      - vz: -1
+    - status: valid
+    - output: 5.916079783099616
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - uz: 1
+      - vx: 1
+      - vy: 2
+      - vz: -2
+    - status: valid
+    - output: 7.0710678118654755
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - uz: 1
+      - vx: 1
+      - vy: 2
+      - vz: 2
+    - status: valid
+    - output: 4.242640687119285
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - uz: 1
+      - vx: 1
+      - vy: 2
+      - vz: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - ux: 2
+      - uy: 1
+      - uz: 1
+      - vx: 1
+      - vy: 2
+      - vz: -1
+    - status: invalid_parameters
+- compute: Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area.
+- numeric tolerance: 1e-10
+- invariants:
+  - Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.
+  - The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.
+  - All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure.
+- limits:
+  - The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:spatial-foundations:cross. [OpenStax · The Cross Product](https://openstax.org/books/calculus-volume-3/pages/2-4-the-cross-product). Locator: §2.4, component definition, normal orientation, parallelogram area and scalar triple product.. Verification: Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.. Rights: Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced.

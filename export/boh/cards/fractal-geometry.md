@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:fractal-geometry", "id": "math:concept:fractal-geometry", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:fractal-geometry", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "664a7e9a33b7b2dff115e0b3f6c4143e0f4912b3c535de2a2934fc8ea5768cd2"}, "purpose": "Build finite stages of a self-similar edge and measure their perimeter.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "664a7e9a33b7b2dff115e0b3f6c4143e0f4912b3c535de2a2934fc8ea5768cd2", "status": "draft", "title": "Fractal geometry", "topics": ["mathematics", "geometry", "infinity", "Koch snowflake", "self-similarity"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:fractal-geometry", "id": "math:concept:fractal-geometry", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:fractal-geometry", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "664a7e9a33b7b2dff115e0b3f6c4143e0f4912b3c535de2a2934fc8ea5768cd2"}, "purpose": "Build finite stages of a self-similar edge and measure their perimeter.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "664a7e9a33b7b2dff115e0b3f6c4143e0f4912b3c535de2a2934fc8ea5768cd2", "status": "draft", "title": "Fractal geometry", "topics": ["mathematics", "geometry", "infinity", "Koch snowflake", "self-similarity"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Fractal geometry
@@ -87,14 +87,14 @@ One replacement rule creates finer repeated structure. The drawing stops at a fi
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the concept and notation with specialist sources before adding historical attribution.
 - reader text: Historical account not yet sourced. Everyday scenarios are constructed examples, not historical anecdotes.
 
 ## Connections
 
-
+[]
 
 ## Examples
 
@@ -134,6 +134,7 @@ One replacement rule creates finer repeated structure. The drawing stops at a fi
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Start with an equilateral triangle and apply outward middle-third Koch replacements.
     - Integer depth describes a finite polygon, not an infinite fractal.
@@ -174,6 +175,7 @@ One replacement rule creates finer repeated structure. The drawing stops at a fi
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Start with an equilateral triangle and apply outward middle-third Koch replacements.
     - Integer depth describes a finite polygon, not an infinite fractal.
@@ -214,6 +216,7 @@ One replacement rule creates finer repeated structure. The drawing stops at a fi
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Start with an equilateral triangle and apply outward middle-third Koch replacements.
     - Integer depth describes a finite polygon, not an infinite fractal.
@@ -254,6 +257,7 @@ One replacement rule creates finer repeated structure. The drawing stops at a fi
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Start with an equilateral triangle and apply outward middle-third Koch replacements.
     - Integer depth describes a finite polygon, not an infinite fractal.
@@ -298,6 +302,7 @@ One replacement rule creates finer repeated structure. The drawing stops at a fi
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Start with an equilateral triangle and apply outward middle-third Koch replacements.
     - Integer depth describes a finite polygon, not an infinite fractal.

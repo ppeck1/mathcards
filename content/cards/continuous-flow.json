@@ -1,0 +1,675 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:continuous-flow",
+  "slug": "continuous-flow",
+  "type": "concept",
+  "title": "Continuous flows",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "continuous flows"
+  ],
+  "branches": [
+    "dynamics"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "How does a continuous correction settle?",
+  "meaning": "Multiply the initial displacement by the exponential response factor.",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:vector-field",
+      "math:concept:stability"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "The same ideal alignment controller continuously pulls a displaced mount toward zero. A whole correction step is no longer the unit of change: position has a value at every elapsed time. Hold the rate fixed and follow the exact response from the initial displacement.",
+    "formal_latex": "\\frac{dx}{dt}=-a x,\\quad x(t)=x_0 e^{-a t}.",
+    "signature": {
+      "t": "Elapsed time t; the declared input",
+      "x₀": "Starting displacement x₀; the declared input",
+      "a": "Return rate a; the declared input",
+      "result": "The primary reported quantity in position units."
+    },
+    "conditions": [
+      "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.",
+      "Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views.",
+      "This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified."
+    ],
+    "domain_notes": "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.",
+    "proof_status": "Author-derived for the bounded family; independent mathematical review pending.",
+    "source_refs": [
+      "source:systems:flow"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Continuous flows",
+    "expression_latex": "\\frac{dx}{dt}=-a x,\\quad x(t)=x_0 e^{-a t}.",
+    "formation_rule": "Multiply the initial displacement by the exponential response factor.",
+    "precedence": "Apply the stated grouping and units before rounding the displayed result.",
+    "symbols": [
+      {
+        "token": "t",
+        "role": "Elapsed time t; the declared input",
+        "type": "Declared input or result"
+      },
+      {
+        "token": "x₀",
+        "role": "Starting displacement x₀; the declared input",
+        "type": "Declared input or result"
+      },
+      {
+        "token": "a",
+        "role": "Return rate a; the declared input",
+        "type": "Declared input or result"
+      },
+      {
+        "token": "result",
+        "role": "The primary reported quantity in position units.",
+        "type": "Declared input or result"
+      }
+    ],
+    "ast": {
+      "id": "ast:continuous-flow:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:time",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "t",
+          "scope_ref": "scope:continuous-flow"
+        },
+        {
+          "id": "n:initial",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "x₀",
+          "scope_ref": "scope:continuous-flow"
+        },
+        {
+          "id": "n:rate",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "a",
+          "scope_ref": "scope:continuous-flow"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried evaluator for the stated family",
+          "ref": "Multiply the initial displacement by the exponential response factor."
+        },
+        {
+          "id": "n:bound-time",
+          "kind": "apply",
+          "type": "Declared result",
+          "function": "n:rule",
+          "argument": "n:time"
+        },
+        {
+          "id": "n:bound-initial",
+          "kind": "apply",
+          "type": "Declared result",
+          "function": "n:bound-time",
+          "argument": "n:initial"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared result",
+          "function": "n:bound-initial",
+          "argument": "n:rate"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:continuous-flow",
+          "kind": "modelExpression",
+          "free_variables": [
+            "t",
+            "x₀",
+            "a"
+          ],
+          "domain_condition": "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use a value outside the declared range",
+        "status": "unsupported parameter",
+        "reason": "The executable family is deliberately bounded; its limits are part of its meaning."
+      }
+    ],
+    "ast_coverage": "A typed application outline of the bounded family; no arbitrary expression parser is claimed.",
+    "output_symbol_bindings": {
+      "t": "time",
+      "x₀": "initial",
+      "a": "rate",
+      "result": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Multiply the initial displacement by the exponential response factor.",
+      "conditions": "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.",
+      "derivation": "The violet dot stays at the starting position. The gold dot moves to the exact finite-time position.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:continuous-flow:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:vector-field",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared assumptions.",
+      "reason": "Continuous flows supplies a bounded connection to vector field.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:stability",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared assumptions.",
+      "reason": "Continuous flows supplies a bounded connection to stability.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:continuous-flow:case-1",
+      "title": "Begin with the stated scenario",
+      "role": "applied_model",
+      "question": "How does a continuous correction settle?",
+      "setting": "The same ideal alignment controller continuously pulls a displaced mount toward zero. A whole correction step is no longer the unit of change: position has a value at every elapsed time. Hold the rate fixed and follow the exact response from the initial displacement.",
+      "assumptions": [
+        "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used."
+      ],
+      "inputs": {
+        "time": 1,
+        "initial": 2,
+        "rate": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 1, x₀ = 2, a = 0.5",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "x(t) = x₀ exp(−a t)",
+          "reason": "Multiply the initial displacement by the exponential response factor."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 1.2130613194 position units",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "approximate": "1.2130613194 position units"
+      },
+      "interpretation": "The violet dot stays at the starting position. The gold dot moves to the exact finite-time position.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "1.2130613194252668"
+      },
+      "limits": "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.",
+      "preset": {
+        "time": 1,
+        "initial": 2,
+        "rate": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used."
+      ]
+    },
+    {
+      "id": "math:example:continuous-flow:case-2",
+      "title": "Change Elapsed time t to 0",
+      "role": "applied_model",
+      "question": "How does a continuous correction settle?",
+      "setting": "The same ideal alignment controller continuously pulls a displaced mount toward zero. A whole correction step is no longer the unit of change: position has a value at every elapsed time. Hold the rate fixed and follow the exact response from the initial displacement.",
+      "assumptions": [
+        "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used."
+      ],
+      "inputs": {
+        "time": 0,
+        "initial": 2,
+        "rate": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 0, x₀ = 2, a = 0.5",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "x(t) = x₀ exp(−a t)",
+          "reason": "Multiply the initial displacement by the exponential response factor."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 2.0 position units",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "approximate": "2.0 position units"
+      },
+      "interpretation": "The violet dot stays at the starting position. The gold dot moves to the exact finite-time position.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "2.0"
+      },
+      "limits": "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.",
+      "preset": {
+        "time": 0,
+        "initial": 2,
+        "rate": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used."
+      ]
+    },
+    {
+      "id": "math:example:continuous-flow:case-3",
+      "title": "Change Elapsed time t to 5",
+      "role": "applied_model",
+      "question": "How does a continuous correction settle?",
+      "setting": "The same ideal alignment controller continuously pulls a displaced mount toward zero. A whole correction step is no longer the unit of change: position has a value at every elapsed time. Hold the rate fixed and follow the exact response from the initial displacement.",
+      "assumptions": [
+        "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used."
+      ],
+      "inputs": {
+        "time": 5,
+        "initial": 2,
+        "rate": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 5, x₀ = 2, a = 0.5",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "x(t) = x₀ exp(−a t)",
+          "reason": "Multiply the initial displacement by the exponential response factor."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 0.1641699972 position units",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "approximate": "0.1641699972 position units"
+      },
+      "interpretation": "The violet dot stays at the starting position. The gold dot moves to the exact finite-time position.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "0.1641699972477976"
+      },
+      "limits": "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.",
+      "preset": {
+        "time": 5,
+        "initial": 2,
+        "rate": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used."
+      ]
+    },
+    {
+      "id": "math:example:continuous-flow:case-4",
+      "title": "Change Starting displacement x₀ to -3",
+      "role": "applied_model",
+      "question": "How does a continuous correction settle?",
+      "setting": "The same ideal alignment controller continuously pulls a displaced mount toward zero. A whole correction step is no longer the unit of change: position has a value at every elapsed time. Hold the rate fixed and follow the exact response from the initial displacement.",
+      "assumptions": [
+        "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used."
+      ],
+      "inputs": {
+        "time": 1,
+        "initial": -3,
+        "rate": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 1, x₀ = -3, a = 0.5",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "x(t) = x₀ exp(−a t)",
+          "reason": "Multiply the initial displacement by the exponential response factor."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ -1.8195919791 position units",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "approximate": "-1.8195919791 position units"
+      },
+      "interpretation": "The violet dot stays at the starting position. The gold dot moves to the exact finite-time position.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "-1.8195919791379003"
+      },
+      "limits": "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.",
+      "preset": {
+        "time": 1,
+        "initial": -3,
+        "rate": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used."
+      ]
+    },
+    {
+      "id": "math:example:continuous-flow:case-5",
+      "title": "Change Starting displacement x₀ to 3",
+      "role": "applied_model",
+      "question": "How does a continuous correction settle?",
+      "setting": "The same ideal alignment controller continuously pulls a displaced mount toward zero. A whole correction step is no longer the unit of change: position has a value at every elapsed time. Hold the rate fixed and follow the exact response from the initial displacement.",
+      "assumptions": [
+        "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used."
+      ],
+      "inputs": {
+        "time": 1,
+        "initial": 3,
+        "rate": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 1, x₀ = 3, a = 0.5",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "x(t) = x₀ exp(−a t)",
+          "reason": "Multiply the initial displacement by the exponential response factor."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 1.8195919791 position units",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "approximate": "1.8195919791 position units"
+      },
+      "interpretation": "The violet dot stays at the starting position. The gold dot moves to the exact finite-time position.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "1.8195919791379003"
+      },
+      "limits": "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.",
+      "preset": {
+        "time": 1,
+        "initial": 3,
+        "rate": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:continuous-flow",
+    "renderer_id": "continuous-flow-visual-model",
+    "renderer_version": "1",
+    "model_id": "continuous-flow-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:continuous-flow:expression",
+    "interaction_status": "implemented",
+    "description": "The violet dot stays at the starting position. The gold dot moves to the exact finite-time position.",
+    "controls": [
+      {
+        "id": "time",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      {
+        "id": "initial",
+        "type": "number",
+        "default": 2,
+        "min": -3,
+        "max": 3,
+        "step": 0.05
+      },
+      {
+        "id": "rate",
+        "type": "number",
+        "default": 0.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "time": 1,
+          "initial": 2,
+          "rate": 0.5
+        },
+        "status": "valid",
+        "output": 1.2130613194252668
+      },
+      {
+        "input": {
+          "time": 0,
+          "initial": 2,
+          "rate": 0.5
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "time": 5,
+          "initial": 2,
+          "rate": 0.5
+        },
+        "status": "valid",
+        "output": 0.1641699972477976
+      },
+      {
+        "input": {
+          "time": 1,
+          "initial": -3,
+          "rate": 0.5
+        },
+        "status": "valid",
+        "output": -1.8195919791379003
+      },
+      {
+        "input": {
+          "time": 1,
+          "initial": 3,
+          "rate": 0.5
+        },
+        "status": "valid",
+        "output": 1.8195919791379003
+      },
+      {
+        "input": {
+          "time": 1,
+          "initial": 2,
+          "rate": 0
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "time": 1,
+          "initial": 2,
+          "rate": 2
+        },
+        "status": "valid",
+        "output": 0.2706705664732254
+      },
+      {
+        "input": {
+          "time": 1.25,
+          "initial": 2,
+          "rate": 0.5
+        },
+        "status": "valid",
+        "output": 1.0705228570379806
+      },
+      {
+        "input": {
+          "time": 3.75,
+          "initial": 2,
+          "rate": 0.5
+        },
+        "status": "valid",
+        "output": 0.30670993368985694
+      },
+      {
+        "input": {
+          "time": 6,
+          "initial": 2,
+          "rate": 0.5
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Multiply the initial displacement by the exponential response factor.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.",
+      "Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views.",
+      "This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified."
+    ],
+    "limits": [
+      "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How does a continuous correction settle?",
+      "answer": "Multiply the initial displacement by the exponential response factor."
+    },
+    {
+      "prompt": "What does this construction leave out?",
+      "answer": "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "The violet dot stays at the starting position. The gold dot moves to the exact finite-time position."
+    },
+    {
+      "kind": "graph",
+      "description": "Hold other inputs fixed and plot the declared primary result against Elapsed time t. Discrete results use separate dots."
+    },
+    {
+      "kind": "substitution",
+      "description": "Multiply the initial displacement by the exponential response factor."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Originally authored teaching scenario",
+      "mapping": "How does a continuous correction settle?",
+      "limitations": "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:continuous-flow:case-1"
+    },
+    {
+      "context": "Boundary comparison",
+      "mapping": "Multiply the initial displacement by the exponential response factor.",
+      "limitations": "The exact solution of one autonomous linear differential equation with constant nonnegative rate. No numerical integration is used.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:continuous-flow:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:systems:flow"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0: Added bounded model, connected story, Geometry/Graph, original examples and reference coverage."
+  ]
+}

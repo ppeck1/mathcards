@@ -1,0 +1,999 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:perfect-number",
+  "slug": "perfect-number",
+  "type": "concept",
+  "title": "Perfect numbers and proper divisors",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-05T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "perfect numbers and proper divisors"
+  ],
+  "branches": [
+    "numbers-number-theory",
+    "discrete-mathematics"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Can the proper-divisor tile strips exactly match the target strip?",
+  "meaning": "A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers.",
+  "prerequisites": {
+    "required": [
+      "math:concept:greatest-common-divisor"
+    ],
+    "helpful": [
+      "math:concept:prime-factorization",
+      "math:concept:set"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A number exhibit has a target strip of n unit tiles. For every positive proper divisor d of n, it builds one separate strip with d tiles. Collect these divisor strips and compare their total with the target. The picture counts each proper divisor once; it does not partition the original strip into those pieces.",
+    "formal_latex": "D=\\{d\\in\\mathbb{N}:d\\mid n,\\ 0<d<n\\},\\quad s=\\sum_{d\\in D}d,\\quad \\Delta=s-n,\\quad n\\text{ is perfect}\\iff s=n.",
+    "signature": {
+      "n": "Number of tiles in the target strip",
+      "D": "Set of positive proper divisors of the chosen integer",
+      "s": "Sum of the positive proper divisors, in tile items",
+      "Δ": "Divisor-strip total minus the target count",
+      "d": "Bound divisor: one member of the positive proper-divisor set"
+    },
+    "conditions": [
+      "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero."
+    ],
+    "domain_notes": "This finite exhibit uses exact integer divisibility. Deficient means s<n, perfect means s=n, and abundant means s>n; these words classify the divisor sum. Zero and negative integers are outside the family. No claim about all perfect numbers or their historical discovery follows from the finite display.",
+    "proof_status": "Definition-level source and originally authored finite calculations; independent mathematical review pending.",
+    "source_refs": [
+      "source:number-extensions:perfect-number"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Perfect numbers and proper divisors",
+    "expression_latex": "D=\\{d\\in\\mathbb{N}:d\\mid n,\\ 0<d<n\\},\\quad s=\\sum_{d\\in D}d,\\quad \\Delta=s-n,\\quad n\\text{ is perfect}\\iff s=n.",
+    "formation_rule": "A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers.",
+    "precedence": "Test positive divisibility and exclude n before summing; subtract the target after forming the divisor sum.",
+    "symbols": [
+      {
+        "token": "n",
+        "role": "Number of tiles in the target strip",
+        "type": "Locally declared quantity or constant"
+      },
+      {
+        "token": "D",
+        "role": "Set of positive proper divisors of the chosen integer",
+        "type": "Locally declared quantity or constant"
+      },
+      {
+        "token": "s",
+        "role": "Sum of the positive proper divisors, in tile items",
+        "type": "Locally declared quantity or constant"
+      },
+      {
+        "token": "Δ",
+        "role": "Divisor-strip total minus the target count",
+        "type": "Locally declared quantity or constant"
+      },
+      {
+        "token": "d",
+        "role": "Bound divisor: one member of the positive proper-divisor set",
+        "type": "Locally declared quantity or constant"
+      }
+    ],
+    "ast": {
+      "id": "ast:perfect-number:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:number",
+          "kind": "variable",
+          "type": "Declared numeric input",
+          "symbol": "n",
+          "scope_ref": "scope:perfect-number"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Bounded integer or geometric rule",
+          "ref": "D=\\{d\\in\\mathbb{N}:d\\mid n,\\ 0<d<n\\},\\quad s=\\sum_{d\\in D}d,\\quad \\Delta=s-n,\\quad n\\text{ is perfect}\\iff s=n."
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Bounded model value",
+          "function": "n:rule",
+          "argument": "n:number"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:perfect-number",
+          "kind": "modelExpression",
+          "free_variables": [
+            "n"
+          ],
+          "external_parameters": [
+            "Exact positive integer divisibility"
+          ],
+          "domain_condition": "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero.",
+          "bound_variables": [
+            "d"
+          ]
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use a fractional count or omit the declared geometric assumptions",
+        "status": "model mismatch",
+        "reason": "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero."
+      }
+    ],
+    "ast_coverage": "Typed application outline of the stated bounded construction; the formal expression declares the complete mathematical rule.",
+    "output_symbol_bindings": {
+      "n": "number",
+      "D": "divisors",
+      "s": "divisorSum",
+      "Δ": "balance",
+      "d": "divisors"
+    }
+  },
+  "properties": [
+    {
+      "claim": "A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers.",
+      "conditions": "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero.",
+      "derivation": "A positive divisor d of n leaves zero remainder in integer division. Excluding n leaves exactly the proper divisors. Add each member once and subtract n to obtain the balance. At n=1 there are no allowed members, so the empty sum is zero and the balance is −1. Divisor pairs found up to the square root give an independent check, counting a square-root divisor only once.",
+      "status": "original derivation under stated conditions; independent review pending",
+      "example_ref": "math:example:perfect-number:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:greatest-common-divisor",
+      "type": "supports",
+      "conditions": "Use the stated domains, units and interpretation in both lessons.",
+      "reason": "Both lessons use exact positive divisibility, while a common divisor refers to two integers.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; original explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:prime-factorization",
+      "type": "supports",
+      "conditions": "Use the stated domains, units and interpretation in both lessons.",
+      "reason": "Prime factorization helps organize the divisors of an integer.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; original explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:set",
+      "type": "supports",
+      "conditions": "Use the stated domains, units and interpretation in both lessons.",
+      "reason": "The proper divisors form a finite set; the empty-set case has no members to add.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; original explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:perfect-number:case-1",
+      "title": "Six tiles match exactly",
+      "role": "applied_model",
+      "question": "Can the proper-divisor tile strips exactly match the target strip?",
+      "setting": "A number exhibit has a target strip of n unit tiles. For every positive proper divisor d of n, it builds one separate strip with d tiles. Collect these divisor strips and compare their total with the target. The picture counts each proper divisor once; it does not partition the original strip into those pieces.",
+      "assumptions": [
+        "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero."
+      ],
+      "inputs": {
+        "number": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 6",
+          "reason": "Place the selected inputs in the stated construction."
+        },
+        {
+          "index": 2,
+          "expression": "D=\\{d\\in\\mathbb{N}:d\\mid n,\\ 0<d<n\\},\\quad s=\\sum_{d\\in D}d,\\quad \\Delta=s-n,\\quad n\\text{ is perfect}\\iff s=n.",
+          "reason": "A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers."
+        },
+        {
+          "index": 3,
+          "expression": "s = 6 items",
+          "reason": "The proper divisors 1, 2 and 3 total six. The balance is zero, so 6 is perfect."
+        }
+      ],
+      "result": {
+        "exact": "6"
+      },
+      "interpretation": "The proper divisors 1, 2 and 3 total six. The balance is zero, so 6 is perfect.",
+      "independent_check": {
+        "method": "Independently enumerate factor pairs up to the integer square root, exclude the target divisor, deduplicate a square root, and sum the remaining positive divisors.",
+        "expected": "6.0"
+      },
+      "limits": "This finite exhibit uses exact integer divisibility. Deficient means s<n, perfect means s=n, and abundant means s>n; these words classify the divisor sum. Zero and negative integers are outside the family. No claim about all perfect numbers or their historical discovery follows from the finite display.",
+      "preset": {
+        "number": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero."
+      ]
+    },
+    {
+      "id": "math:example:perfect-number:case-2",
+      "title": "A second exact match",
+      "role": "applied_model",
+      "question": "Can the proper-divisor tile strips exactly match the target strip?",
+      "setting": "A number exhibit has a target strip of n unit tiles. For every positive proper divisor d of n, it builds one separate strip with d tiles. Collect these divisor strips and compare their total with the target. The picture counts each proper divisor once; it does not partition the original strip into those pieces.",
+      "assumptions": [
+        "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero."
+      ],
+      "inputs": {
+        "number": 28
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 28",
+          "reason": "Place the selected inputs in the stated construction."
+        },
+        {
+          "index": 2,
+          "expression": "D=\\{d\\in\\mathbb{N}:d\\mid n,\\ 0<d<n\\},\\quad s=\\sum_{d\\in D}d,\\quad \\Delta=s-n,\\quad n\\text{ is perfect}\\iff s=n.",
+          "reason": "A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers."
+        },
+        {
+          "index": 3,
+          "expression": "s = 28 items",
+          "reason": "The strips 1, 2, 4, 7 and 14 total 28. Equality, rather than the number of strips, makes 28 perfect."
+        }
+      ],
+      "result": {
+        "exact": "28"
+      },
+      "interpretation": "The strips 1, 2, 4, 7 and 14 total 28. Equality, rather than the number of strips, makes 28 perfect.",
+      "independent_check": {
+        "method": "Independently enumerate factor pairs up to the integer square root, exclude the target divisor, deduplicate a square root, and sum the remaining positive divisors.",
+        "expected": "28.0"
+      },
+      "limits": "This finite exhibit uses exact integer divisibility. Deficient means s<n, perfect means s=n, and abundant means s>n; these words classify the divisor sum. Zero and negative integers are outside the family. No claim about all perfect numbers or their historical discovery follows from the finite display.",
+      "preset": {
+        "number": 28
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero."
+      ]
+    },
+    {
+      "id": "math:example:perfect-number:case-3",
+      "title": "Too many divisor tiles",
+      "role": "applied_model",
+      "question": "Can the proper-divisor tile strips exactly match the target strip?",
+      "setting": "A number exhibit has a target strip of n unit tiles. For every positive proper divisor d of n, it builds one separate strip with d tiles. Collect these divisor strips and compare their total with the target. The picture counts each proper divisor once; it does not partition the original strip into those pieces.",
+      "assumptions": [
+        "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero."
+      ],
+      "inputs": {
+        "number": 12
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 12",
+          "reason": "Place the selected inputs in the stated construction."
+        },
+        {
+          "index": 2,
+          "expression": "D=\\{d\\in\\mathbb{N}:d\\mid n,\\ 0<d<n\\},\\quad s=\\sum_{d\\in D}d,\\quad \\Delta=s-n,\\quad n\\text{ is perfect}\\iff s=n.",
+          "reason": "A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers."
+        },
+        {
+          "index": 3,
+          "expression": "s = 16 items",
+          "reason": "The proper divisors 1, 2, 3, 4 and 6 total 16. The four-tile surplus classifies 12 as abundant."
+        }
+      ],
+      "result": {
+        "exact": "16"
+      },
+      "interpretation": "The proper divisors 1, 2, 3, 4 and 6 total 16. The four-tile surplus classifies 12 as abundant.",
+      "independent_check": {
+        "method": "Independently enumerate factor pairs up to the integer square root, exclude the target divisor, deduplicate a square root, and sum the remaining positive divisors.",
+        "expected": "16.0"
+      },
+      "limits": "This finite exhibit uses exact integer divisibility. Deficient means s<n, perfect means s=n, and abundant means s>n; these words classify the divisor sum. Zero and negative integers are outside the family. No claim about all perfect numbers or their historical discovery follows from the finite display.",
+      "preset": {
+        "number": 12
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero."
+      ]
+    },
+    {
+      "id": "math:example:perfect-number:case-4",
+      "title": "A prime target has one proper divisor",
+      "role": "applied_model",
+      "question": "Can the proper-divisor tile strips exactly match the target strip?",
+      "setting": "A number exhibit has a target strip of n unit tiles. For every positive proper divisor d of n, it builds one separate strip with d tiles. Collect these divisor strips and compare their total with the target. The picture counts each proper divisor once; it does not partition the original strip into those pieces.",
+      "assumptions": [
+        "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero."
+      ],
+      "inputs": {
+        "number": 13
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 13",
+          "reason": "Place the selected inputs in the stated construction."
+        },
+        {
+          "index": 2,
+          "expression": "D=\\{d\\in\\mathbb{N}:d\\mid n,\\ 0<d<n\\},\\quad s=\\sum_{d\\in D}d,\\quad \\Delta=s-n,\\quad n\\text{ is perfect}\\iff s=n.",
+          "reason": "A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers."
+        },
+        {
+          "index": 3,
+          "expression": "s = 1 items",
+          "reason": "Only the strip of one tile is allowed. Its sum is 1 and the balance is −12, so 13 is deficient."
+        }
+      ],
+      "result": {
+        "exact": "1"
+      },
+      "interpretation": "Only the strip of one tile is allowed. Its sum is 1 and the balance is −12, so 13 is deficient.",
+      "independent_check": {
+        "method": "Independently enumerate factor pairs up to the integer square root, exclude the target divisor, deduplicate a square root, and sum the remaining positive divisors.",
+        "expected": "1.0"
+      },
+      "limits": "This finite exhibit uses exact integer divisibility. Deficient means s<n, perfect means s=n, and abundant means s>n; these words classify the divisor sum. Zero and negative integers are outside the family. No claim about all perfect numbers or their historical discovery follows from the finite display.",
+      "preset": {
+        "number": 13
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero."
+      ]
+    },
+    {
+      "id": "math:example:perfect-number:case-5",
+      "title": "The empty-divisor boundary",
+      "role": "applied_model",
+      "question": "Can the proper-divisor tile strips exactly match the target strip?",
+      "setting": "A number exhibit has a target strip of n unit tiles. For every positive proper divisor d of n, it builds one separate strip with d tiles. Collect these divisor strips and compare their total with the target. The picture counts each proper divisor once; it does not partition the original strip into those pieces.",
+      "assumptions": [
+        "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero."
+      ],
+      "inputs": {
+        "number": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 1",
+          "reason": "Place the selected inputs in the stated construction."
+        },
+        {
+          "index": 2,
+          "expression": "D=\\{d\\in\\mathbb{N}:d\\mid n,\\ 0<d<n\\},\\quad s=\\sum_{d\\in D}d,\\quad \\Delta=s-n,\\quad n\\text{ is perfect}\\iff s=n.",
+          "reason": "A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers."
+        },
+        {
+          "index": 3,
+          "expression": "s = 0 items",
+          "reason": "No positive integer is smaller than one and divides it. D is empty, its sum is zero, and 1 is deficient with balance −1."
+        }
+      ],
+      "result": {
+        "exact": "0"
+      },
+      "interpretation": "No positive integer is smaller than one and divides it. D is empty, its sum is zero, and 1 is deficient with balance −1.",
+      "independent_check": {
+        "method": "Independently enumerate factor pairs up to the integer square root, exclude the target divisor, deduplicate a square root, and sum the remaining positive divisors.",
+        "expected": "0.0"
+      },
+      "limits": "This finite exhibit uses exact integer divisibility. Deficient means s<n, perfect means s=n, and abundant means s>n; these words classify the divisor sum. Zero and negative integers are outside the family. No claim about all perfect numbers or their historical discovery follows from the finite display.",
+      "preset": {
+        "number": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:perfect-number",
+    "renderer_id": "perfect-number-visual-model",
+    "renderer_version": "1",
+    "model_id": "perfect-number-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:perfect-number:expression",
+    "interaction_status": "implemented",
+    "description": "A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers.",
+    "controls": [
+      {
+        "id": "number",
+        "type": "number",
+        "default": 6,
+        "min": 1,
+        "max": 60,
+        "step": 1
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "number": 1
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "number": 2
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 3
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 4
+        },
+        "status": "valid",
+        "output": 3.0
+      },
+      {
+        "input": {
+          "number": 5
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 6
+        },
+        "status": "valid",
+        "output": 6.0
+      },
+      {
+        "input": {
+          "number": 7
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 8
+        },
+        "status": "valid",
+        "output": 7.0
+      },
+      {
+        "input": {
+          "number": 9
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "number": 10
+        },
+        "status": "valid",
+        "output": 8.0
+      },
+      {
+        "input": {
+          "number": 11
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 12
+        },
+        "status": "valid",
+        "output": 16.0
+      },
+      {
+        "input": {
+          "number": 13
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 14
+        },
+        "status": "valid",
+        "output": 10.0
+      },
+      {
+        "input": {
+          "number": 15
+        },
+        "status": "valid",
+        "output": 9.0
+      },
+      {
+        "input": {
+          "number": 16
+        },
+        "status": "valid",
+        "output": 15.0
+      },
+      {
+        "input": {
+          "number": 17
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 18
+        },
+        "status": "valid",
+        "output": 21.0
+      },
+      {
+        "input": {
+          "number": 19
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 20
+        },
+        "status": "valid",
+        "output": 22.0
+      },
+      {
+        "input": {
+          "number": 21
+        },
+        "status": "valid",
+        "output": 11.0
+      },
+      {
+        "input": {
+          "number": 22
+        },
+        "status": "valid",
+        "output": 14.0
+      },
+      {
+        "input": {
+          "number": 23
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 24
+        },
+        "status": "valid",
+        "output": 36.0
+      },
+      {
+        "input": {
+          "number": 25
+        },
+        "status": "valid",
+        "output": 6.0
+      },
+      {
+        "input": {
+          "number": 26
+        },
+        "status": "valid",
+        "output": 16.0
+      },
+      {
+        "input": {
+          "number": 27
+        },
+        "status": "valid",
+        "output": 13.0
+      },
+      {
+        "input": {
+          "number": 28
+        },
+        "status": "valid",
+        "output": 28.0
+      },
+      {
+        "input": {
+          "number": 29
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 30
+        },
+        "status": "valid",
+        "output": 42.0
+      },
+      {
+        "input": {
+          "number": 31
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 32
+        },
+        "status": "valid",
+        "output": 31.0
+      },
+      {
+        "input": {
+          "number": 33
+        },
+        "status": "valid",
+        "output": 15.0
+      },
+      {
+        "input": {
+          "number": 34
+        },
+        "status": "valid",
+        "output": 20.0
+      },
+      {
+        "input": {
+          "number": 35
+        },
+        "status": "valid",
+        "output": 13.0
+      },
+      {
+        "input": {
+          "number": 36
+        },
+        "status": "valid",
+        "output": 55.0
+      },
+      {
+        "input": {
+          "number": 37
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 38
+        },
+        "status": "valid",
+        "output": 22.0
+      },
+      {
+        "input": {
+          "number": 39
+        },
+        "status": "valid",
+        "output": 17.0
+      },
+      {
+        "input": {
+          "number": 40
+        },
+        "status": "valid",
+        "output": 50.0
+      },
+      {
+        "input": {
+          "number": 41
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 42
+        },
+        "status": "valid",
+        "output": 54.0
+      },
+      {
+        "input": {
+          "number": 43
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 44
+        },
+        "status": "valid",
+        "output": 40.0
+      },
+      {
+        "input": {
+          "number": 45
+        },
+        "status": "valid",
+        "output": 33.0
+      },
+      {
+        "input": {
+          "number": 46
+        },
+        "status": "valid",
+        "output": 26.0
+      },
+      {
+        "input": {
+          "number": 47
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 48
+        },
+        "status": "valid",
+        "output": 76.0
+      },
+      {
+        "input": {
+          "number": 49
+        },
+        "status": "valid",
+        "output": 8.0
+      },
+      {
+        "input": {
+          "number": 50
+        },
+        "status": "valid",
+        "output": 43.0
+      },
+      {
+        "input": {
+          "number": 51
+        },
+        "status": "valid",
+        "output": 21.0
+      },
+      {
+        "input": {
+          "number": 52
+        },
+        "status": "valid",
+        "output": 46.0
+      },
+      {
+        "input": {
+          "number": 53
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 54
+        },
+        "status": "valid",
+        "output": 66.0
+      },
+      {
+        "input": {
+          "number": 55
+        },
+        "status": "valid",
+        "output": 17.0
+      },
+      {
+        "input": {
+          "number": 56
+        },
+        "status": "valid",
+        "output": 64.0
+      },
+      {
+        "input": {
+          "number": 57
+        },
+        "status": "valid",
+        "output": 23.0
+      },
+      {
+        "input": {
+          "number": 58
+        },
+        "status": "valid",
+        "output": 32.0
+      },
+      {
+        "input": {
+          "number": 59
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "number": 60
+        },
+        "status": "valid",
+        "output": 108.0
+      },
+      {
+        "input": {
+          "number": 0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "number": 61
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "number": 6.5
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "number": true
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "number": null
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "number": "6"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "D=\\{d\\in\\mathbb{N}:d\\mid n,\\ 0<d<n\\},\\quad s=\\sum_{d\\in D}d,\\quad \\Delta=s-n,\\quad n\\text{ is perfect}\\iff s=n.",
+    "numeric_tolerance": 5e-11,
+    "invariants": [
+      "The target is a whole number from 1 to 60 items. A proper divisor is positive and strictly smaller than n. For n=1 the proper-divisor set is empty and its sum is zero.",
+      "Story, calculation, Geometry and Graph use the same evaluated state.",
+      "Whole-number counts change at exact integer choices; physical radii can vary continuously."
+    ],
+    "limits": [
+      "This finite exhibit uses exact integer divisibility. Deficient means s<n, perfect means s=n, and abundant means s>n; these words classify the divisor sum. Zero and negative integers are outside the family. No claim about all perfect numbers or their historical discovery follows from the finite display."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Can the proper-divisor tile strips exactly match the target strip?",
+      "answer": "A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers."
+    },
+    {
+      "prompt": "What does this picture measure?",
+      "answer": "A number exhibit has a target strip of n unit tiles. For every positive proper divisor d of n, it builds one separate strip with d tiles. Collect these divisor strips and compare their total with the target. The picture counts each proper divisor once; it does not partition the original strip into those pieces."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "A target strip and labeled proper-divisor strips use the same unit-tile scale. The empty set remains visible when n=1."
+    },
+    {
+      "kind": "graph",
+      "description": "Individual evaluated divisor sums for integers 1–60 compare with the equality line s=n without inventing values between integers."
+    },
+    {
+      "kind": "substitution",
+      "description": "A positive integer is perfect when the sum of its positive proper divisors equals the integer itself. List the divisors smaller than n, make one counted strip for each divisor, and compare their combined length s with the target n. The balance Δ=s−n distinguishes deficient, perfect and abundant numbers."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Originally authored workshop timing or tile exhibit",
+      "mapping": "A number exhibit has a target strip of n unit tiles. For every positive proper divisor d of n, it builds one separate strip with d tiles. Collect these divisor strips and compare their total with the target. The picture counts each proper divisor once; it does not partition the original strip into those pieces.",
+      "limitations": "This finite exhibit uses exact integer divisibility. Deficient means s<n, perfect means s=n, and abundant means s>n; these words classify the divisor sum. Zero and negative integers are outside the family. No claim about all perfect numbers or their historical discovery follows from the finite display.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:perfect-number:case-1"
+    },
+    {
+      "context": "A second exact match",
+      "mapping": "The strips 1, 2, 4, 7 and 14 total 28. Equality, rather than the number of strips, makes 28 perfect.",
+      "limitations": "This finite exhibit uses exact integer divisibility. Deficient means s<n, perfect means s=n, and abundant means s>n; these words classify the divisor sum. Zero and negative integers are outside the family. No claim about all perfect numbers or their historical discovery follows from the finite display.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:perfect-number:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:number-extensions:perfect-number"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 continuation: added this bounded number or geometry lesson through the existing modular host."
+  ]
+}

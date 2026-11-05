@@ -1,0 +1,547 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:prime-factorization",
+  "slug": "prime-factorization",
+  "type": "concept",
+  "title": "Prime factorization",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "prime factorization"
+  ],
+  "branches": [
+    "numbers-number-theory"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Which prime group sizes rebuild the original pack?",
+  "meaning": "A prime factorization expresses an integer larger than one as a product of primes, retaining repetitions. Repeatedly divide by the smallest available divisor and retain every prime factor, including repetitions. Their product reconstructs the positive item count.",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:modular-arithmetic",
+      "math:concept:greatest-common-divisor"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A packer recursively splits a positive whole item count into smaller equal groups until the group sizes are prime. Repeated factors are kept.",
+    "formal_latex": "n=\\prod_{j=1}^{s}p_j,\\quad p_j\\text{ prime}.",
+    "signature": {
+      "n": "Original positive item count.",
+      "s": "Number of prime factors, counted with repetitions.",
+      "pⱼ": "The prime factors in the displayed product."
+    },
+    "conditions": [
+      "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.",
+      "All chosen inputs are whole numbers in the declared finite ranges. Both views and the story use the same evaluated state."
+    ],
+    "domain_notes": "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.",
+    "proof_status": "Definition-level sources and original bounded calculations; independent review pending.",
+    "source_refs": [
+      "source:number-foundations:prime"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Prime factorization",
+    "expression_latex": "n=\\prod_{j=1}^{s}p_j,\\quad p_j\\text{ prime}.",
+    "formation_rule": "Repeatedly divide by the smallest available divisor and retain every prime factor, including repetitions. Their product reconstructs the positive item count.",
+    "precedence": "Respect the declared grouping, integer domain and distinction between ordered and unordered choices.",
+    "symbols": [
+      {
+        "token": "n",
+        "role": "Original positive item count.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      },
+      {
+        "token": "s",
+        "role": "Number of prime factors, counted with repetitions.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      },
+      {
+        "token": "pⱼ",
+        "role": "The prime factors in the displayed product.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:prime-factorization:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:number",
+          "kind": "variable",
+          "type": "Declared integer input",
+          "symbol": "n",
+          "scope_ref": "scope:prime-factorization"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded arithmetic rule",
+          "ref": "Repeatedly divide by the smallest available divisor and retain every prime factor, including repetitions. Their product reconstructs the positive item count."
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:number"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:prime-factorization",
+          "kind": "modelExpression",
+          "free_variables": [
+            "n"
+          ],
+          "domain_condition": "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use a fractional count or leave the declared range",
+        "status": "unsupported parameter",
+        "reason": "Only the stated bounded integer family is executable; no silent rounding or extrapolation is performed."
+      }
+    ],
+    "ast_coverage": "A typed application outline of this bounded family; not an arbitrary arithmetic-expression parser.",
+    "output_symbol_bindings": {
+      "n": "number",
+      "s": "output",
+      "pⱼ": "factors"
+    }
+  },
+  "properties": [
+    {
+      "claim": "The displayed factors multiply back to the input.",
+      "conditions": "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.",
+      "derivation": "Every successful division replaces a remaining count by a prime factor times a smaller remaining count. The product is unchanged through the trace.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:prime-factorization:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Check historical and notation development before adding priority claims.",
+      "Verify exact-edition book mappings independently."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The workshop stories and examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:modular-arithmetic",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Prime factorization supplies a bounded connection to modular arithmetic.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:greatest-common-divisor",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Prime factorization supplies a bounded connection to greatest common divisor.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:prime-factorization:case-1",
+      "title": "Split an eighty-four-item pack",
+      "role": "applied_model",
+      "question": "Which prime group sizes rebuild the original pack?",
+      "setting": "A packer splits an item count into nested equal groups. Continue until every factor is prime. Change the item count to see a prime pack stay whole, or a composite pack reveal repeated factors.",
+      "assumptions": [
+        "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+      ],
+      "inputs": {
+        "number": 84
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 84",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "84 = 2 × 2 × 3 × 7",
+          "reason": "Repeatedly divide by the smallest available divisor and retain every prime factor, including repetitions. Their product reconstructs the positive item count."
+        }
+      ],
+      "result": {
+        "exact": "4 factors"
+      },
+      "interpretation": "There are four prime factors when repeated twos are counted.",
+      "independent_check": {
+        "method": "Multiply the prime factors: 2 × 2 × 3 × 7 = 84. Each listed factor is prime, and repeated factors are counted separately; the count is 4.",
+        "expected": "4"
+      },
+      "limits": "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.",
+      "preset": {
+        "number": 84
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+      ]
+    },
+    {
+      "id": "math:example:prime-factorization:case-2",
+      "title": "Repeated binary group sizes",
+      "role": "applied_model",
+      "question": "Which prime group sizes rebuild the original pack?",
+      "setting": "A packer splits an item count into nested equal groups. Continue until every factor is prime. Change the item count to see a prime pack stay whole, or a composite pack reveal repeated factors.",
+      "assumptions": [
+        "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+      ],
+      "inputs": {
+        "number": 64
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 64",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "64 = 2 × 2 × 2 × 2 × 2 × 2",
+          "reason": "Repeatedly divide by the smallest available divisor and retain every prime factor, including repetitions. Their product reconstructs the positive item count."
+        }
+      ],
+      "result": {
+        "exact": "6 factors"
+      },
+      "interpretation": "Six copies of the same prime are six factors, not one.",
+      "independent_check": {
+        "method": "Multiply the prime factors: 2 × 2 × 2 × 2 × 2 × 2 = 64. Each listed factor is prime, and repeated factors are counted separately; the count is 6.",
+        "expected": "6"
+      },
+      "limits": "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.",
+      "preset": {
+        "number": 64
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+      ]
+    },
+    {
+      "id": "math:example:prime-factorization:case-3",
+      "title": "A prime-sized pack",
+      "role": "applied_model",
+      "question": "Which prime group sizes rebuild the original pack?",
+      "setting": "A packer splits an item count into nested equal groups. Continue until every factor is prime. Change the item count to see a prime pack stay whole, or a composite pack reveal repeated factors.",
+      "assumptions": [
+        "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+      ],
+      "inputs": {
+        "number": 97
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 97",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "97 = 97",
+          "reason": "Repeatedly divide by the smallest available divisor and retain every prime factor, including repetitions. Their product reconstructs the positive item count."
+        }
+      ],
+      "result": {
+        "exact": "1 factors"
+      },
+      "interpretation": "A prime count has one prime factor: itself.",
+      "independent_check": {
+        "method": "Multiply the prime factors: 97 = 97. Each listed factor is prime, and repeated factors are counted separately; the count is 1.",
+        "expected": "1"
+      },
+      "limits": "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.",
+      "preset": {
+        "number": 97
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+      ]
+    },
+    {
+      "id": "math:example:prime-factorization:case-4",
+      "title": "The multiplicative identity",
+      "role": "applied_model",
+      "question": "Which prime group sizes rebuild the original pack?",
+      "setting": "A packer splits an item count into nested equal groups. Continue until every factor is prime. Change the item count to see a prime pack stay whole, or a composite pack reveal repeated factors.",
+      "assumptions": [
+        "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+      ],
+      "inputs": {
+        "number": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 1",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "1 = empty product",
+          "reason": "Repeatedly divide by the smallest available divisor and retain every prime factor, including repetitions. Their product reconstructs the positive item count."
+        }
+      ],
+      "result": {
+        "exact": "0 factors"
+      },
+      "interpretation": "One has no prime factors and is neither prime nor composite.",
+      "independent_check": {
+        "method": "The empty product equals 1, so one has no prime factors.",
+        "expected": "0"
+      },
+      "limits": "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.",
+      "preset": {
+        "number": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+      ]
+    },
+    {
+      "id": "math:example:prime-factorization:case-5",
+      "title": "Two different repeated factors",
+      "role": "applied_model",
+      "question": "Which prime group sizes rebuild the original pack?",
+      "setting": "A packer splits an item count into nested equal groups. Continue until every factor is prime. Change the item count to see a prime pack stay whole, or a composite pack reveal repeated factors.",
+      "assumptions": [
+        "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+      ],
+      "inputs": {
+        "number": 90
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 90",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "90 = 2 × 3 × 3 × 5",
+          "reason": "Repeatedly divide by the smallest available divisor and retain every prime factor, including repetitions. Their product reconstructs the positive item count."
+        }
+      ],
+      "result": {
+        "exact": "4 factors"
+      },
+      "interpretation": "The product uses every factor, including both threes.",
+      "independent_check": {
+        "method": "Multiply the prime factors: 2 × 3 × 3 × 5 = 90. Each listed factor is prime, and repeated factors are counted separately; the count is 4.",
+        "expected": "4"
+      },
+      "limits": "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.",
+      "preset": {
+        "number": 90
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:prime-factorization",
+    "renderer_id": "prime-factorization-visual-model",
+    "renderer_version": "1",
+    "model_id": "prime-factorization-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:prime-factorization:expression",
+    "interaction_status": "implemented",
+    "description": "A packer splits an item count into nested equal groups. Continue until every factor is prime. Change the item count to see a prime pack stay whole, or a composite pack reveal repeated factors.",
+    "controls": [
+      {
+        "id": "number",
+        "type": "number",
+        "default": 84,
+        "min": 1,
+        "max": 120,
+        "step": 1
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "number": 84
+        },
+        "status": "valid",
+        "output": 4
+      },
+      {
+        "input": {
+          "number": 64
+        },
+        "status": "valid",
+        "output": 6
+      },
+      {
+        "input": {
+          "number": 97
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "number": 1
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "number": 90
+        },
+        "status": "valid",
+        "output": 4
+      },
+      {
+        "input": {
+          "number": 2
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "number": 120
+        },
+        "status": "valid",
+        "output": 5
+      },
+      {
+        "input": {
+          "number": 0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "number": 2.5
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Repeatedly divide by the smallest available divisor and retain every prime factor, including repetitions. Their product reconstructs the positive item count.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.",
+      "All chosen inputs are whole numbers in the declared finite ranges. Both views and the story use the same evaluated state."
+    ],
+    "limits": [
+      "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+    ],
+    "fallback": "Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Which prime group sizes rebuild the original pack?",
+      "answer": "Repeatedly divide by the smallest available divisor and retain every prime factor, including repetitions. Their product reconstructs the positive item count."
+    },
+    {
+      "prompt": "What conditions make this picture valid?",
+      "answer": "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "A packer splits an item count into nested equal groups. Continue until every factor is prime. Change the item count to see a prime pack stay whole, or a composite pack reveal repeated factors."
+    },
+    {
+      "kind": "graph",
+      "description": "The graph displays exact discrete settings or positional contributions. There are no invented fractional count states."
+    },
+    {
+      "kind": "substitution",
+      "description": "Repeatedly divide by the smallest available divisor and retain every prime factor, including repetitions. Their product reconstructs the positive item count."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Original workshop scenario",
+      "mapping": "Which prime group sizes rebuild the original pack?",
+      "limitations": "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:prime-factorization:case-1"
+    },
+    {
+      "context": "Repeated binary group sizes",
+      "mapping": "Six copies of the same prime are six factors, not one.",
+      "limitations": "The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:prime-factorization:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:number-foundations:prime"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded family is an introduction, not completion of a broad subject."
+  ],
+  "change_log": [
+    "Next branch expansion: added an exact bounded number/counting family, original examples, connected story and distinct Geometry/Graph."
+  ]
+}

@@ -1,0 +1,958 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:spatial-cross-product",
+  "slug": "spatial-cross-product",
+  "type": "concept",
+  "title": "Cross products in space",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "cross products in space"
+  ],
+  "branches": [
+    "linear-algebra",
+    "geometry"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "How does a spatial panel acquire a normal direction?",
+  "meaning": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area.",
+  "prerequisites": {
+    "required": [
+      "math:concept:cross-product"
+    ],
+    "helpful": [
+      "math:concept:scalar-triple-product",
+      "math:concept:inner-product"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+    "formal_latex": "\\vec u\\times\\vec v=(u_y v_z-u_z v_y,\\ u_z v_x-u_x v_z,\\ u_x v_y-u_y v_x),\\quad A=\\|\\vec u\\times\\vec v\\|.",
+    "signature": {
+      "u_x": "First edge, x component",
+      "u_y": "First edge, y component",
+      "u_z": "First edge, z component",
+      "v_x": "Second edge, x component",
+      "v_y": "Second edge, y component",
+      "v_z": "Second edge, z component",
+      "n_x": "Normal horizontal area component",
+      "n_y": "Normal depth area component",
+      "n_z": "Normal vertical area component",
+      "A": "Parallelogram area"
+    },
+    "conditions": [
+      "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+      "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.",
+      "All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure."
+    ],
+    "domain_notes": "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.",
+    "proof_status": "Definition-level references and original bounded derivations; independent mathematical review pending.",
+    "source_refs": [
+      "source:spatial-foundations:cross"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Cross products in space",
+    "expression_latex": "\\vec u\\times\\vec v=(u_y v_z-u_z v_y,\\ u_z v_x-u_x v_z,\\ u_x v_y-u_y v_x),\\quad A=\\|\\vec u\\times\\vec v\\|.",
+    "formation_rule": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area.",
+    "precedence": "Keep the ordered operations, declared frame and units fixed; evaluate the component operations before the magnitude.",
+    "symbols": [
+      {
+        "token": "u_x",
+        "role": "First edge, x component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "u_y",
+        "role": "First edge, y component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "u_z",
+        "role": "First edge, z component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "v_x",
+        "role": "Second edge, x component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "v_y",
+        "role": "Second edge, y component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "v_z",
+        "role": "Second edge, z component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "n_x",
+        "role": "Normal horizontal area component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "n_y",
+        "role": "Normal depth area component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "n_z",
+        "role": "Normal vertical area component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "A",
+        "role": "Parallelogram area",
+        "type": "Declared input or computed geometric quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:spatial-cross-product:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:ux",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "u_x",
+          "scope_ref": "scope:spatial-cross-product:expression"
+        },
+        {
+          "id": "n:uy",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "u_y",
+          "scope_ref": "scope:spatial-cross-product:expression"
+        },
+        {
+          "id": "n:uz",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "u_z",
+          "scope_ref": "scope:spatial-cross-product:expression"
+        },
+        {
+          "id": "n:vx",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "v_x",
+          "scope_ref": "scope:spatial-cross-product:expression"
+        },
+        {
+          "id": "n:vy",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "v_y",
+          "scope_ref": "scope:spatial-cross-product:expression"
+        },
+        {
+          "id": "n:vz",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "v_z",
+          "scope_ref": "scope:spatial-cross-product:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded vector/coordinate rule",
+          "ref": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area."
+        },
+        {
+          "id": "n:bound-ux",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:ux"
+        },
+        {
+          "id": "n:bound-uy",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-ux",
+          "argument": "n:uy"
+        },
+        {
+          "id": "n:bound-uz",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-uy",
+          "argument": "n:uz"
+        },
+        {
+          "id": "n:bound-vx",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-uz",
+          "argument": "n:vx"
+        },
+        {
+          "id": "n:bound-vy",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-vx",
+          "argument": "n:vy"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-vy",
+          "argument": "n:vz"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:spatial-cross-product:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "u_x",
+            "u_y",
+            "u_z",
+            "v_x",
+            "v_y",
+            "v_z"
+          ],
+          "domain_condition": "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Read a projected arrow length as the exact spatial length",
+        "status": "representation error",
+        "reason": "Spatial scenes use a fixed projection. Exact model lengths come from the components and readout."
+      }
+    ],
+    "ast_coverage": "Typed application outline of this bounded family; not an arbitrary expression evaluator.",
+    "output_symbol_bindings": {
+      "u_x": "ux",
+      "u_y": "uy",
+      "u_z": "uz",
+      "v_x": "vx",
+      "v_y": "vy",
+      "v_z": "vz",
+      "n_x": "nx",
+      "n_y": "ny",
+      "n_z": "nz",
+      "A": "area"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area.",
+      "conditions": "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.",
+      "derivation": "A normal can have three nonzero components.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:spatial-cross-product:case-1"
+    },
+    {
+      "claim": "Parallel edges enclose zero area and supply no unique normal direction.",
+      "conditions": "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+      "derivation": "0.0 m²",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:spatial-cross-product:case-2"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:cross-product",
+      "type": "supports",
+      "conditions": "Use each lesson with its own frame, units and domain.",
+      "reason": "The earlier planar family is the case with both z components zero.",
+      "target_status": "available",
+      "evidence_status": "definition-level relationship; original explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:scalar-triple-product",
+      "type": "supports",
+      "conditions": "Use each lesson with its own frame, units and domain.",
+      "reason": "A dot product with the normal measures signed volume.",
+      "target_status": "available",
+      "evidence_status": "definition-level relationship; original explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:inner-product",
+      "type": "supports",
+      "conditions": "Use each lesson with its own frame, units and domain.",
+      "reason": "The normal is orthogonal to both edges, as their dot products verify.",
+      "target_status": "available",
+      "evidence_status": "definition-level relationship; original explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:spatial-cross-product:case-1",
+      "title": "Find the sloping panel area",
+      "role": "applied_model",
+      "question": "How does a spatial panel acquire a normal direction?",
+      "setting": "Two rods form the edges of a triangular support panel. Their ends can move in all three coordinate directions. Follow the ordered cross product: its components describe the normal, and its magnitude gives the area of the corresponding parallelogram. The triangle uses half that area.",
+      "assumptions": [
+        "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+        "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement."
+      ],
+      "inputs": {
+        "ux": 2,
+        "uy": 1,
+        "uz": 1,
+        "vx": 1,
+        "vy": 2,
+        "vz": -1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "u_x = 2; u_y = 1; u_z = 1; v_x = 1; v_y = 2; v_z = -1",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "n = u × v; A = ‖n‖",
+          "reason": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area."
+        },
+        {
+          "index": 3,
+          "expression": "5.1961524227 m²",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "5.1961524227 m²"
+      },
+      "interpretation": "A normal can have three nonzero components.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 5.196152422706632}"
+      },
+      "limits": "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.",
+      "preset": {
+        "ux": 2,
+        "uy": 1,
+        "uz": 1,
+        "vx": 1,
+        "vy": 2,
+        "vz": -1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+        "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement."
+      ]
+    },
+    {
+      "id": "math:example:spatial-cross-product:case-2",
+      "title": "Flatten the span into parallel edges",
+      "role": "applied_model",
+      "question": "How does a spatial panel acquire a normal direction?",
+      "setting": "Two rods form the edges of a triangular support panel. Their ends can move in all three coordinate directions. Follow the ordered cross product: its components describe the normal, and its magnitude gives the area of the corresponding parallelogram. The triangle uses half that area.",
+      "assumptions": [
+        "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+        "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement."
+      ],
+      "inputs": {
+        "ux": 2,
+        "uy": 1,
+        "uz": 1,
+        "vx": 2,
+        "vy": 1,
+        "vz": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "u_x = 2; u_y = 1; u_z = 1; v_x = 2; v_y = 1; v_z = 1",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "n = u × v; A = ‖n‖",
+          "reason": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area."
+        },
+        {
+          "index": 3,
+          "expression": "0.0 m²",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "0.0 m²"
+      },
+      "interpretation": "Parallel edges enclose zero area and supply no unique normal direction.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 0.0}"
+      },
+      "limits": "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.",
+      "preset": {
+        "ux": 2,
+        "uy": 1,
+        "uz": 1,
+        "vx": 2,
+        "vy": 1,
+        "vz": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+        "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement."
+      ]
+    },
+    {
+      "id": "math:example:spatial-cross-product:case-3",
+      "title": "Reverse the ordered edges",
+      "role": "applied_model",
+      "question": "How does a spatial panel acquire a normal direction?",
+      "setting": "Two rods form the edges of a triangular support panel. Their ends can move in all three coordinate directions. Follow the ordered cross product: its components describe the normal, and its magnitude gives the area of the corresponding parallelogram. The triangle uses half that area.",
+      "assumptions": [
+        "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+        "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement."
+      ],
+      "inputs": {
+        "ux": 1,
+        "uy": 2,
+        "uz": -1,
+        "vx": 2,
+        "vy": 1,
+        "vz": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "u_x = 1; u_y = 2; u_z = -1; v_x = 2; v_y = 1; v_z = 1",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "n = u × v; A = ‖n‖",
+          "reason": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area."
+        },
+        {
+          "index": 3,
+          "expression": "5.1961524227 m²",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "5.1961524227 m²"
+      },
+      "interpretation": "Swapping edges reverses the normal while preserving its magnitude.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 5.196152422706632}"
+      },
+      "limits": "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.",
+      "preset": {
+        "ux": 1,
+        "uy": 2,
+        "uz": -1,
+        "vx": 2,
+        "vy": 1,
+        "vz": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+        "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement."
+      ]
+    },
+    {
+      "id": "math:example:spatial-cross-product:case-4",
+      "title": "Collapse the first edge",
+      "role": "applied_model",
+      "question": "How does a spatial panel acquire a normal direction?",
+      "setting": "Two rods form the edges of a triangular support panel. Their ends can move in all three coordinate directions. Follow the ordered cross product: its components describe the normal, and its magnitude gives the area of the corresponding parallelogram. The triangle uses half that area.",
+      "assumptions": [
+        "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+        "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement."
+      ],
+      "inputs": {
+        "ux": 0,
+        "uy": 0,
+        "uz": 0,
+        "vx": 1,
+        "vy": 2,
+        "vz": -1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "u_x = 0; u_y = 0; u_z = 0; v_x = 1; v_y = 2; v_z = -1",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "n = u × v; A = ‖n‖",
+          "reason": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area."
+        },
+        {
+          "index": 3,
+          "expression": "0.0 m²",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "0.0 m²"
+      },
+      "interpretation": "A zero edge gives zero area; its direction is not inferred from the controls.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 0.0}"
+      },
+      "limits": "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.",
+      "preset": {
+        "ux": 0,
+        "uy": 0,
+        "uz": 0,
+        "vx": 1,
+        "vy": 2,
+        "vz": -1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+        "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement."
+      ]
+    },
+    {
+      "id": "math:example:spatial-cross-product:case-5",
+      "title": "Stand one edge vertically",
+      "role": "applied_model",
+      "question": "How does a spatial panel acquire a normal direction?",
+      "setting": "Two rods form the edges of a triangular support panel. Their ends can move in all three coordinate directions. Follow the ordered cross product: its components describe the normal, and its magnitude gives the area of the corresponding parallelogram. The triangle uses half that area.",
+      "assumptions": [
+        "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+        "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement."
+      ],
+      "inputs": {
+        "ux": 1,
+        "uy": 0,
+        "uz": 0,
+        "vx": 0,
+        "vy": 0,
+        "vz": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "u_x = 1; u_y = 0; u_z = 0; v_x = 0; v_y = 0; v_z = 2",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "n = u × v; A = ‖n‖",
+          "reason": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area."
+        },
+        {
+          "index": 3,
+          "expression": "2.0 m²",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "2.0 m²"
+      },
+      "interpretation": "A spatial panel can have a horizontal normal; the earlier planar z-only construction is not enough.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 2.0}"
+      },
+      "limits": "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.",
+      "preset": {
+        "ux": 1,
+        "uy": 0,
+        "uz": 0,
+        "vx": 0,
+        "vy": 0,
+        "vz": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+        "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:spatial-cross-product",
+    "renderer_id": "spatial-cross-product-visual-model",
+    "renderer_version": "1",
+    "model_id": "spatial-cross-product-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:spatial-cross-product:expression",
+    "interaction_status": "implemented",
+    "description": "Two rods form the edges of a triangular support panel. Their ends can move in all three coordinate directions. Follow the ordered cross product: its components describe the normal, and its magnitude gives the area of the corresponding parallelogram. The triangle uses half that area.",
+    "controls": [
+      {
+        "id": "ux",
+        "type": "number",
+        "default": 2,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "uy",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "uz",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "vx",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "vy",
+        "type": "number",
+        "default": 2,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "vz",
+        "type": "number",
+        "default": -1,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": 2,
+          "vz": -1
+        },
+        "status": "valid",
+        "output": 5.196152422706632
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 2,
+          "vy": 1,
+          "vz": 1
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "ux": 1,
+          "uy": 2,
+          "uz": -1,
+          "vx": 2,
+          "vy": 1,
+          "vz": 1
+        },
+        "status": "valid",
+        "output": 5.196152422706632
+      },
+      {
+        "input": {
+          "ux": 0,
+          "uy": 0,
+          "uz": 0,
+          "vx": 1,
+          "vy": 2,
+          "vz": -1
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "ux": 1,
+          "uy": 0,
+          "uz": 0,
+          "vx": 0,
+          "vy": 0,
+          "vz": 2
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "ux": -2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": 2,
+          "vz": -1
+        },
+        "status": "valid",
+        "output": 5.916079783099616
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": -2,
+          "uz": 1,
+          "vx": 1,
+          "vy": 2,
+          "vz": -1
+        },
+        "status": "valid",
+        "output": 6.708203932499369
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 2,
+          "uz": 1,
+          "vx": 1,
+          "vy": 2,
+          "vz": -1
+        },
+        "status": "valid",
+        "output": 5.385164807134504
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": -2,
+          "vx": 1,
+          "vy": 2,
+          "vz": -1
+        },
+        "status": "valid",
+        "output": 4.242640687119285
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 2,
+          "vx": 1,
+          "vy": 2,
+          "vz": -1
+        },
+        "status": "valid",
+        "output": 7.0710678118654755
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": -2,
+          "vy": 2,
+          "vz": -1
+        },
+        "status": "valid",
+        "output": 6.708203932499369
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 2,
+          "vy": 2,
+          "vz": -1
+        },
+        "status": "valid",
+        "output": 5.385164807134504
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": -2,
+          "vz": -1
+        },
+        "status": "valid",
+        "output": 5.916079783099616
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": 2,
+          "vz": -2
+        },
+        "status": "valid",
+        "output": 7.0710678118654755
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": 2,
+          "vz": 2
+        },
+        "status": "valid",
+        "output": 4.242640687119285
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": 2,
+          "vz": 3
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": 2,
+          "vz": "-1"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Two freely chosen edge vectors in a fixed right-handed orthonormal three-dimensional frame describe a triangular support panel.",
+      "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.",
+      "All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure."
+    ],
+    "limits": [
+      "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How does a spatial panel acquire a normal direction?",
+      "answer": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area."
+    },
+    {
+      "prompt": "What must stay fixed to interpret this display?",
+      "answer": "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Two rods form the edges of a triangular support panel. Their ends can move in all three coordinate directions. Follow the ordered cross product: its components describe the normal, and its magnitude gives the area of the corresponding parallelogram. The triangle uses half that area."
+    },
+    {
+      "kind": "graph",
+      "description": "Hold other inputs fixed and plot actual components and the primary result against Second edge, z component."
+    },
+    {
+      "kind": "substitution",
+      "description": "The three calculation rows expose input, intermediate operation and result from the same evaluated state."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Find the sloping panel area",
+      "mapping": "A normal can have three nonzero components.",
+      "limitations": "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:spatial-cross-product:case-1"
+    },
+    {
+      "context": "Flatten the span into parallel edges",
+      "mapping": "Parallel edges enclose zero area and supply no unique normal direction.",
+      "limitations": "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:spatial-cross-product:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:spatial-foundations:cross"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "Continuation of 0.34.0 branch: original connected spatial/coordinate/mechanics family, two distinct views and independent references."
+  ]
+}

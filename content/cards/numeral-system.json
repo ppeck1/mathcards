@@ -1,0 +1,613 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:numeral-system",
+  "slug": "numeral-system",
+  "type": "concept",
+  "title": "Positional numeral systems",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "positional numeral systems"
+  ],
+  "branches": [
+    "numbers-number-theory"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "What changes when the same counter is written in another base?",
+  "meaning": "Use digits from zero through one less than the base, multiply each digit by its positional power of the base, and add the contributions.",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:exponentiation",
+      "math:concept:turing-machine",
+      "math:concept:modular-arithmetic"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "Rebundle a counter of 0 to 63 items into powers of a chosen base from 2 to 10. A numeral changes when the base changes, while the represented item count stays the same.",
+    "formal_latex": "n=\\sum_{j=0}^{s-1}d_j b^j,\\quad0\\le d_j<b.",
+    "signature": {
+      "n": "Nonnegative represented item count.",
+      "b": "Integer base of the positional representation.",
+      "dⱼ": "Digit occupying position j, counted from the units place.",
+      "s": "Number of digits, including one zero digit for zero.",
+      "j": "Whole position index of a digit, beginning at the units place."
+    },
+    "conditions": [
+      "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.",
+      "All chosen inputs are whole numbers in the declared finite ranges. Both views and the story use the same evaluated state."
+    ],
+    "domain_notes": "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.",
+    "proof_status": "Definition-level sources and original bounded calculations; independent review pending.",
+    "source_refs": [
+      "source:number-foundations:numeral"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Positional numeral systems",
+    "expression_latex": "n=\\sum_{j=0}^{s-1}d_j b^j,\\quad0\\le d_j<b.",
+    "formation_rule": "Use digits from zero through one less than the base, multiply each digit by its positional power of the base, and add the contributions.",
+    "precedence": "Respect the declared grouping, integer domain and distinction between ordered and unordered choices.",
+    "symbols": [
+      {
+        "token": "n",
+        "role": "Nonnegative represented item count.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      },
+      {
+        "token": "b",
+        "role": "Integer base of the positional representation.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      },
+      {
+        "token": "dⱼ",
+        "role": "Digit occupying position j, counted from the units place.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      },
+      {
+        "token": "s",
+        "role": "Number of digits, including one zero digit for zero.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      },
+      {
+        "token": "j",
+        "role": "Whole position index of a digit, beginning at the units place.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:numeral-system:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:value",
+          "kind": "variable",
+          "type": "Declared integer input",
+          "symbol": "n",
+          "scope_ref": "scope:numeral-system"
+        },
+        {
+          "id": "n:base",
+          "kind": "variable",
+          "type": "Declared integer input",
+          "symbol": "b",
+          "scope_ref": "scope:numeral-system"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded arithmetic rule",
+          "ref": "Use digits from zero through one less than the base, multiply each digit by its positional power of the base, and add the contributions."
+        },
+        {
+          "id": "n:bound-value",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:value"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-value",
+          "argument": "n:base"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:numeral-system",
+          "kind": "modelExpression",
+          "free_variables": [
+            "n",
+            "b"
+          ],
+          "domain_condition": "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use a fractional count or leave the declared range",
+        "status": "unsupported parameter",
+        "reason": "Only the stated bounded integer family is executable; no silent rounding or extrapolation is performed."
+      }
+    ],
+    "ast_coverage": "A typed application outline of this bounded family; not an arbitrary arithmetic-expression parser.",
+    "output_symbol_bindings": {
+      "n": "value",
+      "b": "base",
+      "dⱼ": "places",
+      "s": "digitCount",
+      "j": "places"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Changing the base preserves the represented integer.",
+      "conditions": "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.",
+      "derivation": "At each division n=qb+r, the remainder is the next digit. Repeating on q reconstructs n as the sum of digit times place weight.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:numeral-system:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Check historical and notation development before adding priority claims.",
+      "Verify exact-edition book mappings independently."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The workshop stories and examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:exponentiation",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Positional numeral systems supplies a bounded connection to exponentiation.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:turing-machine",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Positional numeral systems supplies a bounded connection to turing machine.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:modular-arithmetic",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Positional numeral systems supplies a bounded connection to modular arithmetic.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:numeral-system:case-1",
+      "title": "A binary counter",
+      "role": "applied_model",
+      "question": "What changes when the same counter is written in another base?",
+      "setting": "A counter holds a fixed number of items. Grouping by a chosen base changes its place weights and digits. Switch between binary, ternary and decimal while the weighted contributions still add to the same item count.",
+      "assumptions": [
+        "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+      ],
+      "inputs": {
+        "value": 27,
+        "base": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 27; b = 2",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "11011₂ = 16 + 8 + 2 + 1 = 27",
+          "reason": "Use digits from zero through one less than the base, multiply each digit by its positional power of the base, and add the contributions."
+        }
+      ],
+      "result": {
+        "exact": "27 items"
+      },
+      "interpretation": "Zero in the fours place is significant even though its contribution is zero.",
+      "independent_check": {
+        "method": "Add the place contributions: 16 + 8 + 0 + 2 + 1 = 27. Every digit is between 0 and 1, so this is a valid base-2 representation of the same quantity.",
+        "expected": "27"
+      },
+      "limits": "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.",
+      "preset": {
+        "value": 27,
+        "base": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+      ]
+    },
+    {
+      "id": "math:example:numeral-system:case-2",
+      "title": "Regroup the same quantity in threes",
+      "role": "applied_model",
+      "question": "What changes when the same counter is written in another base?",
+      "setting": "A counter holds a fixed number of items. Grouping by a chosen base changes its place weights and digits. Switch between binary, ternary and decimal while the weighted contributions still add to the same item count.",
+      "assumptions": [
+        "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+      ],
+      "inputs": {
+        "value": 27,
+        "base": 3
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 27; b = 3",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "1000₃ = 1 × 27 = 27",
+          "reason": "Use digits from zero through one less than the base, multiply each digit by its positional power of the base, and add the contributions."
+        }
+      ],
+      "result": {
+        "exact": "27 items"
+      },
+      "interpretation": "The same quantity uses a different digit string and different place weights.",
+      "independent_check": {
+        "method": "Add the place contributions: 27 + 0 + 0 + 0 = 27. Every digit is between 0 and 2, so this is a valid base-3 representation of the same quantity.",
+        "expected": "27"
+      },
+      "limits": "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.",
+      "preset": {
+        "value": 27,
+        "base": 3
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+      ]
+    },
+    {
+      "id": "math:example:numeral-system:case-3",
+      "title": "Every supported binary place is filled",
+      "role": "applied_model",
+      "question": "What changes when the same counter is written in another base?",
+      "setting": "A counter holds a fixed number of items. Grouping by a chosen base changes its place weights and digits. Switch between binary, ternary and decimal while the weighted contributions still add to the same item count.",
+      "assumptions": [
+        "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+      ],
+      "inputs": {
+        "value": 63,
+        "base": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 63; b = 2",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "111111₂ = 32 + 16 + 8 + 4 + 2 + 1",
+          "reason": "Use digits from zero through one less than the base, multiply each digit by its positional power of the base, and add the contributions."
+        }
+      ],
+      "result": {
+        "exact": "63 items"
+      },
+      "interpretation": "The six-place display reaches the largest supported item count.",
+      "independent_check": {
+        "method": "Add the place contributions: 32 + 16 + 8 + 4 + 2 + 1 = 63. Every digit is between 0 and 1, so this is a valid base-2 representation of the same quantity.",
+        "expected": "63"
+      },
+      "limits": "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.",
+      "preset": {
+        "value": 63,
+        "base": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+      ]
+    },
+    {
+      "id": "math:example:numeral-system:case-4",
+      "title": "Represent zero",
+      "role": "applied_model",
+      "question": "What changes when the same counter is written in another base?",
+      "setting": "A counter holds a fixed number of items. Grouping by a chosen base changes its place weights and digits. Switch between binary, ternary and decimal while the weighted contributions still add to the same item count.",
+      "assumptions": [
+        "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+      ],
+      "inputs": {
+        "value": 0,
+        "base": 10
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 0; b = 10",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "0₁₀ = 0",
+          "reason": "Use digits from zero through one less than the base, multiply each digit by its positional power of the base, and add the contributions."
+        }
+      ],
+      "result": {
+        "exact": "0 items"
+      },
+      "interpretation": "Zero is represented by one zero digit, not an empty display.",
+      "independent_check": {
+        "method": "Add the place contributions: 0 = 0. Every digit is between 0 and 9, so this is a valid base-10 representation of the same quantity.",
+        "expected": "0"
+      },
+      "limits": "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.",
+      "preset": {
+        "value": 0,
+        "base": 10
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+      ]
+    },
+    {
+      "id": "math:example:numeral-system:case-5",
+      "title": "Use familiar decimal places",
+      "role": "applied_model",
+      "question": "What changes when the same counter is written in another base?",
+      "setting": "A counter holds a fixed number of items. Grouping by a chosen base changes its place weights and digits. Switch between binary, ternary and decimal while the weighted contributions still add to the same item count.",
+      "assumptions": [
+        "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+      ],
+      "inputs": {
+        "value": 37,
+        "base": 10
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 37; b = 10",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "37₁₀ = 3 × 10 + 7 × 1",
+          "reason": "Use digits from zero through one less than the base, multiply each digit by its positional power of the base, and add the contributions."
+        }
+      ],
+      "result": {
+        "exact": "37 items"
+      },
+      "interpretation": "The decimal representation follows the same positional rule.",
+      "independent_check": {
+        "method": "Add the place contributions: 30 + 7 = 37. Every digit is between 0 and 9, so this is a valid base-10 representation of the same quantity.",
+        "expected": "37"
+      },
+      "limits": "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.",
+      "preset": {
+        "value": 37,
+        "base": 10
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:numeral-system",
+    "renderer_id": "numeral-system-visual-model",
+    "renderer_version": "1",
+    "model_id": "numeral-system-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:numeral-system:expression",
+    "interaction_status": "implemented",
+    "description": "A counter holds a fixed number of items. Grouping by a chosen base changes its place weights and digits. Switch between binary, ternary and decimal while the weighted contributions still add to the same item count.",
+    "controls": [
+      {
+        "id": "value",
+        "type": "number",
+        "default": 27,
+        "min": 0,
+        "max": 63,
+        "step": 1
+      },
+      {
+        "id": "base",
+        "type": "number",
+        "default": 2,
+        "min": 2,
+        "max": 10,
+        "step": 1
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "value": 27,
+          "base": 2
+        },
+        "status": "valid",
+        "output": 27
+      },
+      {
+        "input": {
+          "value": 27,
+          "base": 3
+        },
+        "status": "valid",
+        "output": 27
+      },
+      {
+        "input": {
+          "value": 63,
+          "base": 2
+        },
+        "status": "valid",
+        "output": 63
+      },
+      {
+        "input": {
+          "value": 0,
+          "base": 10
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "value": 37,
+          "base": 10
+        },
+        "status": "valid",
+        "output": 37
+      },
+      {
+        "input": {
+          "value": 1,
+          "base": 2
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "value": 63,
+          "base": 10
+        },
+        "status": "valid",
+        "output": 63
+      },
+      {
+        "input": {
+          "value": 27,
+          "base": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "value": 64,
+          "base": 2
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Use digits from zero through one less than the base, multiply each digit by its positional power of the base, and add the contributions.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.",
+      "All chosen inputs are whole numbers in the declared finite ranges. Both views and the story use the same evaluated state."
+    ],
+    "limits": [
+      "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+    ],
+    "fallback": "Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "What changes when the same counter is written in another base?",
+      "answer": "Use digits from zero through one less than the base, multiply each digit by its positional power of the base, and add the contributions."
+    },
+    {
+      "prompt": "What conditions make this picture valid?",
+      "answer": "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "A counter holds a fixed number of items. Grouping by a chosen base changes its place weights and digits. Switch between binary, ternary and decimal while the weighted contributions still add to the same item count."
+    },
+    {
+      "kind": "graph",
+      "description": "The graph displays exact discrete settings or positional contributions. There are no invented fractional count states."
+    },
+    {
+      "kind": "substitution",
+      "description": "Use digits from zero through one less than the base, multiply each digit by its positional power of the base, and add the contributions."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Original workshop scenario",
+      "mapping": "What changes when the same counter is written in another base?",
+      "limitations": "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:numeral-system:case-1"
+    },
+    {
+      "context": "Regroup the same quantity in threes",
+      "mapping": "The same quantity uses a different digit string and different place weights.",
+      "limitations": "Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:numeral-system:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:number-foundations:numeral"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded family is an introduction, not completion of a broad subject."
+  ],
+  "change_log": [
+    "Next branch expansion: added an exact bounded number/counting family, original examples, connected story and distinct Geometry/Graph."
+  ]
+}

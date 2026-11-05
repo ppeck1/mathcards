@@ -66,7 +66,7 @@
     const story=options.story,slug=story.slug,timeline=story.timeline,variable=story.variables.find(v=>v.key===timeline.key),params=parametersAt(story,0);
     const controlBounds=Object.fromEntries(story.variables.map(({key,min,max,step})=>[key,{min,max,step}]));
     const P=globalThis.AtlasPlayground,Motion=globalThis.AtlasMotion,Input=globalThis.AtlasSceneInput,Readable=globalThis.AtlasReadableValues,Links=globalThis.AtlasStoryLinks,Journey=globalThis.AtlasStoryJourney,Flow=globalThis.AtlasCalculationFlow;
-    const link=Links.forSlug(slug),pacer=Readable.createPacer();
+    const link=Links.forSlug(slug),pacer=Readable.createPacer(),installedModule=globalThis.AtlasModules?.get(slug);
     const media=matchMedia('(prefers-reduced-motion: reduce)');
     const references=(options.sources||[]).filter(source=>story.sourceRefs.includes(source.id)&&/^https:\/\//.test(source.url)).map(source=>'<a href="'+esc(source.url)+'" target="_blank" rel="noopener noreferrer">'+esc(source.title)+' ↗</a>').join('<br>');
     let destroyed=false,playing=false,clock=null,last=null,progress=0,playProgress=0,phase=0,display={...params};
@@ -150,7 +150,7 @@
       story.variables.forEach(v=>Readable.writeText(host.querySelector('[data-variable-value="'+v.key+'"]'),Readable.format(p[v.key],v.precision?{settled:true,precision:v.precision}:reading)));
       if(policy.timeline)Readable.writeText(host.querySelector('[data-progress]'),Math.round(coordinate(p)*100)+'%');
     }
-    const follower=Motion.createFollower({initial:params,onFrame:draw,reducedMotion:()=>media.matches,canInterpolate:(a,b)=>M.validateParams(slug,a).valid&&M.validateParams(slug,b).valid&&story.variables.every(v=>!v.discrete||a[v.key]===b[v.key])});
+    const follower=Motion.createFollower({initial:params,onFrame:draw,reducedMotion:()=>media.matches,canInterpolate:(a,b)=>M.validateParams(slug,a).valid&&M.validateParams(slug,b).valid&&story.variables.every(v=>!v.discrete||a[v.key]===b[v.key])&&(typeof installedModule?.canInterpolate!=='function'||installedModule.canInterpolate(a,b))});
     function sync(){progress=coordinate(params);if(policy.timeline)host.querySelector('[data-timeline]').value=progress;story.variables.forEach(v=>host.querySelector('[data-story-param="'+v.key+'"]').value=params[v.key]);}
     function update(next,immediate=false){Object.assign(params,discreteValues(story,next));sync();if(!playing||playKind!=='whole')playProgress=progress;follower.setTarget(params,{immediate});}
     function announce(text){Readable.writeText(status,text);}

@@ -9,9 +9,10 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from generated_io import write_generated
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.2.0'
+VERSION = '0.2.1'
 
 def canonical(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf-8')
@@ -29,6 +30,8 @@ def scalar(value):
 
 def prose(value):
     """Loss-accounted inert field rendering: keys remain visible and values unabridged."""
+    if isinstance(value, (dict, list)) and not value:
+        return '{}' if isinstance(value, dict) else '[]'
     if isinstance(value, dict):
         return '\n'.join(f'- {k.replace("_", " ")}: {scalar(v)}' if not isinstance(v, (dict,list))
                          else f'- {k.replace("_", " ")}:\n'+ '\n'.join('  '+s for s in prose(v).splitlines())
@@ -139,9 +142,9 @@ def build(output=None):
         target=output/name
         if not target.resolve().is_relative_to(output.resolve()): raise ValueError('unsafe output path')
         target.parent.mkdir(parents=True,exist_ok=True)
-        if not target.exists() or target.read_bytes()!=raw: target.write_bytes(raw)
+        write_generated(target, raw)
     manifest_text=json.dumps(manifest,ensure_ascii=False,indent=2,sort_keys=True)+'\n'
-    if not old.exists() or old.read_bytes()!=manifest_text.encode('utf-8'): old.write_text(manifest_text,encoding='utf-8',newline='\n')
+    write_generated(old, manifest_text)
     return manifest
 
 if __name__=='__main__':

@@ -1,4 +1,5 @@
-/* One search adapter for definitions, real cards, and mapped areas. No storage or clocks. */
+/* One search adapter for definitions, real cards, mapped areas and attributed
+   subject plans. No storage or clocks. Planned subjects retain their own kind. */
 (function(root,factory){
   const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;root.AtlasSearch=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
@@ -7,7 +8,7 @@
   const words=value=>String(value??'').normalize('NFKC').toLowerCase().replace(/[\s_-]+/g,' ').trim();
   const textValues=value=>typeof value==='string'?[value]:Array.isArray(value)?value.flatMap(textValues):value&&typeof value==='object'?Object.values(value).flatMap(textValues):[];
   let nextId=0;
-  function create({cards=[],index,atlas}={}){
+  function create({cards=[],index,atlas,subjects}={}){
     if(!Array.isArray(cards)||!index||typeof index.search!=='function')throw new TypeError('Search needs cards and a definition index.');
     const cardRows=cards.map(card=>({card,title:words(card.title),aliases:(card.aliases||[]).map(words),text:words([card.title,card.purpose,card.meaning,...(card.aliases||[]),...(card.branches||[]),...textValues(card.definition),...textValues(card.grammar?.symbols),...(card.examples||[]).flatMap(example=>[example.title,example.setting,example.interpretation])].join(' '))}));
     function search(query,{kind='all',limit=100}={}){
@@ -30,21 +31,29 @@
         const areas=notation?(atlas.areas.topics||[]).filter(topic=>(topic.availableCards||[]).some(card=>symbolsInCards.has(card.slug))):atlas.areas.search(raw);
         for(const topic of areas)results.push({kind:'area',id:topic.id,title:topic.title,description:topic.description,href:'#atlas/map/'+topic.regionId+'/'+topic.shortId,availableCount:topic.availableCount});
       }
+      if((kind==='subject'||kind==='all'&&!notation&&q.length>=4)&&subjects?.search){
+        const subjectWords=value=>words(value).normalize('NFKD').replace(/\p{M}/gu,''),subjectTokens=subjectWords(q).split(' '),bookMatch=(subjects.books||[]).some(book=>subjectTokens.every(token=>subjectWords([book.title,...(book.authors||[])].join(' ')).includes(token)));
+        const labelMatch=concept=>subjectTokens.every(token=>subjectWords(concept.label+' '+concept.id).includes(token));
+        const matches=subjects.search(raw).filter(concept=>kind==='subject'||bookMatch||labelMatch(concept));
+        if(kind==='all')matches.sort((a,b)=>Number(labelMatch(b))-Number(labelMatch(a)));
+        const states={'draft-introduction':'Draft introduction',precursor:'Preparation only',planned:'Planned lesson'};
+        for(const concept of matches.slice(0,kind==='subject'?300:8))results.push({kind:'subject',id:concept.id,title:concept.label,description:(states[concept.status]||'Planning entry')+'. '+concept.scopeNote,href:'#subjects/'+encodeURIComponent(concept.id),availability:concept.status});
+      }
       const count=Number.isInteger(limit)?Math.max(0,Math.min(limit,300)):100;return results.slice(0,count);
     }
     function resultsMarkup(query,{kind='all',compact=false}={}){
       const hits=search(query,{kind,limit:300});
       if(!query.trim())return compact?'':'<div class="search-start"><h2>Start with a symbol or a word.</h2><p>Try a notation you saw in a card, a mathematical term, or an area of the atlas.</p><div>'+['+','δ','fraction','derivative','matrix'].map(value=>'<a href="#search/'+encodeURIComponent(value)+'">'+esc(value)+'</a>').join('')+'</div></div>';
       if(!hits.length)return'<p class="search-empty">No matches yet. Try a symbol, its name, or a shorter phrase.</p>';
-      const labels={term:'Definitions & notation',card:'Interactive cards',area:'Atlas areas'};
-      return '<p class="search-result-count">'+hits.length+' results</p>'+['term','card','area'].map(group=>{
+      const labels={term:'Definitions & notation',card:'Interactive cards',area:'Atlas areas',subject:'Reading roadmap'};
+      return '<p class="search-result-count">'+hits.length+' results</p>'+['term','card','area','subject'].map(group=>{
         const rows=hits.filter(hit=>hit.kind===group).slice(0,compact?3:100);if(!rows.length)return'';
         return'<section class="search-result-group"><h2>'+labels[group]+'</h2><ul>'+rows.map(hit=>'<li><a href="'+esc(hit.href)+'"><span class="search-hit-title">'+(hit.kind==='term'&&hit.symbols.length?'<span class="search-hit-symbol">'+esc(hit.symbols.slice(0,3).join(' '))+'</span>':'')+'<strong>'+esc(hit.title)+'</strong><span aria-hidden="true">↗</span></span><span class="search-hit-description">'+esc(String(hit.description||'').slice(0,compact?135:280))+'</span>'+(hit.kind==='area'?'<small>'+hit.availableCount+' available cards</small>':'')+'</a></li>').join('')+'</ul></section>';
       }).join('')+(compact?'<a class="search-all" href="#search/'+encodeURIComponent(query)+'">See all results →</a>':'');
     }
     function markup({query='',compact=false,id='search'}={}){
       const scope='atlas-search-'+String(id).replace(/[^A-Za-z0-9_-]/g,'-');
-      return compact?'<div class="site-search"><label class="sr-only" for="'+scope+'">Search all mathematics</label><input id="'+scope+'" data-search-input type="search" maxlength="160" autocomplete="off" placeholder="Search symbols, terms, cards…" value="'+esc(query)+'" aria-controls="'+scope+'-results"><div id="'+scope+'-results" class="site-search-results" data-search-results hidden></div></div>':'<section class="search-page"><p class="eyebrow">Find the meaning. Follow the idea.</p><h1>Search the atlas.</h1><p>Look up notation, definitions, lessons, and places on the map.</p><label class="sr-only" for="'+scope+'">Search cards, definitions and atlas areas</label><input id="'+scope+'" data-search-input type="search" maxlength="160" autocomplete="off" placeholder="A symbol, a word, or an idea…" value="'+esc(query)+'"><div class="search-kind-filter" role="group" aria-label="Search result type">'+[['all','Everything'],['term','Definitions'],['card','Cards'],['area','Map areas']].map(([key,label])=>'<button type="button" data-search-kind="'+key+'" aria-pressed="'+(key==='all')+'">'+label+'</button>').join('')+'</div><div data-search-results>'+resultsMarkup(query)+'</div></section>';
+      return compact?'<div class="site-search"><label class="sr-only" for="'+scope+'">Search all mathematics</label><input id="'+scope+'" data-search-input type="search" maxlength="160" autocomplete="off" placeholder="Search symbols, terms, cards…" value="'+esc(query)+'" aria-controls="'+scope+'-results"><div id="'+scope+'-results" class="site-search-results" data-search-results hidden></div></div>':'<section class="search-page"><p class="eyebrow">Find the meaning. Follow the idea.</p><h1>Search the atlas.</h1><p>Look up notation, definitions, lessons, and places on the map'+(subjects?', or follow the reading roadmap':'')+'.</p><label class="sr-only" for="'+scope+'">Search cards, definitions and atlas areas</label><input id="'+scope+'" data-search-input type="search" maxlength="160" autocomplete="off" placeholder="A symbol, a word, or an idea…" value="'+esc(query)+'"><div class="search-kind-filter" role="group" aria-label="Search result type">'+[['all','Everything'],['term','Definitions'],['card','Cards'],['area','Map areas'],...(subjects?[['subject','Subjects']]:[])].map(([key,label])=>'<button type="button" data-search-kind="'+key+'" aria-pressed="'+(key==='all')+'">'+label+'</button>').join('')+'</div><div data-search-results>'+resultsMarkup(query)+'</div></section>';
     }
     function mount(host,{query='',compact=false,onOpen,onNavigate}={}){
       if(!host||typeof host.querySelector!=='function')throw new TypeError('Search needs a host element.');

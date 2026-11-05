@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:wave-interference", "id": "math:concept:wave-interference", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:wave-interference", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a5e276ffd764355d3d8d133ef93322818fc3cb6b9d4ae1a0a2d0d57261f70477"}, "purpose": "Add two matching sinusoidal waves and connect phase difference to the resulting amplitude.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a5e276ffd764355d3d8d133ef93322818fc3cb6b9d4ae1a0a2d0d57261f70477", "status": "draft", "title": "Wave interference", "topics": ["mathematics", "trigonometry", "physics"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:wave-interference", "id": "math:concept:wave-interference", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:wave-interference", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a5e276ffd764355d3d8d133ef93322818fc3cb6b9d4ae1a0a2d0d57261f70477"}, "purpose": "Add two matching sinusoidal waves and connect phase difference to the resulting amplitude.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a5e276ffd764355d3d8d133ef93322818fc3cb6b9d4ae1a0a2d0d57261f70477", "status": "draft", "title": "Wave interference", "topics": ["mathematics", "trigonometry", "physics"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Wave interference
@@ -52,7 +52,7 @@ Definition-level references support the mathematics. Applications and stories ar
 
 ## Aliases
 
-
+[]
 
 ## Branches
 
@@ -86,14 +86,14 @@ Slide one wave relative to the other. Their point-by-point sum changes continuou
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the concept and notation with specialist sources before adding historical attribution.
 - reader text: Historical account not yet sourced. Everyday scenarios are constructed examples, not historical anecdotes.
 
 ## Connections
 
-
+[]
 
 ## Examples
 
@@ -133,6 +133,7 @@ Slide one wave relative to the other. Their point-by-point sum changes continuou
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Both component waves have the same frequency, wave number, amplitude and propagation direction.
     - Superposition is linear; contributions are measured in the same units.
@@ -173,6 +174,7 @@ Slide one wave relative to the other. Their point-by-point sum changes continuou
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Both component waves have the same frequency, wave number, amplitude and propagation direction.
     - Superposition is linear; contributions are measured in the same units.
@@ -213,6 +215,7 @@ Slide one wave relative to the other. Their point-by-point sum changes continuou
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Both component waves have the same frequency, wave number, amplitude and propagation direction.
     - Superposition is linear; contributions are measured in the same units.
@@ -253,6 +256,7 @@ Slide one wave relative to the other. Their point-by-point sum changes continuou
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Both component waves have the same frequency, wave number, amplitude and propagation direction.
     - Superposition is linear; contributions are measured in the same units.
@@ -293,6 +297,7 @@ Slide one wave relative to the other. Their point-by-point sum changes continuou
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Both component waves have the same frequency, wave number, amplitude and propagation direction.
     - Superposition is linear; contributions are measured in the same units.

@@ -1,0 +1,606 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:binomial-coefficient",
+  "slug": "binomial-coefficient",
+  "type": "concept",
+  "title": "Combinations and binomial coefficients",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "combinations and binomial coefficients"
+  ],
+  "branches": [
+    "discrete-mathematics"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "How many teams remain when listing order does not matter?",
+  "meaning": "Count each unordered team once. Every team has k! ordered listings, so divide ordered selections by this common multiplicity; Pascal recurrence provides the runtime count.",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:permutation-count",
+      "math:concept:set",
+      "math:concept:binomial-distribution"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "Choose k volunteers from n available people for a team with no distinct roles. The same members in another listing order are still one team.",
+    "formal_latex": "\\binom{n}{k}=\\frac{n!}{k!(n-k)!},\\quad0\\le k\\le n\\le10.",
+    "signature": {
+      "n": "Number of distinct volunteers available.",
+      "k": "Number of people in a team.",
+      "C(n,k)": "Number of unordered k-person subsets of the n-person group.",
+      "k!": "Number of ordered listings corresponding to one team."
+    },
+    "conditions": [
+      "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.",
+      "All chosen inputs are whole numbers in the declared finite ranges. Both views and the story use the same evaluated state."
+    ],
+    "domain_notes": "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.",
+    "proof_status": "Definition-level sources and original bounded calculations; independent review pending.",
+    "source_refs": [
+      "source:number-foundations:counting"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Combinations and binomial coefficients",
+    "expression_latex": "\\binom{n}{k}=\\frac{n!}{k!(n-k)!},\\quad0\\le k\\le n\\le10.",
+    "formation_rule": "Count each unordered team once. Every team has k! ordered listings, so divide ordered selections by this common multiplicity; Pascal recurrence provides the runtime count.",
+    "precedence": "Respect the declared grouping, integer domain and distinction between ordered and unordered choices.",
+    "symbols": [
+      {
+        "token": "n",
+        "role": "Number of distinct volunteers available.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      },
+      {
+        "token": "k",
+        "role": "Number of people in a team.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      },
+      {
+        "token": "C(n,k)",
+        "role": "Number of unordered k-person subsets of the n-person group.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      },
+      {
+        "token": "k!",
+        "role": "Number of ordered listings corresponding to one team.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:binomial-coefficient:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:available",
+          "kind": "variable",
+          "type": "Declared integer input",
+          "symbol": "n",
+          "scope_ref": "scope:binomial-coefficient"
+        },
+        {
+          "id": "n:chosen",
+          "kind": "variable",
+          "type": "Declared integer input",
+          "symbol": "k",
+          "scope_ref": "scope:binomial-coefficient"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded arithmetic rule",
+          "ref": "Count each unordered team once. Every team has k! ordered listings, so divide ordered selections by this common multiplicity; Pascal recurrence provides the runtime count."
+        },
+        {
+          "id": "n:bound-available",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:available"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-available",
+          "argument": "n:chosen"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:binomial-coefficient",
+          "kind": "modelExpression",
+          "free_variables": [
+            "n",
+            "k"
+          ],
+          "domain_condition": "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use a fractional count or leave the declared range",
+        "status": "unsupported parameter",
+        "reason": "Only the stated bounded integer family is executable; no silent rounding or extrapolation is performed."
+      }
+    ],
+    "ast_coverage": "A typed application outline of this bounded family; not an arbitrary arithmetic-expression parser.",
+    "output_symbol_bindings": {
+      "n": "available",
+      "k": "chosen",
+      "C(n,k)": "output",
+      "k!": "ordersPerTeam"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Complementary team sizes have the same count.",
+      "conditions": "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.",
+      "derivation": "Map every selected team to the people left out. This is a reversible correspondence between k-person and (n−k)-person teams.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:binomial-coefficient:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Check historical and notation development before adding priority claims.",
+      "Verify exact-edition book mappings independently."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The workshop stories and examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:permutation-count",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Combinations and binomial coefficients supplies a bounded connection to permutation count.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:set",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Combinations and binomial coefficients supplies a bounded connection to set.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:binomial-distribution",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Combinations and binomial coefficients supplies a bounded connection to binomial distribution.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:binomial-coefficient:case-1",
+      "title": "Choose a three-person team",
+      "role": "applied_model",
+      "question": "How many teams remain when listing order does not matter?",
+      "setting": "Choose a volunteer team with no different roles. The same people listed in another order still form one team. Change the team size and compare the complete count with a clearly labeled prefix of the actual teams.",
+      "assumptions": [
+        "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+      ],
+      "inputs": {
+        "available": 6,
+        "chosen": 3
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 6; k = 3",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "C(6,3) = 120/6 = 20",
+          "reason": "Count each unordered team once. Every team has k! ordered listings, so divide ordered selections by this common multiplicity; Pascal recurrence provides the runtime count."
+        }
+      ],
+      "result": {
+        "exact": "20 selections"
+      },
+      "interpretation": "Six orders of each team correspond to one set of three members.",
+      "independent_check": {
+        "method": "List all 3-person subsets of the 6 people, recording each team once regardless of order. The list contains 20 distinct teams.",
+        "expected": "20"
+      },
+      "limits": "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.",
+      "preset": {
+        "available": 6,
+        "chosen": 3
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+      ]
+    },
+    {
+      "id": "math:example:binomial-coefficient:case-2",
+      "title": "Choose nobody",
+      "role": "applied_model",
+      "question": "How many teams remain when listing order does not matter?",
+      "setting": "Choose a volunteer team with no different roles. The same people listed in another order still form one team. Change the team size and compare the complete count with a clearly labeled prefix of the actual teams.",
+      "assumptions": [
+        "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+      ],
+      "inputs": {
+        "available": 6,
+        "chosen": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 6; k = 0",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "C(6,0) = 1",
+          "reason": "Count each unordered team once. Every team has k! ordered listings, so divide ordered selections by this common multiplicity; Pascal recurrence provides the runtime count."
+        }
+      ],
+      "result": {
+        "exact": "1 selections"
+      },
+      "interpretation": "The empty team is one subset.",
+      "independent_check": {
+        "method": "List all 0-person subsets of the 6 people, recording each team once regardless of order. The list contains 1 distinct team.",
+        "expected": "1"
+      },
+      "limits": "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.",
+      "preset": {
+        "available": 6,
+        "chosen": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+      ]
+    },
+    {
+      "id": "math:example:binomial-coefficient:case-3",
+      "title": "Choose everybody",
+      "role": "applied_model",
+      "question": "How many teams remain when listing order does not matter?",
+      "setting": "Choose a volunteer team with no different roles. The same people listed in another order still form one team. Change the team size and compare the complete count with a clearly labeled prefix of the actual teams.",
+      "assumptions": [
+        "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+      ],
+      "inputs": {
+        "available": 6,
+        "chosen": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 6; k = 6",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "C(6,6) = 1",
+          "reason": "Count each unordered team once. Every team has k! ordered listings, so divide ordered selections by this common multiplicity; Pascal recurrence provides the runtime count."
+        }
+      ],
+      "result": {
+        "exact": "1 selections"
+      },
+      "interpretation": "There is only one team containing all six people.",
+      "independent_check": {
+        "method": "List all 6-person subsets of the 6 people, recording each team once regardless of order. The list contains 1 distinct team.",
+        "expected": "1"
+      },
+      "limits": "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.",
+      "preset": {
+        "available": 6,
+        "chosen": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+      ]
+    },
+    {
+      "id": "math:example:binomial-coefficient:case-4",
+      "title": "Choose two of eight",
+      "role": "applied_model",
+      "question": "How many teams remain when listing order does not matter?",
+      "setting": "Choose a volunteer team with no different roles. The same people listed in another order still form one team. Change the team size and compare the complete count with a clearly labeled prefix of the actual teams.",
+      "assumptions": [
+        "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+      ],
+      "inputs": {
+        "available": 8,
+        "chosen": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 8; k = 2",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "C(8,2) = 56/2 = 28",
+          "reason": "Count each unordered team once. Every team has k! ordered listings, so divide ordered selections by this common multiplicity; Pascal recurrence provides the runtime count."
+        }
+      ],
+      "result": {
+        "exact": "28 selections"
+      },
+      "interpretation": "Each pair was counted twice as an ordered assignment.",
+      "independent_check": {
+        "method": "List all 2-person subsets of the 8 people, recording each team once regardless of order. The list contains 28 distinct teams.",
+        "expected": "28"
+      },
+      "limits": "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.",
+      "preset": {
+        "available": 8,
+        "chosen": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+      ]
+    },
+    {
+      "id": "math:example:binomial-coefficient:case-5",
+      "title": "Choose the complement size",
+      "role": "applied_model",
+      "question": "How many teams remain when listing order does not matter?",
+      "setting": "Choose a volunteer team with no different roles. The same people listed in another order still form one team. Change the team size and compare the complete count with a clearly labeled prefix of the actual teams.",
+      "assumptions": [
+        "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+      ],
+      "inputs": {
+        "available": 8,
+        "chosen": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 8; k = 6",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "C(8,6) = C(8,2) = 28",
+          "reason": "Count each unordered team once. Every team has k! ordered listings, so divide ordered selections by this common multiplicity; Pascal recurrence provides the runtime count."
+        }
+      ],
+      "result": {
+        "exact": "28 selections"
+      },
+      "interpretation": "Choosing six members is equivalent to choosing the two excluded members.",
+      "independent_check": {
+        "method": "List all 6-person subsets of the 8 people, recording each team once regardless of order. The list contains 28 distinct teams.",
+        "expected": "28"
+      },
+      "limits": "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.",
+      "preset": {
+        "available": 8,
+        "chosen": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:binomial-coefficient",
+    "renderer_id": "binomial-coefficient-visual-model",
+    "renderer_version": "1",
+    "model_id": "binomial-coefficient-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:binomial-coefficient:expression",
+    "interaction_status": "implemented",
+    "description": "Choose a volunteer team with no different roles. The same people listed in another order still form one team. Change the team size and compare the complete count with a clearly labeled prefix of the actual teams.",
+    "controls": [
+      {
+        "id": "available",
+        "type": "number",
+        "default": 6,
+        "min": 0,
+        "max": 10,
+        "step": 1
+      },
+      {
+        "id": "chosen",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 10,
+        "step": 1
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "available": 6,
+          "chosen": 3
+        },
+        "status": "valid",
+        "output": 20
+      },
+      {
+        "input": {
+          "available": 6,
+          "chosen": 0
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "available": 6,
+          "chosen": 6
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "available": 8,
+          "chosen": 2
+        },
+        "status": "valid",
+        "output": 28
+      },
+      {
+        "input": {
+          "available": 8,
+          "chosen": 6
+        },
+        "status": "valid",
+        "output": 28
+      },
+      {
+        "input": {
+          "available": 0,
+          "chosen": 0
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "available": 10,
+          "chosen": 5
+        },
+        "status": "valid",
+        "output": 252
+      },
+      {
+        "input": {
+          "available": 3,
+          "chosen": 4
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "available": 6,
+          "chosen": 1.5
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Count each unordered team once. Every team has k! ordered listings, so divide ordered selections by this common multiplicity; Pascal recurrence provides the runtime count.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.",
+      "All chosen inputs are whole numbers in the declared finite ranges. Both views and the story use the same evaluated state."
+    ],
+    "limits": [
+      "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+    ],
+    "fallback": "Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How many teams remain when listing order does not matter?",
+      "answer": "Count each unordered team once. Every team has k! ordered listings, so divide ordered selections by this common multiplicity; Pascal recurrence provides the runtime count."
+    },
+    {
+      "prompt": "What conditions make this picture valid?",
+      "answer": "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Choose a volunteer team with no different roles. The same people listed in another order still form one team. Change the team size and compare the complete count with a clearly labeled prefix of the actual teams."
+    },
+    {
+      "kind": "graph",
+      "description": "The graph displays exact discrete settings or positional contributions. There are no invented fractional count states."
+    },
+    {
+      "kind": "substitution",
+      "description": "Count each unordered team once. Every team has k! ordered listings, so divide ordered selections by this common multiplicity; Pascal recurrence provides the runtime count."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Original workshop scenario",
+      "mapping": "How many teams remain when listing order does not matter?",
+      "limitations": "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:binomial-coefficient:case-1"
+    },
+    {
+      "context": "Choose nobody",
+      "mapping": "The empty team is one subset.",
+      "limitations": "Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:binomial-coefficient:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:number-foundations:counting"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded family is an introduction, not completion of a broad subject."
+  ],
+  "change_log": [
+    "Next branch expansion: added an exact bounded number/counting family, original examples, connected story and distinct Geometry/Graph."
+  ]
+}

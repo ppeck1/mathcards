@@ -1,0 +1,596 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:modular-arithmetic",
+  "slug": "modular-arithmetic",
+  "type": "concept",
+  "title": "Modular arithmetic and remainders",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "modular arithmetic and remainders"
+  ],
+  "branches": [
+    "numbers-number-theory"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "What is left after every full tray is packed?",
+  "meaning": "Modular arithmetic groups integers by their remainders for a fixed positive modulus. Divide the nonnegative total by the positive tray capacity. The integer quotient counts full trays and the remainder counts leftovers.",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:greatest-common-divisor",
+      "math:concept:recurrence"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "Pack n counters into full trays holding m counters each. The leftover count is the nonnegative remainder.",
+    "formal_latex": "n=qm+r,\\quad q=\\lfloor n/m\\rfloor,\\quad0\\le r<m.",
+    "signature": {
+      "n": "Total counters before packing.",
+      "m": "Positive number of counters in a full tray.",
+      "q": "Number of completely filled trays.",
+      "r": "Nonnegative leftover count, strictly smaller than one tray."
+    },
+    "conditions": [
+      "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.",
+      "All chosen inputs are whole numbers in the declared finite ranges. Both views and the story use the same evaluated state."
+    ],
+    "domain_notes": "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.",
+    "proof_status": "Definition-level sources and original bounded calculations; independent review pending.",
+    "source_refs": [
+      "source:number-foundations:integer"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Modular arithmetic and remainders",
+    "expression_latex": "n=qm+r,\\quad q=\\lfloor n/m\\rfloor,\\quad0\\le r<m.",
+    "formation_rule": "Divide the nonnegative total by the positive tray capacity. The integer quotient counts full trays and the remainder counts leftovers.",
+    "precedence": "Respect the declared grouping, integer domain and distinction between ordered and unordered choices.",
+    "symbols": [
+      {
+        "token": "n",
+        "role": "Total counters before packing.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      },
+      {
+        "token": "m",
+        "role": "Positive number of counters in a full tray.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      },
+      {
+        "token": "q",
+        "role": "Number of completely filled trays.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      },
+      {
+        "token": "r",
+        "role": "Nonnegative leftover count, strictly smaller than one tray.",
+        "type": "Declared count, exact result or locally defined arithmetic quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:modular-arithmetic:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:total",
+          "kind": "variable",
+          "type": "Declared integer input",
+          "symbol": "n",
+          "scope_ref": "scope:modular-arithmetic"
+        },
+        {
+          "id": "n:modulus",
+          "kind": "variable",
+          "type": "Declared integer input",
+          "symbol": "m",
+          "scope_ref": "scope:modular-arithmetic"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded arithmetic rule",
+          "ref": "Divide the nonnegative total by the positive tray capacity. The integer quotient counts full trays and the remainder counts leftovers."
+        },
+        {
+          "id": "n:bound-total",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:total"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-total",
+          "argument": "n:modulus"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:modular-arithmetic",
+          "kind": "modelExpression",
+          "free_variables": [
+            "n",
+            "m"
+          ],
+          "domain_condition": "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use a fractional count or leave the declared range",
+        "status": "unsupported parameter",
+        "reason": "Only the stated bounded integer family is executable; no silent rounding or extrapolation is performed."
+      }
+    ],
+    "ast_coverage": "A typed application outline of this bounded family; not an arbitrary arithmetic-expression parser.",
+    "output_symbol_bindings": {
+      "n": "total",
+      "m": "modulus",
+      "q": "quotient",
+      "r": "remainder"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Adding one full tray preserves the remainder.",
+      "conditions": "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.",
+      "derivation": "If n=qm+r, then n+m=(q+1)m+r. The remainder remains in the same allowed interval when both displayed totals fit the control range.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:modular-arithmetic:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Check historical and notation development before adding priority claims.",
+      "Verify exact-edition book mappings independently."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The workshop stories and examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:greatest-common-divisor",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Modular arithmetic and remainders supplies a bounded connection to greatest common divisor.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:recurrence",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Modular arithmetic and remainders supplies a bounded connection to recurrence.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:modular-arithmetic:case-1",
+      "title": "Pack a workshop order",
+      "role": "applied_model",
+      "question": "What is left after every full tray is packed?",
+      "setting": "A workshop packs counters into trays of a fixed capacity. Change the total count or the capacity. Cyan counters fill complete trays; gold counters are the leftovers. The same leftover can recur after another full tray has been added.",
+      "assumptions": [
+        "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+      ],
+      "inputs": {
+        "total": 23,
+        "modulus": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 23; m = 6",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "23 = 3 × 6 + 5",
+          "reason": "Divide the nonnegative total by the positive tray capacity. The integer quotient counts full trays and the remainder counts leftovers."
+        }
+      ],
+      "result": {
+        "exact": "5 items"
+      },
+      "interpretation": "Three full trays hold eighteen counters; five remain.",
+      "independent_check": {
+        "method": "Reconstruct the order: 23 = 3 × 6 + 5. The remainder 5 is nonnegative and smaller than the tray capacity 6.",
+        "expected": "5"
+      },
+      "limits": "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.",
+      "preset": {
+        "total": 23,
+        "modulus": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+      ]
+    },
+    {
+      "id": "math:example:modular-arithmetic:case-2",
+      "title": "Finish with no loose counters",
+      "role": "applied_model",
+      "question": "What is left after every full tray is packed?",
+      "setting": "A workshop packs counters into trays of a fixed capacity. Change the total count or the capacity. Cyan counters fill complete trays; gold counters are the leftovers. The same leftover can recur after another full tray has been added.",
+      "assumptions": [
+        "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+      ],
+      "inputs": {
+        "total": 24,
+        "modulus": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 24; m = 6",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "24 = 4 × 6 + 0",
+          "reason": "Divide the nonnegative total by the positive tray capacity. The integer quotient counts full trays and the remainder counts leftovers."
+        }
+      ],
+      "result": {
+        "exact": "0 items"
+      },
+      "interpretation": "An exact multiple has remainder zero.",
+      "independent_check": {
+        "method": "Reconstruct the order: 24 = 4 × 6 + 0. The remainder 0 is nonnegative and smaller than the tray capacity 6.",
+        "expected": "0"
+      },
+      "limits": "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.",
+      "preset": {
+        "total": 24,
+        "modulus": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+      ]
+    },
+    {
+      "id": "math:example:modular-arithmetic:case-3",
+      "title": "Begin with an empty order",
+      "role": "applied_model",
+      "question": "What is left after every full tray is packed?",
+      "setting": "A workshop packs counters into trays of a fixed capacity. Change the total count or the capacity. Cyan counters fill complete trays; gold counters are the leftovers. The same leftover can recur after another full tray has been added.",
+      "assumptions": [
+        "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+      ],
+      "inputs": {
+        "total": 0,
+        "modulus": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 0; m = 6",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "0 = 0 × 6 + 0",
+          "reason": "Divide the nonnegative total by the positive tray capacity. The integer quotient counts full trays and the remainder counts leftovers."
+        }
+      ],
+      "result": {
+        "exact": "0 items"
+      },
+      "interpretation": "No trays and no leftovers still satisfy the division identity.",
+      "independent_check": {
+        "method": "Reconstruct the order: 0 = 0 × 6 + 0. The remainder 0 is nonnegative and smaller than the tray capacity 6.",
+        "expected": "0"
+      },
+      "limits": "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.",
+      "preset": {
+        "total": 0,
+        "modulus": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+      ]
+    },
+    {
+      "id": "math:example:modular-arithmetic:case-4",
+      "title": "Use the largest supported tray",
+      "role": "applied_model",
+      "question": "What is left after every full tray is packed?",
+      "setting": "A workshop packs counters into trays of a fixed capacity. Change the total count or the capacity. Cyan counters fill complete trays; gold counters are the leftovers. The same leftover can recur after another full tray has been added.",
+      "assumptions": [
+        "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+      ],
+      "inputs": {
+        "total": 60,
+        "modulus": 12
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 60; m = 12",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "60 = 5 × 12 + 0",
+          "reason": "Divide the nonnegative total by the positive tray capacity. The integer quotient counts full trays and the remainder counts leftovers."
+        }
+      ],
+      "result": {
+        "exact": "0 items"
+      },
+      "interpretation": "A different modulus changes the tray count and the remainder class.",
+      "independent_check": {
+        "method": "Reconstruct the order: 60 = 5 × 12 + 0. The remainder 0 is nonnegative and smaller than the tray capacity 12.",
+        "expected": "0"
+      },
+      "limits": "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.",
+      "preset": {
+        "total": 60,
+        "modulus": 12
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+      ]
+    },
+    {
+      "id": "math:example:modular-arithmetic:case-5",
+      "title": "Change the packing capacity",
+      "role": "applied_model",
+      "question": "What is left after every full tray is packed?",
+      "setting": "A workshop packs counters into trays of a fixed capacity. Change the total count or the capacity. Cyan counters fill complete trays; gold counters are the leftovers. The same leftover can recur after another full tray has been added.",
+      "assumptions": [
+        "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+      ],
+      "inputs": {
+        "total": 35,
+        "modulus": 8
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "n = 35; m = 8",
+          "reason": "Use the stated whole-number conditions."
+        },
+        {
+          "index": 2,
+          "expression": "35 = 4 × 8 + 3",
+          "reason": "Divide the nonnegative total by the positive tray capacity. The integer quotient counts full trays and the remainder counts leftovers."
+        }
+      ],
+      "result": {
+        "exact": "3 items"
+      },
+      "interpretation": "Only complete trays enter the quotient; the remainder is less than eight.",
+      "independent_check": {
+        "method": "Reconstruct the order: 35 = 4 × 8 + 3. The remainder 3 is nonnegative and smaller than the tray capacity 8.",
+        "expected": "3"
+      },
+      "limits": "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.",
+      "preset": {
+        "total": 35,
+        "modulus": 8
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:modular-arithmetic",
+    "renderer_id": "modular-arithmetic-visual-model",
+    "renderer_version": "1",
+    "model_id": "modular-arithmetic-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:modular-arithmetic:expression",
+    "interaction_status": "implemented",
+    "description": "A workshop packs counters into trays of a fixed capacity. Change the total count or the capacity. Cyan counters fill complete trays; gold counters are the leftovers. The same leftover can recur after another full tray has been added.",
+    "controls": [
+      {
+        "id": "total",
+        "type": "number",
+        "default": 23,
+        "min": 0,
+        "max": 60,
+        "step": 1
+      },
+      {
+        "id": "modulus",
+        "type": "number",
+        "default": 6,
+        "min": 2,
+        "max": 12,
+        "step": 1
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "total": 23,
+          "modulus": 6
+        },
+        "status": "valid",
+        "output": 5
+      },
+      {
+        "input": {
+          "total": 24,
+          "modulus": 6
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "total": 0,
+          "modulus": 6
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "total": 60,
+          "modulus": 12
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "total": 35,
+          "modulus": 8
+        },
+        "status": "valid",
+        "output": 3
+      },
+      {
+        "input": {
+          "total": 1,
+          "modulus": 12
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "total": 60,
+          "modulus": 2
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "total": 2.5,
+          "modulus": 6
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "total": 23,
+          "modulus": 0
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Divide the nonnegative total by the positive tray capacity. The integer quotient counts full trays and the remainder counts leftovers.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.",
+      "All chosen inputs are whole numbers in the declared finite ranges. Both views and the story use the same evaluated state."
+    ],
+    "limits": [
+      "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+    ],
+    "fallback": "Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "What is left after every full tray is packed?",
+      "answer": "Divide the nonnegative total by the positive tray capacity. The integer quotient counts full trays and the remainder counts leftovers."
+    },
+    {
+      "prompt": "What conditions make this picture valid?",
+      "answer": "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "A workshop packs counters into trays of a fixed capacity. Change the total count or the capacity. Cyan counters fill complete trays; gold counters are the leftovers. The same leftover can recur after another full tray has been added."
+    },
+    {
+      "kind": "graph",
+      "description": "The graph displays exact discrete settings or positional contributions. There are no invented fractional count states."
+    },
+    {
+      "kind": "substitution",
+      "description": "Divide the nonnegative total by the positive tray capacity. The integer quotient counts full trays and the remainder counts leftovers."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Original workshop scenario",
+      "mapping": "What is left after every full tray is packed?",
+      "limitations": "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:modular-arithmetic:case-1"
+    },
+    {
+      "context": "Finish with no loose counters",
+      "mapping": "An exact multiple has remainder zero.",
+      "limitations": "This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:modular-arithmetic:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:number-foundations:integer"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded family is an introduction, not completion of a broad subject."
+  ],
+  "change_log": [
+    "Next branch expansion: added an exact bounded number/counting family, original examples, connected story and distinct Geometry/Graph."
+  ]
+}

@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:countability", "id": "math:concept:countability", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:countability", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "0a6dcf9f6a5dd58f5e4f86cc9f15e4b77d096babf25d3af15573b5a0ec47af9d"}, "purpose": "Follow a natural-number index to an integer address, then use the inverse rule to recover the index.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "0a6dcf9f6a5dd58f5e4f86cc9f15e4b77d096babf25d3af15573b5a0ec47af9d", "status": "draft", "title": "Countability and enumeration", "topics": ["mathematics", "language-foundations", "sets", "number-arithmetic", "countable set", "denumerable", "integer enumeration", "bijection with natural numbers"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:countability", "id": "math:concept:countability", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:countability", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "0a6dcf9f6a5dd58f5e4f86cc9f15e4b77d096babf25d3af15573b5a0ec47af9d"}, "purpose": "Follow a natural-number index to an integer address, then use the inverse rule to recover the index.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "0a6dcf9f6a5dd58f5e4f86cc9f15e4b77d096babf25d3af15573b5a0ec47af9d", "status": "draft", "title": "Countability and enumeration", "topics": ["mathematics", "language-foundations", "sets", "number-arithmetic", "countable set", "denumerable", "integer enumeration", "bijection with natural numbers"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Countability and enumeration
@@ -223,7 +223,7 @@ A set is denumerable when a bijection pairs it with the natural numbers. Here a 
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -239,6 +239,7 @@ A set is denumerable when a bijection pairs it with the natural numbers. Here a 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:relation
   - type: supports
@@ -247,6 +248,7 @@ A set is denumerable when a bijection pairs it with the natural numbers. Here a 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:infinity
   - type: supports
@@ -255,6 +257,7 @@ A set is denumerable when a bijection pairs it with the natural numbers. Here a 
   - target status: planned
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -291,6 +294,7 @@ A set is denumerable when a bijection pairs it with the natural numbers. Here a 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The mathematical index domain ℕ₀ contains 0,1,2,… . Including zero lets the central integer address 0 be paired directly with index 0.
     - The live window selects a whole index n from zero to twelve. Its primary result is the integer f(n), and its prefix contains n+1 matches. Neither result is an infinite cardinality.
@@ -327,6 +331,7 @@ A set is denumerable when a bijection pairs it with the natural numbers. Here a 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The mathematical index domain ℕ₀ contains 0,1,2,… . Including zero lets the central integer address 0 be paired directly with index 0.
     - The live window selects a whole index n from zero to twelve. Its primary result is the integer f(n), and its prefix contains n+1 matches. Neither result is an infinite cardinality.
@@ -363,6 +368,7 @@ A set is denumerable when a bijection pairs it with the natural numbers. Here a 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The mathematical index domain ℕ₀ contains 0,1,2,… . Including zero lets the central integer address 0 be paired directly with index 0.
     - The live window selects a whole index n from zero to twelve. Its primary result is the integer f(n), and its prefix contains n+1 matches. Neither result is an infinite cardinality.
@@ -399,6 +405,7 @@ A set is denumerable when a bijection pairs it with the natural numbers. Here a 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The mathematical index domain ℕ₀ contains 0,1,2,… . Including zero lets the central integer address 0 be paired directly with index 0.
     - The live window selects a whole index n from zero to twelve. Its primary result is the integer f(n), and its prefix contains n+1 matches. Neither result is an infinite cardinality.
@@ -435,6 +442,7 @@ A set is denumerable when a bijection pairs it with the natural numbers. Here a 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The mathematical index domain ℕ₀ contains 0,1,2,… . Including zero lets the central integer address 0 be paired directly with index 0.
     - The live window selects a whole index n from zero to twelve. Its primary result is the integer f(n), and its prefix contains n+1 matches. Neither result is an infinite cardinality.

@@ -7,8 +7,9 @@ const require = createRequire(import.meta.url);
 const M = require('../src/models.js');
 const near = (actual, expected, tolerance = 1e-10) => assert.ok(Math.abs(actual - expected) <= tolerance, `${actual} ≈ ${expected}`);
 
-test('classic browser script exposes the same dependency-free API', () => {
+test('classic browser scripts expose the same provider-backed API', () => {
   const context = vm.createContext({});
+  vm.runInContext(fs.readFileSync(new URL('../src/legacy-models.js', import.meta.url), 'utf8'), context);
   vm.runInContext(fs.readFileSync(new URL('../src/models.js', import.meta.url), 'utf8'), context);
   assert.equal(context.AtlasModels.evaluate('function-composition', {}).output, 49);
 });

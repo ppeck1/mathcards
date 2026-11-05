@@ -1,0 +1,733 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:angular-velocity",
+  "slug": "angular-velocity",
+  "type": "concept",
+  "title": "Angular velocity and rim motion",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "angular velocity and rim motion"
+  ],
+  "branches": [
+    "mechanics",
+    "applied-mathematics"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Why can a rim point keep its speed while changing velocity?",
+  "meaning": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r.",
+  "prerequisites": {
+    "required": [
+      "math:concept:vector-rotation"
+    ],
+    "helpful": [
+      "math:concept:derivative",
+      "math:concept:linear-momentum"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+    "formal_latex": "\\theta=\\omega t,\\quad\\vec r=(r\\cos\\theta,r\\sin\\theta,0),\\quad\\vec v=(-r\\omega\\sin\\theta,r\\omega\\cos\\theta,0),\\quad\\|\\vec v\\|=|\\omega|r.",
+    "signature": {
+      "t": "Elapsed time t",
+      "r": "Rim radius r",
+      "ω": "Signed angular velocity ω",
+      "θ": "Accumulated or frame angle",
+      "v_x": "Horizontal tangent velocity",
+      "v_y": "Vertical tangent velocity",
+      "v": "Primary model result"
+    },
+    "conditions": [
+      "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+      "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled.",
+      "All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure."
+    ],
+    "domain_notes": "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled.",
+    "proof_status": "Definition-level references and original bounded derivations; independent mathematical review pending.",
+    "source_refs": [
+      "source:spatial-foundations:angular"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Angular velocity and rim motion",
+    "expression_latex": "\\theta=\\omega t,\\quad\\vec r=(r\\cos\\theta,r\\sin\\theta,0),\\quad\\vec v=(-r\\omega\\sin\\theta,r\\omega\\cos\\theta,0),\\quad\\|\\vec v\\|=|\\omega|r.",
+    "formation_rule": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r.",
+    "precedence": "Keep the ordered operations, declared frame and units fixed; evaluate the component operations before the magnitude.",
+    "symbols": [
+      {
+        "token": "t",
+        "role": "Elapsed time t",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "r",
+        "role": "Rim radius r",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "ω",
+        "role": "Signed angular velocity ω",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "θ",
+        "role": "Accumulated or frame angle",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "v_x",
+        "role": "Horizontal tangent velocity",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "v_y",
+        "role": "Vertical tangent velocity",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "v",
+        "role": "Primary model result",
+        "type": "Declared input or computed geometric quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:angular-velocity:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:time",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "t",
+          "scope_ref": "scope:angular-velocity:expression"
+        },
+        {
+          "id": "n:radius",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "r",
+          "scope_ref": "scope:angular-velocity:expression"
+        },
+        {
+          "id": "n:omega",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "ω",
+          "scope_ref": "scope:angular-velocity:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded vector/coordinate rule",
+          "ref": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r."
+        },
+        {
+          "id": "n:bound-time",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:time"
+        },
+        {
+          "id": "n:bound-radius",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-time",
+          "argument": "n:radius"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-radius",
+          "argument": "n:omega"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:angular-velocity:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "t",
+            "r",
+            "ω"
+          ],
+          "domain_condition": "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Treat the constructed model as a measured prediction",
+        "status": "interpretation error",
+        "reason": "A formula and stipulated inputs are not an empirical validation."
+      }
+    ],
+    "ast_coverage": "Typed application outline of this bounded family; not an arbitrary expression evaluator.",
+    "output_symbol_bindings": {
+      "t": "time",
+      "r": "radius",
+      "ω": "omega",
+      "θ": "angle",
+      "v_x": "velocityX",
+      "v_y": "velocityY",
+      "v": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r.",
+      "conditions": "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled.",
+      "derivation": "The angle is 1.5 rad and the speed is 1.5 m/s.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:angular-velocity:case-1"
+    },
+    {
+      "claim": "Direction and signed angle reverse, while speed remains 1.5 m/s.",
+      "conditions": "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+      "derivation": "1.5 m/s",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:angular-velocity:case-2"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:vector-rotation",
+      "type": "supports",
+      "conditions": "Use each lesson with its own frame, units and domain.",
+      "reason": "Position rotates at the accumulated angle, while the tangent is perpendicular to the radius.",
+      "target_status": "available",
+      "evidence_status": "definition-level relationship; original explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:derivative",
+      "type": "supports",
+      "conditions": "Use each lesson with its own frame, units and domain.",
+      "reason": "Differentiating circular position yields the velocity components.",
+      "target_status": "available",
+      "evidence_status": "definition-level relationship; original explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:linear-momentum",
+      "type": "supports",
+      "conditions": "Use each lesson with its own frame, units and domain.",
+      "reason": "A stated positive mass turns this velocity into momentum.",
+      "target_status": "available",
+      "evidence_status": "definition-level relationship; original explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:angular-velocity:case-1",
+      "title": "Follow one second of the stated turn",
+      "role": "applied_model",
+      "question": "Why can a rim point keep its speed while changing velocity?",
+      "setting": "A marked point turns on a wheel at constant signed angular velocity. Follow elapsed time into its angle, then into its position and tangent velocity. The cyan tangent changes direction as the point moves; the rim speed keeps the same magnitude while radius and rate stay fixed.",
+      "assumptions": [
+        "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+        "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled."
+      ],
+      "inputs": {
+        "time": 1,
+        "radius": 1,
+        "omega": 1.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 1; r = 1; ω = 1.5",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "θ = ωt; v = ω × r; speed = |ω|r",
+          "reason": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r."
+        },
+        {
+          "index": 3,
+          "expression": "1.5 m/s",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "1.5 m/s"
+      },
+      "interpretation": "The angle is 1.5 rad and the speed is 1.5 m/s.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 1.5}"
+      },
+      "limits": "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled.",
+      "preset": {
+        "time": 1,
+        "radius": 1,
+        "omega": 1.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+        "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled."
+      ]
+    },
+    {
+      "id": "math:example:angular-velocity:case-2",
+      "title": "Reverse the spin",
+      "role": "applied_model",
+      "question": "Why can a rim point keep its speed while changing velocity?",
+      "setting": "A marked point turns on a wheel at constant signed angular velocity. Follow elapsed time into its angle, then into its position and tangent velocity. The cyan tangent changes direction as the point moves; the rim speed keeps the same magnitude while radius and rate stay fixed.",
+      "assumptions": [
+        "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+        "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled."
+      ],
+      "inputs": {
+        "time": 1,
+        "radius": 1,
+        "omega": -1.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 1; r = 1; ω = -1.5",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "θ = ωt; v = ω × r; speed = |ω|r",
+          "reason": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r."
+        },
+        {
+          "index": 3,
+          "expression": "1.5 m/s",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "1.5 m/s"
+      },
+      "interpretation": "Direction and signed angle reverse, while speed remains 1.5 m/s.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 1.5}"
+      },
+      "limits": "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled.",
+      "preset": {
+        "time": 1,
+        "radius": 1,
+        "omega": -1.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+        "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled."
+      ]
+    },
+    {
+      "id": "math:example:angular-velocity:case-3",
+      "title": "Move the mark to a larger radius",
+      "role": "applied_model",
+      "question": "Why can a rim point keep its speed while changing velocity?",
+      "setting": "A marked point turns on a wheel at constant signed angular velocity. Follow elapsed time into its angle, then into its position and tangent velocity. The cyan tangent changes direction as the point moves; the rim speed keeps the same magnitude while radius and rate stay fixed.",
+      "assumptions": [
+        "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+        "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled."
+      ],
+      "inputs": {
+        "time": 1,
+        "radius": 2,
+        "omega": 1.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 1; r = 2; ω = 1.5",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "θ = ωt; v = ω × r; speed = |ω|r",
+          "reason": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r."
+        },
+        {
+          "index": 3,
+          "expression": "3.0 m/s",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "3.0 m/s"
+      },
+      "interpretation": "The same angular rate gives twice the rim speed.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 3.0}"
+      },
+      "limits": "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled.",
+      "preset": {
+        "time": 1,
+        "radius": 2,
+        "omega": 1.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+        "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled."
+      ]
+    },
+    {
+      "id": "math:example:angular-velocity:case-4",
+      "title": "Stop the turn",
+      "role": "applied_model",
+      "question": "Why can a rim point keep its speed while changing velocity?",
+      "setting": "A marked point turns on a wheel at constant signed angular velocity. Follow elapsed time into its angle, then into its position and tangent velocity. The cyan tangent changes direction as the point moves; the rim speed keeps the same magnitude while radius and rate stay fixed.",
+      "assumptions": [
+        "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+        "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled."
+      ],
+      "inputs": {
+        "time": 1,
+        "radius": 1,
+        "omega": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 1; r = 1; ω = 0",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "θ = ωt; v = ω × r; speed = |ω|r",
+          "reason": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r."
+        },
+        {
+          "index": 3,
+          "expression": "0.0 m/s",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "0.0 m/s"
+      },
+      "interpretation": "The point has zero tangent velocity and no velocity direction.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 0.0}"
+      },
+      "limits": "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled.",
+      "preset": {
+        "time": 1,
+        "radius": 1,
+        "omega": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+        "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled."
+      ]
+    },
+    {
+      "id": "math:example:angular-velocity:case-5",
+      "title": "Put the mark at the centre",
+      "role": "applied_model",
+      "question": "Why can a rim point keep its speed while changing velocity?",
+      "setting": "A marked point turns on a wheel at constant signed angular velocity. Follow elapsed time into its angle, then into its position and tangent velocity. The cyan tangent changes direction as the point moves; the rim speed keeps the same magnitude while radius and rate stay fixed.",
+      "assumptions": [
+        "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+        "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled."
+      ],
+      "inputs": {
+        "time": 1,
+        "radius": 0,
+        "omega": 1.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "t = 1; r = 0; ω = 1.5",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "θ = ωt; v = ω × r; speed = |ω|r",
+          "reason": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r."
+        },
+        {
+          "index": 3,
+          "expression": "0.0 m/s",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "0.0 m/s"
+      },
+      "interpretation": "A rotating wheel can have a stationary centre point with zero speed.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 0.0}"
+      },
+      "limits": "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled.",
+      "preset": {
+        "time": 1,
+        "radius": 0,
+        "omega": 1.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+        "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:angular-velocity",
+    "renderer_id": "angular-velocity-visual-model",
+    "renderer_version": "1",
+    "model_id": "angular-velocity-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:angular-velocity:expression",
+    "interaction_status": "implemented",
+    "description": "A marked point turns on a wheel at constant signed angular velocity. Follow elapsed time into its angle, then into its position and tangent velocity. The cyan tangent changes direction as the point moves; the rim speed keeps the same magnitude while radius and rate stay fixed.",
+    "controls": [
+      {
+        "id": "time",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 0.02
+      },
+      {
+        "id": "radius",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "omega",
+        "type": "number",
+        "default": 1.5,
+        "min": -4,
+        "max": 4,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "time": 1,
+          "radius": 1,
+          "omega": 1.5
+        },
+        "status": "valid",
+        "output": 1.5
+      },
+      {
+        "input": {
+          "time": 1,
+          "radius": 1,
+          "omega": -1.5
+        },
+        "status": "valid",
+        "output": 1.5
+      },
+      {
+        "input": {
+          "time": 1,
+          "radius": 2,
+          "omega": 1.5
+        },
+        "status": "valid",
+        "output": 3.0
+      },
+      {
+        "input": {
+          "time": 1,
+          "radius": 1,
+          "omega": 0
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "time": 1,
+          "radius": 0,
+          "omega": 1.5
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "time": 0,
+          "radius": 1,
+          "omega": 1.5
+        },
+        "status": "valid",
+        "output": 1.5
+      },
+      {
+        "input": {
+          "time": 3,
+          "radius": 1,
+          "omega": 1.5
+        },
+        "status": "valid",
+        "output": 1.5
+      },
+      {
+        "input": {
+          "time": 1,
+          "radius": 1,
+          "omega": -4
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "time": 1,
+          "radius": 1,
+          "omega": 4
+        },
+        "status": "valid",
+        "output": 4.0
+      },
+      {
+        "input": {
+          "time": 4,
+          "radius": 1,
+          "omega": 1.5
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "time": "1",
+          "radius": 1,
+          "omega": 1.5
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "A marked point turns with constant angular velocity on an ideal wheel about the positive z axis. Positive angular velocity is counterclockwise in the displayed plane.",
+      "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled.",
+      "All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure."
+    ],
+    "limits": [
+      "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Why can a rim point keep its speed while changing velocity?",
+      "answer": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r."
+    },
+    {
+      "prompt": "What must stay fixed to interpret this display?",
+      "answer": "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "A marked point turns on a wheel at constant signed angular velocity. Follow elapsed time into its angle, then into its position and tangent velocity. The cyan tangent changes direction as the point moves; the rim speed keeps the same magnitude while radius and rate stay fixed."
+    },
+    {
+      "kind": "graph",
+      "description": "Hold other inputs fixed and plot actual components and the primary result against Elapsed time t."
+    },
+    {
+      "kind": "substitution",
+      "description": "The three calculation rows expose input, intermediate operation and result from the same evaluated state."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Follow one second of the stated turn",
+      "mapping": "The angle is 1.5 rad and the speed is 1.5 m/s.",
+      "limitations": "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:angular-velocity:case-1"
+    },
+    {
+      "context": "Reverse the spin",
+      "mapping": "Direction and signed angle reverse, while speed remains 1.5 m/s.",
+      "limitations": "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:angular-velocity:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:spatial-foundations:angular"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "Continuation of 0.34.0 branch: original connected spatial/coordinate/mechanics family, two distinct views and independent references."
+  ]
+}

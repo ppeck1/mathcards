@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:limit", "id": "math:concept:limit", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:limit", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9b83b7b709a42d89209c83955ad1b4a3d4721ad5edc807bab121143b29078802"}, "purpose": "Separate where nearby values are heading from the value assigned at the point itself.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9b83b7b709a42d89209c83955ad1b4a3d4721ad5edc807bab121143b29078802", "status": "draft", "title": "Limit", "topics": ["mathematics", "calculus", "analysis", "two-sided limit", "one-sided approach", "removable discontinuity"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:limit", "id": "math:concept:limit", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:limit", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9b83b7b709a42d89209c83955ad1b4a3d4721ad5edc807bab121143b29078802"}, "purpose": "Separate where nearby values are heading from the value assigned at the point itself.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9b83b7b709a42d89209c83955ad1b4a3d4721ad5edc807bab121143b29078802", "status": "draft", "title": "Limit", "topics": ["mathematics", "calculus", "analysis", "two-sided limit", "one-sided approach", "removable discontinuity"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Limit
@@ -234,7 +234,7 @@ A limit describes the output near a target input, with the target itself exclude
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of this idea and its notation using specialist historical sources before adding attributions.
   - Distinguish an early use, later formalization and modern teaching convention; inspect evidence for each.
@@ -250,6 +250,7 @@ A limit describes the output near a target input, with the target itself exclude
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:signed-accumulation
   - type: supports
@@ -258,6 +259,7 @@ A limit describes the output near a target input, with the target itself exclude
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:function
   - type: supports
@@ -266,6 +268,7 @@ A limit describes the output near a target input, with the target itself exclude
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -313,6 +316,7 @@ A limit describes the output near a target input, with the target itself exclude
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Coordinates and readings are dimensionless normalized teaching quantities.
     - The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.
@@ -359,6 +363,7 @@ A limit describes the output near a target input, with the target itself exclude
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Coordinates and readings are dimensionless normalized teaching quantities.
     - The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.
@@ -405,6 +410,7 @@ A limit describes the output near a target input, with the target itself exclude
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Coordinates and readings are dimensionless normalized teaching quantities.
     - The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.
@@ -453,6 +459,7 @@ A limit describes the output near a target input, with the target itself exclude
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Coordinates and readings are dimensionless normalized teaching quantities.
     - The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.
@@ -499,6 +506,7 @@ A limit describes the output near a target input, with the target itself exclude
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Coordinates and readings are dimensionless normalized teaching quantities.
     - The rule is stipulated on both sides of a, so algebra establishes the side behavior; samples merely illustrate it.

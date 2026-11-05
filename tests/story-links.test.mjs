@@ -7,21 +7,31 @@ const require=createRequire(import.meta.url);
 const Links=require('../src/story-links.js');
 const Scenes=require('../src/story-scenes.js');
 const Stories=require('../src/life-stories.js');
+const AllStories=require('../src/story-library.js');
 const Models=require('../src/models.js');
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-3,`${a} ≈ ${b}`);
 function tags(html,role){return [...html.matchAll(/<[^>]+>/g)].map(([tag])=>tag).filter(tag=>tag.includes(`data-role="${role}"`)).map(tag=>Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(([,k,v])=>[k,v])));}
 function mockNode(parts){const attrs=new Map(parts?[['data-story-part',parts]]:[]);return {writes:0,getAttribute:k=>attrs.get(k)||null,setAttribute(k,v){attrs.set(k,String(v));this.writes++;}};}
 
 test('story links load offline and describe the actual variable and authored step focus',()=>{
-  const context=vm.createContext({});vm.runInContext(fs.readFileSync(new URL('../src/story-links.js',import.meta.url),'utf8'),context);
+  const context=vm.createContext({});
+  const entry=fs.readFileSync(new URL('../src/index.html',import.meta.url),'utf8');
+  const scripts=[...entry.matchAll(/<script\b[^>]*src="([^"?]+)(?:\?[^\"]*)?"[^>]*>/g)].map(([,name])=>name).filter(name=>name==='life-stories.js'||name.endsWith('-stories.js')||name==='story-library.js'||name==='story-links.js');
+  for(const name of scripts)vm.runInContext(fs.readFileSync(new URL('../src/'+name,import.meta.url),'utf8'),context,{filename:name});
   assert.equal(typeof context.AtlasStoryLinks.paint,'function');
   for(const slug of ['unknown','constructor','toString','__proto__']){
     assert.equal(Links.forSlug(slug),null);
     assert.equal(Links.focusFor(slug,0),null);
+    assert.equal(context.AtlasStoryLinks.forSlug(slug),null);
+    assert.equal(context.AtlasStoryLinks.focusFor(slug,0),null);
   }
-  for(const story of Stories.all()){
+  for(const story of AllStories.all()){
     const linked=Links.forSlug(story.slug);
+    const offline=context.AtlasStoryLinks.forSlug(story.slug);
+    assert.ok(linked,story.slug+' links available through Node');
+    assert.ok(offline,story.slug+' links available through classic scripts');
     assert.equal(linked.variableKey,story.variables[0].key);
+    assert.equal(offline.variableKey,story.variables[0].key);
     assert.equal(linked.symbol,story.variables[0].symbol);
     assert.ok(linked.effectLabel.length>20);
     assert.equal(linked.steps.length,story.steps.length);

@@ -11,9 +11,9 @@ math:concept:quantifier,Quantifier,language-foundations,draft_specimen,expansion
 math:concept:proof,Formal proof and derivation,language-foundations,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:natural-number,Natural Number,number-arithmetic,planned,expansion,pending,pending,planned
 math:concept:integer,Integer,number-arithmetic,planned,expansion,pending,pending,planned
-math:concept:rational-number,Rational Number,number-arithmetic,planned,expansion,pending,pending,planned
+math:concept:rational-number,Rational numbers and fractions,numbers-number-theory,draft_specimen,expansion,pending,pending,implemented
 math:concept:real-number,Real Number,number-arithmetic,planned,expansion,pending,pending,planned
-math:concept:complex-number,Complex Number,number-arithmetic,planned,expansion,pending,pending,planned
+math:concept:complex-number,"Complex numbers, conjugates and modulus",algebra,draft_specimen,atlas-gap-continuation,pending,pending,implemented
 math:concept:ratio,Ratio,number-arithmetic,planned,first-eight,pending,pending,planned
 math:concept:proportion,Proportion,number-arithmetic,planned,expansion,pending,pending,planned
 math:concept:absolute-value,Absolute Value,number-arithmetic,planned,expansion,pending,pending,planned
@@ -21,7 +21,7 @@ math:concept:order,Order,number-arithmetic,planned,expansion,pending,pending,pla
 math:concept:infinity,Infinity,number-arithmetic,planned,expansion,pending,pending,planned
 math:concept:function-composition,Function Composition,algebra-functions,draft_specimen,first-eight,pending,pending,implemented
 math:concept:domain-codomain,Domain Codomain,algebra-functions,planned,expansion,pending,pending,planned
-math:concept:inverse-function,Inverse Function,algebra-functions,planned,expansion,pending,pending,planned
+math:concept:inverse-function,Inverse functions and calibration,algebra-functions,draft_specimen,roadmap-gaps,pending,pending,implemented
 math:concept:polynomial,Polynomial,algebra-functions,planned,expansion,pending,pending,planned
 math:concept:equation,Equation,algebra-functions,planned,expansion,pending,pending,planned
 math:concept:inequality,Inequality,algebra-functions,planned,expansion,pending,pending,planned
@@ -80,15 +80,15 @@ math:concept:expected-value,Expected Value,probability,draft_specimen,expansion,
 math:concept:variance,Variance,probability,draft_specimen,expansion,pending,pending,implemented
 math:concept:probability-distribution,Probability Distribution,probability,draft_specimen,expansion,pending,pending,implemented
 math:concept:population-sample,Population Sample,statistics-inference,draft_specimen,expansion,pending,pending,implemented
-math:concept:sampling-distribution,Sampling Distribution,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:sampling-distribution,Sampling Distribution,statistics-inference,draft_specimen,expansion,pending,pending,implemented
 math:concept:estimator,Estimator,statistics-inference,planned,expansion,pending,pending,planned
-math:concept:confidence-interval,Confidence Interval,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:confidence-interval,Confidence Interval,statistics-inference,draft_specimen,expansion,pending,pending,implemented
 math:concept:likelihood,Likelihood,statistics-inference,planned,expansion,pending,pending,planned
 math:concept:bayesian-inference,Bayesian Inference,statistics-inference,planned,expansion,pending,pending,planned
 math:concept:regression,Regression,statistics-inference,planned,expansion,pending,pending,planned
-math:concept:correlation,Correlation,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:correlation,Correlation,statistics-inference,draft_specimen,expansion,pending,pending,implemented
 math:concept:causal-identification,Causal Identification,statistics-inference,planned,expansion,pending,pending,planned
-math:concept:hypothesis-test,Hypothesis Test,statistics-inference,planned,expansion,pending,pending,planned
+math:concept:hypothesis-test,Hypothesis Test,statistics-inference,draft_specimen,expansion,pending,pending,implemented
 math:concept:counting-principle,Counting Principle,discrete-computation,planned,expansion,pending,pending,planned
 math:concept:permutation,Permutation,discrete-computation,planned,expansion,pending,pending,planned
 math:concept:combination,Combination,discrete-computation,planned,expansion,pending,pending,planned
@@ -101,10 +101,10 @@ math:concept:computability,Computability,discrete-computation,planned,expansion,
 math:concept:computational-complexity,Computational Complexity,discrete-computation,draft_specimen,expansion,pending,pending,implemented
 math:concept:divisibility,Divisibility,number-theory,planned,expansion,pending,pending,planned
 math:concept:prime,Prime,number-theory,planned,expansion,pending,pending,planned
-math:concept:greatest-common-divisor,Greatest Common Divisor,number-theory,planned,expansion,pending,pending,planned
+math:concept:greatest-common-divisor,Greatest common divisor,numbers-number-theory,draft_specimen,expansion,pending,pending,implemented
 math:concept:euclidean-algorithm,Euclidean Algorithm,number-theory,planned,expansion,pending,pending,planned
 math:concept:congruence-modulo,Congruence Modulo,number-theory,planned,expansion,pending,pending,planned
-math:concept:modular-arithmetic,Modular Arithmetic,number-theory,planned,expansion,pending,pending,planned
+math:concept:modular-arithmetic,Modular arithmetic and remainders,numbers-number-theory,draft_specimen,expansion,pending,pending,implemented
 math:concept:diophantine-equation,Diophantine Equation,number-theory,planned,expansion,pending,pending,planned
 math:concept:fermat-little-theorem,Fermat Little Theorem,number-theory,planned,expansion,pending,pending,planned
 math:concept:chinese-remainder-theorem,Chinese Remainder Theorem,number-theory,planned,expansion,pending,pending,planned
@@ -145,7 +145,7 @@ math:concept:feasible-set,Feasible Set,optimization,planned,expansion,pending,pe
 math:concept:local-global-optimum,Local Global Optimum,optimization,planned,expansion,pending,pending,planned
 math:concept:convexity,Convexity,optimization,planned,expansion,pending,pending,planned
 math:concept:lagrange-multiplier,Lagrange Multiplier,optimization,planned,expansion,pending,pending,planned
-math:concept:linear-programming,Linear Programming,optimization,planned,expansion,pending,pending,planned
+math:concept:linear-programming,Linear programming and feasible choices,algebra,draft_specimen,atlas-gap-continuation,pending,pending,implemented
 math:concept:integer-programming,Integer Programming,optimization,planned,expansion,pending,pending,planned
 math:concept:gradient-descent,Gradient descent,optimization,draft_specimen,expansion,pending,pending,implemented
 math:concept:multiobjective-tradeoff,Multiobjective Tradeoff,optimization,planned,expansion,pending,pending,planned
@@ -163,7 +163,7 @@ math:concept:information-content,Information Content,information,planned,expansi
 math:concept:entropy,Entropy,information,draft_specimen,expansion,pending,pending,implemented
 math:concept:conditional-entropy,Conditional Entropy,information,draft_specimen,expansion,pending,pending,implemented
 math:concept:mutual-information,Mutual Information,information,draft_specimen,expansion,pending,pending,implemented
-math:concept:relative-entropy,Relative Entropy,information,planned,expansion,pending,pending,planned
+math:concept:relative-entropy,Relative Entropy,information,draft_specimen,expansion,pending,pending,implemented
 math:concept:coding,Coding,information,planned,expansion,pending,pending,planned
 math:concept:compression,Compression,information,planned,expansion,pending,pending,planned
 math:concept:channel-capacity,Channel Capacity,information,planned,expansion,pending,pending,planned
@@ -200,3 +200,61 @@ math:concept:finite-state-machine,Finite-State Machines and Configurations,discr
 math:concept:quantifier-scope,Quantifier Order and Variable Scope,language-foundations,draft_specimen,book-expansion,pending,pending,implemented
 math:concept:joint-distribution,Joint Probability Distributions,probability,draft_specimen,expansion,pending,pending,implemented
 math:concept:turing-machine,Writable Turing-machine tape,discrete-computation,draft_specimen,book-expansion,pending,pending,implemented
+math:concept:artificial-neuron,An artificial neuron,computation,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:basin-attraction,Basins of attraction,dynamics,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:binomial-distribution,Binomial counts,probability,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:chi-square-association,Observed versus expected counts,statistics,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:continuous-flow,Continuous flows,dynamics,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:cusp-potential,Cusp potential and competing wells,dynamics,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:factorial-interaction,Two-factor interaction,statistics,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:fold-bifurcation,Fold bifurcations,dynamics,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:gibbs-free-energy,Gibbs free energy,physical-models,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:heat-balance,Heat exchange and physical entropy,physical-models,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:hebbian-learning,A Hebbian weight update,computation,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:ideal-gas,The ideal gas law,physical-models,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:lattice-distributivity,Distributive lattices,logic,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:linear-regression,Least squares and residuals,statistics,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:meet-join,Meet and join,logic,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:partial-order,Partial orders,logic,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:poisson-distribution,Poisson arrivals,probability,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:vector-field,Vector fields,dynamics,draft_specimen,eight-book-expansion,pending,pending,implemented
+math:concept:prime-factorization,Prime factorization,numbers-number-theory,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:numeral-system,Positional numeral systems,numbers-number-theory,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:permutation-count,Permutations and factorials,discrete-mathematics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:binomial-coefficient,Combinations and binomial coefficients,discrete-mathematics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:spatial-cross-product,Cross products in space,linear-algebra,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:scalar-triple-product,The scalar triple product,linear-algebra,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:coordinate-transformation,Changing an orthonormal frame,linear-algebra,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:vector-projection,Vector projection and its residual,linear-algebra,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:angular-velocity,Angular velocity and rim motion,mechanics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:linear-momentum,Linear momentum,mechanics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:hysteresis,Hysteresis and remembered branches,dynamics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:gradient-flow,Gradient flow and falling potential,dynamics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:circle-manifold,A circle needs more than one chart,geometry-topology,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:sphere-manifold,Local coordinates on a sphere,geometry-topology,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:structural-stability,"Perturbing a rule, not just a starting point",dynamics,draft_specimen,foundation-continuation,pending,pending,implemented
+math:concept:quadratic-equation,Quadratic equations and real roots,algebra,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:linear-search,"Linear search, one check at a time",discrete-mathematics,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:binary-search,Binary search and the remaining window,discrete-mathematics,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:minimum-spanning-tree,Minimum spanning tree,discrete-mathematics,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:normal-distribution,Normal distribution: height and area,probability,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:exponential-distribution,Exponential waiting time,probability,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:sign-test,A paired sign test,statistics,draft_specimen,atlas-gap-continuation,pending,pending,implemented
+math:concept:geometric-series,Geometric series and partial sums,calculus,draft_specimen,roadmap-gaps,pending,pending,implemented
+math:concept:graph-coloring,Graph coloring and compatible sessions,discrete-mathematics,draft_specimen,roadmap-gaps,pending,pending,implemented
+math:concept:inclusion-exclusion,Inclusion–exclusion: count the overlap once,sets-logic,draft_specimen,roadmap-gaps,pending,pending,implemented
+math:concept:randomized-block-design,Randomized blocks and within-pair comparisons,statistics,draft_specimen,roadmap-gaps,pending,pending,implemented
+math:concept:normal-mean-interval,A normal-mean interval with known spread,statistics,draft_specimen,roadmap-gaps,pending,pending,implemented
+math:concept:student-mean-interval,A Student interval with estimated spread,statistics,draft_specimen,sampling-expansion,pending,pending,implemented
+math:concept:randomization-distribution,An exact randomization distribution,statistics,draft_specimen,sampling-expansion,pending,pending,implemented
+math:concept:one-way-anova,One-way ANOVA: between and within variation,statistics,draft_specimen,sampling-expansion,pending,pending,implemented
+math:concept:covariance,Sample covariance and signed products,statistics,draft_specimen,design-expansion,pending,pending,implemented
+math:concept:normal-variance-interval,A normal-variance confidence interval,statistics,draft_specimen,design-expansion,pending,pending,implemented
+math:concept:normal-test-power,Replication and normal-test power,statistics,draft_specimen,design-expansion,pending,pending,implemented
+math:concept:covariance-matrix,A covariance matrix and its ellipse,statistics,draft_specimen,comparison-expansion,pending,pending,implemented
+math:concept:wilcoxon-signed-rank,Paired differences and signed ranks,statistics,draft_specimen,comparison-expansion,pending,pending,implemented
+math:concept:mann-whitney,Mann–Whitney ranks and pair comparisons,statistics,draft_specimen,comparison-expansion,pending,pending,implemented
+math:concept:least-common-multiple,Least common multiple,numbers-number-theory,draft_specimen,number-geometry-expansion,pending,pending,implemented
+math:concept:perfect-number,Perfect numbers and proper divisors,numbers-number-theory,draft_specimen,number-geometry-expansion,pending,pending,implemented
+math:concept:regular-polygon,Regular polygon area,geometry,draft_specimen,number-geometry-expansion,pending,pending,implemented
+math:concept:sphere-measurement,Sphere surface and volume,geometry,draft_specimen,number-geometry-expansion,pending,pending,implemented

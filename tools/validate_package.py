@@ -104,6 +104,25 @@ def checks(card, schema, source_ids, known):
     return errors
 
 def compute(model,p):
+    from systems_reference import compute as systems_compute
+    from inference_reference import compute as inference_compute
+    from number_foundation_reference import compute as number_compute
+    from spatial_foundation_reference import compute as spatial_compute
+    from dynamics_extension_reference import compute as dynamics_compute
+    from algebra_extension_reference import compute as algebra_compute
+    from algorithm_extension_reference import compute as algorithm_compute
+    from distribution_extension_reference import compute as distribution_compute
+    from analysis_extension_reference import compute as analysis_compute
+    from discrete_extension_reference import compute as discrete_compute
+    from estimation_extension_reference import compute as estimation_compute
+    from sampling_extension_reference import compute as sampling_compute
+    from design_extension_reference import compute as design_compute
+    from comparison_extension_reference import compute as comparison_compute
+    from number_extension_reference import compute as number_extension_compute
+    from geometry_extension_reference import compute as geometry_extension_compute
+    for oracle in (systems_compute, inference_compute, number_compute, spatial_compute, dynamics_compute, algebra_compute, algorithm_compute, distribution_compute, analysis_compute, discrete_compute, estimation_compute, sampling_compute, design_compute, comparison_compute, number_extension_compute, geometry_extension_compute):
+        result=oracle(model,p)
+        if result is not None:return result
     if model=='turing-machine-visual-model':
         if set(p)!={'steps','word'} or type(p['word']) is not str or p['word'] not in {'0101','1011','1111','0000'} or type(p['steps']) not in (int,float) or not math.isfinite(p['steps']) or not 0<=p['steps']<=10 or p['steps']!=int(p['steps']):
             return {'status':'invalid_parameters'}

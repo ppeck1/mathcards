@@ -48,7 +48,7 @@ test('region/topic URLs round-trip through validated map identities without conf
   }
   assert.equal(model.stateFromPath(['map','structures','linear-algebra']).topicId,'structures:linear-algebra');
   assert.equal(model.stateFromPath(['map','computation','linear-time-algorithms']).topicId,'computation:linear-time-algorithms');
-  assert.equal(model.stateFromPath(['map','computation','linear-time-algorithms']).selectedSlug,'computational-complexity','A newly available area opens its own lesson');
+  assert.equal(model.stateFromPath(['map','computation','linear-time-algorithms']).selectedSlug,'linear-search','The area opens its introductory search trace');
   assert.equal(model.stateFromPath(['map','unknown']).regionId,null);
   assert.equal(model.stateFromPath(['map','structures','unknown']).topicId,null);
 });

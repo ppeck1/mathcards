@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-GENERATED = ['src/catalog.js', 'src/math-index-data.js', 'src/formula-data.js', 'src/index.html',
+GENERATED = ['src/catalog.js', 'src/math-index-data.js', 'src/formula-data.js', 'src/continuation-metadata.js', 'src/subject-inventory-data.js', 'docs/EIGHT_BOOK_SUBJECT_MATRIX.csv', 'src/index.html',
              'dist', 'START_HERE.html', 'export', 'docs/NOTATION_COVERAGE_*.json']
 
 

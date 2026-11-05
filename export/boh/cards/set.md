@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:set", "id": "math:concept:set", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:set", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "3ba3f1ed6948c6bc1f33d70090dff2b2c192b361fc5c9182baabb53868778944"}, "purpose": "Choose membership rules and see exactly which objects remain in a set.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "3ba3f1ed6948c6bc1f33d70090dff2b2c192b361fc5c9182baabb53868778944", "status": "draft", "title": "Sets and membership", "topics": ["mathematics", "logic", "discrete-mathematics", "geometry", "finite set", "set operations", "membership rules"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:set", "id": "math:concept:set", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:set", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "3ba3f1ed6948c6bc1f33d70090dff2b2c192b361fc5c9182baabb53868778944"}, "purpose": "Choose membership rules and see exactly which objects remain in a set.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "3ba3f1ed6948c6bc1f33d70090dff2b2c192b361fc5c9182baabb53868778944", "status": "draft", "title": "Sets and membership", "topics": ["mathematics", "logic", "discrete-mathematics", "geometry", "finite set", "set operations", "membership rules"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Sets and membership
@@ -79,7 +79,7 @@ A set is a collection of distinct objects with a well-defined membership rule. T
 ## Prerequisites
 
 - required:
-
+  []
 - helpful:
   - math:concept:expression
 - depth:
@@ -306,7 +306,7 @@ A set is a collection of distinct objects with a well-defined membership rule. T
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of this idea and its notation using specialist historical evidence before adding origin or priority claims.
   - Distinguish historical attribution from a modern teaching formulation.
@@ -322,6 +322,7 @@ A set is a collection of distinct objects with a well-defined membership rule. T
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:probability
   - type: supports
@@ -330,6 +331,7 @@ A set is a collection of distinct objects with a well-defined membership rule. T
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:computational-complexity
   - type: supports
@@ -338,6 +340,7 @@ A set is a collection of distinct objects with a well-defined membership rule. T
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -384,6 +387,7 @@ A set is a collection of distinct objects with a well-defined membership rule. T
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The candidate pegs are the distinct heights 1 through 12 cm.
     - The two limits are inclusive and use the same centimetre scale.
@@ -432,6 +436,7 @@ A set is a collection of distinct objects with a well-defined membership rule. T
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The candidate pegs are the distinct heights 1 through 12 cm.
     - The two limits are inclusive and use the same centimetre scale.
@@ -480,6 +485,7 @@ A set is a collection of distinct objects with a well-defined membership rule. T
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The candidate pegs are the distinct heights 1 through 12 cm.
     - The two limits are inclusive and use the same centimetre scale.
@@ -528,6 +534,7 @@ A set is a collection of distinct objects with a well-defined membership rule. T
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The candidate pegs are the distinct heights 1 through 12 cm.
     - The two limits are inclusive and use the same centimetre scale.
@@ -576,6 +583,7 @@ A set is a collection of distinct objects with a well-defined membership rule. T
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The candidate pegs are the distinct heights 1 through 12 cm.
     - The two limits are inclusive and use the same centimetre scale.

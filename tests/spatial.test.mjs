@@ -31,7 +31,7 @@ function finiteDrawing(html) {
 
 test('spatial scenes load as offline classic scripts with only the mathematical model dependency', () => {
   const context = vm.createContext({});
-  for (const filename of ['models.js', 'spatial.js']) {
+  for (const filename of ['legacy-models.js', 'models.js', 'spatial.js']) {
     vm.runInContext(fs.readFileSync(new URL(`../src/${filename}`, import.meta.url), 'utf8'), context);
   }
   for (const slug of slugs) finiteDrawing(context.AtlasSpatial.render(slug, context.AtlasModels.defaults(slug), { id: slug }));

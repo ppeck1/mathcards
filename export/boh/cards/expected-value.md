@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:expected-value", "id": "math:concept:expected-value", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:expected-value", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "4be949bce51ef6c52be9222fbc60762da88b086e8149b58a6c95e8ba8ad78ae7"}, "purpose": "Follow each probability-weighted book count into the expected value and the moving balance point.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "4be949bce51ef6c52be9222fbc60762da88b086e8149b58a6c95e8ba8ad78ae7", "status": "draft", "title": "Expected value", "topics": ["mathematics", "probability", "statistics", "modeling", "expectation", "probability-weighted mean", "mean of a random variable", "balance point"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:expected-value", "id": "math:concept:expected-value", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:expected-value", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.0-draft", "upstream_content_sha256": "4be949bce51ef6c52be9222fbc60762da88b086e8149b58a6c95e8ba8ad78ae7"}, "purpose": "Follow each probability-weighted book count into the expected value and the moving balance point.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "4be949bce51ef6c52be9222fbc60762da88b086e8149b58a6c95e8ba8ad78ae7", "status": "draft", "title": "Expected value", "topics": ["mathematics", "probability", "statistics", "modeling", "expectation", "probability-weighted mean", "mean of a random variable", "balance point"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Expected value
@@ -245,7 +245,7 @@ The expected value of a finite random variable is the sum of each outcome value 
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -261,6 +261,7 @@ The expected value of a finite random variable is the sum of each outcome value 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:entropy
   - type: supports
@@ -269,6 +270,7 @@ The expected value of a finite random variable is the sum of each outcome value 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:probability
   - type: supports
@@ -277,6 +279,7 @@ The expected value of a finite random variable is the sum of each outcome value 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -315,6 +318,7 @@ The expected value of a finite random variable is the sum of each outcome value 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The controls q and r lie between 0 and 1 inclusive. q is the probability of one book; r assigns a share of the remaining probability to two books. The rest goes to zero books.
     - The probability mass function is p₀=(1−q)(1−r), p₁=q and p₂=(1−q)r. Each mass is nonnegative and their sum is one. A zero mass removes that outcome from the support.
@@ -353,6 +357,7 @@ The expected value of a finite random variable is the sum of each outcome value 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The controls q and r lie between 0 and 1 inclusive. q is the probability of one book; r assigns a share of the remaining probability to two books. The rest goes to zero books.
     - The probability mass function is p₀=(1−q)(1−r), p₁=q and p₂=(1−q)r. Each mass is nonnegative and their sum is one. A zero mass removes that outcome from the support.
@@ -391,6 +396,7 @@ The expected value of a finite random variable is the sum of each outcome value 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The controls q and r lie between 0 and 1 inclusive. q is the probability of one book; r assigns a share of the remaining probability to two books. The rest goes to zero books.
     - The probability mass function is p₀=(1−q)(1−r), p₁=q and p₂=(1−q)r. Each mass is nonnegative and their sum is one. A zero mass removes that outcome from the support.
@@ -429,6 +435,7 @@ The expected value of a finite random variable is the sum of each outcome value 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The controls q and r lie between 0 and 1 inclusive. q is the probability of one book; r assigns a share of the remaining probability to two books. The rest goes to zero books.
     - The probability mass function is p₀=(1−q)(1−r), p₁=q and p₂=(1−q)r. Each mass is nonnegative and their sum is one. A zero mass removes that outcome from the support.
@@ -467,6 +474,7 @@ The expected value of a finite random variable is the sum of each outcome value 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The controls q and r lie between 0 and 1 inclusive. q is the probability of one book; r assigns a share of the remaining probability to two books. The rest goes to zero books.
     - The probability mass function is p₀=(1−q)(1−r), p₁=q and p₂=(1−q)r. Each mass is nonnegative and their sum is one. A zero mass removes that outcome from the support.

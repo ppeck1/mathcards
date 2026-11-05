@@ -79,7 +79,7 @@
   }
   function render(slug,p,options={}){
     const id='story-'+String(options.id||slug).replace(/[^A-Za-z0-9_-]/g,'-'), r=M.evaluate(slug,p);
-    if(D.has(slug))return D.render(slug,p,{...options,id,view:options.view||'geometry'});
+    if(D.has(slug)&&!D.isLegacy?.(slug))return D.render(slug,p,{...options,id,view:options.view||'geometry'});
     if(r.status==='invalid_parameters'||(!Number.isFinite(r.output)&&!(slug==='derivative'&&Number.isFinite(r.fa)&&Number.isFinite(r.analytic))))return frame(id,'This story needs valid inputs',text(65,175,r.message||'Choose inputs inside the supported range.',colors.orange,20),'The current parameters do not define a valid scene.');
     const mismatch=slug==='function-composition'&&(p.order!=='f_after_g'||p.a!==1||p.b!==0||p.c!==0||p.m!==2||p.n!==1||p.x<0||p.x>4)||slug==='real-logarithm'&&(p.base!==2||p.argument<0.125||p.argument>16)||slug==='derivative'&&(p.preset!=='cubic'||p.a<0||p.a>3);
     if(mismatch)return frame(id,'These inputs use a different setting',text(65,175,'These inputs are outside this story’s setting.',colors.orange,19),'The story scene uses the assumptions stated beside it. Explore other functions and domains in the general playground.');

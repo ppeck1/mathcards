@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:derivative", "id": "math:concept:derivative", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:derivative", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.1-draft", "upstream_content_sha256": "f3fc86856a31c9537ecd1137c60b128c0da4d46036e36c8f96a9eb9b584d4a25"}, "purpose": "Express the first-order response near a point when that local rate exists.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "f3fc86856a31c9537ecd1137c60b128c0da4d46036e36c8f96a9eb9b584d4a25", "status": "draft", "title": "Derivative at a point", "topics": ["mathematics", "calculus", "change", "local rate of change", "tangent slope", "f prime", "dy/dx"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:derivative", "id": "math:concept:derivative", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:derivative", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "e197c58753ad01f66e42806ee3b836b950c3a71fd0485db36ac9527185c0ad9c", "source_revision": "0.1.1-draft", "upstream_content_sha256": "f3fc86856a31c9537ecd1137c60b128c0da4d46036e36c8f96a9eb9b584d4a25"}, "purpose": "Express the first-order response near a point when that local rate exists.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "f3fc86856a31c9537ecd1137c60b128c0da4d46036e36c8f96a9eb9b584d4a25", "status": "draft", "title": "Derivative at a point", "topics": ["mathematics", "calculus", "change", "local rate of change", "tangent slope", "f prime", "dy/dx"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.1-draft"}
 ---
 
 # Derivative at a point
@@ -83,7 +83,7 @@ Compare a small output change with its input change and ask whether the ratio ap
 - helpful:
   - math:concept:ratio
 - depth:
-
+  []
 
 ## Definition
 
@@ -280,6 +280,7 @@ Compare a small output change with its input change and ask whether the ratio ap
   - target status: planned
   - evidence status: research_required
   - source refs:
+    []
 
 ## Examples
 
@@ -317,6 +318,7 @@ Compare a small output change with its input change and ask whether the ratio ap
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - f is defined on an open interval containing a.
     - The quotient uses h≠0 with a+h in the domain.
@@ -356,6 +358,7 @@ Compare a small output change with its input change and ask whether the ratio ap
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - f is defined on an open interval containing a.
     - The quotient uses h≠0 with a+h in the domain.
@@ -391,6 +394,7 @@ Compare a small output change with its input change and ask whether the ratio ap
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - f is defined on an open interval containing a.
     - The quotient uses h≠0 with a+h in the domain.
@@ -431,6 +435,7 @@ Compare a small output change with its input change and ask whether the ratio ap
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - f is defined on an open interval containing a.
     - The quotient uses h≠0 with a+h in the domain.
@@ -469,6 +474,7 @@ Compare a small output change with its input change and ask whether the ratio ap
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - f is defined on an open interval containing a.
     - The quotient uses h≠0 with a+h in the domain.
@@ -503,6 +509,7 @@ Compare a small output change with its input change and ask whether the ratio ap
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - f is defined on an open interval containing a.
     - The quotient uses h≠0 with a+h in the domain.
