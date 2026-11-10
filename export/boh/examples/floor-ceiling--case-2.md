@@ -1,0 +1,222 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:floor-ceiling:case-2", "id": "math:example:floor-ceiling:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:floor-ceiling", "example_id": "math:example:floor-ceiling:case-2", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "350ab74a4349dac7fe6742839af2773edc199c7c0e155b38b8a09c29a4c6ddd2", "source_revision": "0.1.0-draft", "upstream_content_sha256": "d02fa06ad04e263242360cd18bd10de74af4a6d010b4ad48f71fecac26e16ded"}, "purpose": "When does a partly filled container change the whole count required?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "d02fa06ad04e263242360cd18bd10de74af4a6d010b4ad48f71fecac26e16ded", "status": "draft", "title": "An exact fit", "topics": ["mathematics", "functions", "discrete-mathematics", "floor function", "ceiling function", "round up", "round down", "container count"], "type": "reference", "updated": "2026-11-09T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# An exact fit
+
+Parent card: math:concept:floor-ceiling; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:floor-ceiling; revision 0.1.0-draft. Setting: A workshop must store v litres of liquid in identical containers that hold c litres each. Count the completely full containers with floor, then include one more container exactly when liquid remains. Expression: $x=\frac vc,\quad f=\lfloor x\rfloor,\quad N=\lceil x\rceil,\quad r=v-fc,\quad u=Nc-v.$. Conditions required for a defined value (a case may test their violation): Liquid volume is 0 to 30 litres and each container holds 1 to 6 litres. The model treats its entered real numbers as exact ideal measurements, with no tolerances or safety margin. At an exact integer quotient, floor and ceiling agree and no extra container is added. Otherwise floor is the greatest integer below the quotient and ceiling the least integer above it. General negative-number behavior is defined in the index but this storage scenario uses nonnegative quantities. Scope: The storage model uses volume 0–30 litres and capacity 1–6 litres. Entered decimal measurements are treated as exact. The whole counts use the unrounded quotient; printed fractional readings are approximate. The model has no measurement tolerance or safety margin. For negative reals the definitions still apply, but a negative storage volume is outside this scenario.
+
+Case unit math:example:floor-ceiling:case-2. Setting: A workshop must store v litres of liquid in identical containers that hold c litres each. Count the completely full containers with floor, then include one more container exactly when liquid remains. Inputs: {"amount": 12, "capacity": 4}. Result: {"exact": "3"}. Limits: The storage model uses volume 0–30 litres and capacity 1–6 litres. Entered decimal measurements are treated as exact. The whole counts use the unrounded quotient; printed fractional readings are approximate. The model has no measurement tolerance or safety margin. For negative reals the definitions still apply, but a negative storage volume is outside this scenario.
+
+## Complete worked case
+
+- id: math:example:floor-ceiling:case-2
+- title: An exact fit
+- role: applied_model
+- question: When does a partly filled container change the whole count required?
+- setting: A workshop must store v litres of liquid in identical containers that hold c litres each. Count the completely full containers with floor, then include one more container exactly when liquid remains.
+- assumptions:
+  - Liquid volume is 0 to 30 litres and each container holds 1 to 6 litres. The model treats its entered real numbers as exact ideal measurements, with no tolerances or safety margin. At an exact integer quotient, floor and ceiling agree and no extra container is added. Otherwise floor is the greatest integer below the quotient and ceiling the least integer above it. General negative-number behavior is defined in the index but this storage scenario uses nonnegative quantities.
+- inputs:
+  - amount: 12
+  - capacity: 4
+- steps:
+  - Item:
+    - index: 1
+    - expression: v = 12; c = 4
+    - reason: Choose the liquid volume v and each container capacity c, both in litres.
+  - Item:
+    - index: 2
+    - expression: x=\frac vc,\quad f=\lfloor x\rfloor,\quad N=\lceil x\rceil,\quad r=v-fc,\quad u=Nc-v.
+    - reason: Floor chooses the greatest integer no larger than a real number; ceiling chooses the least integer no smaller. Dividing liquid volume v by container capacity c gives a dimensionless quotient x. Its floor counts completely full containers, and its ceiling is the least whole count with enough capacity for the entire batch.
+  - Item:
+    - index: 3
+    - expression: N = 3 containers
+    - reason: The quotient is exactly three, so floor and ceiling agree. No fourth container is required and both remaining liquid and spare capacity are zero.
+- result:
+  - exact: 3
+- interpretation: The quotient is exactly three, so floor and ceiling agree. No fourth container is required and both remaining liquid and spare capacity are zero.
+- independent check:
+  - method: Express the decimal measurements as exact fractions. Find their lower and upper whole-count bounds, then check the remaining liquid and spare capacity.
+  - expected: 3
+- limits: The storage model uses volume 0–30 litres and capacity 1–6 litres. Entered decimal measurements are treated as exact. The whole counts use the unrounded quotient; printed fractional readings are approximate. The model has no measurement tolerance or safety margin. For negative reals the definitions still apply, but a negative storage volume is outside this scenario.
+- preset:
+  - amount: 12
+  - capacity: 4
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Liquid volume is 0 to 30 litres and each container holds 1 to 6 litres. The model treats its entered real numbers as exact ideal measurements, with no tolerances or safety margin. At an exact integer quotient, floor and ceiling agree and no extra container is added. Otherwise floor is the greatest integer below the quotient and ceiling the least integer above it. General negative-number behavior is defined in the index but this storage scenario uses nonnegative quantities.
+
+## Written exploration recipe
+
+- component id: component:floor-ceiling
+- renderer id: floor-ceiling-visual-model
+- renderer version: 1
+- model id: floor-ceiling-visual-model
+- model revision: 1
+- expression id: ast:floor-ceiling:expression
+- interaction status: implemented
+- description: Floor chooses the greatest integer no larger than a real number; ceiling chooses the least integer no smaller. Dividing liquid volume v by container capacity c gives a dimensionless quotient x. Its floor counts completely full containers, and its ceiling is the least whole count with enough capacity for the entire batch.
+- controls:
+  - Item:
+    - id: amount
+    - type: number
+    - default: 13.5
+    - min: 0
+    - max: 30
+    - step: 0.25
+  - Item:
+    - id: capacity
+    - type: number
+    - default: 4
+    - min: 1
+    - max: 6
+    - step: 0.25
+- expected cases:
+  - Item:
+    - input:
+      - amount: 0
+      - capacity: 4
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - amount: 0.25
+      - capacity: 4
+    - status: valid
+    - output: 1
+  - Item:
+    - input:
+      - amount: 3.3
+      - capacity: 1.1
+    - status: valid
+    - output: 3
+  - Item:
+    - input:
+      - amount: 12
+      - capacity: 4
+    - status: valid
+    - output: 3
+  - Item:
+    - input:
+      - amount: 12.25
+      - capacity: 4
+    - status: valid
+    - output: 4
+  - Item:
+    - input:
+      - amount: 11.75
+      - capacity: 4
+    - status: valid
+    - output: 3
+  - Item:
+    - input:
+      - amount: 13.5
+      - capacity: 4
+    - status: valid
+    - output: 4
+  - Item:
+    - input:
+      - amount: 30
+      - capacity: 1
+    - status: valid
+    - output: 30
+  - Item:
+    - input:
+      - amount: 30
+      - capacity: 6
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - amount: 29.75
+      - capacity: 6
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - amount: 1
+      - capacity: 1
+    - status: valid
+    - output: 1
+  - Item:
+    - input:
+      - amount: 1.25
+      - capacity: 1
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - amount: 6
+      - capacity: 6
+    - status: valid
+    - output: 1
+  - Item:
+    - input:
+      - amount: -0.25
+      - capacity: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - amount: 30.25
+      - capacity: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - amount: true
+      - capacity: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - amount: 2
+      - capacity: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - amount: 13.5
+      - capacity: 0.75
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - amount: 13.5
+      - capacity: 6.25
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - amount: 13.5
+      - capacity: true
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - amount: 13.5
+      - capacity: 2
+    - status: invalid_parameters
+- compute: x=\frac vc,\quad f=\lfloor x\rfloor,\quad N=\lceil x\rceil,\quad r=v-fc,\quad u=Nc-v.
+- numeric tolerance: 5e-11
+- invariants:
+  - Liquid volume is 0 to 30 litres and each container holds 1 to 6 litres. The model treats its entered real numbers as exact ideal measurements, with no tolerances or safety margin. At an exact integer quotient, floor and ceiling agree and no extra container is added. Otherwise floor is the greatest integer below the quotient and ceiling the least integer above it. General negative-number behavior is defined in the index but this storage scenario uses nonnegative quantities.
+  - Story, calculation, Geometry and Graph use the same evaluated state.
+  - Continuous physical quantities retain continuous shapes; whole indices and output counts retain discrete meanings.
+- limits:
+  - The storage model uses volume 0–30 litres and capacity 1–6 litres. Entered decimal measurements are treated as exact. The whole counts use the unrounded quotient; printed fractional readings are approximate. The model has no measurement tolerance or safety margin. For negative reals the definitions still apply, but a negative storage volume is outside this scenario.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:number-insights:floor-ceiling. [Wolfram MathWorld · Floor and Ceiling Functions](https://mathworld.wolfram.com/FloorFunction.html). Locator: Greatest-integer definition; companion CeilingFunction.html gives least-integer definition. Storage interpretation and exact-decimal threshold examples are original.. Verification: Definition-level page inspected 2026-11-09. Independent mathematical/pedagogical review and exact-edition book-page verification remain pending.. Rights: Originally authored scenarios, derivations and visual encodings; no source exercise, data or artwork reproduced.

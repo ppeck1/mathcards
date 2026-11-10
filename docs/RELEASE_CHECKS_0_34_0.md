@@ -1,8 +1,13 @@
 # PR #13 release checks — background review
 
+The [142-card insight matrix](INSIGHT_EXPANSION_MATRIX_0_34_0.md) and
+[current validation](VALIDATION_0_34_0_INSIGHTS.md) identify the latest candidate.
+The [full roadmap progress matrix](ROADMAP_PROGRESS.md) covers the authorized
+eight-book scope. Device and independent review remain open.
+
 The [130-card number/geometry matrix](NUMBER_GEOMETRY_EXPANSION_MATRIX_0_34_0.md)
-and [current validation](VALIDATION_0_34_0_NUMBER_GEOMETRY.md) identify the latest
-candidate. The device-review plan remains open for this candidate.
+and [its validation](VALIDATION_0_34_0_NUMBER_GEOMETRY.md) preserve the preceding
+checkpoint.
 
 The [126-card comparison matrix](COMPARISON_EXPANSION_MATRIX_0_34_0.md) and
 [its validation](VALIDATION_0_34_0_COMPARISON.md) retain the previous

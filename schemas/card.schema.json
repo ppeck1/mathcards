@@ -1130,7 +1130,19 @@
             "least-common-multiple-visual-model",
             "perfect-number-visual-model",
             "regular-polygon-visual-model",
-            "sphere-measurement-visual-model"
+            "sphere-measurement-visual-model",
+            "irrational-square-root-visual-model",
+            "golden-ratio-visual-model",
+            "circle-measurement-visual-model",
+            "floor-ceiling-visual-model",
+            "triangle-measurement-visual-model",
+            "similar-triangles-visual-model",
+            "perpendicular-bisector-visual-model",
+            "ellipse-section-visual-model",
+            "platonic-solids-visual-model",
+            "tessellation-visual-model",
+            "perspective-projection-visual-model",
+            "sphere-packing-visual-model"
           ]
         },
         "renderer_version": {

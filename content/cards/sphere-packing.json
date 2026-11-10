@@ -1,0 +1,749 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:sphere-packing",
+  "slug": "sphere-packing",
+  "type": "concept",
+  "title": "Sphere packing in cubic cells",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-09T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "sphere packing in cubic cells",
+    "sphere packing"
+  ],
+  "branches": [
+    "geometry",
+    "measurement",
+    "modeling"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "How much of a repeating bead cell is actually solid?",
+  "meaning": "A periodic packing repeats a cell whose boundary spheres are shared with neighboring cells. Simple cubic packing has eight corner eighths, totaling one sphere, and cell edge a=2r. Face-centered cubic packing adds six face halves, totaling four spheres, with face-diagonal contacts giving a=2√2r. Dividing occupied sphere volume by cube volume gives packing fraction η, which is independent of radius within each packing.",
+  "prerequisites": {
+    "required": [
+      "math:concept:sphere-measurement"
+    ],
+    "helpful": [
+      "math:concept:pythagorean-theorem"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A materials model repeats one cube of equal solid beads. Compare corner-only simple cubic packing with face-centered cubic packing, accounting for the bead pieces shared by neighboring cubes.",
+    "formal_latex": "\\eta=\\frac{N(4\\pi r^3/3)}{a^3},\\qquad a=2r\\text{ for SC},\\quad a=2\\sqrt{2}r\\text{ for FCC}.",
+    "signature": {
+      "k": "Discrete packing choice: 1 simple cubic or 2 face-centered cubic",
+      "η": "Dimensionless occupied volume fraction of the periodic cell",
+      "N": "Equivalent whole sphere count assigned to one cell",
+      "r": "Common sphere radius, in centimetres",
+      "a": "Cubic cell edge length, in centimetres",
+      "π": "Euclidean circle constant pi"
+    },
+    "conditions": [
+      "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted."
+    ],
+    "domain_notes": "Choose 1 simple cubic or 2 face-centered cubic, with equal sphere radius 0.5–1.5 centimetres. Boundary spheres are shared periodically: corners contribute eighths and face centers halves. The picture is the plane containing one boundary face, with full circular sections of boundary spheres; it does not measure the three-dimensional occupied fraction by flat area. SC contacts follow cube edges; FCC contacts follow a face diagonal through its face center. A separate fixed 0–1 bar measures the volume fraction. No densest-packing proof or real-material prediction is claimed.",
+    "proof_status": "Definition-level sources and originally derived bounded calculations; independent review pending.",
+    "source_refs": [
+      "source:spatial-insights:packing",
+      "source:spatial-insights:packing-primary"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Sphere packing in cubic cells",
+    "expression_latex": "\\eta=\\frac{N(4\\pi r^3/3)}{a^3},\\qquad a=2r\\text{ for SC},\\quad a=2\\sqrt{2}r\\text{ for FCC}.",
+    "formation_rule": "A periodic packing repeats a cell whose boundary spheres are shared with neighboring cells. Simple cubic packing has eight corner eighths, totaling one sphere, and cell edge a=2r. Face-centered cubic packing adds six face halves, totaling four spheres, with face-diagonal contacts giving a=2√2r. Dividing occupied sphere volume by cube volume gives packing fraction η, which is independent of radius within each packing.",
+    "precedence": "Each corner sphere is shared among eight adjacent cells and each face-center sphere among two. Thus equivalent counts are 8/8=1 for SC and 8/8+6/2=4 for FCC. SC neighbors touch along an edge, making a=2r. FCC corner-to-face-center-to-corner contacts span a face diagonal of length 4r, while that diagonal is √2a. Insert the resulting edge length and equivalent sphere count into occupied sphere volume divided by a³. Both volumes scale as r³, so their ratio does not depend on radius.",
+    "symbols": [
+      {
+        "token": "k",
+        "role": "Discrete packing choice: 1 simple cubic or 2 face-centered cubic",
+        "type": "Locally declared quantity or selector"
+      },
+      {
+        "token": "η",
+        "role": "Dimensionless occupied volume fraction of the periodic cell",
+        "type": "Locally declared quantity or selector"
+      },
+      {
+        "token": "N",
+        "role": "Equivalent whole sphere count assigned to one cell",
+        "type": "Locally declared quantity or selector"
+      },
+      {
+        "token": "r",
+        "role": "Common sphere radius, in centimetres",
+        "type": "Locally declared quantity or selector"
+      },
+      {
+        "token": "a",
+        "role": "Cubic cell edge length, in centimetres",
+        "type": "Locally declared quantity or selector"
+      },
+      {
+        "token": "π",
+        "role": "Euclidean circle constant pi",
+        "type": "Locally declared quantity or selector"
+      }
+    ],
+    "ast": {
+      "id": "ast:sphere-packing:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:packing",
+          "kind": "variable",
+          "type": "Declared numeric input",
+          "symbol": "k",
+          "scope_ref": "scope:sphere-packing"
+        },
+        {
+          "id": "n:radius",
+          "kind": "variable",
+          "type": "Declared numeric input",
+          "symbol": "r",
+          "scope_ref": "scope:sphere-packing"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Bounded spatial construction",
+          "ref": "\\eta=\\frac{N(4\\pi r^3/3)}{a^3},\\qquad a=2r\\text{ for SC},\\quad a=2\\sqrt{2}r\\text{ for FCC}."
+        },
+        {
+          "id": "n:partial-0",
+          "kind": "apply",
+          "type": "Bounded model value",
+          "function": "n:rule",
+          "argument": "n:packing"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Bounded model value",
+          "function": "n:partial-0",
+          "argument": "n:radius"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:sphere-packing",
+          "kind": "modelExpression",
+          "free_variables": [
+            "k",
+            "r"
+          ],
+          "external_parameters": [
+            "The stated Euclidean model and fixed domain"
+          ],
+          "domain_condition": "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use a fractional categorical selector or omit the model conditions",
+        "status": "model mismatch",
+        "reason": "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted."
+      }
+    ],
+    "ast_coverage": "Typed application outline of the stated bounded construction; the formal expression declares the complete mathematical rule.",
+    "output_symbol_bindings": {
+      "n": "sides",
+      "R": "radius",
+      "s": "sideLength",
+      "a": "apothem",
+      "P": "perimeter",
+      "A": "output",
+      "θ": "centralAngle",
+      "π": "pi"
+    }
+  },
+  "properties": [
+    {
+      "claim": "A periodic packing repeats a cell whose boundary spheres are shared with neighboring cells. Simple cubic packing has eight corner eighths, totaling one sphere, and cell edge a=2r. Face-centered cubic packing adds six face halves, totaling four spheres, with face-diagonal contacts giving a=2√2r. Dividing occupied sphere volume by cube volume gives packing fraction η, which is independent of radius within each packing.",
+      "conditions": "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted.",
+      "derivation": "Each corner sphere is shared among eight adjacent cells and each face-center sphere among two. Thus equivalent counts are 8/8=1 for SC and 8/8+6/2=4 for FCC. SC neighbors touch along an edge, making a=2r. FCC corner-to-face-center-to-corner contacts span a face diagonal of length 4r, while that diagonal is √2a. Insert the resulting edge length and equivalent sphere count into occupied sphere volume divided by a³. Both volumes scale as r³, so their ratio does not depend on radius.",
+      "status": "original derivation under stated conditions; independent review pending",
+      "example_ref": "math:example:sphere-packing:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:sphere-measurement",
+      "type": "supports",
+      "conditions": "Use the stated domains and interpretation in both lessons.",
+      "reason": "The stated ratio, geometry and physical units supply the calculation.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; original explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:pythagorean-theorem",
+      "type": "supports",
+      "conditions": "Use the stated domains and interpretation in both lessons.",
+      "reason": "The stated ratio, geometry and physical units supply the calculation.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; original explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:sphere-packing:case-1",
+      "title": "Corner-only bead cell",
+      "role": "applied_model",
+      "question": "How much of a repeating bead cell is actually solid?",
+      "setting": "A materials model repeats one cube of equal solid beads. Compare corner-only simple cubic packing with face-centered cubic packing, accounting for the bead pieces shared by neighboring cubes.",
+      "assumptions": [
+        "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted."
+      ],
+      "inputs": {
+        "packing": 1,
+        "radius": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 1; r = 1",
+          "reason": "Choose the stated counts, category and measurements."
+        },
+        {
+          "index": 2,
+          "expression": "\\eta=\\frac{N(4\\pi r^3/3)}{a^3},\\qquad a=2r\\text{ for SC},\\quad a=2\\sqrt{2}r\\text{ for FCC}.",
+          "reason": "Each corner sphere is shared among eight adjacent cells and each face-center sphere among two. Thus equivalent counts are 8/8=1 for SC and 8/8+6/2=4 for FCC. SC neighbors touch along an edge, making a=2r. FCC corner-to-face-center-to-corner contacts span a face diagonal of length 4r, while that diagonal is √2a. Insert the resulting edge length and equivalent sphere count into occupied sphere volume divided by a³. Both volumes scale as r³, so their ratio does not depend on radius."
+        },
+        {
+          "index": 3,
+          "expression": "η ≈ 0.5235987755982988",
+          "reason": "Eight corner eighths total one sphere. The assigned spheres occupy π/6, about 52.36%, of the two-centimetre SC cell volume."
+        }
+      ],
+      "result": {
+        "approximate": "0.5235987755982988"
+      },
+      "interpretation": "Eight corner eighths total one sphere. The assigned spheres occupy π/6, about 52.36%, of the two-centimetre SC cell volume.",
+      "independent_check": {
+        "method": "Derive cell edge from nearest-center coordinate distance, count boundary shares as exact fractions and integrate one sphere’s circular sections.",
+        "expected": "0.5235987755982988"
+      },
+      "limits": "Choose 1 simple cubic or 2 face-centered cubic, with equal sphere radius 0.5–1.5 centimetres. Boundary spheres are shared periodically: corners contribute eighths and face centers halves. The picture is the plane containing one boundary face, with full circular sections of boundary spheres; it does not measure the three-dimensional occupied fraction by flat area. SC contacts follow cube edges; FCC contacts follow a face diagonal through its face center. A separate fixed 0–1 bar measures the volume fraction. No densest-packing proof or real-material prediction is claimed.",
+      "preset": {
+        "packing": 1,
+        "radius": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted."
+      ]
+    },
+    {
+      "id": "math:example:sphere-packing:case-2",
+      "title": "Add face-center beads",
+      "role": "applied_model",
+      "question": "How much of a repeating bead cell is actually solid?",
+      "setting": "A materials model repeats one cube of equal solid beads. Compare corner-only simple cubic packing with face-centered cubic packing, accounting for the bead pieces shared by neighboring cubes.",
+      "assumptions": [
+        "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted."
+      ],
+      "inputs": {
+        "packing": 2,
+        "radius": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 2; r = 1",
+          "reason": "Choose the stated counts, category and measurements."
+        },
+        {
+          "index": 2,
+          "expression": "\\eta=\\frac{N(4\\pi r^3/3)}{a^3},\\qquad a=2r\\text{ for SC},\\quad a=2\\sqrt{2}r\\text{ for FCC}.",
+          "reason": "Each corner sphere is shared among eight adjacent cells and each face-center sphere among two. Thus equivalent counts are 8/8=1 for SC and 8/8+6/2=4 for FCC. SC neighbors touch along an edge, making a=2r. FCC corner-to-face-center-to-corner contacts span a face diagonal of length 4r, while that diagonal is √2a. Insert the resulting edge length and equivalent sphere count into occupied sphere volume divided by a³. Both volumes scale as r³, so their ratio does not depend on radius."
+        },
+        {
+          "index": 3,
+          "expression": "η ≈ 0.7404804896930611",
+          "reason": "Six face-center halves join the eight corner eighths, totaling four spheres. FCC occupies π/(3√2), about 74.05%, of its cell."
+        }
+      ],
+      "result": {
+        "approximate": "0.7404804896930611"
+      },
+      "interpretation": "Six face-center halves join the eight corner eighths, totaling four spheres. FCC occupies π/(3√2), about 74.05%, of its cell.",
+      "independent_check": {
+        "method": "Derive cell edge from nearest-center coordinate distance, count boundary shares as exact fractions and integrate one sphere’s circular sections.",
+        "expected": "0.7404804896930611"
+      },
+      "limits": "Choose 1 simple cubic or 2 face-centered cubic, with equal sphere radius 0.5–1.5 centimetres. Boundary spheres are shared periodically: corners contribute eighths and face centers halves. The picture is the plane containing one boundary face, with full circular sections of boundary spheres; it does not measure the three-dimensional occupied fraction by flat area. SC contacts follow cube edges; FCC contacts follow a face diagonal through its face center. A separate fixed 0–1 bar measures the volume fraction. No densest-packing proof or real-material prediction is claimed.",
+      "preset": {
+        "packing": 2,
+        "radius": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted."
+      ]
+    },
+    {
+      "id": "math:example:sphere-packing:case-3",
+      "title": "Smaller SC beads",
+      "role": "applied_model",
+      "question": "How much of a repeating bead cell is actually solid?",
+      "setting": "A materials model repeats one cube of equal solid beads. Compare corner-only simple cubic packing with face-centered cubic packing, accounting for the bead pieces shared by neighboring cubes.",
+      "assumptions": [
+        "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted."
+      ],
+      "inputs": {
+        "packing": 1,
+        "radius": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 1; r = 0.5",
+          "reason": "Choose the stated counts, category and measurements."
+        },
+        {
+          "index": 2,
+          "expression": "\\eta=\\frac{N(4\\pi r^3/3)}{a^3},\\qquad a=2r\\text{ for SC},\\quad a=2\\sqrt{2}r\\text{ for FCC}.",
+          "reason": "Each corner sphere is shared among eight adjacent cells and each face-center sphere among two. Thus equivalent counts are 8/8=1 for SC and 8/8+6/2=4 for FCC. SC neighbors touch along an edge, making a=2r. FCC corner-to-face-center-to-corner contacts span a face diagonal of length 4r, while that diagonal is √2a. Insert the resulting edge length and equivalent sphere count into occupied sphere volume divided by a³. Both volumes scale as r³, so their ratio does not depend on radius."
+        },
+        {
+          "index": 3,
+          "expression": "η ≈ 0.5235987755982988",
+          "reason": "Halving radius halves cell edge and divides both occupied and cell volumes by eight. The SC occupied fraction stays about 52.36%."
+        }
+      ],
+      "result": {
+        "approximate": "0.5235987755982988"
+      },
+      "interpretation": "Halving radius halves cell edge and divides both occupied and cell volumes by eight. The SC occupied fraction stays about 52.36%.",
+      "independent_check": {
+        "method": "Derive cell edge from nearest-center coordinate distance, count boundary shares as exact fractions and integrate one sphere’s circular sections.",
+        "expected": "0.5235987755982988"
+      },
+      "limits": "Choose 1 simple cubic or 2 face-centered cubic, with equal sphere radius 0.5–1.5 centimetres. Boundary spheres are shared periodically: corners contribute eighths and face centers halves. The picture is the plane containing one boundary face, with full circular sections of boundary spheres; it does not measure the three-dimensional occupied fraction by flat area. SC contacts follow cube edges; FCC contacts follow a face diagonal through its face center. A separate fixed 0–1 bar measures the volume fraction. No densest-packing proof or real-material prediction is claimed.",
+      "preset": {
+        "packing": 1,
+        "radius": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted."
+      ]
+    },
+    {
+      "id": "math:example:sphere-packing:case-4",
+      "title": "Larger FCC beads",
+      "role": "applied_model",
+      "question": "How much of a repeating bead cell is actually solid?",
+      "setting": "A materials model repeats one cube of equal solid beads. Compare corner-only simple cubic packing with face-centered cubic packing, accounting for the bead pieces shared by neighboring cubes.",
+      "assumptions": [
+        "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted."
+      ],
+      "inputs": {
+        "packing": 2,
+        "radius": 1.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 2; r = 1.5",
+          "reason": "Choose the stated counts, category and measurements."
+        },
+        {
+          "index": 2,
+          "expression": "\\eta=\\frac{N(4\\pi r^3/3)}{a^3},\\qquad a=2r\\text{ for SC},\\quad a=2\\sqrt{2}r\\text{ for FCC}.",
+          "reason": "Each corner sphere is shared among eight adjacent cells and each face-center sphere among two. Thus equivalent counts are 8/8=1 for SC and 8/8+6/2=4 for FCC. SC neighbors touch along an edge, making a=2r. FCC corner-to-face-center-to-corner contacts span a face diagonal of length 4r, while that diagonal is √2a. Insert the resulting edge length and equivalent sphere count into occupied sphere volume divided by a³. Both volumes scale as r³, so their ratio does not depend on radius."
+        },
+        {
+          "index": 3,
+          "expression": "η ≈ 0.7404804896930612",
+          "reason": "Increasing radius to 1.5 cm scales both volumes by 3.375. The FCC occupied fraction remains about 74.05%."
+        }
+      ],
+      "result": {
+        "approximate": "0.7404804896930612"
+      },
+      "interpretation": "Increasing radius to 1.5 cm scales both volumes by 3.375. The FCC occupied fraction remains about 74.05%.",
+      "independent_check": {
+        "method": "Derive cell edge from nearest-center coordinate distance, count boundary shares as exact fractions and integrate one sphere’s circular sections.",
+        "expected": "0.7404804896930612"
+      },
+      "limits": "Choose 1 simple cubic or 2 face-centered cubic, with equal sphere radius 0.5–1.5 centimetres. Boundary spheres are shared periodically: corners contribute eighths and face centers halves. The picture is the plane containing one boundary face, with full circular sections of boundary spheres; it does not measure the three-dimensional occupied fraction by flat area. SC contacts follow cube edges; FCC contacts follow a face diagonal through its face center. A separate fixed 0–1 bar measures the volume fraction. No densest-packing proof or real-material prediction is claimed.",
+      "preset": {
+        "packing": 2,
+        "radius": 1.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted."
+      ]
+    },
+    {
+      "id": "math:example:sphere-packing:case-5",
+      "title": "Compare at half-centimetre radius",
+      "role": "applied_model",
+      "question": "How much of a repeating bead cell is actually solid?",
+      "setting": "A materials model repeats one cube of equal solid beads. Compare corner-only simple cubic packing with face-centered cubic packing, accounting for the bead pieces shared by neighboring cubes.",
+      "assumptions": [
+        "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted."
+      ],
+      "inputs": {
+        "packing": 2,
+        "radius": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 2; r = 0.5",
+          "reason": "Choose the stated counts, category and measurements."
+        },
+        {
+          "index": 2,
+          "expression": "\\eta=\\frac{N(4\\pi r^3/3)}{a^3},\\qquad a=2r\\text{ for SC},\\quad a=2\\sqrt{2}r\\text{ for FCC}.",
+          "reason": "Each corner sphere is shared among eight adjacent cells and each face-center sphere among two. Thus equivalent counts are 8/8=1 for SC and 8/8+6/2=4 for FCC. SC neighbors touch along an edge, making a=2r. FCC corner-to-face-center-to-corner contacts span a face diagonal of length 4r, while that diagonal is √2a. Insert the resulting edge length and equivalent sphere count into occupied sphere volume divided by a³. Both volumes scale as r³, so their ratio does not depend on radius."
+        },
+        {
+          "index": 3,
+          "expression": "η ≈ 0.7404804896930611",
+          "reason": "Small FCC beads still use four equivalent spheres per periodic cell. Size changes the cell length, while this arrangement’s volume fraction stays fixed."
+        }
+      ],
+      "result": {
+        "approximate": "0.7404804896930611"
+      },
+      "interpretation": "Small FCC beads still use four equivalent spheres per periodic cell. Size changes the cell length, while this arrangement’s volume fraction stays fixed.",
+      "independent_check": {
+        "method": "Derive cell edge from nearest-center coordinate distance, count boundary shares as exact fractions and integrate one sphere’s circular sections.",
+        "expected": "0.7404804896930611"
+      },
+      "limits": "Choose 1 simple cubic or 2 face-centered cubic, with equal sphere radius 0.5–1.5 centimetres. Boundary spheres are shared periodically: corners contribute eighths and face centers halves. The picture is the plane containing one boundary face, with full circular sections of boundary spheres; it does not measure the three-dimensional occupied fraction by flat area. SC contacts follow cube edges; FCC contacts follow a face diagonal through its face center. A separate fixed 0–1 bar measures the volume fraction. No densest-packing proof or real-material prediction is claimed.",
+      "preset": {
+        "packing": 2,
+        "radius": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:sphere-packing",
+    "renderer_id": "sphere-packing-visual-model",
+    "renderer_version": "1",
+    "model_id": "sphere-packing-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:sphere-packing:expression",
+    "interaction_status": "implemented",
+    "description": "A periodic packing repeats a cell whose boundary spheres are shared with neighboring cells. Simple cubic packing has eight corner eighths, totaling one sphere, and cell edge a=2r. Face-centered cubic packing adds six face halves, totaling four spheres, with face-diagonal contacts giving a=2√2r. Dividing occupied sphere volume by cube volume gives packing fraction η, which is independent of radius within each packing.",
+    "controls": [
+      {
+        "id": "packing",
+        "type": "number",
+        "default": 1,
+        "min": 1,
+        "max": 2,
+        "step": 1
+      },
+      {
+        "id": "radius",
+        "type": "number",
+        "default": 1,
+        "min": 0.5,
+        "max": 1.5,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "packing": 1,
+          "radius": 0.5
+        },
+        "status": "valid",
+        "output": 0.5235987755982988
+      },
+      {
+        "input": {
+          "packing": 1,
+          "radius": 0.55
+        },
+        "status": "valid",
+        "output": 0.5235987755982987
+      },
+      {
+        "input": {
+          "packing": 1,
+          "radius": 0.75
+        },
+        "status": "valid",
+        "output": 0.5235987755982988
+      },
+      {
+        "input": {
+          "packing": 1,
+          "radius": 1
+        },
+        "status": "valid",
+        "output": 0.5235987755982988
+      },
+      {
+        "input": {
+          "packing": 1,
+          "radius": 1.25
+        },
+        "status": "valid",
+        "output": 0.5235987755982988
+      },
+      {
+        "input": {
+          "packing": 1,
+          "radius": 1.5
+        },
+        "status": "valid",
+        "output": 0.5235987755982988
+      },
+      {
+        "input": {
+          "packing": 2,
+          "radius": 0.5
+        },
+        "status": "valid",
+        "output": 0.7404804896930611
+      },
+      {
+        "input": {
+          "packing": 2,
+          "radius": 0.55
+        },
+        "status": "valid",
+        "output": 0.7404804896930609
+      },
+      {
+        "input": {
+          "packing": 2,
+          "radius": 0.75
+        },
+        "status": "valid",
+        "output": 0.7404804896930612
+      },
+      {
+        "input": {
+          "packing": 2,
+          "radius": 1
+        },
+        "status": "valid",
+        "output": 0.7404804896930611
+      },
+      {
+        "input": {
+          "packing": 2,
+          "radius": 1.25
+        },
+        "status": "valid",
+        "output": 0.7404804896930612
+      },
+      {
+        "input": {
+          "packing": 2,
+          "radius": 1.5
+        },
+        "status": "valid",
+        "output": 0.7404804896930612
+      },
+      {
+        "input": {
+          "packing": 0.9,
+          "radius": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "packing": 2.1,
+          "radius": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "packing": true,
+          "radius": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "packing": null,
+          "radius": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "packing": "1",
+          "radius": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "packing": 1.5,
+          "radius": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "packing": 1,
+          "radius": 0.4
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "packing": 1,
+          "radius": 1.6
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "packing": 1,
+          "radius": true
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "packing": 1,
+          "radius": null
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "packing": 1,
+          "radius": "1"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "\\eta=\\frac{N(4\\pi r^3/3)}{a^3},\\qquad a=2r\\text{ for SC},\\quad a=2\\sqrt{2}r\\text{ for FCC}.",
+    "numeric_tolerance": 5e-11,
+    "invariants": [
+      "Choose integer packing 1 simple cubic or 2 face-centered cubic, and equal sphere radii 0.5–1.5 cm. Use periodic unit-cell sharing and nearest-neighbor contacts. The displayed face-plane circular sections do not measure three-dimensional occupancy by their flat area. No comparison with all possible packings or real materials is asserted.",
+      "Story, formula, measured Geometry and Graph use the same evaluated state.",
+      "Categorical and integer choices stay discrete; physical lengths may change continuously."
+    ],
+    "limits": [
+      "Choose 1 simple cubic or 2 face-centered cubic, with equal sphere radius 0.5–1.5 centimetres. Boundary spheres are shared periodically: corners contribute eighths and face centers halves. The picture is the plane containing one boundary face, with full circular sections of boundary spheres; it does not measure the three-dimensional occupied fraction by flat area. SC contacts follow cube edges; FCC contacts follow a face diagonal through its face center. A separate fixed 0–1 bar measures the volume fraction. No densest-packing proof or real-material prediction is claimed."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How much of a repeating bead cell is actually solid?",
+      "answer": "A periodic packing repeats a cell whose boundary spheres are shared with neighboring cells. Simple cubic packing has eight corner eighths, totaling one sphere, and cell edge a=2r. Face-centered cubic packing adds six face halves, totaling four spheres, with face-diagonal contacts giving a=2√2r. Dividing occupied sphere volume by cube volume gives packing fraction η, which is independent of radius within each packing."
+    },
+    {
+      "prompt": "What does this view measure?",
+      "answer": "The fixed-centimetre face-plane section shows circular sphere contacts and cell edge length. A separate fixed 0–1 bar measures occupied three-dimensional fraction."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "The fixed-centimetre face-plane section shows circular sphere contacts and cell edge length. A separate fixed 0–1 bar measures occupied three-dimensional fraction."
+    },
+    {
+      "kind": "graph",
+      "description": "Two categorical dots compare simple cubic and FCC fractions. Radius changes cell and bead size while preserving each fraction."
+    },
+    {
+      "kind": "substitution",
+      "description": "Each corner sphere is shared among eight adjacent cells and each face-center sphere among two. Thus equivalent counts are 8/8=1 for SC and 8/8+6/2=4 for FCC. SC neighbors touch along an edge, making a=2r. FCC corner-to-face-center-to-corner contacts span a face diagonal of length 4r, while that diagonal is √2a. Insert the resulting edge length and equivalent sphere count into occupied sphere volume divided by a³. Both volumes scale as r³, so their ratio does not depend on radius."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Corner-only bead cell",
+      "mapping": "Eight corner eighths total one sphere. The assigned spheres occupy π/6, about 52.36%, of the two-centimetre SC cell volume.",
+      "limitations": "Choose 1 simple cubic or 2 face-centered cubic, with equal sphere radius 0.5–1.5 centimetres. Boundary spheres are shared periodically: corners contribute eighths and face centers halves. The picture is the plane containing one boundary face, with full circular sections of boundary spheres; it does not measure the three-dimensional occupied fraction by flat area. SC contacts follow cube edges; FCC contacts follow a face diagonal through its face center. A separate fixed 0–1 bar measures the volume fraction. No densest-packing proof or real-material prediction is claimed.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:sphere-packing:case-1"
+    },
+    {
+      "context": "Add face-center beads",
+      "mapping": "Six face-center halves join the eight corner eighths, totaling four spheres. FCC occupies π/(3√2), about 74.05%, of its cell.",
+      "limitations": "Choose 1 simple cubic or 2 face-centered cubic, with equal sphere radius 0.5–1.5 centimetres. Boundary spheres are shared periodically: corners contribute eighths and face centers halves. The picture is the plane containing one boundary face, with full circular sections of boundary spheres; it does not measure the three-dimensional occupied fraction by flat area. SC contacts follow cube edges; FCC contacts follow a face diagonal through its face center. A separate fixed 0–1 bar measures the volume fraction. No densest-packing proof or real-material prediction is claimed.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:sphere-packing:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:spatial-insights:packing",
+    "source:spatial-insights:packing-primary"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 continuation: added this original bounded spatial lesson through the existing shared host."
+  ]
+}

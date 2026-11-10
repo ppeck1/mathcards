@@ -17,7 +17,10 @@
       node ? require('./design-extension-terms.js') : root.AtlasDesignExtensionTerms,
       node ? require('./comparison-extension-terms.js') : root.AtlasComparisonExtensionTerms,
       node ? require('./number-extension-terms.js') : root.AtlasNumberExtensionTerms,
-      node ? require('./geometry-extension-terms.js') : root.AtlasGeometryExtensionTerms
+      node ? require('./geometry-extension-terms.js') : root.AtlasGeometryExtensionTerms,
+      node ? require('./number-insight-terms.js') : root.AtlasNumberInsightTerms,
+      node ? require('./plane-geometry-terms.js') : root.AtlasPlaneGeometryTerms,
+      node ? require('./spatial-insight-terms.js') : root.AtlasSpatialInsightTerms
     );
   if (node) module.exports = api;
   root.AtlasExpansionTerms = api;
@@ -39,7 +42,10 @@
     DesignModels,
     ComparisonModels,
     NumberExtensions,
-    GeometryExtensions
+    GeometryExtensions,
+    NumberInsights,
+    PlaneGeometry,
+    SpatialInsights
   ) {
     'use strict';
     const entries = new Map(),
@@ -60,7 +66,10 @@
       DesignModels,
       ComparisonModels,
       NumberExtensions,
-      GeometryExtensions
+      GeometryExtensions,
+      NumberInsights,
+      PlaneGeometry,
+      SpatialInsights
     ].filter(Boolean)) {
       for (const entry of provider.entries) {
         const previous = entries.get(entry.id),

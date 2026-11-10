@@ -140,7 +140,8 @@ Prettier 3.6.2 is pinned as a development-only tool in `package-lock.json`.
 `npm ci --ignore-scripts` installs it; `npm run check:format` checks the new
 systems, inference, inventory, expansion, number/spatial foundations, dynamics,
 algebra, algorithm, distribution, analysis, discrete, estimation, sampling,
-design, comparison, number/geometry extensions and extracted legacy-provider
+design, comparison, number/geometry extensions, number insights, plane geometry,
+spatial insights and extracted legacy-provider
 modules, their new tests, generated-write helpers, startup regression tests and measurement
 harness. `npm run format` rewrites
 only that declared scope. `.prettierignore` excludes generated projections,
@@ -153,7 +154,8 @@ when consolidating it; keep mass formatting separate from mathematical changes.
 Syntax/whitespace checks continue to cover the broader authored source.
 
 Algebra, algorithm, distribution, analysis, discrete, estimation, sampling,
-design, comparison, number and geometry extensions follow the same explicit
+design, comparison, number/geometry extensions and the number, plane and spatial
+insight families follow the same explicit
 provider installation. Their metadata joins number/spatial foundations and dynamics through the
 allowlisted build projection. New families add authored
 files and data rather than another host or an external program loader.
@@ -201,11 +203,34 @@ spherical tank distinguishes complete surface area, equatorial disk area and
 enclosed volume. Independent references scan shared ticks or divisor pairs,
 measure polygon vertices, and integrate spherical cross-sections.
 
-The [current number/geometry matrix](NUMBER_GEOMETRY_EXPANSION_MATRIX_0_34_0.md)
-and [validation record](VALIDATION_0_34_0_NUMBER_GEOMETRY.md) separate these
+The [number/geometry checkpoint](NUMBER_GEOMETRY_EXPANSION_MATRIX_0_34_0.md)
+and its [validation record](VALIDATION_0_34_0_NUMBER_GEOMETRY.md) separate these
 implemented contracts from remaining mathematical, browser and phone
 qualification. A new module family does not imply a new timing result or a
 completed device review.
+
+`number-insights.js`, `plane-geometry.js` and `spatial-insights.js` install through
+the same provider contract, each with separate stories, previews, build-only
+terms and an allowlisted integration record. They add no host, animation clock,
+runtime package or saved-state schema. The current continuation registry has
+58 lessons in seventeen explicit families; the full app includes the original
+and earlier expansion providers as well.
+
+The number family separates an exact ratio from finite rational comparisons.
+Floor/ceiling thresholds use integer arithmetic on the entered decimal values;
+approximate printed quotients do not decide a whole-container count. The plane
+family preserves equal metre axes, perpendicular heights, uniform similarity,
+equal-distance construction and an ellipse's focus-sum rule. The spatial
+family preserves actual regular-solid topology, finite tiling patches, ideal
+perspective ratios and one declared packing cell. A screen projection is not a
+physical area, volume or proof of optimal packing.
+
+The [current matrix](INSIGHT_EXPANSION_MATRIX_0_34_0.md) and
+[validation](VALIDATION_0_34_0_INSIGHTS.md) record this checkpoint's evidence.
+The generated [complete roadmap](ROADMAP_PROGRESS.md) groups every planned
+subject across all eighteen areas, while the crosswalk keeps preparation
+distinct from an executable bounded introduction. These projections do not
+upgrade source evidence or independent teaching review.
 
 `plot-view.js` also accepts an optional nonnegative vertical `log1p` scale.
 The renderer transforms projection and tick positions while retaining original

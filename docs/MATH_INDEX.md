@@ -5,16 +5,20 @@ renderer. The shared search adapter combines that provider with real cards and
 atlas areas. Neither provider starts an animation, accesses storage, or requires
 a browser when its script is loaded.
 
-The current 0.34.0 review candidate projects **1,166 entries** over **130 draft
-cards**: **1,123 authored definitions** and **43 contextual entries**. Its symbol
-catalog has **923 selectable forms across 877 meanings**. The
-[current notation audit](NOTATION_COVERAGE_0_34_0.json) resolves all 89,051
-occurrences across 52,968 selected fields and 1,580 tokens, with zero unresolved
-or review items. See the
-[current validation](VALIDATION_0_34_0_NUMBER_GEOMETRY.md) for the
+The current 0.34.0 review candidate projects **1,287 entries** over **142 draft
+cards**: **1,244 authored definitions** and **43 contextual entries**. Its symbol
+catalog has **940 selectable forms across 951 meanings**. The
+[current notation audit](NOTATION_COVERAGE_0_34_0.json) and
+[current validation](VALIDATION_0_34_0_INSIGHTS.md) record the
 current evidence and the browser/phone review still pending. The API and
 authoring sections below describe the current provider; versioned sections
 preserve earlier checkpoints.
+
+The [130-card checkpoint](VALIDATION_0_34_0_NUMBER_GEOMETRY.md) recorded 1,166
+entries, 1,123 authored definitions, 43 contextual entries, 923 forms and 877
+meanings. Its notation gate resolved 89,051 occurrences across 52,968 selected
+fields and 1,580 tokens, with zero unresolved or review items. Those counts
+describe that earlier corpus.
 
 Data ranks and matrix rank keep separate definitions and actual card links.
 Searching “rank” offers both meanings. The comparison lessons also distinguish
@@ -29,6 +33,16 @@ periods a/b. Divisor bars remain distinct from absolute-value and conditional
 probability bars. A squared-minute intermediate has a time-product definition,
 separate from an area or duration. Existing pi and perimeter meanings retain
 their earlier card links.
+
+The latest families add readers for irrational ratios, finite convergents,
+Fibonacci comparisons, circle measurements, floor/ceiling counts, triangle
+heights, similarity, perpendicular bisectors, ellipse foci, regular solids,
+tiling angles, perspective and packing cells. Reused letters keep local scopes:
+golden-panel length L differs from litre L, circumference C from other C
+functions, and a whole container count from physical capacity. A finite
+approximation does not become a proof or an exact constant through indexing.
+All new readers link to actual lesson uses and stay build-only authoring data;
+the complete prepared reference still ships before startup.
 
 ## Reference checkpoint (0.22.0)
 

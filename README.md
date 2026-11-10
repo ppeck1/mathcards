@@ -2,18 +2,21 @@
 
 A visual field notebook for learning mathematics as a language of description.
 Change an input, follow it through a story and formula, and see its effect in a
-shape or graph. This branch prepares 0.34.0 with 130 draft lessons, adding
+shape or graph. This branch prepares 0.34.0 with 142 draft lessons, adding
 statistical inference, order structures, number foundations, spatial reasoning,
 algebra, search and networks, continuous probability, dynamics, physical energy,
 illustrative neural computation, inverse functions, series, coloring,
 inclusion–exclusion, Student intervals, exhaustive randomization, one-way ANOVA,
 covariance, variance intervals, replication/power planning, covariance matrices
 and exact finite rank comparisons, least common multiples, perfect numbers,
-regular polygon floors and spherical surface/capacity measurements.
+regular polygon floors and spherical surface/capacity measurements. The newest
+lessons connect irrational ratios, golden rectangles, circles, whole-container
+counts, triangle measurement, constructions, ellipses, regular solids, tilings,
+camera projection and sphere packing.
 
-The branch adds 69 lessons to the 61-card published baseline. It now contains
-654 original examples, 2,471 numeric fixtures, 784 written exports, 267 declared
-views and 130 MathML definitions. Forty-six continuation lessons use fourteen
+The branch adds 81 lessons to the 61-card published baseline. It now contains
+714 original examples, 2,747 numeric fixtures, 856 written exports, 291 declared
+views and 142 MathML definitions. Fifty-eight continuation lessons use seventeen
 explicit local families through the same shared playground.
 
 **[Open the live atlas](https://ppeck.me/mathcards/)** ·
@@ -28,21 +31,20 @@ The release version comes from [package.json](package.json). The generated
 source hash and review status; [content/cards/](content/cards/) contains the
 canonical lessons. Dated validation records describe the release they tested.
 
-![Repeating workshop signals, proper-divisor strips, a regular pavilion floor and a full spherical tank.](docs/presentation-0-34-number-geometry/previews.png)
+![A square diagonal and rational estimate, golden rectangle, circle measurements and whole-container counts.](docs/presentation-0-34-insights/number-insight-previews.png)
 
-![Compact connected scenes for the four number and geometry lessons.](docs/presentation-0-34-number-geometry/compact-scenes.png)
+[Connected compact scenes](docs/presentation-0-34-insights/number-insight-compact-scenes.png)
 
-![Covariance ellipses, paired signed ranks and two-group rank comparisons.](docs/presentation-0-34-comparison/previews.png)
+![Triangle area, similar triangles, a perpendicular bisector and an ellipse.](docs/presentation-0-34-insights/plane-geometry-previews.png)
 
-![Compact connected scenes for the three comparison lessons.](docs/presentation-0-34-comparison/compact-scenes.png)
+[Connected compact scenes](docs/presentation-0-34-insights/plane-geometry-compact-scenes.png)
 
-![Sampling, interval coverage, regression, equilibrium changes, lattices and neural activation.](docs/presentation-0-34/overview.png)
+![Regular solids, tilings, perspective and a simple-cubic sphere-packing cell.](docs/presentation-0-34-insights/spatial-insight-previews.png)
 
-![Inverse calibration, signed corrections, coloring, overlapping signup lists, blocked comparisons and a normal-mean interval.](docs/presentation-0-34-roadmap/previews.png)
+[Connected compact scenes](docs/presentation-0-34-insights/spatial-insight-compact-scenes.png)
 
-![Estimated-spread mean intervals, all balanced allocations and between/within variation.](docs/presentation-0-34-sampling/previews.png)
-
-![Signed covariance products, normal-variance bounds and planned rejection probability.](docs/presentation-0-34-design/previews.png)
+These are static renders of the actual model artwork. Earlier proofs remain
+linked from their checkpoint records; browser and phone review remain open.
 
 ## Explore
 
@@ -104,8 +106,10 @@ Every validated push to `main` updates the hosted demo automatically.
 | [Reference index](docs/MATH_INDEX.md) | Definitions, symbols and actual card links |
 | [Book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) | Original 214 topic IDs, prerequisites and honest coverage |
 | [Eight-book expansion](docs/EIGHT_BOOK_EXPANSION.md) | 295 supplied subjects, evidence boundaries and actual lesson links |
-| [Branch matrix](docs/NUMBER_GEOMETRY_EXPANSION_MATRIX_0_34_0.md) | Current number/geometry expansion and remaining concepts/qualification |
-| [Branch validation](docs/VALIDATION_0_34_0_NUMBER_GEOMETRY.md) | Current artifact checks and explicit qualification limits |
+| [Complete roadmap progress](docs/ROADMAP_PROGRESS.md) | All 18 subject areas and every remaining planned subject |
+| [Branch matrix](docs/INSIGHT_EXPANSION_MATRIX_0_34_0.md) | Current twelve-lesson continuation and remaining concepts/qualification |
+| [Branch validation](docs/VALIDATION_0_34_0_INSIGHTS.md) | Current artifact checks and explicit qualification limits |
+| [Number/geometry checkpoint](docs/NUMBER_GEOMETRY_EXPANSION_MATRIX_0_34_0.md) | Previous 130-card common-multiple, divisor and measurement continuation |
 | [Comparison checkpoint](docs/COMPARISON_EXPANSION_MATRIX_0_34_0.md) | Previous 126-card covariance-matrix and rank-comparison continuation |
 | [Covariance/planning checkpoint](docs/DESIGN_EXPANSION_MATRIX_0_34_0.md) | Previous covariance, variance interval and power-planning continuation |
 | [Inference checkpoint](docs/SAMPLING_EXPANSION_MATRIX_0_34_0.md) | Previous Student, randomization and ANOVA continuation |
@@ -125,6 +129,18 @@ open. Finite demonstrations do not establish general theorems, and constructed
 stories are not empirical measurements. Written examples that require a different
 function or data type stay distinct from executable presets.
 
+The expansion scope is the entire eight-book roadmap. The current crosswalk
+has 96 bounded introductions, 55 subjects with preparation only and 144 planned
+subjects. The [complete progress matrix](docs/ROADMAP_PROGRESS.md) keeps those
+remaining subjects visible as work continues across the atlas.
+
+The square-root lesson separates a parity proof from finite rational estimates.
+Golden rectangles solve a similarity condition without an aesthetic claim.
+Circle edge length and disk area retain different units; floor and ceiling keep
+exact decimal count thresholds. The geometric constructions remain bounded:
+one perpendicular bisector, an ellipse family, five regular convex solids,
+three regular tilings, an ideal camera and a simple-cubic packing cell.
+
 The new signals use exact whole-minute periods from 1–8; proper-divisor strips
 classify positive integers from 1–60, including the empty divisor set for one.
 The pavilion uses 3–12 equal sides and a 1–4 metre circumradius. The full ideal
@@ -141,7 +157,7 @@ Both finite comparisons include ties in their two-sided tails; neither supplies
 a general median-only or causal interpretation.
 
 Startup removes duplicate reference-authoring data and repeated metadata work.
-The [current validation](docs/VALIDATION_0_34_0_NUMBER_GEOMETRY.md) tracks this
+The [current validation](docs/VALIDATION_0_34_0_INSIGHTS.md) tracks this
 artifact's checks and remaining review under the unchanged 1500 ms gate. The
 [paired optimization checkpoint](docs/STARTUP_OPTIMIZATION_0_34_0.md) retains its
 baseline comparison and earlier slow samples. Browser and device qualification

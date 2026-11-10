@@ -118,6 +118,54 @@ def script(data):
     return '/* Generated from content/planning/. Book evidence remains attributed. */\nglobalThis.AtlasSubjectInventoryData = '+payload+';\n'
 
 
+def progress_matrix(data):
+    """Project the whole authorized roadmap without inventing completed coverage."""
+    counts = Counter(row['status'] for row in data['concepts'])
+    lines = [
+        '# Eight-book roadmap progress', '',
+        'Generated from the supplied inventory and the authored lesson crosswalk. '
+        'This is the full expansion scope. A bounded draft introduction is not '
+        'completion of a subject, an independent review or a verified book-page attribution.', '',
+        f"{len(data['concepts'])} stable subjects: **{counts['draft-introduction']} bounded draft introductions**, "
+        f"**{counts['precursor']} with preparation only**, and **{counts['planned']} planned**.", '',
+        'The live site is unchanged. Branch lessons still need the device and independent '
+        'review recorded in the release matrix.', '',
+        '| Subject area | Draft introductions | Preparation only | Planned |',
+        '|---|---:|---:|---:|',
+    ]
+    for subject in data['subjects']:
+        members = [row for row in data['concepts'] if subject['id'] in row['subjects']]
+        totals = Counter(row['status'] for row in members)
+        lines.append(f"| {subject['label']} | {totals['draft-introduction']} | {totals['precursor']} | {totals['planned']} |")
+    lines += ['', 'Subjects can belong to more than one area. Area rows overlap and must not '
+              'be added to recover the distinct-subject total.', '',
+              '## Build sequence', '',
+              'Continue in dependency order through these areas. The lists below include '
+              'every currently planned subject once, by its first supplied area; actual '
+              'lesson boundaries may group closely related subjects. Status changes require '
+              'a working card and an explicit scope note in the crosswalk.', '']
+    order = ['notation', 'numbers', 'algebra', 'geometry', 'analysis', 'discrete', 'logic',
+             'order', 'probability', 'statistics', 'design', 'information', 'computation',
+             'dynamics', 'neuroscience', 'thermodynamics', 'physics', 'history']
+    by_id = {subject['id']: subject for subject in data['subjects']}
+    for key in order:
+        members = [row for row in data['concepts'] if row['subjects'][0] == key and row['status'] == 'planned']
+        if not members:
+            continue
+        lines += ['### ' + by_id[key]['label'], '',
+                  '; '.join(row['label'] + ' (`' + row['id'] + '`)' for row in members) + '.', '']
+    lines += ['## Qualification still open', '',
+              '| Area | Remaining evidence |', '|---|---|',
+              '| Mathematics and teaching | Independent model, proof and explanation review; observation with learners |',
+              '| Book evidence | Exact-edition and original-page checks; supplied provisional associations remain provisional |',
+              '| Browser and phone | Layout, touch, keyboard/focus, reduced motion and screen-reader MathML |',
+              '| Startup | Unchanged 1500 ms Node proxy plus later real delivery and first-render review |',
+              '| Recovery | Real offline/file opening, private storage, import/export and two-tab behavior |',
+              '| Publication | Keep the draft branch separate; no merge or deployment in this expansion task |', '',
+              '[Every subject, source state, card link and scope boundary](EIGHT_BOOK_SUBJECT_MATRIX.csv).', '']
+    return '\n'.join(lines)
+
+
 def build(root=ROOT):
     data = compile_inventory(root)
     target = root/'src/subject-inventory-data.js'
@@ -135,6 +183,7 @@ def build(root=ROOT):
     matrix_target = root/'docs/EIGHT_BOOK_SUBJECT_MATRIX.csv'
     matrix_bytes = matrix.getvalue().encode('utf-8')
     write_generated(matrix_target, matrix_bytes)
+    write_generated(root/'docs/ROADMAP_PROGRESS.md', progress_matrix(data))
     return data['counts']
 
 

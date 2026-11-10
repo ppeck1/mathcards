@@ -65,6 +65,18 @@ test('all 295 imported subjects remain individually searchable under all 18 doma
   }
 });
 
+test('the full roadmap progress matrix retains every pending subject exactly once', () => {
+  const progress = fs.readFileSync(new URL('../docs/ROADMAP_PROGRESS.md', import.meta.url), 'utf8');
+  const planned = data.concepts.filter(row => row.status === 'planned');
+  const listed = [...progress.matchAll(/\(`([a-z0-9-]+)`\)/g)].map(([, id]) => id);
+  assert.deepEqual([...listed].sort(), planned.map(row => row.id).sort());
+  assert.equal(new Set(listed).size, listed.length);
+  for (const subject of data.subjects) assert.ok(progress.includes('| ' + subject.label + ' |'));
+  assert.match(progress, new RegExp('\\*\\*' + planned.length + ' planned\\*\\*'));
+  assert.match(progress, /Area rows overlap/);
+  assert.match(progress, /live site is unchanged/i);
+});
+
 test('lesson availability is explicit and independent of attributed source evidence', () => {
   for (const row of browser.concepts) {
     const original = supplied.concepts.find(concept => concept.id === row.id);

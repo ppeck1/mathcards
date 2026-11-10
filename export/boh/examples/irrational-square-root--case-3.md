@@ -1,0 +1,221 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:irrational-square-root:case-3", "id": "math:example:irrational-square-root:case-3", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:irrational-square-root", "example_id": "math:example:irrational-square-root:case-3", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "350ab74a4349dac7fe6742839af2773edc199c7c0e155b38b8a09c29a4c6ddd2", "source_revision": "0.1.0-draft", "upstream_content_sha256": "5fd93a2fe6c9d17ba14c300e59209d128dee116bd1060ed077c73c269c1cb9c7"}, "purpose": "Why can the exact diagonal-to-side ratio have no whole-number fraction?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "5fd93a2fe6c9d17ba14c300e59209d128dee116bd1060ed077c73c269c1cb9c7", "status": "draft", "title": "Scale the entire frame", "topics": ["mathematics", "number-theory", "geometry", "square root of two", "square diagonal", "irrational number", "rational approximations"], "type": "reference", "updated": "2026-11-09T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Scale the entire frame
+
+Parent card: math:concept:irrational-square-root; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:irrational-square-root; revision 0.1.0-draft. Setting: A maker braces a square display frame across its diagonal. Follow the side length s into the diagonal d, then compare a chosen finite rational approximation p/q with √2. Expression: $d=s\sqrt{2},\quad h=s\frac{p}{q},\quad \Delta=h-d.$. Conditions required for a defined value (a case may test their violation): The square side is 0.5 to 3 metres. The eight choices are consecutive continued-fraction convergents 1/1 through 577/408. Each is rational; no finite decimal or finite picture proves irrationality. The parity argument in the card proves that √2 is not a ratio of integers. Drawing directions use equal metre scales. Scope: The eight finite ratios come from the continued fraction [1;2,2,…]. The drawing and numerical tests compare approximations, while the parity proof establishes irrationality of √2. This is not a general classification of irrational numbers or a numerical proof from finitely many digits.
+
+Case unit math:example:irrational-square-root:case-3. Setting: A maker braces a square display frame across its diagonal. Follow the side length s into the diagonal d, then compare a chosen finite rational approximation p/q with √2. Inputs: {"refinement": 3, "side": 2}. Result: {"approximate": "2.8284271247461903"}. Limits: The eight finite ratios come from the continued fraction [1;2,2,…]. The drawing and numerical tests compare approximations, while the parity proof establishes irrationality of √2. This is not a general classification of irrational numbers or a numerical proof from finitely many digits.
+
+## Complete worked case
+
+- id: math:example:irrational-square-root:case-3
+- title: Scale the entire frame
+- role: applied_model
+- question: Why can the exact diagonal-to-side ratio have no whole-number fraction?
+- setting: A maker braces a square display frame across its diagonal. Follow the side length s into the diagonal d, then compare a chosen finite rational approximation p/q with √2.
+- assumptions:
+  - The square side is 0.5 to 3 metres. The eight choices are consecutive continued-fraction convergents 1/1 through 577/408. Each is rational; no finite decimal or finite picture proves irrationality. The parity argument in the card proves that √2 is not a ratio of integers. Drawing directions use equal metre scales.
+- inputs:
+  - side: 2
+  - refinement: 3
+- steps:
+  - Item:
+    - index: 1
+    - expression: s = 2; k = 3
+    - reason: Choose the declared physical lengths or whole approximation index.
+  - Item:
+    - index: 2
+    - expression: d=s\sqrt{2},\quad h=s\frac{p}{q},\quad \Delta=h-d.
+    - reason: The ratio of a square’s diagonal to its side is the positive square root of two. It is irrational: no ratio of integers equals it. Consecutive finite continued-fraction convergents give useful rational approximations without making the ratio itself rational.
+  - Item:
+    - index: 3
+    - expression: d ≈ 2.8284271247461903 m
+    - reason: Doubling both square sides doubles both the true and estimated braces. The absolute length error doubles too; their dimensionless ratios stay fixed.
+- result:
+  - approximate: 2.8284271247461903
+- interpretation: Doubling both square sides doubles both the true and estimated braces. The absolute length error doubles too; their dimensionless ratios stay fixed.
+- independent check:
+  - method: Evaluate the finite continued fraction from its tail using exact Fraction arithmetic, and compare the geometric diagonal with a high-precision Decimal Newton square root.
+  - expected: 2.8284271247461903
+- limits: The eight finite ratios come from the continued fraction [1;2,2,…]. The drawing and numerical tests compare approximations, while the parity proof establishes irrationality of √2. This is not a general classification of irrational numbers or a numerical proof from finitely many digits.
+- preset:
+  - side: 2
+  - refinement: 3
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - The square side is 0.5 to 3 metres. The eight choices are consecutive continued-fraction convergents 1/1 through 577/408. Each is rational; no finite decimal or finite picture proves irrationality. The parity argument in the card proves that √2 is not a ratio of integers. Drawing directions use equal metre scales.
+
+## Written exploration recipe
+
+- component id: component:irrational-square-root
+- renderer id: irrational-square-root-visual-model
+- renderer version: 1
+- model id: irrational-square-root-visual-model
+- model revision: 1
+- expression id: ast:irrational-square-root:expression
+- interaction status: implemented
+- description: The ratio of a square’s diagonal to its side is the positive square root of two. It is irrational: no ratio of integers equals it. Consecutive finite continued-fraction convergents give useful rational approximations without making the ratio itself rational.
+- controls:
+  - Item:
+    - id: side
+    - type: number
+    - default: 1
+    - min: 0.5
+    - max: 3
+    - step: 0.05
+  - Item:
+    - id: refinement
+    - type: number
+    - default: 3
+    - min: 1
+    - max: 8
+    - step: 1
+- expected cases:
+  - Item:
+    - input:
+      - side: 0.5
+      - refinement: 1
+    - status: valid
+    - output: 0.7071067811865476
+  - Item:
+    - input:
+      - side: 0.5
+      - refinement: 2
+    - status: valid
+    - output: 0.7071067811865476
+  - Item:
+    - input:
+      - side: 0.5
+      - refinement: 4
+    - status: valid
+    - output: 0.7071067811865476
+  - Item:
+    - input:
+      - side: 0.5
+      - refinement: 8
+    - status: valid
+    - output: 0.7071067811865476
+  - Item:
+    - input:
+      - side: 1
+      - refinement: 1
+    - status: valid
+    - output: 1.4142135623730951
+  - Item:
+    - input:
+      - side: 1
+      - refinement: 2
+    - status: valid
+    - output: 1.4142135623730951
+  - Item:
+    - input:
+      - side: 1
+      - refinement: 4
+    - status: valid
+    - output: 1.4142135623730951
+  - Item:
+    - input:
+      - side: 1
+      - refinement: 8
+    - status: valid
+    - output: 1.4142135623730951
+  - Item:
+    - input:
+      - side: 3
+      - refinement: 1
+    - status: valid
+    - output: 4.242640687119286
+  - Item:
+    - input:
+      - side: 3
+      - refinement: 2
+    - status: valid
+    - output: 4.242640687119286
+  - Item:
+    - input:
+      - side: 3
+      - refinement: 4
+    - status: valid
+    - output: 4.242640687119286
+  - Item:
+    - input:
+      - side: 3
+      - refinement: 8
+    - status: valid
+    - output: 4.242640687119286
+  - Item:
+    - input:
+      - side: 0.25
+      - refinement: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - side: 3.25
+      - refinement: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - side: true
+      - refinement: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - side: 2
+      - refinement: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - side: 1
+      - refinement: 0.75
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - side: 1
+      - refinement: 8.25
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - side: 1
+      - refinement: true
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - side: 1
+      - refinement: 2
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - side: 1
+      - refinement: 1.5
+    - status: invalid_parameters
+- compute: d=s\sqrt{2},\quad h=s\frac{p}{q},\quad \Delta=h-d.
+- numeric tolerance: 5e-11
+- invariants:
+  - The square side is 0.5 to 3 metres. The eight choices are consecutive continued-fraction convergents 1/1 through 577/408. Each is rational; no finite decimal or finite picture proves irrationality. The parity argument in the card proves that √2 is not a ratio of integers. Drawing directions use equal metre scales.
+  - Story, calculation, Geometry and Graph use the same evaluated state.
+  - Continuous physical quantities retain continuous shapes; whole indices and output counts retain discrete meanings.
+- limits:
+  - The eight finite ratios come from the continued fraction [1;2,2,…]. The drawing and numerical tests compare approximations, while the parity proof establishes irrationality of √2. This is not a general classification of irrational numbers or a numerical proof from finitely many digits.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:number-insights:irrational-square-root. [Wolfram MathWorld · Pythagoras’s Constant](https://mathworld.wolfram.com/PythagorassConstant.html). Locator: Unit-square diagonal interpretation, irrational-number definition and continued fraction, equation (2); the parity contradiction and frame examples are original derivations.. Verification: Definition-level page inspected 2026-11-09. Independent mathematical/pedagogical review and exact-edition book-page verification remain pending.. Rights: Originally authored scenarios, derivations and visual encodings; no source exercise, data or artwork reproduced.

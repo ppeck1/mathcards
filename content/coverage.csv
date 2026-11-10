@@ -258,3 +258,15 @@ math:concept:least-common-multiple,Least common multiple,numbers-number-theory,d
 math:concept:perfect-number,Perfect numbers and proper divisors,numbers-number-theory,draft_specimen,number-geometry-expansion,pending,pending,implemented
 math:concept:regular-polygon,Regular polygon area,geometry,draft_specimen,number-geometry-expansion,pending,pending,implemented
 math:concept:sphere-measurement,Sphere surface and volume,geometry,draft_specimen,number-geometry-expansion,pending,pending,implemented
+math:concept:irrational-square-root,Irrational square root: a square diagonal,numbers-number-theory,draft_specimen,book-roadmap-insights,pending,pending,implemented
+math:concept:golden-ratio,Golden ratio and similar rectangles,numbers-number-theory,draft_specimen,book-roadmap-insights,pending,pending,implemented
+math:concept:circle-measurement,Circle measurement and pi,numbers-number-theory,draft_specimen,book-roadmap-insights,pending,pending,implemented
+math:concept:floor-ceiling,Floor and ceiling: whole containers,numbers-number-theory,draft_specimen,book-roadmap-insights,pending,pending,implemented
+math:concept:triangle-measurement,Triangle area and shear,geometry,draft_specimen,book-roadmap-insights,pending,pending,implemented
+math:concept:similar-triangles,Similar triangles and square-law area,geometry,draft_specimen,book-roadmap-insights,pending,pending,implemented
+math:concept:perpendicular-bisector,Perpendicular bisector construction,geometry,draft_specimen,book-roadmap-insights,pending,pending,implemented
+math:concept:ellipse-section,Ellipse and focus distances,geometry,draft_specimen,book-roadmap-insights,pending,pending,implemented
+math:concept:platonic-solids,Platonic solids and Euler counts,geometry,draft_specimen,book-roadmap-insights,pending,pending,implemented
+math:concept:tessellation,Regular tessellations,geometry,draft_specimen,book-roadmap-insights,pending,pending,implemented
+math:concept:perspective-projection,Pinhole perspective projection,geometry,draft_specimen,book-roadmap-insights,pending,pending,implemented
+math:concept:sphere-packing,Sphere packing in cubic cells,geometry,draft_specimen,book-roadmap-insights,pending,pending,implemented

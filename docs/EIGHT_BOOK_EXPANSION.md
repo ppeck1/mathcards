@@ -11,8 +11,8 @@ browser are projections of this inventory plus a separately authored
 [lesson crosswalk](../content/planning/eight-book-crosswalk.json). Importing a
 subject never creates a completed lesson or a verified book attribution.
 
-The current branch crosswalk links 85 inventory subjects to bounded draft
-introductions and 55 to preparation only; 155 remain planned. These are
+The current branch crosswalk links 96 inventory subjects to bounded draft
+introductions and 55 to preparation only; 144 remain planned. These are
 concept-to-lesson links, so several subjects can lead to the same lesson. They
 are not counts of new cards or complete treatments of a book.
 
@@ -38,7 +38,37 @@ are not counts of new cards or complete treatments of a book.
 | Number extension | Least common multiples and perfect/deficient/abundant classification | Positive whole-minute periods and exact positive proper divisors; shared zero differs from the first positive reunion, and one has an empty divisor sum |
 | Geometry extension | Regular polygon area and sphere surface/volume | Convex planar regular polygons and a full ideal spherical tank; physical radii, straight edges, surface area, disk area and enclosed volume retain separate meanings |
 
-## Current number and geometry continuation
+## Current whole-roadmap continuation
+
+The user has authorized continuation through all eight books. The
+[generated progress matrix](ROADMAP_PROGRESS.md) includes all eighteen subject
+areas and lists every remaining planned subject once. It is generated from the
+same crosswalk as the app's Subjects browser, rather than a separate list of
+completion claims.
+
+The [142-card insight matrix](INSIGHT_EXPANSION_MATRIX_0_34_0.md) adds twelve
+lessons through three explicit families. Square diagonals and rational
+convergents, golden rectangles, circle measurement and floor/ceiling container
+counts connect to triangle area, similarity, compass bisectors and focal
+ellipses. Regular solids, tile junctions, pinhole images and periodic sphere
+packing extend the sequence into measured space. Every lesson has an original
+story, five worked examples, Geometry/Graph and linked terms and symbols.
+
+These are bounded introductions. Irrationality belongs to the exact ratio
+sqrt(2), rather than every scaled length. A tangent compass pair does not
+supply two distinct intersection points. A compatible tile angle is not a
+general tiling proof; a projected packing section is not a volume fraction.
+The lessons preserve these distinctions while reusing the shared host.
+
+Eleven previously planned subjects gain introductions. The branch now has
+142 draft lessons, 714 original examples, 2,747 fixtures, 856 written exports,
+291 views and 142 MathML definitions. Seventeen explicit families supply
+58 continuation lessons. Crosswalk totals are 96 introductions, 55 precursors
+and 144 planned subjects; book evidence states remain unchanged. See the
+[current validation](VALIDATION_0_34_0_INSIGHTS.md) for tested artifacts and
+remaining device/expert review. The live site stays on 0.33.0.
+
+## Earlier number and geometry continuation
 
 As of 2026-11-05, the [130-card matrix](NUMBER_GEOMETRY_EXPANSION_MATRIX_0_34_0.md)
 adds four lessons through two explicit local families. The branch contains

@@ -1,5 +1,9 @@
 # 0.34.0 number theory and geometry validation
 
+The [142-card insight matrix](INSIGHT_EXPANSION_MATRIX_0_34_0.md) and
+[current validation](VALIDATION_0_34_0_INSIGHTS.md) supersede this dated checkpoint.
+Its recorded counts and timing samples are retained below.
+
 Background checks on 2026-11-05 for `codex/eight-book-expansion`, continuing
 [draft PR #13](https://github.com/ppeck1/mathcards/pull/13). This identifies the
 130-card candidate after the [126-card checkpoint](VALIDATION_0_34_0_COMPARISON.md).

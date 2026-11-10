@@ -120,7 +120,10 @@ def compute(model,p):
     from comparison_extension_reference import compute as comparison_compute
     from number_extension_reference import compute as number_extension_compute
     from geometry_extension_reference import compute as geometry_extension_compute
-    for oracle in (systems_compute, inference_compute, number_compute, spatial_compute, dynamics_compute, algebra_compute, algorithm_compute, distribution_compute, analysis_compute, discrete_compute, estimation_compute, sampling_compute, design_compute, comparison_compute, number_extension_compute, geometry_extension_compute):
+    from number_insight_reference import compute as number_insight_compute
+    from plane_geometry_reference import compute as plane_geometry_compute
+    from spatial_insight_reference import compute as spatial_insight_compute
+    for oracle in (systems_compute, inference_compute, number_compute, spatial_compute, dynamics_compute, algebra_compute, algorithm_compute, distribution_compute, analysis_compute, discrete_compute, estimation_compute, sampling_compute, design_compute, comparison_compute, number_extension_compute, geometry_extension_compute, number_insight_compute, plane_geometry_compute, spatial_insight_compute):
         result=oracle(model,p)
         if result is not None:return result
     if model=='turing-machine-visual-model':

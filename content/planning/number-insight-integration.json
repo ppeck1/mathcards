@@ -1,0 +1,252 @@
+{
+  "slugs": [
+    "irrational-square-root",
+    "golden-ratio",
+    "circle-measurement",
+    "floor-ceiling"
+  ],
+  "sources": [
+    {
+      "id": "source:number-insights:irrational-square-root",
+      "title": "Wolfram MathWorld · Pythagoras’s Constant",
+      "url": "https://mathworld.wolfram.com/PythagorassConstant.html",
+      "kind": "reference",
+      "locator": "Unit-square diagonal interpretation, irrational-number definition and continued fraction, equation (2); the parity contradiction and frame examples are original derivations.",
+      "verification": "Definition-level page inspected 2026-11-09. Independent mathematical/pedagogical review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored scenarios, derivations and visual encodings; no source exercise, data or artwork reproduced."
+    },
+    {
+      "id": "source:number-insights:golden-ratio",
+      "title": "Wolfram MathWorld · Golden Ratio",
+      "url": "https://mathworld.wolfram.com/GoldenRatio.html",
+      "kind": "reference",
+      "locator": "Golden-rectangle similarity definition and equations (1), (2) and (6). Panel dimensions and finite candidate comparisons are original constructions.",
+      "verification": "Definition-level page inspected 2026-11-09. Independent mathematical/pedagogical review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored scenarios, derivations and visual encodings; no source exercise, data or artwork reproduced."
+    },
+    {
+      "id": "source:number-insights:circle-measurement",
+      "title": "Wolfram MathWorld · Circle",
+      "url": "https://mathworld.wolfram.com/Circle.html",
+      "kind": "reference",
+      "locator": "Definition of circle, diameter and circumference; equations (1) and (4)–(6), with the constant circumference-to-diameter ratio. The table scenario is original.",
+      "verification": "Definition-level page inspected 2026-11-09. Independent mathematical/pedagogical review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored scenarios, derivations and visual encodings; no source exercise, data or artwork reproduced."
+    },
+    {
+      "id": "source:number-insights:floor-ceiling",
+      "title": "Wolfram MathWorld · Floor and Ceiling Functions",
+      "url": "https://mathworld.wolfram.com/FloorFunction.html",
+      "kind": "reference",
+      "locator": "Greatest-integer definition; companion CeilingFunction.html gives least-integer definition. Storage interpretation and exact-decimal threshold examples are original.",
+      "verification": "Definition-level page inspected 2026-11-09. Independent mathematical/pedagogical review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored scenarios, derivations and visual encodings; no source exercise, data or artwork reproduced."
+    }
+  ],
+  "bindings": {
+    "irrational-square-root": {
+      "s": [
+        "side"
+      ],
+      "k": [
+        "refinement"
+      ],
+      "p": [
+        "numerator"
+      ],
+      "q": [
+        "denominator"
+      ],
+      "d": [
+        "output"
+      ],
+      "h": [
+        "estimatedDiagonal"
+      ],
+      "Δ": [
+        "signedError"
+      ],
+      "√2": [
+        "root"
+      ]
+    },
+    "golden-ratio": {
+      "s": [
+        "shortSide"
+      ],
+      "k": [
+        "term"
+      ],
+      "φ": [
+        "phi"
+      ],
+      "L": [
+        "output"
+      ],
+      "w": [
+        "remainder"
+      ],
+      "F_k": [
+        "fibonacci"
+      ],
+      "F_{k+1}": [
+        "following"
+      ],
+      "q": [
+        "approximation"
+      ],
+      "Δ": [
+        "ratioError"
+      ]
+    },
+    "circle-measurement": {
+      "r": [
+        "radius"
+      ],
+      "d": [
+        "diameter"
+      ],
+      "C": [
+        "circumference"
+      ],
+      "A": [
+        "output"
+      ],
+      "π": [
+        "pi"
+      ]
+    },
+    "floor-ceiling": {
+      "v": [
+        "amount"
+      ],
+      "c": [
+        "capacity"
+      ],
+      "x": [
+        "quotient"
+      ],
+      "f": [
+        "full"
+      ],
+      "N": [
+        "output"
+      ],
+      "r": [
+        "remainder"
+      ],
+      "u": [
+        "spare"
+      ]
+    }
+  },
+  "ports": {
+    "irrational-square-root": [
+      {
+        "id": "input:side",
+        "direction": "input",
+        "key": "side",
+        "label": "Square side s",
+        "type": "length",
+        "unit": "m",
+        "description": "Square side s. The receiving lesson validates its own meaning, domain and units."
+      },
+      {
+        "id": "input:refinement",
+        "direction": "input",
+        "key": "refinement",
+        "label": "Rational approximation k",
+        "type": "approximation-index",
+        "unit": "1",
+        "description": "Rational approximation k. The receiving lesson validates its own meaning, domain and units."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Square diagonal d",
+        "type": "length",
+        "unit": "m",
+        "description": "The ratio of a square’s diagonal to its side is the positive square root of two. It is irrational: no ratio of integers equals it. Consecutive finite continued-fraction convergents give useful rational approximations without turning that irrational length into a rational number."
+      }
+    ],
+    "golden-ratio": [
+      {
+        "id": "input:shortSide",
+        "direction": "input",
+        "key": "shortSide",
+        "label": "Short side s",
+        "type": "length",
+        "unit": "m",
+        "description": "Short side s. The receiving lesson validates its own meaning, domain and units."
+      },
+      {
+        "id": "input:term",
+        "direction": "input",
+        "key": "term",
+        "label": "Fibonacci index k",
+        "type": "approximation-index",
+        "unit": "1",
+        "description": "Fibonacci index k. The receiving lesson validates its own meaning, domain and units."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Golden rectangle long side L",
+        "type": "length",
+        "unit": "m",
+        "description": "A golden rectangle has a long-to-short ratio φ greater than one such that removing a square leaves a rotated rectangle with the same ratio. The equality φ=1/(φ−1) gives φ²=φ+1 and φ=(1+√5)/2. Ratios of consecutive Fibonacci numbers supply finite rational comparisons."
+      }
+    ],
+    "circle-measurement": [
+      {
+        "id": "input:radius",
+        "direction": "input",
+        "key": "radius",
+        "label": "Table radius r",
+        "type": "length",
+        "unit": "m",
+        "description": "Table radius r. The receiving lesson validates its own meaning, domain and units."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Disk area A",
+        "type": "area",
+        "unit": "m2",
+        "description": "A circle is the planar boundary at a fixed radius from its center; the disk includes its interior. The circle constant π is circumference divided by diameter. A radius r gives diameter d=2r, circumference C=2πr and disk area A=πr²."
+      }
+    ],
+    "floor-ceiling": [
+      {
+        "id": "input:amount",
+        "direction": "input",
+        "key": "amount",
+        "label": "Liquid volume v",
+        "type": "volume",
+        "unit": "L",
+        "description": "Liquid volume v. The receiving lesson validates its own meaning, domain and units."
+      },
+      {
+        "id": "input:capacity",
+        "direction": "input",
+        "key": "capacity",
+        "label": "Container capacity c",
+        "type": "volume",
+        "unit": "L",
+        "description": "Container capacity c. The receiving lesson validates its own meaning, domain and units."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Containers needed N",
+        "type": "container-count",
+        "unit": "1",
+        "description": "Floor chooses the greatest integer no larger than a real number; ceiling chooses the least integer no smaller. Dividing liquid volume v by container capacity c gives a dimensionless quotient x. Its floor counts completely full containers, and its ceiling is the least whole count with enough capacity for the entire batch."
+      }
+    ]
+  }
+}

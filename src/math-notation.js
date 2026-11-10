@@ -177,6 +177,11 @@
   }
   function unitIds(query,{slug}={}){
     const q=normalize(query),unit=String(query).trim().toLowerCase();
+    if(['container','containers'].includes(unit)&&['floor-ceiling','reference:number-container-count-unit'].includes(slug))return['number-container-count-unit'];
+    if(['choice','index'].includes(unit)&&['irrational-square-root','golden-ratio','reference:number-approximation-index-unit'].includes(slug))return['number-approximation-index-unit'];
+    if(unit==='choice'&&['platonic-solids','tessellation','perspective-projection','sphere-packing','reference:spatial-choice-unit'].includes(slug))return['spatial-choice-unit'];
+    if(['faces','vertices','edges','corners','sides','spheres'].includes(unit)&&['platonic-solids','tessellation','perspective-projection','sphere-packing','reference:spatial-count-unit'].includes(slug))return['spatial-count-unit'];
+    if(unit==='fraction'&&['sphere-packing','reference:spatial-volume-fraction'].includes(slug))return['spatial-volume-fraction'];
     if(q==='min^2'&&['least-common-multiple','reference:number-period-product-unit'].includes(slug))return['number-period-product-unit'];
     if(['tile','tiles','strip','strips','side','sides','cycle','cycles'].includes(unit)&&['least-common-multiple','perfect-number','regular-polygon','reference:number-count-unit'].includes(slug))return['number-count-unit'];
     if(q==='mm^4'&&['covariance-matrix','reference:comparison-covariance-determinant-unit'].includes(slug))return['comparison-covariance-determinant-unit'];

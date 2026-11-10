@@ -1,0 +1,195 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:similar-triangles:case-2", "id": "math:example:similar-triangles:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:similar-triangles", "example_id": "math:example:similar-triangles:case-2", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "350ab74a4349dac7fe6742839af2773edc199c7c0e155b38b8a09c29a4c6ddd2", "source_revision": "0.1.0-draft", "upstream_content_sha256": "1ae1defa2af1398b278497d40b963776a55d2b6ca34090ed23dc9b547c905bf9"}, "purpose": "How much more material does an enlarged triangular panel need?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "1ae1defa2af1398b278497d40b963776a55d2b6ca34090ed23dc9b547c905bf9", "status": "draft", "title": "The unchanged reference", "topics": ["mathematics", "geometry", "measurement", "similar triangles and square-law area", "similar triangles"], "type": "reference", "updated": "2026-11-09T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# The unchanged reference
+
+Parent card: math:concept:similar-triangles; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:similar-triangles; revision 0.1.0-draft. Setting: A designer begins with a triangular panel whose perpendicular sides are 3 and 4 metres and whose sloping side is 5 metres. The dashed outline keeps that original panel in place. Change one scale factor k to build a similar panel on the same metre scale, then compare its side lengths and material area with the original. Expression: $b=3k,\quad h=4k,\quad c=5k,\quad A=\frac{bh}{2}=6k^2,\quad q=k^2.$. Conditions required for a defined value (a case may test their violation): The reference is a 3–4–5 right triangle measured in metres. A positive uniform length scale factor k ranges from 0.25 to 2, with no rotation or deformation. Scope: Corresponding angles stay equal because both coordinate directions use the same positive scale. Matching side names express correspondence, not equality of length. The 6-square-metre reference outline and the scaled panel share one fixed drawing scale. Fabric allowance and stress are outside this geometric model.
+
+Case unit math:example:similar-triangles:case-2. Setting: A designer begins with a triangular panel whose perpendicular sides are 3 and 4 metres and whose sloping side is 5 metres. The dashed outline keeps that original panel in place. Change one scale factor k to build a similar panel on the same metre scale, then compare its side lengths and material area with the original. Inputs: {"scale": 1}. Result: {"approximate": "6.0"}. Limits: Corresponding angles stay equal because both coordinate directions use the same positive scale. Matching side names express correspondence, not equality of length. The 6-square-metre reference outline and the scaled panel share one fixed drawing scale. Fabric allowance and stress are outside this geometric model.
+
+## Complete worked case
+
+- id: math:example:similar-triangles:case-2
+- title: The unchanged reference
+- role: applied_model
+- question: How much more material does an enlarged triangular panel need?
+- setting: A designer begins with a triangular panel whose perpendicular sides are 3 and 4 metres and whose sloping side is 5 metres. The dashed outline keeps that original panel in place. Change one scale factor k to build a similar panel on the same metre scale, then compare its side lengths and material area with the original.
+- assumptions:
+  - The reference is a 3–4–5 right triangle measured in metres. A positive uniform length scale factor k ranges from 0.25 to 2, with no rotation or deformation.
+- inputs:
+  - scale: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: k = 1
+    - reason: Set the chosen measurements in the geometric model.
+  - Item:
+    - index: 2
+    - expression: b=3k,\quad h=4k,\quad c=5k,\quad A=\frac{bh}{2}=6k^2,\quad q=k^2.
+    - reason: A positive dilation multiplies each coordinate difference by k. Euclidean distances therefore gain factor k and corresponding angles stay equal. The determinant of two planar edges gains k². The reference right-triangle area is 3×4/2=6, giving scaled area 6 k².
+  - Item:
+    - index: 3
+    - expression: A ≈ 6.0 m²
+    - reason: At k=1 the panel coincides with the 3–4–5 reference and has area 6 square metres.
+- result:
+  - approximate: 6.0
+- interpretation: At k=1 the panel coincides with the 3–4–5 reference and has area 6 square metres.
+- independent check:
+  - method: Independent coordinate shoelace and distance calculations, or a bisection solution of equal-distance equations; compare with geometric invariants.
+  - expected: 6.0
+- limits: Corresponding angles stay equal because both coordinate directions use the same positive scale. Matching side names express correspondence, not equality of length. The 6-square-metre reference outline and the scaled panel share one fixed drawing scale. Fabric allowance and stress are outside this geometric model.
+- preset:
+  - scale: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - The reference is a 3–4–5 right triangle measured in metres. A positive uniform length scale factor k ranges from 0.25 to 2, with no rotation or deformation.
+
+## Written exploration recipe
+
+- component id: component:similar-triangles
+- renderer id: similar-triangles-visual-model
+- renderer version: 1
+- model id: similar-triangles-visual-model
+- model revision: 1
+- expression id: ast:similar-triangles:expression
+- interaction status: implemented
+- description: Similar triangles have equal corresponding angles and proportional corresponding side lengths. Scale a 3–4–5 right triangle uniformly by a positive factor k. Its lengths become 3 k,4 k and 5 k, while area becomes 6 k² square metres. Doubling every length quadruples the enclosed area. The area ratio q equals k²: divide the scaled area by the original six square metres.
+- controls:
+  - Item:
+    - id: scale
+    - type: number
+    - default: 1.25
+    - min: 0.25
+    - max: 2
+    - step: 0.025
+- expected cases:
+  - Item:
+    - input:
+      - scale: 0.25
+    - status: valid
+    - output: 0.375
+  - Item:
+    - input:
+      - scale: 0.275
+    - status: valid
+    - output: 0.4537500000000001
+  - Item:
+    - input:
+      - scale: 0.5
+    - status: valid
+    - output: 1.5
+  - Item:
+    - input:
+      - scale: 0.75
+    - status: valid
+    - output: 3.375
+  - Item:
+    - input:
+      - scale: 1
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - scale: 1.025
+    - status: valid
+    - output: 6.303749999999999
+  - Item:
+    - input:
+      - scale: 1.25
+    - status: valid
+    - output: 9.375
+  - Item:
+    - input:
+      - scale: 1.5
+    - status: valid
+    - output: 13.5
+  - Item:
+    - input:
+      - scale: 1.75
+    - status: valid
+    - output: 18.375
+  - Item:
+    - input:
+      - scale: 1.975
+    - status: valid
+    - output: 23.403750000000002
+  - Item:
+    - input:
+      - scale: 2
+    - status: valid
+    - output: 24.0
+  - Item:
+    - input:
+      - scale: 1.25
+    - status: valid
+    - output: 9.375
+  - Item:
+    - input:
+      - scale: 1
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - scale: 2
+    - status: valid
+    - output: 24.0
+  - Item:
+    - input:
+      - scale: 0.5
+    - status: valid
+    - output: 1.5
+  - Item:
+    - input:
+      - scale: 0.25
+    - status: valid
+    - output: 0.375
+  - Item:
+    - input:
+      - scale: 0.24
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - scale: 2.01
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - scale: true
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - scale: 2
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - scale: null
+    - status: invalid_parameters
+- compute: b=3k,\quad h=4k,\quad c=5k,\quad A=\frac{bh}{2}=6k^2,\quad q=k^2.
+- numeric tolerance: 5e-11
+- invariants:
+  - The reference is a 3–4–5 right triangle measured in metres. A positive uniform length scale factor k ranges from 0.25 to 2, with no rotation or deformation.
+  - Story, calculation, Geometry and Graph evaluate the same state.
+  - Fixed equal physical scales preserve measured shape and growth.
+- limits:
+  - Corresponding angles stay equal because both coordinate directions use the same positive scale. Matching side names express correspondence, not equality of length. The 6-square-metre reference outline and the scaled panel share one fixed drawing scale. Fabric allowance and stress are outside this geometric model.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:plane-geometry:similar-triangles. [Wolfram MathWorld · Similar Triangles](https://mathworld.wolfram.com/SimilarTriangles.html). Locator: Definition: equal corresponding angle measures and proportional corresponding side lengths; similarity need not mean congruence. The panel and square-area derivation are original constructions.. Verification: Definition-level page inspected2026-11-09. Independent mathematics and teaching review and exact-edition book-page confirmation remain pending.. Rights: Original scenarios, worked examples and code-native geometry. No source exercise, data or illustration reproduced.

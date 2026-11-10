@@ -68,7 +68,7 @@ test('index loads without DOM, timers, network or storage and projects immutable
 
 test('pasted Greek symbols preserve case and remain distinct from partial derivatives',()=>{
   assert.deepEqual(new Set(ids(index.search('δ'))),new Set(['delta-small','transition-function','tape-transition','normal-test-power-symbol-3']));
-  assert.deepEqual(ids(index.search('Δ')),['delta-capital','factorial-interaction-output','proper-divisor-balance','factorial-interaction']);
+  assert.deepEqual(ids(index.search('Δ')),['delta-capital','factorial-interaction-output','proper-divisor-balance','number-signed-length-error','number-golden-ratio-error','factorial-interaction']);
   assert.deepEqual(ids(index.search('∂')),['partial-derivative']);
   assert.ok(ids(index.search('delta')).includes('delta-small'));
   assert.ok(ids(index.search('DELTA')).includes('delta-capital'));

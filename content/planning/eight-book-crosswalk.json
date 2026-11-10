@@ -858,9 +858,11 @@
     },
     {
       "concept_id": "floor-and-ceiling",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "floor-ceiling"
+      ],
+      "scope_note": "A nonnegative ideal liquid batch distinguishes fully filled containers from the whole number needed. Exact decimal input thresholds avoid arbitrary epsilon adjustments. General signed floor/ceiling definitions are in the linked reference; uncertain capacities and tolerances are outside this model."
     },
     {
       "concept_id": "binomial-notation",
@@ -925,9 +927,11 @@
     },
     {
       "concept_id": "pi",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "circle-measurement"
+      ],
+      "scope_note": "In Euclidean geometry the circumference-to-diameter ratio defines pi. Radius connects circumference and disk area with distinct metre and square-metre units. The finite drawing and printed decimals approximate analytic measurements; no proof of transcendence is supplied."
     },
     {
       "concept_id": "euler-number",
@@ -1116,9 +1120,11 @@
     },
     {
       "concept_id": "irrational-numbers",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "irrational-square-root"
+      ],
+      "scope_note": "The square diagonal supplies an irrational length ratio. An originally derived parity contradiction proves that sqrt(2) is irrational; finite rational convergents only approximate it. This is a bounded example, not a classification or decimal test for arbitrary irrational numbers."
     },
     {
       "concept_id": "perfect-numbers",
@@ -1193,9 +1199,14 @@
         "pythagorean-theorem",
         "vector-rotation",
         "regular-polygon",
-        "sphere-measurement"
+        "sphere-measurement",
+        "triangle-measurement",
+        "similar-triangles",
+        "perpendicular-bisector",
+        "ellipse-section",
+        "circle-measurement"
       ],
-      "scope_note": "Right triangles, coordinate turns, convex regular polygon triangulations and spherical measurement provide bounded length, angle, area and volume examples. General Euclidean geometry, constructions and axiomatic development remain separate."
+      "scope_note": "Measured triangles, similarity, circles, one compass construction, a focal ellipse, regular polygons and spheres supply bounded Euclidean examples. A general axiomatic development, proof curriculum and complete construction theory remain separate."
     },
     {
       "concept_id": "parallel-postulate",
@@ -1213,21 +1224,27 @@
     },
     {
       "concept_id": "platonic-solids",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "platonic-solids"
+      ],
+      "scope_note": "The five convex regular solids connect actual vertex/edge skeletons with face, edge and vertex counts and Euler characteristic two. The selection is discrete. A projected skeleton does not assert physical area or volume or prove classification of every polyhedron."
     },
     {
       "concept_id": "golden-ratio",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "golden-ratio"
+      ],
+      "scope_note": "Removing a square from a golden rectangle gives the equation phi squared equals phi plus one. A positive algebraic ratio is compared with finite consecutive Fibonacci ratios; no universal claim about aesthetics, nature or optimal design follows."
     },
     {
       "concept_id": "classical-constructions",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "perpendicular-bisector"
+      ],
+      "scope_note": "Equal-radius compass circles and a straightedge construct the perpendicular bisector from two distinct intersection points. A tangent case has only one intersection and does not construct the line by that method. General constructibility and impossible constructions remain separate."
     },
     {
       "concept_id": "sphere-measurement",
@@ -1239,9 +1256,11 @@
     },
     {
       "concept_id": "tessellations",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "tessellation"
+      ],
+      "scope_note": "A regular polygon angle and a whole number of copies determine the signed angular gap at a vertex. Explicit triangular, square and hexagonal plane patterns are supplied. Local angle compatibility alone is not a proof that arbitrary shapes tile the plane."
     },
     {
       "concept_id": "space-filling-curves",
@@ -1381,9 +1400,11 @@
     },
     {
       "concept_id": "polyhedra",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "platonic-solids"
+      ],
+      "scope_note": "Five convex regular polyhedra provide concrete faces, edges, vertices and Euler comparisons. This bounded introduction does not extend the Euler equation to every surface or classify arbitrary nonconvex polyhedra."
     },
     {
       "concept_id": "graph-coloring",
@@ -1401,15 +1422,19 @@
     },
     {
       "concept_id": "conic-sections",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "ellipse-section"
+      ],
+      "scope_note": "A nondegenerate ellipse is drawn on equal metre scales from semimajor axis and focal distance. The moving boundary point keeps the sum of its two focus distances equal to twice the semimajor axis. Other conics, cone-plane derivations and classification remain separate."
     },
     {
       "concept_id": "perspective",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "perspective-projection"
+      ],
+      "scope_note": "One ideal pinhole camera projects an object width by similar triangles as focal length times width divided by depth. Positive object depths remain beyond the image distance. This is a measured projection model, without lens distortion or a general computer-vision calibration claim."
     },
     {
       "concept_id": "analytic-geometry",
@@ -1441,9 +1466,11 @@
     },
     {
       "concept_id": "sphere-packing",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "sphere-packing"
+      ],
+      "scope_note": "Simple cubic and face-centered cubic unit cells compare fractional corner/face occupancy, contact distances and packing fractions. Identical non-overlapping spheres use physical lengths and cubic volumes. No proof of a globally densest packing, finite container optimization or empirical material property is supplied."
     },
     {
       "concept_id": "set-theoretic-foundations",

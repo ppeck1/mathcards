@@ -37,7 +37,19 @@ test('every calculation stage activates a real mark in each new story scene', ()
     'least-common-multiple',
     'perfect-number',
     'regular-polygon',
-    'sphere-measurement'
+    'sphere-measurement',
+    'irrational-square-root',
+    'golden-ratio',
+    'circle-measurement',
+    'floor-ceiling',
+    'triangle-measurement',
+    'similar-triangles',
+    'perpendicular-bisector',
+    'ellipse-section',
+    'platonic-solids',
+    'tessellation',
+    'perspective-projection',
+    'sphere-packing'
   ]) {
     const story = Stories.forSlug(slug);
     const markup = Scenes.render(slug, story.parameters, { compact: true });
@@ -67,7 +79,10 @@ const familyTerms = [
   require('../src/design-extension-terms.js'),
   require('../src/comparison-extension-terms.js'),
   require('../src/number-extension-terms.js'),
-  require('../src/geometry-extension-terms.js')
+  require('../src/geometry-extension-terms.js'),
+  require('../src/number-insight-terms.js'),
+  require('../src/plane-geometry-terms.js'),
+  require('../src/spatial-insight-terms.js')
 ];
 const ids = [
   'inverse-function',
@@ -88,7 +103,19 @@ const ids = [
   'least-common-multiple',
   'perfect-number',
   'regular-polygon',
-  'sphere-measurement'
+  'sphere-measurement',
+  'irrational-square-root',
+  'golden-ratio',
+  'circle-measurement',
+  'floor-ceiling',
+  'triangle-measurement',
+  'similar-triangles',
+  'perpendicular-bisector',
+  'ellipse-section',
+  'platonic-solids',
+  'tessellation',
+  'perspective-projection',
+  'sphere-packing'
 ];
 const cards = ids.map(id =>
   JSON.parse(fs.readFileSync(new URL('../content/cards/' + id + '.json', import.meta.url), 'utf8'))
@@ -113,7 +140,7 @@ const alternative = (module, card) => {
   return example.preset;
 };
 
-test('the nineteen roadmap-gap lessons join the host in explicit family order with independent slots', () => {
+test('the thirty-one roadmap-gap lessons join the host in explicit family order with independent slots', () => {
   assert.deepEqual(Metadata.ids.slice(-ids.length), ids);
   assert.deepEqual(
     Modules.list()
@@ -327,7 +354,7 @@ test('each new authored reference reader has actual new-card usage evidence', ()
   assert.deepEqual(withoutUse, [], 'Every new authored reader has actual new-card use');
 });
 
-test('all fifteen scenes and remembered families are finite, immutable and strict standalone SVG', () => {
+test('all roadmap scenes and remembered families are finite, immutable and strict standalone SVG', () => {
   const documents = [];
   for (const canonical of cards) {
     const id = canonical.slug,
@@ -410,5 +437,20 @@ test('classic-script entries keep the new providers before their shared consumer
       !scripts.includes(family + '-extension-terms.js'),
       family + ' authorship stays in the build'
     );
+  }
+  for (const [model, family] of [
+    ['number-insights', 'number-insight'],
+    ['plane-geometry', 'plane-geometry'],
+    ['spatial-insights', 'spatial-insight']
+  ]) {
+    for (const [dependency, consumer] of [
+      [model + '.js', 'model-registry.js'],
+      [family + '-stories.js', 'story-library.js'],
+      [family + '-previews.js', 'card-previews.js']
+    ]) {
+      assert.ok(position(dependency) >= 0, dependency + ' is installed');
+      assert.ok(position(dependency) < position(consumer), dependency + ' precedes ' + consumer);
+    }
+    assert.ok(!scripts.includes(family + '-terms.js'), family + ' authorship stays in the build');
   }
 });

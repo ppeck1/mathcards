@@ -1,0 +1,322 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:ellipse-section:case-3", "id": "math:example:ellipse-section:case-3", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:ellipse-section", "example_id": "math:example:ellipse-section:case-3", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "350ab74a4349dac7fe6742839af2773edc199c7c0e155b38b8a09c29a4c6ddd2", "source_revision": "0.1.0-draft", "upstream_content_sha256": "13705bd38f80d7d4cc8bea93f245c49d02fb92e259d34aa35a10cb995113e21d"}, "purpose": "How does a fixed string-length rule shape an elliptical garden?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "13705bd38f80d7d4cc8bea93f245c49d02fb92e259d34aa35a10cb995113e21d", "status": "draft", "title": "Move the marker to the major-axis end", "topics": ["mathematics", "geometry", "measurement", "ellipse and focus distances", "ellipse section"], "type": "reference", "updated": "2026-11-09T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Move the marker to the major-axis end
+
+Parent card: math:concept:ellipse-section; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:ellipse-section; revision 0.1.0-draft. Setting: A garden designer marks two fixed foci, each c metres from the center. A moving boundary marker must keep the total length of its two straight strings to those foci equal to 2 a metres. Change the long half-axis a or focus spacing c, then drag the point parameter t to see the same distance-sum rule at different places on the garden boundary. Expression: $b=\sqrt{a^2-c^2},\quad x=a\cos t,\quad y=b\sin t,\quad d_1=\sqrt{(x+c)^2+y^2},\quad d_2=\sqrt{(x-c)^2+y^2},\quad d_1+d_2=2a,\quad A=\pi ab.$. Conditions required for a defined value (a case may test their violation): Semimajor axis a ranges from 3 to 5 metres, center-to-focus distance c from 0 to 2 metres, and boundary parameter t from 0 to 2π radians. Thus a>c, with a positive semiminor axis. At c=0 this family includes a circle. Scope: This is a nondegenerate planar ellipse with horizontal major axis. The semimajor axis is half its longest diameter, not a full diameter. The parameter t generally differs from the polar angle. The focus-distance strings are measured lengths, not ellipse perimeter; no orbit mechanics or general classification of conic sections is claimed.
+
+Case unit math:example:ellipse-section:case-3. Setting: A garden designer marks two fixed foci, each c metres from the center. A moving boundary marker must keep the total length of its two straight strings to those foci equal to 2 a metres. Change the long half-axis a or focus spacing c, then drag the point parameter t to see the same distance-sum rule at different places on the garden boundary. Inputs: {"angle": 0, "focus": 2, "major": 4}. Result: {"approximate": "43.531184741621225"}. Limits: This is a nondegenerate planar ellipse with horizontal major axis. The semimajor axis is half its longest diameter, not a full diameter. The parameter t generally differs from the polar angle. The focus-distance strings are measured lengths, not ellipse perimeter; no orbit mechanics or general classification of conic sections is claimed.
+
+## Complete worked case
+
+- id: math:example:ellipse-section:case-3
+- title: Move the marker to the major-axis end
+- role: applied_model
+- question: How does a fixed string-length rule shape an elliptical garden?
+- setting: A garden designer marks two fixed foci, each c metres from the center. A moving boundary marker must keep the total length of its two straight strings to those foci equal to 2 a metres. Change the long half-axis a or focus spacing c, then drag the point parameter t to see the same distance-sum rule at different places on the garden boundary.
+- assumptions:
+  - Semimajor axis a ranges from 3 to 5 metres, center-to-focus distance c from 0 to 2 metres, and boundary parameter t from 0 to 2π radians. Thus a>c, with a positive semiminor axis. At c=0 this family includes a circle.
+- inputs:
+  - major: 4
+  - focus: 2
+  - angle: 0
+- steps:
+  - Item:
+    - index: 1
+    - expression: a = 4; c = 2; t = 0
+    - reason: Set the chosen measurements in the geometric model.
+  - Item:
+    - index: 2
+    - expression: b=\sqrt{a^2-c^2},\quad x=a\cos t,\quad y=b\sin t,\quad d_1=\sqrt{(x+c)^2+y^2},\quad d_2=\sqrt{(x-c)^2+y^2},\quad d_1+d_2=2a,\quad A=\pi ab.
+    - reason: At the top point(0,b), both distances to the foci are√(b²+c²), so each equals a and b²=a²−c². The parametrization x=a cos t,y=b sin t lies on x²/a²+y²/b²=1. Direct distances confirm their sum 2 a. Stretching a unit disk by a horizontally and b vertically multiplies its areaπ by ab.
+  - Item:
+    - index: 3
+    - expression: A ≈ 43.531184741621225 m²
+    - reason: The two distances become 6 and 2 metres. Their sum remains 8 metres; neither string length alone stays fixed.
+- result:
+  - approximate: 43.531184741621225
+- interpretation: The two distances become 6 and 2 metres. Their sum remains 8 metres; neither string length alone stays fixed.
+- independent check:
+  - method: Independent coordinate shoelace and distance calculations, or a bisection solution of equal-distance equations; compare with geometric invariants.
+  - expected: 43.531184741621225
+- limits: This is a nondegenerate planar ellipse with horizontal major axis. The semimajor axis is half its longest diameter, not a full diameter. The parameter t generally differs from the polar angle. The focus-distance strings are measured lengths, not ellipse perimeter; no orbit mechanics or general classification of conic sections is claimed.
+- preset:
+  - major: 4
+  - focus: 2
+  - angle: 0
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Semimajor axis a ranges from 3 to 5 metres, center-to-focus distance c from 0 to 2 metres, and boundary parameter t from 0 to 2π radians. Thus a>c, with a positive semiminor axis. At c=0 this family includes a circle.
+
+## Written exploration recipe
+
+- component id: component:ellipse-section
+- renderer id: ellipse-section-visual-model
+- renderer version: 1
+- model id: ellipse-section-visual-model
+- model revision: 1
+- expression id: ast:ellipse-section:expression
+- interaction status: implemented
+- description: An ellipse is the locus of planar points whose distances to two fixed foci add to 2 a. Here locus means the set of points satisfying that geometric rule. Put its foci on the horizontal axis at positions −c and c, with vertical coordinate zero and a>c. The semiminor axis is b=√(a²−c²), so enclosed area is A=πab. A moving point with coordinates x=a cos t and y=b sin t keeps the same total focus distance even while its two individual distances change.
+- controls:
+  - Item:
+    - id: major
+    - type: number
+    - default: 4
+    - min: 3
+    - max: 5
+    - step: 0.025
+  - Item:
+    - id: focus
+    - type: number
+    - default: 2
+    - min: 0
+    - max: 2
+    - step: 0.025
+  - Item:
+    - id: angle
+    - type: number
+    - default: 1.0471975511965976
+    - min: 0
+    - max: 6.283185307179586
+    - step: 0.025
+- expected cases:
+  - Item:
+    - input:
+      - major: 3
+      - focus: 2
+      - angle: 0
+    - status: valid
+    - output: 21.07444419312218
+  - Item:
+    - input:
+      - major: 3
+      - focus: 2
+      - angle: 1.5707963267948966
+    - status: valid
+    - output: 21.07444419312218
+  - Item:
+    - input:
+      - major: 3
+      - focus: 0
+      - angle: 3.141592653589793
+    - status: valid
+    - output: 28.274333882308138
+  - Item:
+    - input:
+      - major: 5
+      - focus: 0
+      - angle: 0
+    - status: valid
+    - output: 78.53981633974483
+  - Item:
+    - input:
+      - major: 5
+      - focus: 2
+      - angle: 3.141592653589793
+    - status: valid
+    - output: 71.98293068896203
+  - Item:
+    - input:
+      - major: 4
+      - focus: 2
+      - angle: 1.0471975511965976
+    - status: valid
+    - output: 43.531184741621225
+  - Item:
+    - input:
+      - major: 4
+      - focus: 2
+      - angle: 6.283185307179586
+    - status: valid
+    - output: 43.531184741621225
+  - Item:
+    - input:
+      - major: 4
+      - focus: 2
+      - angle: 1.5707963267948966
+    - status: valid
+    - output: 43.531184741621225
+  - Item:
+    - input:
+      - major: 4
+      - focus: 1
+      - angle: 0.7853981633974483
+    - status: valid
+    - output: 48.669344111683344
+  - Item:
+    - input:
+      - major: 5
+      - focus: 1
+      - angle: 4.71238898038469
+    - status: valid
+    - output: 76.95298980971184
+  - Item:
+    - input:
+      - major: 3.025
+      - focus: 1.975
+      - angle: 0.025
+    - status: valid
+    - output: 21.774836533411012
+  - Item:
+    - input:
+      - major: 4
+      - focus: 0
+      - angle: 6.283185307179586
+    - status: valid
+    - output: 50.26548245743669
+  - Item:
+    - input:
+      - major: 4
+      - focus: 2
+      - angle: 1.0471975511965976
+    - status: valid
+    - output: 43.531184741621225
+  - Item:
+    - input:
+      - major: 4
+      - focus: 0
+      - angle: 1.5707963267948966
+    - status: valid
+    - output: 50.26548245743669
+  - Item:
+    - input:
+      - major: 4
+      - focus: 2
+      - angle: 0
+    - status: valid
+    - output: 43.531184741621225
+  - Item:
+    - input:
+      - major: 3
+      - focus: 2
+      - angle: 1.5707963267948966
+    - status: valid
+    - output: 21.07444419312218
+  - Item:
+    - input:
+      - major: 5
+      - focus: 2
+      - angle: 3.141592653589793
+    - status: valid
+    - output: 71.98293068896203
+  - Item:
+    - input:
+      - major: 2.99
+      - focus: 2
+      - angle: 1.0471975511965976
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: 5.01
+      - focus: 2
+      - angle: 1.0471975511965976
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: true
+      - focus: 2
+      - angle: 1.0471975511965976
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: 2
+      - focus: 2
+      - angle: 1.0471975511965976
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: null
+      - focus: 2
+      - angle: 1.0471975511965976
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: 4
+      - focus: -0.01
+      - angle: 1.0471975511965976
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: 4
+      - focus: 2.01
+      - angle: 1.0471975511965976
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: 4
+      - focus: true
+      - angle: 1.0471975511965976
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: 4
+      - focus: 2
+      - angle: 1.0471975511965976
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: 4
+      - focus: null
+      - angle: 1.0471975511965976
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: 4
+      - focus: 2
+      - angle: -0.01
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: 4
+      - focus: 2
+      - angle: 6.293185307179586
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: 4
+      - focus: 2
+      - angle: true
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: 4
+      - focus: 2
+      - angle: 2
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - major: 4
+      - focus: 2
+      - angle: null
+    - status: invalid_parameters
+- compute: b=\sqrt{a^2-c^2},\quad x=a\cos t,\quad y=b\sin t,\quad d_1=\sqrt{(x+c)^2+y^2},\quad d_2=\sqrt{(x-c)^2+y^2},\quad d_1+d_2=2a,\quad A=\pi ab.
+- numeric tolerance: 5e-11
+- invariants:
+  - Semimajor axis a ranges from 3 to 5 metres, center-to-focus distance c from 0 to 2 metres, and boundary parameter t from 0 to 2π radians. Thus a>c, with a positive semiminor axis. At c=0 this family includes a circle.
+  - Story, calculation, Geometry and Graph evaluate the same state.
+  - Fixed equal physical scales preserve measured shape and growth.
+- limits:
+  - This is a nondegenerate planar ellipse with horizontal major axis. The semimajor axis is half its longest diameter, not a full diameter. The parameter t generally differs from the polar angle. The focus-distance strings are measured lengths, not ellipse perimeter; no orbit mechanics or general classification of conic sections is claimed.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:plane-geometry:ellipse-section. [Wolfram MathWorld · Ellipse](https://mathworld.wolfram.com/Ellipse.html). Locator: Equations(1)–(2), (10)–(14): constant sum of distances to foci, b²=a²−c², Cartesian and parametric ellipse equations. The enclosed area πab follows from the original unit-disk scaling derivation; garden examples are original.. Verification: Definition-level page inspected2026-11-09. Independent mathematics and teaching review and exact-edition book-page confirmation remain pending.. Rights: Original scenarios, worked examples and code-native geometry. No source exercise, data or illustration reproduced.

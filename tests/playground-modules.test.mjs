@@ -37,6 +37,7 @@ expectedIds.push('student-mean-interval', 'randomization-distribution', 'one-way
 expectedIds.push('covariance', 'normal-variance-interval', 'normal-test-power');
 expectedIds.push('covariance-matrix', 'wilcoxon-signed-rank', 'mann-whitney');
 expectedIds.push('least-common-multiple', 'perfect-number', 'regular-polygon', 'sphere-measurement');
+expectedIds.push('irrational-square-root', 'golden-ratio', 'circle-measurement', 'floor-ceiling', 'triangle-measurement', 'similar-triangles', 'perpendicular-bisector', 'ellipse-section', 'platonic-solids', 'tessellation', 'perspective-projection', 'sphere-packing');
 const format = value => value == null ? 'undefined' : String(Number(value.toPrecision(7)));
 const context = (id, view) => ({ id, view, format, compact: false, camera: .65 });
 const finiteScene = (html, label) => {

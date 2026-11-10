@@ -1,0 +1,253 @@
+{
+  "slugs": [
+    "platonic-solids",
+    "tessellation",
+    "perspective-projection",
+    "sphere-packing"
+  ],
+  "sources": [
+    {
+      "title": "Wolfram MathWorld · Platonic Solid",
+      "url": "https://mathworld.wolfram.com/PlatonicSolid.html",
+      "locator": "Definition and table of the five convex regular solids, their face types and vertex/edge/face counts. Original coordinate skeletons use unit edges.",
+      "id": "source:spatial-insights:solid",
+      "kind": "reference",
+      "verification": "Definition-level source inspected 2026-11-09. Independent mathematics and teaching review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored display, floor, camera and bead-cell examples and drawings. No source exercise, image or dataset reproduced."
+    },
+    {
+      "title": "Wolfram MathWorld · Euler Characteristic",
+      "url": "https://mathworld.wolfram.com/EulerCharacteristic.html",
+      "locator": "Equations (1)–(2), with genus zero: the closed convex polyhedral count V−E+F=2. This lesson verifies five explicit cases rather than proves the theorem.",
+      "id": "source:spatial-insights:euler",
+      "kind": "reference",
+      "verification": "Definition-level source inspected 2026-11-09. Independent mathematics and teaching review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored display, floor, camera and bead-cell examples and drawings. No source exercise, image or dataset reproduced."
+    },
+    {
+      "title": "Wolfram MathWorld · Regular Tessellation",
+      "url": "https://mathworld.wolfram.com/RegularTessellation.html",
+      "locator": "Equations (1)–(6): regular polygon angles around a vertex and the three regular Euclidean plane tessellations. Original finite patches and angle-sector drawings.",
+      "id": "source:spatial-insights:tiling",
+      "kind": "reference",
+      "verification": "Definition-level source inspected 2026-11-09. Independent mathematics and teaching review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored display, floor, camera and bead-cell examples and drawings. No source exercise, image or dataset reproduced."
+    },
+    {
+      "title": "Stanford CS231A · Camera Models, Kenji Hata and Silvio Savarese",
+      "url": "https://web.stanford.edu/class/cs231a/course_notes/01-camera-models.pdf",
+      "locator": "Section 2, pages 2–3, equation (1): virtual image plane and pinhole coordinates (fx/z, fy/z). The marker endpoints and width calculation are original applications.",
+      "id": "source:spatial-insights:camera",
+      "kind": "reference",
+      "verification": "Definition-level source inspected 2026-11-09. Independent mathematics and teaching review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored display, floor, camera and bead-cell examples and drawings. No source exercise, image or dataset reproduced."
+    },
+    {
+      "title": "Wolfram MathWorld · Cubic Close Packing",
+      "url": "https://mathworld.wolfram.com/CubicClosePacking.html",
+      "locator": "SC/FCC density table and equations (1)–(5): shared corner/face sphere volumes and the FCC face-diagonal contact relation. Only these two periodic arrangements are compared.",
+      "id": "source:spatial-insights:packing",
+      "kind": "reference",
+      "verification": "Definition-level source inspected 2026-11-09. Independent mathematics and teaching review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored display, floor, camera and bead-cell examples and drawings. No source exercise, image or dataset reproduced."
+    },
+    {
+      "title": "International Union of Crystallography · Close-packed structures, P. Krishna and D. Pandey",
+      "url": "https://www.iucr.org/what-we-do/education/pamphlets/close-packed-structures",
+      "locator": "Introduction and possible lattice types: equal-sphere contacts, cubic close packing and its face-centered cubic unit cell. No copied crystal data, source figures or exercises.",
+      "id": "source:spatial-insights:packing-primary",
+      "kind": "reference",
+      "verification": "Definition-level source inspected 2026-11-09. Independent mathematics and teaching review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored display, floor, camera and bead-cell examples and drawings. No source exercise, image or dataset reproduced."
+    }
+  ],
+  "bindings": {
+    "platonic-solids": {
+      "s": [
+        "solid"
+      ],
+      "V": [
+        "vertexCount"
+      ],
+      "E": [
+        "edgeCount"
+      ],
+      "F": [
+        "output",
+        "faceCount"
+      ]
+    },
+    "tessellation": {
+      "n": [
+        "sides"
+      ],
+      "q": [
+        "copies"
+      ],
+      "α": [
+        "angle"
+      ],
+      "g": [
+        "output",
+        "gap"
+      ]
+    },
+    "perspective-projection": {
+      "z": [
+        "depth"
+      ],
+      "W": [
+        "width"
+      ],
+      "f": [
+        "focal"
+      ],
+      "w": [
+        "output",
+        "imageWidth"
+      ],
+      "m": [
+        "magnification"
+      ]
+    },
+    "sphere-packing": {
+      "k": [
+        "packing"
+      ],
+      "η": [
+        "output",
+        "fraction"
+      ],
+      "N": [
+        "occupancy"
+      ],
+      "r": [
+        "radius"
+      ],
+      "a": [
+        "cellEdge"
+      ],
+      "π": [
+        "pi"
+      ]
+    }
+  },
+  "ports": {
+    "platonic-solids": [
+      {
+        "id": "input:solid",
+        "direction": "input",
+        "key": "solid",
+        "label": "Solid: 1 tetra · 2 cube · 3 octa · 4 dodeca · 5 icosa",
+        "type": "platonic-solid-choice",
+        "unit": "1",
+        "description": "Discrete solid choice: 1 tetrahedron, 2 cube, 3 octahedron, 4 dodecahedron, 5 icosahedron. The receiving module checks its own domain."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Face count F",
+        "type": "polyhedron-face-count",
+        "unit": "1",
+        "description": "A Platonic solid is a convex polyhedron with congruent regular polygon faces and the same number of faces meeting at each vertex. These five models have vertex count V, edge count E and face count F satisfying V−E+F=2. Choosing a new solid changes actual connections and counts; a projected edge crossing is not an extra vertex."
+      }
+    ],
+    "tessellation": [
+      {
+        "id": "input:sides",
+        "direction": "input",
+        "key": "sides",
+        "label": "Regular tile sides n",
+        "type": "polygon-side-count",
+        "unit": "1",
+        "description": "Whole number of sides of each regular convex tile. The receiving module checks its own domain."
+      },
+      {
+        "id": "input:copies",
+        "direction": "input",
+        "key": "copies",
+        "label": "Corners at one vertex q",
+        "type": "vertex-corner-count",
+        "unit": "1",
+        "description": "Whole number of tile corners brought to the same vertex. The receiving module checks its own domain."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Signed gap angle g",
+        "type": "angle",
+        "unit": "deg",
+        "description": "At a regular convex n-gon corner, the interior angle is α=180(n−2)/n degrees. Bringing q such corners together leaves signed gap g=360−qα degrees. Positive gap leaves uncovered angle and negative gap means angle overlap. The tested regular plane tilings use six triangles, four squares or three hexagons at every vertex. A local angle equation alone is not a general tiling theorem."
+      }
+    ],
+    "perspective-projection": [
+      {
+        "id": "input:depth",
+        "direction": "input",
+        "key": "depth",
+        "label": "Marker depth z",
+        "type": "length",
+        "unit": "m",
+        "description": "Positive marker depth from the pinhole, in metres. The receiving module checks its own domain."
+      },
+      {
+        "id": "input:width",
+        "direction": "input",
+        "key": "width",
+        "label": "Real marker width W",
+        "type": "length",
+        "unit": "m",
+        "description": "Real width of the centered marker, in metres. The receiving module checks its own domain."
+      },
+      {
+        "id": "input:focal",
+        "direction": "input",
+        "key": "focal",
+        "label": "Virtual image-plane distance f",
+        "type": "length",
+        "unit": "m",
+        "description": "Distance to the virtual image plane, in metres. The receiving module checks its own domain."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Image width w",
+        "type": "length",
+        "unit": "m",
+        "description": "In an ideal pinhole camera, a point at sideways coordinate X and positive depth z maps to virtual-image coordinate x=fX/z. A centered marker of real width W therefore has image width w=fW/z. Magnification m=f/z is dimensionless. Real dimensions remain fixed when depth changes; the changing projection is a measured image length rather than a shrinking object."
+      }
+    ],
+    "sphere-packing": [
+      {
+        "id": "input:packing",
+        "direction": "input",
+        "key": "packing",
+        "label": "Packing: 1 simple cubic · 2 face-centered cubic",
+        "type": "cubic-packing-choice",
+        "unit": "1",
+        "description": "Discrete packing choice: 1 simple cubic or 2 face-centered cubic. The receiving module checks its own domain."
+      },
+      {
+        "id": "input:radius",
+        "direction": "input",
+        "key": "radius",
+        "label": "Sphere radius r",
+        "type": "length",
+        "unit": "cm",
+        "description": "Common sphere radius, in centimetres. The receiving module checks its own domain."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Occupied volume fraction η",
+        "type": "volume-fraction",
+        "unit": "1",
+        "description": "A periodic packing repeats a cell whose boundary spheres are shared with neighboring cells. Simple cubic packing has eight corner eighths, totaling one sphere, and cell edge a=2r. Face-centered cubic packing adds six face halves, totaling four spheres, with face-diagonal contacts giving a=2√2r. Dividing occupied sphere volume by cube volume gives packing fraction η, which is independent of radius within each packing."
+      }
+    ]
+  }
+}

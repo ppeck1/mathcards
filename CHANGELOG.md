@@ -6,7 +6,7 @@
 - Validate every lesson's notebook backup and every declared workspace view;
   add strict default-state scene reference/ID/slot checks to CI, with explicit
   browser and phone review rows in the release matrix.
-- Add 69 bounded lessons in inference, modeling, information, number
+- Add 81 bounded lessons in inference, modeling, information, number
   foundations, spatial reasoning, dynamics, order, physical and neural models.
 - Add affine inverse calibration, signed geometric series, exact small-graph
   coloring, two-set inclusion–exclusion, descriptive complete blocks and a
@@ -42,12 +42,27 @@
 - Keep whole periods and tile/side counts discrete, the divisor sum for one
   empty, and physical radii continuous. Distinguish circumradius, straight
   polygon edges, spherical surface area, disk area and enclosed volume.
-- Reach 130 draft lessons, 654 original examples, 2,471 fixtures, 784 written
+- At the number/geometry checkpoint, reach 130 draft lessons, 654 original examples, 2,471 fixtures, 784 written
   exports, 267 views and 130 MathML definitions. Forty-six continuation lessons
   use fourteen explicit metadata families through the unchanged shared host.
 - Advance perfect numbers, regular polygons and sphere measurement to bounded
   introductions in the eight-book crosswalk; use LCM as a divisibility bridge.
   Keep all source-evidence states, schemas, model revisions and review gaps.
+- Add twelve connected lessons in three local families: irrational square-root
+  lengths, golden rectangles, circles/pi, floor/ceiling, triangle measurement,
+  similarity, perpendicular bisectors, ellipses, Platonic solids, tilings,
+  perspective and simple-cubic sphere packing.
+- Separate exact proofs and definitions from finite approximations; retain
+  actual geometric scales, whole counts, open/closed step endpoints and
+  dimensionless versus physical quantities. Preserve the shared host and clocks.
+- Reach 142 draft lessons, 714 original examples, 2,747 fixtures, 856 written
+  exports, 291 views and 142 MathML definitions. Fifty-eight continuation lessons
+  use seventeen explicit metadata families. Add the new scoped definitions and
+  actual-use links to the prepared searchable reference.
+- Continue across the entire eight-book scope. Generate a complete progress
+  matrix for all 18 areas and every planned subject; retain 96 bounded
+  introductions, 55 preparation-only subjects and 144 planned subjects, with
+  source evidence and independent review states unchanged.
 - Connect original stories, three-stage calculations, Geometry/Graph, matching
   thumbnails, meaningful quantity ports, worked examples and independent references.
 - Preserve and expose all 295 supplied concept IDs across 18 subjects and eight
@@ -65,7 +80,7 @@
 - Make generated writes recoverable through sibling staging, atomic replacement
   and bounded Windows sharing-error retries. Preserve deterministic LF bytes.
 - Record background startup and payload measurements without claiming browser
-  or phone qualification. Compile all 130 formulas to native MathML.
+  or phone qualification. Compile all 142 formulas to native MathML.
 - Remove duplicate reference-authoring scripts from the runtime, deduplicate
   private search-row text, stop story lookup at its first match and reuse fully
   verified immutable registration metadata. Preserve all public reference data,
