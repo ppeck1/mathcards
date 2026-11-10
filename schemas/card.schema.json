@@ -1142,7 +1142,13 @@
             "platonic-solids-visual-model",
             "tessellation-visual-model",
             "perspective-projection-visual-model",
-            "sphere-packing-visual-model"
+            "sphere-packing-visual-model",
+            "neural-summation-visual-model",
+            "receptive-field-visual-model",
+            "channel-capacity-visual-model",
+            "hamming-code-visual-model",
+            "photon-energy-visual-model",
+            "time-dilation-visual-model"
           ]
         },
         "renderer_version": {

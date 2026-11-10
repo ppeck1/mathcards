@@ -1404,6 +1404,69 @@
       "kind": "reference",
       "verification": "Definition-level source inspected 2026-11-09. Independent mathematics and teaching review and exact-edition book-page verification remain pending.",
       "rights": "Originally authored display, floor, camera and bead-cell examples and drawings. No source exercise, image or dataset reproduced."
+    },
+    {
+      "id": "source:neural-bridge:neural-summation",
+      "title": "Dive into Deep Learning · Linear Regression as a Neural Network",
+      "url": "https://d2l.ai/chapter_linear-regression/linear-regression.html",
+      "kind": "reference",
+      "locator": "Section 3.1.4 and equation 3.1.2 introduce a single computed unit as a weighted input sum. Section 3.1.4.1 discusses positive/negative input effects. The fixed two-channel arithmetic, robot scenario and diagrams are original; no source exercise or biological fit is reproduced.",
+      "verification": "Definition-level author source inspected 2026-11-10. Independent mathematical, biological and teaching review and exact-edition book-page verification remain pending.",
+      "rights": "Original workshop scenario, arithmetic, diagrams and worked examples. No source exercise, figure, recorded data or substantial text reproduced."
+    },
+    {
+      "id": "source:neural-bridge:receptive-field",
+      "title": "Neuronal Dynamics · Encoding Models in Systems Neuroscience",
+      "url": "https://neuronaldynamics.epfl.ch/online/Ch11.S2.html",
+      "kind": "reference",
+      "locator": "Section 11.2.1 and Figure 11.5 describe the spatial linear-filter stage as a weighted stimulus projection, before a nonlinearity and a stochastic spike model. This lesson isolates that algebraic stage in an original five-site construction; it does not reproduce a receptive-field measurement, figure or LNP spike model.",
+      "verification": "Definition-level author source inspected 2026-11-10. Independent mathematical, biological and teaching review and exact-edition book-page verification remain pending.",
+      "rights": "Original workshop scenario, arithmetic, diagrams and worked examples. No source exercise, figure, recorded data or substantial text reproduced."
+    },
+    {
+      "id": "source:information-bridge:channel-capacity",
+      "title": "University of Cambridge · John Daugman, Information Theory",
+      "url": "https://www.cl.cam.ac.uk/teaching/1516/InfoTheory/InfoTheoryNotes2015.pdf",
+      "locator": "Slides 53–54, PDF pages 53–54: binary symmetric channel capacity, equiprobable inputs maximizing mutual information, and the informative always-flipping channel. Binary entropy is defined on slide 18. Original workshop scenario and fixed-scale bars are authored for this lesson.",
+      "kind": "reference",
+      "verification": "Definition-level source inspected 2026-11-10. Independent mathematics and teaching review and exact-edition book-page verification remain pending.",
+      "rights": "Original workshop scenarios, calculations, code-native diagrams and finite data. No source exercise, diagram or wording reproduced."
+    },
+    {
+      "id": "source:information-bridge:hamming-code",
+      "title": "Cornell University · CS414, Calculating the Hamming Code",
+      "url": "https://www.cs.cornell.edu/courses/cs414/2007su/slides/hamming.html",
+      "locator": "Construction steps 1–4: parity positions at powers of two, data at remaining positions and even-parity coverage. Finding and fixing a bad bit: the sum of failed parity positions names a single erroneous bit. The seven-position status-label family and its examples are original constructions.",
+      "kind": "reference",
+      "verification": "Definition-level source inspected 2026-11-10. Independent mathematics and teaching review and exact-edition book-page verification remain pending.",
+      "rights": "Original workshop scenarios, calculations, code-native diagrams and finite data. No source exercise, diagram or wording reproduced."
+    },
+    {
+      "id": "source:physics-bridge:si-constants",
+      "title": "BIPM · The International System of Units",
+      "url": "https://www.bipm.org/en/measurement-units/",
+      "kind": "reference",
+      "locator": "SI definition: exact c=299792458 m/s, h=6.62607015×10⁻³⁴ J·s and elementary charge 1.602176634×10⁻¹⁹ C. The electronvolt conversion follows from one elementary charge through one volt.",
+      "verification": "Official defining-constant page inspected 2026-11-10. This does not verify exact-edition book coverage.",
+      "rights": "Originally authored calculations, scenarios and code-native diagrams; no source illustration or exercise reproduced."
+    },
+    {
+      "id": "source:physics-bridge:photon-energy",
+      "title": "OpenStax · University Physics Volume 3 §6.3",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/6-3-the-compton-effect",
+      "kind": "reference",
+      "locator": "Equations 6.19–6.20: E=hf=hc/λ and λf=c in vacuum. Only the monochromatic photon relation is used; scattering is not modeled.",
+      "verification": "Original textbook page inspected 2026-11-10. Independent mathematical/teaching review and exact-edition book-page checks remain open.",
+      "rights": "Originally authored light-source scenarios, calculations and diagrams; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:physics-bridge:time-dilation",
+      "title": "OpenStax · University Physics Volume 3 §5.3",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/5-3-time-dilation",
+      "kind": "reference",
+      "locator": "Equation 5.2 and proper-time definition: the same two events at one position in the clock rest frame satisfy Δt=γΔτ with γ=1/sqrt(1−v²/c²).",
+      "verification": "Original textbook page inspected 2026-11-10. Independent mathematical/teaching review and exact-edition book-page checks remain open.",
+      "rights": "Originally authored clock-event scenarios and fixed-scale interval bars; no source exercise, illustration or empirical data reproduced."
     }
   ]
 }

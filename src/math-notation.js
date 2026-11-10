@@ -59,6 +59,7 @@
     if(q==='rank'&&['wilcoxon-signed-rank','mann-whitney'].includes(options.slug))return['comparison-data-rank'];
     if(['least-common-multiple','reference:number-signal-labels'].includes(options.slug)&&['A','B'].includes(q))return['number-signal-labels'];
     if(['least-common-multiple','perfect-number','reference:divisibility'].includes(options.slug)&&['|','∣','d|n','d∣n'].includes(q))return['divisibility'];
+    if(['channel-capacity','reference:bridge-binary-entropy-function'].includes(options.slug)&&/^H_2(?:\([\s\S]*\))?$/.test(q))return['bridge-binary-entropy-function'];
     if(Object.hasOwn(vulgar,raw)||/^[-+]?\d+\/\d+$/.test(q))add('fraction');
     if(q==='∃!')add('unique-exists');
     if((!options.slug||options.slug==='circle-manifold'||options.slug==='reference:unit-circle')&&q==='S^1')return['unit-circle','superscript'];
@@ -177,6 +178,14 @@
   }
   function unitIds(query,{slug}={}){
     const q=normalize(query),unit=String(query).trim().toLowerCase();
+    if(unit==='bit/use'&&['channel-capacity','reference:bridge-information-rate-unit'].includes(slug))return['bridge-information-rate-unit'];
+    if(unit==='position'&&['hamming-code','reference:bridge-code-position-unit'].includes(slug))return['bridge-code-position-unit'];
+    if(unit==='word choice'&&['hamming-code','reference:bridge-data-word-unit'].includes(slug))return['bridge-data-word-unit'];
+    if(q==='nm'&&['photon-energy','reference:physics-nanometre-unit'].includes(slug))return['physics-nanometre-unit'];
+    if(q==='Hz'&&['photon-energy','reference:physics-hertz-unit'].includes(slug))return['physics-hertz-unit'];
+    if(q==='eV'&&['photon-energy','reference:physics-electronvolt-unit'].includes(slug))return['physics-electronvolt-unit'];
+    if(/^J[·⋅.*]?s$/.test(q)&&['photon-energy','reference:physics-action-unit'].includes(slug))return['physics-action-unit'];
+    if(q==='J/eV'&&['photon-energy','reference:physics-energy-conversion-unit'].includes(slug))return['physics-energy-conversion-unit'];
     if(['container','containers'].includes(unit)&&['floor-ceiling','reference:number-container-count-unit'].includes(slug))return['number-container-count-unit'];
     if(['choice','index'].includes(unit)&&['irrational-square-root','golden-ratio','reference:number-approximation-index-unit'].includes(slug))return['number-approximation-index-unit'];
     if(unit==='choice'&&['platonic-solids','tessellation','perspective-projection','sphere-packing','reference:spatial-choice-unit'].includes(slug))return['spatial-choice-unit'];
@@ -355,7 +364,7 @@
     // A glyph resolving somewhere in the index must not hide a wrong role.
     const sumContexts=new Set(['probability','reference:riemann-sum']);
     for(const field of allFields)if(field.kind!=='unit'&&sumContexts.has(String(field.slug||'')))for(const match of field.text.matchAll(/Σ|\\Sigma\b/g))review.push({slug:String(field.slug||''),location:field.location||'Declared runtime notation',token:match[0],offset:match.index,reason:'This context declares summation. Use the operator ∑ or \\sum, not the Greek letter Σ.'});
-    for(const field of allFields)if(field.kind!=='unit')for(const match of field.text.matchAll(/(?<![\\\w])([A-Za-z][A-Za-z0-9_]*)\(/g)){const name=match[1];if(name.length>1&&!Object.hasOwn(named,name)&&!/^log_(?:[A-Za-z0-9]*|\{[^{}]+\})$/.test(name)&&!/^log\d+$/.test(name)&&name!=='rx_n')review.push({slug:String(field.slug||''),location:field.location||'Declared runtime notation',token:name,offset:match.index,reason:'Adjacent plain callable needs an explicit mathematical reader or a reviewed prose exclusion.'});}
+    for(const field of allFields)if(field.kind!=='unit')for(const match of field.text.matchAll(/(?<![\\\w])([A-Za-z][A-Za-z0-9_]*)\(/g)){const name=match[1],localBinaryEntropy=name==='H_2'&&classify(name,{slug:field.slug}).includes('bridge-binary-entropy-function');if(name.length>1&&!Object.hasOwn(named,name)&&!localBinaryEntropy&&!/^log_(?:[A-Za-z0-9]*|\{[^{}]+\})$/.test(name)&&!/^log\d+$/.test(name)&&name!=='rx_n')review.push({slug:String(field.slug||''),location:field.location||'Declared runtime notation',token:name,offset:match.index,reason:'Adjacent plain callable needs an explicit mathematical reader or a reviewed prose exclusion.'});}
     for(const field of allFields)for(const occurrence of extract(field.text,{kind:field.kind,slug:field.slug})){
       const reference=field.reference===true||String(field.slug||'').startsWith('reference:');
       const record={slug:String(field.slug||''),location:field.location||'Declared runtime notation',text:field.text,...(reference?{reference:true}:{}),...(field.ownerEntryId?{ownerEntryId:field.ownerEntryId}:{}),...occurrence};

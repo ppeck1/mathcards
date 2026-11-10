@@ -2,7 +2,7 @@
 
 Generated from the supplied inventory and the authored lesson crosswalk. This is the full expansion scope. A bounded draft introduction is not completion of a subject, an independent review or a verified book-page attribution.
 
-295 stable subjects: **96 bounded draft introductions**, **55 with preparation only**, and **144 planned**.
+295 stable subjects: **103 bounded draft introductions**, **58 with preparation only**, and **134 planned**.
 
 The live site is unchanged. Branch lessons still need the device and independent review recorded in the release matrix.
 
@@ -19,13 +19,13 @@ The live site is unchanged. Branch lessons still need the device and independent
 | Probability and randomness | 14 | 5 | 0 |
 | Statistics and inference | 10 | 8 | 2 |
 | Experimental design and statistical modeling | 8 | 4 | 8 |
-| Information and communication | 1 | 4 | 19 |
+| Information and communication | 3 | 5 | 16 |
 | Computation and algorithms | 2 | 5 | 10 |
 | Dynamics and complex systems | 3 | 1 | 2 |
-| Computational neuroscience | 0 | 5 | 14 |
+| Computational neuroscience | 2 | 6 | 11 |
 | Thermodynamics and physical chemistry | 4 | 6 | 25 |
 | History and philosophy of mathematical ideas | 0 | 0 | 4 |
-| Mathematical physics | 0 | 1 | 13 |
+| Mathematical physics | 3 | 2 | 9 |
 
 Subjects can belong to more than one area. Area rows overlap and must not be added to recover the distinct-subject total.
 
@@ -75,7 +75,7 @@ Multiple comparisons (`multiple-comparisons`); Split-plot designs (`split-plot-d
 
 ### Information and communication
 
-Communication history (`communication-history`); Oral communication (`oral-communication`); Writing systems (`writing-systems`); Dictionaries (`dictionaries`); Telegraphy (`telegraphy`); Biological information (`biological-information`); Memes (`memes`); Randomness (`randomness`); Physical information (`physical-information`); Information overload (`information-overload`); Knowledge organization (`knowledge-organization`); Coding (`coding`); Compression (`compression`); Channel capacity (`channel-capacity`); Error correction (`error-correction`); Algorithmic information (`algorithmic-information`); Maxwell demon (`maxwell-demon`); Landauer principle (`landauer-principle`); Genetic code (`genetic-code`).
+Communication history (`communication-history`); Oral communication (`oral-communication`); Writing systems (`writing-systems`); Dictionaries (`dictionaries`); Telegraphy (`telegraphy`); Biological information (`biological-information`); Memes (`memes`); Randomness (`randomness`); Physical information (`physical-information`); Information overload (`information-overload`); Knowledge organization (`knowledge-organization`); Compression (`compression`); Algorithmic information (`algorithmic-information`); Maxwell demon (`maxwell-demon`); Landauer principle (`landauer-principle`); Genetic code (`genetic-code`).
 
 ### Computation and algorithms
 
@@ -87,7 +87,7 @@ Game of Life (`game-of-life`); Game theory (`game-theory`).
 
 ### Computational neuroscience
 
-Membrane potentials (`membrane-potentials`); Excitation and inhibition (`excitation-and-inhibition`); Neural circuits (`neural-circuits`); Distributed representation (`distributed-representation`); Visual perception (`visual-perception`); Stereo vision (`stereo-vision`); Receptive fields (`receptive-fields`); Vector coding (`vector-coding`); Hippocampus (`hippocampus`); Sensorimotor integration (`sensorimotor-integration`); Vestibulo-ocular reflex (`vestibulo-ocular-reflex`); Neural oscillators (`neural-oscillators`); Neurobiological measurement (`neurobiological-measurement`); Levels of organization (`levels-of-organization`).
+Membrane potentials (`membrane-potentials`); Neural circuits (`neural-circuits`); Distributed representation (`distributed-representation`); Stereo vision (`stereo-vision`); Vector coding (`vector-coding`); Hippocampus (`hippocampus`); Sensorimotor integration (`sensorimotor-integration`); Vestibulo-ocular reflex (`vestibulo-ocular-reflex`); Neural oscillators (`neural-oscillators`); Neurobiological measurement (`neurobiological-measurement`); Levels of organization (`levels-of-organization`).
 
 ### Thermodynamics and physical chemistry
 
@@ -95,7 +95,7 @@ Reaction heat (`reaction-heat`); Third law (`third-law`); Chemical potential (`c
 
 ### Mathematical physics
 
-Planck constant (`planck-constant`); Speed of light (`speed-of-light`); Electromagnetism (`electromagnetism`); Relativity (`relativity`); Quantum theory (`quantum-theory`); Statistical mechanics (`statistical-mechanics`); Heat engines (`heat-engines`); Heat pumps (`heat-pumps`); Thermodynamic cycles (`thermodynamic-cycles`); Flow processes (`flow-processes`); Gravitational fields (`gravitational-fields`); Centrifugal fields (`centrifugal-fields`); Electric and magnetic fields (`electric-and-magnetic-fields`).
+Electromagnetism (`electromagnetism`); Statistical mechanics (`statistical-mechanics`); Heat engines (`heat-engines`); Heat pumps (`heat-pumps`); Thermodynamic cycles (`thermodynamic-cycles`); Flow processes (`flow-processes`); Gravitational fields (`gravitational-fields`); Centrifugal fields (`centrifugal-fields`); Electric and magnetic fields (`electric-and-magnetic-fields`).
 
 ### History and philosophy of mathematical ideas
 

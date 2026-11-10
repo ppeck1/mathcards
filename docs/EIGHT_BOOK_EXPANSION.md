@@ -11,8 +11,8 @@ browser are projections of this inventory plus a separately authored
 [lesson crosswalk](../content/planning/eight-book-crosswalk.json). Importing a
 subject never creates a completed lesson or a verified book attribution.
 
-The current branch crosswalk links 96 inventory subjects to bounded draft
-introductions and 55 to preparation only; 144 remain planned. These are
+The current branch crosswalk links 103 inventory subjects to bounded draft
+introductions and 58 to preparation only; 134 remain planned. These are
 concept-to-lesson links, so several subjects can lead to the same lesson. They
 are not counts of new cards or complete treatments of a book.
 
@@ -37,10 +37,44 @@ are not counts of new cards or complete treatments of a book.
 | Joint spread and rank comparisons | Five-pair covariance matrix, Wilcoxon signed ranks and a three-versus-three Mann–Whitney comparison | Descriptive covariance geometry; exact finite references under separately stated symmetric paired-sign or exchangeable-label nulls; no general median-only or causal interpretation |
 | Number extension | Least common multiples and perfect/deficient/abundant classification | Positive whole-minute periods and exact positive proper divisors; shared zero differs from the first positive reunion, and one has an empty divisor sum |
 | Geometry extension | Regular polygon area and sphere surface/volume | Convex planar regular polygons and a full ideal spherical tank; physical radii, straight edges, surface area, disk area and enclosed volume retain separate meanings |
+| Neural bridge | Signed artificial-unit summation and five-site center-surround filtering | Dimensionless static weighted inputs; no membrane dynamics, fitted receptive field, firing-rate model or biological validation |
+| Information bridge | Binary symmetric-channel capacity and Hamming parity correction | A declared memoryless binary channel and a finite single-error code family; capacity differs from the information of a chosen input mix |
+| Physics bridge | Vacuum photon energy and constant-velocity time dilation | Energy per photon and two intervals for the same events; no optical power, full quantum theory or acceleration/gravity model |
 
-## Current whole-roadmap continuation
+## Current signal and physics continuation
 
-The user has authorized continuation through all eight books. The
+The [148-card matrix](SIGNAL_PHYSICS_EXPANSION_MATRIX_0_34_0.md) adds six
+lessons through three explicit families, prioritizing regions with few direct
+introductions. Neural summation follows two nonnegative inputs into their
+signed weighted contributions. A receptive-field filter follows five gray
+settings into five spatial products and a contrast response. Their biological
+scope stays limited to an illustrative computational interpretation.
+
+A noisy workshop link connects input probabilities and flip chance to actual
+mutual information and the channel's best possible information per use.
+Hamming parity checks identify the flipped position in the stated single-error
+family, keeping the syndrome, corrected word and recovered data distinct.
+Photon wavelength connects frequency, joules and electronvolts through stated
+SI constants. Time dilation compares the same two events with the clock's
+proper interval, keeping frames and units explicit.
+
+These are the first two direct computational-neuroscience introductions and
+three direct mathematical-physics subjects in this crosswalk. Direct information
+introductions grow from one to three. The corpus now has 148 lessons, 744
+original examples, 2,879 fixtures, 892 written exports, 303 views and 148 MathML
+definitions. Twenty explicit families supply 64 continuation modules. The
+crosswalk records 103 introductions, 58 precursors and 134 planned subjects.
+
+Atlas territories and 24 neighborhoods remain stable. Computation now exposes
+18 lessons and Applications 22; Chance is the highest summit at 38, with a
+five-lesson contour interval. These territory counts overlap and do not count
+independent book coverage. Supplied evidence and stable topic IDs are preserved.
+See the [current validation](VALIDATION_0_34_0_SIGNAL_PHYSICS.md) and
+[full progress matrix](ROADMAP_PROGRESS.md). Live remains 0.33.0.
+
+## Earlier 142-card whole-roadmap continuation
+
+At the 2026-11-09–10 checkpoint, the user authorized continuation through all eight books. The
 [generated progress matrix](ROADMAP_PROGRESS.md) includes all eighteen subject
 areas and lists every remaining planned subject once. It is generated from the
 same crosswalk as the app's Subjects browser, rather than a separate list of
@@ -60,12 +94,12 @@ supply two distinct intersection points. A compatible tile angle is not a
 general tiling proof; a projected packing section is not a volume fraction.
 The lessons preserve these distinctions while reusing the shared host.
 
-Eleven previously planned subjects gain introductions. The branch now has
-142 draft lessons, 714 original examples, 2,747 fixtures, 856 written exports,
+At that checkpoint, eleven previously planned subjects gain introductions. The
+branch has 142 draft lessons, 714 original examples, 2,747 fixtures, 856 written exports,
 291 views and 142 MathML definitions. Seventeen explicit families supply
 58 continuation lessons. Crosswalk totals are 96 introductions, 55 precursors
 and 144 planned subjects; book evidence states remain unchanged. See the
-[current validation](VALIDATION_0_34_0_INSIGHTS.md) for tested artifacts and
+[checkpoint validation](VALIDATION_0_34_0_INSIGHTS.md) for tested artifacts and
 remaining device/expert review. The live site stays on 0.33.0.
 
 ## Earlier number and geometry continuation

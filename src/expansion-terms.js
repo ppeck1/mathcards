@@ -20,7 +20,10 @@
       node ? require('./geometry-extension-terms.js') : root.AtlasGeometryExtensionTerms,
       node ? require('./number-insight-terms.js') : root.AtlasNumberInsightTerms,
       node ? require('./plane-geometry-terms.js') : root.AtlasPlaneGeometryTerms,
-      node ? require('./spatial-insight-terms.js') : root.AtlasSpatialInsightTerms
+      node ? require('./spatial-insight-terms.js') : root.AtlasSpatialInsightTerms,
+      node ? require('./neural-bridge-terms.js') : root.AtlasNeuralBridgeTerms,
+      node ? require('./information-bridge-terms.js') : root.AtlasInformationBridgeTerms,
+      node ? require('./physics-bridge-terms.js') : root.AtlasPhysicsBridgeTerms
     );
   if (node) module.exports = api;
   root.AtlasExpansionTerms = api;
@@ -45,7 +48,10 @@
     GeometryExtensions,
     NumberInsights,
     PlaneGeometry,
-    SpatialInsights
+    SpatialInsights,
+    NeuralBridges,
+    InformationBridges,
+    PhysicsBridges
   ) {
     'use strict';
     const entries = new Map(),
@@ -69,7 +75,10 @@
       GeometryExtensions,
       NumberInsights,
       PlaneGeometry,
-      SpatialInsights
+      SpatialInsights,
+      NeuralBridges,
+      InformationBridges,
+      PhysicsBridges
     ].filter(Boolean)) {
       for (const entry of provider.entries) {
         const previous = entries.get(entry.id),

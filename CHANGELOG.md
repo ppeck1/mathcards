@@ -6,7 +6,7 @@
 - Validate every lesson's notebook backup and every declared workspace view;
   add strict default-state scene reference/ID/slot checks to CI, with explicit
   browser and phone review rows in the release matrix.
-- Add 81 bounded lessons in inference, modeling, information, number
+- Add 87 bounded lessons in inference, modeling, information, number
   foundations, spatial reasoning, dynamics, order, physical and neural models.
 - Add affine inverse calibration, signed geometric series, exact small-graph
   coloring, two-set inclusion–exclusion, descriptive complete blocks and a
@@ -49,20 +49,39 @@
   introductions in the eight-book crosswalk; use LCM as a divisibility bridge.
   Keep all source-evidence states, schemas, model revisions and review gaps.
 - Add twelve connected lessons in three local families: irrational square-root
-  lengths, golden rectangles, circles/pi, floor/ceiling, triangle measurement,
+  ratios, golden rectangles, circles/pi, floor/ceiling, triangle measurement,
   similarity, perpendicular bisectors, ellipses, Platonic solids, tilings,
-  perspective and simple-cubic sphere packing.
+  perspective and simple-cubic/face-centered-cubic sphere packing.
 - Separate exact proofs and definitions from finite approximations; retain
   actual geometric scales, whole counts, open/closed step endpoints and
   dimensionless versus physical quantities. Preserve the shared host and clocks.
-- Reach 142 draft lessons, 714 original examples, 2,747 fixtures, 856 written
-  exports, 291 views and 142 MathML definitions. Fifty-eight continuation lessons
+- At the 142-card insight checkpoint, reach 142 draft lessons, 714 original
+  examples, 2,747 fixtures, 856 written exports, 291 views and 142 MathML definitions. Fifty-eight continuation lessons
   use seventeen explicit metadata families. Add the new scoped definitions and
   actual-use links to the prepared searchable reference.
-- Continue across the entire eight-book scope. Generate a complete progress
-  matrix for all 18 areas and every planned subject; retain 96 bounded
-  introductions, 55 preparation-only subjects and 144 planned subjects, with
-  source evidence and independent review states unchanged.
+- At that checkpoint, generate a complete progress matrix across all 18 areas:
+  96 bounded introductions, 55 preparation-only subjects and 144 planned subjects,
+  preserving supplied source evidence and independent review states.
+- Add six atlas-gap lessons through neural, information and physics bridge
+  families: signed excitation/inhibition, a five-site receptive-field filter,
+  binary-channel capacity, Hamming parity correction, photon energy and
+  relativistic time dilation. Reuse the host, controls, clocks and saved state.
+- Follow signals into signed products, parity checks into the erroneous bit,
+  wavelength into frequency and energy, and the same events into proper and
+  frame-dependent clock intervals. Keep nonlinear neural activation, biological
+  validation, unsupported error patterns and broader quantum/relativity claims
+  outside these bounded models.
+- Reach 148 draft lessons, 744 original examples, 2,879 fixtures, 892 written
+  exports, 303 views and 148 MathML definitions. Twenty explicit metadata
+  families supply 64 continuation modules. The prepared reference has 1,357
+  entries, 962 selectable forms and 1,004 meanings, with actual-use card links.
+- Extend the eight-book crosswalk to 103 introductions, 58 precursors and
+  134 planned subjects. Add the first two direct neural and three direct
+  mathematical-physics introductions, plus two information introductions.
+  Preserve stable IDs, book evidence states and the separate live 0.33.0 site.
+- Validate editorial reference authoring before projection. Reject duplicate
+  definition IDs, unknown/self/duplicate related-definition links and missing
+  source keys in a build-only helper, without adding runtime code or a host.
 - Connect original stories, three-stage calculations, Geometry/Graph, matching
   thumbnails, meaningful quantity ports, worked examples and independent references.
 - Preserve and expose all 295 supplied concept IDs across 18 subjects and eight
@@ -80,7 +99,7 @@
 - Make generated writes recoverable through sibling staging, atomic replacement
   and bounded Windows sharing-error retries. Preserve deterministic LF bytes.
 - Record background startup and payload measurements without claiming browser
-  or phone qualification. Compile all 142 formulas to native MathML.
+  or phone qualification. Compile all 148 formulas to native MathML.
 - Remove duplicate reference-authoring scripts from the runtime, deduplicate
   private search-row text, stop story lookup at its first match and reuse fully
   verified immutable registration metadata. Preserve all public reference data,

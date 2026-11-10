@@ -1,0 +1,143 @@
+{
+  "slugs": [
+    "neural-summation",
+    "receptive-field"
+  ],
+  "sources": [
+    {
+      "id": "source:neural-bridge:neural-summation",
+      "title": "Dive into Deep Learning · Linear Regression as a Neural Network",
+      "url": "https://d2l.ai/chapter_linear-regression/linear-regression.html",
+      "kind": "reference",
+      "locator": "Section 3.1.4 and equation 3.1.2 introduce a single computed unit as a weighted input sum. Section 3.1.4.1 discusses positive/negative input effects. The fixed two-channel arithmetic, robot scenario and diagrams are original; no source exercise or biological fit is reproduced.",
+      "verification": "Definition-level author source inspected 2026-11-10. Independent mathematical, biological and teaching review and exact-edition book-page verification remain pending.",
+      "rights": "Original workshop scenario, arithmetic, diagrams and worked examples. No source exercise, figure, recorded data or substantial text reproduced."
+    },
+    {
+      "id": "source:neural-bridge:receptive-field",
+      "title": "Neuronal Dynamics · Encoding Models in Systems Neuroscience",
+      "url": "https://neuronaldynamics.epfl.ch/online/Ch11.S2.html",
+      "kind": "reference",
+      "locator": "Section 11.2.1 and Figure 11.5 describe the spatial linear-filter stage as a weighted stimulus projection, before a nonlinearity and a stochastic spike model. This lesson isolates that algebraic stage in an original five-site construction; it does not reproduce a receptive-field measurement, figure or LNP spike model.",
+      "verification": "Definition-level author source inspected 2026-11-10. Independent mathematical, biological and teaching review and exact-edition book-page verification remain pending.",
+      "rights": "Original workshop scenario, arithmetic, diagrams and worked examples. No source exercise, figure, recorded data or substantial text reproduced."
+    }
+  ],
+  "bindings": {
+    "neural-summation": {
+      "e": [
+        "excitation"
+      ],
+      "i": [
+        "inhibition"
+      ],
+      "a": [
+        "gainExcitation"
+      ],
+      "b": [
+        "gainInhibition"
+      ],
+      "E": [
+        "excitatoryDrive"
+      ],
+      "I": [
+        "inhibitoryDrive"
+      ],
+      "y": [
+        "output"
+      ]
+    },
+    "receptive-field": {
+      "c": [
+        "center"
+      ],
+      "s": [
+        "surround"
+      ],
+      "g": [
+        "gain"
+      ],
+      "S": [
+        "surroundTotal"
+      ],
+      "r": [
+        "output"
+      ],
+      "x⃗": [
+        "pixels"
+      ],
+      "w⃗": [
+        "weights"
+      ]
+    }
+  },
+  "ports": {
+    "neural-summation": [
+      {
+        "id": "input:excitation",
+        "direction": "input",
+        "key": "excitation",
+        "label": "Approach signal e",
+        "type": "normalized-signal",
+        "unit": "1",
+        "description": "The declared dimensionless input. The receiving module validates its own signal range and interpretation."
+      },
+      {
+        "id": "input:inhibition",
+        "direction": "input",
+        "key": "inhibition",
+        "label": "Braking signal i",
+        "type": "normalized-signal",
+        "unit": "1",
+        "description": "The declared dimensionless input. The receiving module validates its own signal range and interpretation."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Signed linear model drive",
+        "type": "signed-signal",
+        "unit": "1",
+        "description": "The signed dimensionless linear drive; this value is not a biological firing rate or measured membrane voltage."
+      }
+    ],
+    "receptive-field": [
+      {
+        "id": "input:center",
+        "direction": "input",
+        "key": "center",
+        "label": "Center gray setting c",
+        "type": "normalized-signal",
+        "unit": "1",
+        "description": "The declared dimensionless input. The receiving module validates its own signal range and interpretation."
+      },
+      {
+        "id": "input:surround",
+        "direction": "input",
+        "key": "surround",
+        "label": "Surround gray setting s",
+        "type": "normalized-signal",
+        "unit": "1",
+        "description": "The declared dimensionless input. The receiving module validates its own signal range and interpretation."
+      },
+      {
+        "id": "input:gain",
+        "direction": "input",
+        "key": "gain",
+        "label": "Total surround gain g",
+        "type": "signal-gain",
+        "unit": "1",
+        "description": "The declared dimensionless input. The receiving module validates its own signal range and interpretation."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Signed linear model drive",
+        "type": "signed-signal",
+        "unit": "1",
+        "description": "The signed dimensionless linear drive; this value is not a biological firing rate or measured membrane voltage."
+      }
+    ]
+  }
+}

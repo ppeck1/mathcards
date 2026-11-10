@@ -7,6 +7,8 @@ const root=path.resolve(__dirname,'..');
 require(path.join(root,'src/catalog.js'));
 const Index=require(path.join(root,'src/math-index.js'));
 const Stories=require(path.join(root,'src/story-library.js'));
+const Terms=require(path.join(root,'src/math-terms.js'));
+require('./reference_authoring.cjs').validateReferenceAuthoring(Terms);
 const data=Index.compile({...globalThis.AtlasCatalog,stories:Stories.all()});
 // Keep the projection inert in both an external script and the standalone
 // inline bundle. Sources remain canonical cards, stories and reference terms.

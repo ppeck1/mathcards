@@ -1,7 +1,9 @@
 # PR #13 release checks — background review
 
-The [142-card insight matrix](INSIGHT_EXPANSION_MATRIX_0_34_0.md) and
-[current validation](VALIDATION_0_34_0_INSIGHTS.md) identify the latest candidate.
+The [148-card signals/physics matrix](SIGNAL_PHYSICS_EXPANSION_MATRIX_0_34_0.md)
+and [current validation](VALIDATION_0_34_0_SIGNAL_PHYSICS.md) identify the latest
+candidate. The [142-card insight matrix](INSIGHT_EXPANSION_MATRIX_0_34_0.md) and
+[its validation](VALIDATION_0_34_0_INSIGHTS.md) preserve the preceding checkpoint.
 The [full roadmap progress matrix](ROADMAP_PROGRESS.md) covers the authorized
 eight-book scope. Device and independent review remain open.
 

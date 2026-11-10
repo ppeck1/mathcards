@@ -1,5 +1,9 @@
 # 0.34.0 number and geometry insights matrix
 
+The [148-card signals/physics matrix](SIGNAL_PHYSICS_EXPANSION_MATRIX_0_34_0.md)
+and [current validation](VALIDATION_0_34_0_SIGNAL_PHYSICS.md) supersede this dated
+checkpoint. Its recorded counts and timings are retained below.
+
 Continuation of [draft PR #13](https://github.com/ppeck1/mathcards/pull/13),
 2026-11-09–10. The authorized expansion scope is now the **entire eight-book
 roadmap**, rather than only the current number/geometry sequence. This first

@@ -166,7 +166,7 @@ math:concept:mutual-information,Mutual Information,information,draft_specimen,ex
 math:concept:relative-entropy,Relative Entropy,information,draft_specimen,expansion,pending,pending,implemented
 math:concept:coding,Coding,information,planned,expansion,pending,pending,planned
 math:concept:compression,Compression,information,planned,expansion,pending,pending,planned
-math:concept:channel-capacity,Channel Capacity,information,planned,expansion,pending,pending,planned
+math:concept:channel-capacity,Channel capacity: a binary symmetric link,information,draft_specimen,signal-physics-bridge,pending,pending,implemented
 math:concept:error-correcting-code,Error Correcting Code,information,planned,expansion,pending,pending,planned
 math:concept:minimum-description-length,Minimum Description Length,information,planned,expansion,pending,pending,planned
 math:concept:category,Category,abstract-structure,planned,expansion,pending,pending,planned
@@ -270,3 +270,8 @@ math:concept:platonic-solids,Platonic solids and Euler counts,geometry,draft_spe
 math:concept:tessellation,Regular tessellations,geometry,draft_specimen,book-roadmap-insights,pending,pending,implemented
 math:concept:perspective-projection,Pinhole perspective projection,geometry,draft_specimen,book-roadmap-insights,pending,pending,implemented
 math:concept:sphere-packing,Sphere packing in cubic cells,geometry,draft_specimen,book-roadmap-insights,pending,pending,implemented
+math:concept:neural-summation,Excitation and inhibition: a signed sum,neuroscience,draft_specimen,signal-physics-bridge,pending,pending,implemented
+math:concept:receptive-field,Receptive fields: center versus surround,neuroscience,draft_specimen,signal-physics-bridge,pending,pending,implemented
+math:concept:hamming-code,Hamming code: locating one flipped bit,information,draft_specimen,signal-physics-bridge,pending,pending,implemented
+math:concept:photon-energy,Photon energy and vacuum wavelength,physics,draft_specimen,signal-physics-bridge,pending,pending,implemented
+math:concept:time-dilation,Time dilation between two clock events,physics,draft_specimen,signal-physics-bridge,pending,pending,implemented

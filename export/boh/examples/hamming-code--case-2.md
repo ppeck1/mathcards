@@ -1,0 +1,228 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:hamming-code:case-2", "id": "math:example:hamming-code:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:hamming-code", "example_id": "math:example:hamming-code:case-2", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "5980dd81a678c535f513e3425fb6b8c4cf6e747ab6fc71d733f073c579505693"}, "purpose": "How can three overlapping checks tell us which bit changed?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "5980dd81a678c535f513e3425fb6b8c4cf6e747ab6fc71d733f073c579505693", "status": "draft", "title": "An unchanged zero label", "topics": ["mathematics", "information", "computation", "discrete-mathematics", "hamming code: locating one flipped bit", "hamming code"], "type": "reference", "updated": "2026-11-10T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# An unchanged zero label
+
+Parent card: math:concept:hamming-code; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:hamming-code; revision 0.1.0-draft. Setting: A workshop sends a four-bit machine-status label d through a wire as a seven-bit block c. Three added check bits overlap the data positions. Choose either a single flipped bit position j or no flip, then follow the received block r through its three parity checks into the repaired label u. Expression: $s_1=(r_1+r_3+r_5+r_7)\bmod2,\quad s_2=(r_2+r_3+r_6+r_7)\bmod2,\quad s_4=(r_4+r_5+r_6+r_7)\bmod2,\quad s=s_1+2s_2+4s_4.$. Conditions required for a defined value (a case may test their violation): Use a whole data value d from 0 to 15 and a whole flip selection j from 0 to 7. Zero selects no flip; actual bit positions are numbered one through seven. The guarantee assumes at most one flipped bit in the entire seven-bit block. Data bits occupy positions 3,5,6,7 and even-parity bits occupy positions 1,2,4. Scope: This deterministic construction does not simulate random noise or an extended SECDED code. Multiple errors can make the single-error decoder repair the wrong position. Zero syndrome does not prove error-free transmission outside the at-most-one-error assumption. The three checks and the recovered four-bit label are distinct quantities.
+
+Case unit math:example:hamming-code:case-2. Setting: A workshop sends a four-bit machine-status label d through a wire as a seven-bit block c. Three added check bits overlap the data positions. Choose either a single flipped bit position j or no flip, then follow the received block r through its three parity checks into the repaired label u. Inputs: {"dataWord": 0, "flippedBit": 0}. Result: {"exact": "0"}. Limits: This deterministic construction does not simulate random noise or an extended SECDED code. Multiple errors can make the single-error decoder repair the wrong position. Zero syndrome does not prove error-free transmission outside the at-most-one-error assumption. The three checks and the recovered four-bit label are distinct quantities.
+
+## Complete worked case
+
+- id: math:example:hamming-code:case-2
+- title: An unchanged zero label
+- role: applied_model
+- question: How can three overlapping checks tell us which bit changed?
+- setting: A workshop sends a four-bit machine-status label d through a wire as a seven-bit block c. Three added check bits overlap the data positions. Choose either a single flipped bit position j or no flip, then follow the received block r through its three parity checks into the repaired label u.
+- assumptions:
+  - Use a whole data value d from 0 to 15 and a whole flip selection j from 0 to 7. Zero selects no flip; actual bit positions are numbered one through seven. The guarantee assumes at most one flipped bit in the entire seven-bit block. Data bits occupy positions 3,5,6,7 and even-parity bits occupy positions 1,2,4.
+- inputs:
+  - dataWord: 0
+  - flippedBit: 0
+- steps:
+  - Item:
+    - index: 1
+    - expression: j = 0; d = 0
+    - reason: Choose the four-bit data label and no flip or an ordinary flipped position.
+  - Item:
+    - index: 2
+    - expression: s_1=(r_1+r_3+r_5+r_7)\bmod2,\quad s_2=(r_2+r_3+r_6+r_7)\bmod2,\quad s_4=(r_4+r_5+r_6+r_7)\bmod2,\quad s=s_1+2s_2+4s_4.
+    - reason: Choose parity bits so the three selected-position sums are zero modulo two. If position j changes, each check changes exactly when the corresponding binary digit of j is one. The three check results therefore spell the binary representation of j, and s₁+2s₂+4s₄=j. A second change at that same position restores all seven bits. With no flip all checks remain zero and no repair is performed.
+  - Item:
+    - index: 3
+    - expression: s = 0 position
+    - reason: No bit changes. All checks pass, the syndrome is zero, and the recovered label is 0000.
+- result:
+  - exact: 0
+- interpretation: No bit changes. All checks pass, the syndrome is zero, and the recovered label is 0000.
+- independent check:
+  - method: Enumerate parity-matrix codewords and decode by the unique nearest codeword, independently of the syndrome-repair implementation.
+  - expected: 0
+- limits: This deterministic construction does not simulate random noise or an extended SECDED code. Multiple errors can make the single-error decoder repair the wrong position. Zero syndrome does not prove error-free transmission outside the at-most-one-error assumption. The three checks and the recovered four-bit label are distinct quantities.
+- preset:
+  - dataWord: 0
+  - flippedBit: 0
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Use a whole data value d from 0 to 15 and a whole flip selection j from 0 to 7. Zero selects no flip; actual bit positions are numbered one through seven. The guarantee assumes at most one flipped bit in the entire seven-bit block. Data bits occupy positions 3,5,6,7 and even-parity bits occupy positions 1,2,4.
+
+## Written exploration recipe
+
+- component id: component:hamming-code
+- renderer id: hamming-code-visual-model
+- renderer version: 1
+- model id: hamming-code-visual-model
+- model revision: 1
+- expression id: ast:hamming-code:expression
+- interaction status: implemented
+- description: A (7,4) Hamming code block adds three parity bits to four data bits. With even parity, the checks on positions 1,3,5,7; 2,3,6,7; and 4,5,6,7 produce bits s₁, s₂ and s₄. Their weighted sum s=s₁+2s₂+4s₄ is the syndrome. With no flip it is zero; with one flipped bit it gives that bit’s ordinary position from one through seven. This single-error correction step restores the encoded block and the original four-bit data.
+- controls:
+  - Item:
+    - id: flippedBit
+    - type: number
+    - default: 3
+    - min: 0
+    - max: 7
+    - step: 1
+  - Item:
+    - id: dataWord
+    - type: number
+    - default: 5
+    - min: 0
+    - max: 15
+    - step: 1
+- expected cases:
+  - Item:
+    - input:
+      - dataWord: 0
+      - flippedBit: 0
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - dataWord: 0
+      - flippedBit: 7
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - dataWord: 1
+      - flippedBit: 1
+    - status: valid
+    - output: 1
+  - Item:
+    - input:
+      - dataWord: 1
+      - flippedBit: 3
+    - status: valid
+    - output: 3
+  - Item:
+    - input:
+      - dataWord: 2
+      - flippedBit: 7
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - dataWord: 4
+      - flippedBit: 4
+    - status: valid
+    - output: 4
+  - Item:
+    - input:
+      - dataWord: 5
+      - flippedBit: 0
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - dataWord: 5
+      - flippedBit: 3
+    - status: valid
+    - output: 3
+  - Item:
+    - input:
+      - dataWord: 8
+      - flippedBit: 2
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - dataWord: 9
+      - flippedBit: 5
+    - status: valid
+    - output: 5
+  - Item:
+    - input:
+      - dataWord: 10
+      - flippedBit: 6
+    - status: valid
+    - output: 6
+  - Item:
+    - input:
+      - dataWord: 15
+      - flippedBit: 0
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - dataWord: 15
+      - flippedBit: 1
+    - status: valid
+    - output: 1
+  - Item:
+    - input:
+      - dataWord: 15
+      - flippedBit: 7
+    - status: valid
+    - output: 7
+  - Item:
+    - input:
+      - dataWord: -1
+      - flippedBit: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - dataWord: 16
+      - flippedBit: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - dataWord: 0.5
+      - flippedBit: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - dataWord: 5
+      - flippedBit: 8
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - dataWord: 5
+      - flippedBit: -0.1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - dataWord: 5
+      - flippedBit: 2.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - dataWord: true
+      - flippedBit: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - dataWord: 5
+      - flippedBit: null
+    - status: invalid_parameters
+- compute: s_1=(r_1+r_3+r_5+r_7)\bmod2,\quad s_2=(r_2+r_3+r_6+r_7)\bmod2,\quad s_4=(r_4+r_5+r_6+r_7)\bmod2,\quad s=s_1+2s_2+4s_4.
+- numeric tolerance: 5e-11
+- invariants:
+  - Use a whole data value d from 0 to 15 and a whole flip selection j from 0 to 7. Zero selects no flip; actual bit positions are numbered one through seven. The guarantee assumes at most one flipped bit in the entire seven-bit block. Data bits occupy positions 3,5,6,7 and even-parity bits occupy positions 1,2,4.
+  - Story, calculation and both views evaluate the same declared inputs.
+  - Information bars use one fixed zero-to-one bit-per-use scale; parity words retain ordinary position order.
+- limits:
+  - This deterministic construction does not simulate random noise or an extended SECDED code. Multiple errors can make the single-error decoder repair the wrong position. Zero syndrome does not prove error-free transmission outside the at-most-one-error assumption. The three checks and the recovered four-bit label are distinct quantities.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:information-bridge:hamming-code. [Cornell University · CS414, Calculating the Hamming Code](https://www.cs.cornell.edu/courses/cs414/2007su/slides/hamming.html). Locator: Construction steps 1–4: parity positions at powers of two, data at remaining positions and even-parity coverage. Finding and fixing a bad bit: the sum of failed parity positions names a single erroneous bit. The seven-position status-label family and its examples are original constructions.. Verification: Definition-level source inspected 2026-11-10. Independent mathematics and teaching review and exact-edition book-page verification remain pending.. Rights: Original workshop scenarios, calculations, code-native diagrams and finite data. No source exercise, diagram or wording reproduced.

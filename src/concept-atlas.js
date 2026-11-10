@@ -35,6 +35,7 @@
     'student-mean-interval':['probability','modeling'], 'randomization-distribution':['probability','discrete','modeling'], 'one-way-anova':['probability','algebra','modeling'],
     covariance:['probability','algebra','geometry','modeling'], 'normal-variance-interval':['probability','modeling'], 'normal-test-power':['probability','modeling'],
     'covariance-matrix':['probability','algebra','geometry','modeling'], 'wilcoxon-signed-rank':['probability','discrete','modeling'], 'mann-whitney':['probability','discrete','modeling'],
+    'neural-summation':['algebra','modeling'], 'receptive-field':['algebra','modeling'], 'channel-capacity':['probability','algebra','modeling'], 'hamming-code':['discrete','modeling'], 'photon-energy':['algebra','modeling'], 'time-dilation':['algebra','modeling'],
     'irrational-square-root':['geometry','algebra','analysis'], 'golden-ratio':['geometry','algebra'], 'circle-measurement':['geometry','modeling'], 'floor-ceiling':['algebra','discrete','modeling'],
     'triangle-measurement':['geometry','modeling'], 'similar-triangles':['geometry','algebra'], 'perpendicular-bisector':['geometry'], 'ellipse-section':['geometry','algebra'],
     'platonic-solids':['geometry','discrete'], 'tessellation':['geometry','discrete'], 'sphere-packing':['geometry','modeling'], 'perspective-projection':['geometry','modeling'],

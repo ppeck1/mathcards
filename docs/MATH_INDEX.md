@@ -5,14 +5,18 @@ renderer. The shared search adapter combines that provider with real cards and
 atlas areas. Neither provider starts an animation, accesses storage, or requires
 a browser when its script is loaded.
 
-The current 0.34.0 review candidate projects **1,287 entries** over **142 draft
-cards**: **1,244 authored definitions** and **43 contextual entries**. Its symbol
-catalog has **940 selectable forms across 951 meanings**. The
+The current 0.34.0 review candidate projects **1,357 entries** over **148 draft
+cards**: **1,314 authored definitions** and **43 contextual entries**. Its symbol
+catalog has **962 selectable forms across 1,004 meanings**. The
 [current notation audit](NOTATION_COVERAGE_0_34_0.json) and
-[current validation](VALIDATION_0_34_0_INSIGHTS.md) record the
+[current validation](VALIDATION_0_34_0_SIGNAL_PHYSICS.md) record the
 current evidence and the browser/phone review still pending. The API and
 authoring sections below describe the current provider; versioned sections
 preserve earlier checkpoints.
+
+The [142-card checkpoint](VALIDATION_0_34_0_INSIGHTS.md) recorded 1,287
+entries, 1,244 authored definitions, 43 contextual entries, 940 forms and
+951 meanings. Its full matrix and audit remain available as dated evidence.
 
 The [130-card checkpoint](VALIDATION_0_34_0_NUMBER_GEOMETRY.md) recorded 1,166
 entries, 1,123 authored definitions, 43 contextual entries, 923 forms and 877
@@ -34,7 +38,7 @@ probability bars. A squared-minute intermediate has a time-product definition,
 separate from an area or duration. Existing pi and perimeter meanings retain
 their earlier card links.
 
-The latest families add readers for irrational ratios, finite convergents,
+The number/geometry insight families add readers for irrational ratios, finite convergents,
 Fibonacci comparisons, circle measurements, floor/ceiling counts, triangle
 heights, similarity, perpendicular bisectors, ellipse foci, regular solids,
 tiling angles, perspective and packing cells. Reused letters keep local scopes:
@@ -43,6 +47,22 @@ functions, and a whole container count from physical capacity. A finite
 approximation does not become a proof or an exact constant through indexing.
 All new readers link to actual lesson uses and stay build-only authoring data;
 the complete prepared reference still ships before startup.
+
+The current bridge families add readers for signed excitation/inhibition,
+spatial filter inputs and weights, binary-channel capacity, parity and
+syndromes, vacuum photon relations, SI constants and relativistic clock
+intervals. A neural response remains a signed dimensionless model quantity;
+a channel's information is measured per use; photon energy and duration keep
+their own physical units. A reused letter does not merge these meanings.
+New terms and symbols link to real card evidence through the existing index.
+
+The build-only [reference authoring guard](../tools/reference_authoring.cjs)
+validates unique definition IDs, source keys and the related-definition graph
+before projection. A related-definition ID must name another indexed reader,
+not a lesson slug. The guard fails on dangling, self-related or duplicate
+links instead of silently discarding them. It adds no runtime script, API or
+playground host; syntax, notation, mathematical and device checks retain their
+separate responsibilities.
 
 ## Reference checkpoint (0.22.0)
 
@@ -150,6 +170,7 @@ normalization; no implicit unit conversion is supplied.
 | [math-index.css](../src/math-index.css) | Index presentation and responsive layout |
 | [atlas-search.js](../src/atlas-search.js) | One search adapter for definitions, cards and map areas; header and full-page search views |
 | [app.js](../src/app.js) | Provider composition, routes, card vocabulary links and page lifecycle |
+| [reference_authoring.cjs](../tools/reference_authoring.cjs) | Build-only definition-ID, source-key and related-definition validation |
 | [build.py](../tools/build.py) | Compiles reference data and embeds runtime scripts, styles and canonical content into the offline application |
 
 The providers use the same UMD/CommonJS pattern as the rest of the application.

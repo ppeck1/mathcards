@@ -17,10 +17,10 @@ const cardFor=slug=>cards.find(card=>card.slug===slug);
 const port=(slug,direction,key)=>Ports.forModule(slug).find(item=>item.direction===direction&&item.key===key);
 
 test('the three gap introductions extend the same canonical module, preview and export inventory',()=>{
-  assert.equal(cards.length,142);assert.equal(cards.reduce((n,c)=>n+c.examples.length,0),714);
-  assert.equal(cards.reduce((n,c)=>n+c.interactive.expected_cases.length,0),2747);
-  assert.equal(cards.length+cards.reduce((n,c)=>n+c.examples.length,0),856);
-  assert.equal(Modules.list().reduce((n,m)=>n+m.views.length,0),291);
+  assert.equal(cards.length,148);assert.equal(cards.reduce((n,c)=>n+c.examples.length,0),744);
+  assert.equal(cards.reduce((n,c)=>n+c.interactive.expected_cases.length,0),2879);
+  assert.equal(cards.length+cards.reduce((n,c)=>n+c.examples.length,0),892);
+  assert.equal(Modules.list().reduce((n,m)=>n+m.views.length,0),303);
   assert.deepEqual(new Set(Modules.list().map(m=>m.id)),new Set(cards.map(c=>c.slug)));
   for(const slug of slugs){
     const card=cardFor(slug),module=Modules.get(slug),result=module.evaluate(module.defaults());
@@ -33,13 +33,13 @@ test('the three gap introductions extend the same canonical module, preview and 
 });
 
 test('gap-driven placement deepens probability, statistics, algorithms and dynamics without adding territories',()=>{
-  const atlas=Regions.create({cards,coverage});assert.equal(atlas.regions.length,8);assert.equal(atlas.topics.length,24);assert.equal(atlas.availableCount,142);assert.equal(atlas.plannedCount,53);
+  const atlas=Regions.create({cards,coverage});assert.equal(atlas.regions.length,8);assert.equal(atlas.topics.length,24);assert.equal(atlas.availableCount,148);assert.equal(atlas.plannedCount,53);
   for(const [topic,slug]of [['uncertainty:probability','conditional-probability'],['uncertainty:bayesian-inference','conditional-probability'],['uncertainty:probability','variance'],['uncertainty:statistics','variance'],['computation:algorithms','recurrence'],['change:dynamical-systems','recurrence']]){
     assert.ok(atlas.getTopic(topic).availableCards.some(c=>c.slug===slug),topic+' exposes '+slug);
     assert.ok(!atlas.getTopic(topic).plannedConcepts.some(c=>c.id==='math:concept:'+slug));
   }
-  assert.equal(atlas.getRegion('uncertainty').availableCount,37);assert.equal(atlas.getRegion('computation').availableCount,14);assert.equal(atlas.getRegion('change').availableCount,25);
-  assert.equal(Topography.metrics(atlas.regions).maximum,37);
+  assert.equal(atlas.getRegion('uncertainty').availableCount,38);assert.equal(atlas.getRegion('computation').availableCount,18);assert.equal(atlas.getRegion('change').availableCount,25);
+  assert.equal(Topography.metrics(atlas.regions).maximum,38);
   const ordered=Order.order(cards).map(card=>card.slug);
   assert.ok(ordered.indexOf('probability')<ordered.indexOf('conditional-probability'));
   assert.ok(ordered.indexOf('population-sample')<ordered.indexOf('variance'));

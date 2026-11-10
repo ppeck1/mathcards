@@ -402,9 +402,11 @@
     },
     {
       "concept_id": "excitation-and-inhibition",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "neural-summation"
+      ],
+      "scope_note": "A dimensionless linear unit separates nonnegative additive and subtractive channels with stated positive gains. The net signed response can be negative and is not a probability, firing rate, membrane voltage or physiological validation. Conductances, spiking and biological circuits require separate models."
     },
     {
       "concept_id": "neural-circuits",
@@ -420,9 +422,11 @@
     },
     {
       "concept_id": "visual-perception",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "precursor",
+      "cards": [
+        "receptive-field"
+      ],
+      "scope_note": "A finite linear contrast filter provides preparation for visual representations. It does not establish perceptual appearance, neural mechanisms, color vision or biological validity."
     },
     {
       "concept_id": "stereo-vision",
@@ -432,9 +436,11 @@
     },
     {
       "concept_id": "receptive-fields",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "receptive-field"
+      ],
+      "scope_note": "A five-site linear center-surround filter links displayed stimulus brightness and signed weights to one response. Every uniform brightness level cancels at the declared zero-sum weights; the all-black stimulus also gives zero for any surround gain. This is a constructed mathematical receptive-field example, not measured neuronal data or a complete model of visual perception."
     },
     {
       "concept_id": "vector-coding",
@@ -1078,15 +1084,20 @@
     },
     {
       "concept_id": "planck-constant",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "photon-energy"
+      ],
+      "scope_note": "The exact SI Planck constant relates a modeled monochromatic vacuum photon frequency to energy. Joules, electronvolts and the exact conversion factor retain separate dimensions. No general quantum dynamics or historical priority claim is supplied."
     },
     {
       "concept_id": "speed-of-light",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "photon-energy",
+        "time-dilation"
+      ],
+      "scope_note": "The exact SI vacuum speed of light connects wavelength and frequency and defines the dimensionless relative speed used in one inertial clock comparison. Propagation through media, acceleration and general-relativistic conditions remain separate."
     },
     {
       "concept_id": "scientific-publishing",
@@ -1561,15 +1572,19 @@
     },
     {
       "concept_id": "relativity",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "time-dilation"
+      ],
+      "scope_note": "One special-relativistic inertial comparison relates two events on the same ideal clock worldline: proper duration differs from another frame coordinate duration by the Lorentz factor. This is not a general simultaneity, acceleration, twin-paradox or general-relativity simulator."
     },
     {
       "concept_id": "quantum-theory",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "precursor",
+      "cards": [
+        "photon-energy"
+      ],
+      "scope_note": "The photon energy-frequency relation introduces a quantum vocabulary and dimensional bridge. Wavefunctions, measurement, interference and general quantum theory require their own lessons."
     },
     {
       "concept_id": "lattice-theory",
@@ -2133,9 +2148,11 @@
     },
     {
       "concept_id": "coding",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "precursor",
+      "cards": [
+        "hamming-code"
+      ],
+      "scope_note": "One binary linear block code prepares channel coding through parity redundancy. It does not complete general code design, source coding, compression or coding theorems."
     },
     {
       "concept_id": "compression",
@@ -2153,15 +2170,19 @@
     },
     {
       "concept_id": "channel-capacity",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "channel-capacity"
+      ],
+      "scope_note": "For one known binary symmetric memoryless channel, capacity is the maximum mutual information per channel use and is attained by a uniform binary input. Noise, a deterministic inversion and a nonuniform input remain distinct. This is not throughput in bits per second or a general coding construction."
     },
     {
       "concept_id": "error-correction",
-      "status": "planned",
-      "cards": [],
-      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+      "status": "draft-introduction",
+      "cards": [
+        "hamming-code"
+      ],
+      "scope_note": "The complete finite Hamming (7,4) even-parity family encodes four data bits, identifies a single flipped position from its syndrome and corrects it under the at-most-one-flip assumption. General multiple-error correction, SECDED and arbitrary channels remain separate."
     },
     {
       "concept_id": "algorithmic-information",

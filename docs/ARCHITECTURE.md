@@ -141,7 +141,7 @@ Prettier 3.6.2 is pinned as a development-only tool in `package-lock.json`.
 systems, inference, inventory, expansion, number/spatial foundations, dynamics,
 algebra, algorithm, distribution, analysis, discrete, estimation, sampling,
 design, comparison, number/geometry extensions, number insights, plane geometry,
-spatial insights and extracted legacy-provider
+spatial insights, neural/information/physics bridges and extracted legacy-provider
 modules, their new tests, generated-write helpers, startup regression tests and measurement
 harness. `npm run format` rewrites
 only that declared scope. `.prettierignore` excludes generated projections,
@@ -154,8 +154,8 @@ when consolidating it; keep mass formatting separate from mathematical changes.
 Syntax/whitespace checks continue to cover the broader authored source.
 
 Algebra, algorithm, distribution, analysis, discrete, estimation, sampling,
-design, comparison, number/geometry extensions and the number, plane and spatial
-insight families follow the same explicit
+design, comparison, number/geometry extensions, number/plane/spatial insights and
+neural/information/physics bridges follow the same explicit
 provider installation. Their metadata joins number/spatial foundations and dynamics through the
 allowlisted build projection. New families add authored
 files and data rather than another host or an external program loader.
@@ -212,8 +212,8 @@ completed device review.
 `number-insights.js`, `plane-geometry.js` and `spatial-insights.js` install through
 the same provider contract, each with separate stories, previews, build-only
 terms and an allowlisted integration record. They add no host, animation clock,
-runtime package or saved-state schema. The current continuation registry has
-58 lessons in seventeen explicit families; the full app includes the original
+runtime package or saved-state schema. At the 142-card checkpoint the continuation
+registry has 58 lessons in seventeen explicit families; the full app includes the original
 and earlier expansion providers as well.
 
 The number family separates an exact ratio from finite rational comparisons.
@@ -225,12 +225,39 @@ family preserves actual regular-solid topology, finite tiling patches, ideal
 perspective ratios and one declared packing cell. A screen projection is not a
 physical area, volume or proof of optimal packing.
 
-The [current matrix](INSIGHT_EXPANSION_MATRIX_0_34_0.md) and
-[validation](VALIDATION_0_34_0_INSIGHTS.md) record this checkpoint's evidence.
+The [142-card matrix](INSIGHT_EXPANSION_MATRIX_0_34_0.md) and
+[its validation](VALIDATION_0_34_0_INSIGHTS.md) record this checkpoint's evidence.
 The generated [complete roadmap](ROADMAP_PROGRESS.md) groups every planned
 subject across all eighteen areas, while the crosswalk keeps preparation
 distinct from an executable bounded introduction. These projections do not
 upgrade source evidence or independent teaching review.
+
+`neural-bridges.js`, `information-bridges.js` and `physics-bridges.js` add
+three more explicitly installed providers, with their own story, preview,
+reference and integration files. The continuation registry now supplies
+64 modules in twenty families. The host still owns controls, time,
+readable-value pacing, pins and independent slots; no family installs a new
+animation clock, storage format or runtime package.
+
+Neural Geometry marks the actual signed contributions. Changing the surround
+gain highlights the four changing weights rather than the constant center
+weight. The information family keeps channel capacity separate from the
+information supplied by a chosen input mix, and Hamming parity/syndrome/correction
+states remain distinct. The physics family uses physical length/energy/time
+scales: a projected wave illustrates wavelength rather than photon energy,
+and clock readings refer to the same events and specified reference frames.
+
+`tools/reference_authoring.cjs` is a build-only guard, called before reference
+projection. It rejects duplicate definition IDs, missing source keys and
+unknown, self-referential or duplicate related-definition IDs. Editorial
+related links name indexed definitions; they do not name arbitrary lesson
+slugs. Actual lesson-use evidence remains a separate projection. This helper
+does not ship in the runtime or change the public index API, and passing it
+does not establish mathematical or teaching review.
+
+The [current signal/physics matrix](SIGNAL_PHYSICS_EXPANSION_MATRIX_0_34_0.md)
+and [validation](VALIDATION_0_34_0_SIGNAL_PHYSICS.md) record the next checkpoint.
+The earlier matrices retain their own quantities and evidence.
 
 `plot-view.js` also accepts an optional nonnegative vertical `log1p` scale.
 The renderer transforms projection and tick positions while retaining original

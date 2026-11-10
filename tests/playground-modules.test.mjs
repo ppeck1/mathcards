@@ -38,6 +38,7 @@ expectedIds.push('covariance', 'normal-variance-interval', 'normal-test-power');
 expectedIds.push('covariance-matrix', 'wilcoxon-signed-rank', 'mann-whitney');
 expectedIds.push('least-common-multiple', 'perfect-number', 'regular-polygon', 'sphere-measurement');
 expectedIds.push('irrational-square-root', 'golden-ratio', 'circle-measurement', 'floor-ceiling', 'triangle-measurement', 'similar-triangles', 'perpendicular-bisector', 'ellipse-section', 'platonic-solids', 'tessellation', 'perspective-projection', 'sphere-packing');
+expectedIds.push('neural-summation', 'receptive-field', 'channel-capacity', 'hamming-code', 'photon-energy', 'time-dilation');
 const format = value => value == null ? 'undefined' : String(Number(value.toPrecision(7)));
 const context = (id, view) => ({ id, view, format, compact: false, camera: .65 });
 const finiteScene = (html, label) => {

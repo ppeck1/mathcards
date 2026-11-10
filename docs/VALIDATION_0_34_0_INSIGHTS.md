@@ -1,5 +1,9 @@
 # 0.34.0 number and geometry insights validation
 
+The [148-card signals/physics matrix](SIGNAL_PHYSICS_EXPANSION_MATRIX_0_34_0.md)
+and [current validation](VALIDATION_0_34_0_SIGNAL_PHYSICS.md) supersede this dated
+checkpoint. Its recorded counts and timings are retained below.
+
 Background repository checks on 2026-11-09–10 for `codex/eight-book-expansion`
 and [draft PR #13](https://github.com/ppeck1/mathcards/pull/13). This continues
 the [130-card checkpoint](VALIDATION_0_34_0_NUMBER_GEOMETRY.md). The user has

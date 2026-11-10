@@ -49,7 +49,13 @@ test('every calculation stage activates a real mark in each new story scene', ()
     'platonic-solids',
     'tessellation',
     'perspective-projection',
-    'sphere-packing'
+    'sphere-packing',
+    'neural-summation',
+    'receptive-field',
+    'channel-capacity',
+    'hamming-code',
+    'photon-energy',
+    'time-dilation'
   ]) {
     const story = Stories.forSlug(slug);
     const markup = Scenes.render(slug, story.parameters, { compact: true });
@@ -82,7 +88,10 @@ const familyTerms = [
   require('../src/geometry-extension-terms.js'),
   require('../src/number-insight-terms.js'),
   require('../src/plane-geometry-terms.js'),
-  require('../src/spatial-insight-terms.js')
+  require('../src/spatial-insight-terms.js'),
+  require('../src/neural-bridge-terms.js'),
+  require('../src/information-bridge-terms.js'),
+  require('../src/physics-bridge-terms.js')
 ];
 const ids = [
   'inverse-function',
@@ -115,7 +124,13 @@ const ids = [
   'platonic-solids',
   'tessellation',
   'perspective-projection',
-  'sphere-packing'
+  'sphere-packing',
+  'neural-summation',
+  'receptive-field',
+  'channel-capacity',
+  'hamming-code',
+  'photon-energy',
+  'time-dilation'
 ];
 const cards = ids.map(id =>
   JSON.parse(fs.readFileSync(new URL('../content/cards/' + id + '.json', import.meta.url), 'utf8'))
@@ -140,7 +155,7 @@ const alternative = (module, card) => {
   return example.preset;
 };
 
-test('the thirty-one roadmap-gap lessons join the host in explicit family order with independent slots', () => {
+test('the thirty-seven roadmap-gap lessons join the host in explicit family order with independent slots', () => {
   assert.deepEqual(Metadata.ids.slice(-ids.length), ids);
   assert.deepEqual(
     Modules.list()
@@ -441,7 +456,10 @@ test('classic-script entries keep the new providers before their shared consumer
   for (const [model, family] of [
     ['number-insights', 'number-insight'],
     ['plane-geometry', 'plane-geometry'],
-    ['spatial-insights', 'spatial-insight']
+    ['spatial-insights', 'spatial-insight'],
+    ['neural-bridges', 'neural-bridge'],
+    ['information-bridges', 'information-bridge'],
+    ['physics-bridges', 'physics-bridge']
   ]) {
     for (const [dependency, consumer] of [
       [model + '.js', 'model-registry.js'],

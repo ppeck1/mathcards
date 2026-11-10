@@ -2,22 +2,16 @@
 
 A visual field notebook for learning mathematics as a language of description.
 Change an input, follow it through a story and formula, and see its effect in a
-shape or graph. This branch prepares 0.34.0 with 142 draft lessons, adding
-statistical inference, order structures, number foundations, spatial reasoning,
-algebra, search and networks, continuous probability, dynamics, physical energy,
-illustrative neural computation, inverse functions, series, coloring,
-inclusion–exclusion, Student intervals, exhaustive randomization, one-way ANOVA,
-covariance, variance intervals, replication/power planning, covariance matrices
-and exact finite rank comparisons, least common multiples, perfect numbers,
-regular polygon floors and spherical surface/capacity measurements. The newest
-lessons connect irrational ratios, golden rectangles, circles, whole-container
-counts, triangle measurement, constructions, ellipses, regular solids, tilings,
-camera projection and sphere packing.
+shape or graph. This branch prepares 0.34.0 with 148 draft lessons. The newest
+six connect signed neural inputs and spatial receptive fields, noisy binary
+communication and Hamming error correction, photon energy and relativistic
+clock intervals. Each fills a roadmap gap through the existing shared playground.
 
-The branch adds 81 lessons to the 61-card published baseline. It now contains
-714 original examples, 2,747 numeric fixtures, 856 written exports, 291 declared
-views and 142 MathML definitions. Fifty-eight continuation lessons use seventeen
-explicit local families through the same shared playground.
+The branch adds 87 lessons to the 61-card published baseline. It now contains
+744 original examples, 2,879 numeric fixtures, 892 written exports, 303 declared
+views and 148 MathML definitions. Sixty-four continuation lessons use twenty
+explicit local families. Earlier number/geometry, inference, algebra, dynamics,
+order and modeling checkpoints retain their own records and source proofs.
 
 **[Open the live atlas](https://ppeck.me/mathcards/)** ·
 [Project story](https://ppeck.me/projects/mathematical-expression-atlas/) ·
@@ -31,20 +25,21 @@ The release version comes from [package.json](package.json). The generated
 source hash and review status; [content/cards/](content/cards/) contains the
 canonical lessons. Dated validation records describe the release they tested.
 
-![A square diagonal and rational estimate, golden rectangle, circle measurements and whole-container counts.](docs/presentation-0-34-insights/number-insight-previews.png)
+![Signed artificial-unit inputs and a five-site center-surround filter.](docs/presentation-0-34-signal-physics/neural-bridge-previews.png)
 
-[Connected compact scenes](docs/presentation-0-34-insights/number-insight-compact-scenes.png)
+[Connected compact scenes](docs/presentation-0-34-signal-physics/neural-bridge-compact-scenes.png)
 
-![Triangle area, similar triangles, a perpendicular bisector and an ellipse.](docs/presentation-0-34-insights/plane-geometry-previews.png)
+![Capacity of a noisy binary link and a Hamming code's parity checks.](docs/presentation-0-34-signal-physics/information-bridge-previews.png)
 
-[Connected compact scenes](docs/presentation-0-34-insights/plane-geometry-compact-scenes.png)
+[Connected compact scenes](docs/presentation-0-34-signal-physics/information-bridge-compact-scenes.png)
 
-![Regular solids, tilings, perspective and a simple-cubic sphere-packing cell.](docs/presentation-0-34-insights/spatial-insight-previews.png)
+![Vacuum photon wavelength and energy, and two clock intervals for the same events.](docs/presentation-0-34-signal-physics/physics-bridge-previews.png)
 
-[Connected compact scenes](docs/presentation-0-34-insights/spatial-insight-compact-scenes.png)
+[Connected compact scenes](docs/presentation-0-34-signal-physics/physics-bridge-compact-scenes.png)
 
-These are static renders of the actual model artwork. Earlier proofs remain
-linked from their checkpoint records; browser and phone review remain open.
+These are static renders of the actual model artwork. The
+[142-card number/geometry checkpoint](docs/INSIGHT_EXPANSION_MATRIX_0_34_0.md)
+retains its earlier boards. Browser and phone qualification remain open.
 
 ## Explore
 
@@ -99,6 +94,11 @@ Rebuild and commit generated files alongside source changes. CI rejects drift
 in the offline app, index, formula projection and written exports before publishing.
 Every validated push to `main` updates the hosted demo automatically.
 
+The build-only `tools/reference_authoring.cjs` validator checks definition IDs,
+related-definition links and definition source keys before the reference is
+projected. These editorial links name indexed definitions, not lesson slugs;
+actual card-use links remain separately derived from canonical evidence.
+
 | Guide | Purpose |
 |---|---|
 | [Architecture](docs/ARCHITECTURE.md) | Source layout and module boundaries |
@@ -107,8 +107,9 @@ Every validated push to `main` updates the hosted demo automatically.
 | [Book roadmap](docs/BOOK_CONCEPT_ROADMAP.md) | Original 214 topic IDs, prerequisites and honest coverage |
 | [Eight-book expansion](docs/EIGHT_BOOK_EXPANSION.md) | 295 supplied subjects, evidence boundaries and actual lesson links |
 | [Complete roadmap progress](docs/ROADMAP_PROGRESS.md) | All 18 subject areas and every remaining planned subject |
-| [Branch matrix](docs/INSIGHT_EXPANSION_MATRIX_0_34_0.md) | Current twelve-lesson continuation and remaining concepts/qualification |
-| [Branch validation](docs/VALIDATION_0_34_0_INSIGHTS.md) | Current artifact checks and explicit qualification limits |
+| [Branch matrix](docs/SIGNAL_PHYSICS_EXPANSION_MATRIX_0_34_0.md) | Current six-lesson gap expansion and remaining concepts/qualification |
+| [Branch validation](docs/VALIDATION_0_34_0_SIGNAL_PHYSICS.md) | Current artifact checks and explicit qualification limits |
+| [Insight checkpoint](docs/INSIGHT_EXPANSION_MATRIX_0_34_0.md) | Previous 142-card number and geometry continuation |
 | [Number/geometry checkpoint](docs/NUMBER_GEOMETRY_EXPANSION_MATRIX_0_34_0.md) | Previous 130-card common-multiple, divisor and measurement continuation |
 | [Comparison checkpoint](docs/COMPARISON_EXPANSION_MATRIX_0_34_0.md) | Previous 126-card covariance-matrix and rank-comparison continuation |
 | [Covariance/planning checkpoint](docs/DESIGN_EXPANSION_MATRIX_0_34_0.md) | Previous covariance, variance interval and power-planning continuation |
@@ -130,18 +131,26 @@ stories are not empirical measurements. Written examples that require a differen
 function or data type stay distinct from executable presets.
 
 The expansion scope is the entire eight-book roadmap. The current crosswalk
-has 96 bounded introductions, 55 subjects with preparation only and 144 planned
+has 103 bounded introductions, 58 subjects with preparation only and 134 planned
 subjects. The [complete progress matrix](docs/ROADMAP_PROGRESS.md) keeps those
 remaining subjects visible as work continues across the atlas.
 
-The square-root lesson separates a parity proof from finite rational estimates.
+The neural pair illustrates dimensionless signed computation, without claiming
+membrane voltages or biological firing rates. Binary-channel capacity is a
+model limit in bits per use; Hamming correction uses a stated single-error
+family. Photon energy is per photon, and clock intervals refer to the same
+events in specified frames. Other error patterns and broader quantum or
+relativistic mechanics need their own lessons.
+
+The earlier square-root lesson separates a parity proof from finite rational
+estimates.
 Golden rectangles solve a similarity condition without an aesthetic claim.
 Circle edge length and disk area retain different units; floor and ceiling keep
 exact decimal count thresholds. The geometric constructions remain bounded:
 one perpendicular bisector, an ellipse family, five regular convex solids,
-three regular tilings, an ideal camera and a simple-cubic packing cell.
+three regular tilings, an ideal camera and periodic cubic packing cells.
 
-The new signals use exact whole-minute periods from 1–8; proper-divisor strips
+The earlier workshop signals use whole-minute periods from 1–8; proper-divisor strips
 classify positive integers from 1–60, including the empty divisor set for one.
 The pavilion uses 3–12 equal sides and a 1–4 metre circumradius. The full ideal
 spherical tank uses a 0.25–5 metre radius, with its curved surface, equatorial
@@ -157,7 +166,7 @@ Both finite comparisons include ties in their two-sided tails; neither supplies
 a general median-only or causal interpretation.
 
 Startup removes duplicate reference-authoring data and repeated metadata work.
-The [current validation](docs/VALIDATION_0_34_0_INSIGHTS.md) tracks this
+The [current validation](docs/VALIDATION_0_34_0_SIGNAL_PHYSICS.md) tracks this
 artifact's checks and remaining review under the unchanged 1500 ms gate. The
 [paired optimization checkpoint](docs/STARTUP_OPTIMIZATION_0_34_0.md) retains its
 baseline comparison and earlier slow samples. Browser and device qualification
