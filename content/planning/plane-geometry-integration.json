@@ -1,0 +1,261 @@
+{
+  "slugs": [
+    "triangle-measurement",
+    "similar-triangles",
+    "perpendicular-bisector",
+    "ellipse-section"
+  ],
+  "sources": [
+    {
+      "id": "source:plane-geometry:triangle-measurement",
+      "title": "Wolfram MathWorld · Triangle Area",
+      "url": "https://mathworld.wolfram.com/TriangleArea.html",
+      "kind": "reference",
+      "locator": "Triangle area equations(9), (16)–(17): half the determinant of edge vectors and the vertex-coordinate area. The shade sail, shear controls and worked examples are original applications.",
+      "verification": "Definition-level page inspected2026-11-09. Independent mathematics and teaching review and exact-edition book-page confirmation remain pending.",
+      "rights": "Original scenarios, worked examples and code-native geometry. No source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:plane-geometry:similar-triangles",
+      "title": "Wolfram MathWorld · Similar Triangles",
+      "url": "https://mathworld.wolfram.com/SimilarTriangles.html",
+      "kind": "reference",
+      "locator": "Definition: equal corresponding angle measures and proportional corresponding side lengths; similarity need not mean congruence. The panel and square-area derivation are original constructions.",
+      "verification": "Definition-level page inspected2026-11-09. Independent mathematics and teaching review and exact-edition book-page confirmation remain pending.",
+      "rights": "Original scenarios, worked examples and code-native geometry. No source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:plane-geometry:perpendicular-bisector",
+      "title": "Wolfram MathWorld · Perpendicular Bisector",
+      "url": "https://mathworld.wolfram.com/PerpendicularBisector.html",
+      "kind": "reference",
+      "locator": "Definition and equal-radius circle construction. A rigid compass may use any radius larger than half the endpoint distance; the source distinguishes collapsible-compass assumptions. Tangency is treated separately in this original bounded model.",
+      "verification": "Definition-level page inspected2026-11-09. Independent mathematics and teaching review and exact-edition book-page confirmation remain pending.",
+      "rights": "Original scenarios, worked examples and code-native geometry. No source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:plane-geometry:ellipse-section",
+      "title": "Wolfram MathWorld · Ellipse",
+      "url": "https://mathworld.wolfram.com/Ellipse.html",
+      "kind": "reference",
+      "locator": "Equations(1)–(2), (10)–(14): constant sum of distances to foci, b²=a²−c², Cartesian and parametric ellipse equations. The enclosed area πab follows from the original unit-disk scaling derivation; garden examples are original.",
+      "verification": "Definition-level page inspected2026-11-09. Independent mathematics and teaching review and exact-edition book-page confirmation remain pending.",
+      "rights": "Original scenarios, worked examples and code-native geometry. No source exercise, data or illustration reproduced."
+    }
+  ],
+  "bindings": {
+    "triangle-measurement": {
+      "b": [
+        "base"
+      ],
+      "h": [
+        "height"
+      ],
+      "s": [
+        "skew"
+      ],
+      "x": [
+        "apex"
+      ],
+      "A": [
+        "output"
+      ],
+      "P": [
+        "perimeter"
+      ]
+    },
+    "similar-triangles": {
+      "k": [
+        "scale"
+      ],
+      "b": [
+        "base"
+      ],
+      "h": [
+        "height"
+      ],
+      "c": [
+        "hypotenuse"
+      ],
+      "A": [
+        "output"
+      ],
+      "q": [
+        "areaFactor"
+      ]
+    },
+    "perpendicular-bisector": {
+      "r": [
+        "radius"
+      ],
+      "d": [
+        "distance"
+      ],
+      "h": [
+        "height"
+      ],
+      "ℓ": [
+        "output"
+      ]
+    },
+    "ellipse-section": {
+      "a": [
+        "major"
+      ],
+      "b": [
+        "minor"
+      ],
+      "c": [
+        "focus"
+      ],
+      "t": [
+        "angle"
+      ],
+      "x": [
+        "pointX"
+      ],
+      "y": [
+        "pointY"
+      ],
+      "d_1": [
+        "firstDistance"
+      ],
+      "d_2": [
+        "secondDistance"
+      ],
+      "A": [
+        "output"
+      ],
+      "π": [
+        "pi"
+      ]
+    }
+  },
+  "ports": {
+    "triangle-measurement": [
+      {
+        "id": "input:height",
+        "direction": "input",
+        "key": "height",
+        "label": "Perpendicular height h",
+        "type": "length",
+        "unit": "m",
+        "description": "A triangular shade sail has two anchors along a base b metres long. Its third anchor sits h metres above the line through that base, shifted s metres from its midpoint. Change the height or slide the upper anchor sideways. The dashed height stays perpendicular to the anchor line, even when its foot lies beyond a base endpoint."
+      },
+      {
+        "id": "input:base",
+        "direction": "input",
+        "key": "base",
+        "label": "Anchor base b",
+        "type": "length",
+        "unit": "m",
+        "description": "A triangular shade sail has two anchors along a base b metres long. Its third anchor sits h metres above the line through that base, shifted s metres from its midpoint. Change the height or slide the upper anchor sideways. The dashed height stays perpendicular to the anchor line, even when its foot lies beyond a base endpoint."
+      },
+      {
+        "id": "input:skew",
+        "direction": "input",
+        "key": "skew",
+        "label": "Apex shift s",
+        "type": "length",
+        "unit": "m",
+        "description": "A triangular shade sail has two anchors along a base b metres long. Its third anchor sits h metres above the line through that base, shifted s metres from its midpoint. Change the height or slide the upper anchor sideways. The dashed height stays perpendicular to the anchor line, even when its foot lies beyond a base endpoint."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Triangle area and shear primary result",
+        "type": "area",
+        "unit": "m2",
+        "description": "A triangle has area A equal to half its base b times its perpendicular height h. Slide the third corner sideways while keeping b and h fixed: the triangle changes shape and its sloping sides change length, but its area stays the same. The signed shift s places that corner relative to the base midpoint."
+      }
+    ],
+    "similar-triangles": [
+      {
+        "id": "input:scale",
+        "direction": "input",
+        "key": "scale",
+        "label": "Length scale factor k",
+        "type": "positive-scale",
+        "unit": "1",
+        "description": "A designer begins with a triangular panel whose perpendicular sides are 3 and 4 metres and whose sloping side is 5 metres. The dashed outline keeps that original panel in place. Change one scale factor k to build a similar panel on the same metre scale, then compare its side lengths and material area with the original."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Similar triangles and square-law area primary result",
+        "type": "area",
+        "unit": "m2",
+        "description": "Similar triangles have equal corresponding angles and proportional corresponding side lengths. Scale a 3–4–5 right triangle uniformly by a positive factor k. Its lengths become 3 k,4 k and 5 k, while area becomes 6 k² square metres. Doubling every length quadruples the enclosed area. The area ratio q equals k²: divide the scaled area by the original six square metres."
+      }
+    ],
+    "perpendicular-bisector": [
+      {
+        "id": "input:radius",
+        "direction": "input",
+        "key": "radius",
+        "label": "Equal compass radius r",
+        "type": "length",
+        "unit": "m",
+        "description": "A gardener wants a straight border equally distant from two stakes. Set their separation d and draw equal-radius compass circles around them. Their two intersections can be joined by a straightedge. Increase the compass radius and watch those points move apart while the midpoint line stays in the same place."
+      },
+      {
+        "id": "input:distance",
+        "direction": "input",
+        "key": "distance",
+        "label": "Stake separation d",
+        "type": "length",
+        "unit": "m",
+        "description": "A gardener wants a straight border equally distant from two stakes. Set their separation d and draw equal-radius compass circles around them. Their two intersections can be joined by a straightedge. Increase the compass radius and watch those points move apart while the midpoint line stays in the same place."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Perpendicular bisector construction primary result",
+        "type": "length",
+        "unit": "m",
+        "description": "A perpendicular bisector passes through a segment midpoint at a right angle. Two distinct intersections of equal-radius circles centered at the endpoints lie on this line. If the endpoint distance is d and circle radius is r, each intersection is h=√(r²−d²/4) above or below the segment. The intersection separation is ℓ=2 h."
+      }
+    ],
+    "ellipse-section": [
+      {
+        "id": "input:major",
+        "direction": "input",
+        "key": "major",
+        "label": "Semimajor axis a",
+        "type": "length",
+        "unit": "m",
+        "description": "A garden designer marks two fixed foci, each c metres from the center. A moving boundary marker must keep the total length of its two straight strings to those foci equal to 2 a metres. Change the long half-axis a or focus spacing c, then drag the point parameter t to see the same distance-sum rule at different places on the garden boundary."
+      },
+      {
+        "id": "input:focus",
+        "direction": "input",
+        "key": "focus",
+        "label": "Center-to-focus distance c",
+        "type": "length",
+        "unit": "m",
+        "description": "A garden designer marks two fixed foci, each c metres from the center. A moving boundary marker must keep the total length of its two straight strings to those foci equal to 2 a metres. Change the long half-axis a or focus spacing c, then drag the point parameter t to see the same distance-sum rule at different places on the garden boundary."
+      },
+      {
+        "id": "input:angle",
+        "direction": "input",
+        "key": "angle",
+        "label": "Boundary parameter t",
+        "type": "angle",
+        "unit": "rad",
+        "description": "A garden designer marks two fixed foci, each c metres from the center. A moving boundary marker must keep the total length of its two straight strings to those foci equal to 2 a metres. Change the long half-axis a or focus spacing c, then drag the point parameter t to see the same distance-sum rule at different places on the garden boundary."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Ellipse and focus distances primary result",
+        "type": "area",
+        "unit": "m2",
+        "description": "An ellipse is the locus of planar points whose distances to two fixed foci add to 2 a. Here locus means the set of points satisfying that geometric rule. Put its foci on the horizontal axis at positions −c and c, with vertical coordinate zero and a>c. The semiminor axis is b=√(a²−c²), so enclosed area is A=πab. A moving point with coordinates x=a cos t and y=b sin t keeps the same total focus distance even while its two individual distances change."
+      }
+    ]
+  }
+}

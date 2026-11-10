@@ -1,0 +1,224 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:exponential-distribution:case-2", "id": "math:example:exponential-distribution:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:exponential-distribution", "example_id": "math:example:exponential-distribution:case-2", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "bc15b489b2e36e38e265824ef3e603a8b30018be2433f8dfde9947d4efd28969"}, "purpose": "What is the chance the next workshop order arrives within the wait?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "bc15b489b2e36e38e265824ef3e603a8b30018be2433f8dfde9947d4efd28969", "status": "draft", "title": "The moment waiting begins", "topics": ["mathematics", "probability", "statistics", "exponential waiting time"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# The moment waiting begins
+
+Parent card: math:concept:exponential-distribution; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:exponential-distribution; revision 0.1.0-draft. Setting: A workshop receives independent arrivals under a chosen constant-rate model. Move the waiting threshold t, or change the assumed arrival rate λ. Gold marks the chance of an arrival by t; the remaining strip shows the chance of still waiting. Expression: $F(t)=1-e^{-\lambda t},\quad S(t)=e^{-\lambda t},\quad f(t)=\lambda e^{-\lambda t},\quad \mathbb E[T]=\frac{1}{\lambda},\qquad t\ge0,\ \lambda>0.$. Conditions required for a defined value (a case may test their violation): A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified. Scope: A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.
+
+Case unit math:example:exponential-distribution:case-2. Setting: A workshop receives independent arrivals under a chosen constant-rate model. Move the waiting threshold t, or change the assumed arrival rate λ. Gold marks the chance of an arrival by t; the remaining strip shows the chance of still waiting. Inputs: {"rate": 0.5, "time": 0}. Result: {"approximate": "0"}. Limits: A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.
+
+## Complete worked case
+
+- id: math:example:exponential-distribution:case-2
+- title: The moment waiting begins
+- role: applied_model
+- question: What is the chance the next workshop order arrives within the wait?
+- setting: A workshop receives independent arrivals under a chosen constant-rate model. Move the waiting threshold t, or change the assumed arrival rate λ. Gold marks the chance of an arrival by t; the remaining strip shows the chance of still waiting.
+- assumptions:
+  - A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.
+- inputs:
+  - time: 0
+  - rate: 0.5
+- steps:
+  - Item:
+    - index: 1
+    - expression: t = 0; λ = 0.5
+    - reason: Declare the physical quantities and the selected probability model.
+  - Item:
+    - index: 2
+    - expression: F(t)=1-e^{-\lambda t},\quad S(t)=e^{-\lambda t},\quad f(t)=\lambda e^{-\lambda t},\quad \mathbb E[T]=\frac{1}{\lambda},\qquad t\ge0,\ \lambda>0.
+    - reason: Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.
+  - Item:
+    - index: 3
+    - expression: 0
+    - reason: Read cumulative probability or the predeclared one-sided null tail.
+- result:
+  - approximate: 0
+- interpretation: Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.
+- independent check:
+  - method: Python expm1 evaluates cumulative waiting probability directly and checks its complement against survival.
+  - expected: 0
+- limits: A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.
+- preset:
+  - time: 0
+  - rate: 0.5
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.
+
+## Written exploration recipe
+
+- component id: component:exponential-distribution
+- renderer id: exponential-distribution-visual-model
+- renderer version: 1
+- model id: exponential-distribution-visual-model
+- model revision: 1
+- expression id: ast:exponential-distribution:expression
+- interaction status: implemented
+- description: Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.
+- controls:
+  - Item:
+    - id: time
+    - type: number
+    - default: 2
+    - min: 0
+    - max: 8
+    - step: 0.05
+  - Item:
+    - id: rate
+    - type: number
+    - default: 0.5
+    - min: 0.25
+    - max: 2
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - time: 2
+      - rate: 0.5
+    - status: valid
+    - output: 0.6321205588285577
+  - Item:
+    - input:
+      - time: 0
+      - rate: 0.5
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - time: 2
+      - rate: 1
+    - status: valid
+    - output: 0.8646647167633873
+  - Item:
+    - input:
+      - time: 4
+      - rate: 0.5
+    - status: valid
+    - output: 0.8646647167633873
+  - Item:
+    - input:
+      - time: 0.05
+      - rate: 0.25
+    - status: valid
+    - output: 0.012422199506118572
+  - Item:
+    - input:
+      - time: 8
+      - rate: 0.25
+    - status: valid
+    - output: 0.8646647167633873
+  - Item:
+    - input:
+      - time: 8
+      - rate: 2
+    - status: valid
+    - output: 0.9999998874648253
+  - Item:
+    - input:
+      - time: 0
+      - rate: 2
+    - status: valid
+    - output: -0.0
+  - Item:
+    - input:
+      - time: 1
+      - rate: 1
+    - status: valid
+    - output: 0.6321205588285577
+  - Item:
+    - input:
+      - time: 1e-06
+      - rate: 0.25
+    - status: valid
+    - output: 2.499999687500026e-07
+  - Item:
+    - input:
+      - time: 4
+      - rate: 0.25
+    - status: valid
+    - output: 0.6321205588285577
+  - Item:
+    - input:
+      - time: 1.5
+      - rate: 2
+    - status: valid
+    - output: 0.950212931632136
+  - Item:
+    - input:
+      - time: 8
+      - rate: 0.5
+    - status: valid
+    - output: 0.9816843611112658
+  - Item:
+    - input:
+      - time: true
+      - rate: 0.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - time: 100
+      - rate: 0.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - time: 2
+      - rate: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - time: 1
+      - rate: 0.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - time: 5e-324
+      - rate: 0.25
+    - status: numeric_precision
+  - Item:
+    - input:
+      - time: 5e-324
+      - rate: 0.5
+    - status: numeric_precision
+  - Item:
+    - input:
+      - time: 5e-324
+      - rate: 1
+    - status: valid
+    - output: 5e-324
+  - Item:
+    - input:
+      - time: 5e-324
+      - rate: 2
+    - status: valid
+    - output: 1e-323
+- compute: Multiply arrival rate by elapsed waiting time, exponentiate its negative to obtain survival, and subtract survival from one for cumulative arrival probability. Waiting duration differs from the number of events in a fixed interval.
+- numeric tolerance: 1e-12
+- invariants:
+  - A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.
+  - The story, calculation and visual use the same current parameters.
+  - Geometry density scales and Graph probability scales have distinct meanings.
+- limits:
+  - A constant-rate memoryless arrival model uses λ from 0.25 to 2 per min and t from 0 to 8 min. A finite displayed time window does not remove its mathematical tail. Mean wait is 1/λ min. The rate is fixed within a model and no actual workshop arrival process is certified.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:distribution-extensions:exponential. [NIST/SEMATECH · Exponential Distribution](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3667.htm). Locator: §1.3.6.6.7: density, CDF, survival and constant hazard. This lesson uses rate λ=1/β and zero location.. Verification: Definition-level primary source inspected 2026-11-02. Independent mathematical review and exact-edition book checks remain open.. Rights: Original scenarios, prose, calculations and SVG; no source exercise, data or illustration reproduced.

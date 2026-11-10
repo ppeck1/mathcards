@@ -1,0 +1,659 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:graph-coloring",
+  "slug": "graph-coloring",
+  "type": "concept",
+  "title": "Graph coloring and compatible sessions",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-03T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "graph coloring",
+    "vertex coloring",
+    "graph colouring"
+  ],
+  "branches": [
+    "discrete-mathematics",
+    "computation"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "How many conflict-free schedules fit the available time slots?",
+  "meaning": "A proper vertex coloring gives labels to vertices so that every adjacent pair has different labels. Here a vertex is a workshop session and its label is a numbered time slot. Count proper assignments for the selected palette; the smallest palette with a proper assignment is the chromatic number.",
+  "prerequisites": {
+    "required": [
+      "math:concept:graph-theory"
+    ],
+    "helpful": [
+      "math:concept:function",
+      "math:concept:permutation-count"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "Four workshop sessions form a cycle of shared-instructor conflicts. An optional extra conflict joins sessions 1 and 3. Every session needs one slot; conflicting sessions must use different slots.",
+    "formal_latex": "\\chi(G)=\\min\\{k:N_G(k)>0\\},\\quad k\\in\\{1,2,3,4\\}.",
+    "signature": {
+      "k": "Available numbered time slots",
+      "d": "Whether the extra conflict is included: zero or one",
+      "G": "The fixed four-session conflict graph",
+      "N_G(k)": "Number of proper assignments with k labeled slots",
+      "χ(G)": "Fewest time slots permitting a proper assignment",
+      "k⁴": "All labeled assignments before checking conflicts"
+    },
+    "conditions": [
+      "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+    ],
+    "domain_notes": "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied.",
+    "proof_status": "Definition-level sources and original bounded calculations; independent review pending.",
+    "source_refs": [
+      "source:discrete-extension:coloring"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Graph coloring and compatible sessions",
+    "expression_latex": "\\chi(G)=\\min\\{k:N_G(k)>0\\},\\quad k\\in\\{1,2,3,4\\}.",
+    "formation_rule": "Enumerate all k⁴ labeled assignments of four sessions, reject any assignment whose conflicting endpoints share a slot, and count those remaining. Independently repeat for palettes one through four to find the first positive count.",
+    "precedence": "Evaluate whole inputs and the declared finite condition before counting valid objects.",
+    "symbols": [
+      {
+        "token": "k",
+        "role": "Available numbered time slots",
+        "type": "Declared finite set or counting quantity"
+      },
+      {
+        "token": "d",
+        "role": "Whether the extra conflict is included: zero or one",
+        "type": "Declared finite set or counting quantity"
+      },
+      {
+        "token": "G",
+        "role": "The fixed four-session conflict graph",
+        "type": "Declared finite set or counting quantity"
+      },
+      {
+        "token": "N_G(k)",
+        "role": "Number of proper assignments with k labeled slots",
+        "type": "Declared finite set or counting quantity"
+      },
+      {
+        "token": "χ(G)",
+        "role": "Fewest time slots permitting a proper assignment",
+        "type": "Declared finite set or counting quantity"
+      },
+      {
+        "token": "k⁴",
+        "role": "All labeled assignments before checking conflicts",
+        "type": "Declared finite set or counting quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:graph-coloring:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:palette",
+          "kind": "variable",
+          "type": "Declared whole-number input",
+          "symbol": "k",
+          "scope_ref": "scope:graph-coloring"
+        },
+        {
+          "id": "n:diagonal",
+          "kind": "variable",
+          "type": "Declared whole-number input",
+          "symbol": "d",
+          "scope_ref": "scope:graph-coloring"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Declared finite counting function",
+          "ref": "Enumerate all k⁴ labeled assignments of four sessions, reject any assignment whose conflicting endpoints share a slot, and count those remaining. Independently repeat for palettes one through four to find the first positive count."
+        },
+        {
+          "id": "n:apply-0",
+          "kind": "apply",
+          "type": "Finite exact count or partially applied counting function",
+          "function": "n:rule",
+          "argument": "n:palette"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Finite exact count or partially applied counting function",
+          "function": "n:apply-0",
+          "argument": "n:diagonal"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:graph-coloring",
+          "kind": "modelExpression",
+          "free_variables": [
+            "k",
+            "d"
+          ],
+          "domain_condition": "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Fractional or inconsistent counts",
+        "status": "unsupported parameter",
+        "reason": "Executable counts are whole numbers satisfying the declared constraints; no silent rounding or clipping occurs."
+      }
+    ],
+    "ast_coverage": "Typed application outline of the declared bounded model; not a general graph or set-expression parser.",
+    "output_symbol_bindings": {
+      "k": "palette",
+      "d": "diagonal",
+      "G": "edges",
+      "N_G(k)": "output",
+      "χ(G)": "chromatic",
+      "k⁴": "candidateCount"
+    }
+  },
+  "properties": [
+    {
+      "claim": "The displayed finite count is a nonnegative whole number.",
+      "conditions": "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied.",
+      "derivation": "Enumerate all k⁴ labeled assignments of four sessions, reject any assignment whose conflicting endpoints share a slot, and count those remaining. Independently repeat for palettes one through four to find the first positive count.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:graph-coloring:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Check historical and notation development before adding priority claims.",
+      "Verify exact-edition book mappings independently."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The workshop stories, diagrams and examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:graph-theory",
+      "type": "supports",
+      "conditions": "Read the connected lesson under its own assumptions.",
+      "reason": "Graph color classes are sets of mutually compatible sessions.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:function",
+      "type": "supports",
+      "conditions": "Read the connected lesson under its own assumptions.",
+      "reason": "Graph color classes are sets of mutually compatible sessions.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:permutation-count",
+      "type": "supports",
+      "conditions": "Read the connected lesson under its own assumptions.",
+      "reason": "Graph color classes are sets of mutually compatible sessions.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:graph-coloring:case-1",
+      "title": "Reuse two slots around the cycle",
+      "role": "applied_model",
+      "question": "How many conflict-free schedules fit the available time slots?",
+      "setting": "Four workshop sessions form a cycle of shared-instructor conflicts. An optional extra conflict joins sessions 1 and 3. Every session needs one slot; conflicting sessions must use different slots.",
+      "assumptions": [
+        "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+      ],
+      "inputs": {
+        "palette": 2,
+        "diagonal": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 2; d = 0",
+          "reason": "Use the declared finite whole-number state."
+        },
+        {
+          "index": 2,
+          "expression": "N_G(2) = 2",
+          "reason": "Enumerate all k⁴ labeled assignments of four sessions, reject any assignment whose conflicting endpoints share a slot, and count those remaining. Independently repeat for palettes one through four to find the first positive count."
+        }
+      ],
+      "result": {
+        "exact": "2 assignments"
+      },
+      "interpretation": "A proper assignment exists. Slot labels are distinct, so relabelings are counted separately.",
+      "independent_check": {
+        "method": "Independently enumerate all 16 four-session slot tuples and test each declared conflict edge.",
+        "expected": "2"
+      },
+      "limits": "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied.",
+      "preset": {
+        "palette": 2,
+        "diagonal": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+      ]
+    },
+    {
+      "id": "math:example:graph-coloring:case-2",
+      "title": "Add a conflicting diagonal",
+      "role": "applied_model",
+      "question": "How many conflict-free schedules fit the available time slots?",
+      "setting": "Four workshop sessions form a cycle of shared-instructor conflicts. An optional extra conflict joins sessions 1 and 3. Every session needs one slot; conflicting sessions must use different slots.",
+      "assumptions": [
+        "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+      ],
+      "inputs": {
+        "palette": 2,
+        "diagonal": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 2; d = 1",
+          "reason": "Use the declared finite whole-number state."
+        },
+        {
+          "index": 2,
+          "expression": "N_G(2) = 0",
+          "reason": "Enumerate all k⁴ labeled assignments of four sessions, reject any assignment whose conflicting endpoints share a slot, and count those remaining. Independently repeat for palettes one through four to find the first positive count."
+        }
+      ],
+      "result": {
+        "exact": "0 assignments"
+      },
+      "interpretation": "Every assignment has a conflicting pair; the palette is insufficient. Slot labels are distinct, so relabelings are counted separately.",
+      "independent_check": {
+        "method": "Independently enumerate all 16 four-session slot tuples and test each declared conflict edge.",
+        "expected": "0"
+      },
+      "limits": "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied.",
+      "preset": {
+        "palette": 2,
+        "diagonal": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+      ]
+    },
+    {
+      "id": "math:example:graph-coloring:case-3",
+      "title": "Give the triangle a third slot",
+      "role": "applied_model",
+      "question": "How many conflict-free schedules fit the available time slots?",
+      "setting": "Four workshop sessions form a cycle of shared-instructor conflicts. An optional extra conflict joins sessions 1 and 3. Every session needs one slot; conflicting sessions must use different slots.",
+      "assumptions": [
+        "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+      ],
+      "inputs": {
+        "palette": 3,
+        "diagonal": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 3; d = 1",
+          "reason": "Use the declared finite whole-number state."
+        },
+        {
+          "index": 2,
+          "expression": "N_G(3) = 6",
+          "reason": "Enumerate all k⁴ labeled assignments of four sessions, reject any assignment whose conflicting endpoints share a slot, and count those remaining. Independently repeat for palettes one through four to find the first positive count."
+        }
+      ],
+      "result": {
+        "exact": "6 assignments"
+      },
+      "interpretation": "A proper assignment exists. Slot labels are distinct, so relabelings are counted separately.",
+      "independent_check": {
+        "method": "Independently enumerate all 81 four-session slot tuples and test each declared conflict edge.",
+        "expected": "6"
+      },
+      "limits": "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied.",
+      "preset": {
+        "palette": 3,
+        "diagonal": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+      ]
+    },
+    {
+      "id": "math:example:graph-coloring:case-4",
+      "title": "Try one slot for conflicting sessions",
+      "role": "applied_model",
+      "question": "How many conflict-free schedules fit the available time slots?",
+      "setting": "Four workshop sessions form a cycle of shared-instructor conflicts. An optional extra conflict joins sessions 1 and 3. Every session needs one slot; conflicting sessions must use different slots.",
+      "assumptions": [
+        "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+      ],
+      "inputs": {
+        "palette": 1,
+        "diagonal": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 1; d = 0",
+          "reason": "Use the declared finite whole-number state."
+        },
+        {
+          "index": 2,
+          "expression": "N_G(1) = 0",
+          "reason": "Enumerate all k⁴ labeled assignments of four sessions, reject any assignment whose conflicting endpoints share a slot, and count those remaining. Independently repeat for palettes one through four to find the first positive count."
+        }
+      ],
+      "result": {
+        "exact": "0 assignments"
+      },
+      "interpretation": "Every assignment has a conflicting pair; the palette is insufficient. Slot labels are distinct, so relabelings are counted separately.",
+      "independent_check": {
+        "method": "Independently enumerate all 1 four-session slot tuples and test each declared conflict edge.",
+        "expected": "0"
+      },
+      "limits": "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied.",
+      "preset": {
+        "palette": 1,
+        "diagonal": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+      ]
+    },
+    {
+      "id": "math:example:graph-coloring:case-5",
+      "title": "Count schedules with four labeled slots",
+      "role": "applied_model",
+      "question": "How many conflict-free schedules fit the available time slots?",
+      "setting": "Four workshop sessions form a cycle of shared-instructor conflicts. An optional extra conflict joins sessions 1 and 3. Every session needs one slot; conflicting sessions must use different slots.",
+      "assumptions": [
+        "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+      ],
+      "inputs": {
+        "palette": 4,
+        "diagonal": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 4; d = 0",
+          "reason": "Use the declared finite whole-number state."
+        },
+        {
+          "index": 2,
+          "expression": "N_G(4) = 84",
+          "reason": "Enumerate all k⁴ labeled assignments of four sessions, reject any assignment whose conflicting endpoints share a slot, and count those remaining. Independently repeat for palettes one through four to find the first positive count."
+        }
+      ],
+      "result": {
+        "exact": "84 assignments"
+      },
+      "interpretation": "A proper assignment exists. Slot labels are distinct, so relabelings are counted separately.",
+      "independent_check": {
+        "method": "Independently enumerate all 256 four-session slot tuples and test each declared conflict edge.",
+        "expected": "84"
+      },
+      "limits": "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied.",
+      "preset": {
+        "palette": 4,
+        "diagonal": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:graph-coloring",
+    "renderer_id": "graph-coloring-visual-model",
+    "renderer_version": "1",
+    "model_id": "graph-coloring-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:graph-coloring:expression",
+    "interaction_status": "implemented",
+    "description": "Four workshop sessions form a cycle of shared-instructor conflicts. An optional extra conflict joins sessions 1 and 3. Every session needs one slot; conflicting sessions must use different slots.",
+    "controls": [
+      {
+        "id": "palette",
+        "type": "number",
+        "default": 2,
+        "min": 1,
+        "max": 4,
+        "step": 1
+      },
+      {
+        "id": "diagonal",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 1,
+        "step": 1
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "palette": 1,
+          "diagonal": 0
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "palette": 2,
+          "diagonal": 0
+        },
+        "status": "valid",
+        "output": 2
+      },
+      {
+        "input": {
+          "palette": 3,
+          "diagonal": 0
+        },
+        "status": "valid",
+        "output": 18
+      },
+      {
+        "input": {
+          "palette": 4,
+          "diagonal": 0
+        },
+        "status": "valid",
+        "output": 84
+      },
+      {
+        "input": {
+          "palette": 1,
+          "diagonal": 1
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "palette": 2,
+          "diagonal": 1
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "palette": 3,
+          "diagonal": 1
+        },
+        "status": "valid",
+        "output": 6
+      },
+      {
+        "input": {
+          "palette": 4,
+          "diagonal": 1
+        },
+        "status": "valid",
+        "output": 48
+      },
+      {
+        "input": {
+          "palette": 0,
+          "diagonal": 0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "palette": 5,
+          "diagonal": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "palette": 2.5,
+          "diagonal": 0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "palette": true,
+          "diagonal": 0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "palette": 2,
+          "diagonal": 2
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "palette": 2,
+          "diagonal": "1"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Enumerate all k⁴ labeled assignments of four sessions, reject any assignment whose conflicting endpoints share a slot, and count those remaining. Independently repeat for palettes one through four to find the first positive count.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Every valid primary result is a nonnegative exact integer.",
+      "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+    ],
+    "limits": [
+      "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+    ],
+    "fallback": "Pause for readable whole counts. Geometry, Graph, story and data share the same state.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How many conflict-free schedules fit the available time slots?",
+      "answer": "Enumerate all k⁴ labeled assignments of four sessions, reject any assignment whose conflicting endpoints share a slot, and count those remaining. Independently repeat for palettes one through four to find the first positive count."
+    },
+    {
+      "prompt": "What can this demonstration establish?",
+      "answer": "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Four workshop sessions form a cycle of shared-instructor conflicts. An optional extra conflict joins sessions 1 and 3. Every session needs one slot; conflicting sessions must use different slots."
+    },
+    {
+      "kind": "graph",
+      "description": "Exact whole choices are dots. Other inputs stay fixed; invalid overlap choices remain gaps. Pins use their own fixed inputs."
+    },
+    {
+      "kind": "substitution",
+      "description": "Enumerate all k⁴ labeled assignments of four sessions, reject any assignment whose conflicting endpoints share a slot, and count those remaining. Independently repeat for palettes one through four to find the first positive count."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Workshop session planning",
+      "mapping": "How many conflict-free schedules fit the available time slots?",
+      "limitations": "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:graph-coloring:case-1"
+    },
+    {
+      "context": "An added instructor conflict",
+      "mapping": "Adding the diagonal rules out every two-slot assignment; a third slot makes the newly formed triangle schedulable.",
+      "limitations": "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:graph-coloring:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:discrete-extension:coloring"
+  ],
+  "review_gaps": [
+    "Independent mathematical and learning review is pending.",
+    "Historical priority and exact-edition book coverage are not certified.",
+    "Only the four-session cycle and its optional diagonal are implemented. The palette has one to four labeled time slots. Assignments can leave slots unused. Counts are exact integers; vertex positions are schematic. No arbitrary graph editor, durations, room capacities or general scheduling solver is supplied."
+  ],
+  "change_log": [
+    "Original bounded discrete continuation: connected story, Geometry/Graph, preview, reference readers and independent counting oracle."
+  ]
+}

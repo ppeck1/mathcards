@@ -1,0 +1,365 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:normal-mean-interval:case-1", "id": "math:example:normal-mean-interval:case-1", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:normal-mean-interval", "example_id": "math:example:normal-mean-interval:case-1", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a55e9106a3fbc6e31d00292039b7f13191d8c67b11c4beac3ffe2a65fd216ba1"}, "purpose": "How precisely does an observed mean locate the unknown mean cutting error?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a55e9106a3fbc6e31d00292039b7f13191d8c67b11c4beac3ffe2a65fd216ba1", "status": "draft", "title": "Sixteen readings with known one-millimetre spread", "topics": ["mathematics", "statistics", "probability", "a normal-mean interval with known spread"], "type": "reference", "updated": "2026-11-03T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Sixteen readings with known one-millimetre spread
+
+Parent card: math:concept:normal-mean-interval; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:normal-mean-interval; revision 0.1.0-draft. Setting: A calibration workshop summarizes independent, identically normally distributed cutting errors by an observed mean x̄. Assume the population standard deviation σ is known. Choose a whole number n of readings and watch the interval narrow around that same entered mean. No new readings are invented as n changes. Expression: $\mathrm{SE}=\frac{\sigma}{\sqrt{n}},\quad h=z_{0.975}\,\mathrm{SE},\quad I=[\bar{x}-h,\bar{x}+h],\quad z_{0.975}=\Phi^{-1}(0.975).$. Conditions required for a defined value (a case may test their violation): Independent, identically normal readings with one common unknown mean μ and known positive population spread σ are assumptions, not conclusions from these controls. Use n from 1 to 64, x̄ from −4 to 4 mm and σ from 0.25 to 2 mm. The ideal repeated-sampling procedure covers fixed μ with probability 0.95. One computed interval has fixed endpoints; this is not a 95% posterior probability for μ or an interval predicting the next reading. An estimated spread requires a different procedure. The quantile is numerical, z₀.₉₇₅≈1.959963984540054; 1.96 is only its rounded display. Scope: Independent, identically normal readings with one common unknown mean μ and known positive population spread σ are assumptions, not conclusions from these controls. Use n from 1 to 64, x̄ from −4 to 4 mm and σ from 0.25 to 2 mm. The ideal repeated-sampling procedure covers fixed μ with probability 0.95. One computed interval has fixed endpoints; this is not a 95% posterior probability for μ or an interval predicting the next reading. An estimated spread requires a different procedure. The quantile is numerical, z₀.₉₇₅≈1.959963984540054; 1.96 is only its rounded display.
+
+Case unit math:example:normal-mean-interval:case-1. Setting: A calibration workshop summarizes independent, identically normally distributed cutting errors by an observed mean x̄. Assume the population standard deviation σ is known. Choose a whole number n of readings and watch the interval narrow around that same entered mean. No new readings are invented as n changes. Inputs: {"mean": 0.5, "sampleSize": 16, "sigma": 1}. Result: {"approximate": "0.4899909961350134"}. Limits: Independent, identically normal readings with one common unknown mean μ and known positive population spread σ are assumptions, not conclusions from these controls. Use n from 1 to 64, x̄ from −4 to 4 mm and σ from 0.25 to 2 mm. The ideal repeated-sampling procedure covers fixed μ with probability 0.95. One computed interval has fixed endpoints; this is not a 95% posterior probability for μ or an interval predicting the next reading. An estimated spread requires a different procedure. The quantile is numerical, z₀.₉₇₅≈1.959963984540054; 1.96 is only its rounded display.
+
+## Complete worked case
+
+- id: math:example:normal-mean-interval:case-1
+- title: Sixteen readings with known one-millimetre spread
+- role: applied_model
+- question: How precisely does an observed mean locate the unknown mean cutting error?
+- setting: A calibration workshop summarizes independent, identically normally distributed cutting errors by an observed mean x̄. Assume the population standard deviation σ is known. Choose a whole number n of readings and watch the interval narrow around that same entered mean. No new readings are invented as n changes.
+- assumptions:
+  - Independent, identically normal readings with one common unknown mean μ and known positive population spread σ are assumptions, not conclusions from these controls. Use n from 1 to 64, x̄ from −4 to 4 mm and σ from 0.25 to 2 mm. The ideal repeated-sampling procedure covers fixed μ with probability 0.95. One computed interval has fixed endpoints; this is not a 95% posterior probability for μ or an interval predicting the next reading. An estimated spread requires a different procedure. The quantile is numerical, z₀.₉₇₅≈1.959963984540054; 1.96 is only its rounded display.
+- inputs:
+  - sampleSize: 16
+  - mean: 0.5
+  - sigma: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: n = 16; x̄ = 0.5; σ = 1
+    - reason: Declare the actual input quantities and stated design/model.
+  - Item:
+    - index: 2
+    - expression: \mathrm{SE}=\frac{\sigma}{\sqrt{n}},\quad h=z_{0.975}\,\mathrm{SE},\quad I=[\bar{x}-h,\bar{x}+h],\quad z_{0.975}=\Phi^{-1}(0.975).
+    - reason: Divide the known population standard deviation by the square root of the whole-number sample size. Multiply that standard error by the standard normal 0.975 quantile, then place the resulting margin on each side of the observed mean.
+  - Item:
+    - index: 3
+    - expression: 0.4899909961350134 mm
+    - reason: This is the margin on either side of the observed mean, not the full width.
+- result:
+  - approximate: 0.4899909961350134
+- interpretation: Divide the known population standard deviation by the square root of the whole-number sample size. Multiply that standard error by the standard normal 0.975 quantile, then place the resulting margin on each side of the observed mean.
+- independent check:
+  - method: Python statistics.NormalDist independently computes the 0.975 quantile.
+  - expected: 0.4899909961350134
+- limits: Independent, identically normal readings with one common unknown mean μ and known positive population spread σ are assumptions, not conclusions from these controls. Use n from 1 to 64, x̄ from −4 to 4 mm and σ from 0.25 to 2 mm. The ideal repeated-sampling procedure covers fixed μ with probability 0.95. One computed interval has fixed endpoints; this is not a 95% posterior probability for μ or an interval predicting the next reading. An estimated spread requires a different procedure. The quantile is numerical, z₀.₉₇₅≈1.959963984540054; 1.96 is only its rounded display.
+- preset:
+  - sampleSize: 16
+  - mean: 0.5
+  - sigma: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Independent, identically normal readings with one common unknown mean μ and known positive population spread σ are assumptions, not conclusions from these controls. Use n from 1 to 64, x̄ from −4 to 4 mm and σ from 0.25 to 2 mm. The ideal repeated-sampling procedure covers fixed μ with probability 0.95. One computed interval has fixed endpoints; this is not a 95% posterior probability for μ or an interval predicting the next reading. An estimated spread requires a different procedure. The quantile is numerical, z₀.₉₇₅≈1.959963984540054; 1.96 is only its rounded display.
+
+## Written exploration recipe
+
+- component id: component:normal-mean-interval
+- renderer id: normal-mean-interval-visual-model
+- renderer version: 1
+- model id: normal-mean-interval-visual-model
+- model revision: 1
+- expression id: ast:normal-mean-interval:expression
+- interaction status: implemented
+- description: Divide the known population standard deviation by the square root of the whole-number sample size. Multiply that standard error by the standard normal 0.975 quantile, then place the resulting margin on each side of the observed mean.
+- controls:
+  - Item:
+    - id: sampleSize
+    - type: number
+    - default: 16
+    - min: 1
+    - max: 64
+    - step: 1
+  - Item:
+    - id: mean
+    - type: number
+    - default: 0.5
+    - min: -4
+    - max: 4
+    - step: 0.05
+  - Item:
+    - id: sigma
+    - type: number
+    - default: 1
+    - min: 0.25
+    - max: 2
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - sampleSize: 1
+      - mean: -4
+      - sigma: 0.25
+    - status: valid
+    - output: 0.4899909961350134
+  - Item:
+    - input:
+      - sampleSize: 1
+      - mean: 4
+      - sigma: 0.25
+    - status: valid
+    - output: 0.4899909961350134
+  - Item:
+    - input:
+      - sampleSize: 1
+      - mean: -4
+      - sigma: 1
+    - status: valid
+    - output: 1.9599639845400536
+  - Item:
+    - input:
+      - sampleSize: 1
+      - mean: 4
+      - sigma: 1
+    - status: valid
+    - output: 1.9599639845400536
+  - Item:
+    - input:
+      - sampleSize: 1
+      - mean: -4
+      - sigma: 2
+    - status: valid
+    - output: 3.919927969080107
+  - Item:
+    - input:
+      - sampleSize: 1
+      - mean: 4
+      - sigma: 2
+    - status: valid
+    - output: 3.919927969080107
+  - Item:
+    - input:
+      - sampleSize: 2
+      - mean: -4
+      - sigma: 0.25
+    - status: valid
+    - output: 0.3464759560874194
+  - Item:
+    - input:
+      - sampleSize: 2
+      - mean: 4
+      - sigma: 0.25
+    - status: valid
+    - output: 0.3464759560874194
+  - Item:
+    - input:
+      - sampleSize: 2
+      - mean: -4
+      - sigma: 1
+    - status: valid
+    - output: 1.3859038243496775
+  - Item:
+    - input:
+      - sampleSize: 2
+      - mean: 4
+      - sigma: 1
+    - status: valid
+    - output: 1.3859038243496775
+  - Item:
+    - input:
+      - sampleSize: 2
+      - mean: -4
+      - sigma: 2
+    - status: valid
+    - output: 2.771807648699355
+  - Item:
+    - input:
+      - sampleSize: 2
+      - mean: 4
+      - sigma: 2
+    - status: valid
+    - output: 2.771807648699355
+  - Item:
+    - input:
+      - sampleSize: 4
+      - mean: -4
+      - sigma: 0.25
+    - status: valid
+    - output: 0.2449954980675067
+  - Item:
+    - input:
+      - sampleSize: 4
+      - mean: 4
+      - sigma: 0.25
+    - status: valid
+    - output: 0.2449954980675067
+  - Item:
+    - input:
+      - sampleSize: 4
+      - mean: -4
+      - sigma: 1
+    - status: valid
+    - output: 0.9799819922700268
+  - Item:
+    - input:
+      - sampleSize: 4
+      - mean: 4
+      - sigma: 1
+    - status: valid
+    - output: 0.9799819922700268
+  - Item:
+    - input:
+      - sampleSize: 4
+      - mean: -4
+      - sigma: 2
+    - status: valid
+    - output: 1.9599639845400536
+  - Item:
+    - input:
+      - sampleSize: 4
+      - mean: 4
+      - sigma: 2
+    - status: valid
+    - output: 1.9599639845400536
+  - Item:
+    - input:
+      - sampleSize: 16
+      - mean: -4
+      - sigma: 0.25
+    - status: valid
+    - output: 0.12249774903375335
+  - Item:
+    - input:
+      - sampleSize: 16
+      - mean: 4
+      - sigma: 0.25
+    - status: valid
+    - output: 0.12249774903375335
+  - Item:
+    - input:
+      - sampleSize: 16
+      - mean: -4
+      - sigma: 1
+    - status: valid
+    - output: 0.4899909961350134
+  - Item:
+    - input:
+      - sampleSize: 16
+      - mean: 4
+      - sigma: 1
+    - status: valid
+    - output: 0.4899909961350134
+  - Item:
+    - input:
+      - sampleSize: 16
+      - mean: -4
+      - sigma: 2
+    - status: valid
+    - output: 0.9799819922700268
+  - Item:
+    - input:
+      - sampleSize: 16
+      - mean: 4
+      - sigma: 2
+    - status: valid
+    - output: 0.9799819922700268
+  - Item:
+    - input:
+      - sampleSize: 64
+      - mean: -4
+      - sigma: 0.25
+    - status: valid
+    - output: 0.061248874516876675
+  - Item:
+    - input:
+      - sampleSize: 64
+      - mean: 4
+      - sigma: 0.25
+    - status: valid
+    - output: 0.061248874516876675
+  - Item:
+    - input:
+      - sampleSize: 64
+      - mean: -4
+      - sigma: 1
+    - status: valid
+    - output: 0.2449954980675067
+  - Item:
+    - input:
+      - sampleSize: 64
+      - mean: 4
+      - sigma: 1
+    - status: valid
+    - output: 0.2449954980675067
+  - Item:
+    - input:
+      - sampleSize: 64
+      - mean: -4
+      - sigma: 2
+    - status: valid
+    - output: 0.4899909961350134
+  - Item:
+    - input:
+      - sampleSize: 64
+      - mean: 4
+      - sigma: 2
+    - status: valid
+    - output: 0.4899909961350134
+  - Item:
+    - input:
+      - sampleSize: 1.5
+      - mean: 0.5
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 0
+      - mean: 0.5
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 65
+      - mean: 0.5
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 16
+      - mean: 0.5
+      - sigma: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 16
+      - mean: 0.5
+      - sigma: true
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 16
+      - mean: 1
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sampleSize: 16
+      - mean: 5
+      - sigma: 1
+    - status: invalid_parameters
+- compute: Divide the known population standard deviation by the square root of the whole-number sample size. Multiply that standard error by the standard normal 0.975 quantile, then place the resulting margin on each side of the observed mean.
+- numeric tolerance: 2e-12
+- invariants:
+  - Independent, identically normal readings with one common unknown mean μ and known positive population spread σ are assumptions, not conclusions from these controls. Use n from 1 to 64, x̄ from −4 to 4 mm and σ from 0.25 to 2 mm. The ideal repeated-sampling procedure covers fixed μ with probability 0.95. One computed interval has fixed endpoints; this is not a 95% posterior probability for μ or an interval predicting the next reading. An estimated spread requires a different procedure. The quantile is numerical, z₀.₉₇₅≈1.959963984540054; 1.96 is only its rounded display.
+  - Story, calculation, geometry and graph share the same current parameters.
+  - Discrete sample counts and assignment patterns do not interpolate into invented states.
+- limits:
+  - Independent, identically normal readings with one common unknown mean μ and known positive population spread σ are assumptions, not conclusions from these controls. Use n from 1 to 64, x̄ from −4 to 4 mm and σ from 0.25 to 2 mm. The ideal repeated-sampling procedure covers fixed μ with probability 0.95. One computed interval has fixed endpoints; this is not a 95% posterior probability for μ or an interval predicting the next reading. An estimated spread requires a different procedure. The quantile is numerical, z₀.₉₇₅≈1.959963984540054; 1.96 is only its rounded display.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:estimation-extensions:normal-interval. [NIST/SEMATECH · What Are Confidence Intervals?](https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm). Locator: §7.1.4: repeated-interval confidence and the normal-mean interval with known population standard deviation; distinction from estimated spread.. Verification: Definition-level primary source inspected 2026-11-03; independent mathematical/pedagogical and exact-edition book review remain pending.. Rights: Original calibration scenario, prose, calculations and SVG; no source exercise, data or illustration reproduced.

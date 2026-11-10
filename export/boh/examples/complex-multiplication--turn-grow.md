@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:complex-multiplication:turn-grow", "id": "math:example:complex-multiplication:turn-grow", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:complex-multiplication", "example_id": "math:example:complex-multiplication:turn-grow", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e"}, "purpose": "Use one complex multiplication to rotate and scale a point in the plane.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e", "status": "draft", "title": "Transform a layout point", "topics": ["mathematics", "number-arithmetic", "modeling", "complex multiplication", "rotation and scale"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:complex-multiplication:turn-grow", "id": "math:example:complex-multiplication:turn-grow", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:complex-multiplication", "example_id": "math:example:complex-multiplication:turn-grow", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e"}, "purpose": "Use one complex multiplication to rotate and scale a point in the plane.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9a5270f0b11fb663a32fc8495871156e02d032112aa93c9e732ad0f12d11965e", "status": "draft", "title": "Transform a layout point", "topics": ["mathematics", "number-arithmetic", "modeling", "complex multiplication", "rotation and scale"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Transform a layout point
@@ -47,6 +47,7 @@ Case unit math:example:complex-multiplication:turn-grow. Setting: Original const
   - kind: original worked derivation
   - mathematical review: draft
   - external source refs:
+    []
 - conditions to check:
   - Use the complex plane with i²=−1 and fixed input z=2+i.
   - The real and imaginary coordinates share the same chosen unit.

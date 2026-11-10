@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:gradient", "id": "math:concept:gradient", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:gradient", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "b5849d69b0f0d60ba7a793c5bfebaafbc5f5b863b220132be51e770f09a66352"}, "purpose": "Combine local slice slopes into a vector that points toward the steepest local increase.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "b5849d69b0f0d60ba7a793c5bfebaafbc5f5b863b220132be51e770f09a66352", "status": "draft", "title": "Gradient", "topics": ["mathematics", "calculus", "analysis", "geometry", "gradient vector", "steepest local ascent", "gradient norm", "nabla"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:gradient", "id": "math:concept:gradient", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:gradient", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "b5849d69b0f0d60ba7a793c5bfebaafbc5f5b863b220132be51e770f09a66352"}, "purpose": "Combine local slice slopes into a vector that points toward the steepest local increase.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "b5849d69b0f0d60ba7a793c5bfebaafbc5f5b863b220132be51e770f09a66352", "status": "draft", "title": "Gradient", "topics": ["mathematics", "calculus", "analysis", "geometry", "gradient vector", "steepest local ascent", "gradient norm", "nabla"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Gradient
@@ -345,7 +345,7 @@ The gradient of a real scalar field collects its coordinate partial derivatives 
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of this idea and its notation using specialist historical sources before adding attributions.
   - Distinguish an early use, later formalization and modern teaching convention; inspect evidence for each.
@@ -361,6 +361,7 @@ The gradient of a real scalar field collects its coordinate partial derivatives 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:vector
   - type: supports
@@ -369,6 +370,7 @@ The gradient of a real scalar field collects its coordinate partial derivatives 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:inner-product
   - type: supports
@@ -377,6 +379,7 @@ The gradient of a real scalar field collects its coordinate partial derivatives 
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -427,6 +430,7 @@ The gradient of a real scalar field collects its coordinate partial derivatives 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
     - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.
@@ -479,6 +483,7 @@ The gradient of a real scalar field collects its coordinate partial derivatives 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
     - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.
@@ -531,6 +536,7 @@ The gradient of a real scalar field collects its coordinate partial derivatives 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
     - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.
@@ -583,6 +589,7 @@ The gradient of a real scalar field collects its coordinate partial derivatives 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
     - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.
@@ -635,6 +642,7 @@ The gradient of a real scalar field collects its coordinate partial derivatives 
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - This is a stipulated smooth height model F(x,y)=c+a*x²+b*y², not a measured terrain dataset.
     - Horizontal coordinates x,y and height F use metres; a,b use inverse metres and c uses metres.

@@ -1,0 +1,250 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:perpendicular-bisector:case-1", "id": "math:example:perpendicular-bisector:case-1", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:perpendicular-bisector", "example_id": "math:example:perpendicular-bisector:case-1", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "6056c3af49bb71de677015a19e28fa96d21d760cce33dd66ce183fcbfb0d4797"}, "purpose": "How can two equal compass circles find the midway line?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "6056c3af49bb71de677015a19e28fa96d21d760cce33dd66ce183fcbfb0d4797", "status": "draft", "title": "A six-metre compass diameter", "topics": ["mathematics", "geometry", "measurement", "perpendicular bisector construction", "perpendicular bisector"], "type": "reference", "updated": "2026-11-09T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# A six-metre compass diameter
+
+Parent card: math:concept:perpendicular-bisector; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:perpendicular-bisector; revision 0.1.0-draft. Setting: A gardener wants a straight border equally distant from two stakes. Set their separation d and draw equal-radius compass circles around them. Their two intersections can be joined by a straightedge. Increase the compass radius and watch those points move apart while the midpoint line stays in the same place. Expression: $h=\sqrt{r^2-d^2/4},\quad \ell=2h,\quad r\ge d/2.$. Conditions required for a defined value (a case may test their violation): Both stake separation d and compass radius r range from 2 to 4 metres. Thus r≥d/2. At the only equality boundary d=4 m,r=2 m the circles touch once; for all other allowed inputs there are two intersections. Scope: This is an equal-radius rigid-compass construction. A tangent point is one point, not a pair that determines a line. The perpendicular bisector exists at tangency, but the two-intersection procedure cannot construct it there. Nonintersecting circles, arbitrary ruler constructions and the full classical construction theory remain separate.
+
+Case unit math:example:perpendicular-bisector:case-1. Setting: A gardener wants a straight border equally distant from two stakes. Set their separation d and draw equal-radius compass circles around them. Their two intersections can be joined by a straightedge. Increase the compass radius and watch those points move apart while the midpoint line stays in the same place. Inputs: {"distance": 4, "radius": 3}. Result: {"approximate": "4.47213595499958"}. Limits: This is an equal-radius rigid-compass construction. A tangent point is one point, not a pair that determines a line. The perpendicular bisector exists at tangency, but the two-intersection procedure cannot construct it there. Nonintersecting circles, arbitrary ruler constructions and the full classical construction theory remain separate.
+
+## Complete worked case
+
+- id: math:example:perpendicular-bisector:case-1
+- title: A six-metre compass diameter
+- role: applied_model
+- question: How can two equal compass circles find the midway line?
+- setting: A gardener wants a straight border equally distant from two stakes. Set their separation d and draw equal-radius compass circles around them. Their two intersections can be joined by a straightedge. Increase the compass radius and watch those points move apart while the midpoint line stays in the same place.
+- assumptions:
+  - Both stake separation d and compass radius r range from 2 to 4 metres. Thus r≥d/2. At the only equality boundary d=4 m,r=2 m the circles touch once; for all other allowed inputs there are two intersections.
+- inputs:
+  - radius: 3
+  - distance: 4
+- steps:
+  - Item:
+    - index: 1
+    - expression: r = 3; d = 4
+    - reason: Set the chosen measurements in the geometric model.
+  - Item:
+    - index: 2
+    - expression: h=\sqrt{r^2-d^2/4},\quad \ell=2h,\quad r\ge d/2.
+    - reason: Place stakes at(−d/2,0) and(d/2,0). Subtracting their equal-radius circle equations gives 2 dx=0, hence x=0 because d>0. Substitute this midpoint coordinate to get y²=r²−d²/4. Positive height gives the two points(0,h) and(0,−h); height zero gives just one point.
+  - Item:
+    - index: 3
+    - expression: ℓ ≈ 4.47213595499958 m
+    - reason: Each intersection is√5, about 2.236 metres from the stake line, so the pair is about 4.472 metres apart.
+- result:
+  - approximate: 4.47213595499958
+- interpretation: Each intersection is√5, about 2.236 metres from the stake line, so the pair is about 4.472 metres apart.
+- independent check:
+  - method: Independent coordinate shoelace and distance calculations, or a bisection solution of equal-distance equations; compare with geometric invariants.
+  - expected: 4.47213595499958
+- limits: This is an equal-radius rigid-compass construction. A tangent point is one point, not a pair that determines a line. The perpendicular bisector exists at tangency, but the two-intersection procedure cannot construct it there. Nonintersecting circles, arbitrary ruler constructions and the full classical construction theory remain separate.
+- preset:
+  - radius: 3
+  - distance: 4
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Both stake separation d and compass radius r range from 2 to 4 metres. Thus r≥d/2. At the only equality boundary d=4 m,r=2 m the circles touch once; for all other allowed inputs there are two intersections.
+
+## Written exploration recipe
+
+- component id: component:perpendicular-bisector
+- renderer id: perpendicular-bisector-visual-model
+- renderer version: 1
+- model id: perpendicular-bisector-visual-model
+- model revision: 1
+- expression id: ast:perpendicular-bisector:expression
+- interaction status: implemented
+- description: A perpendicular bisector passes through a segment midpoint at a right angle. Two distinct intersections of equal-radius circles centered at the endpoints lie on this line. If the endpoint distance is d and circle radius is r, each intersection is h=√(r²−d²/4) above or below the segment. The intersection separation is ℓ=2 h.
+- controls:
+  - Item:
+    - id: radius
+    - type: number
+    - default: 3
+    - min: 2
+    - max: 4
+    - step: 0.025
+  - Item:
+    - id: distance
+    - type: number
+    - default: 4
+    - min: 2
+    - max: 4
+    - step: 0.025
+- expected cases:
+  - Item:
+    - input:
+      - radius: 2
+      - distance: 4
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - radius: 2
+      - distance: 2
+    - status: valid
+    - output: 3.4641016151377544
+  - Item:
+    - input:
+      - radius: 2.025
+      - distance: 4
+    - status: valid
+    - output: 0.6344288770224749
+  - Item:
+    - input:
+      - radius: 3
+      - distance: 4
+    - status: valid
+    - output: 4.47213595499958
+  - Item:
+    - input:
+      - radius: 4
+      - distance: 4
+    - status: valid
+    - output: 6.928203230275509
+  - Item:
+    - input:
+      - radius: 3
+      - distance: 2
+    - status: valid
+    - output: 5.656854249492381
+  - Item:
+    - input:
+      - radius: 4
+      - distance: 2
+    - status: valid
+    - output: 7.745966692414834
+  - Item:
+    - input:
+      - radius: 2.5
+      - distance: 3
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - radius: 3.5
+      - distance: 3.5
+    - status: valid
+    - output: 6.06217782649107
+  - Item:
+    - input:
+      - radius: 4
+      - distance: 3
+    - status: valid
+    - output: 7.416198487095663
+  - Item:
+    - input:
+      - radius: 2
+      - distance: 3
+    - status: valid
+    - output: 2.6457513110645907
+  - Item:
+    - input:
+      - radius: 3
+      - distance: 4
+    - status: valid
+    - output: 4.47213595499958
+  - Item:
+    - input:
+      - radius: 2
+      - distance: 4
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - radius: 4
+      - distance: 4
+    - status: valid
+    - output: 6.928203230275509
+  - Item:
+    - input:
+      - radius: 3
+      - distance: 2
+    - status: valid
+    - output: 5.656854249492381
+  - Item:
+    - input:
+      - radius: 4
+      - distance: 2
+    - status: valid
+    - output: 7.745966692414834
+  - Item:
+    - input:
+      - radius: 1.99
+      - distance: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: 4.01
+      - distance: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: true
+      - distance: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: 2
+      - distance: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: null
+      - distance: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: 3
+      - distance: 1.99
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: 3
+      - distance: 4.01
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: 3
+      - distance: true
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: 3
+      - distance: 2
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - radius: 3
+      - distance: null
+    - status: invalid_parameters
+- compute: h=\sqrt{r^2-d^2/4},\quad \ell=2h,\quad r\ge d/2.
+- numeric tolerance: 5e-11
+- invariants:
+  - Both stake separation d and compass radius r range from 2 to 4 metres. Thus r≥d/2. At the only equality boundary d=4 m,r=2 m the circles touch once; for all other allowed inputs there are two intersections.
+  - Story, calculation, Geometry and Graph evaluate the same state.
+  - Fixed equal physical scales preserve measured shape and growth.
+- limits:
+  - This is an equal-radius rigid-compass construction. A tangent point is one point, not a pair that determines a line. The perpendicular bisector exists at tangency, but the two-intersection procedure cannot construct it there. Nonintersecting circles, arbitrary ruler constructions and the full classical construction theory remain separate.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:plane-geometry:perpendicular-bisector. [Wolfram MathWorld · Perpendicular Bisector](https://mathworld.wolfram.com/PerpendicularBisector.html). Locator: Definition and equal-radius circle construction. A rigid compass may use any radius larger than half the endpoint distance; the source distinguishes collapsible-compass assumptions. Tangency is treated separately in this original bounded model.. Verification: Definition-level page inspected2026-11-09. Independent mathematics and teaching review and exact-edition book-page confirmation remain pending.. Rights: Original scenarios, worked examples and code-native geometry. No source exercise, data or illustration reproduced.

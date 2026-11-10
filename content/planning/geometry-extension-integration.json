@@ -1,0 +1,149 @@
+{
+  "slugs": [
+    "regular-polygon",
+    "sphere-measurement"
+  ],
+  "sources": [
+    {
+      "id": "source:geometry-extensions:regular-polygon",
+      "title": "Wolfram MathWorld · Regular Polygon",
+      "url": "https://mathworld.wolfram.com/RegularPolygon.html",
+      "kind": "reference",
+      "locator": "Equations (2), (4) and (9): side length, apothem and area of a regular convex polygon with circumradius R. The pavilion and triangulation explanations are original applications of these definitions.",
+      "verification": "Definition-level page inspected 2026-11-05. Independent mathematical and pedagogical review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored pavilion scenario, coordinates and worked calculations. No source exercise, illustration or data reproduced."
+    },
+    {
+      "id": "source:geometry-extensions:sphere-measurement",
+      "title": "Wolfram MathWorld · Sphere",
+      "url": "https://mathworld.wolfram.com/Sphere.html",
+      "kind": "reference",
+      "locator": "Radius and diameter, surface area 4πr², and enclosed volume 4πr³/3 for a Euclidean sphere. The full spherical tank and its comparison of surface and volume are original constructions.",
+      "verification": "Definition-level page inspected 2026-11-05. Independent mathematical and pedagogical review and exact-edition book-page verification remain pending.",
+      "rights": "Originally authored ideal tank scenario and dimensional comparisons. No source exercise, illustration or data reproduced."
+    }
+  ],
+  "bindings": {
+    "regular-polygon": {
+      "n": [
+        "sides"
+      ],
+      "R": [
+        "radius"
+      ],
+      "s": [
+        "sideLength"
+      ],
+      "a": [
+        "apothem"
+      ],
+      "P": [
+        "perimeter"
+      ],
+      "A": [
+        "output"
+      ],
+      "θ": [
+        "centralAngle"
+      ],
+      "π": [
+        "pi"
+      ]
+    },
+    "sphere-measurement": {
+      "r": [
+        "radius"
+      ],
+      "d": [
+        "diameter"
+      ],
+      "A": [
+        "surfaceArea"
+      ],
+      "V": [
+        "output"
+      ],
+      "π": [
+        "pi"
+      ]
+    }
+  },
+  "ports": {
+    "regular-polygon": [
+      {
+        "id": "input:sides",
+        "direction": "input",
+        "key": "sides",
+        "label": "Regular polygon side count",
+        "type": "polygon-side-count",
+        "unit": "1",
+        "description": "Regular polygon side count. The receiving module validates its own domain and units."
+      },
+      {
+        "id": "input:radius",
+        "direction": "input",
+        "key": "radius",
+        "label": "Pavilion circumradius",
+        "type": "length",
+        "unit": "m",
+        "description": "Pavilion circumradius. The receiving module validates its own domain and units."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Pavilion floor area",
+        "type": "area",
+        "unit": "m2",
+        "description": "A regular convex polygon has equal sides and equal interior angles. Join its center to every vertex to split its floor into n congruent triangles. The circumradius R reaches a vertex; the apothem a reaches the midpoint of a side at a right angle. Perimeter P times apothem a, divided by two, gives the area A."
+      },
+      {
+        "id": "output:perimeter",
+        "direction": "output",
+        "key": "perimeter",
+        "label": "Pavilion boundary length",
+        "type": "length",
+        "unit": "m",
+        "description": "Pavilion boundary length. The receiving module validates its own domain and units."
+      }
+    ],
+    "sphere-measurement": [
+      {
+        "id": "input:radius",
+        "direction": "input",
+        "key": "radius",
+        "label": "Tank inner radius",
+        "type": "length",
+        "unit": "m",
+        "description": "Tank inner radius. The receiving module validates its own domain and units."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Full spherical capacity",
+        "type": "volume",
+        "unit": "m3",
+        "description": "A sphere consists of points a fixed radius r from its center, and its enclosed ball has volume V=4πr³/3. The complete spherical surface has area A=4πr² and the diameter is d=2r. Radius changes length, surface and capacity at different rates: by the first, second and third powers of the scale factor."
+      },
+      {
+        "id": "output:surfaceArea",
+        "direction": "output",
+        "key": "surfaceArea",
+        "label": "Complete tank surface area",
+        "type": "area",
+        "unit": "m2",
+        "description": "Complete tank surface area. The receiving module validates its own domain and units."
+      },
+      {
+        "id": "output:diameter",
+        "direction": "output",
+        "key": "diameter",
+        "label": "Tank diameter",
+        "type": "length",
+        "unit": "m",
+        "description": "Tank diameter. The receiving module validates its own domain and units."
+      }
+    ]
+  }
+}

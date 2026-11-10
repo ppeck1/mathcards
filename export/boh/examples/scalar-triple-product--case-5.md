@@ -1,0 +1,226 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:scalar-triple-product:case-5", "id": "math:example:scalar-triple-product:case-5", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:scalar-triple-product", "example_id": "math:example:scalar-triple-product:case-5", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "b459ce0a24508966688a35b499fbfc422d734c346d57bc19590417a98faaf561"}, "purpose": "Why can a slanted storage frame keep the same volume?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "b459ce0a24508966688a35b499fbfc422d734c346d57bc19590417a98faaf561", "status": "draft", "title": "Change the perpendicular extents", "topics": ["mathematics", "linear-algebra", "geometry", "the scalar triple product"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Change the perpendicular extents
+
+Parent card: math:concept:scalar-triple-product; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:scalar-triple-product; revision 0.1.0-draft. Setting: A constructed storage frame has edges u=(a,0,0), v=(s,b,0) and w=(1,0.5,h) metres. Changing shear slants it without changing its perpendicular dimensions. Expression: $\vec u=(a,0,0),\quad\vec v=(s,b,0),\quad\vec w=(1,0.5,h),\quad T=\vec u\cdot(\vec v\times\vec w)=a b h,\quad V=|T|.$. Conditions required for a defined value (a case may test their violation): A constructed storage frame has edges u=(a,0,0), v=(s,b,0) and w=(1,0.5,h) metres. Changing shear slants it without changing its perpendicular dimensions. This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale. All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure. Scope: This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale.
+
+Case unit math:example:scalar-triple-product:case-5. Setting: A storage frame has one edge along the floor, a second floor edge that can shear sideways, and a third edge leaning upward or downward. Follow the cross product of two edges into its dot product with the remaining edge. The sign records orientation; the physical volume takes absolute value. Inputs: {"height": 1.5, "length": 3, "shear": 1, "width": 2}. Result: {"approximate": "9.0 m³"}. Limits: This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale.
+
+## Complete worked case
+
+- id: math:example:scalar-triple-product:case-5
+- title: Change the perpendicular extents
+- role: applied_model
+- question: Why can a slanted storage frame keep the same volume?
+- setting: A storage frame has one edge along the floor, a second floor edge that can shear sideways, and a third edge leaning upward or downward. Follow the cross product of two edges into its dot product with the remaining edge. The sign records orientation; the physical volume takes absolute value.
+- assumptions:
+  - A constructed storage frame has edges u=(a,0,0), v=(s,b,0) and w=(1,0.5,h) metres. Changing shear slants it without changing its perpendicular dimensions.
+  - This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale.
+- inputs:
+  - length: 3
+  - width: 2
+  - height: 1.5
+  - shear: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: a = 3; b = 2; h = 1.5; s = 1
+    - reason: Set these original constructed inputs in the declared frame.
+  - Item:
+    - index: 2
+    - expression: T = u · (v × w); V = |T|
+    - reason: For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the signed result is a b h.
+  - Item:
+    - index: 3
+    - expression: 9.0 m³
+    - reason: Evaluate the bounded family before rounding its displayed values.
+- result:
+  - approximate: 9.0 m³
+- interpretation: Changing actual perpendicular extents changes the volume, unlike a pure shear.
+- independent check:
+  - method: Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.
+  - expected: {"status": "valid", "output": 9.0}
+- limits: This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale.
+- preset:
+  - length: 3
+  - width: 2
+  - height: 1.5
+  - shear: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - A constructed storage frame has edges u=(a,0,0), v=(s,b,0) and w=(1,0.5,h) metres. Changing shear slants it without changing its perpendicular dimensions.
+  - This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale.
+
+## Written exploration recipe
+
+- component id: component:scalar-triple-product
+- renderer id: scalar-triple-product-visual-model
+- renderer version: 1
+- model id: scalar-triple-product-visual-model
+- model revision: 1
+- expression id: ast:scalar-triple-product:expression
+- interaction status: implemented
+- description: A storage frame has one edge along the floor, a second floor edge that can shear sideways, and a third edge leaning upward or downward. Follow the cross product of two edges into its dot product with the remaining edge. The sign records orientation; the physical volume takes absolute value.
+- controls:
+  - Item:
+    - id: length
+    - type: number
+    - default: 2
+    - min: 0
+    - max: 3
+    - step: 0.05
+  - Item:
+    - id: width
+    - type: number
+    - default: 3
+    - min: 0
+    - max: 3
+    - step: 0.05
+  - Item:
+    - id: height
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - step: 0.05
+  - Item:
+    - id: shear
+    - type: number
+    - default: 1
+    - min: -2
+    - max: 2
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - length: 2
+      - width: 3
+      - height: 1
+      - shear: 1
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - length: 2
+      - width: 3
+      - height: -1
+      - shear: 1
+    - status: valid
+    - output: -6.0
+  - Item:
+    - input:
+      - length: 2
+      - width: 3
+      - height: 1
+      - shear: -2
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - length: 2
+      - width: 3
+      - height: 0
+      - shear: 1
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - length: 3
+      - width: 2
+      - height: 1.5
+      - shear: 1
+    - status: valid
+    - output: 9.0
+  - Item:
+    - input:
+      - length: 0
+      - width: 3
+      - height: 1
+      - shear: 1
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - length: 3
+      - width: 3
+      - height: 1
+      - shear: 1
+    - status: valid
+    - output: 9.0
+  - Item:
+    - input:
+      - length: 2
+      - width: 0
+      - height: 1
+      - shear: 1
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - length: 2
+      - width: 3
+      - height: -2
+      - shear: 1
+    - status: valid
+    - output: -12.0
+  - Item:
+    - input:
+      - length: 2
+      - width: 3
+      - height: 2
+      - shear: 1
+    - status: valid
+    - output: 12.0
+  - Item:
+    - input:
+      - length: 2
+      - width: 3
+      - height: 1
+      - shear: 2
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - length: 2
+      - width: 3
+      - height: 3
+      - shear: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - length: 2
+      - width: 3
+      - height: 1
+      - shear: 1
+    - status: invalid_parameters
+- compute: For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the signed result is a b h.
+- numeric tolerance: 1e-10
+- invariants:
+  - A constructed storage frame has edges u=(a,0,0), v=(s,b,0) and w=(1,0.5,h) metres. Changing shear slants it without changing its perpendicular dimensions.
+  - This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale.
+  - All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure.
+- limits:
+  - This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:spatial-foundations:cross. [OpenStax · The Cross Product](https://openstax.org/books/calculus-volume-3/pages/2-4-the-cross-product). Locator: §2.4, component definition, normal orientation, parallelogram area and scalar triple product.. Verification: Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.. Rights: Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced.

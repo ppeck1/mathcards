@@ -1,0 +1,221 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:golden-ratio:case-5", "id": "math:example:golden-ratio:case-5", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:golden-ratio", "example_id": "math:example:golden-ratio:case-5", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "e5199684f7f097f78974be967f064fa839e0a6999bf2b3475969beedbcd556b0"}, "purpose": "Which rectangle keeps the same aspect ratio after removing a square?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "e5199684f7f097f78974be967f064fa839e0a6999bf2b3475969beedbcd556b0", "status": "draft", "title": "A finer rational candidate", "topics": ["mathematics", "geometry", "algebra", "golden rectangle", "phi", "Fibonacci ratio", "self-similar rectangle"], "type": "reference", "updated": "2026-11-09T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# A finer rational candidate
+
+Parent card: math:concept:golden-ratio; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:golden-ratio; revision 0.1.0-draft. Setting: A designer cuts a square from a rectangular panel. In a golden rectangle the remaining rectangle, turned a quarter turn, has the original proportions. Compare its exact ratio with ratios of consecutive Fibonacci numbers. Expression: $\varphi=\frac{1+\sqrt{5}}{2},\quad L=\varphi s,\quad w=L-s,\quad \frac Ls=\frac sw.$. Conditions required for a defined value (a case may test their violation): The short side is 0.5 to 3 metres. The positive ratio greater than one solves φ²=φ+1. Fibonacci index k is a whole number from 2 to 12, with F(1)=F(2)=1. A finite Fibonacci ratio is an approximation, not the exact golden ratio. No claim about universal beauty, nature or optimal design follows. Scope: This is an exact Euclidean ratio defined by a quadratic equation, plus finite Fibonacci comparisons. No universal aesthetic, biological or optimality claim follows. The finite sequence does not constitute a convergence proof.
+
+Case unit math:example:golden-ratio:case-5. Setting: A designer cuts a square from a rectangular panel. In a golden rectangle the remaining rectangle, turned a quarter turn, has the original proportions. Compare its exact ratio with ratios of consecutive Fibonacci numbers. Inputs: {"shortSide": 3, "term": 12}. Result: {"approximate": "4.854101966249685"}. Limits: This is an exact Euclidean ratio defined by a quadratic equation, plus finite Fibonacci comparisons. No universal aesthetic, biological or optimality claim follows. The finite sequence does not constitute a convergence proof.
+
+## Complete worked case
+
+- id: math:example:golden-ratio:case-5
+- title: A finer rational candidate
+- role: applied_model
+- question: Which rectangle keeps the same aspect ratio after removing a square?
+- setting: A designer cuts a square from a rectangular panel. In a golden rectangle the remaining rectangle, turned a quarter turn, has the original proportions. Compare its exact ratio with ratios of consecutive Fibonacci numbers.
+- assumptions:
+  - The short side is 0.5 to 3 metres. The positive ratio greater than one solves φ²=φ+1. Fibonacci index k is a whole number from 2 to 12, with F(1)=F(2)=1. A finite Fibonacci ratio is an approximation, not the exact golden ratio. No claim about universal beauty, nature or optimal design follows.
+- inputs:
+  - shortSide: 3
+  - term: 12
+- steps:
+  - Item:
+    - index: 1
+    - expression: s = 3; k = 12
+    - reason: Choose the declared physical lengths or whole approximation index.
+  - Item:
+    - index: 2
+    - expression: \varphi=\frac{1+\sqrt{5}}{2},\quad L=\varphi s,\quad w=L-s,\quad \frac Ls=\frac sw.
+    - reason: A golden rectangle has a long-to-short ratio φ greater than one such that removing a square leaves a rotated rectangle with the same ratio. The equality φ=1/(φ−1) gives φ²=φ+1 and φ=(1+√5)/2. Ratios of consecutive Fibonacci numbers supply finite rational comparisons.
+  - Item:
+    - index: 3
+    - expression: L ≈ 4.854101966249685 m
+    - reason: The finite ratio 233/144 is close to φ but unequal to it. Large integer counts improve this comparison without becoming the exact quadratic root.
+- result:
+  - approximate: 4.854101966249685
+- interpretation: The finite ratio 233/144 is close to φ but unequal to it. Large integer counts improve this comparison without becoming the exact quadratic root.
+- independent check:
+  - method: Use a Decimal Newton square root to recover the positive quadratic root, and an independently tabulated Fibonacci sequence to check the chosen finite ratio.
+  - expected: 4.854101966249685
+- limits: This is an exact Euclidean ratio defined by a quadratic equation, plus finite Fibonacci comparisons. No universal aesthetic, biological or optimality claim follows. The finite sequence does not constitute a convergence proof.
+- preset:
+  - shortSide: 3
+  - term: 12
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - The short side is 0.5 to 3 metres. The positive ratio greater than one solves φ²=φ+1. Fibonacci index k is a whole number from 2 to 12, with F(1)=F(2)=1. A finite Fibonacci ratio is an approximation, not the exact golden ratio. No claim about universal beauty, nature or optimal design follows.
+
+## Written exploration recipe
+
+- component id: component:golden-ratio
+- renderer id: golden-ratio-visual-model
+- renderer version: 1
+- model id: golden-ratio-visual-model
+- model revision: 1
+- expression id: ast:golden-ratio:expression
+- interaction status: implemented
+- description: A golden rectangle has a long-to-short ratio φ greater than one such that removing a square leaves a rotated rectangle with the same ratio. The equality φ=1/(φ−1) gives φ²=φ+1 and φ=(1+√5)/2. Ratios of consecutive Fibonacci numbers supply finite rational comparisons.
+- controls:
+  - Item:
+    - id: shortSide
+    - type: number
+    - default: 1
+    - min: 0.5
+    - max: 3
+    - step: 0.05
+  - Item:
+    - id: term
+    - type: number
+    - default: 5
+    - min: 2
+    - max: 12
+    - step: 1
+- expected cases:
+  - Item:
+    - input:
+      - shortSide: 0.5
+      - term: 2
+    - status: valid
+    - output: 0.8090169943749475
+  - Item:
+    - input:
+      - shortSide: 0.5
+      - term: 3
+    - status: valid
+    - output: 0.8090169943749475
+  - Item:
+    - input:
+      - shortSide: 0.5
+      - term: 5
+    - status: valid
+    - output: 0.8090169943749475
+  - Item:
+    - input:
+      - shortSide: 0.5
+      - term: 12
+    - status: valid
+    - output: 0.8090169943749475
+  - Item:
+    - input:
+      - shortSide: 1
+      - term: 2
+    - status: valid
+    - output: 1.618033988749895
+  - Item:
+    - input:
+      - shortSide: 1
+      - term: 3
+    - status: valid
+    - output: 1.618033988749895
+  - Item:
+    - input:
+      - shortSide: 1
+      - term: 5
+    - status: valid
+    - output: 1.618033988749895
+  - Item:
+    - input:
+      - shortSide: 1
+      - term: 12
+    - status: valid
+    - output: 1.618033988749895
+  - Item:
+    - input:
+      - shortSide: 3
+      - term: 2
+    - status: valid
+    - output: 4.854101966249685
+  - Item:
+    - input:
+      - shortSide: 3
+      - term: 3
+    - status: valid
+    - output: 4.854101966249685
+  - Item:
+    - input:
+      - shortSide: 3
+      - term: 5
+    - status: valid
+    - output: 4.854101966249685
+  - Item:
+    - input:
+      - shortSide: 3
+      - term: 12
+    - status: valid
+    - output: 4.854101966249685
+  - Item:
+    - input:
+      - shortSide: 0.25
+      - term: 5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shortSide: 3.25
+      - term: 5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shortSide: true
+      - term: 5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shortSide: 2
+      - term: 5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shortSide: 1
+      - term: 1.75
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shortSide: 1
+      - term: 12.25
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shortSide: 1
+      - term: true
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shortSide: 1
+      - term: 2
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - shortSide: 1
+      - term: 2.5
+    - status: invalid_parameters
+- compute: \varphi=\frac{1+\sqrt{5}}{2},\quad L=\varphi s,\quad w=L-s,\quad \frac Ls=\frac sw.
+- numeric tolerance: 5e-11
+- invariants:
+  - The short side is 0.5 to 3 metres. The positive ratio greater than one solves φ²=φ+1. Fibonacci index k is a whole number from 2 to 12, with F(1)=F(2)=1. A finite Fibonacci ratio is an approximation, not the exact golden ratio. No claim about universal beauty, nature or optimal design follows.
+  - Story, calculation, Geometry and Graph use the same evaluated state.
+  - Continuous physical quantities retain continuous shapes; whole indices and output counts retain discrete meanings.
+- limits:
+  - This is an exact Euclidean ratio defined by a quadratic equation, plus finite Fibonacci comparisons. No universal aesthetic, biological or optimality claim follows. The finite sequence does not constitute a convergence proof.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:number-insights:golden-ratio. [Wolfram MathWorld · Golden Ratio](https://mathworld.wolfram.com/GoldenRatio.html). Locator: Golden-rectangle similarity definition and equations (1), (2) and (6). Panel dimensions and finite candidate comparisons are original constructions.. Verification: Definition-level page inspected 2026-11-09. Independent mathematical/pedagogical review and exact-edition book-page verification remain pending.. Rights: Originally authored scenarios, derivations and visual encodings; no source exercise, data or artwork reproduced.

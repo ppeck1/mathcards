@@ -1,0 +1,237 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:channel-capacity:case-1", "id": "math:example:channel-capacity:case-1", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:channel-capacity", "example_id": "math:example:channel-capacity:case-1", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "18c1ed6e24364d7ca3200690c201c94ee68bf2418023983c73762ff980950aa4"}, "purpose": "How much information can one use of the noisy link carry?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "18c1ed6e24364d7ca3200690c201c94ee68bf2418023983c73762ff980950aa4", "status": "draft", "title": "A biased source on a ten-percent-flip link", "topics": ["mathematics", "information", "probability", "channel capacity: a binary symmetric link", "channel capacity"], "type": "reference", "updated": "2026-11-10T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# A biased source on a ten-percent-flip link
+
+Parent card: math:concept:channel-capacity; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:channel-capacity; revision 0.1.0-draft. Setting: A remote workshop sends a binary machine-status symbol: zero or one. Each use independently flips either symbol with probability p. A designer also chooses the long-run probability q of sending one. Change the channel or the chosen input mix, then compare the information delivered by that mix with the channel’s best possible information per use. Expression: $t=p+q(1-2p),\quad I=H_2(t)-H_2(p),\quad C=1-H_2(p)=\max_{0\le q\le1} I.$. Conditions required for a defined value (a case may test their violation): Use probabilities p and q from zero to one. The binary channel is symmetric, stationary, memoryless and known to the decoder. Entropy uses base-two logarithms and zero-probability terms have their limiting value zero. Scope: Capacity is an asymptotic coding limit in bits per channel use. It is not a promise that an individual symbol arrives correctly, a rate in bits per second, or a code constructed by this lesson. An always-flipping link is invertible when its rule is known. Printed readings approximate the analytic quantities.
+
+Case unit math:example:channel-capacity:case-1. Setting: A remote workshop sends a binary machine-status symbol: zero or one. Each use independently flips either symbol with probability p. A designer also chooses the long-run probability q of sending one. Change the channel or the chosen input mix, then compare the information delivered by that mix with the channel’s best possible information per use. Inputs: {"errorChance": 0.1, "inputChance": 0.25}. Result: {"approximate": "0.5310044064107188"}. Limits: Capacity is an asymptotic coding limit in bits per channel use. It is not a promise that an individual symbol arrives correctly, a rate in bits per second, or a code constructed by this lesson. An always-flipping link is invertible when its rule is known. Printed readings approximate the analytic quantities.
+
+## Complete worked case
+
+- id: math:example:channel-capacity:case-1
+- title: A biased source on a ten-percent-flip link
+- role: applied_model
+- question: How much information can one use of the noisy link carry?
+- setting: A remote workshop sends a binary machine-status symbol: zero or one. Each use independently flips either symbol with probability p. A designer also chooses the long-run probability q of sending one. Change the channel or the chosen input mix, then compare the information delivered by that mix with the channel’s best possible information per use.
+- assumptions:
+  - Use probabilities p and q from zero to one. The binary channel is symmetric, stationary, memoryless and known to the decoder. Entropy uses base-two logarithms and zero-probability terms have their limiting value zero.
+- inputs:
+  - errorChance: 0.1
+  - inputChance: 0.25
+- steps:
+  - Item:
+    - index: 1
+    - expression: p = 0.1; q = 0.25
+    - reason: Choose the channel probabilities.
+  - Item:
+    - index: 2
+    - expression: t=p+q(1-2p),\quad I=H_2(t)-H_2(p),\quad C=1-H_2(p)=\max_{0\le q\le1} I.
+    - reason: For this channel, the conditional output entropy is H₂(p), independent of the input symbol. The received-one probability follows by adding the two disjoint input/output routes. Thus I=H₂(t)−H₂(p). Binary output entropy is at most one bit. Choosing q=1/2 makes t=1/2, attains that bound and gives C=1−H₂(p).
+  - Item:
+    - index: 3
+    - expression: C ≈ 0.5310044064107188 bit/use
+    - reason: The channel capacity is about 0.5310 bits per use. This biased input mix supplies about 0.4123 bits per use, below that capacity.
+- result:
+  - approximate: 0.5310044064107188
+- interpretation: The channel capacity is about 0.5310 bits per use. This biased input mix supplies about 0.4123 bits per use, below that capacity.
+- independent check:
+  - method: Sum the independent joint-law information terms at high precision.
+  - expected: 0.5310044064107188
+- limits: Capacity is an asymptotic coding limit in bits per channel use. It is not a promise that an individual symbol arrives correctly, a rate in bits per second, or a code constructed by this lesson. An always-flipping link is invertible when its rule is known. Printed readings approximate the analytic quantities.
+- preset:
+  - errorChance: 0.1
+  - inputChance: 0.25
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Use probabilities p and q from zero to one. The binary channel is symmetric, stationary, memoryless and known to the decoder. Entropy uses base-two logarithms and zero-probability terms have their limiting value zero.
+
+## Written exploration recipe
+
+- component id: component:channel-capacity
+- renderer id: channel-capacity-visual-model
+- renderer version: 1
+- model id: channel-capacity-visual-model
+- model revision: 1
+- expression id: ast:channel-capacity:expression
+- interaction status: implemented
+- description: Channel capacity C is the largest mutual information per channel use among the allowed input distributions. For a memoryless binary symmetric channel with flip probability p, C=1−H₂(p) bits per use. A chosen probability q of sending one gives received-one chance t=p+q(1−2p) and mutual information I=H₂(t)−H₂(p). An equally likely input mix reaches the capacity; an uneven mix can supply less information through the same link.
+- controls:
+  - Item:
+    - id: errorChance
+    - type: number
+    - default: 0.1
+    - min: 0
+    - max: 1
+    - step: 0.01
+  - Item:
+    - id: inputChance
+    - type: number
+    - default: 0.25
+    - min: 0
+    - max: 1
+    - step: 0.01
+- expected cases:
+  - Item:
+    - input:
+      - errorChance: 0
+      - inputChance: 0
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - errorChance: 0
+      - inputChance: 0.5
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - errorChance: 0
+      - inputChance: 1
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - errorChance: 0.1
+      - inputChance: 0
+    - status: valid
+    - output: 0.5310044064107188
+  - Item:
+    - input:
+      - errorChance: 0.1
+      - inputChance: 0.5
+    - status: valid
+    - output: 0.5310044064107188
+  - Item:
+    - input:
+      - errorChance: 0.1
+      - inputChance: 1
+    - status: valid
+    - output: 0.5310044064107188
+  - Item:
+    - input:
+      - errorChance: 0.5
+      - inputChance: 0
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - errorChance: 0.5
+      - inputChance: 0.5
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - errorChance: 0.5
+      - inputChance: 1
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - errorChance: 0.9
+      - inputChance: 0
+    - status: valid
+    - output: 0.5310044064107188
+  - Item:
+    - input:
+      - errorChance: 0.9
+      - inputChance: 0.5
+    - status: valid
+    - output: 0.5310044064107188
+  - Item:
+    - input:
+      - errorChance: 0.9
+      - inputChance: 1
+    - status: valid
+    - output: 0.5310044064107188
+  - Item:
+    - input:
+      - errorChance: 1
+      - inputChance: 0
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - errorChance: 1
+      - inputChance: 0.5
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - errorChance: 1
+      - inputChance: 1
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - errorChance: 0.25
+      - inputChance: 0.25
+    - status: valid
+    - output: 0.18872187554086714
+  - Item:
+    - input:
+      - errorChance: 0.49999999
+      - inputChance: 0.5
+    - status: valid
+    - output: 2.885390081777927e-16
+  - Item:
+    - input:
+      - errorChance: 0.1
+      - inputChance: 0.25
+    - status: valid
+    - output: 0.5310044064107188
+  - Item:
+    - input:
+      - errorChance: -0.01
+      - inputChance: 0.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - errorChance: 1.01
+      - inputChance: 0.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - errorChance: true
+      - inputChance: 0.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - errorChance: 0.1
+      - inputChance: null
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - errorChance: 0.1
+      - inputChance: 0.5
+    - status: invalid_parameters
+- compute: t=p+q(1-2p),\quad I=H_2(t)-H_2(p),\quad C=1-H_2(p)=\max_{0\le q\le1} I.
+- numeric tolerance: 5e-11
+- invariants:
+  - Use probabilities p and q from zero to one. The binary channel is symmetric, stationary, memoryless and known to the decoder. Entropy uses base-two logarithms and zero-probability terms have their limiting value zero.
+  - Story, calculation and both views evaluate the same declared inputs.
+  - Information bars use one fixed zero-to-one bit-per-use scale; parity words retain ordinary position order.
+- limits:
+  - Capacity is an asymptotic coding limit in bits per channel use. It is not a promise that an individual symbol arrives correctly, a rate in bits per second, or a code constructed by this lesson. An always-flipping link is invertible when its rule is known. Printed readings approximate the analytic quantities.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:information-bridge:channel-capacity. [University of Cambridge · John Daugman, Information Theory](https://www.cl.cam.ac.uk/teaching/1516/InfoTheory/InfoTheoryNotes2015.pdf). Locator: Slides 53–54, PDF pages 53–54: binary symmetric channel capacity, equiprobable inputs maximizing mutual information, and the informative always-flipping channel. Binary entropy is defined on slide 18. Original workshop scenario and fixed-scale bars are authored for this lesson.. Verification: Definition-level source inspected 2026-11-10. Independent mathematics and teaching review and exact-edition book-page verification remain pending.. Rights: Original workshop scenarios, calculations, code-native diagrams and finite data. No source exercise, diagram or wording reproduced.

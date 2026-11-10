@@ -1,0 +1,136 @@
+{
+  "slugs": [
+    "photon-energy",
+    "time-dilation"
+  ],
+  "sources": [
+    {
+      "id": "source:physics-bridge:si-constants",
+      "title": "BIPM · The International System of Units",
+      "url": "https://www.bipm.org/en/measurement-units/",
+      "kind": "reference",
+      "locator": "SI definition: exact c=299792458 m/s, h=6.62607015×10⁻³⁴ J·s and elementary charge 1.602176634×10⁻¹⁹ C. The electronvolt conversion follows from one elementary charge through one volt.",
+      "verification": "Official defining-constant page inspected 2026-11-10. This does not verify exact-edition book coverage.",
+      "rights": "Originally authored calculations, scenarios and code-native diagrams; no source illustration or exercise reproduced."
+    },
+    {
+      "id": "source:physics-bridge:photon-energy",
+      "title": "OpenStax · University Physics Volume 3 §6.3",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/6-3-the-compton-effect",
+      "kind": "reference",
+      "locator": "Equations 6.19–6.20: E=hf=hc/λ and λf=c in vacuum. Only the monochromatic photon relation is used; scattering is not modeled.",
+      "verification": "Original textbook page inspected 2026-11-10. Independent mathematical/teaching review and exact-edition book-page checks remain open.",
+      "rights": "Originally authored light-source scenarios, calculations and diagrams; no source exercise, data or illustration reproduced."
+    },
+    {
+      "id": "source:physics-bridge:time-dilation",
+      "title": "OpenStax · University Physics Volume 3 §5.3",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/5-3-time-dilation",
+      "kind": "reference",
+      "locator": "Equation 5.2 and proper-time definition: the same two events at one position in the clock rest frame satisfy Δt=γΔτ with γ=1/sqrt(1−v²/c²).",
+      "verification": "Original textbook page inspected 2026-11-10. Independent mathematical/teaching review and exact-edition book-page checks remain open.",
+      "rights": "Originally authored clock-event scenarios and fixed-scale interval bars; no source exercise, illustration or empirical data reproduced."
+    }
+  ],
+  "bindings": {
+    "photon-energy": {
+      "λ": [
+        "wavelength",
+        "wavelengthM"
+      ],
+      "f": [
+        "frequency"
+      ],
+      "c": [
+        "lightSpeed"
+      ],
+      "h": [
+        "planck"
+      ],
+      "E_J": [
+        "energyJ"
+      ],
+      "E": [
+        "output"
+      ],
+      "u": [
+        "joulesPerEV"
+      ]
+    },
+    "time-dilation": {
+      "β": [
+        "speedFraction"
+      ],
+      "γ": [
+        "gamma"
+      ],
+      "τ": [
+        "properDuration"
+      ],
+      "t": [
+        "output",
+        "coordinateDuration"
+      ],
+      "v": [
+        "velocity"
+      ],
+      "c": [
+        "lightSpeed"
+      ],
+      "x": [
+        "displacement"
+      ]
+    }
+  },
+  "ports": {
+    "photon-energy": [
+      {
+        "id": "input:wavelength",
+        "direction": "input",
+        "key": "wavelength",
+        "label": "Vacuum wavelength λ",
+        "type": "wavelength",
+        "unit": "nm",
+        "description": "A light-source designer compares photons from ideal monochromatic emitters. Change the vacuum wavelength λ in nanometres. The wave spacing marks that physical length on a fixed ruler; the energy bar independently measures the energy carried by one photon."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Photon energy and vacuum wavelength primary result",
+        "type": "photon-energy",
+        "unit": "eV",
+        "description": "For an ideal monochromatic photon in vacuum, frequency f and wavelength λ satisfy fλ=c, and photon energy in joules is E_J=hf. The speed of light c and Planck constant h have exact SI defining values. Divide the joule reading by the exact conversion u=1.602176634×10⁻¹⁹ joules per electronvolt to obtain its electronvolt reading E. Shorter wavelength gives higher frequency and higher energy per photon; it does not by itself specify beam brightness or power."
+      }
+    ],
+    "time-dilation": [
+      {
+        "id": "input:speedFraction",
+        "direction": "input",
+        "key": "speedFraction",
+        "label": "Relative speed fraction β",
+        "type": "speed-fraction",
+        "unit": "1",
+        "description": "An ideal coasting spacecraft clock marks a start event and a finish event. Choose its proper elapsed time τ and its speed fraction β relative to a laboratory. Compare the clock interval with the laboratory coordinate interval for those same two events, using one fixed seconds ruler."
+      },
+      {
+        "id": "input:properDuration",
+        "direction": "input",
+        "key": "properDuration",
+        "label": "Clock proper interval τ",
+        "type": "proper-time-interval",
+        "unit": "s",
+        "description": "An ideal coasting spacecraft clock marks a start event and a finish event. Choose its proper elapsed time τ and its speed fraction β relative to a laboratory. Compare the clock interval with the laboratory coordinate interval for those same two events, using one fixed seconds ruler."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Time dilation between two clock events primary result",
+        "type": "coordinate-time-interval",
+        "unit": "s",
+        "description": "For two events at the same position in the rest frame of an ideal inertial clock, its proper elapsed time is τ. A laboratory inertial frame in which that clock moves with speed v assigns coordinate interval t=γτ, where β=v/c and γ=1/√(1−β²). The two events generally occupy different laboratory positions. The factor γ is at least one, and equals one when relative speed is zero."
+      }
+    ]
+  }
+}

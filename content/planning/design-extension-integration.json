@@ -1,0 +1,231 @@
+{
+  "slugs": [
+    "covariance",
+    "normal-variance-interval",
+    "normal-test-power"
+  ],
+  "sources": [
+    {
+      "id": "source:design-extensions:covariance",
+      "title": "NIST/SEMATECH · Mean Vector and Covariance Matrix",
+      "url": "https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc541.htm",
+      "kind": "reference",
+      "locator": "§6.5.4.1: sample covariance as the sum of paired centered products divided by n−1. The five board lengths, times and orthogonal residual construction are original.",
+      "verification": "Definition-level primary source inspected 2026-11-03; independent mathematical/pedagogical and exact-edition book review remain pending.",
+      "rights": "Original prose, board/time construction, worked derivations and SVG; no source example, data or illustration reproduced."
+    },
+    {
+      "id": "source:design-extensions:variance-interval",
+      "title": "NIST/SEMATECH · Chi-Square Test for the Variance",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda358.htm",
+      "kind": "reference",
+      "locator": "§1.3.5.8: variance pivot with n−1 degrees of freedom and interval limits obtained by inversion; standard-deviation limits take square roots. Independent-normal assumptions and the bounded numerical quantile implementation are stated explicitly here.",
+      "verification": "Definition-level primary source inspected 2026-11-03; the chi-square CDF reference eda3666.htm was also inspected. Independent mathematical/pedagogical and exact-edition book review remain pending.",
+      "rights": "Original calibration scenario and numerical examples; no source exercise, data, code or illustration reproduced."
+    },
+    {
+      "id": "source:design-extensions:power",
+      "title": "NIST/SEMATECH · Sample Sizes Required",
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section2/prc222.htm",
+      "kind": "reference",
+      "locator": "§7.2.2.2: predeclared alpha, beta, assumed effect and known spread in normal-test planning. This source states the one-sample planning equation. The equal-size two-group standard error and rejection-probability formula are derived here, using independence; they are not attributed as a quoted NIST two-group equation. The two-process setup in prc31.htm was inspected separately.",
+      "verification": "Definition-level primary sources inspected 2026-11-03; original two-group normal derivation and independent numerical check, with independent mathematical/pedagogical and exact-edition book review pending.",
+      "rights": "Original two-jig planning scenario, examples and figures; no source example, data or illustration reproduced."
+    }
+  ],
+  "bindings": {
+    "covariance": {
+      "c": [
+        "trend"
+      ],
+      "w": [
+        "scatter"
+      ],
+      "xᵢ": [
+        "xValues"
+      ],
+      "yᵢ": [
+        "yValues"
+      ],
+      "x̄": [
+        "meanX"
+      ],
+      "ȳ": [
+        "meanY"
+      ],
+      "pᵢ": [
+        "products"
+      ],
+      "P": [
+        "sumProducts"
+      ],
+      "n": [
+        "count"
+      ],
+      "s_xy": [
+        "output"
+      ]
+    },
+    "normal-variance-interval": {
+      "n": [
+        "sampleSize"
+      ],
+      "s": [
+        "sampleSpread"
+      ],
+      "ν": [
+        "degreesFreedom"
+      ],
+      "V": [
+        "variance"
+      ],
+      "q_L": [
+        "criticalLow"
+      ],
+      "q_U": [
+        "criticalHigh"
+      ],
+      "L": [
+        "lowerVariance"
+      ],
+      "U": [
+        "output",
+        "upperVariance"
+      ],
+      "I": [
+        "interval"
+      ],
+      "σ²": []
+    },
+    "normal-test-power": {
+      "n": [
+        "perGroup"
+      ],
+      "N": [
+        "totalCount"
+      ],
+      "δ": [
+        "effect"
+      ],
+      "σ": [
+        "sigma"
+      ],
+      "SE": [
+        "standardError"
+      ],
+      "z₀.₉₅": [
+        "criticalValue"
+      ],
+      "c": [
+        "threshold"
+      ],
+      "α": [
+        "alpha"
+      ],
+      "β": [
+        "beta"
+      ],
+      "1−β": [
+        "output"
+      ]
+    }
+  },
+  "ports": {
+    "covariance": [
+      {
+        "id": "input:trend",
+        "direction": "input",
+        "key": "trend",
+        "label": "Time trend per metre",
+        "type": "time-per-length",
+        "unit": "min/m",
+        "description": "Time trend per metre. Receiving lessons validate their own domains and measurement meanings."
+      },
+      {
+        "id": "input:scatter",
+        "direction": "input",
+        "key": "scatter",
+        "label": "Residual time scale",
+        "type": "duration",
+        "unit": "min",
+        "description": "Residual time scale. Receiving lessons validate their own domains and measurement meanings."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Sample length/time covariance",
+        "type": "sample-covariance",
+        "unit": "m.min",
+        "description": "Center each board length and finishing time on its own sample mean, multiply the paired deviations, and combine their signed products. Divide by one fewer than the number of pairs to obtain sample covariance, in metre-minutes."
+      }
+    ],
+    "normal-variance-interval": [
+      {
+        "id": "input:sampleSize",
+        "direction": "input",
+        "key": "sampleSize",
+        "label": "Independent reading count",
+        "type": "sample-size",
+        "unit": "readings",
+        "description": "Independent reading count. Receiving lessons validate their own domains and measurement meanings."
+      },
+      {
+        "id": "input:sampleSpread",
+        "direction": "input",
+        "key": "sampleSpread",
+        "label": "Observed sample standard deviation",
+        "type": "sample-standard-deviation",
+        "unit": "mm",
+        "description": "Observed sample standard deviation. Receiving lessons validate their own domains and measurement meanings."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Upper population-variance interval endpoint",
+        "type": "variance-bound",
+        "unit": "mm2",
+        "description": "Square the observed sample spread and multiply by its degrees of freedom. Divide this same numerator by the upper and lower chi-square quantiles in reverse order to obtain a confidence interval for the population variance."
+      }
+    ],
+    "normal-test-power": [
+      {
+        "id": "input:perGroup",
+        "direction": "input",
+        "key": "perGroup",
+        "label": "Independent readings per group",
+        "type": "group-sample-size",
+        "unit": "readings",
+        "description": "Independent readings per group. Receiving lessons validate their own domains and measurement meanings."
+      },
+      {
+        "id": "input:effect",
+        "direction": "input",
+        "key": "effect",
+        "label": "Assumed positive-direction mean difference",
+        "type": "mean-difference",
+        "unit": "mm",
+        "description": "Assumed positive-direction mean difference. Receiving lessons validate their own domains and measurement meanings."
+      },
+      {
+        "id": "input:sigma",
+        "direction": "input",
+        "key": "sigma",
+        "label": "Known common reading standard deviation",
+        "type": "population-standard-deviation",
+        "unit": "mm",
+        "description": "Known common reading standard deviation. Receiving lessons validate their own domains and measurement meanings."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Normal-test rejection probability",
+        "type": "test-rejection-probability",
+        "unit": "1",
+        "description": "Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift."
+      }
+    ]
+  }
+}

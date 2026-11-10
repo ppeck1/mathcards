@@ -1,0 +1,976 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:vector-projection",
+  "slug": "vector-projection",
+  "type": "concept",
+  "title": "Vector projection and its residual",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "vector projection and its residual"
+  ],
+  "branches": [
+    "linear-algebra",
+    "geometry"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "How much of a survey displacement follows the guide direction?",
+  "meaning": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual.",
+  "prerequisites": {
+    "required": [
+      "math:concept:inner-product"
+    ],
+    "helpful": [
+      "math:concept:coordinate-transformation",
+      "math:concept:spatial-cross-product"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+    "formal_latex": "c=\\frac{\\vec u\\cdot\\vec v}{\\|\\vec v\\|},\\quad\\operatorname{proj}_{\\vec v}\\vec u=\\frac{\\vec u\\cdot\\vec v}{\\vec v\\cdot\\vec v}\\vec v,\\quad\\vec r=\\vec u-\\operatorname{proj}_{\\vec v}\\vec u,\\quad\\vec r\\cdot\\vec v=0.",
+    "signature": {
+      "u_x": "Measured displacement, x component",
+      "u_y": "Measured displacement, y component",
+      "u_z": "Measured displacement, z component",
+      "v_x": "Reference direction, x component",
+      "v_y": "Reference direction, y component",
+      "v_z": "Reference direction, z component",
+      "c": "Primary model result",
+      "P_x": "First projected component",
+      "P_y": "Second projected component",
+      "P_z": "Third projected component",
+      "‖r‖": "Perpendicular residual length"
+    },
+    "conditions": [
+      "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+      "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.",
+      "All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure."
+    ],
+    "domain_notes": "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.",
+    "proof_status": "Definition-level references and original bounded derivations; independent mathematical review pending.",
+    "source_refs": [
+      "source:spatial-foundations:dot"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Vector projection and its residual",
+    "expression_latex": "c=\\frac{\\vec u\\cdot\\vec v}{\\|\\vec v\\|},\\quad\\operatorname{proj}_{\\vec v}\\vec u=\\frac{\\vec u\\cdot\\vec v}{\\vec v\\cdot\\vec v}\\vec v,\\quad\\vec r=\\vec u-\\operatorname{proj}_{\\vec v}\\vec u,\\quad\\vec r\\cdot\\vec v=0.",
+    "formation_rule": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual.",
+    "precedence": "Keep the ordered operations, declared frame and units fixed; evaluate the component operations before the magnitude.",
+    "symbols": [
+      {
+        "token": "u_x",
+        "role": "Measured displacement, x component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "u_y",
+        "role": "Measured displacement, y component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "u_z",
+        "role": "Measured displacement, z component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "v_x",
+        "role": "Reference direction, x component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "v_y",
+        "role": "Reference direction, y component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "v_z",
+        "role": "Reference direction, z component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "c",
+        "role": "Primary model result",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "P_x",
+        "role": "First projected component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "P_y",
+        "role": "Second projected component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "P_z",
+        "role": "Third projected component",
+        "type": "Declared input or computed geometric quantity"
+      },
+      {
+        "token": "‖r‖",
+        "role": "Perpendicular residual length",
+        "type": "Declared input or computed geometric quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:vector-projection:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:ux",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "u_x",
+          "scope_ref": "scope:vector-projection:expression"
+        },
+        {
+          "id": "n:uy",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "u_y",
+          "scope_ref": "scope:vector-projection:expression"
+        },
+        {
+          "id": "n:uz",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "u_z",
+          "scope_ref": "scope:vector-projection:expression"
+        },
+        {
+          "id": "n:vx",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "v_x",
+          "scope_ref": "scope:vector-projection:expression"
+        },
+        {
+          "id": "n:vy",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "v_y",
+          "scope_ref": "scope:vector-projection:expression"
+        },
+        {
+          "id": "n:vz",
+          "kind": "variable",
+          "type": "Declared bounded input",
+          "symbol": "v_z",
+          "scope_ref": "scope:vector-projection:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded vector/coordinate rule",
+          "ref": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual."
+        },
+        {
+          "id": "n:bound-ux",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:ux"
+        },
+        {
+          "id": "n:bound-uy",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-ux",
+          "argument": "n:uy"
+        },
+        {
+          "id": "n:bound-uz",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-uy",
+          "argument": "n:uz"
+        },
+        {
+          "id": "n:bound-vx",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-uz",
+          "argument": "n:vx"
+        },
+        {
+          "id": "n:bound-vy",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-vx",
+          "argument": "n:vy"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-vy",
+          "argument": "n:vz"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:vector-projection:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "u_x",
+            "u_y",
+            "u_z",
+            "v_x",
+            "v_y",
+            "v_z"
+          ],
+          "domain_condition": "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Read a projected arrow length as the exact spatial length",
+        "status": "representation error",
+        "reason": "Spatial scenes use a fixed projection. Exact model lengths come from the components and readout."
+      }
+    ],
+    "ast_coverage": "Typed application outline of this bounded family; not an arbitrary expression evaluator.",
+    "output_symbol_bindings": {
+      "u_x": "ux",
+      "u_y": "uy",
+      "u_z": "uz",
+      "v_x": "vx",
+      "v_y": "vy",
+      "v_z": "vz",
+      "c": "output",
+      "P_x": "px",
+      "P_y": "py",
+      "P_z": "pz",
+      "‖r‖": "residualNorm"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual.",
+      "conditions": "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.",
+      "derivation": "The parallel part is (1.5,1.5,0) m and the residual is (0.5,−0.5,1) m.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:vector-projection:case-1"
+    },
+    {
+      "claim": "A positive rescaling changes the reference length but not its direction or the projection.",
+      "conditions": "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+      "derivation": "2.1213203436 m",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:vector-projection:case-2"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:inner-product",
+      "type": "supports",
+      "conditions": "Use each lesson with its own frame, units and domain.",
+      "reason": "The dot product measures signed alignment.",
+      "target_status": "available",
+      "evidence_status": "definition-level relationship; original explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:coordinate-transformation",
+      "type": "supports",
+      "conditions": "Use each lesson with its own frame, units and domain.",
+      "reason": "Coordinates in an orthonormal frame are scalar projections onto its unit directions.",
+      "target_status": "available",
+      "evidence_status": "definition-level relationship; original explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:spatial-cross-product",
+      "type": "supports",
+      "conditions": "Use each lesson with its own frame, units and domain.",
+      "reason": "Projection resolves along a direction, while the cross product supplies a perpendicular normal.",
+      "target_status": "available",
+      "evidence_status": "definition-level relationship; original explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:vector-projection:case-1",
+      "title": "Resolve the original survey displacement",
+      "role": "applied_model",
+      "question": "How much of a survey displacement follows the guide direction?",
+      "setting": "A survey displacement has three components. A guide direction tells us which part counts as along-guide travel. Normalize that direction, take the signed component, then compare the parallel arrow with the perpendicular residual that completes the displacement.",
+      "assumptions": [
+        "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+        "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement."
+      ],
+      "inputs": {
+        "ux": 2,
+        "uy": 1,
+        "uz": 1,
+        "vx": 1,
+        "vy": 1,
+        "vz": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "u_x = 2; u_y = 1; u_z = 1; v_x = 1; v_y = 1; v_z = 0",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "c = (u · v)/‖v‖; projᵥu = (u · v)/(v · v) v",
+          "reason": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual."
+        },
+        {
+          "index": 3,
+          "expression": "2.1213203436 m",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "2.1213203436 m"
+      },
+      "interpretation": "The parallel part is (1.5,1.5,0) m and the residual is (0.5,−0.5,1) m.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 2.1213203435596424}"
+      },
+      "limits": "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.",
+      "preset": {
+        "ux": 2,
+        "uy": 1,
+        "uz": 1,
+        "vx": 1,
+        "vy": 1,
+        "vz": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+        "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement."
+      ]
+    },
+    {
+      "id": "math:example:vector-projection:case-2",
+      "title": "Rescale the guide vector",
+      "role": "applied_model",
+      "question": "How much of a survey displacement follows the guide direction?",
+      "setting": "A survey displacement has three components. A guide direction tells us which part counts as along-guide travel. Normalize that direction, take the signed component, then compare the parallel arrow with the perpendicular residual that completes the displacement.",
+      "assumptions": [
+        "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+        "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement."
+      ],
+      "inputs": {
+        "ux": 2,
+        "uy": 1,
+        "uz": 1,
+        "vx": 2,
+        "vy": 2,
+        "vz": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "u_x = 2; u_y = 1; u_z = 1; v_x = 2; v_y = 2; v_z = 0",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "c = (u · v)/‖v‖; projᵥu = (u · v)/(v · v) v",
+          "reason": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual."
+        },
+        {
+          "index": 3,
+          "expression": "2.1213203436 m",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "2.1213203436 m"
+      },
+      "interpretation": "A positive rescaling changes the reference length but not its direction or the projection.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 2.1213203435596424}"
+      },
+      "limits": "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.",
+      "preset": {
+        "ux": 2,
+        "uy": 1,
+        "uz": 1,
+        "vx": 2,
+        "vy": 2,
+        "vz": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+        "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement."
+      ]
+    },
+    {
+      "id": "math:example:vector-projection:case-3",
+      "title": "Reverse the guide direction",
+      "role": "applied_model",
+      "question": "How much of a survey displacement follows the guide direction?",
+      "setting": "A survey displacement has three components. A guide direction tells us which part counts as along-guide travel. Normalize that direction, take the signed component, then compare the parallel arrow with the perpendicular residual that completes the displacement.",
+      "assumptions": [
+        "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+        "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement."
+      ],
+      "inputs": {
+        "ux": 2,
+        "uy": 1,
+        "uz": 1,
+        "vx": -1,
+        "vy": -1,
+        "vz": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "u_x = 2; u_y = 1; u_z = 1; v_x = -1; v_y = -1; v_z = 0",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "c = (u · v)/‖v‖; projᵥu = (u · v)/(v · v) v",
+          "reason": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual."
+        },
+        {
+          "index": 3,
+          "expression": "-2.1213203436 m",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "-2.1213203436 m"
+      },
+      "interpretation": "The signed scalar component reverses, while the projection vector remains the same.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": -2.1213203435596424}"
+      },
+      "limits": "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.",
+      "preset": {
+        "ux": 2,
+        "uy": 1,
+        "uz": 1,
+        "vx": -1,
+        "vy": -1,
+        "vz": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+        "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement."
+      ]
+    },
+    {
+      "id": "math:example:vector-projection:case-4",
+      "title": "Choose a perpendicular displacement",
+      "role": "applied_model",
+      "question": "How much of a survey displacement follows the guide direction?",
+      "setting": "A survey displacement has three components. A guide direction tells us which part counts as along-guide travel. Normalize that direction, take the signed component, then compare the parallel arrow with the perpendicular residual that completes the displacement.",
+      "assumptions": [
+        "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+        "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement."
+      ],
+      "inputs": {
+        "ux": 1,
+        "uy": -1,
+        "uz": 0,
+        "vx": 1,
+        "vy": 1,
+        "vz": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "u_x = 1; u_y = -1; u_z = 0; v_x = 1; v_y = 1; v_z = 0",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "c = (u · v)/‖v‖; projᵥu = (u · v)/(v · v) v",
+          "reason": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual."
+        },
+        {
+          "index": 3,
+          "expression": "0.0 m",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "approximate": "0.0 m"
+      },
+      "interpretation": "The parallel part is zero, and the entire displacement is residual.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 0.0}"
+      },
+      "limits": "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.",
+      "preset": {
+        "ux": 1,
+        "uy": -1,
+        "uz": 0,
+        "vx": 1,
+        "vy": 1,
+        "vz": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+        "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement."
+      ]
+    },
+    {
+      "id": "math:example:vector-projection:case-5",
+      "title": "Try to use a zero guide",
+      "role": "applied_model",
+      "question": "How much of a survey displacement follows the guide direction?",
+      "setting": "A survey displacement has three components. A guide direction tells us which part counts as along-guide travel. Normalize that direction, take the signed component, then compare the parallel arrow with the perpendicular residual that completes the displacement.",
+      "assumptions": [
+        "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+        "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement."
+      ],
+      "inputs": {
+        "ux": 2,
+        "uy": 1,
+        "uz": 1,
+        "vx": 0,
+        "vy": 0,
+        "vz": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "u_x = 2; u_y = 1; u_z = 1; v_x = 0; v_y = 0; v_z = 0",
+          "reason": "Set these original constructed inputs in the declared frame."
+        },
+        {
+          "index": 2,
+          "expression": "c = (u · v)/‖v‖; projᵥu = (u · v)/(v · v) v",
+          "reason": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual."
+        },
+        {
+          "index": 3,
+          "expression": "Undefined: choose a nonzero reference direction.",
+          "reason": "Evaluate the bounded family before rounding its displayed values."
+        }
+      ],
+      "result": {
+        "exact": "Undefined: choose a nonzero reference direction."
+      },
+      "interpretation": "The result is undefined because a zero vector does not select a direction.",
+      "independent_check": {
+        "method": "Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.",
+        "expected": "{\"status\": \"undefined_direction\"}"
+      },
+      "limits": "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.",
+      "preset": {
+        "ux": 2,
+        "uy": 1,
+        "uz": 1,
+        "vx": 0,
+        "vy": 0,
+        "vz": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+        "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:vector-projection",
+    "renderer_id": "vector-projection-visual-model",
+    "renderer_version": "1",
+    "model_id": "vector-projection-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:vector-projection:expression",
+    "interaction_status": "implemented",
+    "description": "A survey displacement has three components. A guide direction tells us which part counts as along-guide travel. Normalize that direction, take the signed component, then compare the parallel arrow with the perpendicular residual that completes the displacement.",
+    "controls": [
+      {
+        "id": "ux",
+        "type": "number",
+        "default": 2,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "uy",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "uz",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "vx",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "vy",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "vz",
+        "type": "number",
+        "default": 0,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": 1,
+          "vz": 0
+        },
+        "status": "valid",
+        "output": 2.1213203435596424
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 2,
+          "vy": 2,
+          "vz": 0
+        },
+        "status": "valid",
+        "output": 2.1213203435596424
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": -1,
+          "vy": -1,
+          "vz": 0
+        },
+        "status": "valid",
+        "output": -2.1213203435596424
+      },
+      {
+        "input": {
+          "ux": 1,
+          "uy": -1,
+          "uz": 0,
+          "vx": 1,
+          "vy": 1,
+          "vz": 0
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 0,
+          "vy": 0,
+          "vz": 0
+        },
+        "status": "undefined_direction"
+      },
+      {
+        "input": {
+          "ux": -2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": 1,
+          "vz": 0
+        },
+        "status": "valid",
+        "output": -0.7071067811865476
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": -2,
+          "uz": 1,
+          "vx": 1,
+          "vy": 1,
+          "vz": 0
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 2,
+          "uz": 1,
+          "vx": 1,
+          "vy": 1,
+          "vz": 0
+        },
+        "status": "valid",
+        "output": 2.8284271247461903
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": -2,
+          "vx": 1,
+          "vy": 1,
+          "vz": 0
+        },
+        "status": "valid",
+        "output": 2.1213203435596424
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 2,
+          "vx": 1,
+          "vy": 1,
+          "vz": 0
+        },
+        "status": "valid",
+        "output": 2.1213203435596424
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": -2,
+          "vy": 1,
+          "vz": 0
+        },
+        "status": "valid",
+        "output": -1.3416407864998738
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 2,
+          "vy": 1,
+          "vz": 0
+        },
+        "status": "valid",
+        "output": 2.23606797749979
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": -2,
+          "vz": 0
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": 2,
+          "vz": 0
+        },
+        "status": "valid",
+        "output": 1.7888543819998317
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": 1,
+          "vz": -2
+        },
+        "status": "valid",
+        "output": 0.408248290463863
+      },
+      {
+        "input": {
+          "ux": 2,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": 1,
+          "vz": 2
+        },
+        "status": "valid",
+        "output": 2.041241452319315
+      },
+      {
+        "input": {
+          "ux": 3,
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": 1,
+          "vz": 0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "ux": "2",
+          "uy": 1,
+          "uz": 1,
+          "vx": 1,
+          "vy": 1,
+          "vz": 0
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "A survey displacement is resolved along a chosen nonzero reference direction. Keep the parallel part separate from the perpendicular residual.",
+      "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.",
+      "All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure."
+    ],
+    "limits": [
+      "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How much of a survey displacement follows the guide direction?",
+      "answer": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual."
+    },
+    {
+      "prompt": "What must stay fixed to interpret this display?",
+      "answer": "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "A survey displacement has three components. A guide direction tells us which part counts as along-guide travel. Normalize that direction, take the signed component, then compare the parallel arrow with the perpendicular residual that completes the displacement."
+    },
+    {
+      "kind": "graph",
+      "description": "Hold other inputs fixed and plot actual components and the primary result against Measured displacement, x component."
+    },
+    {
+      "kind": "substitution",
+      "description": "The three calculation rows expose input, intermediate operation and result from the same evaluated state."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Resolve the original survey displacement",
+      "mapping": "The parallel part is (1.5,1.5,0) m and the residual is (0.5,−0.5,1) m.",
+      "limitations": "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:vector-projection:case-1"
+    },
+    {
+      "context": "Rescale the guide vector",
+      "mapping": "A positive rescaling changes the reference length but not its direction or the projection.",
+      "limitations": "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:vector-projection:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:spatial-foundations:dot"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "Continuation of 0.34.0 branch: original connected spatial/coordinate/mechanics family, two distinct views and independent references."
+  ]
+}

@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:joint-distribution", "id": "math:concept:joint-distribution", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:joint-distribution", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a541497a6cece59e98845d0c3bb5b77ca6616a969976e85c07806797dddd7b92"}, "purpose": "Read book presence and a lamp together, then connect the four joint masses to row and column marginals.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a541497a6cece59e98845d0c3bb5b77ca6616a969976e85c07806797dddd7b92", "status": "draft", "title": "Joint probability distributions", "topics": ["mathematics", "probability", "information", "joint distribution", "joint probability mass function", "joint PMF", "bivariate discrete distribution"], "type": "reference", "updated": "2026-11-01T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:joint-distribution", "id": "math:concept:joint-distribution", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:joint-distribution", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a541497a6cece59e98845d0c3bb5b77ca6616a969976e85c07806797dddd7b92"}, "purpose": "Read book presence and a lamp together, then connect the four joint masses to row and column marginals.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a541497a6cece59e98845d0c3bb5b77ca6616a969976e85c07806797dddd7b92", "status": "draft", "title": "Joint probability distributions", "topics": ["mathematics", "probability", "information", "joint distribution", "joint probability mass function", "joint PMF", "bivariate discrete distribution"], "type": "reference", "updated": "2026-11-01T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Joint probability distributions
@@ -272,7 +272,7 @@ A joint distribution assigns probabilities to pairs of random-variable values. S
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -288,6 +288,7 @@ A joint distribution assigns probabilities to pairs of random-variable values. S
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:conditional-probability
   - type: supports
@@ -296,6 +297,7 @@ A joint distribution assigns probabilities to pairs of random-variable values. S
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:conditional-entropy
   - type: supports
@@ -304,6 +306,7 @@ A joint distribution assigns probabilities to pairs of random-variable values. S
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:mutual-information
   - type: supports
@@ -312,6 +315,7 @@ A joint distribution assigns probabilities to pairs of random-variable values. S
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -352,6 +356,7 @@ A joint distribution assigns probabilities to pairs of random-variable values. S
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The prior book probability q=P(X=1) and symmetric flip probability e lie in [0,1]. The same channel rule gives P(Y≠X|X=x)=e for each possible input value x; a row with zero prior mass still has a specified channel rule.
     - The joint masses are p₀₀=(1−q)(1−e), p₀₁=(1−q)e, p₁₀=qe and p₁₁=q(1−e). The first index belongs to X and the second to Y. All four masses are nonnegative and add to one.
@@ -392,6 +397,7 @@ A joint distribution assigns probabilities to pairs of random-variable values. S
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The prior book probability q=P(X=1) and symmetric flip probability e lie in [0,1]. The same channel rule gives P(Y≠X|X=x)=e for each possible input value x; a row with zero prior mass still has a specified channel rule.
     - The joint masses are p₀₀=(1−q)(1−e), p₀₁=(1−q)e, p₁₀=qe and p₁₁=q(1−e). The first index belongs to X and the second to Y. All four masses are nonnegative and add to one.
@@ -432,6 +438,7 @@ A joint distribution assigns probabilities to pairs of random-variable values. S
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The prior book probability q=P(X=1) and symmetric flip probability e lie in [0,1]. The same channel rule gives P(Y≠X|X=x)=e for each possible input value x; a row with zero prior mass still has a specified channel rule.
     - The joint masses are p₀₀=(1−q)(1−e), p₀₁=(1−q)e, p₁₀=qe and p₁₁=q(1−e). The first index belongs to X and the second to Y. All four masses are nonnegative and add to one.
@@ -472,6 +479,7 @@ A joint distribution assigns probabilities to pairs of random-variable values. S
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The prior book probability q=P(X=1) and symmetric flip probability e lie in [0,1]. The same channel rule gives P(Y≠X|X=x)=e for each possible input value x; a row with zero prior mass still has a specified channel rule.
     - The joint masses are p₀₀=(1−q)(1−e), p₀₁=(1−q)e, p₁₀=qe and p₁₁=q(1−e). The first index belongs to X and the second to Y. All four masses are nonnegative and add to one.
@@ -512,6 +520,7 @@ A joint distribution assigns probabilities to pairs of random-variable values. S
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The prior book probability q=P(X=1) and symmetric flip probability e lie in [0,1]. The same channel rule gives P(Y≠X|X=x)=e for each possible input value x; a row with zero prior mass still has a specified channel rule.
     - The joint masses are p₀₀=(1−q)(1−e), p₀₁=(1−q)e, p₁₀=qe and p₁₁=q(1−e). The first index belongs to X and the second to Y. All four masses are nonnegative and add to one.

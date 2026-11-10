@@ -1,0 +1,216 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:neural-summation:case-3", "id": "math:example:neural-summation:case-3", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:neural-summation", "example_id": "math:example:neural-summation:case-3", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "f88d2854db7fd806587f1c8a0b80f52e4adaf5f5dac159fb9f1f2855fee5b6c7"}, "purpose": "How can one channel add drive while another subtracts it?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "f88d2854db7fd806587f1c8a0b80f52e4adaf5f5dac159fb9f1f2855fee5b6c7", "status": "draft", "title": "Equal raw readings do not cancel", "topics": ["mathematics", "computational-neuroscience", "linear-algebra", "modeling", "Excitation and inhibition: a signed sum", "neural summation"], "type": "reference", "updated": "2026-11-10T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Equal raw readings do not cancel
+
+Parent card: math:concept:neural-summation; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:neural-summation; revision 0.1.0-draft. Setting: A workshop robot demonstrator combines an approach signal e with a braking signal i. Both readings use a zero-to-one scale. The approach channel counts twice, while the braking channel subtracts once. Change either signal and follow its colored contribution into the same net drive. This is a constructed artificial-unit demonstration. Expression: $a=2,\quad b=1,\quad E=ae,\quad I=bi,\quad y=E-I.$. Conditions required for a defined value (a case may test their violation): Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1. Scope: This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations.
+
+Case unit math:example:neural-summation:case-3. Setting: A workshop robot demonstrator combines an approach signal e with a braking signal i. Both readings use a zero-to-one scale. The approach channel counts twice, while the braking channel subtracts once. Change either signal and follow its colored contribution into the same net drive. This is a constructed artificial-unit demonstration. Inputs: {"excitation": 1, "inhibition": 1}. Result: {"approximate": "1.0"}. Limits: This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations.
+
+## Complete worked case
+
+- id: math:example:neural-summation:case-3
+- title: Equal raw readings do not cancel
+- role: applied_model
+- question: How can one channel add drive while another subtracts it?
+- setting: A workshop robot demonstrator combines an approach signal e with a braking signal i. Both readings use a zero-to-one scale. The approach channel counts twice, while the braking channel subtracts once. Change either signal and follow its colored contribution into the same net drive. This is a constructed artificial-unit demonstration.
+- assumptions:
+  - Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1.
+- inputs:
+  - excitation: 1
+  - inhibition: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: e = 1; i = 1
+    - reason: Choose the dimensionless channel signals and read the fixed gains from the model.
+  - Item:
+    - index: 2
+    - expression: a=2,\quad b=1,\quad E=ae,\quad I=bi,\quad y=E-I.
+    - reason: Use the two-component input vector with weights two and minus one. Its inner product is 2e−i. Increasing e by a change d raises y by 2d; increasing i by d lowers y by d. The output is zero exactly when i=2e. If e=i, the net drive equals e, so equal positive inputs do not cancel.
+  - Item:
+    - index: 3
+    - expression: y ≈ 1.0
+    - reason: The two raw readings are equal, but their gains are not. The net drive is two minus one, equal to one.
+- result:
+  - approximate: 1.0
+- interpretation: The two raw readings are equal, but their gains are not. The net drive is two minus one, equal to one.
+- independent check:
+  - method: An independent Python reference forms exact rational signed products from the entered decimal values, then sums them before converting to a numerical reading.
+  - expected: 1.0
+- limits: This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations.
+- preset:
+  - excitation: 1
+  - inhibition: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1.
+
+## Written exploration recipe
+
+- component id: component:neural-summation
+- renderer id: neural-summation-visual-model
+- renderer version: 1
+- model id: neural-summation-visual-model
+- model revision: 1
+- expression id: ast:neural-summation:expression
+- interaction status: implemented
+- description: A linear artificial unit combines signed weighted inputs. Here the approach input e has a fixed positive gain a=2 and the braking input i has a fixed subtractive gain b=1. Their nonnegative drive magnitudes are E=ae and I=bi, and the signed net drive is y=E−I. Equal raw inputs do not cancel because their gains differ.
+- controls:
+  - Item:
+    - id: excitation
+    - type: number
+    - default: 0.6
+    - min: 0
+    - max: 1
+    - step: 0.025
+  - Item:
+    - id: inhibition
+    - type: number
+    - default: 0.4
+    - min: 0
+    - max: 1
+    - step: 0.025
+- expected cases:
+  - Item:
+    - input:
+      - excitation: 0.6
+      - inhibition: 0.4
+    - status: valid
+    - output: 0.8
+  - Item:
+    - input:
+      - excitation: 0
+      - inhibition: 0
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - excitation: 1
+      - inhibition: 0
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - excitation: 0
+      - inhibition: 1
+    - status: valid
+    - output: -1.0
+  - Item:
+    - input:
+      - excitation: 1
+      - inhibition: 1
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - excitation: 0.5
+      - inhibition: 1
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - excitation: 0.25
+      - inhibition: 0.5
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - excitation: 0.8
+      - inhibition: 0.2
+    - status: valid
+    - output: 1.4
+  - Item:
+    - input:
+      - excitation: 0.2
+      - inhibition: 0.8
+    - status: valid
+    - output: -0.4
+  - Item:
+    - input:
+      - excitation: 0
+      - inhibition: 0.4
+    - status: valid
+    - output: -0.4
+  - Item:
+    - input:
+      - excitation: 0.6
+      - inhibition: 0
+    - status: valid
+    - output: 1.2
+  - Item:
+    - input:
+      - excitation: 0.1
+      - inhibition: 0.2
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - excitation: -0.01
+      - inhibition: 0.4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - excitation: 1.01
+      - inhibition: 0.4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - excitation: true
+      - inhibition: 0.4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - excitation: null
+      - inhibition: 0.4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - excitation: 0.6
+      - inhibition: -0.01
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - excitation: 0.6
+      - inhibition: 1.01
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - excitation: 0.6
+      - inhibition: true
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - excitation: 0.6
+      - inhibition: null
+    - status: invalid_parameters
+- compute: a=2,\quad b=1,\quad E=ae,\quad I=bi,\quad y=E-I.
+- numeric tolerance: 5e-11
+- invariants:
+  - Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1.
+  - Story, calculation, Geometry and Graph evaluate the same parameters.
+  - A fixed signed scale preserves positive and negative contributions.
+- limits:
+  - This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:neural-bridge:neural-summation. [Dive into Deep Learning · Linear Regression as a Neural Network](https://d2l.ai/chapter_linear-regression/linear-regression.html). Locator: Section 3.1.4 and equation 3.1.2 introduce a single computed unit as a weighted input sum. Section 3.1.4.1 discusses positive/negative input effects. The fixed two-channel arithmetic, robot scenario and diagrams are original; no source exercise or biological fit is reproduced.. Verification: Definition-level author source inspected 2026-11-10. Independent mathematical, biological and teaching review and exact-edition book-page verification remain pending.. Rights: Original workshop scenario, arithmetic, diagrams and worked examples. No source exercise, figure, recorded data or substantial text reproduced.

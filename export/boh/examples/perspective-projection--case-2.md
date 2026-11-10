@@ -1,0 +1,287 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:perspective-projection:case-2", "id": "math:example:perspective-projection:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:perspective-projection", "example_id": "math:example:perspective-projection:case-2", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "76cb90a41cef26d0439aa4da8240f36cf7016026db6cf8978ba807c198e45e11"}, "purpose": "Why does the same display marker look smaller farther away?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "76cb90a41cef26d0439aa4da8240f36cf7016026db6cf8978ba807c198e45e11", "status": "draft", "title": "Double the distance", "topics": ["mathematics", "geometry", "modeling", "pinhole perspective projection", "perspective projection"], "type": "reference", "updated": "2026-11-09T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Double the distance
+
+Parent card: math:concept:perspective-projection; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:perspective-projection; revision 0.1.0-draft. Setting: A photographer moves a straight display marker away from a pinhole. Its real width W stays measured in metres; its projection onto a fixed virtual image plane shrinks as depth z increases. Expression: $w=\frac{fW}{z},\qquad m=\frac{f}{z}.$. Conditions required for a defined value (a case may test their violation): The marker is centered, straight and parallel to the image plane. Use depth 2–10 m, real width 1–4 m and virtual image-plane distance 0.5–1.5 m, so the marker always lies beyond the plane. This point-pinhole model has no lens, finite aperture, sensor bounds or pixel calibration. Scope: Depth is 2–10 metres, marker width 1–4 metres and virtual image-plane distance 0.5–1.5 metres. Depth always exceeds the image-plane distance. This ideal point-pinhole construction uses a virtual plane in front of the pinhole; a physical rear image is inverted with the same width. The marker is parallel to the image plane and centered on the optical axis. Lens blur, pixels, distortion and field-of-view clipping are outside the model. Both scene directions share the same metre scale.
+
+Case unit math:example:perspective-projection:case-2. Setting: A photographer moves a straight display marker away from a pinhole. Its real width W stays measured in metres; its projection onto a fixed virtual image plane shrinks as depth z increases. Inputs: {"depth": 8, "focal": 1, "width": 2}. Result: {"approximate": "0.25"}. Limits: Depth is 2–10 metres, marker width 1–4 metres and virtual image-plane distance 0.5–1.5 metres. Depth always exceeds the image-plane distance. This ideal point-pinhole construction uses a virtual plane in front of the pinhole; a physical rear image is inverted with the same width. The marker is parallel to the image plane and centered on the optical axis. Lens blur, pixels, distortion and field-of-view clipping are outside the model. Both scene directions share the same metre scale.
+
+## Complete worked case
+
+- id: math:example:perspective-projection:case-2
+- title: Double the distance
+- role: applied_model
+- question: Why does the same display marker look smaller farther away?
+- setting: A photographer moves a straight display marker away from a pinhole. Its real width W stays measured in metres; its projection onto a fixed virtual image plane shrinks as depth z increases.
+- assumptions:
+  - The marker is centered, straight and parallel to the image plane. Use depth 2–10 m, real width 1–4 m and virtual image-plane distance 0.5–1.5 m, so the marker always lies beyond the plane. This point-pinhole model has no lens, finite aperture, sensor bounds or pixel calibration.
+- inputs:
+  - depth: 8
+  - width: 2
+  - focal: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: z = 8; W = 2; f = 1
+    - reason: Choose the stated counts, category and measurements.
+  - Item:
+    - index: 2
+    - expression: w=\frac{fW}{z},\qquad m=\frac{f}{z}.
+    - reason: The ray from the pinhole to either endpoint intersects the virtual plane at the fraction f/z of its full depth. Its sideways displacement scales by the same factor. Subtract the two projected endpoint coordinates, f(W/2)/z and −f(W/2)/z, to obtain fW/z. Doubling depth halves this image width while leaving the real marker unchanged.
+  - Item:
+    - index: 3
+    - expression: w ≈ 0.25 m
+    - reason: Doubling depth from four to eight metres halves image width from 0.5 to 0.25 m without changing the marker.
+- result:
+  - approximate: 0.25
+- interpretation: Doubling depth from four to eight metres halves image width from 0.5 to 0.25 m without changing the marker.
+- independent check:
+  - method: Intersect two rational parametric endpoint rays with the plane z=f and subtract the resulting image coordinates.
+  - expected: 0.25
+- limits: Depth is 2–10 metres, marker width 1–4 metres and virtual image-plane distance 0.5–1.5 metres. Depth always exceeds the image-plane distance. This ideal point-pinhole construction uses a virtual plane in front of the pinhole; a physical rear image is inverted with the same width. The marker is parallel to the image plane and centered on the optical axis. Lens blur, pixels, distortion and field-of-view clipping are outside the model. Both scene directions share the same metre scale.
+- preset:
+  - depth: 8
+  - width: 2
+  - focal: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - The marker is centered, straight and parallel to the image plane. Use depth 2–10 m, real width 1–4 m and virtual image-plane distance 0.5–1.5 m, so the marker always lies beyond the plane. This point-pinhole model has no lens, finite aperture, sensor bounds or pixel calibration.
+
+## Written exploration recipe
+
+- component id: component:perspective-projection
+- renderer id: perspective-projection-visual-model
+- renderer version: 1
+- model id: perspective-projection-visual-model
+- model revision: 1
+- expression id: ast:perspective-projection:expression
+- interaction status: implemented
+- description: In an ideal pinhole camera, a point at sideways coordinate X and positive depth z maps to virtual-image coordinate x=fX/z. A centered marker of real width W therefore has image width w=fW/z. Magnification m=f/z is dimensionless. Real dimensions remain fixed when depth changes; the changing projection is a measured image length rather than a shrinking object.
+- controls:
+  - Item:
+    - id: depth
+    - type: number
+    - default: 4
+    - min: 2
+    - max: 10
+    - step: 0.05
+  - Item:
+    - id: width
+    - type: number
+    - default: 2
+    - min: 1
+    - max: 4
+    - step: 0.05
+  - Item:
+    - id: focal
+    - type: number
+    - default: 1
+    - min: 0.5
+    - max: 1.5
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - depth: 2
+      - width: 1
+      - focal: 0.5
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - depth: 2
+      - width: 4
+      - focal: 1.5
+    - status: valid
+    - output: 3.0
+  - Item:
+    - input:
+      - depth: 10
+      - width: 1
+      - focal: 0.5
+    - status: valid
+    - output: 0.05
+  - Item:
+    - input:
+      - depth: 10
+      - width: 4
+      - focal: 1.5
+    - status: valid
+    - output: 0.6
+  - Item:
+    - input:
+      - depth: 4
+      - width: 2
+      - focal: 1
+    - status: valid
+    - output: 0.5
+  - Item:
+    - input:
+      - depth: 8
+      - width: 2
+      - focal: 1
+    - status: valid
+    - output: 0.25
+  - Item:
+    - input:
+      - depth: 4
+      - width: 4
+      - focal: 1
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - depth: 4
+      - width: 2
+      - focal: 1.5
+    - status: valid
+    - output: 0.75
+  - Item:
+    - input:
+      - depth: 3.25
+      - width: 1.25
+      - focal: 0.75
+    - status: valid
+    - output: 0.28846153846153844
+  - Item:
+    - input:
+      - depth: 9.75
+      - width: 3.75
+      - focal: 1.25
+    - status: valid
+    - output: 0.4807692307692308
+  - Item:
+    - input:
+      - depth: 2.05
+      - width: 2
+      - focal: 0.55
+    - status: valid
+    - output: 0.5365853658536586
+  - Item:
+    - input:
+      - depth: 6
+      - width: 3
+      - focal: 1
+    - status: valid
+    - output: 0.5
+  - Item:
+    - input:
+      - depth: 1.9
+      - width: 2
+      - focal: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: 10.1
+      - width: 2
+      - focal: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: true
+      - width: 2
+      - focal: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: null
+      - width: 2
+      - focal: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: 1
+      - width: 2
+      - focal: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: 4
+      - width: 0.9
+      - focal: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: 4
+      - width: 4.1
+      - focal: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: 4
+      - width: true
+      - focal: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: 4
+      - width: null
+      - focal: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: 4
+      - width: 1
+      - focal: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: 4
+      - width: 2
+      - focal: 0.4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: 4
+      - width: 2
+      - focal: 1.6
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: 4
+      - width: 2
+      - focal: true
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: 4
+      - width: 2
+      - focal: null
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - depth: 4
+      - width: 2
+      - focal: 1
+    - status: invalid_parameters
+- compute: w=\frac{fW}{z},\qquad m=\frac{f}{z}.
+- numeric tolerance: 5e-11
+- invariants:
+  - The marker is centered, straight and parallel to the image plane. Use depth 2–10 m, real width 1–4 m and virtual image-plane distance 0.5–1.5 m, so the marker always lies beyond the plane. This point-pinhole model has no lens, finite aperture, sensor bounds or pixel calibration.
+  - Story, formula, measured Geometry and Graph use the same evaluated state.
+  - Categorical and integer choices stay discrete; physical lengths may change continuously.
+- limits:
+  - Depth is 2–10 metres, marker width 1–4 metres and virtual image-plane distance 0.5–1.5 metres. Depth always exceeds the image-plane distance. This ideal point-pinhole construction uses a virtual plane in front of the pinhole; a physical rear image is inverted with the same width. The marker is parallel to the image plane and centered on the optical axis. Lens blur, pixels, distortion and field-of-view clipping are outside the model. Both scene directions share the same metre scale.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:spatial-insights:camera. [Stanford CS231A · Camera Models, Kenji Hata and Silvio Savarese](https://web.stanford.edu/class/cs231a/course_notes/01-camera-models.pdf). Locator: Section 2, pages 2–3, equation (1): virtual image plane and pinhole coordinates (fx/z, fy/z). The marker endpoints and width calculation are original applications.. Verification: Definition-level source inspected 2026-11-09. Independent mathematics and teaching review and exact-edition book-page verification remain pending.. Rights: Originally authored display, floor, camera and bead-cell examples and drawings. No source exercise, image or dataset reproduced.

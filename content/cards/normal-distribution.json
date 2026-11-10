@@ -1,0 +1,820 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:normal-distribution",
+  "slug": "normal-distribution",
+  "type": "concept",
+  "title": "Normal distribution: height and area",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "normal distribution: height and area"
+  ],
+  "branches": [
+    "probability",
+    "statistics"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "How much of a cutting-error model lies below a chosen tolerance?",
+  "meaning": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.",
+  "prerequisites": {
+    "required": [
+      "math:concept:probability-distribution"
+    ],
+    "helpful": [
+      "math:concept:variance",
+      "math:concept:integral-accumulation",
+      "math:concept:sampling-distribution"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A workshop measures signed cutting errors in millimetres around a target length. Its chosen model has mean error μ and standard deviation σ. Slide a tolerance x across the density, then follow the standardized distance z into the area below x.",
+    "formal_latex": "z=\\frac{x-\\mu}{\\sigma},\\quad f(x)=\\frac{\\exp(-(x-\\mu)^2/(2\\sigma^2))}{\\sigma\\sqrt{2\\pi}},\\quad F(x)=\\Phi(z).",
+    "signature": {
+      "x": "Signed error threshold in mm",
+      "μ": "Mean of the declared normal error model in mm",
+      "σ": "Positive standard deviation of the declared model in mm",
+      "z": "Standardized threshold in standard-deviation units",
+      "f(x)": "Probability density height per mm at the threshold",
+      "F(x)": "Cumulative probability of an error at or below the threshold",
+      "Φ(z)": "Standard normal cumulative probability"
+    },
+    "conditions": [
+      "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+    ],
+    "domain_notes": "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.",
+    "proof_status": "Definition-level sources and original bounded calculations; independent mathematical review pending.",
+    "source_refs": [
+      "source:distribution-extensions:normal",
+      "source:distribution-extensions:quadrature"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Normal distribution: height and area",
+    "expression_latex": "z=\\frac{x-\\mu}{\\sigma},\\quad f(x)=\\frac{\\exp(-(x-\\mu)^2/(2\\sigma^2))}{\\sigma\\sqrt{2\\pi}},\\quad F(x)=\\Phi(z).",
+    "formation_rule": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.",
+    "precedence": "Evaluate paired differences or standardized products before cumulative probability; retain units and the stated probability model.",
+    "symbols": [
+      {
+        "token": "x",
+        "role": "Signed error threshold in mm",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "μ",
+        "role": "Mean of the declared normal error model in mm",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "σ",
+        "role": "Positive standard deviation of the declared model in mm",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "z",
+        "role": "Standardized threshold in standard-deviation units",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "f(x)",
+        "role": "Probability density height per mm at the threshold",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "F(x)",
+        "role": "Cumulative probability of an error at or below the threshold",
+        "type": "Declared mathematical quantity or bound index"
+      },
+      {
+        "token": "Φ(z)",
+        "role": "Standard normal cumulative probability",
+        "type": "Declared mathematical quantity or bound index"
+      }
+    ],
+    "ast": {
+      "id": "ast:normal-distribution:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:threshold",
+          "kind": "variable",
+          "type": "Declared physical input",
+          "symbol": "x",
+          "scope_ref": "scope:normal-distribution"
+        },
+        {
+          "id": "n:mean",
+          "kind": "variable",
+          "type": "Declared physical input",
+          "symbol": "μ",
+          "scope_ref": "scope:normal-distribution"
+        },
+        {
+          "id": "n:sigma",
+          "kind": "variable",
+          "type": "Declared physical input",
+          "symbol": "σ",
+          "scope_ref": "scope:normal-distribution"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried evaluation of the declared probability law",
+          "ref": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability."
+        },
+        {
+          "id": "n:partial-0",
+          "kind": "apply",
+          "type": "Declared probability result or partial application",
+          "function": "n:rule",
+          "argument": "n:threshold"
+        },
+        {
+          "id": "n:partial-1",
+          "kind": "apply",
+          "type": "Declared probability result or partial application",
+          "function": "n:partial-0",
+          "argument": "n:mean"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared probability result or partial application",
+          "function": "n:partial-1",
+          "argument": "n:sigma"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:normal-distribution",
+          "kind": "modelExpression",
+          "free_variables": [
+            "x",
+            "μ",
+            "σ"
+          ],
+          "external_parameters": [],
+          "domain_condition": "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Treat density height as point probability",
+        "status": "model or role mismatch",
+        "reason": "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+      }
+    ],
+    "ast_coverage": "Typed application outline of the declared probability family, with the paired-data selector held external where applicable. This is not an arbitrary expression parser or a theorem checker.",
+    "output_symbol_bindings": {
+      "x": "threshold",
+      "μ": "mean",
+      "σ": "sigma",
+      "z": "z",
+      "f(x)": "density",
+      "F(x)": [
+        "cumulative",
+        "output"
+      ],
+      "Φ(z)": [
+        "cumulative",
+        "output"
+      ]
+    }
+  },
+  "properties": [
+    {
+      "claim": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.",
+      "conditions": "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.",
+      "derivation": "Use the declared probability law and the independent reference on the bounded parameters.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:normal-distribution:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:probability-distribution",
+      "type": "supports",
+      "conditions": "Use each connected model under its own explicit assumptions.",
+      "reason": "Normal distribution: height and area connects continuous probability, paired signs or accumulated quantities to probability distribution.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:variance",
+      "type": "supports",
+      "conditions": "Use each connected model under its own explicit assumptions.",
+      "reason": "Normal distribution: height and area connects continuous probability, paired signs or accumulated quantities to variance.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:integral-accumulation",
+      "type": "supports",
+      "conditions": "Use each connected model under its own explicit assumptions.",
+      "reason": "Normal distribution: height and area connects continuous probability, paired signs or accumulated quantities to integral accumulation.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:sampling-distribution",
+      "type": "supports",
+      "conditions": "Use each connected model under its own explicit assumptions.",
+      "reason": "Normal distribution: height and area connects continuous probability, paired signs or accumulated quantities to sampling distribution.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:normal-distribution:case-1",
+      "title": "One standard deviation above the mean",
+      "role": "applied_model",
+      "question": "How much of a cutting-error model lies below a chosen tolerance?",
+      "setting": "A workshop measures signed cutting errors in millimetres around a target length. Its chosen model has mean error μ and standard deviation σ. Slide a tolerance x across the density, then follow the standardized distance z into the area below x.",
+      "assumptions": [
+        "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+      ],
+      "inputs": {
+        "threshold": 1,
+        "mean": 0,
+        "sigma": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "x = 1; μ = 0; σ = 1",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "z=\\frac{x-\\mu}{\\sigma},\\quad f(x)=\\frac{\\exp(-(x-\\mu)^2/(2\\sigma^2))}{\\sigma\\sqrt{2\\pi}},\\quad F(x)=\\Phi(z).",
+          "reason": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability."
+        },
+        {
+          "index": 3,
+          "expression": "0.841344746068543",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0.841344746068543"
+      },
+      "interpretation": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.",
+      "independent_check": {
+        "method": "Python math.erfc evaluates the full normal CDF independently of the JavaScript Gaussian quadrature.",
+        "expected": "0.841344746068543"
+      },
+      "limits": "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.",
+      "preset": {
+        "threshold": 1,
+        "mean": 0,
+        "sigma": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+      ]
+    },
+    {
+      "id": "math:example:normal-distribution:case-2",
+      "title": "A centered threshold",
+      "role": "applied_model",
+      "question": "How much of a cutting-error model lies below a chosen tolerance?",
+      "setting": "A workshop measures signed cutting errors in millimetres around a target length. Its chosen model has mean error μ and standard deviation σ. Slide a tolerance x across the density, then follow the standardized distance z into the area below x.",
+      "assumptions": [
+        "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+      ],
+      "inputs": {
+        "threshold": 1,
+        "mean": 1,
+        "sigma": 0.5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "x = 1; μ = 1; σ = 0.5",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "z=\\frac{x-\\mu}{\\sigma},\\quad f(x)=\\frac{\\exp(-(x-\\mu)^2/(2\\sigma^2))}{\\sigma\\sqrt{2\\pi}},\\quad F(x)=\\Phi(z).",
+          "reason": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability."
+        },
+        {
+          "index": 3,
+          "expression": "0.5",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0.5"
+      },
+      "interpretation": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.",
+      "independent_check": {
+        "method": "Python math.erfc evaluates the full normal CDF independently of the JavaScript Gaussian quadrature.",
+        "expected": "0.5"
+      },
+      "limits": "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.",
+      "preset": {
+        "threshold": 1,
+        "mean": 1,
+        "sigma": 0.5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+      ]
+    },
+    {
+      "id": "math:example:normal-distribution:case-3",
+      "title": "One standard deviation below the mean",
+      "role": "applied_model",
+      "question": "How much of a cutting-error model lies below a chosen tolerance?",
+      "setting": "A workshop measures signed cutting errors in millimetres around a target length. Its chosen model has mean error μ and standard deviation σ. Slide a tolerance x across the density, then follow the standardized distance z into the area below x.",
+      "assumptions": [
+        "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+      ],
+      "inputs": {
+        "threshold": -0.5,
+        "mean": 0.5,
+        "sigma": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "x = -0.5; μ = 0.5; σ = 1",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "z=\\frac{x-\\mu}{\\sigma},\\quad f(x)=\\frac{\\exp(-(x-\\mu)^2/(2\\sigma^2))}{\\sigma\\sqrt{2\\pi}},\\quad F(x)=\\Phi(z).",
+          "reason": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability."
+        },
+        {
+          "index": 3,
+          "expression": "0.158655253931457",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0.158655253931457"
+      },
+      "interpretation": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.",
+      "independent_check": {
+        "method": "Python math.erfc evaluates the full normal CDF independently of the JavaScript Gaussian quadrature.",
+        "expected": "0.158655253931457"
+      },
+      "limits": "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.",
+      "preset": {
+        "threshold": -0.5,
+        "mean": 0.5,
+        "sigma": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+      ]
+    },
+    {
+      "id": "math:example:normal-distribution:case-4",
+      "title": "Same tolerance, wider errors",
+      "role": "applied_model",
+      "question": "How much of a cutting-error model lies below a chosen tolerance?",
+      "setting": "A workshop measures signed cutting errors in millimetres around a target length. Its chosen model has mean error μ and standard deviation σ. Slide a tolerance x across the density, then follow the standardized distance z into the area below x.",
+      "assumptions": [
+        "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+      ],
+      "inputs": {
+        "threshold": 1,
+        "mean": 0,
+        "sigma": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "x = 1; μ = 0; σ = 2",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "z=\\frac{x-\\mu}{\\sigma},\\quad f(x)=\\frac{\\exp(-(x-\\mu)^2/(2\\sigma^2))}{\\sigma\\sqrt{2\\pi}},\\quad F(x)=\\Phi(z).",
+          "reason": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability."
+        },
+        {
+          "index": 3,
+          "expression": "0.691462461274013",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0.691462461274013"
+      },
+      "interpretation": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.",
+      "independent_check": {
+        "method": "Python math.erfc evaluates the full normal CDF independently of the JavaScript Gaussian quadrature.",
+        "expected": "0.691462461274013"
+      },
+      "limits": "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.",
+      "preset": {
+        "threshold": 1,
+        "mean": 0,
+        "sigma": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+      ]
+    },
+    {
+      "id": "math:example:normal-distribution:case-5",
+      "title": "A narrow offset error model",
+      "role": "applied_model",
+      "question": "How much of a cutting-error model lies below a chosen tolerance?",
+      "setting": "A workshop measures signed cutting errors in millimetres around a target length. Its chosen model has mean error μ and standard deviation σ. Slide a tolerance x across the density, then follow the standardized distance z into the area below x.",
+      "assumptions": [
+        "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+      ],
+      "inputs": {
+        "threshold": 0.5,
+        "mean": 1,
+        "sigma": 0.25
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "x = 0.5; μ = 1; σ = 0.25",
+          "reason": "Declare the physical quantities and the selected probability model."
+        },
+        {
+          "index": 2,
+          "expression": "z=\\frac{x-\\mu}{\\sigma},\\quad f(x)=\\frac{\\exp(-(x-\\mu)^2/(2\\sigma^2))}{\\sigma\\sqrt{2\\pi}},\\quad F(x)=\\Phi(z).",
+          "reason": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability."
+        },
+        {
+          "index": 3,
+          "expression": "0.0227501319481792",
+          "reason": "Read cumulative probability or the predeclared one-sided null tail."
+        }
+      ],
+      "result": {
+        "approximate": "0.0227501319481792"
+      },
+      "interpretation": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.",
+      "independent_check": {
+        "method": "Python math.erfc evaluates the full normal CDF independently of the JavaScript Gaussian quadrature.",
+        "expected": "0.0227501319481792"
+      },
+      "limits": "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.",
+      "preset": {
+        "threshold": 0.5,
+        "mean": 1,
+        "sigma": 0.25
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:normal-distribution",
+    "renderer_id": "normal-distribution-visual-model",
+    "renderer_version": "1",
+    "model_id": "normal-distribution-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:normal-distribution:expression",
+    "interaction_status": "implemented",
+    "description": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.",
+    "controls": [
+      {
+        "id": "threshold",
+        "type": "number",
+        "default": 1,
+        "min": -6,
+        "max": 6,
+        "step": 0.05
+      },
+      {
+        "id": "mean",
+        "type": "number",
+        "default": 0,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "sigma",
+        "type": "number",
+        "default": 1,
+        "min": 0.25,
+        "max": 2,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "threshold": 1,
+          "mean": 0,
+          "sigma": 1
+        },
+        "status": "valid",
+        "output": 0.8413447460685428
+      },
+      {
+        "input": {
+          "threshold": 1,
+          "mean": 1,
+          "sigma": 0.5
+        },
+        "status": "valid",
+        "output": 0.5
+      },
+      {
+        "input": {
+          "threshold": -0.5,
+          "mean": 0.5,
+          "sigma": 1
+        },
+        "status": "valid",
+        "output": 0.15865525393145707
+      },
+      {
+        "input": {
+          "threshold": 1,
+          "mean": 0,
+          "sigma": 2
+        },
+        "status": "valid",
+        "output": 0.691462461274013
+      },
+      {
+        "input": {
+          "threshold": 0.5,
+          "mean": 1,
+          "sigma": 0.25
+        },
+        "status": "valid",
+        "output": 0.022750131948179216
+      },
+      {
+        "input": {
+          "threshold": -6,
+          "mean": 2,
+          "sigma": 0.25
+        },
+        "status": "valid",
+        "output": 5.452080603512892e-225
+      },
+      {
+        "input": {
+          "threshold": 6,
+          "mean": -2,
+          "sigma": 0.25
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "threshold": -4,
+          "mean": 0,
+          "sigma": 1
+        },
+        "status": "valid",
+        "output": 3.1671241833119965e-05
+      },
+      {
+        "input": {
+          "threshold": 4,
+          "mean": 0,
+          "sigma": 1
+        },
+        "status": "valid",
+        "output": 0.9999683287581669
+      },
+      {
+        "input": {
+          "threshold": 0,
+          "mean": -2,
+          "sigma": 2
+        },
+        "status": "valid",
+        "output": 0.8413447460685428
+      },
+      {
+        "input": {
+          "threshold": 0,
+          "mean": 2,
+          "sigma": 2
+        },
+        "status": "valid",
+        "output": 0.15865525393145707
+      },
+      {
+        "input": {
+          "threshold": -0.0001,
+          "mean": 0,
+          "sigma": 0.25
+        },
+        "status": "valid",
+        "output": 0.4998404230920948
+      },
+      {
+        "input": {
+          "threshold": 0.0001,
+          "mean": 0,
+          "sigma": 0.25
+        },
+        "status": "valid",
+        "output": 0.5001595769079051
+      },
+      {
+        "input": {
+          "threshold": -6,
+          "mean": -2,
+          "sigma": 2
+        },
+        "status": "valid",
+        "output": 0.022750131948179216
+      },
+      {
+        "input": {
+          "threshold": 6,
+          "mean": 2,
+          "sigma": 2
+        },
+        "status": "valid",
+        "output": 0.9772498680518209
+      },
+      {
+        "input": {
+          "threshold": true,
+          "mean": 0,
+          "sigma": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "threshold": 100,
+          "mean": 0,
+          "sigma": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "threshold": 1,
+          "mean": 0,
+          "sigma": 0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "threshold": "1",
+          "mean": 0,
+          "sigma": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "threshold": 5e-324,
+          "mean": 0,
+          "sigma": 2
+        },
+        "status": "numeric_precision"
+      },
+      {
+        "input": {
+          "threshold": 5e-324,
+          "mean": 0,
+          "sigma": 1
+        },
+        "status": "valid",
+        "output": 0.5
+      }
+    ],
+    "compute": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.",
+    "numeric_tolerance": 2e-12,
+    "invariants": [
+      "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.",
+      "The story, calculation and visual use the same current parameters.",
+      "Geometry density scales and Graph probability scales have distinct meanings."
+    ],
+    "limits": [
+      "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How much of a cutting-error model lies below a chosen tolerance?",
+      "answer": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability."
+    },
+    {
+      "prompt": "What changes when the threshold or shift moves?",
+      "answer": "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Model-derived density area or paired physical readings, with explicit quantity marks."
+    },
+    {
+      "kind": "graph",
+      "description": "A fixed probability scale; discrete sign boundaries are not joined."
+    },
+    {
+      "kind": "substitution",
+      "description": "Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Originally authored workshop scenario",
+      "mapping": "A workshop measures signed cutting errors in millimetres around a target length. Its chosen model has mean error μ and standard deviation σ. Slide a tolerance x across the density, then follow the standardized distance z into the area below x.",
+      "limitations": "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:normal-distribution:case-1"
+    },
+    {
+      "context": "A changed model setting",
+      "mapping": "A centered threshold. Subtract the mean error from the threshold, divide by the positive standard deviation, and evaluate the standard normal CDF. The density curve supplies a height per millimetre; its accumulated area supplies probability.",
+      "limitations": "A declared normal model describes signed cutting errors in mm, with μ from −2 to 2 and σ from 0.25 to 2. Probability is area, not density height or probability at one point. The fixed density window −10 to 10 mm omits tails without renormalizing. The full CDF is approximated by 32/64-node Gauss–Legendre quadrature and tested against erfc; measured-grid accuracy is not a proof of a global error bound. No normality or central-limit theorem is inferred.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:normal-distribution:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:distribution-extensions:normal",
+    "source:distribution-extensions:quadrature"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 second continuation: added continuous-distribution and exact paired-sign modules."
+  ]
+}

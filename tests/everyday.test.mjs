@@ -21,7 +21,7 @@ function assertFinite(html) {
 
 test('everyday models share allowlisted arithmetic across Node and offline browser APIs', () => {
   const context = vm.createContext({});
-  for (const file of ['everyday', 'models', 'visuals', 'spatial']) vm.runInContext(fs.readFileSync(new URL(`../src/${file}.js`, import.meta.url), 'utf8'), context);
+  for (const file of ['legacy-models', 'everyday', 'models', 'visuals', 'spatial']) vm.runInContext(fs.readFileSync(new URL(`../src/${file}.js`, import.meta.url), 'utf8'), context);
   for (const [slug, expected] of [['ratio-scale', 450], ['linear-model', 40], ['exponential-change', 614.4]]) {
     near(E.evaluate(slug, {}).output, expected);
     near(M.evaluate(slug, {}).output, expected);

@@ -1,10 +1,10 @@
 /* Authored grammar tokens resolve to the exact quantity keys rendered by a card. */
 (function (root, factory) {
   'use strict';
-  const api = factory();
+  const api = factory(typeof module === 'object' && module.exports ? require('./expansion-bindings.js') : root.AtlasExpansionBindings);
   if (typeof module === 'object' && module.exports) module.exports = api;
   root.AtlasSymbolBindings = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (Expansion) {
   'use strict';
   // Empty lists are deliberate: a binder, operator or random variable is not
   // automatically a current numerical value or a physical mark in the scene.
@@ -76,6 +76,7 @@
     for (const [token, keys] of Object.entries(record)) record[token] = keys.length ? Object.freeze(keys) : empty;
     Object.freeze(record);
   }
+  if(Expansion)Object.assign(records,Expansion);
   Object.freeze(records);
   function keysFor(slug, token) {
     if (typeof slug !== 'string' || typeof token !== 'string' || !Object.hasOwn(records, slug)) return empty;

@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:vector", "id": "math:concept:vector", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:vector", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1"}, "purpose": "Describe displacement with signed components and separate direction from length.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1", "status": "draft", "title": "Vectors", "topics": ["mathematics", "linear-algebra", "geometry", "component vector", "Euclidean norm", "magnitude and direction"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:vector", "id": "math:concept:vector", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:vector", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1"}, "purpose": "Describe displacement with signed components and separate direction from length.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "dfe46bd8d5656cdaf90d9eec803434b67c4993b2ac28ca768f5b52a808b2dda1", "status": "draft", "title": "Vectors", "topics": ["mathematics", "linear-algebra", "geometry", "component vector", "Euclidean norm", "magnitude and direction"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Vectors
@@ -214,7 +214,7 @@ A plane vector has two ordered components. Its Euclidean norm is the straight-li
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of this idea and its notation using specialist historical sources before adding attributions.
   - Distinguish an early use, later formalization and modern teaching convention; inspect evidence for each.
@@ -230,6 +230,7 @@ A plane vector has two ordered components. Its Euclidean norm is the straight-li
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:inner-product
   - type: supports
@@ -238,6 +239,7 @@ A plane vector has two ordered components. Its Euclidean norm is the straight-li
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:matrix-linear-map
   - type: supports
@@ -246,6 +248,7 @@ A plane vector has two ordered components. Its Euclidean norm is the straight-li
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -285,6 +288,7 @@ A plane vector has two ordered components. Its Euclidean norm is the straight-li
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Perpendicular equal-scale coordinate axes share the same length unit.
     - The arrow records net displacement; components are signed.
@@ -325,6 +329,7 @@ A plane vector has two ordered components. Its Euclidean norm is the straight-li
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Perpendicular equal-scale coordinate axes share the same length unit.
     - The arrow records net displacement; components are signed.
@@ -365,6 +370,7 @@ A plane vector has two ordered components. Its Euclidean norm is the straight-li
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Perpendicular equal-scale coordinate axes share the same length unit.
     - The arrow records net displacement; components are signed.
@@ -405,6 +411,7 @@ A plane vector has two ordered components. Its Euclidean norm is the straight-li
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Perpendicular equal-scale coordinate axes share the same length unit.
     - The arrow records net displacement; components are signed.
@@ -445,6 +452,7 @@ A plane vector has two ordered components. Its Euclidean norm is the straight-li
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - Perpendicular equal-scale coordinate axes share the same length unit.
     - The arrow records net displacement; components are signed.

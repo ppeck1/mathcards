@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:open-set", "id": "math:concept:open-set", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:open-set", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "f48f440ed45b54b5a0f9f177e36d3d36f97ab8116b8bd46b27da42c8a7ea790e"}, "purpose": "Move a query point and separate its membership, the existence of some neighborhood, the fit of one chosen neighborhood and openness of the whole set.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "f48f440ed45b54b5a0f9f177e36d3d36f97ab8116b8bd46b27da42c8a7ea790e", "status": "draft", "title": "Open sets and neighborhoods", "topics": ["mathematics", "topology-space", "geometry", "analysis", "open ball", "interior point", "neighborhood containment", "signed boundary clearance"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:open-set", "id": "math:concept:open-set", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:open-set", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "f48f440ed45b54b5a0f9f177e36d3d36f97ab8116b8bd46b27da42c8a7ea790e"}, "purpose": "Move a query point and separate its membership, the existence of some neighborhood, the fit of one chosen neighborhood and openness of the whole set.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "f48f440ed45b54b5a0f9f177e36d3d36f97ab8116b8bd46b27da42c8a7ea790e", "status": "draft", "title": "Open sets and neighborhoods", "topics": ["mathematics", "topology-space", "geometry", "analysis", "open ball", "interior point", "neighborhood containment", "signed boundary clearance"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Open sets and neighborhoods
@@ -251,7 +251,7 @@ A set in a metric space is open when every point of the set has a positive-radiu
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -267,6 +267,7 @@ A set in a metric space is open when every point of the set has a positive-radiu
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:quantifier
   - type: supports
@@ -275,6 +276,7 @@ A set in a metric space is open when every point of the set has a positive-radiu
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:euclidean-distance
   - type: supports
@@ -283,6 +285,7 @@ A set in a metric space is open when every point of the set has a positive-radiu
   - target status: planned
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:quantifier-scope
   - type: supports
@@ -291,6 +294,7 @@ A set in a metric space is open when every point of the set has a positive-radiu
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -331,6 +335,7 @@ A set in a metric space is open when every point of the set has a positive-radiu
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.
     - The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded.
@@ -371,6 +376,7 @@ A set in a metric space is open when every point of the set has a positive-radiu
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.
     - The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded.
@@ -419,6 +425,7 @@ A set in a metric space is open when every point of the set has a positive-radiu
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.
     - The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded.
@@ -463,6 +470,7 @@ A set in a metric space is open when every point of the set has a positive-radiu
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.
     - The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded.
@@ -507,6 +515,7 @@ A set in a metric space is open when every point of the set has a positive-radiu
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - The ambient space is ℝ² with Euclidean distance. U is either the disk ‖z‖<2 cm or the disk ‖z‖≤2 cm; p=(x,0) has x between −3 and 3 cm.
     - The selected neighborhood Bε(p) is an open ball, using strict distance less than ε. The live radius lies from 0.05 to 1.5 cm; radius zero is excluded.

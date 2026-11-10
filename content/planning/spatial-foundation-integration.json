@@ -1,0 +1,742 @@
+{
+  "slugs": [
+    "spatial-cross-product",
+    "scalar-triple-product",
+    "coordinate-transformation",
+    "vector-projection",
+    "angular-velocity",
+    "linear-momentum"
+  ],
+  "global": "AtlasSpatialFoundations",
+  "storyGlobal": "AtlasSpatialFoundationStories",
+  "termsGlobal": "AtlasSpatialFoundationTerms",
+  "previewsGlobal": "AtlasSpatialFoundationPreviews",
+  "sources": [
+    {
+      "id": "source:spatial-foundations:cross",
+      "title": "OpenStax · The Cross Product",
+      "url": "https://openstax.org/books/calculus-volume-3/pages/2-4-the-cross-product",
+      "kind": "textbook",
+      "locator": "§2.4, component definition, normal orientation, parallelogram area and scalar triple product.",
+      "verification": "Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.",
+      "rights": "Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced."
+    },
+    {
+      "id": "source:spatial-foundations:dot",
+      "title": "OpenStax · The Dot Product",
+      "url": "https://openstax.org/books/calculus-volume-3/pages/2-3-the-dot-product",
+      "kind": "textbook",
+      "locator": "§2.3, signed scalar component, vector projection and orthogonal residual.",
+      "verification": "Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.",
+      "rights": "Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced."
+    },
+    {
+      "id": "source:spatial-foundations:frames",
+      "title": "University of Illinois Dynamics · Vectors and bases",
+      "url": "https://dynref.engr.illinois.edu/rvv.html",
+      "kind": "textbook",
+      "locator": "Orthonormal bases, components and passive planar frame rotation; same vector expressed in two bases.",
+      "verification": "Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.",
+      "rights": "Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced."
+    },
+    {
+      "id": "source:spatial-foundations:angular",
+      "title": "OpenStax · Rotation Angle and Angular Velocity",
+      "url": "https://openstax.org/books/college-physics-2e/pages/6-1-rotation-angle-and-angular-velocity",
+      "kind": "textbook",
+      "locator": "§6.1, radians, angular displacement per time and tangential speed.",
+      "verification": "Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.",
+      "rights": "Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced."
+    },
+    {
+      "id": "source:spatial-foundations:momentum",
+      "title": "OpenStax · Linear Momentum",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/9-1-linear-momentum",
+      "kind": "textbook",
+      "locator": "§9.1, Newtonian vector momentum as mass times velocity.",
+      "verification": "Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.",
+      "rights": "Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced."
+    }
+  ],
+  "bindings": {
+    "spatial-cross-product": {
+      "u_x": [
+        "ux"
+      ],
+      "u_y": [
+        "uy"
+      ],
+      "u_z": [
+        "uz"
+      ],
+      "v_x": [
+        "vx"
+      ],
+      "v_y": [
+        "vy"
+      ],
+      "v_z": [
+        "vz"
+      ],
+      "n_x": [
+        "nx"
+      ],
+      "n_y": [
+        "ny"
+      ],
+      "n_z": [
+        "nz"
+      ],
+      "A": [
+        "area"
+      ]
+    },
+    "scalar-triple-product": {
+      "a": [
+        "length"
+      ],
+      "b": [
+        "width"
+      ],
+      "h": [
+        "height"
+      ],
+      "s": [
+        "shear"
+      ],
+      "T": [
+        "output"
+      ],
+      "V": [
+        "volume"
+      ]
+    },
+    "coordinate-transformation": {
+      "x": [
+        "x"
+      ],
+      "y": [
+        "y"
+      ],
+      "θ": [
+        "angle"
+      ],
+      "x′": [
+        "first"
+      ],
+      "y′": [
+        "second"
+      ],
+      "‖v‖": [
+        "norm"
+      ]
+    },
+    "vector-projection": {
+      "u_x": [
+        "ux"
+      ],
+      "u_y": [
+        "uy"
+      ],
+      "u_z": [
+        "uz"
+      ],
+      "v_x": [
+        "vx"
+      ],
+      "v_y": [
+        "vy"
+      ],
+      "v_z": [
+        "vz"
+      ],
+      "c": [
+        "output"
+      ],
+      "P_x": [
+        "px"
+      ],
+      "P_y": [
+        "py"
+      ],
+      "P_z": [
+        "pz"
+      ],
+      "‖r‖": [
+        "residualNorm"
+      ]
+    },
+    "angular-velocity": {
+      "t": [
+        "time"
+      ],
+      "r": [
+        "radius"
+      ],
+      "ω": [
+        "omega"
+      ],
+      "θ": [
+        "angle"
+      ],
+      "v_x": [
+        "velocityX"
+      ],
+      "v_y": [
+        "velocityY"
+      ],
+      "v": [
+        "output"
+      ]
+    },
+    "linear-momentum": {
+      "m": [
+        "mass"
+      ],
+      "v_x": [
+        "vx"
+      ],
+      "v_y": [
+        "vy"
+      ],
+      "p_x": [
+        "px"
+      ],
+      "p_y": [
+        "py"
+      ],
+      "‖p‖": [
+        "output"
+      ]
+    }
+  },
+  "ports": {
+    "spatial-cross-product": [
+      {
+        "id": "input:ux",
+        "direction": "input",
+        "key": "ux",
+        "label": "First edge, x component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "First edge, x component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:uy",
+        "direction": "input",
+        "key": "uy",
+        "label": "First edge, y component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "First edge, y component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:uz",
+        "direction": "input",
+        "key": "uz",
+        "label": "First edge, z component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "First edge, z component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:vx",
+        "direction": "input",
+        "key": "vx",
+        "label": "Second edge, x component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Second edge, x component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:vy",
+        "direction": "input",
+        "key": "vy",
+        "label": "Second edge, y component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Second edge, y component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:vz",
+        "direction": "input",
+        "key": "vz",
+        "label": "Second edge, z component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Second edge, z component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Parallelogram area",
+        "type": "area",
+        "unit": "m2",
+        "description": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area."
+      },
+      {
+        "id": "output:nx",
+        "direction": "output",
+        "key": "nx",
+        "label": "Normal horizontal area component",
+        "type": "oriented-area-component",
+        "unit": "m2",
+        "description": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area."
+      },
+      {
+        "id": "output:ny",
+        "direction": "output",
+        "key": "ny",
+        "label": "Normal depth area component",
+        "type": "oriented-area-component",
+        "unit": "m2",
+        "description": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area."
+      },
+      {
+        "id": "output:nz",
+        "direction": "output",
+        "key": "nz",
+        "label": "Normal vertical area component",
+        "type": "oriented-area-component",
+        "unit": "m2",
+        "description": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area."
+      },
+      {
+        "id": "output:triangleArea",
+        "direction": "output",
+        "key": "triangleArea",
+        "label": "Support triangle area",
+        "type": "area",
+        "unit": "m2",
+        "description": "Form each signed two-component determinant in the stated right-handed frame, then take the Euclidean norm for area."
+      }
+    ],
+    "scalar-triple-product": [
+      {
+        "id": "input:length",
+        "direction": "input",
+        "key": "length",
+        "label": "First edge length a",
+        "type": "length",
+        "unit": "m",
+        "description": "First edge length a in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:width",
+        "direction": "input",
+        "key": "width",
+        "label": "Second perpendicular extent b",
+        "type": "length",
+        "unit": "m",
+        "description": "Second perpendicular extent b in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:height",
+        "direction": "input",
+        "key": "height",
+        "label": "Signed third-edge height h",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Signed third-edge height h in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:shear",
+        "direction": "input",
+        "key": "shear",
+        "label": "Second-edge shear s",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Second-edge shear s in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Signed triple product",
+        "type": "signed-volume",
+        "unit": "m3",
+        "description": "For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the signed result is a b h."
+      },
+      {
+        "id": "output:volume",
+        "direction": "output",
+        "key": "volume",
+        "label": "Nonnegative geometric volume",
+        "type": "volume",
+        "unit": "m3",
+        "description": "For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the signed result is a b h."
+      },
+      {
+        "id": "output:baseArea",
+        "direction": "output",
+        "key": "baseArea",
+        "label": "Perpendicular base area",
+        "type": "area",
+        "unit": "m2",
+        "description": "For u=(a,0,0), v=(s,b,0) and w=(1,0.5,h), form v cross w and dot with u; the signed result is a b h."
+      }
+    ],
+    "coordinate-transformation": [
+      {
+        "id": "input:x",
+        "direction": "input",
+        "key": "x",
+        "label": "Fixed world x component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Fixed world x component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:y",
+        "direction": "input",
+        "key": "y",
+        "label": "Fixed world y component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Fixed world y component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:angle",
+        "direction": "input",
+        "key": "angle",
+        "label": "Frame angle θ",
+        "type": "angle",
+        "unit": "deg",
+        "description": "Frame angle θ in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "First rotated-frame component",
+        "type": "rotated-frame-component",
+        "unit": "m",
+        "description": "A signed component in the turned measuring frame; it is not a world-frame component or an active displacement rotation."
+      },
+      {
+        "id": "output:second",
+        "direction": "output",
+        "key": "second",
+        "label": "Second rotated-frame component",
+        "type": "rotated-frame-component",
+        "unit": "m",
+        "description": "A signed component in the turned measuring frame; it is not a world-frame component or an active displacement rotation."
+      },
+      {
+        "id": "output:norm",
+        "direction": "output",
+        "key": "norm",
+        "label": "Unchanged displacement length",
+        "type": "length",
+        "unit": "m",
+        "description": "Resolve the fixed world vector onto the two rotated unit directions. The coordinate pair uses the inverse, or transpose, of the orthonormal frame rotation."
+      }
+    ],
+    "vector-projection": [
+      {
+        "id": "input:ux",
+        "direction": "input",
+        "key": "ux",
+        "label": "Measured displacement, x component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Measured displacement, x component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:uy",
+        "direction": "input",
+        "key": "uy",
+        "label": "Measured displacement, y component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Measured displacement, y component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:uz",
+        "direction": "input",
+        "key": "uz",
+        "label": "Measured displacement, z component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Measured displacement, z component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:vx",
+        "direction": "input",
+        "key": "vx",
+        "label": "Reference direction, x component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Reference direction, x component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:vy",
+        "direction": "input",
+        "key": "vy",
+        "label": "Reference direction, y component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Reference direction, y component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:vz",
+        "direction": "input",
+        "key": "vz",
+        "label": "Reference direction, z component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Reference direction, z component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Signed scalar component",
+        "type": "signed-scalar-projection",
+        "unit": "m",
+        "description": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual."
+      },
+      {
+        "id": "output:px",
+        "direction": "output",
+        "key": "px",
+        "label": "First projected component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual."
+      },
+      {
+        "id": "output:py",
+        "direction": "output",
+        "key": "py",
+        "label": "Second projected component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual."
+      },
+      {
+        "id": "output:pz",
+        "direction": "output",
+        "key": "pz",
+        "label": "Third projected component",
+        "type": "vector-component",
+        "unit": "m",
+        "description": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual."
+      },
+      {
+        "id": "output:residualNorm",
+        "direction": "output",
+        "key": "residualNorm",
+        "label": "Perpendicular residual length",
+        "type": "length",
+        "unit": "m",
+        "description": "Normalize the nonzero reference direction with a scaled norm, take the dot product with that unit direction, and multiply back by the unit direction. Subtract to obtain the orthogonal residual."
+      }
+    ],
+    "angular-velocity": [
+      {
+        "id": "input:time",
+        "direction": "input",
+        "key": "time",
+        "label": "Elapsed time t",
+        "type": "duration",
+        "unit": "s",
+        "description": "Elapsed time t in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:radius",
+        "direction": "input",
+        "key": "radius",
+        "label": "Rim radius r",
+        "type": "length",
+        "unit": "m",
+        "description": "Rim radius r in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:omega",
+        "direction": "input",
+        "key": "omega",
+        "label": "Signed angular velocity ω",
+        "type": "angular-velocity",
+        "unit": "rad/s",
+        "description": "Signed angular velocity ω in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Rim speed",
+        "type": "speed",
+        "unit": "m/s",
+        "description": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r."
+      },
+      {
+        "id": "output:angle",
+        "direction": "output",
+        "key": "angle",
+        "label": "Accumulated or frame angle",
+        "type": "angle",
+        "unit": "rad",
+        "description": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r."
+      },
+      {
+        "id": "output:velocityX",
+        "direction": "output",
+        "key": "velocityX",
+        "label": "Horizontal tangent velocity",
+        "type": "velocity-component",
+        "unit": "m/s",
+        "description": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r."
+      },
+      {
+        "id": "output:velocityY",
+        "direction": "output",
+        "key": "velocityY",
+        "label": "Vertical tangent velocity",
+        "type": "velocity-component",
+        "unit": "m/s",
+        "description": "Use the radian angle ωt for the circular position. Differentiate to obtain the tangent components (−rω sin(ωt),rω cos(ωt)); their norm is |ω|r."
+      }
+    ],
+    "linear-momentum": [
+      {
+        "id": "input:mass",
+        "direction": "input",
+        "key": "mass",
+        "label": "Cart mass m",
+        "type": "mass",
+        "unit": "kg",
+        "description": "Cart mass m in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:vx",
+        "direction": "input",
+        "key": "vx",
+        "label": "Velocity x component",
+        "type": "velocity-component",
+        "unit": "m/s",
+        "description": "Velocity x component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "input:vy",
+        "direction": "input",
+        "key": "vy",
+        "label": "Velocity y component",
+        "type": "velocity-component",
+        "unit": "m/s",
+        "description": "Velocity y component in the declared fixed frame; receiving models must validate their own bounds."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Momentum magnitude",
+        "type": "momentum-magnitude",
+        "unit": "kg.m/s",
+        "description": "Multiply each velocity component by the positive mass in the same frame. The Euclidean norm of the momentum pair is its nonnegative magnitude."
+      },
+      {
+        "id": "output:px",
+        "direction": "output",
+        "key": "px",
+        "label": "First projected component",
+        "type": "momentum-component",
+        "unit": "kg.m/s",
+        "description": "Multiply each velocity component by the positive mass in the same frame. The Euclidean norm of the momentum pair is its nonnegative magnitude."
+      },
+      {
+        "id": "output:py",
+        "direction": "output",
+        "key": "py",
+        "label": "Second projected component",
+        "type": "momentum-component",
+        "unit": "kg.m/s",
+        "description": "Multiply each velocity component by the positive mass in the same frame. The Euclidean norm of the momentum pair is its nonnegative magnitude."
+      },
+      {
+        "id": "output:speed",
+        "direction": "output",
+        "key": "speed",
+        "label": "Velocity magnitude",
+        "type": "speed",
+        "unit": "m/s",
+        "description": "Multiply each velocity component by the positive mass in the same frame. The Euclidean norm of the momentum pair is its nonnegative magnitude."
+      }
+    ]
+  },
+  "atlas": {
+    "spatial-cross-product": [
+      "structures:linear-algebra",
+      "spaces:geometry-and-measurement"
+    ],
+    "scalar-triple-product": [
+      "structures:linear-algebra",
+      "spaces:geometry-and-measurement"
+    ],
+    "coordinate-transformation": [
+      "structures:linear-algebra",
+      "spaces:vectors-and-transformations"
+    ],
+    "vector-projection": [
+      "structures:linear-algebra",
+      "spaces:vectors-and-transformations"
+    ],
+    "angular-velocity": [
+      "spaces:vectors-and-transformations",
+      "applications:physical-models",
+      "change:dynamical-systems"
+    ],
+    "linear-momentum": [
+      "applications:physical-models",
+      "structures:linear-algebra"
+    ]
+  },
+  "learningAfter": {
+    "spatial-cross-product": "cross-product",
+    "scalar-triple-product": "spatial-cross-product",
+    "coordinate-transformation": "basis",
+    "vector-projection": "inner-product",
+    "angular-velocity": "vector-rotation",
+    "linear-momentum": "vector"
+  },
+  "bookTopics": {
+    "spatial-cross-product": [
+      "MAT-001",
+      "MAT-004"
+    ],
+    "scalar-triple-product": [
+      "MAT-019"
+    ],
+    "coordinate-transformation": [
+      "MAT-029"
+    ],
+    "vector-projection": [],
+    "angular-velocity": [
+      "MAT-047"
+    ],
+    "linear-momentum": []
+  },
+  "scopeNotes": {
+    "spatial-cross-product": "The normal has square-metre components because both input vectors are lengths. Its norm is parallelogram area; the corresponding triangle has half that area. A zero cross product has no distinguished normal direction. The fixed projection is not an area measurement.",
+    "scalar-triple-product": "This triangular edge family has signed triple product a b h. Geometric volume is its absolute value. Zero height or a collapsed base gives zero volume even if visible slanted edges remain. The displayed drawing is a fixed projection, not a volume scale.",
+    "coordinate-transformation": "This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry.",
+    "vector-projection": "The reference vector must be nonzero. Multiplying it by a positive factor leaves the projection unchanged, while reversing it reverses the signed scalar component and preserves the projection vector. The residual is orthogonal to the reference; projection is not the full displacement.",
+    "angular-velocity": "The exact constant-rate position uses θ=ωt in radians. Speed is nonnegative even when angular velocity is negative. At the centre or at zero rate the rim velocity is zero and has no direction. No force, rolling contact or angular acceleration is modeled.",
+    "linear-momentum": "This is Newtonian momentum at the stated instant, not kinetic energy, stopping distance or a collision forecast. Velocity and momentum use separate declared arrow scales because their units differ. A stationary cart has zero momentum and no distinguished momentum direction."
+  },
+  "bookPrecursors": {
+    "coordinate-transformation": [
+      "MAT-037",
+      "MAT-030",
+      "MAT-031"
+    ],
+    "vector-projection": [
+      "MAT-007",
+      "MAT-043"
+    ],
+    "linear-momentum": [
+      "MAT-051"
+    ]
+  }
+}

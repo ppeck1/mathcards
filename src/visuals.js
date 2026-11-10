@@ -378,8 +378,7 @@
     });
   }
 
-  function render(slug, params, options = {}) {
-    if (Everyday?.has(slug)) return Everyday.render(slug, params, options);
+  function renderLegacy(slug, params, options = {}) {
     const { id = 'stage', view = 'geometry', baseline = null, reference = null, compact = false } = options;
     const safeId = uid(id), result = Models.evaluate(slug, params);
     const pin = baseline ? Models.evaluate(slug, baseline) : null;
@@ -393,5 +392,9 @@
     return compact ? compactScene(markup, slug) : markup;
   }
 
-  return Object.freeze({ render, formatNumber, areaGeometry });
+  function render(slug, params, options = {}) {
+    return Everyday?.has(slug) ? Everyday.render(slug, params, options) : renderLegacy(slug, params, options);
+  }
+
+  return Object.freeze({ render, renderLegacy, formatNumber, areaGeometry });
 });

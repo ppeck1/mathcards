@@ -1,0 +1,103 @@
+# Device and teaching qualification
+
+Status: prepared, not performed for 0.34.0. The user requested background work
+without interaction with their PC. No browser-control workaround, desktop
+automation, screen-reader simulation or physical-phone certification was used.
+
+Record the tested commit, app version, device, operating system, browser,
+viewport, input method, assistive technology and reviewer/date with each result.
+Report pass/fail and an actual observation rather than inferring behavior from
+unit tests. Preserve failures as follow-up issues.
+
+This checklist applies to the current 111-card candidate as well as the earlier
+84/102-card checkpoints. Static preview and background numeric evidence is
+recorded separately in the [current validation](VALIDATION_0_34_0_GAPS.md).
+
+The [background release checks](RELEASE_CHECKS_0_34_0.md) add full-catalog
+backup and strict scene-markup evidence, while the
+[current matrix](GAP_EXPANSION_MATRIX_0_34_0.md#browser-and-phone-review-still-pending)
+keeps desktop/browser and phone results explicitly pending. The stale notebook
+write correction still needs a real two-tab walkthrough; it detects changed
+stored bytes and retains a pending memory/export copy rather than providing
+an atomic storage transaction.
+
+## Complete learner journey
+
+| Check | Required observation | Result |
+|---|---|---|
+| First visit | Content and controls become useful without a frozen blank page | Pending |
+| Discovery | Find a lesson through Explore, Atlas, Subjects and a term/symbol search | Pending |
+| Story | Explain the starting quantities and assumptions without developer help | Pending |
+| Intervention | Change one variable using pointer, touch and keyboard; identify its text, calculation and changed shape | Pending |
+| Readability | Values can be read while dragging; no flashing or repeated loud announcements | Pending |
+| Views | Geometry and Graph show the same result; applicable Spatial views remain distinct | Pending |
+| Transfer | Predict a new setting, test it and explain any disagreement | Pending |
+| Limits | Recognize an invalid domain or missing assumption and state what the demonstration cannot establish | Pending |
+
+Repeat on a representative narrow phone viewport, tablet and laptop; test
+browser zoom and enlarged text. Check long formulas, the full symbol catalog,
+subject filters, map overview and focused territories for clipping and unwanted
+page-wide horizontal scrolling. Static SVG renders qualify only their own
+geometry, not these browser layouts.
+
+## Accessibility and motion
+
+- Walk the whole journey by keyboard with visible focus and no traps.
+- Inspect actual screen-reader names, grouping and reading order for native
+  MathML, variable controls, charts, the reference, dialogs and saved entries.
+- Verify numeric or keyboard alternatives for dragging and focus/tap access to
+  information normally found by hover.
+- Confirm that color carries a redundant text or shape cue.
+- Verify reduced motion and pause/reset behavior in the operating system and
+  browser. Ensure values and geometry continue to agree.
+- Run a fresh automated accessibility audit, then inspect the behavior that the
+  audit cannot establish. Record both separately.
+
+## Offline and recovery
+
+1. Open the built standalone file in a fresh profile and disconnect networking.
+   Exercise a new lesson, reference search, Subjects and both views. Record any
+   external request or missing asset.
+2. Save a notebook entry and a workspace containing distinct modules, views,
+   exact inputs, pins and an explicit compatible link. Export both backups.
+3. Import into another fresh profile. Verify full-precision inputs, paused
+   restoration and the distinction between saved and live state.
+4. Exercise unavailable storage, quota failure, corrupt JSON and an unavailable
+   revision. Confirm preserved recovery data and useful export behavior.
+5. Clear storage only in the disposable test profile. Restore the exported
+   backups and verify that private notes never enter public corpus exports.
+
+Automated tests cover storage adapters, validation and rollback. This checklist
+adds actual browser download/import/offline behavior; those are separate claims.
+
+## Independent mathematical and learning review
+
+Select representative simple, advanced, discrete, continuous and invalid-state
+lessons. For each, record:
+
+- Whether its definition, domain, units and stated model agree.
+- Whether the original worked examples are correct and sufficiently varied.
+- Whether the visual size, direction, scale and gaps encode the stated quantity.
+- Whether exact, approximate, undefined and infinite results are distinguished.
+- Whether sources support the claim at the stated depth and edition.
+- Whether historical priority is supported or explicitly left unresolved.
+- Whether a new learner can explain the changed quantity and solve a related
+  case without memorizing the animation.
+
+Keep numerical validation, author review, independent expert review and learner
+observations distinct. Update publication status only after the applicable
+review requirements are met.
+
+For the continuation, include integer counting controls, a zero-vector
+projection, a reversed frame, a hysteresis return path and both chart poles.
+Check that a chart's missing coordinate does not suggest that the underlying
+circle or sphere point disappeared. Read near-pole values, clipped rays and
+off-window continuation marks at phone scale. Verify that story and playground
+transitions respect the same interpolation guard.
+
+For the atlas-gap lessons, include a quadratic tangency, a tied optimal edge,
+a flat objective, a missing search target, an unfinished search prefix and tied
+spanning trees. Compare normal density height with cumulative probability,
+inspect omitted tails, and test paired ties and a remembered probability from
+different parameters. Confirm that the compact diagrams remain readable in
+the actual page at enlarged text sizes; static SVGs cannot establish this.

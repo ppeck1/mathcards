@@ -1,0 +1,570 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:randomization-distribution:case-1", "id": "math:example:randomization-distribution:case-1", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:randomization-distribution", "example_id": "math:example:randomization-distribution:case-1", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "50289b9a8863ef4753f3af85a7368432384da609a34ee5a415c3abefcc78ce66"}, "purpose": "How unusual is a four-versus-four learner-score difference under random assignment?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "50289b9a8863ef4753f3af85a7368432384da609a34ee5a415c3abefcc78ce66", "status": "draft", "title": "Separated labels and increasing learner scores", "topics": ["mathematics", "statistics", "probability", "experimental-design", "an exact randomization distribution"], "type": "reference", "updated": "2026-11-03T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Separated labels and increasing learner scores
+
+Parent card: math:concept:randomization-distribution; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:randomization-distribution; revision 0.1.0-draft. Setting: Eight learners complete a workshop challenge using instruction A or B. The design assigns exactly four learners to each instruction, with all 70 allocations equally likely. Their constructed scores are 1, 2, 3, 4, 5, 6, 7 and v points. Choose a displayed allocation and move the eighth score: the observed difference and all 70 reassigned differences follow the same scores. Expression: $d=\bar{y}_B-\bar{y}_A,\quad M=\binom{8}{4}=70,\quad p=\frac{m}{M},\quad m=\#\{\text{allocations with }|D|\ge|d|\}.$. Conditions required for a defined value (a case may test their violation): The eight outcomes are constructed. For the sharp null that changing instructions has no effect on any learner, their fixed scores can be reassigned across all 70 equally likely four-versus-four allocations. The selector displays a fixed observed allocation, not a random draw. The exact two-sided convention counts |D|≥|d|, including ties; it differs from some other two-sided conventions. For these seven fixed integer scores and one variable score, exact absolute-tail comparisons reduce to comparisons with integer thresholds; no tie tolerance is used. The independent oracle uses exact decimal fractions. Use v from 0 to 10 points. The p-value is conditional on these outcomes and the declared assignment mechanism; it is not the probability that the null is true, a treatment effect estimate or a guarantee about a wider population. Changing a score constructs a different example rather than adding observed evidence. Scope: The eight outcomes are constructed. For the sharp null that changing instructions has no effect on any learner, their fixed scores can be reassigned across all 70 equally likely four-versus-four allocations. The selector displays a fixed observed allocation, not a random draw. The exact two-sided convention counts |D|≥|d|, including ties; it differs from some other two-sided conventions. For these seven fixed integer scores and one variable score, exact absolute-tail comparisons reduce to comparisons with integer thresholds; no tie tolerance is used. The independent oracle uses exact decimal fractions. Use v from 0 to 10 points. The p-value is conditional on these outcomes and the declared assignment mechanism; it is not the probability that the null is true, a treatment effect estimate or a guarantee about a wider population. Changing a score constructs a different example rather than adding observed evidence.
+
+Case unit math:example:randomization-distribution:case-1. Setting: Eight learners complete a workshop challenge using instruction A or B. The design assigns exactly four learners to each instruction, with all 70 allocations equally likely. Their constructed scores are 1, 2, 3, 4, 5, 6, 7 and v points. Choose a displayed allocation and move the eighth score: the observed difference and all 70 reassigned differences follow the same scores. Inputs: {"allocation": "separated", "lastValue": 8}. Result: {"approximate": "0.02857142857142857"}. Limits: The eight outcomes are constructed. For the sharp null that changing instructions has no effect on any learner, their fixed scores can be reassigned across all 70 equally likely four-versus-four allocations. The selector displays a fixed observed allocation, not a random draw. The exact two-sided convention counts |D|≥|d|, including ties; it differs from some other two-sided conventions. For these seven fixed integer scores and one variable score, exact absolute-tail comparisons reduce to comparisons with integer thresholds; no tie tolerance is used. The independent oracle uses exact decimal fractions. Use v from 0 to 10 points. The p-value is conditional on these outcomes and the declared assignment mechanism; it is not the probability that the null is true, a treatment effect estimate or a guarantee about a wider population. Changing a score constructs a different example rather than adding observed evidence.
+
+## Complete worked case
+
+- id: math:example:randomization-distribution:case-1
+- title: Separated labels and increasing learner scores
+- role: applied_model
+- question: How unusual is a four-versus-four learner-score difference under random assignment?
+- setting: Eight learners complete a workshop challenge using instruction A or B. The design assigns exactly four learners to each instruction, with all 70 allocations equally likely. Their constructed scores are 1, 2, 3, 4, 5, 6, 7 and v points. Choose a displayed allocation and move the eighth score: the observed difference and all 70 reassigned differences follow the same scores.
+- assumptions:
+  - Use the declared normal or sharp-null assignment model in the formal setting.
+- inputs:
+  - lastValue: 8
+  - allocation: separated
+- steps:
+  - Item:
+    - index: 1
+    - expression: v = 8
+    - reason: Keep the actual supplied summaries or constructed outcomes fixed as declared.
+  - Item:
+    - index: 2
+    - expression: d=\bar{y}_B-\bar{y}_A,\quad M=\binom{8}{4}=70,\quad p=\frac{m}{M},\quad m=\#\{\text{allocations with }|D|\ge|d|\}.
+    - reason: Keep eight learner scores fixed and enumerate all 70 ways to assign four learners to A and four to B. Count every allocation whose absolute mean difference is at least the observed difference, then divide that count by 70.
+  - Item:
+    - index: 3
+    - expression: 0.02857142857142857
+    - reason: The first four scores average 2.5 and the last four average 6.5, so d=4 points. Only the two complementary extreme allocations have |D| at least four, giving p=2/70.
+- result:
+  - approximate: 0.02857142857142857
+- interpretation: The first four scores average 2.5 and the last four average 6.5, so d=4 points. Only the two complementary extreme allocations have |D| at least four, giving p=2/70.
+- independent check:
+  - method: Independent Python combinations enumerate all70 labeled-position subsets; decimal scores are represented by Fraction before comparing absolute statistics exactly.
+  - expected: 0.02857142857142857
+- limits: The eight outcomes are constructed. For the sharp null that changing instructions has no effect on any learner, their fixed scores can be reassigned across all 70 equally likely four-versus-four allocations. The selector displays a fixed observed allocation, not a random draw. The exact two-sided convention counts |D|≥|d|, including ties; it differs from some other two-sided conventions. For these seven fixed integer scores and one variable score, exact absolute-tail comparisons reduce to comparisons with integer thresholds; no tie tolerance is used. The independent oracle uses exact decimal fractions. Use v from 0 to 10 points. The p-value is conditional on these outcomes and the declared assignment mechanism; it is not the probability that the null is true, a treatment effect estimate or a guarantee about a wider population. Changing a score constructs a different example rather than adding observed evidence.
+- preset:
+  - lastValue: 8
+  - allocation: separated
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - The eight outcomes are constructed. For the sharp null that changing instructions has no effect on any learner, their fixed scores can be reassigned across all 70 equally likely four-versus-four allocations. The selector displays a fixed observed allocation, not a random draw. The exact two-sided convention counts |D|≥|d|, including ties; it differs from some other two-sided conventions. For these seven fixed integer scores and one variable score, exact absolute-tail comparisons reduce to comparisons with integer thresholds; no tie tolerance is used. The independent oracle uses exact decimal fractions. Use v from 0 to 10 points. The p-value is conditional on these outcomes and the declared assignment mechanism; it is not the probability that the null is true, a treatment effect estimate or a guarantee about a wider population. Changing a score constructs a different example rather than adding observed evidence.
+
+## Written exploration recipe
+
+- component id: component:randomization-distribution
+- renderer id: randomization-distribution-visual-model
+- renderer version: 1
+- model id: randomization-distribution-visual-model
+- model revision: 1
+- expression id: ast:randomization-distribution:expression
+- interaction status: implemented
+- description: Keep eight learner scores fixed and enumerate all 70 ways to assign four learners to A and four to B. Count every allocation whose absolute mean difference is at least the observed difference, then divide that count by 70.
+- controls:
+  - Item:
+    - id: lastValue
+    - type: number
+    - default: 8
+    - min: 0
+    - max: 10
+    - step: 0.05
+  - Item:
+    - id: allocation
+    - type: enum
+    - default: separated
+    - values:
+      - separated
+      - alternating
+      - mixed
+    - value labels:
+      - separated: First four A, last four B
+      - alternating: Alternating A and B
+      - mixed: A at participant positions 1, 4, 6 and 7
+- expected cases:
+  - Item:
+    - input:
+      - lastValue: 0.0
+      - allocation: separated
+    - status: valid
+    - output: 0.34285714285714286
+  - Item:
+    - input:
+      - lastValue: 0.0
+      - allocation: alternating
+    - status: valid
+    - output: 0.6857142857142857
+  - Item:
+    - input:
+      - lastValue: 0.0
+      - allocation: mixed
+    - status: valid
+    - output: 0.34285714285714286
+  - Item:
+    - input:
+      - lastValue: 0.5
+      - allocation: separated
+    - status: valid
+    - output: 0.22857142857142856
+  - Item:
+    - input:
+      - lastValue: 0.5
+      - allocation: alternating
+    - status: valid
+    - output: 0.6857142857142857
+  - Item:
+    - input:
+      - lastValue: 0.5
+      - allocation: mixed
+    - status: valid
+    - output: 0.34285714285714286
+  - Item:
+    - input:
+      - lastValue: 1.0
+      - allocation: separated
+    - status: valid
+    - output: 0.22857142857142856
+  - Item:
+    - input:
+      - lastValue: 1.0
+      - allocation: alternating
+    - status: valid
+    - output: 0.7714285714285715
+  - Item:
+    - input:
+      - lastValue: 1.0
+      - allocation: mixed
+    - status: valid
+    - output: 0.37142857142857144
+  - Item:
+    - input:
+      - lastValue: 1.5
+      - allocation: separated
+    - status: valid
+    - output: 0.14285714285714285
+  - Item:
+    - input:
+      - lastValue: 1.5
+      - allocation: alternating
+    - status: valid
+    - output: 0.7714285714285715
+  - Item:
+    - input:
+      - lastValue: 1.5
+      - allocation: mixed
+    - status: valid
+    - output: 0.37142857142857144
+  - Item:
+    - input:
+      - lastValue: 2.0
+      - allocation: separated
+    - status: valid
+    - output: 0.14285714285714285
+  - Item:
+    - input:
+      - lastValue: 2.0
+      - allocation: alternating
+    - status: valid
+    - output: 0.8857142857142857
+  - Item:
+    - input:
+      - lastValue: 2.0
+      - allocation: mixed
+    - status: valid
+    - output: 0.42857142857142855
+  - Item:
+    - input:
+      - lastValue: 2.5
+      - allocation: separated
+    - status: valid
+    - output: 0.08571428571428572
+  - Item:
+    - input:
+      - lastValue: 2.5
+      - allocation: alternating
+    - status: valid
+    - output: 0.8857142857142857
+  - Item:
+    - input:
+      - lastValue: 2.5
+      - allocation: mixed
+    - status: valid
+    - output: 0.42857142857142855
+  - Item:
+    - input:
+      - lastValue: 3.0
+      - allocation: separated
+    - status: valid
+    - output: 0.08571428571428572
+  - Item:
+    - input:
+      - lastValue: 3.0
+      - allocation: alternating
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastValue: 3.0
+      - allocation: mixed
+    - status: valid
+    - output: 0.5142857142857142
+  - Item:
+    - input:
+      - lastValue: 3.5
+      - allocation: separated
+    - status: valid
+    - output: 0.05714285714285714
+  - Item:
+    - input:
+      - lastValue: 3.5
+      - allocation: alternating
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastValue: 3.5
+      - allocation: mixed
+    - status: valid
+    - output: 0.5142857142857142
+  - Item:
+    - input:
+      - lastValue: 4.0
+      - allocation: separated
+    - status: valid
+    - output: 0.05714285714285714
+  - Item:
+    - input:
+      - lastValue: 4.0
+      - allocation: alternating
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastValue: 4.0
+      - allocation: mixed
+    - status: valid
+    - output: 0.6285714285714286
+  - Item:
+    - input:
+      - lastValue: 4.5
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 4.5
+      - allocation: alternating
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastValue: 4.5
+      - allocation: mixed
+    - status: valid
+    - output: 0.6285714285714286
+  - Item:
+    - input:
+      - lastValue: 5.0
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 5.0
+      - allocation: alternating
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastValue: 5.0
+      - allocation: mixed
+    - status: valid
+    - output: 0.7428571428571429
+  - Item:
+    - input:
+      - lastValue: 5.5
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 5.5
+      - allocation: alternating
+    - status: valid
+    - output: 0.8857142857142857
+  - Item:
+    - input:
+      - lastValue: 5.5
+      - allocation: mixed
+    - status: valid
+    - output: 0.7428571428571429
+  - Item:
+    - input:
+      - lastValue: 6.0
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 6.0
+      - allocation: alternating
+    - status: valid
+    - output: 0.8857142857142857
+  - Item:
+    - input:
+      - lastValue: 6.0
+      - allocation: mixed
+    - status: valid
+    - output: 0.8857142857142857
+  - Item:
+    - input:
+      - lastValue: 6.5
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 6.5
+      - allocation: alternating
+    - status: valid
+    - output: 0.7714285714285715
+  - Item:
+    - input:
+      - lastValue: 6.5
+      - allocation: mixed
+    - status: valid
+    - output: 0.8857142857142857
+  - Item:
+    - input:
+      - lastValue: 7.0
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 7.0
+      - allocation: alternating
+    - status: valid
+    - output: 0.7714285714285715
+  - Item:
+    - input:
+      - lastValue: 7.0
+      - allocation: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastValue: 7.5
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 7.5
+      - allocation: alternating
+    - status: valid
+    - output: 0.6857142857142857
+  - Item:
+    - input:
+      - lastValue: 7.5
+      - allocation: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastValue: 8.0
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 8.0
+      - allocation: alternating
+    - status: valid
+    - output: 0.6857142857142857
+  - Item:
+    - input:
+      - lastValue: 8.0
+      - allocation: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastValue: 8.5
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 8.5
+      - allocation: alternating
+    - status: valid
+    - output: 0.6285714285714286
+  - Item:
+    - input:
+      - lastValue: 8.5
+      - allocation: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastValue: 9.0
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 9.0
+      - allocation: alternating
+    - status: valid
+    - output: 0.6285714285714286
+  - Item:
+    - input:
+      - lastValue: 9.0
+      - allocation: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastValue: 9.5
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 9.5
+      - allocation: alternating
+    - status: valid
+    - output: 0.6
+  - Item:
+    - input:
+      - lastValue: 9.5
+      - allocation: mixed
+    - status: valid
+    - output: 0.9142857142857143
+  - Item:
+    - input:
+      - lastValue: 10.0
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 10.0
+      - allocation: alternating
+    - status: valid
+    - output: 0.6
+  - Item:
+    - input:
+      - lastValue: 10.0
+      - allocation: mixed
+    - status: valid
+    - output: 0.9142857142857143
+  - Item:
+    - input:
+      - lastValue: 3.95
+      - allocation: separated
+    - status: valid
+    - output: 0.05714285714285714
+  - Item:
+    - input:
+      - lastValue: 3.95
+      - allocation: mixed
+    - status: valid
+    - output: 0.5142857142857142
+  - Item:
+    - input:
+      - lastValue: 4.05
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 4.05
+      - allocation: mixed
+    - status: valid
+    - output: 0.6285714285714286
+  - Item:
+    - input:
+      - lastValue: 7.95
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 7.95
+      - allocation: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastValue: 8.05
+      - allocation: separated
+    - status: valid
+    - output: 0.02857142857142857
+  - Item:
+    - input:
+      - lastValue: 8.05
+      - allocation: mixed
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - lastValue: -1
+      - allocation: separated
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastValue: 11
+      - allocation: separated
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastValue: true
+      - allocation: separated
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastValue: 8
+      - allocation: separated
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastValue: 8
+      - allocation: random
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastValue: 8
+      - allocation: null
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - lastValue: null
+      - allocation: separated
+    - status: invalid_parameters
+- compute: Keep eight learner scores fixed and enumerate all 70 ways to assign four learners to A and four to B. Count every allocation whose absolute mean difference is at least the observed difference, then divide that count by 70.
+- numeric tolerance: 3e-12
+- invariants:
+  - The eight outcomes are constructed. For the sharp null that changing instructions has no effect on any learner, their fixed scores can be reassigned across all 70 equally likely four-versus-four allocations. The selector displays a fixed observed allocation, not a random draw. The exact two-sided convention counts |D|≥|d|, including ties; it differs from some other two-sided conventions. For these seven fixed integer scores and one variable score, exact absolute-tail comparisons reduce to comparisons with integer thresholds; no tie tolerance is used. The independent oracle uses exact decimal fractions. Use v from 0 to 10 points. The p-value is conditional on these outcomes and the declared assignment mechanism; it is not the probability that the null is true, a treatment effect estimate or a guarantee about a wider population. Changing a score constructs a different example rather than adding observed evidence.
+  - Story, calculation, geometry and graph use the same supplied parameters.
+  - Whole counts and fixed allocation labels remain discrete.
+- limits:
+  - The eight outcomes are constructed. For the sharp null that changing instructions has no effect on any learner, their fixed scores can be reassigned across all 70 equally likely four-versus-four allocations. The selector displays a fixed observed allocation, not a random draw. The exact two-sided convention counts |D|≥|d|, including ties; it differs from some other two-sided conventions. For these seven fixed integer scores and one variable score, exact absolute-tail comparisons reduce to comparisons with integer thresholds; no tie tolerance is used. The independent oracle uses exact decimal fractions. Use v from 0 to 10 points. The p-value is conditional on these outcomes and the declared assignment mechanism; it is not the probability that the null is true, a treatment effect estimate or a guarantee about a wider population. Changing a score constructs a different example rather than adding observed evidence.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:sampling-extensions:randomization. [SciPy · permutation_test: exact independent partitions and finite-precision ties](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.permutation_test.html). Locator: Notes: all distinct fixed-size partitions form an exact permutation distribution; equal statistics count in the tail; two-sided conventions must be declared. Mathcards uses its stated absolute-statistic tail on a symmetric equal-size assignment distribution, and does not import SciPy or reproduce its example.. Verification: Official primary software/method documentation inspected 2026-11-03. The finite assignment construction is independently enumerated; independent mathematical/pedagogical and exact-edition book review remain pending.. Rights: Original eight-task construction, prose, arithmetic and diagrams; no source example, data, code or illustration reproduced.

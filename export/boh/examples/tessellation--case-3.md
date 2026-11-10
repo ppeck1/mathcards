@@ -1,0 +1,236 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:tessellation:case-3", "id": "math:example:tessellation:case-3", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:tessellation", "example_id": "math:example:tessellation:case-3", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "9dab0ee8c4953ce61c3519f14bec94fe65b90694fe36750288c2cf4bfceb701a"}, "purpose": "Which regular tile corners meet without a gap or overlap?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "9dab0ee8c4953ce61c3519f14bec94fe65b90694fe36750288c2cf4bfceb701a", "status": "draft", "title": "Three hexagon corners", "topics": ["mathematics", "geometry", "discrete-mathematics", "regular tessellations", "tessellation"], "type": "reference", "updated": "2026-11-09T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Three hexagon corners
+
+Parent card: math:concept:tessellation; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:tessellation; revision 0.1.0-draft. Setting: A floor designer brings q equal corners from regular n-sided tiles to one point. Follow each interior angle into the full turn, then compare the three regular plane tilings. Expression: $\alpha=\frac{180(n-2)}{n}\,{^{\circ}},\qquad g=360\,{^{\circ}}-q\alpha.$. Conditions required for a defined value (a case may test their violation): Use a whole side count from three through twelve and whole corner count from two through six, in the Euclidean plane. Congruent convex regular polygons are assumed. The signed gap describes this local vertex; only the compatible triangle, square and hexagon cases show a plane-tiling patch. Scope: Use whole sides n from 3 to 12 and whole copies q from 2 to 6. Positive g is a gap and negative g is angle overlap. Local angle compatibility is necessary, not a general proof that an arbitrary tile covers a plane. For the regular convex polygons tested here, the compatible pairs are triangles six at a vertex, squares four, and hexagons three. Those three cases also show a finite patch of their actual Euclidean plane tiling.
+
+Case unit math:example:tessellation:case-3. Setting: A floor designer brings q equal corners from regular n-sided tiles to one point. Follow each interior angle into the full turn, then compare the three regular plane tilings. Inputs: {"copies": 3, "sides": 6}. Result: {"approximate": "0.0"}. Limits: Use whole sides n from 3 to 12 and whole copies q from 2 to 6. Positive g is a gap and negative g is angle overlap. Local angle compatibility is necessary, not a general proof that an arbitrary tile covers a plane. For the regular convex polygons tested here, the compatible pairs are triangles six at a vertex, squares four, and hexagons three. Those three cases also show a finite patch of their actual Euclidean plane tiling.
+
+## Complete worked case
+
+- id: math:example:tessellation:case-3
+- title: Three hexagon corners
+- role: applied_model
+- question: Which regular tile corners meet without a gap or overlap?
+- setting: A floor designer brings q equal corners from regular n-sided tiles to one point. Follow each interior angle into the full turn, then compare the three regular plane tilings.
+- assumptions:
+  - Use a whole side count from three through twelve and whole corner count from two through six, in the Euclidean plane. Congruent convex regular polygons are assumed. The signed gap describes this local vertex; only the compatible triangle, square and hexagon cases show a plane-tiling patch.
+- inputs:
+  - sides: 6
+  - copies: 3
+- steps:
+  - Item:
+    - index: 1
+    - expression: n = 6; q = 3
+    - reason: Choose the stated counts, category and measurements.
+  - Item:
+    - index: 2
+    - expression: \alpha=\frac{180(n-2)}{n}\,{^{\circ}},\qquad g=360\,{^{\circ}}-q\alpha.
+    - reason: Triangulating a convex n-gon gives n−2 triangles and total interior angle 180(n−2) degrees. Regularity makes each of its n angles equal. Multiply one angle by the whole corner count and subtract from a full turn. Exact rational arithmetic gives zero only for the pairs (3,6), (4,4) and (6,3) within these domains. Explicit triangle, square and hexagon translation patterns provide the corresponding plane patches.
+  - Item:
+    - index: 3
+    - expression: g ≈ 0.0 °
+    - reason: Three 120° regular-hexagon corners make 360°. The matching hexagonal patch shares complete edges.
+- result:
+  - approximate: 0.0
+- interpretation: Three 120° regular-hexagon corners make 360°. The matching hexagonal patch shares complete edges.
+- independent check:
+  - method: Use exact Fraction arithmetic for the triangulation angle sum and signed gap; enumerate every pair of allowed counts.
+  - expected: 0.0
+- limits: Use whole sides n from 3 to 12 and whole copies q from 2 to 6. Positive g is a gap and negative g is angle overlap. Local angle compatibility is necessary, not a general proof that an arbitrary tile covers a plane. For the regular convex polygons tested here, the compatible pairs are triangles six at a vertex, squares four, and hexagons three. Those three cases also show a finite patch of their actual Euclidean plane tiling.
+- preset:
+  - sides: 6
+  - copies: 3
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Use a whole side count from three through twelve and whole corner count from two through six, in the Euclidean plane. Congruent convex regular polygons are assumed. The signed gap describes this local vertex; only the compatible triangle, square and hexagon cases show a plane-tiling patch.
+
+## Written exploration recipe
+
+- component id: component:tessellation
+- renderer id: tessellation-visual-model
+- renderer version: 1
+- model id: tessellation-visual-model
+- model revision: 1
+- expression id: ast:tessellation:expression
+- interaction status: implemented
+- description: At a regular convex n-gon corner, the interior angle is α=180(n−2)/n degrees. Bringing q such corners together leaves signed gap g=360−qα degrees. Positive gap leaves uncovered angle and negative gap means angle overlap. The tested regular plane tilings use six triangles, four squares or three hexagons at every vertex. A local angle equation alone is not a general tiling theorem.
+- controls:
+  - Item:
+    - id: sides
+    - type: number
+    - default: 6
+    - min: 3
+    - max: 12
+    - step: 1
+  - Item:
+    - id: copies
+    - type: number
+    - default: 3
+    - min: 2
+    - max: 6
+    - step: 1
+- expected cases:
+  - Item:
+    - input:
+      - sides: 3
+      - copies: 6
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - sides: 4
+      - copies: 4
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - sides: 6
+      - copies: 3
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - sides: 5
+      - copies: 3
+    - status: valid
+    - output: 36.0
+  - Item:
+    - input:
+      - sides: 4
+      - copies: 5
+    - status: valid
+    - output: -90.0
+  - Item:
+    - input:
+      - sides: 3
+      - copies: 2
+    - status: valid
+    - output: 240.0
+  - Item:
+    - input:
+      - sides: 12
+      - copies: 6
+    - status: valid
+    - output: -540.0
+  - Item:
+    - input:
+      - sides: 12
+      - copies: 2
+    - status: valid
+    - output: 60.0
+  - Item:
+    - input:
+      - sides: 7
+      - copies: 4
+    - status: valid
+    - output: -154.28571428571428
+  - Item:
+    - input:
+      - sides: 8
+      - copies: 3
+    - status: valid
+    - output: -45.0
+  - Item:
+    - input:
+      - sides: 9
+      - copies: 5
+    - status: valid
+    - output: -340.0
+  - Item:
+    - input:
+      - sides: 10
+      - copies: 2
+    - status: valid
+    - output: 72.0
+  - Item:
+    - input:
+      - sides: 2.9
+      - copies: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sides: 12.1
+      - copies: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sides: true
+      - copies: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sides: null
+      - copies: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sides: 1
+      - copies: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sides: 3.5
+      - copies: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sides: 6
+      - copies: 1.9
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sides: 6
+      - copies: 6.1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sides: 6
+      - copies: true
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sides: 6
+      - copies: null
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sides: 6
+      - copies: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - sides: 6
+      - copies: 2.5
+    - status: invalid_parameters
+- compute: \alpha=\frac{180(n-2)}{n}\,{^{\circ}},\qquad g=360\,{^{\circ}}-q\alpha.
+- numeric tolerance: 5e-11
+- invariants:
+  - Use a whole side count from three through twelve and whole corner count from two through six, in the Euclidean plane. Congruent convex regular polygons are assumed. The signed gap describes this local vertex; only the compatible triangle, square and hexagon cases show a plane-tiling patch.
+  - Story, formula, measured Geometry and Graph use the same evaluated state.
+  - Categorical and integer choices stay discrete; physical lengths may change continuously.
+- limits:
+  - Use whole sides n from 3 to 12 and whole copies q from 2 to 6. Positive g is a gap and negative g is angle overlap. Local angle compatibility is necessary, not a general proof that an arbitrary tile covers a plane. For the regular convex polygons tested here, the compatible pairs are triangles six at a vertex, squares four, and hexagons three. Those three cases also show a finite patch of their actual Euclidean plane tiling.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:spatial-insights:tiling. [Wolfram MathWorld · Regular Tessellation](https://mathworld.wolfram.com/RegularTessellation.html). Locator: Equations (1)–(6): regular polygon angles around a vertex and the three regular Euclidean plane tessellations. Original finite patches and angle-sector drawings.. Verification: Definition-level source inspected 2026-11-09. Independent mathematics and teaching review and exact-edition book-page verification remain pending.. Rights: Originally authored display, floor, camera and bead-cell examples and drawings. No source exercise, image or dataset reproduced.

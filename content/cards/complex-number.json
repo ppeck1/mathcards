@@ -1,0 +1,652 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:complex-number",
+  "slug": "complex-number",
+  "type": "concept",
+  "title": "Complex numbers, conjugates and modulus",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "complex numbers, conjugates and modulus"
+  ],
+  "branches": [
+    "algebra",
+    "geometry"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "How far is a plotter offset from the origin, and what does reflection preserve?",
+  "meaning": "A complex number records a real horizontal component and an imaginary vertical component. Reflect the vertical component to obtain the conjugate; the Pythagorean distance gives the common modulus.",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:complex-multiplication",
+      "math:concept:pythagorean-theorem"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A drawing plotter works in a unitless design grid. Represent its horizontal and vertical offsets by one complex number. Drag the vertical component: the gold point moves, its violet reflection follows, and both stay on the same gold radius circle.",
+    "formal_latex": "z=a+bi,\\quad i^2=-1,\\quad\\bar z=a-bi,\\quad |z|=\\sqrt{a^2+b^2}.",
+    "signature": {
+      "a": "Real component",
+      "b": "Imaginary component",
+      "z": "Complex point represented by its components",
+      "i": "Imaginary unit with square minus one",
+      "z̄": "Conjugate reflected point",
+      "|z|": "Modulus of the complex number"
+    },
+    "conditions": [
+      "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+    ],
+    "domain_notes": "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly.",
+    "proof_status": "Definition-level sources and original bounded calculations; independent review pending.",
+    "source_refs": [
+      "source:algebra-extension:complex",
+      "source:algebra-extension:conjugate"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Complex numbers, conjugates and modulus",
+    "expression_latex": "z=a+bi,\\quad i^2=-1,\\quad\\bar z=a-bi,\\quad |z|=\\sqrt{a^2+b^2}.",
+    "formation_rule": "A complex number records a real horizontal component and an imaginary vertical component. Reflect the vertical component to obtain the conjugate; the Pythagorean distance gives the common modulus.",
+    "precedence": "Evaluate the declared component operations before the final quantity; preserve the stated variable domains.",
+    "symbols": [
+      {
+        "token": "a",
+        "role": "Real component",
+        "type": "Declared input or evaluated quantity"
+      },
+      {
+        "token": "b",
+        "role": "Imaginary component",
+        "type": "Declared input or evaluated quantity"
+      },
+      {
+        "token": "z",
+        "role": "Complex point represented by its components",
+        "type": "Declared input or evaluated quantity"
+      },
+      {
+        "token": "i",
+        "role": "Imaginary unit with square minus one",
+        "type": "Declared input or evaluated quantity"
+      },
+      {
+        "token": "z̄",
+        "role": "Conjugate reflected point",
+        "type": "Declared input or evaluated quantity"
+      },
+      {
+        "token": "|z|",
+        "role": "Modulus of the complex number",
+        "type": "Declared input or evaluated quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:complex-number:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:imag",
+          "kind": "variable",
+          "type": "Real input in the declared finite range",
+          "symbol": "b",
+          "scope_ref": "scope:complex-number"
+        },
+        {
+          "id": "n:real",
+          "kind": "variable",
+          "type": "Real input in the declared finite range",
+          "symbol": "a",
+          "scope_ref": "scope:complex-number"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded algebra rule",
+          "ref": "A complex number records a real horizontal component and an imaginary vertical component. Reflect the vertical component to obtain the conjugate; the Pythagorean distance gives the common modulus."
+        },
+        {
+          "id": "n:bound-imag",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:imag"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-imag",
+          "argument": "n:real"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:complex-number",
+          "kind": "modelExpression",
+          "free_variables": [
+            "b",
+            "a"
+          ],
+          "domain_condition": "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "An undeclared or out-of-range input",
+        "status": "unsupported parameter",
+        "reason": "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+      }
+    ],
+    "ast_coverage": "Typed application outline for a bounded family; not a general expression parser.",
+    "output_symbol_bindings": {
+      "a": "real",
+      "b": "imag",
+      "z": "complexPoint",
+      "i": "imaginaryUnit",
+      "z̄": "conjugatePoint",
+      "|z|": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Conjugation preserves the modulus.",
+      "conditions": "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly.",
+      "derivation": "The squared real component a² and squared imaginary component b² sum to the squared modulus |z|². The imaginary component of the conjugate is −b. Its square is still b², so reflection preserves the sum and its nonnegative square root, the complex modulus.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:complex-number:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Check historical and notation development before adding priority claims.",
+      "Verify exact-edition book mappings independently."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The workshop stories and examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:complex-multiplication",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Complex numbers, conjugates and modulus supplies a bounded preparation for complex multiplication.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:pythagorean-theorem",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Complex numbers, conjugates and modulus supplies a bounded preparation for pythagorean theorem.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:quadratic-equation",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Complex numbers, conjugates and modulus supplies a bounded preparation for quadratic equation.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:complex-number:case-1",
+      "title": "A plotter offset",
+      "role": "applied_model",
+      "question": "How far is a plotter offset from the origin, and what does reflection preserve?",
+      "setting": "A drawing plotter works in a unitless design grid. Represent its horizontal and vertical offsets by one complex number. Drag the vertical component: the gold point moves, its violet reflection follows, and both stay on the same gold radius circle.",
+      "assumptions": [
+        "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+      ],
+      "inputs": {
+        "imag": 2,
+        "real": 3
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "b = 2; a = 3",
+          "reason": "Declare the bounded inputs and preserve their units."
+        },
+        {
+          "index": 2,
+          "expression": "z = a + bi; |z| = √(a² + b²); result ≈ 3.6055512755",
+          "reason": "A complex number records a real horizontal component and an imaginary vertical component. Reflect the vertical component to obtain the conjugate; the Pythagorean distance gives the common modulus."
+        }
+      ],
+      "result": {
+        "approximate": "3.6055512755 dimensionless"
+      },
+      "interpretation": "The common radius is √13; reflection changes the vertical sign.",
+      "independent_check": {
+        "method": "Square the two components and compare their sum with the square of the displayed radius; negating the imaginary component leaves the sum unchanged.",
+        "expected": "3.6055512755"
+      },
+      "limits": "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly.",
+      "preset": {
+        "imag": 2,
+        "real": 3
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+      ]
+    },
+    {
+      "id": "math:example:complex-number:case-2",
+      "title": "A familiar radius",
+      "role": "applied_model",
+      "question": "How far is a plotter offset from the origin, and what does reflection preserve?",
+      "setting": "A drawing plotter works in a unitless design grid. Represent its horizontal and vertical offsets by one complex number. Drag the vertical component: the gold point moves, its violet reflection follows, and both stay on the same gold radius circle.",
+      "assumptions": [
+        "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+      ],
+      "inputs": {
+        "imag": 4,
+        "real": 3
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "b = 4; a = 3",
+          "reason": "Declare the bounded inputs and preserve their units."
+        },
+        {
+          "index": 2,
+          "expression": "z = a + bi; |z| = √(a² + b²); result ≈ 5.0",
+          "reason": "A complex number records a real horizontal component and an imaginary vertical component. Reflect the vertical component to obtain the conjugate; the Pythagorean distance gives the common modulus."
+        }
+      ],
+      "result": {
+        "approximate": "5.0 dimensionless"
+      },
+      "interpretation": "The components form a 3–4–5 right triangle.",
+      "independent_check": {
+        "method": "Square the two components and compare their sum with the square of the displayed radius; negating the imaginary component leaves the sum unchanged.",
+        "expected": "5.0"
+      },
+      "limits": "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly.",
+      "preset": {
+        "imag": 4,
+        "real": 3
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+      ]
+    },
+    {
+      "id": "math:example:complex-number:case-3",
+      "title": "Below the real axis",
+      "role": "applied_model",
+      "question": "How far is a plotter offset from the origin, and what does reflection preserve?",
+      "setting": "A drawing plotter works in a unitless design grid. Represent its horizontal and vertical offsets by one complex number. Drag the vertical component: the gold point moves, its violet reflection follows, and both stay on the same gold radius circle.",
+      "assumptions": [
+        "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+      ],
+      "inputs": {
+        "imag": -4,
+        "real": 3
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "b = -4; a = 3",
+          "reason": "Declare the bounded inputs and preserve their units."
+        },
+        {
+          "index": 2,
+          "expression": "z = a + bi; |z| = √(a² + b²); result ≈ 5.0",
+          "reason": "A complex number records a real horizontal component and an imaginary vertical component. Reflect the vertical component to obtain the conjugate; the Pythagorean distance gives the common modulus."
+        }
+      ],
+      "result": {
+        "approximate": "5.0 dimensionless"
+      },
+      "interpretation": "Reflection gives a positive imaginary component but the same modulus.",
+      "independent_check": {
+        "method": "Square the two components and compare their sum with the square of the displayed radius; negating the imaginary component leaves the sum unchanged.",
+        "expected": "5.0"
+      },
+      "limits": "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly.",
+      "preset": {
+        "imag": -4,
+        "real": 3
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+      ]
+    },
+    {
+      "id": "math:example:complex-number:case-4",
+      "title": "A real offset",
+      "role": "applied_model",
+      "question": "How far is a plotter offset from the origin, and what does reflection preserve?",
+      "setting": "A drawing plotter works in a unitless design grid. Represent its horizontal and vertical offsets by one complex number. Drag the vertical component: the gold point moves, its violet reflection follows, and both stay on the same gold radius circle.",
+      "assumptions": [
+        "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+      ],
+      "inputs": {
+        "imag": 0,
+        "real": -2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "b = 0; a = -2",
+          "reason": "Declare the bounded inputs and preserve their units."
+        },
+        {
+          "index": 2,
+          "expression": "z = a + bi; |z| = √(a² + b²); result ≈ 2.0",
+          "reason": "A complex number records a real horizontal component and an imaginary vertical component. Reflect the vertical component to obtain the conjugate; the Pythagorean distance gives the common modulus."
+        }
+      ],
+      "result": {
+        "approximate": "2.0 dimensionless"
+      },
+      "interpretation": "The conjugate coincides with the real point; the modulus is nonnegative.",
+      "independent_check": {
+        "method": "Square the two components and compare their sum with the square of the displayed radius; negating the imaginary component leaves the sum unchanged.",
+        "expected": "2.0"
+      },
+      "limits": "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly.",
+      "preset": {
+        "imag": 0,
+        "real": -2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+      ]
+    },
+    {
+      "id": "math:example:complex-number:case-5",
+      "title": "The origin",
+      "role": "applied_model",
+      "question": "How far is a plotter offset from the origin, and what does reflection preserve?",
+      "setting": "A drawing plotter works in a unitless design grid. Represent its horizontal and vertical offsets by one complex number. Drag the vertical component: the gold point moves, its violet reflection follows, and both stay on the same gold radius circle.",
+      "assumptions": [
+        "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+      ],
+      "inputs": {
+        "imag": 0,
+        "real": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "b = 0; a = 0",
+          "reason": "Declare the bounded inputs and preserve their units."
+        },
+        {
+          "index": 2,
+          "expression": "z = a + bi; |z| = √(a² + b²); result ≈ 0.0",
+          "reason": "A complex number records a real horizontal component and an imaginary vertical component. Reflect the vertical component to obtain the conjugate; the Pythagorean distance gives the common modulus."
+        }
+      ],
+      "result": {
+        "approximate": "0.0 dimensionless"
+      },
+      "interpretation": "The origin has zero modulus and is its own conjugate.",
+      "independent_check": {
+        "method": "Square the two components and compare their sum with the square of the displayed radius; negating the imaginary component leaves the sum unchanged.",
+        "expected": "0.0"
+      },
+      "limits": "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly.",
+      "preset": {
+        "imag": 0,
+        "real": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:complex-number",
+    "renderer_id": "complex-number-visual-model",
+    "renderer_version": "1",
+    "model_id": "complex-number-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:complex-number:expression",
+    "interaction_status": "implemented",
+    "description": "A drawing plotter works in a unitless design grid. Represent its horizontal and vertical offsets by one complex number. Drag the vertical component: the gold point moves, its violet reflection follows, and both stay on the same gold radius circle.",
+    "controls": [
+      {
+        "id": "imag",
+        "type": "number",
+        "default": 2,
+        "min": -4,
+        "max": 4,
+        "step": 0.05
+      },
+      {
+        "id": "real",
+        "type": "number",
+        "default": 3,
+        "min": -4,
+        "max": 4,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "imag": 2,
+          "real": 3
+        },
+        "status": "valid",
+        "output": 3.605551275463989
+      },
+      {
+        "input": {
+          "imag": 4,
+          "real": 3
+        },
+        "status": "valid",
+        "output": 5.0
+      },
+      {
+        "input": {
+          "imag": -4,
+          "real": 3
+        },
+        "status": "valid",
+        "output": 5.0
+      },
+      {
+        "input": {
+          "imag": 0,
+          "real": -2
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "imag": 0,
+          "real": 0
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "imag": -1,
+          "real": -1
+        },
+        "status": "valid",
+        "output": 1.4142135623730951
+      },
+      {
+        "input": {
+          "imag": 0.5,
+          "real": 1.5
+        },
+        "status": "valid",
+        "output": 1.5811388300841898
+      },
+      {
+        "input": {
+          "imag": 4,
+          "real": -4
+        },
+        "status": "valid",
+        "output": 5.656854249492381
+      },
+      {
+        "input": {
+          "imag": -3,
+          "real": 0
+        },
+        "status": "valid",
+        "output": 3.0
+      },
+      {
+        "input": {
+          "imag": 1e-160,
+          "real": 2
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "imag": 1e-200,
+          "real": 2
+        },
+        "status": "numeric_precision"
+      },
+      {
+        "input": {
+          "imag": 5,
+          "real": 0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "imag": 0,
+          "real": true
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "A complex number records a real horizontal component and an imaginary vertical component. Reflect the vertical component to obtain the conjugate; the Pythagorean distance gives the common modulus.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly.",
+      "Story, controls, calculations and both views use one evaluated state."
+    ],
+    "limits": [
+      "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+    ],
+    "fallback": "Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How far is a plotter offset from the origin, and what does reflection preserve?",
+      "answer": "A complex number records a real horizontal component and an imaginary vertical component. Reflect the vertical component to obtain the conjugate; the Pythagorean distance gives the common modulus."
+    },
+    {
+      "prompt": "Which assumptions make this picture valid?",
+      "answer": "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "A drawing plotter works in a unitless design grid. Represent its horizontal and vertical offsets by one complex number. Drag the vertical component: the gold point moves, its violet reflection follows, and both stay on the same gold radius circle."
+    },
+    {
+      "kind": "graph",
+      "description": "Hold the other inputs fixed and graph the declared primary result against Imaginary component b. Real-root counts are isolated evaluated dots, never fractional counts."
+    },
+    {
+      "kind": "substitution",
+      "description": "A complex number records a real horizontal component and an imaginary vertical component. Reflect the vertical component to obtain the conjugate; the Pythagorean distance gives the common modulus."
+    }
+  ],
+  "applications": [
+    {
+      "context": "A plotter offset",
+      "mapping": "The common radius is √13; reflection changes the vertical sign.",
+      "limitations": "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:complex-number:case-1"
+    },
+    {
+      "context": "A familiar radius",
+      "mapping": "The components form a 3–4–5 right triangle.",
+      "limitations": "The components are real numbers between −4 and 4 in a declared unitless frame. The complex plane here is a coordinate model; no circuit or empirical measurement is implied. Underflow of a nonzero squared component is reported explicitly.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:complex-number:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:algebra-extension:complex",
+    "source:algebra-extension:conjugate"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded family is an introduction, not completion of a broad subject."
+  ],
+  "change_log": [
+    "Added a bounded algebra family with original story, independent reference, matching preview and distinct Geometry/Graph."
+  ]
+}

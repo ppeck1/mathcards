@@ -1,4 +1,10 @@
-# Implementation status: 0.14.0
+# Implementation history: from 0.14.0
+
+This is a historical implementation log. For the running stack and current
+module boundaries, use [Architecture](ARCHITECTURE.md) and
+[Playground modules](PLAYGROUND_MODULES.md); release manifests and validation
+records own current counts. The older release descriptions below are retained
+as historical evidence, not current instructions.
 
 The local application uses browser-native HTML, CSS, JavaScript, SVG and
 MathML. There are no runtime packages, network calls, accounts or API keys.

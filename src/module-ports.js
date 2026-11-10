@@ -4,14 +4,188 @@
    A host must validate the receiving model, including bounds and domain, before
    applying a linked value. A matching type and unit never imply equal ranges. */
 (function(root,factory){
-  const api=factory();
+  const api=factory(typeof module==='object'&&module.exports?require('./continuation-metadata.js'):root.AtlasContinuationMetadata);
   if(typeof module==='object'&&module.exports)module.exports=api;
   root.AtlasModulePorts=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(){
+})(typeof globalThis!=='undefined'?globalThis:this,function(Continuation){
   'use strict';
   const port=(direction,key,label,type,unit,description)=>Object.freeze({id:direction+':'+key,label,direction,key,type,unit,description});
   const input=(...args)=>port('input',...args),output=(...args)=>port('output',...args);
   const definitions={
+    'vector-field':[
+      input('x','Horizontal normalized position','normalized-position','1','The horizontal coordinate in the stipulated dimensionless alignment frame, not a measured distance in metres.'),
+      input('y','Vertical normalized position','normalized-position','1','The vertical coordinate in the same dimensionless alignment frame as x.'),
+      input('rate','Continuous return rate','relaxation-rate','1/modelTime','The nonnegative proportional return rate per declared model time unit; it is not a discrete update multiplier.'),
+      output('output','Commanded speed magnitude','normalized-speed','1/modelTime','The nonnegative norm of the local commanded velocity, not the distance already traveled.'),
+      output('vx','Horizontal commanded velocity','normalized-velocity','1/modelTime','The signed horizontal component of the command at the selected position.'),
+      output('vy','Vertical commanded velocity','normalized-velocity','1/modelTime','The signed vertical component of the command at the selected position.')
+    ],
+    'continuous-flow':[
+      input('time','Elapsed model time','model-duration','modelTime','Elapsed time in the constructed continuous model; no conversion to physical seconds is assumed.'),
+      input('initial','Initial normalized displacement','normalized-position','1','The signed starting displacement in the stipulated dimensionless alignment frame.'),
+      input('rate','Continuous return rate','relaxation-rate','1/modelTime','The nonnegative rate a in dx/dt=-a*x per declared model time unit.'),
+      output('output','Current normalized displacement','normalized-position','1','The exact-model finite-time position, not the distance accumulated along the path.'),
+      output('factor','Exponential response factor','scale-factor','1','The multiplier exp(-a*t) applied to the initial signed displacement.'),
+      output('velocity','Current normalized velocity','normalized-velocity','1/modelTime','The signed velocity -a*x(t) at the displayed finite time.')
+    ],
+    'basin-attraction':[
+      input('initial','Initial normalized position','normalized-position','1','The signed starting position in the constructed double-rest system, not an empirically calibrated spring displacement.'),
+      input('time','Elapsed model time','model-duration','modelTime','The nonnegative elapsed time of the normalized law dx/dt=x-x cubed.'),
+      output('output','Finite-time normalized position','normalized-position','1','The position at the selected finite time; it remains distinct from the limiting destination.'),
+      output('destination','Limiting equilibrium position','normalized-position','1','The limit is +1 for positive starts, -1 for negative starts and zero for the exact unstable start.'),
+      output('velocity','Initial normalized velocity','normalized-velocity','1/modelTime','The velocity x0-x0 cubed at the initial position, not the velocity at the displayed finite-time position.')
+    ],
+    'fold-bifurcation':[
+      input('mu','Fold control parameter','fold-control-parameter','1','The normalized control parameter in the local velocity family mu-x squared; it is not a probability.'),
+      output('output','Distinct equilibrium count','equilibrium-count','equilibrium','The exact number of distinct real equilibrium positions, including one double root at zero.'),
+      output('stable','Stable equilibrium position','normalized-position','1','The positive attracting equilibrium when mu is positive; null when that simple stable branch does not exist.'),
+      output('unstable','Unstable equilibrium position','normalized-position','1','The negative repelling equilibrium when mu is positive; null when that simple unstable branch does not exist.')
+    ],
+    'cusp-potential':[
+      input('bias','Potential tilt parameter','cusp-tilt-parameter','1','The normalized coefficient b of the linear tilt term; a potential coefficient is not an activation bias.'),
+      input('shape','Potential well parameter','cusp-shape-parameter','1','The nonnegative normalized coefficient a controlling the quadratic term of this quartic potential.'),
+      output('output','Distinct stationary-point count','stationary-point-count','point','The certified count of distinct real zeros of the potential derivative; root positions remain numerical approximations.'),
+      output('discriminant','Rounded cubic discriminant','cubic-discriminant','1','The numerical display of 4a cubed minus 27b squared; exact binary-rational sign certification decides the root count.')
+    ],
+    'partial-order':[
+      input('a','First tool collection code','tool-collection-code','1','An integer code for membership in the fixed lamp/ruler/brush collection; integer comparison is not subset order.'),
+      input('b','Second tool collection code','tool-collection-code','1','An integer code for the second tool subset, interpreted by membership rather than numerical magnitude.'),
+      output('output','First collection is included in second','truth-value','1','One when every member of A is in B and zero otherwise; this flag is not an event probability.'),
+      output('comparable','Collections are comparable','truth-value','1','One if A is included in B or B is included in A; equal sizes alone do not establish comparability.'),
+      output('resultMask','First selected collection code','tool-collection-code','1','The first collection code highlighted in the diagram, separate from the inclusion truth result.')
+    ],
+    'meet-join':[
+      input('a','First tool collection code','tool-collection-code','1','An integer membership code for the first subset of the three stated tools.'),
+      input('b','Second tool collection code','tool-collection-code','1','An integer membership code for the second subset of the three stated tools.'),
+      output('output','Tools in the selected bound','count','tool','The exact number of tools in the meet or join, not the integer code for that resulting subset.'),
+      output('resultMask','Resulting tool collection code','tool-collection-code','1','The membership code of intersection for meet or union for join in this powerset lattice.')
+    ],
+    'lattice-distributivity':[
+      input('a','First tool collection code','tool-collection-code','1','The first fixed-universe subset represented by its integer membership code.'),
+      input('b','Second tool collection code','tool-collection-code','1','The second fixed-universe subset represented by its integer membership code.'),
+      input('c','Third tool collection code','tool-collection-code','1','The third fixed-universe subset represented by its integer membership code.'),
+      output('output','Tools selected by either route','count','tool','The exact cardinality of the common subset obtained by the two distributive expressions.'),
+      output('leftMask','Left expression collection code','tool-collection-code','1','The membership code for A meet (B join C), not its cardinality.'),
+      output('rightMask','Right expression collection code','tool-collection-code','1','The membership code for (A meet B) join (A meet C), not its cardinality.'),
+      output('equal','Both expression results agree','truth-value','1','One when the two resulting subsets are identical in this fixed distributive lattice.')
+    ],
+    'heat-balance':[
+      input('heat','Heat transferred from hot to cold','heat-transfer','J','The nonnegative energy transferred between the two insulated equal-capacity bodies, stopping at equal temperature.'),
+      output('output','Total physical entropy change','thermodynamic-entropy-change','J/K','The sum of the two bodies entropy changes in joules per kelvin; this is not Shannon entropy in bits.'),
+      output('hot','Hot-body absolute temperature','absolute-temperature','K','The remaining absolute temperature of the initially 400-kelvin body.'),
+      output('cold','Cold-body absolute temperature','absolute-temperature','K','The absolute temperature of the initially 300-kelvin body after the same heat transfer.'),
+      output('hotEntropy','Hot-body entropy change','thermodynamic-entropy-change','J/K','The negative entropy change of the hot body, using its stated heat capacity.'),
+      output('coldEntropy','Cold-body entropy change','thermodynamic-entropy-change','J/K','The positive entropy change of the cold body, using its stated heat capacity.')
+    ],
+    'gibbs-free-energy':[
+      input('temperature','Absolute comparison temperature','absolute-temperature','K','The positive Kelvin temperature of each separate constant-temperature, constant-pressure comparison.'),
+      input('enthalpy','Enthalpy change','enthalpy-change','J','The stipulated enthalpy difference, held fixed during a temperature sweep.'),
+      input('entropy','Physical entropy change','thermodynamic-entropy-change','J/K','The stipulated physical entropy difference; no conversion from information bits is implied.'),
+      output('output','Gibbs free-energy change','gibbs-free-energy-change','J','The signed comparison delta H minus T delta S, not a reaction rate or activation barrier.'),
+      output('thermalTerm','Temperature-entropy product','temperature-entropy-product','J','The product T delta S before it is subtracted from the enthalpy change.')
+    ],
+    'ideal-gas':[
+      input('volume','Equilibrium gas volume','volume','L','The positive volume in litres of the fixed one-mole ideal gas equilibrium state.'),
+      input('temperature','Absolute gas temperature','absolute-temperature','K','The positive Kelvin temperature of the ideal gas; Celsius values are not implicitly converted.'),
+      output('output','Equilibrium gas pressure','pressure','kPa','The pressure nRT/V in kilopascals, not a time-varying compression law.'),
+      output('thermalEnergy','Pressure-volume product nRT','pressure-volume-product','kPa.L','The numerator nRT in litre-kilopascals; metadata performs no implicit conversion to another unit.')
+    ],
+    'artificial-neuron':[
+      input('signal','Normalized sensor signal','normalized-sensor-signal','1','The signed signal of the illustrative sensor, not an event probability or physical distance.'),
+      input('weight','Artificial connection weight','neural-weight','1','The signed scalar weight of this abstract unit, not a biological synaptic measurement.'),
+      input('bias','Preactivation offset','neural-preactivation','1','The additive offset in the artificial preactivation wx+b; it is not a quartic-potential tilt.'),
+      output('output','Sigmoid activation','neural-activation','1','The activation between zero and one; no calibration as a probability is claimed.'),
+      output('weighted','Weighted signal','neural-preactivation','1','The signed product wx before adding the bias offset.'),
+      output('z','Total preactivation','neural-preactivation','1','The signed sum wx+b before applying the sigmoid transfer function.')
+    ],
+    'hebbian-learning':[
+      input('pre','Presynaptic activity','neural-activation','1','A stipulated activity in the interval zero to one for one illustrative weight update.'),
+      input('post','Postsynaptic activity','neural-activation','1','The second stipulated activity in the interval zero to one; no observed neural recording is used.'),
+      input('rate','Hebbian update rate','hebbian-learning-rate','1','The nonnegative coefficient of one correlation update, distinct from a physical return rate or event intensity.'),
+      output('output','New connection weight','neural-weight','1','The fixed initial weight 0.2 plus one computed increment; repeated updates are not silently applied.'),
+      output('change','Connection-weight increment','neural-weight-change','1','The single update eta*u*v, distinct from the complete resulting weight.'),
+      output('product','Activity product','coactivity-product','1','The product of the two stated activities before multiplication by the update rate.'),
+      output('initialWeight','Initial connection weight','neural-weight','1','The fixed starting weight 0.2 used for this one-step model.')
+    ],
+    'sampling-distribution':[
+      input('sampleSize','Independent draw count','sample-size','draw','The whole number of independent with-replacement draws, not the number of possible ordered samples.'),
+      output('output','Standard error of sample mean','standard-error','kg','The standard deviation of the complete sample-mean distribution, in the same kilograms as a parcel mass.'),
+      output('standardError','Standard error of sample mean','standard-error','kg','The population standard deviation divided by the square root of the independent sample size.'),
+      output('variance','Sample-mean variance','sampling-variance','kg2','The variance of the sample mean, distinct from variance of an individual parcel mass.'),
+      output('mean','Expected sample mean mass','expected-mass','kg','The expectation of the sample mean under the fixed equally likely parcel model.'),
+      output('sampleCount','Enumerated ordered samples','enumerated-sample-count','sample','The exact number of possible ordered samples in the displayed finite distribution.')
+    ],
+    'confidence-interval':[
+      input('trueChance','Teaching-model sticker probability','probability','1','The fixed model parameter used to inspect repeated-sampling coverage; not a posterior probability.'),
+      input('observed','Observed sticker count','count','sticker','The whole observed success count in eight packets, selecting one reported interval.'),
+      output('output','Repeated-sampling coverage','coverage-probability','1','The probability that this interval procedure covers the fixed teaching-model parameter across all possible counts.'),
+      output('coverage','Repeated-sampling coverage','coverage-probability','1','The frequentist procedure coverage, not confidence that the selected realized interval contains a random parameter.'),
+      output('low','Lower interval endpoint','probability-bound','1','The lower Clopper-Pearson bound from the selected success count.'),
+      output('high','Upper interval endpoint','probability-bound','1','The upper Clopper-Pearson bound from the selected success count.'),
+      output('width','Selected interval width','probability-interval-width','1','The upper endpoint minus the lower endpoint for the selected realized interval.'),
+      output('covered','Selected interval covers model parameter','truth-value','1','One when the selected interval contains the known teaching-model parameter, not a posterior confidence level.')
+    ],
+    'hypothesis-test':[
+      input('observed','Observed sticker count','count','sticker','The whole success count in twelve packets for a prespecified one-sided binomial test.'),
+      output('output','One-sided upper-tail p-value','p-value','1','The null-model probability of a count at least as large as observed, not the probability that the null is true.'),
+      output('pValue','One-sided upper-tail p-value','p-value','1','The exact binomial upper-tail probability under the specified null success probability.'),
+      output('alpha','Prespecified significance threshold','significance-level','1','The fixed comparison threshold 0.05 chosen before observing the count.'),
+      output('reject','Reject-null decision flag','hypothesis-rejection-flag','1','One when the specified decision rule rejects; this flag does not report whether the null is actually false.')
+    ],
+    'linear-regression':[
+      input('lastValue','Final seedling height','length','cm','The fifth constructed height observation in centimetres; the five day coordinates stay fixed.'),
+      output('output','Fitted least-squares slope','regression-slope','cm/day','The fitted change in height per day in this five-point line, not an identified causal growth rate.'),
+      output('slope','Fitted least-squares slope','regression-slope','cm/day','The slope Sxy/Sxx of the fitted line using vertical squared residuals.'),
+      output('intercept','Fitted line intercept','length','cm','The fitted height at day zero, without an extrapolation guarantee.'),
+      output('yMean','Mean observed height','length','cm','The arithmetic mean of the five constructed seedling heights.'),
+      output('sse','Residual sum of squares','residual-sum-of-squares','cm2','The sum of squared vertical fitting residuals, not their variance estimate.')
+    ],
+    correlation:[
+      input('trend','Constructed linear trend','normalized-trend','1','The signed trend coefficient in the uncalibrated paired-reading construction.'),
+      input('scatter','Constructed scatter scale','scatter-scale','1','The nonnegative scale of the fixed orthogonal scatter pattern, not a correlation coefficient.'),
+      output('output','Pearson correlation coefficient','correlation-coefficient','1','The signed normalized measure of linear association; null when the outcome readings are constant.'),
+      output('r','Pearson correlation coefficient','correlation-coefficient','1','The sample correlation, distinct from causation and from a significance-test result.')
+    ],
+    'factorial-interaction':[
+      input('combined','Both-improvements mean packing time','duration','min','The constructed mean time in the fourth cell of the two-by-two design.'),
+      output('output','Difference of differences','difference-of-differences','min','The tool effect with the guide minus the tool effect without it, in minutes.'),
+      output('without','Tool effect without guide','treatment-effect','min','The signed difference between mean tool-on and tool-off packing times without the guide.'),
+      output('withGuide','Tool effect with guide','treatment-effect','min','The signed difference between mean tool-on and tool-off packing times with the guide.'),
+      output('factorialEffect','Conventional factorial interaction effect','factorial-interaction-effect','min','The conventional plus-or-minus-one coding interaction effect, equal to half the displayed difference of differences.')
+    ],
+    'chi-square-association':[
+      input('diagonal','Diagonal reader count','count','reader','The same whole count in the two diagonal cells of the constructed fixed-margin table.'),
+      output('output','Pearson chi-square statistic','chi-square-statistic','1','The dimensionless observed-versus-expected discrepancy statistic; no p-value is computed.'),
+      output('statistic','Pearson chi-square statistic','chi-square-statistic','1','The sum of squared cell discrepancies divided by their expected counts.'),
+      output('expected','Expected count in each cell','expected-count','reader','The fixed expected independence count ten in each of the four cells.'),
+      output('degreesFreedom','Reference degrees of freedom','degrees-of-freedom','1','The one degree of freedom of this fixed-margin two-by-two independence comparison.')
+    ],
+    'relative-entropy':[
+      input('actual','Teaching-model sticker probability','probability','1','The Bernoulli success probability defining the first distribution P in the directed comparison.'),
+      input('forecast','Forecast sticker probability','probability','1','The Bernoulli success probability defining the second distribution Q; the direction P relative to Q matters.'),
+      output('output','Directed relative entropy','relative-entropy','bit','The divergence D(P relative to Q) in bits; an incompatible zero forecast gives an explicit non-finite state.'),
+      output('divergence','Directed relative entropy','relative-entropy','bit','The nonnegative total divergence, not a symmetric distance or physical entropy.'),
+      output('contribution0','Failure contribution to divergence','relative-entropy-contribution','bit','The weighted logarithmic contribution from the zero outcome; individual contributions can be negative.'),
+      output('contribution1','Success contribution to divergence','relative-entropy-contribution','bit','The weighted logarithmic contribution from the one outcome; their sum is the divergence.')
+    ],
+    'binomial-distribution':[
+      input('chance','Per-packet sticker probability','probability','1','The common success probability in the independent fixed-count packet model.'),
+      input('trials','Packet trial count','count','packet','The whole number of independent packets, each with the same sticker probability.'),
+      input('count','Selected sticker count','count','sticker','The whole success count whose probability mass is highlighted; counts beyond the trial count have zero mass.'),
+      output('output','Selected count probability','probability','1','The probability mass at the selected whole count, not an expected number of stickers.'),
+      output('selectedMass','Selected count probability','probability','1','The binomial probability of exactly the highlighted number of successful packets.'),
+      output('mean','Expected sticker count','expected-count','sticker','The probability-weighted count n*p, which may be fractional.'),
+      output('variance','Sticker-count variance','count-variance','sticker2','The variance n*p*(1-p) of the number of stickers, with squared count units.')
+    ],
+    'poisson-distribution':[
+      input('rate','Arrival intensity','arrival-intensity','arrival/min','The assumed constant mean arrivals per minute, with a fixed one-minute observation window.'),
+      input('count','Selected arrival count','count','arrival','The whole count of arrivals in the fixed one-minute window whose probability is highlighted.'),
+      output('output','Selected arrival-count probability','probability','1','The Poisson probability mass at the selected whole number of arrivals.'),
+      output('selectedMass','Selected arrival-count probability','probability','1','The probability of exactly the highlighted count, not a rate or expected count.'),
+      output('mean','Expected arrivals in one minute','expected-count','arrival','The expected count for the fixed one-minute window; its numeric equality with the intensity uses that stated window.'),
+      output('variance','One-minute count variance','count-variance','arrival2','The variance of arrivals in the fixed one-minute window, with squared count units.'),
+      output('remaining','Probability beyond displayed counts','probability','1','The unrenormalized tail probability of more than twenty arrivals, omitted from the individual bars.')
+    ],
     'turing-machine':[
       input('steps','Requested machine transitions','machine-transition-count','1','A whole transition budget; the machine stops at halt even if more steps are requested.'),
       output('output','Current tape numeral','integer-value','1','The unsigned value currently written on the tape. It is the increment result only after the machine halts.'),
@@ -514,6 +688,7 @@
       output('dampingTerm','Damping term','response-damping-term','1','Twice the damping ratio times the drive frequency ratio.')
     ]
   };
+  for(const [id,ports]of Object.entries(Continuation?.ports||{})){if(Object.hasOwn(definitions,id))throw new RangeError('Duplicate quantity declaration: '+id);definitions[id]=ports;}
   for(const ports of Object.values(definitions))Object.freeze(ports);
   Object.freeze(definitions);
   const empty=Object.freeze([]);

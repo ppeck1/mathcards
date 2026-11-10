@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:bayes-theorem:balanced-flags", "id": "math:example:bayes-theorem:balanced-flags", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:bayes-theorem", "example_id": "math:example:bayes-theorem:balanced-flags", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b"}, "purpose": "Find the fraction of flagged items that truly belong to a target group.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b", "status": "draft", "title": "Half the flags are defects", "topics": ["mathematics", "probability", "modeling", "conditional probability update", "base rate"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:bayes-theorem:balanced-flags", "id": "math:example:bayes-theorem:balanced-flags", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:bayes-theorem", "example_id": "math:example:bayes-theorem:balanced-flags", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b"}, "purpose": "Find the fraction of flagged items that truly belong to a target group.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "aa303ec97ac5f973b22923689e6a3d7b4c22178152d4132c548a8292f877163b", "status": "draft", "title": "Half the flags are defects", "topics": ["mathematics", "probability", "modeling", "conditional probability update", "base rate"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Half the flags are defects
@@ -53,6 +53,7 @@ Case unit math:example:bayes-theorem:balanced-flags. Setting: Original construct
   - kind: original worked derivation
   - mathematical review: draft
   - external source refs:
+    []
 - conditions to check:
   - Every item is either defective or nondefective in the stated model.
   - The conditional flag probabilities apply to the same population as the prior.

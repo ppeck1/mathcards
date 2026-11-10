@@ -1,0 +1,252 @@
+{
+  "slugs": [
+    "covariance-matrix",
+    "wilcoxon-signed-rank",
+    "mann-whitney"
+  ],
+  "sources": [
+    {
+      "id": "source:comparison-extensions:covariance-matrix",
+      "title": "NIST/SEMATECH · Mean Vector and Covariance Matrix",
+      "url": "https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc541.htm",
+      "kind": "reference",
+      "locator": "§6.5.4.1: diagonal sample variances, off-diagonal sample covariances and the n−1 centered-product matrix. The five two-axis error pairs, eigenvalue calculations and descriptive one-standard-deviation ellipse are original derivations here; no normal confidence coverage is attributed to the shape.",
+      "verification": "Definition-level primary source inspected 2026-11-03. Independent mathematical/pedagogical and exact-edition book review remain pending.",
+      "rights": "Original laser-position scenario, patterns, prose, derivations and SVG; no source example, data or illustration reproduced."
+    },
+    {
+      "id": "source:comparison-extensions:signed-rank",
+      "title": "SciPy · Wilcoxon signed-rank test",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html",
+      "kind": "reference",
+      "locator": "Definition and zero_method notes: paired differences, symmetry about zero and Wilcoxon zero omission. Notes distinguish untied exact tables from ties/zeros and permutation enumeration. Mathcards independently enumerates all conditional sign assignments with midranks; it does not import SciPy or claim its untied exact table handles ties.",
+      "verification": "Official primary method documentation inspected 2026-11-03. Independent finite enumeration and original examples; independent mathematical/pedagogical and exact-edition book review remain pending.",
+      "rights": "Original five-pair packing construction and worked examples; no source sample, code, exercise or illustration reproduced."
+    },
+    {
+      "id": "source:comparison-extensions:mann-whitney",
+      "title": "SciPy · Mann–Whitney U rank test",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html",
+      "kind": "reference",
+      "locator": "Definition/Notes: independent samples, equal-distribution null, complementary U statistics and rank-sum relation. Location/median interpretations need additional assumptions. Tied small samples call for permutation methods; this original construction enumerates all 20 labeled three-versus-three allocations with fixed pooled midranks.",
+      "verification": "Official primary method documentation inspected 2026-11-03. Independent finite enumeration and original examples; independent mathematical/pedagogical and exact-edition book review remain pending.",
+      "rights": "Original six-learner score construction, calibration comparisons and figures; no source example, data or implementation reproduced."
+    }
+  ],
+  "bindings": {
+    "covariance-matrix": {
+      "a": [
+        "horizontal"
+      ],
+      "b": [
+        "shared"
+      ],
+      "c": [
+        "residual"
+      ],
+      "Sxx": [
+        "sxx"
+      ],
+      "Sxy": [
+        "sxy"
+      ],
+      "Syy": [
+        "syy"
+      ],
+      "S": [
+        "sxx",
+        "sxy",
+        "syy"
+      ],
+      "tr(S)": [
+        "output"
+      ],
+      "D": [
+        "determinant"
+      ],
+      "λ₁": [
+        "lambdaMajor"
+      ],
+      "λ₂": [
+        "lambdaMinor"
+      ],
+      "r₁": [
+        "majorRadius"
+      ],
+      "r₂": [
+        "minorRadius"
+      ],
+      "k": [
+        "rank"
+      ],
+      "n": [
+        "count"
+      ]
+    },
+    "wilcoxon-signed-rank": {
+      "d₅": [
+        "lastDifference"
+      ],
+      "dᵢ": [
+        "differences"
+      ],
+      "|dᵢ|": [
+        "absoluteDifferences"
+      ],
+      "rᵢ": [
+        "activeRanks"
+      ],
+      "W⁺": [
+        "positiveRankSum"
+      ],
+      "W⁻": [
+        "negativeRankSum"
+      ],
+      "T": [
+        "signedScore"
+      ],
+      "n": [
+        "nonzeroCount"
+      ],
+      "m": [
+        "tailCount"
+      ],
+      "M": [
+        "assignmentCount"
+      ],
+      "p": [
+        "output"
+      ]
+    },
+    "mann-whitney": {
+      "v": [
+        "lastScore"
+      ],
+      "k": [
+        "scale"
+      ],
+      "A": [
+        "groupA"
+      ],
+      "B": [
+        "groupB"
+      ],
+      "R_A": [
+        "rankSumA"
+      ],
+      "U_A": [
+        "uA"
+      ],
+      "U_B": [
+        "uB"
+      ],
+      "θ": [
+        "probabilitySuperiority"
+      ],
+      "n_A": [
+        "sampleSizeA"
+      ],
+      "n_B": [
+        "sampleSizeB"
+      ],
+      "m": [
+        "tailCount"
+      ],
+      "M": [
+        "allocationCount"
+      ],
+      "p": [
+        "output"
+      ]
+    }
+  },
+  "ports": {
+    "covariance-matrix": [
+      {
+        "id": "input:shared",
+        "direction": "input",
+        "key": "shared",
+        "label": "Shared vertical-pattern coefficient",
+        "type": "error-pattern-amplitude",
+        "unit": "mm",
+        "description": "Shared vertical-pattern coefficient. Receiving lessons retain their own domain and interpretation checks."
+      },
+      {
+        "id": "input:horizontal",
+        "direction": "input",
+        "key": "horizontal",
+        "label": "Horizontal pattern amplitude",
+        "type": "error-pattern-amplitude",
+        "unit": "mm",
+        "description": "Horizontal pattern amplitude. Receiving lessons retain their own domain and interpretation checks."
+      },
+      {
+        "id": "input:residual",
+        "direction": "input",
+        "key": "residual",
+        "label": "Residual pattern amplitude",
+        "type": "error-pattern-amplitude",
+        "unit": "mm",
+        "description": "Residual pattern amplitude. Receiving lessons retain their own domain and interpretation checks."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Total sample coordinate variance",
+        "type": "total-coordinate-variance",
+        "unit": "mm2",
+        "description": "Center five paired positioning errors, place the two sample variances on a matrix diagonal and their sample covariance in both off-diagonal cells. The trace adds the two variances; the eigenvalues determine the squared radii of a descriptive covariance ellipse."
+      }
+    ],
+    "wilcoxon-signed-rank": [
+      {
+        "id": "input:lastDifference",
+        "direction": "input",
+        "key": "lastDifference",
+        "label": "Fifth paired packing difference",
+        "type": "paired-time-difference",
+        "unit": "min",
+        "description": "Fifth paired packing difference. Receiving lessons retain their own domain and interpretation checks."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Two-sided signed-rank tail probability",
+        "type": "conditional-rank-tail-probability",
+        "unit": "1",
+        "description": "Keep each packing comparison paired, omit exact zero differences, rank the remaining absolute differences and average ranks at ties. Add ranks by sign, then compare the absolute signed score with every fair-sign assignment of those same ranks."
+      }
+    ],
+    "mann-whitney": [
+      {
+        "id": "input:lastScore",
+        "direction": "input",
+        "key": "lastScore",
+        "label": "Uncalibrated third A score",
+        "type": "challenge-score",
+        "unit": "points",
+        "description": "Uncalibrated third A score. Receiving lessons retain their own domain and interpretation checks."
+      },
+      {
+        "id": "input:scale",
+        "direction": "input",
+        "key": "scale",
+        "label": "Common positive calibration multiplier",
+        "type": "positive-scale-factor",
+        "unit": "1",
+        "description": "Common positive calibration multiplier. Receiving lessons retain their own domain and interpretation checks."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Two-sided rank-allocation tail probability",
+        "type": "conditional-rank-tail-probability",
+        "unit": "1",
+        "description": "Pool six learner scores, average the data ranks at ties, and sum group A’s ranks. Subtract six to obtain U_A, which also counts A-over-B wins with half a win for each tie. Compare it with all 20 labeled three-versus-three allocations under the exchangeable-label null."
+      }
+    ]
+  }
+}

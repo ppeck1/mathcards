@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:matrix-linear-map", "id": "math:concept:matrix-linear-map", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:matrix-linear-map", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "782e6406444daaaf964188af17f7de85cc2934bb3423d3b51a2c14ea13942802"}, "purpose": "Transform a vector and its surrounding grid with the same matrix rule.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "782e6406444daaaf964188af17f7de85cc2934bb3423d3b51a2c14ea13942802", "status": "draft", "title": "Matrix linear maps", "topics": ["mathematics", "linear-algebra", "geometry", "matrix transformation", "2 by 2 matrix", "shear scale rotation reflection"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:matrix-linear-map", "id": "math:concept:matrix-linear-map", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:matrix-linear-map", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "782e6406444daaaf964188af17f7de85cc2934bb3423d3b51a2c14ea13942802"}, "purpose": "Transform a vector and its surrounding grid with the same matrix rule.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "782e6406444daaaf964188af17f7de85cc2934bb3423d3b51a2c14ea13942802", "status": "draft", "title": "Matrix linear maps", "topics": ["mathematics", "linear-algebra", "geometry", "matrix transformation", "2 by 2 matrix", "shear scale rotation reflection"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Matrix linear maps
@@ -293,7 +293,7 @@ A 2 by 2 real matrix combines its columns according to the input coordinates. Th
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the development of this idea and its notation using specialist historical sources before adding attributions.
   - Distinguish an early use, later formalization and modern teaching convention; inspect evidence for each.
@@ -309,6 +309,7 @@ A 2 by 2 real matrix combines its columns according to the input coordinates. Th
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:inner-product
   - type: supports
@@ -317,6 +318,7 @@ A 2 by 2 real matrix combines its columns according to the input coordinates. Th
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:determinant
   - type: supports
@@ -325,6 +327,7 @@ A 2 by 2 real matrix combines its columns according to the input coordinates. Th
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:function-composition
   - type: supports
@@ -333,6 +336,7 @@ A 2 by 2 real matrix combines its columns according to the input coordinates. Th
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -380,6 +384,7 @@ A 2 by 2 real matrix combines its columns according to the input coordinates. Th
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A real 2 by 2 matrix acts on the column input (x,y).
     - The origin is fixed; no translation is added.
@@ -428,6 +433,7 @@ A 2 by 2 real matrix combines its columns according to the input coordinates. Th
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A real 2 by 2 matrix acts on the column input (x,y).
     - The origin is fixed; no translation is added.
@@ -476,6 +482,7 @@ A 2 by 2 real matrix combines its columns according to the input coordinates. Th
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A real 2 by 2 matrix acts on the column input (x,y).
     - The origin is fixed; no translation is added.
@@ -524,6 +531,7 @@ A 2 by 2 real matrix combines its columns according to the input coordinates. Th
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A real 2 by 2 matrix acts on the column input (x,y).
     - The origin is fixed; no translation is added.
@@ -572,6 +580,7 @@ A 2 by 2 real matrix combines its columns according to the input coordinates. Th
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - A real 2 by 2 matrix acts on the column input (x,y).
     - The origin is fixed; no translation is added.

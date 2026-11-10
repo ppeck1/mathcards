@@ -1,0 +1,645 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:hysteresis",
+  "slug": "hysteresis",
+  "type": "concept",
+  "title": "Hysteresis and remembered branches",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "hysteresis and remembered branches"
+  ],
+  "branches": [
+    "dynamics"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Why can the same dial setting hold two different positions?",
+  "meaning": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history.",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:cusp-potential",
+      "math:concept:fold-bifurcation",
+      "math:concept:basin-attraction"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A toy snap mechanism rests in one of two wells. Raise its control dial, then lower it again. The mechanism follows its current stable branch until that branch disappears. Returning the dial to zero can leave it in a different well. The chosen history is visible, so position is not silently inferred from the dial alone.",
+    "formal_latex": "V(x;b)=\\frac{x^4}{4}-\\frac{x^2}{2}-bx,\\quad x^3-x-b=0,\\quad 3x^2-1>0.",
+    "signature": {
+      "k": "Sweep step k",
+      "H": "Initial sweep direction",
+      "b": "bias",
+      "x": "Selected resting position",
+      "V": "potential"
+    },
+    "conditions": [
+      "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.",
+      "The displayed calculation, coordinates and marks are evaluated from the same declared input state.",
+      "The scenario is a constructed teaching model; source book and historical coverage are separate editorial questions."
+    ],
+    "domain_notes": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.",
+    "proof_status": "Author-derived for the stated bounded family; independent mathematical review pending.",
+    "source_refs": [
+      "source:dynamics-extension:hysteresis"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Hysteresis and remembered branches",
+    "expression_latex": "V(x;b)=\\frac{x^4}{4}-\\frac{x^2}{2}-bx,\\quad x^3-x-b=0,\\quad 3x^2-1>0.",
+    "formation_rule": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history.",
+    "precedence": "Keep the selected pole, starting state, frame and input grouping explicit before evaluating.",
+    "symbols": [
+      {
+        "token": "k",
+        "role": "Sweep step k",
+        "type": "Declared quantity or model choice"
+      },
+      {
+        "token": "H",
+        "role": "Initial sweep direction",
+        "type": "Declared quantity or model choice"
+      },
+      {
+        "token": "b",
+        "role": "bias",
+        "type": "Declared quantity or model choice"
+      },
+      {
+        "token": "x",
+        "role": "Selected resting position",
+        "type": "Declared quantity or model choice"
+      },
+      {
+        "token": "V",
+        "role": "potential",
+        "type": "Declared quantity or model choice"
+      }
+    ],
+    "ast": {
+      "id": "ast:hysteresis:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:steps",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "k",
+          "scope_ref": "scope:hysteresis"
+        },
+        {
+          "id": "n:history",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "H",
+          "scope_ref": "scope:hysteresis"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried evaluation of the declared family",
+          "ref": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history."
+        },
+        {
+          "id": "n:bound-steps",
+          "kind": "apply",
+          "type": "Declared model result",
+          "function": "n:rule",
+          "argument": "n:steps"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared model result",
+          "function": "n:bound-steps",
+          "argument": "n:history"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:hysteresis",
+          "kind": "modelExpression",
+          "free_variables": [
+            "k",
+            "H"
+          ],
+          "domain_condition": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Treat a different rule or history as the same input",
+        "status": "domain or model mismatch",
+        "reason": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+      }
+    ],
+    "ast_coverage": "Typed application outline of the declared family, not an arbitrary expression parser or a general theorem checker.",
+    "output_symbol_bindings": {
+      "k": "steps",
+      "H": "history",
+      "b": "bias",
+      "x": "currentX",
+      "V": "potential"
+    }
+  },
+  "properties": [
+    {
+      "claim": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history.",
+      "conditions": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.",
+      "derivation": "Use the stated formulas under their declared hypotheses; the independent reference checks the executable cases.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:hysteresis:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:cusp-potential",
+      "type": "supports",
+      "conditions": "Use each connected family under its own stated assumptions.",
+      "reason": "Hysteresis and remembered branches makes a bounded connection with cusp potential.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:fold-bifurcation",
+      "type": "supports",
+      "conditions": "Use each connected family under its own stated assumptions.",
+      "reason": "Hysteresis and remembered branches makes a bounded connection with fold bifurcation.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:basin-attraction",
+      "type": "supports",
+      "conditions": "Use each connected family under its own stated assumptions.",
+      "reason": "Hysteresis and remembered branches makes a bounded connection with basin attraction.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:hysteresis:case-1",
+      "title": "Zero dial on the outward sweep",
+      "role": "applied_model",
+      "question": "Why can the same dial setting hold two different positions?",
+      "setting": "A toy snap mechanism rests in one of two wells. Raise its control dial, then lower it again. The mechanism follows its current stable branch until that branch disappears. Returning the dial to zero can leave it in a different well. The chosen history is visible, so position is not silently inferred from the dial alone.",
+      "assumptions": [
+        "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+      ],
+      "inputs": {
+        "steps": 20,
+        "history": "up-down"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 20; H = Raise then lower",
+          "reason": "These conditions select the declared family, coordinate chart or whole history step."
+        },
+        {
+          "index": 2,
+          "expression": "x³ − x − b = 0; retain the nearest stable branch",
+          "reason": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history."
+        },
+        {
+          "index": 3,
+          "expression": "-1.0 position units",
+          "reason": "Read the evaluated quantity, retaining its domain and units."
+        }
+      ],
+      "result": {
+        "approximate": "-1.0 position units"
+      },
+      "interpretation": "Why can the same dial setting hold two different positions? At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history.",
+      "independent_check": {
+        "method": "Separate Python implementation using bisection, reciprocal tangent or independent analytic identities.",
+        "expected": "-1.0"
+      },
+      "limits": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.",
+      "preset": {
+        "steps": 20,
+        "history": "up-down"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+      ]
+    },
+    {
+      "id": "math:example:hysteresis:case-2",
+      "title": "Zero dial after the snap",
+      "role": "applied_model",
+      "question": "Why can the same dial setting hold two different positions?",
+      "setting": "A toy snap mechanism rests in one of two wells. Raise its control dial, then lower it again. The mechanism follows its current stable branch until that branch disappears. Returning the dial to zero can leave it in a different well. The chosen history is visible, so position is not silently inferred from the dial alone.",
+      "assumptions": [
+        "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+      ],
+      "inputs": {
+        "steps": 60,
+        "history": "up-down"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 60; H = Raise then lower",
+          "reason": "These conditions select the declared family, coordinate chart or whole history step."
+        },
+        {
+          "index": 2,
+          "expression": "x³ − x − b = 0; retain the nearest stable branch",
+          "reason": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history."
+        },
+        {
+          "index": 3,
+          "expression": "1.0 position units",
+          "reason": "Read the evaluated quantity, retaining its domain and units."
+        }
+      ],
+      "result": {
+        "approximate": "1.0 position units"
+      },
+      "interpretation": "Why can the same dial setting hold two different positions? At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history.",
+      "independent_check": {
+        "method": "Separate Python implementation using bisection, reciprocal tangent or independent analytic identities.",
+        "expected": "1.0"
+      },
+      "limits": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.",
+      "preset": {
+        "steps": 60,
+        "history": "up-down"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+      ]
+    },
+    {
+      "id": "math:example:hysteresis:case-3",
+      "title": "Reverse the starting history",
+      "role": "applied_model",
+      "question": "Why can the same dial setting hold two different positions?",
+      "setting": "A toy snap mechanism rests in one of two wells. Raise its control dial, then lower it again. The mechanism follows its current stable branch until that branch disappears. Returning the dial to zero can leave it in a different well. The chosen history is visible, so position is not silently inferred from the dial alone.",
+      "assumptions": [
+        "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+      ],
+      "inputs": {
+        "steps": 20,
+        "history": "down-up"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 20; H = Lower then raise",
+          "reason": "These conditions select the declared family, coordinate chart or whole history step."
+        },
+        {
+          "index": 2,
+          "expression": "x³ − x − b = 0; retain the nearest stable branch",
+          "reason": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history."
+        },
+        {
+          "index": 3,
+          "expression": "1.0 position units",
+          "reason": "Read the evaluated quantity, retaining its domain and units."
+        }
+      ],
+      "result": {
+        "approximate": "1.0 position units"
+      },
+      "interpretation": "Why can the same dial setting hold two different positions? At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history.",
+      "independent_check": {
+        "method": "Separate Python implementation using bisection, reciprocal tangent or independent analytic identities.",
+        "expected": "1.0"
+      },
+      "limits": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.",
+      "preset": {
+        "steps": 20,
+        "history": "down-up"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+      ]
+    },
+    {
+      "id": "math:example:hysteresis:case-4",
+      "title": "Pass the upper switching region",
+      "role": "applied_model",
+      "question": "Why can the same dial setting hold two different positions?",
+      "setting": "A toy snap mechanism rests in one of two wells. Raise its control dial, then lower it again. The mechanism follows its current stable branch until that branch disappears. Returning the dial to zero can leave it in a different well. The chosen history is visible, so position is not silently inferred from the dial alone.",
+      "assumptions": [
+        "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+      ],
+      "inputs": {
+        "steps": 33,
+        "history": "up-down"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 33; H = Raise then lower",
+          "reason": "These conditions select the declared family, coordinate chart or whole history step."
+        },
+        {
+          "index": 2,
+          "expression": "x³ − x − b = 0; retain the nearest stable branch",
+          "reason": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history."
+        },
+        {
+          "index": 3,
+          "expression": "1.1563971531 position units",
+          "reason": "Read the evaluated quantity, retaining its domain and units."
+        }
+      ],
+      "result": {
+        "approximate": "1.1563971531 position units"
+      },
+      "interpretation": "Why can the same dial setting hold two different positions? At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history.",
+      "independent_check": {
+        "method": "Separate Python implementation using bisection, reciprocal tangent or independent analytic identities.",
+        "expected": "1.1563971531240935"
+      },
+      "limits": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.",
+      "preset": {
+        "steps": 33,
+        "history": "up-down"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+      ]
+    },
+    {
+      "id": "math:example:hysteresis:case-5",
+      "title": "Pass the lower switching region",
+      "role": "applied_model",
+      "question": "Why can the same dial setting hold two different positions?",
+      "setting": "A toy snap mechanism rests in one of two wells. Raise its control dial, then lower it again. The mechanism follows its current stable branch until that branch disappears. Returning the dial to zero can leave it in a different well. The chosen history is visible, so position is not silently inferred from the dial alone.",
+      "assumptions": [
+        "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+      ],
+      "inputs": {
+        "steps": 73,
+        "history": "up-down"
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "k = 73; H = Raise then lower",
+          "reason": "These conditions select the declared family, coordinate chart or whole history step."
+        },
+        {
+          "index": 2,
+          "expression": "x³ − x − b = 0; retain the nearest stable branch",
+          "reason": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history."
+        },
+        {
+          "index": 3,
+          "expression": "-1.1563971531 position units",
+          "reason": "Read the evaluated quantity, retaining its domain and units."
+        }
+      ],
+      "result": {
+        "approximate": "-1.1563971531 position units"
+      },
+      "interpretation": "Why can the same dial setting hold two different positions? At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history.",
+      "independent_check": {
+        "method": "Separate Python implementation using bisection, reciprocal tangent or independent analytic identities.",
+        "expected": "-1.1563971531240935"
+      },
+      "limits": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.",
+      "preset": {
+        "steps": 73,
+        "history": "up-down"
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:hysteresis",
+    "renderer_id": "hysteresis-visual-model",
+    "renderer_version": "1",
+    "model_id": "hysteresis-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:hysteresis:expression",
+    "interaction_status": "implemented",
+    "description": "Hysteresis and remembered branches. At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history.",
+    "controls": [
+      {
+        "id": "steps",
+        "type": "number",
+        "default": 20,
+        "min": 0,
+        "max": 80,
+        "step": 1
+      },
+      {
+        "id": "history",
+        "type": "enum",
+        "default": "up-down",
+        "values": [
+          "up-down",
+          "down-up"
+        ],
+        "value_labels": {
+          "up-down": "Raise then lower",
+          "down-up": "Lower then raise"
+        }
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "steps": 20,
+          "history": "up-down"
+        },
+        "status": "valid",
+        "output": -1.0
+      },
+      {
+        "input": {
+          "steps": 60,
+          "history": "up-down"
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "steps": 20,
+          "history": "down-up"
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "steps": 33,
+          "history": "up-down"
+        },
+        "status": "valid",
+        "output": 1.1563971531240935
+      },
+      {
+        "input": {
+          "steps": 73,
+          "history": "up-down"
+        },
+        "status": "valid",
+        "output": -1.1563971531240935
+      },
+      {
+        "input": {
+          "steps": 0,
+          "history": "up-down"
+        },
+        "status": "valid",
+        "output": -1.2211966861810777
+      },
+      {
+        "input": {
+          "steps": 80,
+          "history": "up-down"
+        },
+        "status": "valid",
+        "output": -1.2211966861810777
+      },
+      {
+        "input": {
+          "steps": 81,
+          "history": "up-down"
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "steps": 0.5,
+          "history": "up-down"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.",
+      "The displayed calculation, coordinates and marks are evaluated from the same declared input state.",
+      "The scenario is a constructed teaching model; source book and historical coverage are separate editorial questions."
+    ],
+    "limits": [
+      "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Why can the same dial setting hold two different positions?",
+      "answer": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history."
+    },
+    {
+      "prompt": "Which assumption matters for this construction?",
+      "answer": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Hysteresis and remembered branches uses model-derived positions and marks."
+    },
+    {
+      "kind": "graph",
+      "description": "A distinct history, response or coordinate graph retains declared domains and gaps."
+    },
+    {
+      "kind": "substitution",
+      "description": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Originally authored model scenario",
+      "mapping": "Why can the same dial setting hold two different positions?",
+      "limitations": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:hysteresis:case-1"
+    },
+    {
+      "context": "A changed history, parameter or chart",
+      "mapping": "At each whole sweep step, solve the stationary cubic. Among its stable roots choose the one nearest the preceding selected root. Start at the unique root for b=−0.6, or b=0.6 for the reversed history.",
+      "limitations": "A declared quasi-static branch-following rule samples 81 controls. Stable roots satisfy 3x²−1>0. A snap selects the other stable root after the followed branch disappears; no transient motion, switching rate or global minimum rule is simulated.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:hysteresis:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:dynamics-extension:hysteresis"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 branch continuation: added bounded models, connected calculations, views and reference coverage."
+  ]
+}

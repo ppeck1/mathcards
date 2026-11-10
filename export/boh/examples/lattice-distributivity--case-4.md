@@ -1,0 +1,215 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:lattice-distributivity:case-4", "id": "math:example:lattice-distributivity:case-4", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:lattice-distributivity", "example_id": "math:example:lattice-distributivity:case-4", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "591e1b8d12cc3242e8ede857f477cf39f3162021e9341dd4e3af204aa50ff97e"}, "purpose": "Do two ways of selecting tools agree?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "591e1b8d12cc3242e8ede857f477cf39f3162021e9341dd4e3af204aa50ff97e", "status": "draft", "title": "Choose B = {}", "topics": ["mathematics", "logic", "distributive lattices"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Choose B = {}
+
+Parent card: math:concept:lattice-distributivity; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:lattice-distributivity; revision 0.1.0-draft. Setting: Three volunteers bring kits A, B and C. We need tools in A that can also be supplied by B or C. First combine B and C, then intersect with A. Compare that with taking each overlap with A and combining those overlaps. Both routes select the same actual tools. Expression: $A\wedge(B\vee C)=(A\wedge B)\vee(A\wedge C).$. Conditions required for a defined value (a case may test their violation): This finite powerset lattice is distributive, as a membership argument establishes for every triple. Not every lattice is distributive. Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views. This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified. Scope: This finite powerset lattice is distributive, as a membership argument establishes for every triple. Not every lattice is distributive.
+
+Case unit math:example:lattice-distributivity:case-4. Setting: Three volunteers bring kits A, B and C. We need tools in A that can also be supplied by B or C. First combine B and C, then intersect with A. Compare that with taking each overlap with A and combining those overlaps. Both routes select the same actual tools. Inputs: {"a": 3, "b": 0, "c": 6}. Result: {"exact": "1 tool"}. Limits: This finite powerset lattice is distributive, as a membership argument establishes for every triple. Not every lattice is distributive.
+
+## Complete worked case
+
+- id: math:example:lattice-distributivity:case-4
+- title: Choose B = {}
+- role: applied_model
+- question: Do two ways of selecting tools agree?
+- setting: Three volunteers bring kits A, B and C. We need tools in A that can also be supplied by B or C. First combine B and C, then intersect with A. Compare that with taking each overlap with A and combining those overlaps. Both routes select the same actual tools.
+- assumptions:
+  - This finite powerset lattice is distributive, as a membership argument establishes for every triple. Not every lattice is distributive.
+- inputs:
+  - a: 3
+  - b: 0
+  - c: 6
+- steps:
+  - Item:
+    - index: 1
+    - expression: A = {lamp, ruler}; B = {}; C = {ruler, brush}
+    - reason: These are the stipulated inputs for this case.
+  - Item:
+    - index: 2
+    - expression: A ∧ (B ∨ C) = (A ∧ B) ∨ (A ∧ C)
+    - reason: Compute both set expressions independently; an element belongs to either expression exactly when it is in A and in at least one of B or C.
+  - Item:
+    - index: 3
+    - expression: Result ≈ 1 tools
+    - reason: Evaluate the stated rule before rounding the display.
+- result:
+  - exact: 1 tool
+- interpretation: The gold subset is the identical output of both routes. The claim concerns this distributive lattice, not all lattices.
+- independent check:
+  - method: Independent Python reference using sets, algebra or alternate analytic identities.
+  - expected: 1
+- limits: This finite powerset lattice is distributive, as a membership argument establishes for every triple. Not every lattice is distributive.
+- preset:
+  - a: 3
+  - b: 0
+  - c: 6
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - This finite powerset lattice is distributive, as a membership argument establishes for every triple. Not every lattice is distributive.
+
+## Written exploration recipe
+
+- component id: component:lattice-distributivity
+- renderer id: lattice-distributivity-visual-model
+- renderer version: 1
+- model id: lattice-distributivity-visual-model
+- model revision: 1
+- expression id: ast:lattice-distributivity:expression
+- interaction status: implemented
+- description: The gold subset is the identical output of both routes. The claim concerns this distributive lattice, not all lattices.
+- controls:
+  - Item:
+    - id: a
+    - type: number
+    - default: 3
+    - min: 0
+    - max: 7
+    - step: 1
+    - value labels:
+      - 0: {}
+      - 1: {lamp}
+      - 2: {ruler}
+      - 3: {lamp, ruler}
+      - 4: {brush}
+      - 5: {lamp, brush}
+      - 6: {ruler, brush}
+      - 7: {lamp, ruler, brush}
+  - Item:
+    - id: b
+    - type: number
+    - default: 5
+    - min: 0
+    - max: 7
+    - step: 1
+    - value labels:
+      - 0: {}
+      - 1: {lamp}
+      - 2: {ruler}
+      - 3: {lamp, ruler}
+      - 4: {brush}
+      - 5: {lamp, brush}
+      - 6: {ruler, brush}
+      - 7: {lamp, ruler, brush}
+  - Item:
+    - id: c
+    - type: number
+    - default: 6
+    - min: 0
+    - max: 7
+    - step: 1
+    - value labels:
+      - 0: {}
+      - 1: {lamp}
+      - 2: {ruler}
+      - 3: {lamp, ruler}
+      - 4: {brush}
+      - 5: {lamp, brush}
+      - 6: {ruler, brush}
+      - 7: {lamp, ruler, brush}
+- expected cases:
+  - Item:
+    - input:
+      - a: 3
+      - b: 5
+      - c: 6
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - a: 0
+      - b: 5
+      - c: 6
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - a: 7
+      - b: 5
+      - c: 6
+    - status: valid
+    - output: 3
+  - Item:
+    - input:
+      - a: 3
+      - b: 0
+      - c: 6
+    - status: valid
+    - output: 1
+  - Item:
+    - input:
+      - a: 3
+      - b: 7
+      - c: 6
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - a: 3
+      - b: 5
+      - c: 0
+    - status: valid
+    - output: 1
+  - Item:
+    - input:
+      - a: 3
+      - b: 5
+      - c: 7
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - a: 2
+      - b: 5
+      - c: 6
+    - status: valid
+    - output: 1
+  - Item:
+    - input:
+      - a: 5
+      - b: 5
+      - c: 6
+    - status: valid
+    - output: 2
+  - Item:
+    - input:
+      - a: 8
+      - b: 5
+      - c: 6
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - a: 0.5
+      - b: 5
+      - c: 6
+    - status: invalid_parameters
+- compute: Compute both set expressions independently; an element belongs to either expression exactly when it is in A and in at least one of B or C.
+- numeric tolerance: 1e-10
+- invariants:
+  - This finite powerset lattice is distributive, as a membership argument establishes for every triple. Not every lattice is distributive.
+  - Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views.
+  - This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified.
+- limits:
+  - This finite powerset lattice is distributive, as a membership argument establishes for every triple. Not every lattice is distributive.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:systems:order. [Doerr and Levasseur · Lattices](https://math.libretexts.org/Bookshelves/Combinatorics_and_Discrete_Mathematics/Applied_Discrete_Structures_(Doerr_and_Levasseur)/13:_Boolean_Algebra/13.02:_Lattices). Locator: Lattice operations and distributivity; no exact-edition Grätzer coverage is asserted.. Verification: Definition-level web reference inspected 2026-11-02; bounded family author-derived, independent review pending.. Rights: Original story, explanations, diagrams and examples. Reference facts and equations only; no source exercises reproduced.

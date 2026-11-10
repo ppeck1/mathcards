@@ -1,0 +1,612 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:correlation",
+  "slug": "correlation",
+  "type": "concept",
+  "title": "Correlation and scatter",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "correlation",
+    "Pearson r",
+    "linear association",
+    "correlation coefficient"
+  ],
+  "branches": [
+    "statistics",
+    "algebra"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Separate trend direction from scatter and see why the same trend can have weaker correlation.",
+  "meaning": "Pearson correlation is the centered cross-product of paired observations divided by their centered lengths. It describes linear association on a dimensionless scale from −1 to 1 when both variables vary. It is undefined when either centered length is zero.",
+  "prerequisites": {
+    "required": [
+      "math:concept:variance",
+      "math:concept:linear-regression"
+    ],
+    "helpful": [],
+    "depth": []
+  },
+  "definition": {
+    "setting": "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+    "formal_latex": "S_{xy}=\\sum_i(x_i-\\bar x)(y_i-\\bar y),\\quad r=\\frac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}.\\quad S_{xx}=10,\\ S_{xy}=10t,\\ S_{yy}=10t^2+14s^2.",
+    "signature": {
+      "t": "Trend coefficient in the constructed response.",
+      "s": "Scale of the fixed orthogonal scatter pattern.",
+      "r": "Pearson sample correlation."
+    },
+    "conditions": [
+      "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+      "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.",
+      "Original constructed teaching examples. Exact-edition book coverage and independent mathematical review remain open."
+    ],
+    "domain_notes": "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.",
+    "proof_status": "Definition-level sources and original calculations; independent review pending.",
+    "source_refs": [
+      "source:inference:correlation"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Correlation and scatter",
+    "expression_latex": "S_{xy}=\\sum_i(x_i-\\bar x)(y_i-\\bar y),\\quad r=\\frac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}.\\quad S_{xx}=10,\\ S_{xy}=10t,\\ S_{yy}=10t^2+14s^2.",
+    "formation_rule": "Pearson correlation is the centered cross-product of paired observations divided by their centered lengths. It describes linear association on a dimensionless scale from −1 to 1 when both variables vary. It is undefined when either centered length is zero.",
+    "precedence": "Evaluate declared inputs before the statistic. Retain sampling and domain conditions.",
+    "symbols": [
+      {
+        "token": "t",
+        "role": "Trend coefficient in the constructed response.",
+        "type": "Declared mathematical quantity"
+      },
+      {
+        "token": "s",
+        "role": "Scale of the fixed orthogonal scatter pattern.",
+        "type": "Declared mathematical quantity"
+      },
+      {
+        "token": "r",
+        "role": "Pearson sample correlation.",
+        "type": "Declared mathematical quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:correlation:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:trend",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "t",
+          "scope_ref": "scope:correlation:expression"
+        },
+        {
+          "id": "n:scatter",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "s",
+          "scope_ref": "scope:correlation:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded numerical model",
+          "ref": "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation. r = Sₓᵧ/√(SₓₓSᵧᵧ)"
+        },
+        {
+          "id": "n:bound-trend",
+          "kind": "apply",
+          "type": "Partially applied model",
+          "function": "n:rule",
+          "argument": "n:trend"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-trend",
+          "argument": "n:scatter"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:correlation:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "t",
+            "s"
+          ],
+          "domain_condition": "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "The demonstration proves this model is true of collected data.",
+        "status": "interpretation error",
+        "reason": "The data are constructed. Empirical use needs validation of assumptions."
+      }
+    ],
+    "ast_coverage": "Typed application outline of a bounded family; not a parser for arbitrary statistical expressions.",
+    "output_symbol_bindings": {
+      "t": "trend",
+      "s": "scatter",
+      "r": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Pearson correlation is the centered cross-product of paired observations divided by their centered lengths. It describes linear association on a dimensionless scale from −1 to 1 when both variables vary. It is undefined when either centered length is zero.",
+      "conditions": "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+      "derivation": "r=10/√(10×24)=√(5/12).",
+      "status": "author-derived for stated conditions; independent review pending",
+      "example_ref": "math:example:correlation:positive-with-scatter"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:variance",
+      "type": "supports",
+      "conditions": "Each concept retains its declared setting.",
+      "reason": "This lesson uses variance.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:linear-regression",
+      "type": "supports",
+      "conditions": "Each concept retains its declared setting.",
+      "reason": "This lesson uses linear regression.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:correlation:positive-with-scatter",
+      "title": "A positive trend with scatter",
+      "role": "applied_model",
+      "question": "A positive trend with scatter under the stated inputs?",
+      "setting": "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+      "assumptions": [
+        "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+        "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed."
+      ],
+      "inputs": {
+        "trend": 1,
+        "scatter": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "trend=1; scatter=1",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "r=10/√(10×24)=√(5/12).",
+          "reason": "Pearson correlation is the centered cross-product of paired observations divided by their centered lengths. It describes linear association on a dimensionless scale from −1 to 1 when both variables vary. It is undefined when either centered length is zero."
+        }
+      ],
+      "result": {
+        "exact": "r=10/√(10×24)=√(5/12)."
+      },
+      "interpretation": "r=10/√(10×24)=√(5/12).",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 0.6454972243679028}"
+      },
+      "limits": "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.",
+      "preset": {
+        "trend": 1,
+        "scatter": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+        "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed."
+      ]
+    },
+    {
+      "id": "math:example:correlation:negative-with-scatter",
+      "title": "Reverse the trend",
+      "role": "applied_model",
+      "question": "Reverse the trend under the stated inputs?",
+      "setting": "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+      "assumptions": [
+        "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+        "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed."
+      ],
+      "inputs": {
+        "trend": -1,
+        "scatter": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "trend=-1; scatter=1",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "r=−√(5/12), with the same response variation.",
+          "reason": "Pearson correlation is the centered cross-product of paired observations divided by their centered lengths. It describes linear association on a dimensionless scale from −1 to 1 when both variables vary. It is undefined when either centered length is zero."
+        }
+      ],
+      "result": {
+        "exact": "r=−√(5/12), with the same response variation."
+      },
+      "interpretation": "r=−√(5/12), with the same response variation.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": -0.6454972243679028}"
+      },
+      "limits": "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.",
+      "preset": {
+        "trend": -1,
+        "scatter": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+        "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed."
+      ]
+    },
+    {
+      "id": "math:example:correlation:pure-positive",
+      "title": "Remove scatter",
+      "role": "applied_model",
+      "question": "Remove scatter under the stated inputs?",
+      "setting": "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+      "assumptions": [
+        "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+        "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed."
+      ],
+      "inputs": {
+        "trend": 1,
+        "scatter": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "trend=1; scatter=0",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "All points lie on a rising line, giving r=1.",
+          "reason": "Pearson correlation is the centered cross-product of paired observations divided by their centered lengths. It describes linear association on a dimensionless scale from −1 to 1 when both variables vary. It is undefined when either centered length is zero."
+        }
+      ],
+      "result": {
+        "exact": "All points lie on a rising line, giving r=1."
+      },
+      "interpretation": "All points lie on a rising line, giving r=1.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 1.0}"
+      },
+      "limits": "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.",
+      "preset": {
+        "trend": 1,
+        "scatter": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+        "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed."
+      ]
+    },
+    {
+      "id": "math:example:correlation:zero-cross-product",
+      "title": "Zero linear association",
+      "role": "applied_model",
+      "question": "Zero linear association under the stated inputs?",
+      "setting": "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+      "assumptions": [
+        "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+        "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed."
+      ],
+      "inputs": {
+        "trend": 0,
+        "scatter": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "trend=0; scatter=1",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "Centered scatter is orthogonal to x, so Sₓᵧ=0 and r=0.",
+          "reason": "Pearson correlation is the centered cross-product of paired observations divided by their centered lengths. It describes linear association on a dimensionless scale from −1 to 1 when both variables vary. It is undefined when either centered length is zero."
+        }
+      ],
+      "result": {
+        "exact": "Centered scatter is orthogonal to x, so Sₓᵧ=0 and r=0."
+      },
+      "interpretation": "Centered scatter is orthogonal to x, so Sₓᵧ=0 and r=0.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 0.0}"
+      },
+      "limits": "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.",
+      "preset": {
+        "trend": 0,
+        "scatter": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+        "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed."
+      ]
+    },
+    {
+      "id": "math:example:correlation:constant-response",
+      "title": "Meet an undefined case",
+      "role": "applied_model",
+      "question": "Meet an undefined case under the stated inputs?",
+      "setting": "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+      "assumptions": [
+        "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+        "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed."
+      ],
+      "inputs": {
+        "trend": 0,
+        "scatter": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "trend=0; scatter=0",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "All responses equal five. Sᵧᵧ=0, so the denominator is zero.",
+          "reason": "Pearson correlation is the centered cross-product of paired observations divided by their centered lengths. It describes linear association on a dimensionless scale from −1 to 1 when both variables vary. It is undefined when either centered length is zero."
+        }
+      ],
+      "result": {
+        "exact": "All responses equal five. Sᵧᵧ=0, so the denominator is zero."
+      },
+      "interpretation": "All responses equal five. Sᵧᵧ=0, so the denominator is zero.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"undefined_correlation\"}"
+      },
+      "limits": "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.",
+      "preset": {
+        "trend": 0,
+        "scatter": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+        "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:correlation",
+    "renderer_id": "correlation-visual-model",
+    "renderer_version": "1",
+    "model_id": "correlation-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:correlation:expression",
+    "interaction_status": "implemented",
+    "description": "Separate trend direction from scatter and see why the same trend can have weaker correlation.",
+    "controls": [
+      {
+        "id": "trend",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "scatter",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "trend": 1,
+          "scatter": 1
+        },
+        "status": "valid",
+        "output": 0.6454972243679028
+      },
+      {
+        "input": {
+          "trend": -1,
+          "scatter": 1
+        },
+        "status": "valid",
+        "output": -0.6454972243679028
+      },
+      {
+        "input": {
+          "trend": 1,
+          "scatter": 0
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "trend": 0,
+          "scatter": 1
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "trend": 0,
+          "scatter": 0
+        },
+        "status": "undefined_correlation"
+      },
+      {
+        "input": {
+          "trend": -2,
+          "scatter": 1
+        },
+        "status": "valid",
+        "output": -0.8606629658238705
+      },
+      {
+        "input": {
+          "trend": 2,
+          "scatter": 1
+        },
+        "status": "valid",
+        "output": 0.8606629658238705
+      },
+      {
+        "input": {
+          "trend": 1,
+          "scatter": 2
+        },
+        "status": "valid",
+        "output": 0.3892494720807615
+      },
+      {
+        "input": {
+          "trend": -3,
+          "scatter": 1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "trend": "1",
+          "scatter": 1
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation. r = Sₓᵧ/√(SₓₓSᵧᵧ)",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Five constructed paired readings have x=(1,2,3,4,5) and yᵢ=5+t(xᵢ−3)+s zᵢ, with z=(1,−2,2,−2,1). Change trend t or scatter scale s and recompute the sample correlation.",
+      "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.",
+      "Original constructed teaching examples. Exact-edition book coverage and independent mathematical review remain open."
+    ],
+    "limits": [
+      "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed."
+    ],
+    "fallback": "Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "At trend t=1 and scatter s=1, how large is the correlation?",
+      "answer": "At t=s=1, Sₓᵧ=10 and Sᵧᵧ=24. Thus r=10/√240≈0.6455. Removing scatter gives r=1 for positive trend. Removing both makes r undefined because the response is constant."
+    },
+    {
+      "prompt": "What is outside this demonstration?",
+      "answer": "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Separate trend direction from scatter and see why the same trend can have weaker correlation."
+    },
+    {
+      "kind": "graph",
+      "description": "A response graph plots r against trend t with scatter fixed. The zero-variation case is explicit and breaks the curve."
+    },
+    {
+      "kind": "substitution",
+      "description": "Follow the same inputs through story, formula and result."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Does a visible trend survive the scatter?",
+      "mapping": "Separate trend direction from scatter and see why the same trend can have weaker correlation.",
+      "limitations": "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:correlation:positive-with-scatter"
+    },
+    {
+      "context": "Reverse the trend",
+      "mapping": "r=−√(5/12), with the same response variation.",
+      "limitations": "Correlation measures linear association, not causation. The fixed noise pattern is orthogonal to centered x. If t=s=0 all y values are constant and correlation is undefined. No significance test is performed.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:correlation:negative-with-scatter"
+    }
+  ],
+  "source_refs": [
+    "source:inference:correlation"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 branch: Bounded inference model, connected story, Geometry/Graph, five original examples and numeric fixtures."
+  ]
+}

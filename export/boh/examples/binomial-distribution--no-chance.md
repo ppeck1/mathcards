@@ -1,0 +1,200 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:binomial-distribution:no-chance", "id": "math:example:binomial-distribution:no-chance", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:binomial-distribution", "example_id": "math:example:binomial-distribution:no-chance", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "ec3a81e75abfa149222e722b16256b0bd0f3367311ea45f19f638e92ff1b1811"}, "purpose": "Connect trial probability to the full set of count masses and one selected count.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "ec3a81e75abfa149222e722b16256b0bd0f3367311ea45f19f638e92ff1b1811", "status": "draft", "title": "Zero stickers certain", "topics": ["mathematics", "probability", "statistics", "binomial distribution", "Bernoulli trials", "number of successes", "binomial probability"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Zero stickers certain
+
+Parent card: math:concept:binomial-distribution; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:binomial-distribution; revision 0.1.0-draft. Setting: Each of n independent packets contains a sticker with the same probability p. Count K, the number of packets with a sticker, and select a whole-number count k. Expression: $K\sim\operatorname{Bin}(n,p),\quad P(K=k)=\binom{n}{k} p^k(1-p)^{n-k},\quad E[K]=np,\quad\operatorname{Var}(K)=n p (1-p).$. Conditions required for a defined value (a case may test their violation): Each of n independent packets contains a sticker with the same probability p. Count K, the number of packets with a sticker, and select a whole-number count k. Independence, fixed n and a common p are model assumptions. Counts beyond n have zero probability. These masses are at integers; the probability parameter may change continuously without creating fractional packet outcomes. Original constructed teaching examples. Exact-edition book coverage and independent mathematical review remain open. Scope: Independence, fixed n and a common p are model assumptions. Counts beyond n have zero probability. These masses are at integers; the probability parameter may change continuously without creating fractional packet outcomes.
+
+Case unit math:example:binomial-distribution:no-chance. Setting: Each of n independent packets contains a sticker with the same probability p. Count K, the number of packets with a sticker, and select a whole-number count k. Inputs: {"chance": 0, "count": 0, "trials": 8}. Result: {"exact": "At p=0 the zero count has probability one."}. Limits: Independence, fixed n and a common p are model assumptions. Counts beyond n have zero probability. These masses are at integers; the probability parameter may change continuously without creating fractional packet outcomes.
+
+## Complete worked case
+
+- id: math:example:binomial-distribution:no-chance
+- title: Zero stickers certain
+- role: applied_model
+- question: Zero stickers certain under the stated inputs?
+- setting: Each of n independent packets contains a sticker with the same probability p. Count K, the number of packets with a sticker, and select a whole-number count k.
+- assumptions:
+  - Each of n independent packets contains a sticker with the same probability p. Count K, the number of packets with a sticker, and select a whole-number count k.
+  - Independence, fixed n and a common p are model assumptions. Counts beyond n have zero probability. These masses are at integers; the probability parameter may change continuously without creating fractional packet outcomes.
+- inputs:
+  - chance: 0
+  - trials: 8
+  - count: 0
+- steps:
+  - Item:
+    - index: 1
+    - expression: chance=0; trials=8; count=0
+    - reason: Set declared inputs without changing the family.
+  - Item:
+    - index: 2
+    - expression: At p=0 the zero count has probability one.
+    - reason: A binomial distribution counts successes in fixed independent Bernoulli trials with common success probability. Its mass multiplies a binomial coefficient by the probability of one arrangement of successes and failures.
+- result:
+  - exact: At p=0 the zero count has probability one.
+- interpretation: At p=0 the zero count has probability one.
+- independent check:
+  - method: Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.
+  - expected: {"status": "valid", "output": 1}
+- limits: Independence, fixed n and a common p are model assumptions. Counts beyond n have zero probability. These masses are at integers; the probability parameter may change continuously without creating fractional packet outcomes.
+- preset:
+  - chance: 0
+  - trials: 8
+  - count: 0
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Each of n independent packets contains a sticker with the same probability p. Count K, the number of packets with a sticker, and select a whole-number count k.
+  - Independence, fixed n and a common p are model assumptions. Counts beyond n have zero probability. These masses are at integers; the probability parameter may change continuously without creating fractional packet outcomes.
+
+## Written exploration recipe
+
+- component id: component:binomial-distribution
+- renderer id: binomial-distribution-visual-model
+- renderer version: 1
+- model id: binomial-distribution-visual-model
+- model revision: 1
+- expression id: ast:binomial-distribution:expression
+- interaction status: implemented
+- description: Connect trial probability to the full set of count masses and one selected count.
+- controls:
+  - Item:
+    - id: chance
+    - type: number
+    - default: 0.5
+    - min: 0
+    - max: 1
+    - step: 0.01
+  - Item:
+    - id: trials
+    - type: number
+    - default: 8
+    - min: 1
+    - max: 20
+    - step: 1
+  - Item:
+    - id: count
+    - type: number
+    - default: 4
+    - min: 0
+    - max: 20
+    - step: 1
+- expected cases:
+  - Item:
+    - input:
+      - chance: 0.5
+      - trials: 8
+      - count: 4
+    - status: valid
+    - output: 0.2734375
+  - Item:
+    - input:
+      - chance: 0
+      - trials: 8
+      - count: 0
+    - status: valid
+    - output: 1
+  - Item:
+    - input:
+      - chance: 1
+      - trials: 8
+      - count: 8
+    - status: valid
+    - output: 1
+  - Item:
+    - input:
+      - chance: 0.5
+      - trials: 4
+      - count: 5
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - chance: 0.25
+      - trials: 4
+      - count: 1
+    - status: valid
+    - output: 0.421875
+  - Item:
+    - input:
+      - chance: 0
+      - trials: 8
+      - count: 4
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - chance: 1
+      - trials: 8
+      - count: 4
+    - status: valid
+    - output: 0
+  - Item:
+    - input:
+      - chance: 0.5
+      - trials: 1
+      - count: 4
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - chance: 0.5
+      - trials: 20
+      - count: 4
+    - status: valid
+    - output: 0.004620552062988281
+  - Item:
+    - input:
+      - chance: 0.5
+      - trials: 8
+      - count: 0
+    - status: valid
+    - output: 0.00390625
+  - Item:
+    - input:
+      - chance: 0.5
+      - trials: 8
+      - count: 20
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - chance: -1
+      - trials: 8
+      - count: 4
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - chance: 0.5
+      - trials: 8
+      - count: 4
+    - status: invalid_parameters
+- compute: Each of n independent packets contains a sticker with the same probability p. Count K, the number of packets with a sticker, and select a whole-number count k. P(K=k) = C(n,k)pᵏ(1−p)ⁿ⁻ᵏ
+- numeric tolerance: 1e-10
+- invariants:
+  - Each of n independent packets contains a sticker with the same probability p. Count K, the number of packets with a sticker, and select a whole-number count k.
+  - Independence, fixed n and a common p are model assumptions. Counts beyond n have zero probability. These masses are at integers; the probability parameter may change continuously without creating fractional packet outcomes.
+  - Original constructed teaching examples. Exact-edition book coverage and independent mathematical review remain open.
+- limits:
+  - Independence, fixed n and a common p are model assumptions. Counts beyond n have zero probability. These masses are at integers; the probability parameter may change continuously without creating fractional packet outcomes.
+- fallback: Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:inference:binomial. [NIST · Binomial Distribution](https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm). Locator: Probability mass, mean and standard deviation. Verification: Definition-level source inspected 2026-11-02. Original bounded examples and implementation are not independently reviewed. No exact-edition eight-book mapping is asserted.. Rights: Original explanations, diagrams and examples. No source figures, exercise banks or extended prose reproduced.

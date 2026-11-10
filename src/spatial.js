@@ -1,7 +1,7 @@
 (function (root, factory) {
   'use strict';
   const models = typeof module === 'object' && module.exports ? require('./models.js') : root.AtlasModels;
-  const everyday = typeof module === 'object' && module.exports ? require('./everyday.js') : root.AtlasEveryday;
+  const everyday = typeof module === 'object' && module.exports ? require('./model-registry.js') : (root.AtlasModelRegistry || root.AtlasEveryday);
   const api = factory(models, everyday);
   if (typeof module === 'object' && module.exports) module.exports = api;
   root.AtlasSpatial = api;
@@ -330,8 +330,7 @@
     return frame(id, 'This input has no spatial model', body, reason, [['Outside the model domain', C.orange]], compact);
   }
 
-  function render(slug, parameters, options = {}) {
-    if (Everyday?.has(slug)) return Everyday.render(slug, parameters, { ...options, view: 'geometry' });
+  function renderLegacy(slug, parameters, options = {}) {
     const { id = 'stage', baseline = null, reference = null, compact = false, camera = .65 } = options;
     const result = Models.evaluate(slug, parameters), pin = baseline ? Models.evaluate(slug, baseline) : null, ref = reference ? Models.evaluate(slug, reference) : null;
     const key = safeId(id);
@@ -341,5 +340,9 @@
     return derivative(result, key, pin, camera, compact);
   }
 
-  return Object.freeze({ render, volumeGeometry, logarithmGeometry, projection });
+  function render(slug, parameters, options = {}) {
+    return Everyday?.has(slug) ? Everyday.render(slug, parameters, { ...options, view: Everyday.isLegacy?.(slug) ? 'spatial' : 'geometry' }) : renderLegacy(slug, parameters, options);
+  }
+
+  return Object.freeze({ render, renderLegacy, volumeGeometry, logarithmGeometry, projection });
 });

@@ -25,8 +25,20 @@ const expectedIds = [
   'bayes-theorem', 'graph-theory', 'resonance', 'chaos-theory',
   'fractal-geometry', 'wave-interference', 'probability', 'vector-rotation',
   'pythagorean-theorem', 'ratio-scale', 'linear-model', 'exponential-change',
-  'function-composition', 'real-logarithm', 'derivative'
-];
+  'function-composition', 'real-logarithm', 'derivative',
+  'vector-field', 'continuous-flow', 'basin-attraction', 'fold-bifurcation', 'cusp-potential',
+  'partial-order', 'meet-join', 'lattice-distributivity', 'heat-balance', 'gibbs-free-energy',
+  'ideal-gas', 'artificial-neuron', 'hebbian-learning',
+  'sampling-distribution', 'confidence-interval', 'hypothesis-test', 'linear-regression',
+  'correlation', 'factorial-interaction', 'chi-square-association', 'relative-entropy',
+  'binomial-distribution', 'poisson-distribution'
+].concat(["modular-arithmetic", "greatest-common-divisor", "prime-factorization", "rational-number", "numeral-system", "permutation-count", "binomial-coefficient", "spatial-cross-product", "scalar-triple-product", "coordinate-transformation", "vector-projection", "angular-velocity", "linear-momentum", "hysteresis", "gradient-flow", "circle-manifold", "sphere-manifold", "structural-stability"]).concat(["complex-number", "quadratic-equation", "linear-programming", "linear-search", "binary-search", "minimum-spanning-tree", "normal-distribution", "exponential-distribution", "sign-test"]).concat(["inverse-function", "geometric-series", "graph-coloring", "inclusion-exclusion", "randomized-block-design", "normal-mean-interval"]);
+expectedIds.push('student-mean-interval', 'randomization-distribution', 'one-way-anova');
+expectedIds.push('covariance', 'normal-variance-interval', 'normal-test-power');
+expectedIds.push('covariance-matrix', 'wilcoxon-signed-rank', 'mann-whitney');
+expectedIds.push('least-common-multiple', 'perfect-number', 'regular-polygon', 'sphere-measurement');
+expectedIds.push('irrational-square-root', 'golden-ratio', 'circle-measurement', 'floor-ceiling', 'triangle-measurement', 'similar-triangles', 'perpendicular-bisector', 'ellipse-section', 'platonic-solids', 'tessellation', 'perspective-projection', 'sphere-packing');
+expectedIds.push('neural-summation', 'receptive-field', 'channel-capacity', 'hamming-code', 'photon-energy', 'time-dilation');
 const format = value => value == null ? 'undefined' : String(Number(value.toPrecision(7)));
 const context = (id, view) => ({ id, view, format, compact: false, camera: .65 });
 const finiteScene = (html, label) => {

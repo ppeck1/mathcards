@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:linear-model", "id": "math:concept:linear-model", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:linear-model", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa"}, "purpose": "Combine a starting amount with a constant rate of change.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa", "status": "draft", "title": "Linear models", "topics": ["mathematics", "functions", "change", "modeling", "constant-rate model", "affine model", "starting amount plus rate"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:linear-model", "id": "math:concept:linear-model", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:linear-model", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa"}, "purpose": "Combine a starting amount with a constant rate of change.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "a91f0d8b5bb1476ea39259617022f1a7e03acda68a66d5e6ab4422ef0e0c09fa", "status": "draft", "title": "Linear models", "topics": ["mathematics", "functions", "change", "modeling", "constant-rate model", "affine model", "starting amount plus rate"], "type": "reference", "updated": "2026-10-23T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Linear models
@@ -88,7 +88,7 @@ Separate what is already there from what accumulates. Every extra minute adds th
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research the concept and notation with specialist sources before adding historical attribution.
 - reader text: Historical account not yet sourced. Everyday scenarios are constructed examples, not historical anecdotes.
@@ -103,6 +103,7 @@ Separate what is already there from what accumulates. Every extra minute adds th
   - target status: available
   - evidence status: local_derivation
   - source refs:
+    []
 - Item:
   - target: math:concept:exponential-change
   - type: compared_with
@@ -111,6 +112,7 @@ Separate what is already there from what accumulates. Every extra minute adds th
   - target status: available
   - evidence status: local_derivation
   - source refs:
+    []
 
 ## Examples
 
@@ -150,6 +152,7 @@ Separate what is already there from what accumulates. Every extra minute adds th
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Elapsed time is nonnegative and measured in minutes.
     - The stipulated inflow is constant and nonnegative; there is no outflow during the interval.
@@ -190,6 +193,7 @@ Separate what is already there from what accumulates. Every extra minute adds th
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Elapsed time is nonnegative and measured in minutes.
     - The stipulated inflow is constant and nonnegative; there is no outflow during the interval.
@@ -230,6 +234,7 @@ Separate what is already there from what accumulates. Every extra minute adds th
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Elapsed time is nonnegative and measured in minutes.
     - The stipulated inflow is constant and nonnegative; there is no outflow during the interval.
@@ -274,6 +279,7 @@ Separate what is already there from what accumulates. Every extra minute adds th
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Elapsed time is nonnegative and measured in minutes.
     - The stipulated inflow is constant and nonnegative; there is no outflow during the interval.
@@ -311,6 +317,7 @@ Separate what is already there from what accumulates. Every extra minute adds th
     - kind: original worked derivation
     - mathematical review: draft
     - external source refs:
+      []
   - conditions to check:
     - Elapsed time is nonnegative and measured in minutes.
     - The stipulated inflow is constant and nonnegative; there is no outflow during the interval.

@@ -1,0 +1,646 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:circle-measurement",
+  "slug": "circle-measurement",
+  "type": "concept",
+  "title": "Circle measurement and pi",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-09T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "pi",
+    "circle area",
+    "disk area",
+    "circumference",
+    "circle diameter"
+  ],
+  "branches": [
+    "geometry",
+    "measurement"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "How does the same radius determine a table’s edge length and surface area?",
+  "meaning": "A circle is the planar boundary at a fixed radius from its center; the disk includes its interior. The circle constant π is circumference divided by diameter. A radius r gives diameter d=2r, circumference C=2πr and disk area A=πr².",
+  "prerequisites": {
+    "required": [
+      "math:concept:ratio-scale"
+    ],
+    "helpful": [
+      "math:concept:regular-polygon"
+    ],
+    "depth": [
+      "math:concept:integral-accumulation"
+    ]
+  },
+  "definition": {
+    "setting": "A maker chooses the radius of a round table. Follow that one length into the edge band needed around it and the surface area to cover. The circumference-to-diameter ratio remains π as the table grows.",
+    "formal_latex": "d=2r,\\quad \\pi=\\frac Cd,\\quad C=2\\pi r,\\quad A=\\pi r^2.",
+    "signature": {
+      "r": "Table radius from center to boundary, in metres",
+      "d": "Diameter across the center, in metres",
+      "C": "Length of the table edge, in metres",
+      "A": "Filled disk surface area, in square metres",
+      "π": "Constant Euclidean circumference-to-diameter ratio"
+    },
+    "conditions": [
+      "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values."
+    ],
+    "domain_notes": "Euclidean circles and filled disks of positive radius. The radius is 0.25–4 metres. Circumference and diameter use metres; disk area uses square metres. The numerical π constant and displayed decimals approximate exact analytic values; material waste and thickness are outside the model.",
+    "proof_status": "Definition-level sources and originally authored derivations; independent review pending.",
+    "source_refs": [
+      "source:number-insights:circle-measurement"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Circle measurement and pi",
+    "expression_latex": "d=2r,\\quad \\pi=\\frac Cd,\\quad C=2\\pi r,\\quad A=\\pi r^2.",
+    "formation_rule": "A circle is the planar boundary at a fixed radius from its center; the disk includes its interior. The circle constant π is circumference divided by diameter. A radius r gives diameter d=2r, circumference C=2πr and disk area A=πr².",
+    "precedence": "Double the radius for diameter. Multiply diameter by π for circumference. Square the radius before multiplying by π for area.",
+    "symbols": [
+      {
+        "token": "r",
+        "role": "Table radius from center to boundary, in metres",
+        "type": "Locally declared quantity or constant"
+      },
+      {
+        "token": "d",
+        "role": "Diameter across the center, in metres",
+        "type": "Locally declared quantity or constant"
+      },
+      {
+        "token": "C",
+        "role": "Length of the table edge, in metres",
+        "type": "Locally declared quantity or constant"
+      },
+      {
+        "token": "A",
+        "role": "Filled disk surface area, in square metres",
+        "type": "Locally declared quantity or constant"
+      },
+      {
+        "token": "π",
+        "role": "Constant Euclidean circumference-to-diameter ratio",
+        "type": "Locally declared quantity or constant"
+      }
+    ],
+    "ast": {
+      "id": "ast:circle-measurement:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:radius",
+          "kind": "variable",
+          "type": "Declared numeric input",
+          "symbol": "r",
+          "scope_ref": "scope:circle-measurement"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Bounded number/measurement rule",
+          "ref": "d=2r,\\quad \\pi=\\frac Cd,\\quad C=2\\pi r,\\quad A=\\pi r^2."
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Bounded model value",
+          "function": "n:rule",
+          "argument": "n:radius"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:circle-measurement",
+          "kind": "modelExpression",
+          "free_variables": [
+            "r"
+          ],
+          "external_parameters": [
+            "Declared Euclidean geometry, exact integer choices and mathematical constants as stated"
+          ],
+          "domain_condition": "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use an unsupported index, domain or unit",
+        "status": "model mismatch",
+        "reason": "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values."
+      }
+    ],
+    "ast_coverage": "Typed application outline; the formal expression and conditions state the full bounded construction.",
+    "output_symbol_bindings": {
+      "r": "radius",
+      "d": "diameter",
+      "C": "circumference",
+      "A": "output",
+      "π": "pi"
+    }
+  },
+  "properties": [
+    {
+      "claim": "A circle is the planar boundary at a fixed radius from its center; the disk includes its interior. The circle constant π is circumference divided by diameter. A radius r gives diameter d=2r, circumference C=2πr and disk area A=πr².",
+      "conditions": "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values.",
+      "derivation": "Scaling a circle by a positive factor scales every boundary length and its diameter by that same factor, so C/d is constant. Define that constant as π. Since d=2r, the circumference is C=2πr. Integrating concentric radius-ρ rings from zero to r gives area ∫₀ʳ2πρ dρ=πr². Equivalently, increasingly fine circular sectors approach a rectangle of height r and width πr. These limits justify the disk-area law; a single finite picture only illustrates it.",
+      "status": "original derivation under stated conditions; independent review pending",
+      "example_ref": "math:example:circle-measurement:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:ratio-scale",
+      "type": "supports",
+      "conditions": "Retain each card’s stated domains, units and interpretation.",
+      "reason": "This lesson builds on the stated prerequisite’s ratio or geometric rule.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; original explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:regular-polygon",
+      "type": "supports",
+      "conditions": "Retain each card’s stated domains, units and interpretation.",
+      "reason": "The linked example provides a contrasting numerical or geometric construction.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; original explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:integral-accumulation",
+      "type": "supports",
+      "conditions": "Retain each card’s stated domains, units and interpretation.",
+      "reason": "The linked lesson supplies a further viewpoint without changing this bounded model.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; original explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:circle-measurement:case-1",
+      "title": "A two-metre table radius",
+      "role": "applied_model",
+      "question": "How does the same radius determine a table’s edge length and surface area?",
+      "setting": "A maker chooses the radius of a round table. Follow that one length into the edge band needed around it and the surface area to cover. The circumference-to-diameter ratio remains π as the table grows.",
+      "assumptions": [
+        "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values."
+      ],
+      "inputs": {
+        "radius": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "r = 2",
+          "reason": "Choose the declared physical lengths or whole approximation index."
+        },
+        {
+          "index": 2,
+          "expression": "d=2r,\\quad \\pi=\\frac Cd,\\quad C=2\\pi r,\\quad A=\\pi r^2.",
+          "reason": "A circle is the planar boundary at a fixed radius from its center; the disk includes its interior. The circle constant π is circumference divided by diameter. A radius r gives diameter d=2r, circumference C=2πr and disk area A=πr²."
+        },
+        {
+          "index": 3,
+          "expression": "A ≈ 12.566370614359172 m²",
+          "reason": "The 4-metre diameter gives circumference 4π metres and disk area 4π square metres. Equal numerical coefficients do not make length and area the same quantity."
+        }
+      ],
+      "result": {
+        "approximate": "12.566370614359172"
+      },
+      "interpretation": "The 4-metre diameter gives circumference 4π metres and disk area 4π square metres. Equal numerical coefficients do not make length and area the same quantity.",
+      "independent_check": {
+        "method": "Evaluate the polar-area integral and the constant-speed boundary-length integral independently of the runtime radius-squared expression.",
+        "expected": "12.566370614359172"
+      },
+      "limits": "Euclidean circles and filled disks of positive radius. The radius is 0.25–4 metres. Circumference and diameter use metres; disk area uses square metres. The numerical π constant and displayed decimals approximate exact analytic values; material waste and thickness are outside the model.",
+      "preset": {
+        "radius": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values."
+      ]
+    },
+    {
+      "id": "math:example:circle-measurement:case-2",
+      "title": "Half the radius",
+      "role": "applied_model",
+      "question": "How does the same radius determine a table’s edge length and surface area?",
+      "setting": "A maker chooses the radius of a round table. Follow that one length into the edge band needed around it and the surface area to cover. The circumference-to-diameter ratio remains π as the table grows.",
+      "assumptions": [
+        "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values."
+      ],
+      "inputs": {
+        "radius": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "r = 1",
+          "reason": "Choose the declared physical lengths or whole approximation index."
+        },
+        {
+          "index": 2,
+          "expression": "d=2r,\\quad \\pi=\\frac Cd,\\quad C=2\\pi r,\\quad A=\\pi r^2.",
+          "reason": "A circle is the planar boundary at a fixed radius from its center; the disk includes its interior. The circle constant π is circumference divided by diameter. A radius r gives diameter d=2r, circumference C=2πr and disk area A=πr²."
+        },
+        {
+          "index": 3,
+          "expression": "A ≈ 3.141592653589793 m²",
+          "reason": "Compared with radius two, circumference is halved while disk area is quartered. The constant C/d remains π."
+        }
+      ],
+      "result": {
+        "approximate": "3.141592653589793"
+      },
+      "interpretation": "Compared with radius two, circumference is halved while disk area is quartered. The constant C/d remains π.",
+      "independent_check": {
+        "method": "Evaluate the polar-area integral and the constant-speed boundary-length integral independently of the runtime radius-squared expression.",
+        "expected": "3.141592653589793"
+      },
+      "limits": "Euclidean circles and filled disks of positive radius. The radius is 0.25–4 metres. Circumference and diameter use metres; disk area uses square metres. The numerical π constant and displayed decimals approximate exact analytic values; material waste and thickness are outside the model.",
+      "preset": {
+        "radius": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values."
+      ]
+    },
+    {
+      "id": "math:example:circle-measurement:case-3",
+      "title": "A small circular top",
+      "role": "applied_model",
+      "question": "How does the same radius determine a table’s edge length and surface area?",
+      "setting": "A maker chooses the radius of a round table. Follow that one length into the edge band needed around it and the surface area to cover. The circumference-to-diameter ratio remains π as the table grows.",
+      "assumptions": [
+        "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values."
+      ],
+      "inputs": {
+        "radius": 0.25
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "r = 0.25",
+          "reason": "Choose the declared physical lengths or whole approximation index."
+        },
+        {
+          "index": 2,
+          "expression": "d=2r,\\quad \\pi=\\frac Cd,\\quad C=2\\pi r,\\quad A=\\pi r^2.",
+          "reason": "A circle is the planar boundary at a fixed radius from its center; the disk includes its interior. The circle constant π is circumference divided by diameter. A radius r gives diameter d=2r, circumference C=2πr and disk area A=πr²."
+        },
+        {
+          "index": 3,
+          "expression": "A ≈ 0.19634954084936207 m²",
+          "reason": "The half-metre diameter gives edge length π/2 metres and disk area π/16 square metres. A small radius still has the same dimensionless circle ratio."
+        }
+      ],
+      "result": {
+        "approximate": "0.19634954084936207"
+      },
+      "interpretation": "The half-metre diameter gives edge length π/2 metres and disk area π/16 square metres. A small radius still has the same dimensionless circle ratio.",
+      "independent_check": {
+        "method": "Evaluate the polar-area integral and the constant-speed boundary-length integral independently of the runtime radius-squared expression.",
+        "expected": "0.19634954084936207"
+      },
+      "limits": "Euclidean circles and filled disks of positive radius. The radius is 0.25–4 metres. Circumference and diameter use metres; disk area uses square metres. The numerical π constant and displayed decimals approximate exact analytic values; material waste and thickness are outside the model.",
+      "preset": {
+        "radius": 0.25
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values."
+      ]
+    },
+    {
+      "id": "math:example:circle-measurement:case-4",
+      "title": "A wider circular table",
+      "role": "applied_model",
+      "question": "How does the same radius determine a table’s edge length and surface area?",
+      "setting": "A maker chooses the radius of a round table. Follow that one length into the edge band needed around it and the surface area to cover. The circumference-to-diameter ratio remains π as the table grows.",
+      "assumptions": [
+        "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values."
+      ],
+      "inputs": {
+        "radius": 3
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "r = 3",
+          "reason": "Choose the declared physical lengths or whole approximation index."
+        },
+        {
+          "index": 2,
+          "expression": "d=2r,\\quad \\pi=\\frac Cd,\\quad C=2\\pi r,\\quad A=\\pi r^2.",
+          "reason": "A circle is the planar boundary at a fixed radius from its center; the disk includes its interior. The circle constant π is circumference divided by diameter. A radius r gives diameter d=2r, circumference C=2πr and disk area A=πr²."
+        },
+        {
+          "index": 3,
+          "expression": "A ≈ 28.274333882308138 m²",
+          "reason": "A 6-metre diameter needs 6π metres of edge band and 9π square metres of surface covering. The squared radius changes area faster than edge length."
+        }
+      ],
+      "result": {
+        "approximate": "28.274333882308138"
+      },
+      "interpretation": "A 6-metre diameter needs 6π metres of edge band and 9π square metres of surface covering. The squared radius changes area faster than edge length.",
+      "independent_check": {
+        "method": "Evaluate the polar-area integral and the constant-speed boundary-length integral independently of the runtime radius-squared expression.",
+        "expected": "28.274333882308138"
+      },
+      "limits": "Euclidean circles and filled disks of positive radius. The radius is 0.25–4 metres. Circumference and diameter use metres; disk area uses square metres. The numerical π constant and displayed decimals approximate exact analytic values; material waste and thickness are outside the model.",
+      "preset": {
+        "radius": 3
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values."
+      ]
+    },
+    {
+      "id": "math:example:circle-measurement:case-5",
+      "title": "Double the reference radius",
+      "role": "applied_model",
+      "question": "How does the same radius determine a table’s edge length and surface area?",
+      "setting": "A maker chooses the radius of a round table. Follow that one length into the edge band needed around it and the surface area to cover. The circumference-to-diameter ratio remains π as the table grows.",
+      "assumptions": [
+        "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values."
+      ],
+      "inputs": {
+        "radius": 4
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "r = 4",
+          "reason": "Choose the declared physical lengths or whole approximation index."
+        },
+        {
+          "index": 2,
+          "expression": "d=2r,\\quad \\pi=\\frac Cd,\\quad C=2\\pi r,\\quad A=\\pi r^2.",
+          "reason": "A circle is the planar boundary at a fixed radius from its center; the disk includes its interior. The circle constant π is circumference divided by diameter. A radius r gives diameter d=2r, circumference C=2πr and disk area A=πr²."
+        },
+        {
+          "index": 3,
+          "expression": "A ≈ 50.26548245743669 m²",
+          "reason": "Relative to radius two, the 8-metre diameter doubles circumference and quadruples disk area. Both drawings retain the fixed metre scale."
+        }
+      ],
+      "result": {
+        "approximate": "50.26548245743669"
+      },
+      "interpretation": "Relative to radius two, the 8-metre diameter doubles circumference and quadruples disk area. Both drawings retain the fixed metre scale.",
+      "independent_check": {
+        "method": "Evaluate the polar-area integral and the constant-speed boundary-length integral independently of the runtime radius-squared expression.",
+        "expected": "50.26548245743669"
+      },
+      "limits": "Euclidean circles and filled disks of positive radius. The radius is 0.25–4 metres. Circumference and diameter use metres; disk area uses square metres. The numerical π constant and displayed decimals approximate exact analytic values; material waste and thickness are outside the model.",
+      "preset": {
+        "radius": 4
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:circle-measurement",
+    "renderer_id": "circle-measurement-visual-model",
+    "renderer_version": "1",
+    "model_id": "circle-measurement-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:circle-measurement:expression",
+    "interaction_status": "implemented",
+    "description": "A circle is the planar boundary at a fixed radius from its center; the disk includes its interior. The circle constant π is circumference divided by diameter. A radius r gives diameter d=2r, circumference C=2πr and disk area A=πr².",
+    "controls": [
+      {
+        "id": "radius",
+        "type": "number",
+        "default": 2,
+        "min": 0.25,
+        "max": 4,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "radius": 0.25
+        },
+        "status": "valid",
+        "output": 0.19634954084936207
+      },
+      {
+        "input": {
+          "radius": 0.3
+        },
+        "status": "valid",
+        "output": 0.2827433388230814
+      },
+      {
+        "input": {
+          "radius": 0.5
+        },
+        "status": "valid",
+        "output": 0.7853981633974483
+      },
+      {
+        "input": {
+          "radius": 1
+        },
+        "status": "valid",
+        "output": 3.141592653589793
+      },
+      {
+        "input": {
+          "radius": 1.05
+        },
+        "status": "valid",
+        "output": 3.463605900582747
+      },
+      {
+        "input": {
+          "radius": 1.5
+        },
+        "status": "valid",
+        "output": 7.0685834705770345
+      },
+      {
+        "input": {
+          "radius": 2
+        },
+        "status": "valid",
+        "output": 12.566370614359172
+      },
+      {
+        "input": {
+          "radius": 2.5
+        },
+        "status": "valid",
+        "output": 19.634954084936208
+      },
+      {
+        "input": {
+          "radius": 3
+        },
+        "status": "valid",
+        "output": 28.274333882308138
+      },
+      {
+        "input": {
+          "radius": 3.75
+        },
+        "status": "valid",
+        "output": 44.178646691106465
+      },
+      {
+        "input": {
+          "radius": 4
+        },
+        "status": "valid",
+        "output": 50.26548245743669
+      },
+      {
+        "input": {
+          "radius": 0.0
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "radius": 4.25
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "radius": true
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "radius": "2"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "d=2r,\\quad \\pi=\\frac Cd,\\quad C=2\\pi r,\\quad A=\\pi r^2.",
+    "numeric_tolerance": 5e-11,
+    "invariants": [
+      "The radius is 0.25 to 4 metres in Euclidean geometry. A circle is the boundary; a disk includes the interior. Circumference is measured in metres and disk area in square metres. The disk has one fixed equal-metre scale; the separate edge bar has a fixed 0–26 metre scale. Printed readings approximate the analytic values.",
+      "Story, calculation, Geometry and Graph use the same evaluated state.",
+      "Continuous physical quantities retain continuous shapes; whole indices and output counts retain discrete meanings."
+    ],
+    "limits": [
+      "Euclidean circles and filled disks of positive radius. The radius is 0.25–4 metres. Circumference and diameter use metres; disk area uses square metres. The numerical π constant and displayed decimals approximate exact analytic values; material waste and thickness are outside the model."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How does the same radius determine a table’s edge length and surface area?",
+      "answer": "A circle is the planar boundary at a fixed radius from its center; the disk includes its interior. The circle constant π is circumference divided by diameter. A radius r gives diameter d=2r, circumference C=2πr and disk area A=πr²."
+    },
+    {
+      "prompt": "What does this picture measure?",
+      "answer": "The disk radius uses a fixed equal-metre scale. A separate fixed metre bar shows circumference, while the filled disk area represents the square-law change."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "The disk radius uses a fixed equal-metre scale. A separate fixed metre bar shows circumference, while the filled disk area represents the square-law change."
+    },
+    {
+      "kind": "graph",
+      "description": "Disk area versus radius is the quadratic curve πr² on fixed axes; the circle ratio remains constant even while size changes."
+    },
+    {
+      "kind": "substitution",
+      "description": "A circle is the planar boundary at a fixed radius from its center; the disk includes its interior. The circle constant π is circumference divided by diameter. A radius r gives diameter d=2r, circumference C=2πr and disk area A=πr²."
+    }
+  ],
+  "applications": [
+    {
+      "context": "A two-metre table radius",
+      "mapping": "The 4-metre diameter gives circumference 4π metres and disk area 4π square metres. Equal numerical coefficients do not make length and area the same quantity.",
+      "limitations": "Euclidean circles and filled disks of positive radius. The radius is 0.25–4 metres. Circumference and diameter use metres; disk area uses square metres. The numerical π constant and displayed decimals approximate exact analytic values; material waste and thickness are outside the model.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:circle-measurement:case-1"
+    },
+    {
+      "context": "Half the radius",
+      "mapping": "Compared with radius two, circumference is halved while disk area is quartered. The constant C/d remains π.",
+      "limitations": "Euclidean circles and filled disks of positive radius. The radius is 0.25–4 metres. Circumference and diameter use metres; disk area uses square metres. The numerical π constant and displayed decimals approximate exact analytic values; material waste and thickness are outside the model.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:circle-measurement:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:number-insights:circle-measurement"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 continuation: added this bounded number/measurement lesson through the existing modular host."
+  ]
+}

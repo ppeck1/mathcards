@@ -36,12 +36,13 @@
     let persistence = 'local';
     let warning = '';
     let recovery = null;
+    let lastStoredRaw = null;
     let state = empty();
     if (!models || typeof models.evaluate !== 'function' || typeof models.validateParams !== 'function') throw new Error('Notebook requires the registered mathematical models.');
-    function fallback(message) {
+    function fallback(message, action = 'Notes shown in this tab are held in memory. Export a backup before closing it.') {
       storage = null;
       persistence = 'memory';
-      warning = message + ' Notes shown in this tab are held in memory. Export a backup before closing it.';
+      warning = message + ' ' + action;
     }
     if (!Object.hasOwn(options, 'storage')) {
       try { storage = globalThis.localStorage; } catch (_) { fallback('Browser storage is unavailable.'); }
@@ -165,8 +166,14 @@
       const raw = JSON.stringify(next);
       if (byteLength(raw) > MAX_BYTES) throw new Error('The notebook exceeds 8 MB. Export it and remove older notes before adding more.');
       if (storage) {
-        try { storage.setItem(KEY, raw); }
-        catch (_) { fallback('Browser storage is full or blocked.'); }
+        let currentRaw, canWrite = true;
+        try { currentRaw = storage.getItem(KEY); }
+        catch (_) { canWrite = false; fallback('Saved notes could not be checked before writing. The stored data was left untouched.', 'This tab’s changes are held in memory. Export a backup, then reload when storage is available.'); }
+        if (canWrite && currentRaw !== lastStoredRaw) fallback('Saved notes changed in another tab.', 'This tab’s changes are held in memory. Export a backup before reloading to see the other tab’s saved notes.');
+        else if (canWrite) {
+          try { storage.setItem(KEY, raw); lastStoredRaw = raw; }
+          catch (_) { fallback('Browser storage is full or blocked.'); }
+        }
       }
       state = clone(next);
       return { ok: true, warning: warning || null, persistence };
@@ -175,6 +182,7 @@
       let saved;
       try {
         saved = storage.getItem(KEY);
+        lastStoredRaw = saved;
         if (saved) state = readJson(saved);
       } catch (_) {
         if (typeof saved === 'string') recovery = saved;

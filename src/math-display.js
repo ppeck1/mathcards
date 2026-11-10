@@ -7,7 +7,8 @@
   function inputs(card,values){
     if(!values||typeof values!=='object'||Array.isArray(values))return'<pre>'+esc(JSON.stringify(values,null,2))+'</pre>';
     return'<div class="table-wrap"><table><caption class="sr-only">Given values</caption><thead><tr><th>Quantity</th><th>Value</th></tr></thead><tbody>'+Object.entries(values).map(([key,value])=>{
-      return'<tr><th scope="row">'+esc(label(card,key))+'</th><td>'+esc(typeof value==='object'?JSON.stringify(value):value)+'</td></tr>';
+      const names=card?.interactive?.controls?.find(c=>c.id===key)?.value_labels;const shown=names&&Object.hasOwn(names,String(value))?names[String(value)]:typeof value==='object'?JSON.stringify(value):value;
+      return'<tr><th scope="row">'+esc(label(card,key))+'</th><td>'+esc(shown)+'</td></tr>';
     }).join('')+'</tbody></table></div>';
   }
   function nodeRows(card,ast){

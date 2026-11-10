@@ -1,0 +1,3312 @@
+{
+  "formatVersion": 1,
+  "pass": true,
+  "complete": true,
+  "applicationVersion": "0.34.0",
+  "artifactSHA256": "c9050f3de26d0f5fbd2d0c709dee0a763da14834e68db7f5bf1dc09e21d6aac1",
+  "canonicalContentSHA256": "fcca5aae91e81f5010fde0d9c194f2e2af38c6d944a3a02bd5441ae2e790b281",
+  "measuredSourceScriptsSHA256": "0453dc4f6a2515af94be0c62a30ffb43c21417528a13f6c391d3a318fae42b7e",
+  "measuredQualificationInputsSHA256": "5c7fe60cca9154676e97a86ae5a05022c018597628488d349984e7ff4e4f6407",
+  "sourceStable": true,
+  "environment": {
+    "node": "v24.11.1",
+    "platform": "win32",
+    "architecture": "x64",
+    "logicalCPUs": 12,
+    "cpuModel": "AMD Ryzen 5 4600G with Radeon Graphics"
+  },
+  "method": {
+    "runs": 3,
+    "concurrentProcesses": 1,
+    "coldProcess": true,
+    "profile": true,
+    "browserLaunched": false,
+    "networkUsed": false,
+    "bootstrapTest": "tests/startup-index.test.mjs · browser bootstrap hydrates without a source scan and stays within its CPU budget",
+    "acceptance": "Unchanged existing test and 1500 ms limit. Every predeclared attempt is retained; any failed attempt exits nonzero. No retries until pass.",
+    "warmSetup": "The existing test imports index/story modules and evaluates catalog/reference scripts before its timer. A fresh process is not a claim of fully cold source compilation.",
+    "timing": "Elapsed values are wall time. CPU diagnostics use process-wide user+system microseconds and may exceed wall time with multiple process threads.",
+    "vmOverhead": "The unchanged gate runs each source separately with timeout watchdogs. --profile also measures a separate single-call built-inline-script prefix; it does not replace the gate.",
+    "limits": "Node/V8 proxy only. Source strings are read before the budget timer. Excludes disk/network delivery, HTML/CSS parsing, layout, paint, storage restoration, main-view rendering, native MathML, physical phone/touch and assistive technology. OS caches are not flushed."
+  },
+  "artifact": {
+    "offlineHTMLBytes": 11260145,
+    "gzipLevel6EstimateBytes": 1690953,
+    "sourceScriptCount": 150,
+    "sourceScriptBytes": 11113052,
+    "largestSourceScripts": [
+      {
+        "name": "catalog.js",
+        "bytes": 4085368
+      },
+      {
+        "name": "math-index-data.js",
+        "bytes": 3085209
+      },
+      {
+        "name": "formula-data.js",
+        "bytes": 388065
+      },
+      {
+        "name": "subject-inventory-data.js",
+        "bytes": 136147
+      },
+      {
+        "name": "systems-stories.js",
+        "bytes": 106675
+      },
+      {
+        "name": "inference-stories.js",
+        "bytes": 89371
+      },
+      {
+        "name": "continuation-metadata.js",
+        "bytes": 84841
+      },
+      {
+        "name": "module-ports.js",
+        "bytes": 78306
+      },
+      {
+        "name": "spatial-foundation-stories.js",
+        "bytes": 76138
+      },
+      {
+        "name": "card-previews.js",
+        "bytes": 73562
+      },
+      {
+        "name": "dynamics-extension-stories.js",
+        "bytes": 65030
+      },
+      {
+        "name": "number-foundation-stories.js",
+        "bytes": 61499
+      }
+    ],
+    "compressionNote": "Local gzip estimate, not evidence of production transfer headers or size."
+  },
+  "summary": {
+    "bootstrapMedianMs": 462.4,
+    "bootstrapMaximumMs": 490.2,
+    "budgetMs": 1500,
+    "bootstrapPassedRuns": 3,
+    "bootstrapFailedRuns": 0,
+    "componentFailedRuns": 0,
+    "productionFailedRuns": 0,
+    "productionBootstrapMedianMs": 419.965,
+    "productionBootstrapMaximumMs": 420.825,
+    "indexHydrationMsMedian": 44.301,
+    "atlasInitializationMsMedian": 8.587,
+    "subjectInitializationMsMedian": 6.666,
+    "searchInitializationMsMedian": 12.339,
+    "firstSymbolCatalogMsMedian": 9.554,
+    "repeatedUnifiedQueryMedianMsMedian": 5.07
+  },
+  "runs": [
+    {
+      "run": 1,
+      "bootstrapTestMs": 490.2,
+      "bootstrapPassed": true,
+      "bootstrapExitCode": 0,
+      "components": {
+        "preparedDataParsing": [
+          {
+            "name": "catalog.js",
+            "parseAndEvaluateMs": 60.011,
+            "parseAndEvaluateCpuMs": 48,
+            "scriptBytes": 4085368
+          },
+          {
+            "name": "math-index-data.js",
+            "parseAndEvaluateMs": 67.114,
+            "parseAndEvaluateCpuMs": 93,
+            "scriptBytes": 3085209
+          },
+          {
+            "name": "formula-data.js",
+            "parseAndEvaluateMs": 2.202,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 388065
+          },
+          {
+            "name": "subject-inventory-data.js",
+            "parseAndEvaluateMs": 2.74,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 136147
+          }
+        ],
+        "scriptTimings": [
+          {
+            "name": "everyday.js",
+            "parseAndEvaluateMs": 0.883,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 21281
+          },
+          {
+            "name": "fractal-lens.js",
+            "parseAndEvaluateMs": 0.649,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 13069
+          },
+          {
+            "name": "chaos-trace.js",
+            "parseAndEvaluateMs": 0.551,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 4295
+          },
+          {
+            "name": "discovery.js",
+            "parseAndEvaluateMs": 1.857,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 36297
+          },
+          {
+            "name": "frontier.js",
+            "parseAndEvaluateMs": 1.399,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 35492
+          },
+          {
+            "name": "plot-view.js",
+            "parseAndEvaluateMs": 0.761,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12799
+          },
+          {
+            "name": "foundations.js",
+            "parseAndEvaluateMs": 1.276,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 35596
+          },
+          {
+            "name": "linear-algebra.js",
+            "parseAndEvaluateMs": 1.468,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 22822
+          },
+          {
+            "name": "linear-workflows.js",
+            "parseAndEvaluateMs": 1.207,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29668
+          },
+          {
+            "name": "calculus-fields.js",
+            "parseAndEvaluateMs": 1.141,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 30523
+          },
+          {
+            "name": "local-change.js",
+            "parseAndEvaluateMs": 1.225,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 30732
+          },
+          {
+            "name": "atlas-gaps.js",
+            "parseAndEvaluateMs": 0.907,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 24539
+          },
+          {
+            "name": "data-iteration.js",
+            "parseAndEvaluateMs": 0.948,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23334
+          },
+          {
+            "name": "book-foundations.js",
+            "parseAndEvaluateMs": 1.292,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 34862
+          },
+          {
+            "name": "reasoning.js",
+            "parseAndEvaluateMs": 1.564,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 41014
+          },
+          {
+            "name": "structures.js",
+            "parseAndEvaluateMs": 1.605,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 41615
+          },
+          {
+            "name": "chance-information.js",
+            "parseAndEvaluateMs": 1.023,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24912
+          },
+          {
+            "name": "information-links.js",
+            "parseAndEvaluateMs": 0.956,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 25884
+          },
+          {
+            "name": "computation.js",
+            "parseAndEvaluateMs": 1.308,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23920
+          },
+          {
+            "name": "legacy-models.js",
+            "parseAndEvaluateMs": 0.639,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 14083
+          },
+          {
+            "name": "systems-models.js",
+            "parseAndEvaluateMs": 1.384,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29794
+          },
+          {
+            "name": "inference-models.js",
+            "parseAndEvaluateMs": 7.146,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 48836
+          },
+          {
+            "name": "number-foundations.js",
+            "parseAndEvaluateMs": 1.462,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 31881
+          },
+          {
+            "name": "spatial-foundations.js",
+            "parseAndEvaluateMs": 1.197,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 31463
+          },
+          {
+            "name": "dynamics-extensions.js",
+            "parseAndEvaluateMs": 1.213,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 30870
+          },
+          {
+            "name": "algebra-extensions.js",
+            "parseAndEvaluateMs": 1.116,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 35634
+          },
+          {
+            "name": "algorithm-extensions.js",
+            "parseAndEvaluateMs": 1.008,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23367
+          },
+          {
+            "name": "distribution-extensions.js",
+            "parseAndEvaluateMs": 1.721,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 28023
+          },
+          {
+            "name": "analysis-extensions.js",
+            "parseAndEvaluateMs": 0.988,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24093
+          },
+          {
+            "name": "discrete-extensions.js",
+            "parseAndEvaluateMs": 0.83,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18053
+          },
+          {
+            "name": "estimation-extensions.js",
+            "parseAndEvaluateMs": 0.857,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 19657
+          },
+          {
+            "name": "sampling-extensions.js",
+            "parseAndEvaluateMs": 1.302,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29029
+          },
+          {
+            "name": "design-extensions.js",
+            "parseAndEvaluateMs": 1.248,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29722
+          },
+          {
+            "name": "comparison-extensions.js",
+            "parseAndEvaluateMs": 1.268,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 35475
+          },
+          {
+            "name": "number-extensions.js",
+            "parseAndEvaluateMs": 0.828,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20492
+          },
+          {
+            "name": "geometry-extensions.js",
+            "parseAndEvaluateMs": 0.865,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 21641
+          },
+          {
+            "name": "number-insights.js",
+            "parseAndEvaluateMs": 0.974,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29588
+          },
+          {
+            "name": "plane-geometry.js",
+            "parseAndEvaluateMs": 0.899,
+            "parseAndEvaluateCpuMs": 15,
+            "scriptBytes": 23646
+          },
+          {
+            "name": "spatial-insights.js",
+            "parseAndEvaluateMs": 1.101,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 32230
+          },
+          {
+            "name": "neural-bridges.js",
+            "parseAndEvaluateMs": 0.842,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18656
+          },
+          {
+            "name": "information-bridges.js",
+            "parseAndEvaluateMs": 0.944,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 27358
+          },
+          {
+            "name": "physics-bridges.js",
+            "parseAndEvaluateMs": 0.826,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 17567
+          },
+          {
+            "name": "model-registry.js",
+            "parseAndEvaluateMs": 0.569,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5220
+          },
+          {
+            "name": "models.js",
+            "parseAndEvaluateMs": 0.392,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 974
+          },
+          {
+            "name": "catalog.js",
+            "parseAndEvaluateMs": 60.011,
+            "parseAndEvaluateCpuMs": 48,
+            "scriptBytes": 4085368
+          },
+          {
+            "name": "notebook.js",
+            "parseAndEvaluateMs": 0.707,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 19789
+          },
+          {
+            "name": "visuals.js",
+            "parseAndEvaluateMs": 0.968,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 33843
+          },
+          {
+            "name": "spatial.js",
+            "parseAndEvaluateMs": 0.964,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 31126
+          },
+          {
+            "name": "module-graphs.js",
+            "parseAndEvaluateMs": 0.646,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12098
+          },
+          {
+            "name": "life-stories.js",
+            "parseAndEvaluateMs": 0.897,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 21625
+          },
+          {
+            "name": "discovery-stories.js",
+            "parseAndEvaluateMs": 1.751,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 44733
+          },
+          {
+            "name": "frontier-stories.js",
+            "parseAndEvaluateMs": 1.533,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 49629
+          },
+          {
+            "name": "foundation-stories.js",
+            "parseAndEvaluateMs": 1.65,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 32366
+          },
+          {
+            "name": "linear-algebra-stories.js",
+            "parseAndEvaluateMs": 1.399,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 25709
+          },
+          {
+            "name": "linear-workflow-stories.js",
+            "parseAndEvaluateMs": 1.255,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23190
+          },
+          {
+            "name": "calculus-field-stories.js",
+            "parseAndEvaluateMs": 1.241,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20189
+          },
+          {
+            "name": "local-change-stories.js",
+            "parseAndEvaluateMs": 1.257,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23308
+          },
+          {
+            "name": "atlas-gap-stories.js",
+            "parseAndEvaluateMs": 1.19,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18193
+          },
+          {
+            "name": "data-iteration-stories.js",
+            "parseAndEvaluateMs": 1.109,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 17746
+          },
+          {
+            "name": "book-foundation-stories.js",
+            "parseAndEvaluateMs": 1.274,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 22655
+          },
+          {
+            "name": "reasoning-stories.js",
+            "parseAndEvaluateMs": 1.383,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 30728
+          },
+          {
+            "name": "structure-stories.js",
+            "parseAndEvaluateMs": 1.192,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29136
+          },
+          {
+            "name": "chance-information-stories.js",
+            "parseAndEvaluateMs": 1.221,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24669
+          },
+          {
+            "name": "information-link-stories.js",
+            "parseAndEvaluateMs": 1.381,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 34048
+          },
+          {
+            "name": "computation-stories.js",
+            "parseAndEvaluateMs": 0.874,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 17531
+          },
+          {
+            "name": "systems-stories.js",
+            "parseAndEvaluateMs": 2.457,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 106675
+          },
+          {
+            "name": "inference-stories.js",
+            "parseAndEvaluateMs": 2.595,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 89371
+          },
+          {
+            "name": "number-foundation-stories.js",
+            "parseAndEvaluateMs": 1.59,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 61499
+          },
+          {
+            "name": "spatial-foundation-stories.js",
+            "parseAndEvaluateMs": 1.692,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 76138
+          },
+          {
+            "name": "dynamics-extension-stories.js",
+            "parseAndEvaluateMs": 1.924,
+            "parseAndEvaluateCpuMs": 31,
+            "scriptBytes": 65030
+          },
+          {
+            "name": "algebra-extension-stories.js",
+            "parseAndEvaluateMs": 1.485,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 38668
+          },
+          {
+            "name": "algorithm-extension-stories.js",
+            "parseAndEvaluateMs": 1.316,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 41688
+          },
+          {
+            "name": "distribution-extension-stories.js",
+            "parseAndEvaluateMs": 1.156,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 36715
+          },
+          {
+            "name": "analysis-extension-stories.js",
+            "parseAndEvaluateMs": 1.006,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 25568
+          },
+          {
+            "name": "discrete-extension-stories.js",
+            "parseAndEvaluateMs": 0.864,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24362
+          },
+          {
+            "name": "estimation-extension-stories.js",
+            "parseAndEvaluateMs": 0.896,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 27888
+          },
+          {
+            "name": "sampling-extension-stories.js",
+            "parseAndEvaluateMs": 1.286,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 19758
+          },
+          {
+            "name": "design-extension-stories.js",
+            "parseAndEvaluateMs": 1.311,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20903
+          },
+          {
+            "name": "comparison-extension-stories.js",
+            "parseAndEvaluateMs": 1.669,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 25301
+          },
+          {
+            "name": "number-extension-stories.js",
+            "parseAndEvaluateMs": 1.284,
+            "parseAndEvaluateCpuMs": 15,
+            "scriptBytes": 12317
+          },
+          {
+            "name": "geometry-extension-stories.js",
+            "parseAndEvaluateMs": 1.255,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12631
+          },
+          {
+            "name": "number-insight-stories.js",
+            "parseAndEvaluateMs": 1.659,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18853
+          },
+          {
+            "name": "plane-geometry-stories.js",
+            "parseAndEvaluateMs": 1.333,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 49708
+          },
+          {
+            "name": "spatial-insight-stories.js",
+            "parseAndEvaluateMs": 1.381,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20640
+          },
+          {
+            "name": "neural-bridge-stories.js",
+            "parseAndEvaluateMs": 0.898,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24325
+          },
+          {
+            "name": "information-bridge-stories.js",
+            "parseAndEvaluateMs": 0.929,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 28005
+          },
+          {
+            "name": "physics-bridge-stories.js",
+            "parseAndEvaluateMs": 0.872,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24252
+          },
+          {
+            "name": "story-library.js",
+            "parseAndEvaluateMs": 0.527,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4605
+          },
+          {
+            "name": "experiments.js",
+            "parseAndEvaluateMs": 0.914,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 14407
+          },
+          {
+            "name": "scene-input.js",
+            "parseAndEvaluateMs": 0.493,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6242
+          },
+          {
+            "name": "motion.js",
+            "parseAndEvaluateMs": 0.412,
+            "parseAndEvaluateCpuMs": 15,
+            "scriptBytes": 4073
+          },
+          {
+            "name": "readable-values.js",
+            "parseAndEvaluateMs": 0.426,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4397
+          },
+          {
+            "name": "scene-inspector.js",
+            "parseAndEvaluateMs": 0.725,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18803
+          },
+          {
+            "name": "module-registry.js",
+            "parseAndEvaluateMs": 0.817,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 13769
+          },
+          {
+            "name": "semantic-links.js",
+            "parseAndEvaluateMs": 0.536,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 1968
+          },
+          {
+            "name": "continuation-metadata.js",
+            "parseAndEvaluateMs": 3.306,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 84841
+          },
+          {
+            "name": "inference-bindings.js",
+            "parseAndEvaluateMs": 0.572,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 1440
+          },
+          {
+            "name": "expansion-bindings.js",
+            "parseAndEvaluateMs": 0.486,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 1726
+          },
+          {
+            "name": "symbol-bindings.js",
+            "parseAndEvaluateMs": 1.98,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12057
+          },
+          {
+            "name": "module-ports.js",
+            "parseAndEvaluateMs": 3.289,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 78306
+          },
+          {
+            "name": "playground-modules.js",
+            "parseAndEvaluateMs": 118.356,
+            "parseAndEvaluateCpuMs": 110,
+            "scriptBytes": 12133
+          },
+          {
+            "name": "model-data.js",
+            "parseAndEvaluateMs": 0.6,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5760
+          },
+          {
+            "name": "playground.js",
+            "parseAndEvaluateMs": 1.292,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 42033
+          },
+          {
+            "name": "workspace-links.js",
+            "parseAndEvaluateMs": 0.817,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 19916
+          },
+          {
+            "name": "workspace-panel.js",
+            "parseAndEvaluateMs": 0.623,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12038
+          },
+          {
+            "name": "workspace-store.js",
+            "parseAndEvaluateMs": 0.731,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 16645
+          },
+          {
+            "name": "workspace-runtime.js",
+            "parseAndEvaluateMs": 0.531,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 6475
+          },
+          {
+            "name": "workspace-library.js",
+            "parseAndEvaluateMs": 0.509,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 10715
+          },
+          {
+            "name": "story-links.js",
+            "parseAndEvaluateMs": 0.685,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 10681
+          },
+          {
+            "name": "story-scenes.js",
+            "parseAndEvaluateMs": 0.653,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 15163
+          },
+          {
+            "name": "story-journey.js",
+            "parseAndEvaluateMs": 0.443,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 2179
+          },
+          {
+            "name": "calculation-flow.js",
+            "parseAndEvaluateMs": 0.573,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 7748
+          },
+          {
+            "name": "life-story.js",
+            "parseAndEvaluateMs": 0.851,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 28519
+          },
+          {
+            "name": "inference-previews.js",
+            "parseAndEvaluateMs": 0.617,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12173
+          },
+          {
+            "name": "number-foundation-previews.js",
+            "parseAndEvaluateMs": 0.567,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 9730
+          },
+          {
+            "name": "spatial-foundation-previews.js",
+            "parseAndEvaluateMs": 0.571,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 9059
+          },
+          {
+            "name": "dynamics-extension-previews.js",
+            "parseAndEvaluateMs": 0.536,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6694
+          },
+          {
+            "name": "algebra-extension-previews.js",
+            "parseAndEvaluateMs": 0.522,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6866
+          },
+          {
+            "name": "algorithm-extension-previews.js",
+            "parseAndEvaluateMs": 0.489,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5557
+          },
+          {
+            "name": "distribution-extension-previews.js",
+            "parseAndEvaluateMs": 0.641,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5292
+          },
+          {
+            "name": "analysis-extension-previews.js",
+            "parseAndEvaluateMs": 0.812,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4619
+          },
+          {
+            "name": "discrete-extension-previews.js",
+            "parseAndEvaluateMs": 0.573,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4141
+          },
+          {
+            "name": "estimation-extension-previews.js",
+            "parseAndEvaluateMs": 0.503,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 3555
+          },
+          {
+            "name": "sampling-extension-previews.js",
+            "parseAndEvaluateMs": 0.538,
+            "parseAndEvaluateCpuMs": 15,
+            "scriptBytes": 5972
+          },
+          {
+            "name": "design-extension-previews.js",
+            "parseAndEvaluateMs": 0.53,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6030
+          },
+          {
+            "name": "comparison-extension-previews.js",
+            "parseAndEvaluateMs": 0.503,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6353
+          },
+          {
+            "name": "number-extension-previews.js",
+            "parseAndEvaluateMs": 0.41,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4006
+          },
+          {
+            "name": "geometry-extension-previews.js",
+            "parseAndEvaluateMs": 0.441,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5104
+          },
+          {
+            "name": "number-insight-previews.js",
+            "parseAndEvaluateMs": 0.465,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5864
+          },
+          {
+            "name": "plane-geometry-previews.js",
+            "parseAndEvaluateMs": 0.526,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 7351
+          },
+          {
+            "name": "spatial-insight-previews.js",
+            "parseAndEvaluateMs": 0.494,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6994
+          },
+          {
+            "name": "neural-bridge-previews.js",
+            "parseAndEvaluateMs": 0.442,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4115
+          },
+          {
+            "name": "information-bridge-previews.js",
+            "parseAndEvaluateMs": 0.418,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4071
+          },
+          {
+            "name": "physics-bridge-previews.js",
+            "parseAndEvaluateMs": 0.463,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4512
+          },
+          {
+            "name": "card-previews.js",
+            "parseAndEvaluateMs": 5.77,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 73562
+          },
+          {
+            "name": "concept-atlas.js",
+            "parseAndEvaluateMs": 1.141,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 24185
+          },
+          {
+            "name": "atlas-regions.js",
+            "parseAndEvaluateMs": 0.863,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20719
+          },
+          {
+            "name": "atlas-topography.js",
+            "parseAndEvaluateMs": 0.557,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4977
+          },
+          {
+            "name": "atlas-landscape.js",
+            "parseAndEvaluateMs": 0.779,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 14639
+          },
+          {
+            "name": "atlas-explorer.js",
+            "parseAndEvaluateMs": 0.709,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24471
+          },
+          {
+            "name": "math-notation.js",
+            "parseAndEvaluateMs": 2.82,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 52741
+          },
+          {
+            "name": "math-index.js",
+            "parseAndEvaluateMs": 0.968,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 35204
+          },
+          {
+            "name": "math-index-data.js",
+            "parseAndEvaluateMs": 67.114,
+            "parseAndEvaluateCpuMs": 93,
+            "scriptBytes": 3085209
+          },
+          {
+            "name": "atlas-search.js",
+            "parseAndEvaluateMs": 0.758,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 10796
+          },
+          {
+            "name": "learning-order.js",
+            "parseAndEvaluateMs": 0.459,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 3814
+          },
+          {
+            "name": "formula-data.js",
+            "parseAndEvaluateMs": 2.202,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 388065
+          },
+          {
+            "name": "math-display.js",
+            "parseAndEvaluateMs": 0.549,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 1851
+          },
+          {
+            "name": "subject-inventory-data.js",
+            "parseAndEvaluateMs": 2.74,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 136147
+          },
+          {
+            "name": "subject-inventory.js",
+            "parseAndEvaluateMs": 0.848,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 14445
+          }
+        ],
+        "otherScriptParseAndEvaluateMs": 276.818,
+        "otherScriptParseAndEvaluateCpuMs": 329,
+        "indexHydrationMs": 44.301,
+        "indexHydrationCpuMs": 46,
+        "atlasInitializationMs": 8.587,
+        "atlasInitializationCpuMs": 16,
+        "subjectInitializationMs": 6.666,
+        "subjectInitializationCpuMs": 0,
+        "searchInitializationMs": 12.418,
+        "searchInitializationCpuMs": 16,
+        "firstUnifiedQueries": [
+          {
+            "query": "+",
+            "milliseconds": 6.492,
+            "cpuMs": 15,
+            "results": 100
+          },
+          {
+            "query": "δ",
+            "milliseconds": 4.448,
+            "cpuMs": 0,
+            "results": 13
+          },
+          {
+            "query": "μ",
+            "milliseconds": 3.404,
+            "cpuMs": 0,
+            "results": 17
+          },
+          {
+            "query": "R",
+            "milliseconds": 2.739,
+            "cpuMs": 0,
+            "results": 19
+          },
+          {
+            "query": "n",
+            "milliseconds": 2.746,
+            "cpuMs": 0,
+            "results": 79
+          },
+          {
+            "query": "x̄",
+            "milliseconds": 3.725,
+            "cpuMs": 16,
+            "results": 13
+          },
+          {
+            "query": "⊆",
+            "milliseconds": 5.016,
+            "cpuMs": 0,
+            "results": 3
+          },
+          {
+            "query": "∑",
+            "milliseconds": 5.112,
+            "cpuMs": 0,
+            "results": 37
+          },
+          {
+            "query": "entropy",
+            "milliseconds": 10.304,
+            "cpuMs": 16,
+            "results": 48
+          },
+          {
+            "query": "confidence interval",
+            "milliseconds": 7.169,
+            "cpuMs": 0,
+            "results": 33
+          },
+          {
+            "query": "sampling",
+            "milliseconds": 8.083,
+            "cpuMs": 15,
+            "results": 24
+          },
+          {
+            "query": "meet",
+            "milliseconds": 8.257,
+            "cpuMs": 0,
+            "results": 40
+          },
+          {
+            "query": "temperature",
+            "milliseconds": 8.537,
+            "cpuMs": 16,
+            "results": 14
+          },
+          {
+            "query": "sigmoid",
+            "milliseconds": 9.062,
+            "cpuMs": 15,
+            "results": 3
+          },
+          {
+            "query": "p-value",
+            "milliseconds": 5.669,
+            "cpuMs": 0,
+            "results": 4
+          },
+          {
+            "query": "not a known term",
+            "milliseconds": 7.877,
+            "cpuMs": 0,
+            "results": 15
+          }
+        ],
+        "repeatedUnifiedQueryMedianMs": 4.932,
+        "repeatedUnifiedQueryMaximumMs": 8.968,
+        "firstSymbolCatalogMs": 9.554,
+        "firstSymbolCatalogCpuMs": 32,
+        "counts": {
+          "cards": 148,
+          "sources": 163,
+          "coverageRows": 276,
+          "referenceEntries": 1357,
+          "referenceCardUses": 6135,
+          "referenceUsageContexts": 9492,
+          "symbolForms": 962,
+          "symbolMeanings": 1004,
+          "formulaRecords": 148,
+          "subjectConcepts": 295
+        },
+        "indexJSONDecomposition": {
+          "compactPayloadBytes": 3083175,
+          "entryContentWithoutUsesBytes": 986379,
+          "serializedUseArraysBytes": 2080445,
+          "note": "Serialized component sizes are diagnostic estimates, not independently loadable files."
+        }
+      },
+      "production": {
+        "bootstrapMs": 418.575,
+        "bootstrapCpuMs": 501,
+        "timedVmCalls": 1,
+        "sourceBytes": 11059147,
+        "runtimeCompilationGuard": true,
+        "scope": "Built concatenated inline script prefix through header search, before storage and main-view mounting; Node/V8 diagnostic, not the acceptance gate or browser qualification."
+      }
+    },
+    {
+      "run": 2,
+      "bootstrapTestMs": 460.8,
+      "bootstrapPassed": true,
+      "bootstrapExitCode": 0,
+      "components": {
+        "preparedDataParsing": [
+          {
+            "name": "catalog.js",
+            "parseAndEvaluateMs": 60.585,
+            "parseAndEvaluateCpuMs": 62,
+            "scriptBytes": 4085368
+          },
+          {
+            "name": "math-index-data.js",
+            "parseAndEvaluateMs": 65.291,
+            "parseAndEvaluateCpuMs": 62,
+            "scriptBytes": 3085209
+          },
+          {
+            "name": "formula-data.js",
+            "parseAndEvaluateMs": 2.465,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 388065
+          },
+          {
+            "name": "subject-inventory-data.js",
+            "parseAndEvaluateMs": 2.519,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 136147
+          }
+        ],
+        "scriptTimings": [
+          {
+            "name": "everyday.js",
+            "parseAndEvaluateMs": 0.852,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 21281
+          },
+          {
+            "name": "fractal-lens.js",
+            "parseAndEvaluateMs": 0.731,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 13069
+          },
+          {
+            "name": "chaos-trace.js",
+            "parseAndEvaluateMs": 0.493,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4295
+          },
+          {
+            "name": "discovery.js",
+            "parseAndEvaluateMs": 1.802,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 36297
+          },
+          {
+            "name": "frontier.js",
+            "parseAndEvaluateMs": 1.211,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 35492
+          },
+          {
+            "name": "plot-view.js",
+            "parseAndEvaluateMs": 0.694,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12799
+          },
+          {
+            "name": "foundations.js",
+            "parseAndEvaluateMs": 1.082,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 35596
+          },
+          {
+            "name": "linear-algebra.js",
+            "parseAndEvaluateMs": 1.121,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 22822
+          },
+          {
+            "name": "linear-workflows.js",
+            "parseAndEvaluateMs": 1.02,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29668
+          },
+          {
+            "name": "calculus-fields.js",
+            "parseAndEvaluateMs": 1.219,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 30523
+          },
+          {
+            "name": "local-change.js",
+            "parseAndEvaluateMs": 1.176,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 30732
+          },
+          {
+            "name": "atlas-gaps.js",
+            "parseAndEvaluateMs": 0.872,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24539
+          },
+          {
+            "name": "data-iteration.js",
+            "parseAndEvaluateMs": 0.92,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23334
+          },
+          {
+            "name": "book-foundations.js",
+            "parseAndEvaluateMs": 1.272,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 34862
+          },
+          {
+            "name": "reasoning.js",
+            "parseAndEvaluateMs": 1.434,
+            "parseAndEvaluateCpuMs": 31,
+            "scriptBytes": 41014
+          },
+          {
+            "name": "structures.js",
+            "parseAndEvaluateMs": 1.485,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 41615
+          },
+          {
+            "name": "chance-information.js",
+            "parseAndEvaluateMs": 0.908,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24912
+          },
+          {
+            "name": "information-links.js",
+            "parseAndEvaluateMs": 1.006,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 25884
+          },
+          {
+            "name": "computation.js",
+            "parseAndEvaluateMs": 1.252,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23920
+          },
+          {
+            "name": "legacy-models.js",
+            "parseAndEvaluateMs": 0.712,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 14083
+          },
+          {
+            "name": "systems-models.js",
+            "parseAndEvaluateMs": 1.208,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29794
+          },
+          {
+            "name": "inference-models.js",
+            "parseAndEvaluateMs": 6.702,
+            "parseAndEvaluateCpuMs": 47,
+            "scriptBytes": 48836
+          },
+          {
+            "name": "number-foundations.js",
+            "parseAndEvaluateMs": 1.126,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 31881
+          },
+          {
+            "name": "spatial-foundations.js",
+            "parseAndEvaluateMs": 1.338,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 31463
+          },
+          {
+            "name": "dynamics-extensions.js",
+            "parseAndEvaluateMs": 1.26,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 30870
+          },
+          {
+            "name": "algebra-extensions.js",
+            "parseAndEvaluateMs": 1.163,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 35634
+          },
+          {
+            "name": "algorithm-extensions.js",
+            "parseAndEvaluateMs": 0.948,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23367
+          },
+          {
+            "name": "distribution-extensions.js",
+            "parseAndEvaluateMs": 1.65,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 28023
+          },
+          {
+            "name": "analysis-extensions.js",
+            "parseAndEvaluateMs": 0.946,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24093
+          },
+          {
+            "name": "discrete-extensions.js",
+            "parseAndEvaluateMs": 0.942,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18053
+          },
+          {
+            "name": "estimation-extensions.js",
+            "parseAndEvaluateMs": 0.915,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 19657
+          },
+          {
+            "name": "sampling-extensions.js",
+            "parseAndEvaluateMs": 1.299,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29029
+          },
+          {
+            "name": "design-extensions.js",
+            "parseAndEvaluateMs": 1.054,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29722
+          },
+          {
+            "name": "comparison-extensions.js",
+            "parseAndEvaluateMs": 1.261,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 35475
+          },
+          {
+            "name": "number-extensions.js",
+            "parseAndEvaluateMs": 0.897,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20492
+          },
+          {
+            "name": "geometry-extensions.js",
+            "parseAndEvaluateMs": 0.822,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 21641
+          },
+          {
+            "name": "number-insights.js",
+            "parseAndEvaluateMs": 0.952,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29588
+          },
+          {
+            "name": "plane-geometry.js",
+            "parseAndEvaluateMs": 0.848,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23646
+          },
+          {
+            "name": "spatial-insights.js",
+            "parseAndEvaluateMs": 1.302,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 32230
+          },
+          {
+            "name": "neural-bridges.js",
+            "parseAndEvaluateMs": 0.818,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18656
+          },
+          {
+            "name": "information-bridges.js",
+            "parseAndEvaluateMs": 0.937,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 27358
+          },
+          {
+            "name": "physics-bridges.js",
+            "parseAndEvaluateMs": 0.776,
+            "parseAndEvaluateCpuMs": 15,
+            "scriptBytes": 17567
+          },
+          {
+            "name": "model-registry.js",
+            "parseAndEvaluateMs": 0.558,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5220
+          },
+          {
+            "name": "models.js",
+            "parseAndEvaluateMs": 0.444,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 974
+          },
+          {
+            "name": "catalog.js",
+            "parseAndEvaluateMs": 60.585,
+            "parseAndEvaluateCpuMs": 62,
+            "scriptBytes": 4085368
+          },
+          {
+            "name": "notebook.js",
+            "parseAndEvaluateMs": 0.687,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 19789
+          },
+          {
+            "name": "visuals.js",
+            "parseAndEvaluateMs": 1.214,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 33843
+          },
+          {
+            "name": "spatial.js",
+            "parseAndEvaluateMs": 0.948,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 31126
+          },
+          {
+            "name": "module-graphs.js",
+            "parseAndEvaluateMs": 0.746,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 12098
+          },
+          {
+            "name": "life-stories.js",
+            "parseAndEvaluateMs": 1.117,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 21625
+          },
+          {
+            "name": "discovery-stories.js",
+            "parseAndEvaluateMs": 1.701,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 44733
+          },
+          {
+            "name": "frontier-stories.js",
+            "parseAndEvaluateMs": 1.423,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 49629
+          },
+          {
+            "name": "foundation-stories.js",
+            "parseAndEvaluateMs": 1.541,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 32366
+          },
+          {
+            "name": "linear-algebra-stories.js",
+            "parseAndEvaluateMs": 1.309,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 25709
+          },
+          {
+            "name": "linear-workflow-stories.js",
+            "parseAndEvaluateMs": 1.407,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23190
+          },
+          {
+            "name": "calculus-field-stories.js",
+            "parseAndEvaluateMs": 1.319,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20189
+          },
+          {
+            "name": "local-change-stories.js",
+            "parseAndEvaluateMs": 1.233,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 23308
+          },
+          {
+            "name": "atlas-gap-stories.js",
+            "parseAndEvaluateMs": 1.062,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18193
+          },
+          {
+            "name": "data-iteration-stories.js",
+            "parseAndEvaluateMs": 1.05,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 17746
+          },
+          {
+            "name": "book-foundation-stories.js",
+            "parseAndEvaluateMs": 1.26,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 22655
+          },
+          {
+            "name": "reasoning-stories.js",
+            "parseAndEvaluateMs": 1.456,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 30728
+          },
+          {
+            "name": "structure-stories.js",
+            "parseAndEvaluateMs": 1.207,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29136
+          },
+          {
+            "name": "chance-information-stories.js",
+            "parseAndEvaluateMs": 1.093,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24669
+          },
+          {
+            "name": "information-link-stories.js",
+            "parseAndEvaluateMs": 1.324,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 34048
+          },
+          {
+            "name": "computation-stories.js",
+            "parseAndEvaluateMs": 0.838,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 17531
+          },
+          {
+            "name": "systems-stories.js",
+            "parseAndEvaluateMs": 2.648,
+            "parseAndEvaluateCpuMs": 31,
+            "scriptBytes": 106675
+          },
+          {
+            "name": "inference-stories.js",
+            "parseAndEvaluateMs": 2.651,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 89371
+          },
+          {
+            "name": "number-foundation-stories.js",
+            "parseAndEvaluateMs": 1.687,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 61499
+          },
+          {
+            "name": "spatial-foundation-stories.js",
+            "parseAndEvaluateMs": 1.79,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 76138
+          },
+          {
+            "name": "dynamics-extension-stories.js",
+            "parseAndEvaluateMs": 1.803,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 65030
+          },
+          {
+            "name": "algebra-extension-stories.js",
+            "parseAndEvaluateMs": 1.267,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 38668
+          },
+          {
+            "name": "algorithm-extension-stories.js",
+            "parseAndEvaluateMs": 1.52,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 41688
+          },
+          {
+            "name": "distribution-extension-stories.js",
+            "parseAndEvaluateMs": 1.156,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 36715
+          },
+          {
+            "name": "analysis-extension-stories.js",
+            "parseAndEvaluateMs": 0.934,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 25568
+          },
+          {
+            "name": "discrete-extension-stories.js",
+            "parseAndEvaluateMs": 0.814,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24362
+          },
+          {
+            "name": "estimation-extension-stories.js",
+            "parseAndEvaluateMs": 0.863,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 27888
+          },
+          {
+            "name": "sampling-extension-stories.js",
+            "parseAndEvaluateMs": 1.303,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 19758
+          },
+          {
+            "name": "design-extension-stories.js",
+            "parseAndEvaluateMs": 1.519,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20903
+          },
+          {
+            "name": "comparison-extension-stories.js",
+            "parseAndEvaluateMs": 1.478,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 25301
+          },
+          {
+            "name": "number-extension-stories.js",
+            "parseAndEvaluateMs": 1.199,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12317
+          },
+          {
+            "name": "geometry-extension-stories.js",
+            "parseAndEvaluateMs": 1.147,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12631
+          },
+          {
+            "name": "number-insight-stories.js",
+            "parseAndEvaluateMs": 1.723,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18853
+          },
+          {
+            "name": "plane-geometry-stories.js",
+            "parseAndEvaluateMs": 1.332,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 49708
+          },
+          {
+            "name": "spatial-insight-stories.js",
+            "parseAndEvaluateMs": 1.39,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20640
+          },
+          {
+            "name": "neural-bridge-stories.js",
+            "parseAndEvaluateMs": 0.877,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24325
+          },
+          {
+            "name": "information-bridge-stories.js",
+            "parseAndEvaluateMs": 0.894,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 28005
+          },
+          {
+            "name": "physics-bridge-stories.js",
+            "parseAndEvaluateMs": 0.812,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24252
+          },
+          {
+            "name": "story-library.js",
+            "parseAndEvaluateMs": 0.5,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4605
+          },
+          {
+            "name": "experiments.js",
+            "parseAndEvaluateMs": 1.035,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 14407
+          },
+          {
+            "name": "scene-input.js",
+            "parseAndEvaluateMs": 0.503,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6242
+          },
+          {
+            "name": "motion.js",
+            "parseAndEvaluateMs": 0.464,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4073
+          },
+          {
+            "name": "readable-values.js",
+            "parseAndEvaluateMs": 0.488,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4397
+          },
+          {
+            "name": "scene-inspector.js",
+            "parseAndEvaluateMs": 0.629,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18803
+          },
+          {
+            "name": "module-registry.js",
+            "parseAndEvaluateMs": 0.735,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 13769
+          },
+          {
+            "name": "semantic-links.js",
+            "parseAndEvaluateMs": 0.527,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 1968
+          },
+          {
+            "name": "continuation-metadata.js",
+            "parseAndEvaluateMs": 3.259,
+            "parseAndEvaluateCpuMs": 15,
+            "scriptBytes": 84841
+          },
+          {
+            "name": "inference-bindings.js",
+            "parseAndEvaluateMs": 0.559,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 1440
+          },
+          {
+            "name": "expansion-bindings.js",
+            "parseAndEvaluateMs": 0.502,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 1726
+          },
+          {
+            "name": "symbol-bindings.js",
+            "parseAndEvaluateMs": 1.976,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12057
+          },
+          {
+            "name": "module-ports.js",
+            "parseAndEvaluateMs": 3.353,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 78306
+          },
+          {
+            "name": "playground-modules.js",
+            "parseAndEvaluateMs": 116.486,
+            "parseAndEvaluateCpuMs": 141,
+            "scriptBytes": 12133
+          },
+          {
+            "name": "model-data.js",
+            "parseAndEvaluateMs": 0.63,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5760
+          },
+          {
+            "name": "playground.js",
+            "parseAndEvaluateMs": 1.02,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 42033
+          },
+          {
+            "name": "workspace-links.js",
+            "parseAndEvaluateMs": 0.765,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 19916
+          },
+          {
+            "name": "workspace-panel.js",
+            "parseAndEvaluateMs": 0.643,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12038
+          },
+          {
+            "name": "workspace-store.js",
+            "parseAndEvaluateMs": 0.676,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 16645
+          },
+          {
+            "name": "workspace-runtime.js",
+            "parseAndEvaluateMs": 0.487,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6475
+          },
+          {
+            "name": "workspace-library.js",
+            "parseAndEvaluateMs": 0.509,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 10715
+          },
+          {
+            "name": "story-links.js",
+            "parseAndEvaluateMs": 0.676,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 10681
+          },
+          {
+            "name": "story-scenes.js",
+            "parseAndEvaluateMs": 0.612,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 15163
+          },
+          {
+            "name": "story-journey.js",
+            "parseAndEvaluateMs": 0.413,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 2179
+          },
+          {
+            "name": "calculation-flow.js",
+            "parseAndEvaluateMs": 0.556,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 7748
+          },
+          {
+            "name": "life-story.js",
+            "parseAndEvaluateMs": 0.858,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 28519
+          },
+          {
+            "name": "inference-previews.js",
+            "parseAndEvaluateMs": 0.653,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12173
+          },
+          {
+            "name": "number-foundation-previews.js",
+            "parseAndEvaluateMs": 0.566,
+            "parseAndEvaluateCpuMs": 31,
+            "scriptBytes": 9730
+          },
+          {
+            "name": "spatial-foundation-previews.js",
+            "parseAndEvaluateMs": 0.53,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 9059
+          },
+          {
+            "name": "dynamics-extension-previews.js",
+            "parseAndEvaluateMs": 0.505,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6694
+          },
+          {
+            "name": "algebra-extension-previews.js",
+            "parseAndEvaluateMs": 0.537,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6866
+          },
+          {
+            "name": "algorithm-extension-previews.js",
+            "parseAndEvaluateMs": 0.494,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5557
+          },
+          {
+            "name": "distribution-extension-previews.js",
+            "parseAndEvaluateMs": 0.5,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5292
+          },
+          {
+            "name": "analysis-extension-previews.js",
+            "parseAndEvaluateMs": 0.513,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4619
+          },
+          {
+            "name": "discrete-extension-previews.js",
+            "parseAndEvaluateMs": 0.6,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4141
+          },
+          {
+            "name": "estimation-extension-previews.js",
+            "parseAndEvaluateMs": 0.587,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 3555
+          },
+          {
+            "name": "sampling-extension-previews.js",
+            "parseAndEvaluateMs": 0.488,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5972
+          },
+          {
+            "name": "design-extension-previews.js",
+            "parseAndEvaluateMs": 0.522,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6030
+          },
+          {
+            "name": "comparison-extension-previews.js",
+            "parseAndEvaluateMs": 0.482,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6353
+          },
+          {
+            "name": "number-extension-previews.js",
+            "parseAndEvaluateMs": 0.508,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4006
+          },
+          {
+            "name": "geometry-extension-previews.js",
+            "parseAndEvaluateMs": 0.547,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5104
+          },
+          {
+            "name": "number-insight-previews.js",
+            "parseAndEvaluateMs": 0.495,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5864
+          },
+          {
+            "name": "plane-geometry-previews.js",
+            "parseAndEvaluateMs": 0.486,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 7351
+          },
+          {
+            "name": "spatial-insight-previews.js",
+            "parseAndEvaluateMs": 0.514,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6994
+          },
+          {
+            "name": "neural-bridge-previews.js",
+            "parseAndEvaluateMs": 0.453,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4115
+          },
+          {
+            "name": "information-bridge-previews.js",
+            "parseAndEvaluateMs": 0.404,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4071
+          },
+          {
+            "name": "physics-bridge-previews.js",
+            "parseAndEvaluateMs": 0.507,
+            "parseAndEvaluateCpuMs": 31,
+            "scriptBytes": 4512
+          },
+          {
+            "name": "card-previews.js",
+            "parseAndEvaluateMs": 5.168,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 73562
+          },
+          {
+            "name": "concept-atlas.js",
+            "parseAndEvaluateMs": 0.977,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24185
+          },
+          {
+            "name": "atlas-regions.js",
+            "parseAndEvaluateMs": 0.845,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20719
+          },
+          {
+            "name": "atlas-topography.js",
+            "parseAndEvaluateMs": 0.496,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4977
+          },
+          {
+            "name": "atlas-landscape.js",
+            "parseAndEvaluateMs": 0.769,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 14639
+          },
+          {
+            "name": "atlas-explorer.js",
+            "parseAndEvaluateMs": 0.683,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24471
+          },
+          {
+            "name": "math-notation.js",
+            "parseAndEvaluateMs": 2.792,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 52741
+          },
+          {
+            "name": "math-index.js",
+            "parseAndEvaluateMs": 0.985,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 35204
+          },
+          {
+            "name": "math-index-data.js",
+            "parseAndEvaluateMs": 65.291,
+            "parseAndEvaluateCpuMs": 62,
+            "scriptBytes": 3085209
+          },
+          {
+            "name": "atlas-search.js",
+            "parseAndEvaluateMs": 0.768,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 10796
+          },
+          {
+            "name": "learning-order.js",
+            "parseAndEvaluateMs": 0.471,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 3814
+          },
+          {
+            "name": "formula-data.js",
+            "parseAndEvaluateMs": 2.465,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 388065
+          },
+          {
+            "name": "math-display.js",
+            "parseAndEvaluateMs": 0.511,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 1851
+          },
+          {
+            "name": "subject-inventory-data.js",
+            "parseAndEvaluateMs": 2.519,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 136147
+          },
+          {
+            "name": "subject-inventory.js",
+            "parseAndEvaluateMs": 0.738,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 14445
+          }
+        ],
+        "otherScriptParseAndEvaluateMs": 271.131,
+        "otherScriptParseAndEvaluateCpuMs": 454,
+        "indexHydrationMs": 43.227,
+        "indexHydrationCpuMs": 47,
+        "atlasInitializationMs": 8.335,
+        "atlasInitializationCpuMs": 0,
+        "subjectInitializationMs": 6.635,
+        "subjectInitializationCpuMs": 16,
+        "searchInitializationMs": 12.332,
+        "searchInitializationCpuMs": 0,
+        "firstUnifiedQueries": [
+          {
+            "query": "+",
+            "milliseconds": 6.529,
+            "cpuMs": 31,
+            "results": 100
+          },
+          {
+            "query": "δ",
+            "milliseconds": 4.499,
+            "cpuMs": 0,
+            "results": 13
+          },
+          {
+            "query": "μ",
+            "milliseconds": 3.063,
+            "cpuMs": 0,
+            "results": 17
+          },
+          {
+            "query": "R",
+            "milliseconds": 2.546,
+            "cpuMs": 16,
+            "results": 19
+          },
+          {
+            "query": "n",
+            "milliseconds": 2.863,
+            "cpuMs": 0,
+            "results": 79
+          },
+          {
+            "query": "x̄",
+            "milliseconds": 3.882,
+            "cpuMs": 0,
+            "results": 13
+          },
+          {
+            "query": "⊆",
+            "milliseconds": 5.062,
+            "cpuMs": 0,
+            "results": 3
+          },
+          {
+            "query": "∑",
+            "milliseconds": 4.612,
+            "cpuMs": 15,
+            "results": 37
+          },
+          {
+            "query": "entropy",
+            "milliseconds": 10.462,
+            "cpuMs": 0,
+            "results": 48
+          },
+          {
+            "query": "confidence interval",
+            "milliseconds": 6.834,
+            "cpuMs": 16,
+            "results": 33
+          },
+          {
+            "query": "sampling",
+            "milliseconds": 8.515,
+            "cpuMs": 0,
+            "results": 24
+          },
+          {
+            "query": "meet",
+            "milliseconds": 8.027,
+            "cpuMs": 16,
+            "results": 40
+          },
+          {
+            "query": "temperature",
+            "milliseconds": 9.42,
+            "cpuMs": 0,
+            "results": 14
+          },
+          {
+            "query": "sigmoid",
+            "milliseconds": 8.451,
+            "cpuMs": 15,
+            "results": 3
+          },
+          {
+            "query": "p-value",
+            "milliseconds": 6.605,
+            "cpuMs": 0,
+            "results": 4
+          },
+          {
+            "query": "not a known term",
+            "milliseconds": 7.328,
+            "cpuMs": 16,
+            "results": 15
+          }
+        ],
+        "repeatedUnifiedQueryMedianMs": 5.07,
+        "repeatedUnifiedQueryMaximumMs": 9.161,
+        "firstSymbolCatalogMs": 9.226,
+        "firstSymbolCatalogCpuMs": 0,
+        "counts": {
+          "cards": 148,
+          "sources": 163,
+          "coverageRows": 276,
+          "referenceEntries": 1357,
+          "referenceCardUses": 6135,
+          "referenceUsageContexts": 9492,
+          "symbolForms": 962,
+          "symbolMeanings": 1004,
+          "formulaRecords": 148,
+          "subjectConcepts": 295
+        },
+        "indexJSONDecomposition": {
+          "compactPayloadBytes": 3083175,
+          "entryContentWithoutUsesBytes": 986379,
+          "serializedUseArraysBytes": 2080445,
+          "note": "Serialized component sizes are diagnostic estimates, not independently loadable files."
+        }
+      },
+      "production": {
+        "bootstrapMs": 420.825,
+        "bootstrapCpuMs": 500,
+        "timedVmCalls": 1,
+        "sourceBytes": 11059147,
+        "runtimeCompilationGuard": true,
+        "scope": "Built concatenated inline script prefix through header search, before storage and main-view mounting; Node/V8 diagnostic, not the acceptance gate or browser qualification."
+      }
+    },
+    {
+      "run": 3,
+      "bootstrapTestMs": 462.4,
+      "bootstrapPassed": true,
+      "bootstrapExitCode": 0,
+      "components": {
+        "preparedDataParsing": [
+          {
+            "name": "catalog.js",
+            "parseAndEvaluateMs": 60.03,
+            "parseAndEvaluateCpuMs": 62,
+            "scriptBytes": 4085368
+          },
+          {
+            "name": "math-index-data.js",
+            "parseAndEvaluateMs": 71.156,
+            "parseAndEvaluateCpuMs": 62,
+            "scriptBytes": 3085209
+          },
+          {
+            "name": "formula-data.js",
+            "parseAndEvaluateMs": 2.254,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 388065
+          },
+          {
+            "name": "subject-inventory-data.js",
+            "parseAndEvaluateMs": 2.778,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 136147
+          }
+        ],
+        "scriptTimings": [
+          {
+            "name": "everyday.js",
+            "parseAndEvaluateMs": 0.865,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 21281
+          },
+          {
+            "name": "fractal-lens.js",
+            "parseAndEvaluateMs": 0.718,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 13069
+          },
+          {
+            "name": "chaos-trace.js",
+            "parseAndEvaluateMs": 0.61,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4295
+          },
+          {
+            "name": "discovery.js",
+            "parseAndEvaluateMs": 1.756,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 36297
+          },
+          {
+            "name": "frontier.js",
+            "parseAndEvaluateMs": 1.201,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 35492
+          },
+          {
+            "name": "plot-view.js",
+            "parseAndEvaluateMs": 0.715,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12799
+          },
+          {
+            "name": "foundations.js",
+            "parseAndEvaluateMs": 1.267,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 35596
+          },
+          {
+            "name": "linear-algebra.js",
+            "parseAndEvaluateMs": 0.924,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 22822
+          },
+          {
+            "name": "linear-workflows.js",
+            "parseAndEvaluateMs": 1.032,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29668
+          },
+          {
+            "name": "calculus-fields.js",
+            "parseAndEvaluateMs": 1.039,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 30523
+          },
+          {
+            "name": "local-change.js",
+            "parseAndEvaluateMs": 1.048,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 30732
+          },
+          {
+            "name": "atlas-gaps.js",
+            "parseAndEvaluateMs": 0.872,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24539
+          },
+          {
+            "name": "data-iteration.js",
+            "parseAndEvaluateMs": 0.919,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23334
+          },
+          {
+            "name": "book-foundations.js",
+            "parseAndEvaluateMs": 1.337,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 34862
+          },
+          {
+            "name": "reasoning.js",
+            "parseAndEvaluateMs": 1.384,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 41014
+          },
+          {
+            "name": "structures.js",
+            "parseAndEvaluateMs": 1.336,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 41615
+          },
+          {
+            "name": "chance-information.js",
+            "parseAndEvaluateMs": 0.886,
+            "parseAndEvaluateCpuMs": 31,
+            "scriptBytes": 24912
+          },
+          {
+            "name": "information-links.js",
+            "parseAndEvaluateMs": 0.897,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 25884
+          },
+          {
+            "name": "computation.js",
+            "parseAndEvaluateMs": 1.027,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23920
+          },
+          {
+            "name": "legacy-models.js",
+            "parseAndEvaluateMs": 0.614,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 14083
+          },
+          {
+            "name": "systems-models.js",
+            "parseAndEvaluateMs": 1.138,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29794
+          },
+          {
+            "name": "inference-models.js",
+            "parseAndEvaluateMs": 6.977,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 48836
+          },
+          {
+            "name": "number-foundations.js",
+            "parseAndEvaluateMs": 1.089,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 31881
+          },
+          {
+            "name": "spatial-foundations.js",
+            "parseAndEvaluateMs": 1.172,
+            "parseAndEvaluateCpuMs": 15,
+            "scriptBytes": 31463
+          },
+          {
+            "name": "dynamics-extensions.js",
+            "parseAndEvaluateMs": 1.259,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 30870
+          },
+          {
+            "name": "algebra-extensions.js",
+            "parseAndEvaluateMs": 1.064,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 35634
+          },
+          {
+            "name": "algorithm-extensions.js",
+            "parseAndEvaluateMs": 0.994,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23367
+          },
+          {
+            "name": "distribution-extensions.js",
+            "parseAndEvaluateMs": 1.643,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 28023
+          },
+          {
+            "name": "analysis-extensions.js",
+            "parseAndEvaluateMs": 0.906,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24093
+          },
+          {
+            "name": "discrete-extensions.js",
+            "parseAndEvaluateMs": 0.754,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18053
+          },
+          {
+            "name": "estimation-extensions.js",
+            "parseAndEvaluateMs": 0.873,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 19657
+          },
+          {
+            "name": "sampling-extensions.js",
+            "parseAndEvaluateMs": 1.435,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29029
+          },
+          {
+            "name": "design-extensions.js",
+            "parseAndEvaluateMs": 0.995,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29722
+          },
+          {
+            "name": "comparison-extensions.js",
+            "parseAndEvaluateMs": 1.089,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 35475
+          },
+          {
+            "name": "number-extensions.js",
+            "parseAndEvaluateMs": 0.934,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20492
+          },
+          {
+            "name": "geometry-extensions.js",
+            "parseAndEvaluateMs": 0.825,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 21641
+          },
+          {
+            "name": "number-insights.js",
+            "parseAndEvaluateMs": 0.954,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29588
+          },
+          {
+            "name": "plane-geometry.js",
+            "parseAndEvaluateMs": 0.83,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23646
+          },
+          {
+            "name": "spatial-insights.js",
+            "parseAndEvaluateMs": 0.99,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 32230
+          },
+          {
+            "name": "neural-bridges.js",
+            "parseAndEvaluateMs": 0.77,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18656
+          },
+          {
+            "name": "information-bridges.js",
+            "parseAndEvaluateMs": 0.925,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 27358
+          },
+          {
+            "name": "physics-bridges.js",
+            "parseAndEvaluateMs": 0.823,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 17567
+          },
+          {
+            "name": "model-registry.js",
+            "parseAndEvaluateMs": 0.62,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5220
+          },
+          {
+            "name": "models.js",
+            "parseAndEvaluateMs": 0.49,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 974
+          },
+          {
+            "name": "catalog.js",
+            "parseAndEvaluateMs": 60.03,
+            "parseAndEvaluateCpuMs": 62,
+            "scriptBytes": 4085368
+          },
+          {
+            "name": "notebook.js",
+            "parseAndEvaluateMs": 0.776,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 19789
+          },
+          {
+            "name": "visuals.js",
+            "parseAndEvaluateMs": 0.964,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 33843
+          },
+          {
+            "name": "spatial.js",
+            "parseAndEvaluateMs": 1.107,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 31126
+          },
+          {
+            "name": "module-graphs.js",
+            "parseAndEvaluateMs": 0.619,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12098
+          },
+          {
+            "name": "life-stories.js",
+            "parseAndEvaluateMs": 0.893,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 21625
+          },
+          {
+            "name": "discovery-stories.js",
+            "parseAndEvaluateMs": 1.843,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 44733
+          },
+          {
+            "name": "frontier-stories.js",
+            "parseAndEvaluateMs": 1.694,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 49629
+          },
+          {
+            "name": "foundation-stories.js",
+            "parseAndEvaluateMs": 1.398,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 32366
+          },
+          {
+            "name": "linear-algebra-stories.js",
+            "parseAndEvaluateMs": 1.322,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 25709
+          },
+          {
+            "name": "linear-workflow-stories.js",
+            "parseAndEvaluateMs": 1.411,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23190
+          },
+          {
+            "name": "calculus-field-stories.js",
+            "parseAndEvaluateMs": 1.255,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20189
+          },
+          {
+            "name": "local-change-stories.js",
+            "parseAndEvaluateMs": 1.319,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 23308
+          },
+          {
+            "name": "atlas-gap-stories.js",
+            "parseAndEvaluateMs": 1.148,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18193
+          },
+          {
+            "name": "data-iteration-stories.js",
+            "parseAndEvaluateMs": 1.061,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 17746
+          },
+          {
+            "name": "book-foundation-stories.js",
+            "parseAndEvaluateMs": 1.248,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 22655
+          },
+          {
+            "name": "reasoning-stories.js",
+            "parseAndEvaluateMs": 1.596,
+            "parseAndEvaluateCpuMs": 15,
+            "scriptBytes": 30728
+          },
+          {
+            "name": "structure-stories.js",
+            "parseAndEvaluateMs": 1.336,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 29136
+          },
+          {
+            "name": "chance-information-stories.js",
+            "parseAndEvaluateMs": 1.219,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24669
+          },
+          {
+            "name": "information-link-stories.js",
+            "parseAndEvaluateMs": 1.38,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 34048
+          },
+          {
+            "name": "computation-stories.js",
+            "parseAndEvaluateMs": 0.865,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 17531
+          },
+          {
+            "name": "systems-stories.js",
+            "parseAndEvaluateMs": 2.651,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 106675
+          },
+          {
+            "name": "inference-stories.js",
+            "parseAndEvaluateMs": 2.69,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 89371
+          },
+          {
+            "name": "number-foundation-stories.js",
+            "parseAndEvaluateMs": 1.675,
+            "parseAndEvaluateCpuMs": 32,
+            "scriptBytes": 61499
+          },
+          {
+            "name": "spatial-foundation-stories.js",
+            "parseAndEvaluateMs": 1.778,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 76138
+          },
+          {
+            "name": "dynamics-extension-stories.js",
+            "parseAndEvaluateMs": 1.879,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 65030
+          },
+          {
+            "name": "algebra-extension-stories.js",
+            "parseAndEvaluateMs": 1.232,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 38668
+          },
+          {
+            "name": "algorithm-extension-stories.js",
+            "parseAndEvaluateMs": 1.347,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 41688
+          },
+          {
+            "name": "distribution-extension-stories.js",
+            "parseAndEvaluateMs": 1.186,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 36715
+          },
+          {
+            "name": "analysis-extension-stories.js",
+            "parseAndEvaluateMs": 1.564,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 25568
+          },
+          {
+            "name": "discrete-extension-stories.js",
+            "parseAndEvaluateMs": 0.878,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24362
+          },
+          {
+            "name": "estimation-extension-stories.js",
+            "parseAndEvaluateMs": 0.879,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 27888
+          },
+          {
+            "name": "sampling-extension-stories.js",
+            "parseAndEvaluateMs": 1.287,
+            "parseAndEvaluateCpuMs": 15,
+            "scriptBytes": 19758
+          },
+          {
+            "name": "design-extension-stories.js",
+            "parseAndEvaluateMs": 1.316,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20903
+          },
+          {
+            "name": "comparison-extension-stories.js",
+            "parseAndEvaluateMs": 1.484,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 25301
+          },
+          {
+            "name": "number-extension-stories.js",
+            "parseAndEvaluateMs": 1.18,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12317
+          },
+          {
+            "name": "geometry-extension-stories.js",
+            "parseAndEvaluateMs": 1.097,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12631
+          },
+          {
+            "name": "number-insight-stories.js",
+            "parseAndEvaluateMs": 1.594,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18853
+          },
+          {
+            "name": "plane-geometry-stories.js",
+            "parseAndEvaluateMs": 1.565,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 49708
+          },
+          {
+            "name": "spatial-insight-stories.js",
+            "parseAndEvaluateMs": 1.632,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20640
+          },
+          {
+            "name": "neural-bridge-stories.js",
+            "parseAndEvaluateMs": 1.063,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24325
+          },
+          {
+            "name": "information-bridge-stories.js",
+            "parseAndEvaluateMs": 0.97,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 28005
+          },
+          {
+            "name": "physics-bridge-stories.js",
+            "parseAndEvaluateMs": 0.915,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24252
+          },
+          {
+            "name": "story-library.js",
+            "parseAndEvaluateMs": 0.525,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4605
+          },
+          {
+            "name": "experiments.js",
+            "parseAndEvaluateMs": 0.964,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 14407
+          },
+          {
+            "name": "scene-input.js",
+            "parseAndEvaluateMs": 0.677,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6242
+          },
+          {
+            "name": "motion.js",
+            "parseAndEvaluateMs": 0.54,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4073
+          },
+          {
+            "name": "readable-values.js",
+            "parseAndEvaluateMs": 0.567,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4397
+          },
+          {
+            "name": "scene-inspector.js",
+            "parseAndEvaluateMs": 0.711,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 18803
+          },
+          {
+            "name": "module-registry.js",
+            "parseAndEvaluateMs": 0.619,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 13769
+          },
+          {
+            "name": "semantic-links.js",
+            "parseAndEvaluateMs": 0.465,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 1968
+          },
+          {
+            "name": "continuation-metadata.js",
+            "parseAndEvaluateMs": 4.259,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 84841
+          },
+          {
+            "name": "inference-bindings.js",
+            "parseAndEvaluateMs": 0.551,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 1440
+          },
+          {
+            "name": "expansion-bindings.js",
+            "parseAndEvaluateMs": 0.51,
+            "parseAndEvaluateCpuMs": 15,
+            "scriptBytes": 1726
+          },
+          {
+            "name": "symbol-bindings.js",
+            "parseAndEvaluateMs": 2.114,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12057
+          },
+          {
+            "name": "module-ports.js",
+            "parseAndEvaluateMs": 3.61,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 78306
+          },
+          {
+            "name": "playground-modules.js",
+            "parseAndEvaluateMs": 116.386,
+            "parseAndEvaluateCpuMs": 141,
+            "scriptBytes": 12133
+          },
+          {
+            "name": "model-data.js",
+            "parseAndEvaluateMs": 0.676,
+            "parseAndEvaluateCpuMs": 16,
+            "scriptBytes": 5760
+          },
+          {
+            "name": "playground.js",
+            "parseAndEvaluateMs": 1.12,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 42033
+          },
+          {
+            "name": "workspace-links.js",
+            "parseAndEvaluateMs": 0.626,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 19916
+          },
+          {
+            "name": "workspace-panel.js",
+            "parseAndEvaluateMs": 0.598,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12038
+          },
+          {
+            "name": "workspace-store.js",
+            "parseAndEvaluateMs": 0.737,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 16645
+          },
+          {
+            "name": "workspace-runtime.js",
+            "parseAndEvaluateMs": 0.546,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6475
+          },
+          {
+            "name": "workspace-library.js",
+            "parseAndEvaluateMs": 0.668,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 10715
+          },
+          {
+            "name": "story-links.js",
+            "parseAndEvaluateMs": 0.736,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 10681
+          },
+          {
+            "name": "story-scenes.js",
+            "parseAndEvaluateMs": 0.697,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 15163
+          },
+          {
+            "name": "story-journey.js",
+            "parseAndEvaluateMs": 0.513,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 2179
+          },
+          {
+            "name": "calculation-flow.js",
+            "parseAndEvaluateMs": 0.62,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 7748
+          },
+          {
+            "name": "life-story.js",
+            "parseAndEvaluateMs": 0.897,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 28519
+          },
+          {
+            "name": "inference-previews.js",
+            "parseAndEvaluateMs": 0.739,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 12173
+          },
+          {
+            "name": "number-foundation-previews.js",
+            "parseAndEvaluateMs": 0.586,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 9730
+          },
+          {
+            "name": "spatial-foundation-previews.js",
+            "parseAndEvaluateMs": 0.675,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 9059
+          },
+          {
+            "name": "dynamics-extension-previews.js",
+            "parseAndEvaluateMs": 0.633,
+            "parseAndEvaluateCpuMs": 31,
+            "scriptBytes": 6694
+          },
+          {
+            "name": "algebra-extension-previews.js",
+            "parseAndEvaluateMs": 0.554,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6866
+          },
+          {
+            "name": "algorithm-extension-previews.js",
+            "parseAndEvaluateMs": 0.488,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5557
+          },
+          {
+            "name": "distribution-extension-previews.js",
+            "parseAndEvaluateMs": 0.482,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5292
+          },
+          {
+            "name": "analysis-extension-previews.js",
+            "parseAndEvaluateMs": 0.46,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4619
+          },
+          {
+            "name": "discrete-extension-previews.js",
+            "parseAndEvaluateMs": 0.457,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4141
+          },
+          {
+            "name": "estimation-extension-previews.js",
+            "parseAndEvaluateMs": 0.498,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 3555
+          },
+          {
+            "name": "sampling-extension-previews.js",
+            "parseAndEvaluateMs": 0.594,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5972
+          },
+          {
+            "name": "design-extension-previews.js",
+            "parseAndEvaluateMs": 0.506,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6030
+          },
+          {
+            "name": "comparison-extension-previews.js",
+            "parseAndEvaluateMs": 0.551,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6353
+          },
+          {
+            "name": "number-extension-previews.js",
+            "parseAndEvaluateMs": 0.422,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4006
+          },
+          {
+            "name": "geometry-extension-previews.js",
+            "parseAndEvaluateMs": 0.451,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5104
+          },
+          {
+            "name": "number-insight-previews.js",
+            "parseAndEvaluateMs": 0.456,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 5864
+          },
+          {
+            "name": "plane-geometry-previews.js",
+            "parseAndEvaluateMs": 0.521,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 7351
+          },
+          {
+            "name": "spatial-insight-previews.js",
+            "parseAndEvaluateMs": 0.567,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 6994
+          },
+          {
+            "name": "neural-bridge-previews.js",
+            "parseAndEvaluateMs": 0.442,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4115
+          },
+          {
+            "name": "information-bridge-previews.js",
+            "parseAndEvaluateMs": 0.421,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4071
+          },
+          {
+            "name": "physics-bridge-previews.js",
+            "parseAndEvaluateMs": 0.466,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4512
+          },
+          {
+            "name": "card-previews.js",
+            "parseAndEvaluateMs": 5.563,
+            "parseAndEvaluateCpuMs": 31,
+            "scriptBytes": 73562
+          },
+          {
+            "name": "concept-atlas.js",
+            "parseAndEvaluateMs": 0.894,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24185
+          },
+          {
+            "name": "atlas-regions.js",
+            "parseAndEvaluateMs": 0.829,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 20719
+          },
+          {
+            "name": "atlas-topography.js",
+            "parseAndEvaluateMs": 0.492,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 4977
+          },
+          {
+            "name": "atlas-landscape.js",
+            "parseAndEvaluateMs": 0.824,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 14639
+          },
+          {
+            "name": "atlas-explorer.js",
+            "parseAndEvaluateMs": 0.808,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 24471
+          },
+          {
+            "name": "math-notation.js",
+            "parseAndEvaluateMs": 2.925,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 52741
+          },
+          {
+            "name": "math-index.js",
+            "parseAndEvaluateMs": 0.974,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 35204
+          },
+          {
+            "name": "math-index-data.js",
+            "parseAndEvaluateMs": 71.156,
+            "parseAndEvaluateCpuMs": 62,
+            "scriptBytes": 3085209
+          },
+          {
+            "name": "atlas-search.js",
+            "parseAndEvaluateMs": 0.946,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 10796
+          },
+          {
+            "name": "learning-order.js",
+            "parseAndEvaluateMs": 0.562,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 3814
+          },
+          {
+            "name": "formula-data.js",
+            "parseAndEvaluateMs": 2.254,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 388065
+          },
+          {
+            "name": "math-display.js",
+            "parseAndEvaluateMs": 0.542,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 1851
+          },
+          {
+            "name": "subject-inventory-data.js",
+            "parseAndEvaluateMs": 2.778,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 136147
+          },
+          {
+            "name": "subject-inventory.js",
+            "parseAndEvaluateMs": 0.717,
+            "parseAndEvaluateCpuMs": 0,
+            "scriptBytes": 14445
+          }
+        ],
+        "otherScriptParseAndEvaluateMs": 274.296,
+        "otherScriptParseAndEvaluateCpuMs": 406,
+        "indexHydrationMs": 46.585,
+        "indexHydrationCpuMs": 62,
+        "atlasInitializationMs": 9.241,
+        "atlasInitializationCpuMs": 16,
+        "subjectInitializationMs": 6.982,
+        "subjectInitializationCpuMs": 0,
+        "searchInitializationMs": 12.339,
+        "searchInitializationCpuMs": 16,
+        "firstUnifiedQueries": [
+          {
+            "query": "+",
+            "milliseconds": 7.081,
+            "cpuMs": 16,
+            "results": 100
+          },
+          {
+            "query": "δ",
+            "milliseconds": 5.034,
+            "cpuMs": 0,
+            "results": 13
+          },
+          {
+            "query": "μ",
+            "milliseconds": 3.32,
+            "cpuMs": 0,
+            "results": 17
+          },
+          {
+            "query": "R",
+            "milliseconds": 2.652,
+            "cpuMs": 0,
+            "results": 19
+          },
+          {
+            "query": "n",
+            "milliseconds": 2.999,
+            "cpuMs": 0,
+            "results": 79
+          },
+          {
+            "query": "x̄",
+            "milliseconds": 3.984,
+            "cpuMs": 15,
+            "results": 13
+          },
+          {
+            "query": "⊆",
+            "milliseconds": 5.156,
+            "cpuMs": 0,
+            "results": 3
+          },
+          {
+            "query": "∑",
+            "milliseconds": 5.003,
+            "cpuMs": 0,
+            "results": 37
+          },
+          {
+            "query": "entropy",
+            "milliseconds": 10.97,
+            "cpuMs": 16,
+            "results": 48
+          },
+          {
+            "query": "confidence interval",
+            "milliseconds": 7.118,
+            "cpuMs": 16,
+            "results": 33
+          },
+          {
+            "query": "sampling",
+            "milliseconds": 8.787,
+            "cpuMs": 0,
+            "results": 24
+          },
+          {
+            "query": "meet",
+            "milliseconds": 8.245,
+            "cpuMs": 15,
+            "results": 40
+          },
+          {
+            "query": "temperature",
+            "milliseconds": 9.294,
+            "cpuMs": 0,
+            "results": 14
+          },
+          {
+            "query": "sigmoid",
+            "milliseconds": 9.051,
+            "cpuMs": 16,
+            "results": 3
+          },
+          {
+            "query": "p-value",
+            "milliseconds": 6.05,
+            "cpuMs": 0,
+            "results": 4
+          },
+          {
+            "query": "not a known term",
+            "milliseconds": 7.693,
+            "cpuMs": 15,
+            "results": 15
+          }
+        ],
+        "repeatedUnifiedQueryMedianMs": 5.82,
+        "repeatedUnifiedQueryMaximumMs": 10.752,
+        "firstSymbolCatalogMs": 11.046,
+        "firstSymbolCatalogCpuMs": 0,
+        "counts": {
+          "cards": 148,
+          "sources": 163,
+          "coverageRows": 276,
+          "referenceEntries": 1357,
+          "referenceCardUses": 6135,
+          "referenceUsageContexts": 9492,
+          "symbolForms": 962,
+          "symbolMeanings": 1004,
+          "formulaRecords": 148,
+          "subjectConcepts": 295
+        },
+        "indexJSONDecomposition": {
+          "compactPayloadBytes": 3083175,
+          "entryContentWithoutUsesBytes": 986379,
+          "serializedUseArraysBytes": 2080445,
+          "note": "Serialized component sizes are diagnostic estimates, not independently loadable files."
+        }
+      },
+      "production": {
+        "bootstrapMs": 419.965,
+        "bootstrapCpuMs": 453,
+        "timedVmCalls": 1,
+        "sourceBytes": 11059147,
+        "runtimeCompilationGuard": true,
+        "scope": "Built concatenated inline script prefix through header search, before storage and main-view mounting; Node/V8 diagnostic, not the acceptance gate or browser qualification."
+      }
+    }
+  ]
+}

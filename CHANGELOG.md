@@ -1,3 +1,130 @@
+# 0.34.0 — Eight-book expansion and consolidation (review branch)
+
+- Protect notebook saves from detected stale-tab writes; preserve externally
+  saved bytes and keep pending edits exportable with a useful warning. Keep
+  existing backup schemas and model revisions.
+- Validate every lesson's notebook backup and every declared workspace view;
+  add strict default-state scene reference/ID/slot checks to CI, with explicit
+  browser and phone review rows in the release matrix.
+- Add 87 bounded lessons in inference, modeling, information, number
+  foundations, spatial reasoning, dynamics, order, physical and neural models.
+- Add affine inverse calibration, signed geometric series, exact small-graph
+  coloring, two-set inclusion–exclusion, descriptive complete blocks and a
+  known-sigma normal-mean interval through three more explicit local families.
+- Preserve actual story/calculation/shape targets, text-only operators and an
+  unmarked unknown mean; reuse the common summation reader and scope new units.
+- Add unknown-spread Student intervals, all 70 balanced randomization
+  assignments and a three-group one-way ANOVA through one shared local family.
+  Keep ties exact, learner numbering ordinary and assignment dots separated.
+- Add signed-area sample covariance, a normal-population variance interval and
+  known-spread two-group power planning. Preserve per-group counts, independent
+  tail calculations, unknown variance and numerical precision boundaries.
+- Give ANOVA a declared fixed logarithmic vertical scale with original F ticks,
+  readings and pins; preserve linear defaults and horizontal drag behavior.
+- Add a five-pair covariance matrix, paired Wilcoxon signed ranks and a
+  three-versus-three Mann–Whitney comparison through one explicit comparison
+  family. At that comparison checkpoint, the continuation registry has 42 lessons
+  in 12 families.
+- Keep the covariance ellipse descriptive, with equal physical axes, explicit
+  rank-one lines, ambiguous circular direction and numerical precision limits.
+  It is not a confidence or prediction region.
+- Enumerate all retained-sign assignments under the symmetric fair-sign paired
+  null and all 20 balanced labels under the exchangeable equal-distribution
+  null. Omit zero paired differences, average tied ranks and include tail ties;
+  show rank-reference probabilities as dots without smoothing their jumps.
+  Keep small-sample limits and median/causal interpretation boundaries explicit.
+- Record the comparison checkpoint at 126 draft lessons, 634 original examples,
+  2,215 fixtures, 760 written exports and 259 views.
+- Add least common multiples and proper-divisor classifications in a number
+  family, plus regular polygon floors and full spherical tanks in a geometry
+  family. Connect the original workshop signals, tile-strip exhibit, pavilion
+  triangles and tank measurements to their formulas and actual scene quantities.
+- Keep whole periods and tile/side counts discrete, the divisor sum for one
+  empty, and physical radii continuous. Distinguish circumradius, straight
+  polygon edges, spherical surface area, disk area and enclosed volume.
+- At the number/geometry checkpoint, reach 130 draft lessons, 654 original examples, 2,471 fixtures, 784 written
+  exports, 267 views and 130 MathML definitions. Forty-six continuation lessons
+  use fourteen explicit metadata families through the unchanged shared host.
+- Advance perfect numbers, regular polygons and sphere measurement to bounded
+  introductions in the eight-book crosswalk; use LCM as a divisibility bridge.
+  Keep all source-evidence states, schemas, model revisions and review gaps.
+- Add twelve connected lessons in three local families: irrational square-root
+  ratios, golden rectangles, circles/pi, floor/ceiling, triangle measurement,
+  similarity, perpendicular bisectors, ellipses, Platonic solids, tilings,
+  perspective and simple-cubic/face-centered-cubic sphere packing.
+- Separate exact proofs and definitions from finite approximations; retain
+  actual geometric scales, whole counts, open/closed step endpoints and
+  dimensionless versus physical quantities. Preserve the shared host and clocks.
+- At the 142-card insight checkpoint, reach 142 draft lessons, 714 original
+  examples, 2,747 fixtures, 856 written exports, 291 views and 142 MathML definitions. Fifty-eight continuation lessons
+  use seventeen explicit metadata families. Add the new scoped definitions and
+  actual-use links to the prepared searchable reference.
+- At that checkpoint, generate a complete progress matrix across all 18 areas:
+  96 bounded introductions, 55 preparation-only subjects and 144 planned subjects,
+  preserving supplied source evidence and independent review states.
+- Add six atlas-gap lessons through neural, information and physics bridge
+  families: signed excitation/inhibition, a five-site receptive-field filter,
+  binary-channel capacity, Hamming parity correction, photon energy and
+  relativistic time dilation. Reuse the host, controls, clocks and saved state.
+- Follow signals into signed products, parity checks into the erroneous bit,
+  wavelength into frequency and energy, and the same events into proper and
+  frame-dependent clock intervals. Keep nonlinear neural activation, biological
+  validation, unsupported error patterns and broader quantum/relativity claims
+  outside these bounded models.
+- Reach 148 draft lessons, 744 original examples, 2,879 fixtures, 892 written
+  exports, 303 views and 148 MathML definitions. Twenty explicit metadata
+  families supply 64 continuation modules. The prepared reference has 1,357
+  entries, 962 selectable forms and 1,004 meanings, with actual-use card links.
+- Extend the eight-book crosswalk to 103 introductions, 58 precursors and
+  134 planned subjects. Add the first two direct neural and three direct
+  mathematical-physics introductions, plus two information introductions.
+  Preserve stable IDs, book evidence states and the separate live 0.33.0 site.
+- Validate editorial reference authoring before projection. Reject duplicate
+  definition IDs, unknown/self/duplicate related-definition links and missing
+  source keys in a build-only helper, without adding runtime code or a host.
+- Connect original stories, three-stage calculations, Geometry/Graph, matching
+  thumbnails, meaningful quantity ports, worked examples and independent references.
+- Preserve and expose all 295 supplied concept IDs across 18 subjects and eight
+  books, including provisional evidence and the full searchable subject matrix.
+- Reconcile the earlier book roadmap without conflating preparation with a
+  completed introduction or counting overlapping inventories as distinct topics.
+- Migrate the original three model families behind the common provider API,
+  preserving revision 1, exact displays, invalid states and saved workspaces.
+- Add contextual readers for the new notation, units and reused glyphs; retain
+  separate lattice, logical, physical and information meanings.
+- Add pinned development-only formatting, source checks and current architecture
+  documentation. Keep generated/vendor files outside formatting.
+- Retain draft status and explicit human/device qualification gates. The live
+  site remains 0.33.0 until this branch is reviewed and merged.
+- Make generated writes recoverable through sibling staging, atomic replacement
+  and bounded Windows sharing-error retries. Preserve deterministic LF bytes.
+- Record background startup and payload measurements without claiming browser
+  or phone qualification. Compile all 148 formulas to native MathML.
+- Remove duplicate reference-authoring scripts from the runtime, deduplicate
+  private search-row text, stop story lookup at its first match and reuse fully
+  verified immutable registration metadata. Preserve all public reference data,
+  independent parameters, eager validation and the unchanged 1500 ms gate.
+- Retain every fixed startup attempt, including failures, with optional
+  per-script CPU and separate built-prefix diagnostics.
+- Add 18 continuation lessons in remainders, divisibility, fractions, bases,
+  counting, spatial vectors, coordinate frames, motion, hysteresis, gradient
+  flow and explicit circle/sphere charts. Keep singular chart coordinates
+  distinct from valid points, and discrete counts distinct from continuous flow.
+- Extend the shared provider contract with optional interpolation guards and
+  generated, validated bindings/ports for independent lesson families.
+- Add nine atlas-gap lessons: complex numbers/conjugation/modulus, real
+  quadratic roots, a two-variable linear program, linear/binary search,
+  minimum spanning trees, normal and exponential laws, and a paired sign test.
+- Preserve exact discriminant signs, tied optima and integer tree costs;
+  distinguish search prefixes from completed costs and density from probability.
+- Use compact algebra layouts, valid standalone SVG and remembered-family
+  comparisons; retain meaningful input/output marks for pinned probabilities.
+- Preserve empty lists and objects explicitly in written exports, including
+  scopes with no external parameters.
+- At the earlier atlas-gap checkpoint, reach 111 draft cards, 559 worked examples, 1,256 numeric fixtures,
+  670 written exports and 229 representations. Preserve bounded draft status
+  in both overlapping book roadmaps.
+
 # 0.33.0 — Presentation and review repairs
 
 - Give every card illustration a separate caption band and readable labels;

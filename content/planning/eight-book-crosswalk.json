@@ -1,0 +1,2212 @@
+{
+  "format_version": 1,
+  "policy": "Editorial links to bounded draft lessons, not certification of complete subject or book coverage. Source evidence statuses are preserved independently.",
+  "links": [
+    {
+      "concept_id": "observations",
+      "status": "precursor",
+      "cards": [
+        "population-sample",
+        "variance"
+      ],
+      "scope_note": "A fixed finite population illustrates description; sampling designs and inferential guarantees require their own lessons."
+    },
+    {
+      "concept_id": "mean",
+      "status": "draft-introduction",
+      "cards": [
+        "expected-value"
+      ],
+      "scope_note": "Finite weighted average; separate from a promised individual outcome or estimator theory."
+    },
+    {
+      "concept_id": "standard-deviation",
+      "status": "draft-introduction",
+      "cards": [
+        "variance"
+      ],
+      "scope_note": "Finite weighted outcomes; population spread rather than inference about an unknown variance."
+    },
+    {
+      "concept_id": "normal-sampling",
+      "status": "precursor",
+      "cards": [
+        "sampling-distribution",
+        "normal-distribution",
+        "normal-mean-interval",
+        "student-mean-interval",
+        "normal-variance-interval",
+        "normal-test-power"
+      ],
+      "scope_note": "Finite sample-mean and normal-model interval/power examples prepare for sampling theory. Summary statistics and planning assumptions are entered rather than sampled; general sample generation, central-limit theorems and distributional diagnostics remain separate."
+    },
+    {
+      "concept_id": "two-sample-comparisons",
+      "status": "precursor",
+      "cards": [
+        "factorial-interaction"
+      ],
+      "scope_note": "A descriptive contrast compares fixed group means; independent and paired sampling tests are not implemented."
+    },
+    {
+      "concept_id": "confidence-intervals",
+      "status": "draft-introduction",
+      "cards": [
+        "confidence-interval",
+        "normal-mean-interval",
+        "student-mean-interval",
+        "normal-variance-interval"
+      ],
+      "scope_note": "Exact binomial, known/estimated-spread normal-mean intervals and an iid-normal variance interval are distinct fixed-coverage procedures. Mean and variance endpoints have different physical units; none is a posterior probability for a fixed unknown parameter."
+    },
+    {
+      "concept_id": "hypothesis-tests",
+      "status": "draft-introduction",
+      "cards": [
+        "hypothesis-test",
+        "randomization-distribution",
+        "one-way-anova",
+        "normal-test-power",
+        "wilcoxon-signed-rank",
+        "mann-whitney"
+      ],
+      "scope_note": "Bounded binomial, randomization, sign/rank and F procedures state separate hypotheses and exact or model-based references. Signed ranks require the declared symmetric paired-null signs; Mann–Whitney uses exchangeable equal-distribution labels and is not an unrestricted median test. P-values are not probabilities of the null."
+    },
+    {
+      "concept_id": "degrees-of-freedom",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "chi-square-methods",
+      "status": "draft-introduction",
+      "cards": [
+        "chi-square-association"
+      ],
+      "scope_note": "One fixed-margin two-by-two Pearson discrepancy from independence; no p-value, causal result or general categorical inference engine."
+    },
+    {
+      "concept_id": "categorical-data",
+      "status": "precursor",
+      "cards": [
+        "chi-square-association",
+        "joint-distribution"
+      ],
+      "scope_note": "Finite category counts and binary laws prepare for general categorical data and independence methods; no general inferential p-value is supplied."
+    },
+    {
+      "concept_id": "contingency-tables",
+      "status": "draft-introduction",
+      "cards": [
+        "chi-square-association"
+      ],
+      "scope_note": "One fixed-margin two-by-two Pearson discrepancy from independence; no p-value, causal result or general categorical inference engine."
+    },
+    {
+      "concept_id": "nonparametric-statistics",
+      "status": "draft-introduction",
+      "cards": [
+        "sign-test",
+        "wilcoxon-signed-rank",
+        "mann-whitney"
+      ],
+      "scope_note": "Bounded sign, paired signed-rank and independent-group Mann–Whitney references enumerate their complete conditional null assignments. Zero omission, tied midranks, inclusive two-sided rules and paired versus independent assumptions are explicit. This does not complete general rank inference, robustness theory or arbitrary samples."
+    },
+    {
+      "concept_id": "finite-population-sampling",
+      "status": "precursor",
+      "cards": [
+        "population-sample",
+        "variance"
+      ],
+      "scope_note": "A fixed finite population illustrates description; sampling designs and inferential guarantees require their own lessons."
+    },
+    {
+      "concept_id": "probability",
+      "status": "draft-introduction",
+      "cards": [
+        "probability"
+      ],
+      "scope_note": "Finite specified chances; no empirical inference or arbitrary probability-space engine."
+    },
+    {
+      "concept_id": "normal-distribution",
+      "status": "draft-introduction",
+      "cards": [
+        "normal-distribution",
+        "sampling-distribution"
+      ],
+      "scope_note": "A declared normal density and full CDF connect standardized thresholds, density height and probability area. The bounded view does not infer normality from data or establish a central-limit theorem."
+    },
+    {
+      "concept_id": "discrete-distributions",
+      "status": "draft-introduction",
+      "cards": [
+        "probability-distribution"
+      ],
+      "scope_note": "Three discrete return-count outcomes with authored probabilities; broader distribution families remain separate."
+    },
+    {
+      "concept_id": "binomial-distribution",
+      "status": "draft-introduction",
+      "cards": [
+        "binomial-distribution"
+      ],
+      "scope_note": "Integer success counts under fixed trial number, independence and common probability; probabilities vary continuously without fractional counts."
+    },
+    {
+      "concept_id": "experimental-design",
+      "status": "precursor",
+      "cards": [
+        "factorial-interaction",
+        "randomized-block-design"
+      ],
+      "scope_note": "Constructed two-factor interaction and complete-block comparisons prepare for designed experiments. General design selection, replication, allocation and error-model inference remain separate."
+    },
+    {
+      "concept_id": "randomization",
+      "status": "draft-introduction",
+      "cards": [
+        "randomized-block-design",
+        "randomization-distribution",
+        "mann-whitney"
+      ],
+      "scope_note": "Finite references enumerate all balanced raw-mean or pooled-rank label assignments under their stated nulls. The observed examples are constructions, with ties handled directly; no Monte Carlo sampler or general assignment engine is implemented."
+    },
+    {
+      "concept_id": "replication",
+      "status": "precursor",
+      "cards": [
+        "one-way-anova",
+        "normal-test-power"
+      ],
+      "scope_note": "Three constructed readings per group and a separate known-spread two-group power model illustrate the roles of independent replication. The power model enters n per group, distinguishes total 2n, and assumes a true planning effect. Broader design, pseudoreplication diagnostics, empirical data generation and unknown-spread power remain separate."
+    },
+    {
+      "concept_id": "blocking",
+      "status": "draft-introduction",
+      "cards": [
+        "randomized-block-design"
+      ],
+      "scope_note": "A small constructed complete-block comparison follows within-block differences while common block offsets cancel. This descriptive contrast does not supply an ANOVA, randomization distribution or empirical treatment-effect claim."
+    },
+    {
+      "concept_id": "analysis-of-variance",
+      "status": "draft-introduction",
+      "cards": [
+        "factorial-interaction",
+        "one-way-anova"
+      ],
+      "scope_note": "A balanced three-group, nine-reading construction decomposes total variation into between/within sums of squares, divides by 2/6 degrees of freedom and compares their mean squares. The F(2,6) tail uses an explicitly stated independent-normal/common-variance model; general designs and pairwise procedures remain separate."
+    },
+    {
+      "concept_id": "multiple-comparisons",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "multiway-classification",
+      "status": "precursor",
+      "cards": [
+        "factorial-interaction"
+      ],
+      "scope_note": "The four cell means illustrate one interaction contrast; ANOVA decomposition, sampling error and inferential F tests remain planned."
+    },
+    {
+      "concept_id": "factorial-experiments",
+      "status": "precursor",
+      "cards": [
+        "factorial-interaction"
+      ],
+      "scope_note": "A descriptive two-by-two interaction prepares for designed experiments; randomization, replication and an error model are not implemented."
+    },
+    {
+      "concept_id": "interactions",
+      "status": "draft-introduction",
+      "cards": [
+        "factorial-interaction"
+      ],
+      "scope_note": "A two-by-two difference of differences describes interaction; it is not an ANOVA or a significance test."
+    },
+    {
+      "concept_id": "split-plot-designs",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "covariance-analysis",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "unbalanced-designs",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "linear-regression",
+      "status": "draft-introduction",
+      "cards": [
+        "linear-regression"
+      ],
+      "scope_note": "Least-squares line for five constructed observations with vertical residuals; no causal law, extrapolation or uncertainty interval is inferred."
+    },
+    {
+      "concept_id": "correlation",
+      "status": "draft-introduction",
+      "cards": [
+        "correlation"
+      ],
+      "scope_note": "A constructed five-point Pearson correlation family; constant responses are explicitly undefined, and association does not establish causation."
+    },
+    {
+      "concept_id": "multiple-regression",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "partial-correlation",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "curve-fitting",
+      "status": "draft-introduction",
+      "cards": [
+        "linear-regression"
+      ],
+      "scope_note": "A five-observation straight-line least-squares fit displays each vertical residual; nonlinear fitting and regression inference remain separate."
+    },
+    {
+      "concept_id": "residuals",
+      "status": "draft-introduction",
+      "cards": [
+        "linear-regression"
+      ],
+      "scope_note": "A five-observation straight-line least-squares fit displays each vertical residual; nonlinear fitting and regression inference remain separate."
+    },
+    {
+      "concept_id": "orthogonal-comparisons",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "latin-square-designs",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "matrix-notation",
+      "status": "draft-introduction",
+      "cards": [
+        "matrix-linear-map",
+        "matrix-product",
+        "covariance-matrix"
+      ],
+      "scope_note": "Small real maps/products and the displayed 2×2 covariance matrix connect entries to their declared quantities. Covariance entries have squared measurement units, rather than map coefficients by default."
+    },
+    {
+      "concept_id": "matrix-regression",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "computable-functions",
+      "status": "precursor",
+      "cards": [
+        "turing-machine",
+        "finite-state-machine"
+      ],
+      "scope_note": "Two fixed machines introduce computation; no arbitrary programs, computability classification or universal interpreter."
+    },
+    {
+      "concept_id": "linear-associators",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "hopfield-networks",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "boltzmann-machines",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "network-learning",
+      "status": "precursor",
+      "cards": [
+        "hebbian-learning"
+      ],
+      "scope_note": "One local correlation-based weight update introduces a mathematical learning rule; it is not a physiological model or complete theory of memory."
+    },
+    {
+      "concept_id": "competitive-learning",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "recurrent-networks",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "optimization",
+      "status": "precursor",
+      "cards": [
+        "gradient-descent",
+        "quadratic-optimization",
+        "gradient-flow",
+        "linear-programming"
+      ],
+      "scope_note": "Declared quadratic descent/flow and a bounded two-variable linear program introduce different objectives and feasible choices. Exact polygon vertices and tied optima do not supply general optimization algorithms or convergence theory."
+    },
+    {
+      "concept_id": "neurons",
+      "status": "precursor",
+      "cards": [
+        "artificial-neuron"
+      ],
+      "scope_note": "One stipulated scalar sigmoid unit illustrates an artificial computational model; anatomy and biological membrane mechanisms are not implemented."
+    },
+    {
+      "concept_id": "synapses",
+      "status": "precursor",
+      "cards": [
+        "hebbian-learning"
+      ],
+      "scope_note": "One local correlation-based weight update introduces a mathematical learning rule; it is not a physiological model or complete theory of memory."
+    },
+    {
+      "concept_id": "membrane-potentials",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "excitation-and-inhibition",
+      "status": "draft-introduction",
+      "cards": [
+        "neural-summation"
+      ],
+      "scope_note": "A dimensionless linear unit separates nonnegative additive and subtractive channels with stated positive gains. The net signed response can be negative and is not a probability, firing rate, membrane voltage or physiological validation. Conductances, spiking and biological circuits require separate models."
+    },
+    {
+      "concept_id": "neural-circuits",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "distributed-representation",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "visual-perception",
+      "status": "precursor",
+      "cards": [
+        "receptive-field"
+      ],
+      "scope_note": "A finite linear contrast filter provides preparation for visual representations. It does not establish perceptual appearance, neural mechanisms, color vision or biological validity."
+    },
+    {
+      "concept_id": "stereo-vision",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "receptive-fields",
+      "status": "draft-introduction",
+      "cards": [
+        "receptive-field"
+      ],
+      "scope_note": "A five-site linear center-surround filter links displayed stimulus brightness and signed weights to one response. Every uniform brightness level cancels at the declared zero-sum weights; the all-black stimulus also gives zero for any surround gain. This is a constructed mathematical receptive-field example, not measured neuronal data or a complete model of visual perception."
+    },
+    {
+      "concept_id": "vector-coding",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "learning-and-memory",
+      "status": "precursor",
+      "cards": [
+        "hebbian-learning"
+      ],
+      "scope_note": "One local correlation-based weight update introduces a mathematical learning rule; it is not a physiological model or complete theory of memory."
+    },
+    {
+      "concept_id": "synaptic-plasticity",
+      "status": "precursor",
+      "cards": [
+        "hebbian-learning"
+      ],
+      "scope_note": "One local correlation-based weight update introduces a mathematical learning rule; it is not a physiological model or complete theory of memory."
+    },
+    {
+      "concept_id": "hippocampus",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "sensorimotor-integration",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "vestibulo-ocular-reflex",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "neural-oscillators",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "neuron-models",
+      "status": "precursor",
+      "cards": [
+        "artificial-neuron"
+      ],
+      "scope_note": "One stipulated scalar sigmoid unit illustrates an artificial computational model; anatomy and biological membrane mechanisms are not implemented."
+    },
+    {
+      "concept_id": "neurobiological-measurement",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "levels-of-organization",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "descriptive-statistics",
+      "status": "precursor",
+      "cards": [
+        "population-sample",
+        "variance"
+      ],
+      "scope_note": "A fixed finite population illustrates description; sampling designs and inferential guarantees require their own lessons."
+    },
+    {
+      "concept_id": "populations-and-samples",
+      "status": "draft-introduction",
+      "cards": [
+        "population-sample"
+      ],
+      "scope_note": "A fixed crate population and selected subset; not a random-sampling inference engine."
+    },
+    {
+      "concept_id": "sampling-distributions",
+      "status": "draft-introduction",
+      "cards": [
+        "sampling-distribution"
+      ],
+      "scope_note": "The complete finite law of sample means for a declared with-replacement population and whole sample sizes 1 to 4; without-replacement sampling needs a different variance."
+    },
+    {
+      "concept_id": "point-estimation",
+      "status": "precursor",
+      "cards": [
+        "linear-regression",
+        "confidence-interval",
+        "normal-mean-interval",
+        "student-mean-interval"
+      ],
+      "scope_note": "Specific fitted coefficients and observed sample-mean/proportion interval centers prepare for estimator theory. Bias, consistency, sufficiency and broad efficiency results remain planned."
+    },
+    {
+      "concept_id": "paired-comparisons",
+      "status": "precursor",
+      "cards": [
+        "factorial-interaction"
+      ],
+      "scope_note": "A descriptive contrast compares fixed group means; independent and paired sampling tests are not implemented."
+    },
+    {
+      "concept_id": "variance-inference",
+      "status": "draft-introduction",
+      "cards": [
+        "normal-variance-interval"
+      ],
+      "scope_note": "A fixed 95% chi-square interval for an unknown normal-population variance uses the observed sample standard deviation and n−1 degrees of freedom. Independent identically normal readings are assumed; displayed whole n is 6–31. This does not supply robust, nonnormal or multivariate variance inference."
+    },
+    {
+      "concept_id": "statistical-quality-control",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "sample-spaces",
+      "status": "precursor",
+      "cards": [
+        "probability",
+        "conditional-probability"
+      ],
+      "scope_note": "Finite chance and conditioning models use events; a dedicated general treatment remains planned."
+    },
+    {
+      "concept_id": "events",
+      "status": "precursor",
+      "cards": [
+        "probability",
+        "conditional-probability"
+      ],
+      "scope_note": "Finite chance and conditioning models use events; a dedicated general treatment remains planned."
+    },
+    {
+      "concept_id": "counting-methods",
+      "status": "draft-introduction",
+      "cards": [
+        "permutation-count",
+        "binomial-coefficient",
+        "inclusion-exclusion",
+        "graph-coloring"
+      ],
+      "scope_note": "Finite permutations/combinations, a two-collection inclusion-exclusion identity and proper coloring enumeration introduce distinct exact counting methods. This is not a complete combinatorics curriculum."
+    },
+    {
+      "concept_id": "conditional-probability",
+      "status": "draft-introduction",
+      "cards": [
+        "conditional-probability"
+      ],
+      "scope_note": "Finite event conditioning in a declared model; causal interpretation is not implied."
+    },
+    {
+      "concept_id": "independence",
+      "status": "precursor",
+      "cards": [
+        "chi-square-association",
+        "joint-distribution"
+      ],
+      "scope_note": "Finite category counts and binary laws prepare for general categorical data and independence methods; no general inferential p-value is supplied."
+    },
+    {
+      "concept_id": "random-variables",
+      "status": "draft-introduction",
+      "cards": [
+        "probability-distribution"
+      ],
+      "scope_note": "Three discrete return-count outcomes with authored probabilities; broader distribution families remain separate."
+    },
+    {
+      "concept_id": "probability-distributions",
+      "status": "draft-introduction",
+      "cards": [
+        "probability-distribution",
+        "normal-distribution",
+        "exponential-distribution"
+      ],
+      "scope_note": "Finite probability masses and two continuous density/CDF families distinguish sums of point probabilities from area under density. These examples do not enumerate all distribution families or validate a fitted model."
+    },
+    {
+      "concept_id": "expected-value",
+      "status": "draft-introduction",
+      "cards": [
+        "expected-value"
+      ],
+      "scope_note": "Finite weighted average; separate from a promised individual outcome or estimator theory."
+    },
+    {
+      "concept_id": "variance",
+      "status": "draft-introduction",
+      "cards": [
+        "variance"
+      ],
+      "scope_note": "Finite weighted outcomes; population spread rather than inference about an unknown variance."
+    },
+    {
+      "concept_id": "joint-distributions",
+      "status": "draft-introduction",
+      "cards": [
+        "joint-distribution"
+      ],
+      "scope_note": "One binary channel family; does not implement arbitrary multivariate laws."
+    },
+    {
+      "concept_id": "covariance",
+      "status": "draft-introduction",
+      "cards": [
+        "covariance",
+        "covariance-matrix"
+      ],
+      "scope_note": "Paired covariance and a separate same-unit 2×2 sample covariance matrix connect signed products to directional spread. A descriptive one-SD ellipse is not a confidence/prediction region. Only the stated five-pair construction is implemented."
+    },
+    {
+      "concept_id": "poisson-distribution",
+      "status": "draft-introduction",
+      "cards": [
+        "poisson-distribution"
+      ],
+      "scope_note": "A count law with infinite support; counts 0 through 20 and a separately stated remainder preserve total probability without renormalizing the bars."
+    },
+    {
+      "concept_id": "exponential-distribution",
+      "status": "draft-introduction",
+      "cards": [
+        "exponential-distribution",
+        "poisson-distribution"
+      ],
+      "scope_note": "A constant-rate waiting-time law connects density, cumulative probability, survival and mean wait. It is separate from the Poisson event count; real arrival assumptions remain unvalidated."
+    },
+    {
+      "concept_id": "central-limit-theorem",
+      "status": "precursor",
+      "cards": [
+        "sampling-distribution"
+      ],
+      "scope_note": "An exact finite sample-mean distribution prepares for normal limits; no normal law or central-limit theorem proof is implemented."
+    },
+    {
+      "concept_id": "symbol-history",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "numerals",
+      "status": "draft-introduction",
+      "cards": [
+        "numeral-system"
+      ],
+      "scope_note": "Ordinary positional numerals in bases two through ten name the same nonnegative integer. This introduces digit/place meaning, not historical numeral scripts."
+    },
+    {
+      "concept_id": "greek-letters",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "variables",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "absolute-value",
+      "status": "precursor",
+      "cards": [
+        "derivative"
+      ],
+      "scope_note": "A corner preset and reference entry explain absolute value locally; a dedicated absolute-value lesson remains planned."
+    },
+    {
+      "concept_id": "powers-and-subscripts",
+      "status": "precursor",
+      "cards": [
+        "exponentiation",
+        "recurrence"
+      ],
+      "scope_note": "Power and sequence-index roles appear in these cards; subscript scope has other contexts."
+    },
+    {
+      "concept_id": "decimal-notation",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "arithmetic-operators",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "equality",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "inequalities",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "grouping-symbols",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "function-notation",
+      "status": "draft-introduction",
+      "cards": [
+        "function"
+      ],
+      "scope_note": "A bounded real-valued function family with explicit input and output."
+    },
+    {
+      "concept_id": "differential-notation",
+      "status": "draft-introduction",
+      "cards": [
+        "derivative"
+      ],
+      "scope_note": "Declared scalar functions; finite secants and analytic tangent slopes remain separate."
+    },
+    {
+      "concept_id": "integral-notation",
+      "status": "draft-introduction",
+      "cards": [
+        "integral-accumulation",
+        "signed-accumulation"
+      ],
+      "scope_note": "Definite accumulation and signed area in declared families; no arbitrary integration engine."
+    },
+    {
+      "concept_id": "partial-derivative-notation",
+      "status": "draft-introduction",
+      "cards": [
+        "partial-derivative"
+      ],
+      "scope_note": "One analytic quadratic field family, not arbitrary symbolic partial differentiation."
+    },
+    {
+      "concept_id": "nabla",
+      "status": "draft-introduction",
+      "cards": [
+        "gradient"
+      ],
+      "scope_note": "Gradient notation for an analytic scalar field; other nabla operations need separate meaning and models."
+    },
+    {
+      "concept_id": "delta-notation",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "limit-notation",
+      "status": "draft-introduction",
+      "cards": [
+        "limit"
+      ],
+      "scope_note": "A bounded removable-discontinuity family; a picture is not a general limit proof."
+    },
+    {
+      "concept_id": "quantifiers",
+      "status": "draft-introduction",
+      "cards": [
+        "quantifier",
+        "quantifier-scope"
+      ],
+      "scope_note": "Fixed finite domains distinguish every/some and quantifier order; no arbitrary formula evaluator."
+    },
+    {
+      "concept_id": "membership",
+      "status": "draft-introduction",
+      "cards": [
+        "set"
+      ],
+      "scope_note": "Finite displayed sets with explicit membership and selected operations."
+    },
+    {
+      "concept_id": "union-and-intersection",
+      "status": "draft-introduction",
+      "cards": [
+        "set",
+        "inclusion-exclusion"
+      ],
+      "scope_note": "Explicit finite sets and a two-collection count show how union, overlap and double counting relate. General measure-theoretic inclusion-exclusion remains separate."
+    },
+    {
+      "concept_id": "infinity-notation",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "factorial-notation",
+      "status": "draft-introduction",
+      "cards": [
+        "permutation-count"
+      ],
+      "scope_note": "Factorial notation and the empty product are explained through ordered selections, including zero roles. No gamma-function extension is implemented."
+    },
+    {
+      "concept_id": "summation-notation",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "floor-and-ceiling",
+      "status": "draft-introduction",
+      "cards": [
+        "floor-ceiling"
+      ],
+      "scope_note": "A nonnegative ideal liquid batch distinguishes fully filled containers from the whole number needed. Exact decimal input thresholds avoid arbitrary epsilon adjustments. General signed floor/ceiling definitions are in the linked reference; uncertain capacities and tolerances are outside this model."
+    },
+    {
+      "concept_id": "binomial-notation",
+      "status": "draft-introduction",
+      "cards": [
+        "binomial-coefficient",
+        "binomial-distribution"
+      ],
+      "scope_note": "Binomial-coefficient notation counts unordered teams, and the distribution lesson uses those coefficients for Bernoulli counts. Their meanings remain distinct."
+    },
+    {
+      "concept_id": "einstein-summation",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "proof-completion-notation",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "zero",
+      "status": "precursor",
+      "cards": [
+        "rational-number",
+        "numeral-system",
+        "permutation-count"
+      ],
+      "scope_note": "Zero balances, the single zero digit and one empty assignment give distinct examples. A dedicated treatment of zero and its algebraic roles remains planned."
+    },
+    {
+      "concept_id": "negative-numbers",
+      "status": "precursor",
+      "cards": [
+        "rational-number"
+      ],
+      "scope_note": "Signed fractional ribbon balances locate negative values to the left of zero. Integer ordering and the full arithmetic of negative numbers remain separate."
+    },
+    {
+      "concept_id": "rational-numbers",
+      "status": "draft-introduction",
+      "cards": [
+        "rational-number"
+      ],
+      "scope_note": "Signed bounded numerator and positive denominator illustrate quotient values and exact reduction. No construction of the complete number system is claimed."
+    },
+    {
+      "concept_id": "real-numbers",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "imaginary-unit",
+      "status": "draft-introduction",
+      "cards": [
+        "complex-multiplication"
+      ],
+      "scope_note": "Complex-plane multiplication as a scale and turn; broader complex analysis remains separate."
+    },
+    {
+      "concept_id": "pi",
+      "status": "draft-introduction",
+      "cards": [
+        "circle-measurement"
+      ],
+      "scope_note": "In Euclidean geometry the circumference-to-diameter ratio defines pi. Radius connects circumference and disk area with distinct metre and square-metre units. The finite drawing and printed decimals approximate analytic measurements; no proof of transcendence is supplied."
+    },
+    {
+      "concept_id": "euler-number",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "algebraic-symbolism",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "functions",
+      "status": "draft-introduction",
+      "cards": [
+        "function",
+        "inverse-function"
+      ],
+      "scope_note": "Bounded real function and affine inverse families distinguish input/output, domain/range and inverse recovery. An inverse requires nonzero affine gain; reciprocal notation is separate."
+    },
+    {
+      "concept_id": "matrices",
+      "status": "draft-introduction",
+      "cards": [
+        "matrix-linear-map",
+        "matrix-product",
+        "covariance-matrix"
+      ],
+      "scope_note": "Small real linear maps, products and a symmetric 2×2 sample covariance matrix illustrate distinct matrix roles. Positive semidefiniteness, singularity and geometric principal spreads are explicit for the covariance construction; no arbitrary-dimensional engine is supplied."
+    },
+    {
+      "concept_id": "roots",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "derivatives",
+      "status": "draft-introduction",
+      "cards": [
+        "derivative"
+      ],
+      "scope_note": "Declared scalar functions; finite secants and analytic tangent slopes remain separate."
+    },
+    {
+      "concept_id": "partial-derivatives",
+      "status": "draft-introduction",
+      "cards": [
+        "partial-derivative"
+      ],
+      "scope_note": "One analytic quadratic field family, not arbitrary symbolic partial differentiation."
+    },
+    {
+      "concept_id": "vector-calculus",
+      "status": "precursor",
+      "cards": [
+        "derivative",
+        "integral-accumulation",
+        "gradient",
+        "spatial-cross-product",
+        "vector-projection",
+        "gradient-flow"
+      ],
+      "scope_note": "Concrete spatial vector operations and a quadratic gradient flow extend the local-change examples. General vector-calculus theorems, arbitrary fields and integration theory remain separate."
+    },
+    {
+      "concept_id": "limits",
+      "status": "draft-introduction",
+      "cards": [
+        "limit"
+      ],
+      "scope_note": "A bounded removable-discontinuity family; a picture is not a general limit proof."
+    },
+    {
+      "concept_id": "exponential-growth",
+      "status": "draft-introduction",
+      "cards": [
+        "exponential-change"
+      ],
+      "scope_note": "A fixed multiplicative-change rule; no fitted real-world growth claim."
+    },
+    {
+      "concept_id": "empty-set",
+      "status": "draft-introduction",
+      "cards": [
+        "set"
+      ],
+      "scope_note": "Finite displayed sets with explicit membership and selected operations."
+    },
+    {
+      "concept_id": "cardinality",
+      "status": "precursor",
+      "cards": [
+        "set",
+        "countability",
+        "inclusion-exclusion"
+      ],
+      "scope_note": "Exact finite set counts, inclusion-exclusion and one countable enumeration prepare for cardinal comparison and uncountable sets; this row retains its broader precursor scope."
+    },
+    {
+      "concept_id": "infinite-sets",
+      "status": "precursor",
+      "cards": [
+        "set",
+        "countability"
+      ],
+      "scope_note": "Finite set counts and one countable enumeration precede cardinal comparison and uncountable sets."
+    },
+    {
+      "concept_id": "factorials",
+      "status": "draft-introduction",
+      "cards": [
+        "permutation-count"
+      ],
+      "scope_note": "Finite products count assignments of distinct people to different roles. Counts are bounded by eight people; repetition and circular arrangements remain separate."
+    },
+    {
+      "concept_id": "binomial-coefficients",
+      "status": "draft-introduction",
+      "cards": [
+        "binomial-coefficient",
+        "binomial-distribution"
+      ],
+      "scope_note": "Unordered selections are counted by Pascal recurrence and checked against repeated ordered listings; a bounded finite team family precedes the general binomial theorem."
+    },
+    {
+      "concept_id": "modular-arithmetic",
+      "status": "draft-introduction",
+      "cards": [
+        "modular-arithmetic"
+      ],
+      "scope_note": "Exact nonnegative remainders and repeated residue classes in a finite packing family; general integer residue-ring operations remain outside the executable scope."
+    },
+    {
+      "concept_id": "trigonometry",
+      "status": "precursor",
+      "cards": [
+        "pythagorean-theorem",
+        "vector-rotation"
+      ],
+      "scope_note": "Specific right-triangle and coordinate examples precede a complete geometry or trigonometry sequence."
+    },
+    {
+      "concept_id": "planck-constant",
+      "status": "draft-introduction",
+      "cards": [
+        "photon-energy"
+      ],
+      "scope_note": "The exact SI Planck constant relates a modeled monochromatic vacuum photon frequency to energy. Joules, electronvolts and the exact conversion factor retain separate dimensions. No general quantum dynamics or historical priority claim is supplied."
+    },
+    {
+      "concept_id": "speed-of-light",
+      "status": "draft-introduction",
+      "cards": [
+        "photon-energy",
+        "time-dilation"
+      ],
+      "scope_note": "The exact SI vacuum speed of light connects wavelength and frequency and defines the dimensionless relative speed used in one inertial clock comparison. Propagation through media, acceleration and general-relativistic conditions remain separate."
+    },
+    {
+      "concept_id": "scientific-publishing",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "notation-development",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "numeral-systems",
+      "status": "draft-introduction",
+      "cards": [
+        "numeral-system"
+      ],
+      "scope_note": "A bounded positional representation uses digits and base powers for integers zero through sixty-three. Fractional, negative and non-positional bases remain separate."
+    },
+    {
+      "concept_id": "fractions",
+      "status": "draft-introduction",
+      "cards": [
+        "ratio-scale",
+        "rational-number",
+        "greatest-common-divisor"
+      ],
+      "scope_note": "The fraction lesson explicitly reduces signed fractions without changing their value; the gcd lesson supplies the common-divisor calculation, while ratio scaling remains an application."
+    },
+    {
+      "concept_id": "irrational-numbers",
+      "status": "draft-introduction",
+      "cards": [
+        "irrational-square-root"
+      ],
+      "scope_note": "The square diagonal supplies an irrational length ratio. An originally derived parity contradiction proves that sqrt(2) is irrational; finite rational convergents only approximate it. This is a bounded example, not a classification or decimal test for arbitrary irrational numbers."
+    },
+    {
+      "concept_id": "perfect-numbers",
+      "status": "draft-introduction",
+      "cards": [
+        "perfect-number"
+      ],
+      "scope_note": "The proper positive divisors and their exact sum classify integers one through sixty as deficient, perfect or abundant. One has an empty proper-divisor set and sum zero. The definition extends beyond the finite examples; no theorem classifying all perfect numbers or claim about open problems is supplied."
+    },
+    {
+      "concept_id": "prime-numbers",
+      "status": "draft-introduction",
+      "cards": [
+        "prime-factorization",
+        "greatest-common-divisor"
+      ],
+      "scope_note": "Prime/composite distinction and repeated prime factors are explicit for positive integers up to 120. The gcd lesson supports divisibility; no proof of unique factorization or primality-testing complexity is claimed."
+    },
+    {
+      "concept_id": "complex-numbers",
+      "status": "draft-introduction",
+      "cards": [
+        "complex-number",
+        "complex-multiplication"
+      ],
+      "scope_note": "Real and imaginary coordinates, modulus and conjugation now precede complex-plane multiplication as a scale and turn. Broader complex analysis remains separate."
+    },
+    {
+      "concept_id": "quadratic-equations",
+      "status": "draft-introduction",
+      "cards": [
+        "quadratic-equation"
+      ],
+      "scope_note": "A positive-leading-coefficient quadratic family connects the discriminant, real root count and graph intersections. No general polynomial solver or complex-root lesson is implied."
+    },
+    {
+      "concept_id": "cubic-equations",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "quartic-equations",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "quintic-equations",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "galois-theory",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "logarithms",
+      "status": "draft-introduction",
+      "cards": [
+        "real-logarithm"
+      ],
+      "scope_note": "Real logarithm with positive argument and positive base other than one; numerical and certified exact readings are distinct."
+    },
+    {
+      "concept_id": "euclidean-geometry",
+      "status": "precursor",
+      "cards": [
+        "pythagorean-theorem",
+        "vector-rotation",
+        "regular-polygon",
+        "sphere-measurement",
+        "triangle-measurement",
+        "similar-triangles",
+        "perpendicular-bisector",
+        "ellipse-section",
+        "circle-measurement"
+      ],
+      "scope_note": "Measured triangles, similarity, circles, one compass construction, a focal ellipse, regular polygons and spheres supply bounded Euclidean examples. A general axiomatic development, proof curriculum and complete construction theory remain separate."
+    },
+    {
+      "concept_id": "parallel-postulate",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "regular-polygons",
+      "status": "draft-introduction",
+      "cards": [
+        "regular-polygon"
+      ],
+      "scope_note": "Convex regular polygons with three to twelve whole sides and a positive circumradius decompose into equal triangles. Side length, apothem, perimeter and area have separate meanings. The view does not implement arbitrary polygons, star polygons or a compass-and-straightedge construction theorem."
+    },
+    {
+      "concept_id": "platonic-solids",
+      "status": "draft-introduction",
+      "cards": [
+        "platonic-solids"
+      ],
+      "scope_note": "The five convex regular solids connect actual vertex/edge skeletons with face, edge and vertex counts and Euler characteristic two. The selection is discrete. A projected skeleton does not assert physical area or volume or prove classification of every polyhedron."
+    },
+    {
+      "concept_id": "golden-ratio",
+      "status": "draft-introduction",
+      "cards": [
+        "golden-ratio"
+      ],
+      "scope_note": "Removing a square from a golden rectangle gives the equation phi squared equals phi plus one. A positive algebraic ratio is compared with finite consecutive Fibonacci ratios; no universal claim about aesthetics, nature or optimal design follows."
+    },
+    {
+      "concept_id": "classical-constructions",
+      "status": "draft-introduction",
+      "cards": [
+        "perpendicular-bisector"
+      ],
+      "scope_note": "Equal-radius compass circles and a straightedge construct the perpendicular bisector from two distinct intersection points. A tangent case has only one intersection and does not construct the line by that method. General constructibility and impossible constructions remain separate."
+    },
+    {
+      "concept_id": "sphere-measurement",
+      "status": "draft-introduction",
+      "cards": [
+        "sphere-measurement"
+      ],
+      "scope_note": "Radius and diameter connect the surface area of a sphere to the volume of its enclosed ball in Euclidean three-space. The full ideal spherical-tank scenario keeps square and cubic units separate; the circle illustration does not measure surface area or volume."
+    },
+    {
+      "concept_id": "tessellations",
+      "status": "draft-introduction",
+      "cards": [
+        "tessellation"
+      ],
+      "scope_note": "A regular polygon angle and a whole number of copies determine the signed angular gap at a vertex. Explicit triangular, square and hexagonal plane patterns are supplied. Local angle compatibility alone is not a proof that arbitrary shapes tile the plane."
+    },
+    {
+      "concept_id": "space-filling-curves",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "mathematical-paradoxes",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "countability",
+      "status": "draft-introduction",
+      "cards": [
+        "countability"
+      ],
+      "scope_note": "One full enumeration rule and inverse for signed integers; finite marks alone do not establish infinity."
+    },
+    {
+      "concept_id": "mathematical-proof",
+      "status": "draft-introduction",
+      "cards": [
+        "proof",
+        "inference"
+      ],
+      "scope_note": "A fixed premise set, modus ponens and invalid candidates; semantic validity is distinguished from derivability."
+    },
+    {
+      "concept_id": "chaos",
+      "status": "draft-introduction",
+      "cards": [
+        "chaos-theory"
+      ],
+      "scope_note": "A bounded logistic-map experiment with nearby starting values; not every chaotic system."
+    },
+    {
+      "concept_id": "game-of-life",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "turing-machines",
+      "status": "draft-introduction",
+      "cards": [
+        "turing-machine"
+      ],
+      "scope_note": "One explicit writable-tape increment program and four inputs; no universality or undecidability proof."
+    },
+    {
+      "concept_id": "mechanical-computation",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "electronic-computation",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "historical-cryptography",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "mathematical-platonism",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "history-of-mathematics",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "prime-conjectures",
+      "status": "precursor",
+      "cards": [
+        "prime-factorization"
+      ],
+      "scope_note": "The bounded prime-factorization lesson prepares prime/composite vocabulary. No conjecture statement, current conjecture status or proof is supplied by this link."
+    },
+    {
+      "concept_id": "transcendence",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "fermat-problems",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "calculus",
+      "status": "precursor",
+      "cards": [
+        "derivative",
+        "integral-accumulation",
+        "gradient",
+        "gradient-flow"
+      ],
+      "scope_note": "The derivative, accumulation and gradient families now include an exact continuous quadratic gradient flow. This is preparation for general analysis rather than completion of calculus."
+    },
+    {
+      "concept_id": "series",
+      "status": "draft-introduction",
+      "cards": [
+        "geometric-series"
+      ],
+      "scope_note": "Finite signed geometric sums and the geometric limit only for absolute ratio below one. The r=1 branch remains a valid finite sum; no general convergence tests or arbitrary series engine are implemented."
+    },
+    {
+      "concept_id": "fourier-analysis",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "graph-theory",
+      "status": "draft-introduction",
+      "cards": [
+        "graph-theory",
+        "minimum-spanning-tree",
+        "graph-coloring"
+      ],
+      "scope_note": "Small fixed networks compare shortest routes, least-total-length spanning trees and proper vertex colorings. Their finite certificates do not implement general graph theory."
+    },
+    {
+      "concept_id": "polyhedra",
+      "status": "draft-introduction",
+      "cards": [
+        "platonic-solids"
+      ],
+      "scope_note": "Five convex regular polyhedra provide concrete faces, edges, vertices and Euler comparisons. This bounded introduction does not extend the Euler equation to every surface or classify arbitrary nonconvex polyhedra."
+    },
+    {
+      "concept_id": "graph-coloring",
+      "status": "draft-introduction",
+      "cards": [
+        "graph-coloring"
+      ],
+      "scope_note": "Exhaustively count proper labeled colorings for a fixed four-vertex cycle with an optional diagonal and certify its minimum color count. Arbitrary graph algorithms, planar-map theorems and complexity proofs remain separate."
+    },
+    {
+      "concept_id": "combinatorial-designs",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "conic-sections",
+      "status": "draft-introduction",
+      "cards": [
+        "ellipse-section"
+      ],
+      "scope_note": "A nondegenerate ellipse is drawn on equal metre scales from semimajor axis and focal distance. The moving boundary point keeps the sum of its two focus distances equal to twice the semimajor axis. Other conics, cone-plane derivations and classification remain separate."
+    },
+    {
+      "concept_id": "perspective",
+      "status": "draft-introduction",
+      "cards": [
+        "perspective-projection"
+      ],
+      "scope_note": "One ideal pinhole camera projects an object width by similar triangles as focal length times width divided by depth. Positive object depths remain beyond the image distance. This is a measured projection model, without lens distortion or a general computer-vision calibration claim."
+    },
+    {
+      "concept_id": "analytic-geometry",
+      "status": "precursor",
+      "cards": [
+        "pythagorean-theorem",
+        "vector-rotation",
+        "coordinate-transformation",
+        "vector-projection",
+        "spatial-cross-product"
+      ],
+      "scope_note": "Specific coordinate, projection and spatial-vector constructions prepare broader analytic geometry. Passive frame changes remain distinct from moving a physical vector."
+    },
+    {
+      "concept_id": "non-euclidean-geometry",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "topology",
+      "status": "precursor",
+      "cards": [
+        "open-set",
+        "circle-manifold",
+        "sphere-manifold"
+      ],
+      "scope_note": "Disk neighborhoods and explicit circle/sphere chart examples prepare topology and manifolds. An omitted chart pole is not an intrinsic singularity; arbitrary topological spaces and a general smooth-atlas theory remain planned."
+    },
+    {
+      "concept_id": "sphere-packing",
+      "status": "draft-introduction",
+      "cards": [
+        "sphere-packing"
+      ],
+      "scope_note": "Simple cubic and face-centered cubic unit cells compare fractional corner/face occupancy, contact distances and packing fractions. Identical non-overlapping spheres use physical lengths and cubic volumes. No proof of a globally densest packing, finite container optimization or empirical material property is supplied."
+    },
+    {
+      "concept_id": "set-theoretic-foundations",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "incompleteness",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "intuitionism",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "game-theory",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "fractals",
+      "status": "draft-introduction",
+      "cards": [
+        "fractal-geometry"
+      ],
+      "scope_note": "A finite-detail self-similar construction with zoom, not an infinite-resolution object."
+    },
+    {
+      "concept_id": "logistic-dynamics",
+      "status": "draft-introduction",
+      "cards": [
+        "chaos-theory"
+      ],
+      "scope_note": "A bounded logistic-map experiment with nearby starting values; not every chaotic system."
+    },
+    {
+      "concept_id": "catastrophe-theory",
+      "status": "precursor",
+      "cards": [
+        "fold-bifurcation",
+        "cusp-potential",
+        "hysteresis",
+        "structural-stability"
+      ],
+      "scope_note": "One fold/cusp family now includes an explicit quasi-static branch history and two simple perturbation comparisons. General catastrophe classification, unfolding theory and transient switching dynamics remain planned."
+    },
+    {
+      "concept_id": "complexity",
+      "status": "precursor",
+      "cards": [
+        "computational-complexity",
+        "linear-search",
+        "binary-search"
+      ],
+      "scope_note": "A complete scan cost and two exact fixed-list search traces distinguish comparisons performed from full-run costs. Binary search presupposes sorted input; broad time/space complexity and sorting cost remain separate."
+    },
+    {
+      "concept_id": "public-key-cryptography",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "mechanics",
+      "status": "precursor",
+      "cards": [
+        "torque",
+        "vector",
+        "cross-product",
+        "angular-velocity",
+        "linear-momentum",
+        "spatial-cross-product",
+        "scalar-triple-product"
+      ],
+      "scope_note": "Newtonian instantaneous momentum, constant-rate rim velocity and spatial geometric products extend the planar torque examples. General forces, collisions, angular momentum and rigid-body dynamics remain separate."
+    },
+    {
+      "concept_id": "electromagnetism",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "relativity",
+      "status": "draft-introduction",
+      "cards": [
+        "time-dilation"
+      ],
+      "scope_note": "One special-relativistic inertial comparison relates two events on the same ideal clock worldline: proper duration differs from another frame coordinate duration by the Lorentz factor. This is not a general simultaneity, acceleration, twin-paradox or general-relativity simulator."
+    },
+    {
+      "concept_id": "quantum-theory",
+      "status": "precursor",
+      "cards": [
+        "photon-energy"
+      ],
+      "scope_note": "The photon energy-frequency relation introduces a quantum vocabulary and dimensional bridge. Wavefunctions, measurement, interference and general quantum theory require their own lessons."
+    },
+    {
+      "concept_id": "lattice-theory",
+      "status": "draft-introduction",
+      "cards": [
+        "partial-order",
+        "meet-join",
+        "lattice-distributivity"
+      ],
+      "scope_note": "A finite powerset lattice introduces inclusion, meet, join and distributivity; broader lattice theory is not completed."
+    },
+    {
+      "concept_id": "distributive-lattices",
+      "status": "draft-introduction",
+      "cards": [
+        "lattice-distributivity"
+      ],
+      "scope_note": "Membership reasoning establishes a distributive law in the finite powerset family; not every lattice is distributive."
+    },
+    {
+      "concept_id": "free-lattices",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "partially-ordered-sets",
+      "status": "draft-introduction",
+      "cards": [
+        "partial-order"
+      ],
+      "scope_note": "The eight subsets of a three-tool set ordered by inclusion; incomparability is explicit, while arbitrary posets remain separate."
+    },
+    {
+      "concept_id": "order-diagrams",
+      "status": "precursor",
+      "cards": [
+        "partial-order",
+        "meet-join"
+      ],
+      "scope_note": "The finite inclusion example prepares for general order diagrams and order duality; a dedicated general treatment remains planned."
+    },
+    {
+      "concept_id": "meet-and-join",
+      "status": "draft-introduction",
+      "cards": [
+        "meet-join"
+      ],
+      "scope_note": "Greatest lower bound and least upper bound in one finite powerset lattice; other ordered sets can behave differently."
+    },
+    {
+      "concept_id": "bounds",
+      "status": "draft-introduction",
+      "cards": [
+        "meet-join"
+      ],
+      "scope_note": "Greatest lower bound and least upper bound in one finite powerset lattice; other ordered sets can behave differently."
+    },
+    {
+      "concept_id": "duality",
+      "status": "precursor",
+      "cards": [
+        "partial-order",
+        "meet-join"
+      ],
+      "scope_note": "The finite inclusion example prepares for general order diagrams and order duality; a dedicated general treatment remains planned."
+    },
+    {
+      "concept_id": "sublattices",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "ideals-and-filters",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "lattice-homomorphisms",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "congruences",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "lattice-identities",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "representation-theorems",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "free-distributive-products",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "pseudocomplements",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "stone-algebras",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "injective-algebras",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "boolean-algebras",
+      "status": "precursor",
+      "cards": [
+        "logical-connectives",
+        "equivalence"
+      ],
+      "scope_note": "Classical truth-valued connectives precede algebraic Boolean structures and formal symbolic calculi."
+    },
+    {
+      "concept_id": "algebraic-structures",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "categorical-concepts",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "topological-representation",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "equilibrium",
+      "status": "draft-introduction",
+      "cards": [
+        "heat-balance",
+        "gibbs-free-energy"
+      ],
+      "scope_note": "A finite thermal-equilibrium example and Gibbs comparison introduce equilibrium criteria; chemical equilibrium constants are not implemented."
+    },
+    {
+      "concept_id": "state-functions",
+      "status": "precursor",
+      "cards": [
+        "heat-balance"
+      ],
+      "scope_note": "An insulated no-work heat exchange illustrates energy accounting and entropy change; general thermodynamic processes and work mechanisms remain separate."
+    },
+    {
+      "concept_id": "first-law",
+      "status": "precursor",
+      "cards": [
+        "heat-balance"
+      ],
+      "scope_note": "An insulated no-work heat exchange illustrates energy accounting and entropy change; general thermodynamic processes and work mechanisms remain separate."
+    },
+    {
+      "concept_id": "heat-and-work",
+      "status": "precursor",
+      "cards": [
+        "heat-balance"
+      ],
+      "scope_note": "An insulated no-work heat exchange illustrates energy accounting and entropy change; general thermodynamic processes and work mechanisms remain separate."
+    },
+    {
+      "concept_id": "heat-capacity",
+      "status": "draft-introduction",
+      "cards": [
+        "heat-balance"
+      ],
+      "scope_note": "Two bodies have equal constant heat capacity C=1 J/K; no phase change or temperature-dependent capacity is modeled."
+    },
+    {
+      "concept_id": "reaction-heat",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "second-law",
+      "status": "precursor",
+      "cards": [
+        "heat-balance"
+      ],
+      "scope_note": "An insulated no-work heat exchange illustrates energy accounting and entropy change; general thermodynamic processes and work mechanisms remain separate."
+    },
+    {
+      "concept_id": "thermodynamic-entropy",
+      "status": "draft-introduction",
+      "cards": [
+        "heat-balance"
+      ],
+      "scope_note": "Physical entropy change for finite constant-capacity bodies is measured in J/K; this is distinct from Shannon entropy in bits."
+    },
+    {
+      "concept_id": "third-law",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "free-energy",
+      "status": "draft-introduction",
+      "cards": [
+        "gibbs-free-energy"
+      ],
+      "scope_note": "Gibbs free-energy differences at constant temperature and pressure; a favorable sign gives no reaction-rate prediction."
+    },
+    {
+      "concept_id": "chemical-potential",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "fugacity",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "equilibrium-constants",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "real-gases",
+      "status": "precursor",
+      "cards": [
+        "ideal-gas"
+      ],
+      "scope_note": "The one-mole ideal-gas approximation is preparation; molecular interactions, real-gas corrections and phase behavior are not implemented."
+    },
+    {
+      "concept_id": "solutions",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "ideal-solutions",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "dilute-solutions",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "activity",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "activity-coefficients",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "nonelectrolytes",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "electrolytes",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "electrode-potentials",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "galvanic-cells",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "solution-thermal-properties",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "solid-liquid-equilibria",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "molecular-thermodynamics",
+      "status": "precursor",
+      "cards": [
+        "ideal-gas"
+      ],
+      "scope_note": "The one-mole ideal-gas approximation is preparation; molecular interactions, real-gas corrections and phase behavior are not implemented."
+    },
+    {
+      "concept_id": "near-equilibrium-irreversibility",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "steady-states",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "surface-effects",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "external-fields",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "vaporization",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "multicomponent-systems",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "low-temperature-substances",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "fluid-properties",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "debye-functions",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "entropy-and-probability",
+      "status": "precursor",
+      "cards": [
+        "entropy",
+        "heat-balance"
+      ],
+      "scope_note": "Separate information and physical entropy examples support comparison; a statistical-mechanical probability derivation is not implemented."
+    },
+    {
+      "concept_id": "statistical-mechanics",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "heat-engines",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "heat-pumps",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "thermodynamic-cycles",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "flow-processes",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "gravitational-fields",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "centrifugal-fields",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "electric-and-magnetic-fields",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "communication-history",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "oral-communication",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "writing-systems",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "dictionaries",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "telegraphy",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "information-theory",
+      "status": "precursor",
+      "cards": [
+        "entropy",
+        "conditional-entropy",
+        "mutual-information"
+      ],
+      "scope_note": "Finite information measures introduce bits and uncertainty, without a full coding or communication theory."
+    },
+    {
+      "concept_id": "information-and-entropy",
+      "status": "precursor",
+      "cards": [
+        "entropy",
+        "conditional-entropy",
+        "mutual-information"
+      ],
+      "scope_note": "Finite information measures introduce bits and uncertainty, without a full coding or communication theory."
+    },
+    {
+      "concept_id": "biological-information",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "memes",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "randomness",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "physical-information",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "information-overload",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "knowledge-organization",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "computing-history",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "symbolic-logic",
+      "status": "precursor",
+      "cards": [
+        "logical-connectives",
+        "equivalence"
+      ],
+      "scope_note": "Classical truth-valued connectives precede algebraic Boolean structures and formal symbolic calculi."
+    },
+    {
+      "concept_id": "bits",
+      "status": "precursor",
+      "cards": [
+        "entropy",
+        "conditional-entropy",
+        "mutual-information"
+      ],
+      "scope_note": "Finite information measures introduce bits and uncertainty, without a full coding or communication theory."
+    },
+    {
+      "concept_id": "shannon-entropy",
+      "status": "draft-introduction",
+      "cards": [
+        "entropy"
+      ],
+      "scope_note": "Finite Shannon entropy in bits, distinct from physical entropy."
+    },
+    {
+      "concept_id": "coding",
+      "status": "precursor",
+      "cards": [
+        "hamming-code"
+      ],
+      "scope_note": "One binary linear block code prepares channel coding through parity redundancy. It does not complete general code design, source coding, compression or coding theorems."
+    },
+    {
+      "concept_id": "compression",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "noise",
+      "status": "precursor",
+      "cards": [
+        "joint-distribution"
+      ],
+      "scope_note": "A specified binary channel illustrates flipping; physical noise and capacity are separate topics."
+    },
+    {
+      "concept_id": "channel-capacity",
+      "status": "draft-introduction",
+      "cards": [
+        "channel-capacity"
+      ],
+      "scope_note": "For one known binary symmetric memoryless channel, capacity is the maximum mutual information per channel use and is attained by a uniform binary input. Noise, a deterministic inversion and a nonuniform input remain distinct. This is not throughput in bits per second or a general coding construction."
+    },
+    {
+      "concept_id": "error-correction",
+      "status": "draft-introduction",
+      "cards": [
+        "hamming-code"
+      ],
+      "scope_note": "The complete finite Hamming (7,4) even-parity family encodes four data bits, identifies a single flipped position from its syndrome and corrects it under the at-most-one-flip assumption. General multiple-error correction, SECDED and arbitrary channels remain separate."
+    },
+    {
+      "concept_id": "algorithmic-information",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "maxwell-demon",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "landauer-principle",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    },
+    {
+      "concept_id": "genetic-code",
+      "status": "planned",
+      "cards": [],
+      "scope_note": "No dedicated executable lesson has been mapped in this branch yet."
+    }
+  ]
+}

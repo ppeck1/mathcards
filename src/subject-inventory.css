@@ -1,0 +1,217 @@
+.subject-browser {
+  max-width: 1180px;
+  margin: auto;
+}
+.subject-browser > h1 {
+  max-width: 20ch;
+}
+.subject-browser > p {
+  max-width: 85ch;
+}
+.subject-boundary,
+.subject-domain-label,
+.subject-not-authored,
+.subject-source-policy {
+  color: #526b67;
+}
+.subject-overview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 32px;
+  margin: 24px 0;
+  padding: 18px 0;
+  border-block: 1px solid #d4dfcc;
+}
+.subject-overview strong {
+  font:
+    32px Georgia,
+    serif;
+  margin-right: 6px;
+  color: #173e39;
+}
+.subject-overview span {
+  font-size: 13px;
+}
+.subject-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.subject-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 13px;
+  color: #31544e;
+}
+.subject-controls .subject-query {
+  grid-column: 1/-1;
+}
+.subject-controls input,
+.subject-controls select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 11px 12px;
+  font: inherit;
+  color: #173e39;
+  background: #fffef9;
+  border: 1px solid #b9cbae;
+  border-radius: 8px;
+}
+.subject-result-count {
+  font-size: 13px;
+  color: #31544e;
+}
+.subject-concepts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.subject-concept {
+  padding: 20px;
+  border: 1px solid #cddbc2;
+  border-radius: 12px;
+  background: #fffef9;
+  min-width: 0;
+}
+.subject-concept-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.subject-concept h2 {
+  font:
+    24px/1.2 Georgia,
+    serif;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.subject-concept h2 a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.subject-status {
+  font-size: 11px;
+  line-height: 1.5;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #e7eddf;
+  color: #284b40;
+}
+.subject-status-precursor .subject-status {
+  background: #f3ebd5;
+  color: #665221;
+}
+.subject-status-planned .subject-status {
+  background: #edf0ed;
+  color: #4a6059;
+}
+.subject-domain-label {
+  font-size: 11px;
+  line-height: 1.6;
+  margin: 12px 0;
+}
+.subject-concept > p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.subject-lesson-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.subject-lesson-links a {
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 8px 10px;
+  border: 1px solid #bbcfaa;
+  border-radius: 6px;
+}
+.subject-evidence {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8db;
+}
+.subject-evidence summary,
+.subject-source-policy summary {
+  font-size: 13px;
+  cursor: pointer;
+  padding-block: 4px;
+}
+.subject-evidence p,
+.subject-evidence li,
+.subject-source-policy p {
+  font-size: 12px;
+  line-height: 1.65;
+}
+.subject-evidence ul {
+  padding-left: 18px;
+}
+.subject-evidence li + li {
+  margin-top: 14px;
+}
+.subject-evidence li > span {
+  display: block;
+  color: #526b67;
+}
+.subject-evidence li p {
+  margin: 5px 0;
+}
+.subject-result-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.subject-result-heading button {
+  font: inherit;
+  color: #31544e;
+  background: none;
+  border: 1px solid #b9cbae;
+  border-radius: 6px;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+.subject-selected {
+  max-width: 860px;
+  margin-bottom: 24px;
+  border-color: #4b765f;
+}
+.subject-source-policy {
+  margin-top: 32px;
+  border-top: 1px solid #d4dfcc;
+  padding-top: 14px;
+}
+.subject-controls :focus-visible,
+.subject-browser a:focus-visible,
+.subject-browser button:focus-visible,
+.subject-browser summary:focus-visible {
+  outline: 3px solid #31544e;
+  outline-offset: 3px;
+}
+@media (max-width: 760px) {
+  .subject-controls {
+    grid-template-columns: 1fr;
+  }
+  .subject-concepts {
+    grid-template-columns: 1fr;
+  }
+  .subject-concept {
+    padding: 16px;
+  }
+  .subject-overview {
+    gap: 12px 22px;
+  }
+  .subject-overview strong {
+    font-size: 27px;
+  }
+  .subject-result-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

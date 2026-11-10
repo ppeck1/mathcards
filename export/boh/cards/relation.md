@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:relation", "id": "math:concept:relation", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:relation", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "c4e49ce3e290cefa1e4480d418f71f98184928ca4d29ab3a98714a5c1f151137"}, "purpose": "Change a combined-length requirement and follow one ordered pair into a binary relation and its complete membership count.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "c4e49ce3e290cefa1e4480d418f71f98184928ca4d29ab3a98714a5c1f151137", "status": "draft", "title": "Predicates and relations", "topics": ["mathematics", "language-foundations", "sets", "logic", "binary relation", "ordered pair", "predicate arity", "relation membership"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:relation", "id": "math:concept:relation", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:relation", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "c4e49ce3e290cefa1e4480d418f71f98184928ca4d29ab3a98714a5c1f151137"}, "purpose": "Change a combined-length requirement and follow one ordered pair into a binary relation and its complete membership count.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "c4e49ce3e290cefa1e4480d418f71f98184928ca4d29ab3a98714a5c1f151137", "status": "draft", "title": "Predicates and relations", "topics": ["mathematics", "language-foundations", "sets", "logic", "binary relation", "ordered pair", "predicate arity", "relation membership"], "type": "reference", "updated": "2026-10-27T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Predicates and relations
@@ -218,7 +218,7 @@ A predicate takes a stated number of arguments and yields a truth value. A binar
 
 - status: source_gap
 - claims:
-
+  []
 - research tasks:
   - Research concept and notation development before adding historical priority claims.
   - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
@@ -234,6 +234,7 @@ A predicate takes a stated number of arguments and yields a truth value. A binar
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:quantifier
   - type: supports
@@ -242,6 +243,7 @@ A predicate takes a stated number of arguments and yields a truth value. A binar
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 - Item:
   - target: math:concept:function
   - type: supports
@@ -250,6 +252,7 @@ A predicate takes a stated number of arguments and yields a truth value. A binar
   - target status: available
   - evidence status: definition-level connection; author explanation
   - source refs:
+    []
 
 ## Examples
 
@@ -290,6 +293,7 @@ A predicate takes a stated number of arguments and yields a truth value. A binar
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - There are two independent strip supplies, each offering lengths 2,4,6,8,10 and 12 cm. A left choice and a right choice form an ordered pair (x,y). Equal lengths are allowed.
     - The domain product D×D contains 36 ordered choices. The choices (6,8) and (8,6) are distinct even though their sums are equal.
@@ -330,6 +334,7 @@ A predicate takes a stated number of arguments and yields a truth value. A binar
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - There are two independent strip supplies, each offering lengths 2,4,6,8,10 and 12 cm. A left choice and a right choice form an ordered pair (x,y). Equal lengths are allowed.
     - The domain product D×D contains 36 ordered choices. The choices (6,8) and (8,6) are distinct even though their sums are equal.
@@ -366,6 +371,7 @@ A predicate takes a stated number of arguments and yields a truth value. A binar
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - There are two independent strip supplies, each offering lengths 2,4,6,8,10 and 12 cm. A left choice and a right choice form an ordered pair (x,y). Equal lengths are allowed.
     - The domain product D×D contains 36 ordered choices. The choices (6,8) and (8,6) are distinct even though their sums are equal.
@@ -402,6 +408,7 @@ A predicate takes a stated number of arguments and yields a truth value. A binar
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - There are two independent strip supplies, each offering lengths 2,4,6,8,10 and 12 cm. A left choice and a right choice form an ordered pair (x,y). Equal lengths are allowed.
     - The domain product D×D contains 36 ordered choices. The choices (6,8) and (8,6) are distinct even though their sums are equal.
@@ -438,6 +445,7 @@ A predicate takes a stated number of arguments and yields a truth value. A binar
     - kind: original worked derivation
     - mathematical review: author-derived; independent review pending
     - external source refs:
+      []
   - conditions to check:
     - There are two independent strip supplies, each offering lengths 2,4,6,8,10 and 12 cm. A left choice and a right choice form an ordered pair (x,y). Equal lengths are allowed.
     - The domain product D×D contains 36 ordered choices. The choices (6,8) and (8,6) are distinct even though their sums are equal.

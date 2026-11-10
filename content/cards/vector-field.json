@@ -1,0 +1,675 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:vector-field",
+  "slug": "vector-field",
+  "type": "concept",
+  "title": "Vector fields",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "vector fields"
+  ],
+  "branches": [
+    "dynamics"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Which way does the alignment correction point?",
+  "meaning": "Evaluate each signed velocity component, then compute the Euclidean magnitude.",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:vector",
+      "math:concept:continuous-flow"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A camera mount is displaced horizontally and vertically from its target. A deliberately simple controller asks for a velocity proportional to the opposite displacement. Drag the measured position to see both components of that command. These are stipulated control rules, not measurements of a real device.",
+    "formal_latex": "\\mathbf F(x,y)=(-a x,-a y),\\quad\\|\\mathbf F\\|=a\\sqrt{x^2+y^2}.",
+    "signature": {
+      "x": "Horizontal position x; the declared input",
+      "y": "Vertical position y; the declared input",
+      "a": "Inward rate a; the declared input",
+      "result": "The primary reported quantity in units per time."
+    },
+    "conditions": [
+      "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.",
+      "Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views.",
+      "This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified."
+    ],
+    "domain_notes": "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.",
+    "proof_status": "Author-derived for the bounded family; independent mathematical review pending.",
+    "source_refs": [
+      "source:systems:field"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Vector fields",
+    "expression_latex": "\\mathbf F(x,y)=(-a x,-a y),\\quad\\|\\mathbf F\\|=a\\sqrt{x^2+y^2}.",
+    "formation_rule": "Evaluate each signed velocity component, then compute the Euclidean magnitude.",
+    "precedence": "Apply the stated grouping and units before rounding the displayed result.",
+    "symbols": [
+      {
+        "token": "x",
+        "role": "Horizontal position x; the declared input",
+        "type": "Declared input or result"
+      },
+      {
+        "token": "y",
+        "role": "Vertical position y; the declared input",
+        "type": "Declared input or result"
+      },
+      {
+        "token": "a",
+        "role": "Inward rate a; the declared input",
+        "type": "Declared input or result"
+      },
+      {
+        "token": "result",
+        "role": "The primary reported quantity in units per time.",
+        "type": "Declared input or result"
+      }
+    ],
+    "ast": {
+      "id": "ast:vector-field:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:x",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "x",
+          "scope_ref": "scope:vector-field"
+        },
+        {
+          "id": "n:y",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "y",
+          "scope_ref": "scope:vector-field"
+        },
+        {
+          "id": "n:rate",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "a",
+          "scope_ref": "scope:vector-field"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried evaluator for the stated family",
+          "ref": "Evaluate each signed velocity component, then compute the Euclidean magnitude."
+        },
+        {
+          "id": "n:bound-x",
+          "kind": "apply",
+          "type": "Declared result",
+          "function": "n:rule",
+          "argument": "n:x"
+        },
+        {
+          "id": "n:bound-y",
+          "kind": "apply",
+          "type": "Declared result",
+          "function": "n:bound-x",
+          "argument": "n:y"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared result",
+          "function": "n:bound-y",
+          "argument": "n:rate"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:vector-field",
+          "kind": "modelExpression",
+          "free_variables": [
+            "x",
+            "y",
+            "a"
+          ],
+          "domain_condition": "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use a value outside the declared range",
+        "status": "unsupported parameter",
+        "reason": "The executable family is deliberately bounded; its limits are part of its meaning."
+      }
+    ],
+    "ast_coverage": "A typed application outline of the bounded family; no arbitrary expression parser is claimed.",
+    "output_symbol_bindings": {
+      "x": "x",
+      "y": "y",
+      "a": "rate",
+      "result": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Evaluate each signed velocity component, then compute the Euclidean magnitude.",
+      "conditions": "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.",
+      "derivation": "A velocity arrow begins at the selected position. Its direction and length follow the two computed components.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:vector-field:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:vector",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared assumptions.",
+      "reason": "Vector fields supplies a bounded connection to vector.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:continuous-flow",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared assumptions.",
+      "reason": "Vector fields supplies a bounded connection to continuous flow.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:vector-field:case-1",
+      "title": "Begin with the stated scenario",
+      "role": "applied_model",
+      "question": "Which way does the alignment correction point?",
+      "setting": "A camera mount is displaced horizontally and vertically from its target. A deliberately simple controller asks for a velocity proportional to the opposite displacement. Drag the measured position to see both components of that command. These are stipulated control rules, not measurements of a real device.",
+      "assumptions": [
+        "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory."
+      ],
+      "inputs": {
+        "x": 1,
+        "y": 1,
+        "rate": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "x = 1, y = 1, a = 1",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "F(x,y) = (−a x, −a y)",
+          "reason": "Evaluate each signed velocity component, then compute the Euclidean magnitude."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 1.4142135624 units per time",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "approximate": "1.4142135624 units per time"
+      },
+      "interpretation": "A velocity arrow begins at the selected position. Its direction and length follow the two computed components.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "1.4142135623730951"
+      },
+      "limits": "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.",
+      "preset": {
+        "x": 1,
+        "y": 1,
+        "rate": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory."
+      ]
+    },
+    {
+      "id": "math:example:vector-field:case-2",
+      "title": "Change Horizontal position x to -2",
+      "role": "applied_model",
+      "question": "Which way does the alignment correction point?",
+      "setting": "A camera mount is displaced horizontally and vertically from its target. A deliberately simple controller asks for a velocity proportional to the opposite displacement. Drag the measured position to see both components of that command. These are stipulated control rules, not measurements of a real device.",
+      "assumptions": [
+        "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory."
+      ],
+      "inputs": {
+        "x": -2,
+        "y": 1,
+        "rate": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "x = -2, y = 1, a = 1",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "F(x,y) = (−a x, −a y)",
+          "reason": "Evaluate each signed velocity component, then compute the Euclidean magnitude."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 2.2360679775 units per time",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "approximate": "2.2360679775 units per time"
+      },
+      "interpretation": "A velocity arrow begins at the selected position. Its direction and length follow the two computed components.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "2.23606797749979"
+      },
+      "limits": "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.",
+      "preset": {
+        "x": -2,
+        "y": 1,
+        "rate": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory."
+      ]
+    },
+    {
+      "id": "math:example:vector-field:case-3",
+      "title": "Change Horizontal position x to 2",
+      "role": "applied_model",
+      "question": "Which way does the alignment correction point?",
+      "setting": "A camera mount is displaced horizontally and vertically from its target. A deliberately simple controller asks for a velocity proportional to the opposite displacement. Drag the measured position to see both components of that command. These are stipulated control rules, not measurements of a real device.",
+      "assumptions": [
+        "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory."
+      ],
+      "inputs": {
+        "x": 2,
+        "y": 1,
+        "rate": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "x = 2, y = 1, a = 1",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "F(x,y) = (−a x, −a y)",
+          "reason": "Evaluate each signed velocity component, then compute the Euclidean magnitude."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 2.2360679775 units per time",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "approximate": "2.2360679775 units per time"
+      },
+      "interpretation": "A velocity arrow begins at the selected position. Its direction and length follow the two computed components.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "2.23606797749979"
+      },
+      "limits": "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.",
+      "preset": {
+        "x": 2,
+        "y": 1,
+        "rate": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory."
+      ]
+    },
+    {
+      "id": "math:example:vector-field:case-4",
+      "title": "Change Vertical position y to -2",
+      "role": "applied_model",
+      "question": "Which way does the alignment correction point?",
+      "setting": "A camera mount is displaced horizontally and vertically from its target. A deliberately simple controller asks for a velocity proportional to the opposite displacement. Drag the measured position to see both components of that command. These are stipulated control rules, not measurements of a real device.",
+      "assumptions": [
+        "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory."
+      ],
+      "inputs": {
+        "x": 1,
+        "y": -2,
+        "rate": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "x = 1, y = -2, a = 1",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "F(x,y) = (−a x, −a y)",
+          "reason": "Evaluate each signed velocity component, then compute the Euclidean magnitude."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 2.2360679775 units per time",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "approximate": "2.2360679775 units per time"
+      },
+      "interpretation": "A velocity arrow begins at the selected position. Its direction and length follow the two computed components.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "2.23606797749979"
+      },
+      "limits": "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.",
+      "preset": {
+        "x": 1,
+        "y": -2,
+        "rate": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory."
+      ]
+    },
+    {
+      "id": "math:example:vector-field:case-5",
+      "title": "Change Vertical position y to 2",
+      "role": "applied_model",
+      "question": "Which way does the alignment correction point?",
+      "setting": "A camera mount is displaced horizontally and vertically from its target. A deliberately simple controller asks for a velocity proportional to the opposite displacement. Drag the measured position to see both components of that command. These are stipulated control rules, not measurements of a real device.",
+      "assumptions": [
+        "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory."
+      ],
+      "inputs": {
+        "x": 1,
+        "y": 2,
+        "rate": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "x = 1, y = 2, a = 1",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "F(x,y) = (−a x, −a y)",
+          "reason": "Evaluate each signed velocity component, then compute the Euclidean magnitude."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 2.2360679775 units per time",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "approximate": "2.2360679775 units per time"
+      },
+      "interpretation": "A velocity arrow begins at the selected position. Its direction and length follow the two computed components.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "2.23606797749979"
+      },
+      "limits": "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.",
+      "preset": {
+        "x": 1,
+        "y": 2,
+        "rate": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:vector-field",
+    "renderer_id": "vector-field-visual-model",
+    "renderer_version": "1",
+    "model_id": "vector-field-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:vector-field:expression",
+    "interaction_status": "implemented",
+    "description": "A velocity arrow begins at the selected position. Its direction and length follow the two computed components.",
+    "controls": [
+      {
+        "id": "x",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "y",
+        "type": "number",
+        "default": 1,
+        "min": -2,
+        "max": 2,
+        "step": 0.05
+      },
+      {
+        "id": "rate",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "x": 1,
+          "y": 1,
+          "rate": 1
+        },
+        "status": "valid",
+        "output": 1.4142135623730951
+      },
+      {
+        "input": {
+          "x": -2,
+          "y": 1,
+          "rate": 1
+        },
+        "status": "valid",
+        "output": 2.23606797749979
+      },
+      {
+        "input": {
+          "x": 2,
+          "y": 1,
+          "rate": 1
+        },
+        "status": "valid",
+        "output": 2.23606797749979
+      },
+      {
+        "input": {
+          "x": 1,
+          "y": -2,
+          "rate": 1
+        },
+        "status": "valid",
+        "output": 2.23606797749979
+      },
+      {
+        "input": {
+          "x": 1,
+          "y": 2,
+          "rate": 1
+        },
+        "status": "valid",
+        "output": 2.23606797749979
+      },
+      {
+        "input": {
+          "x": 1,
+          "y": 1,
+          "rate": 0
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "x": 1,
+          "y": 1,
+          "rate": 2
+        },
+        "status": "valid",
+        "output": 2.8284271247461903
+      },
+      {
+        "input": {
+          "x": -1.0,
+          "y": 1,
+          "rate": 1
+        },
+        "status": "valid",
+        "output": 1.4142135623730951
+      },
+      {
+        "input": {
+          "x": 1.0,
+          "y": 1,
+          "rate": 1
+        },
+        "status": "valid",
+        "output": 1.4142135623730951
+      },
+      {
+        "input": {
+          "x": 3,
+          "y": 1,
+          "rate": 1
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Evaluate each signed velocity component, then compute the Euclidean magnitude.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.",
+      "Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views.",
+      "This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified."
+    ],
+    "limits": [
+      "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Which way does the alignment correction point?",
+      "answer": "Evaluate each signed velocity component, then compute the Euclidean magnitude."
+    },
+    {
+      "prompt": "What does this construction leave out?",
+      "answer": "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "A velocity arrow begins at the selected position. Its direction and length follow the two computed components."
+    },
+    {
+      "kind": "graph",
+      "description": "Hold other inputs fixed and plot the declared primary result against Horizontal position x. Discrete results use separate dots."
+    },
+    {
+      "kind": "substitution",
+      "description": "Evaluate each signed velocity component, then compute the Euclidean magnitude."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Originally authored teaching scenario",
+      "mapping": "Which way does the alignment correction point?",
+      "limitations": "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:vector-field:case-1"
+    },
+    {
+      "context": "Boundary comparison",
+      "mapping": "Evaluate each signed velocity component, then compute the Euclidean magnitude.",
+      "limitations": "A stationary planar linear field in dimensionless coordinates. Arrow displacement encodes local velocity, not a completed trajectory.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:vector-field:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:systems:field"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0: Added bounded model, connected story, Geometry/Graph, original examples and reference coverage."
+  ]
+}

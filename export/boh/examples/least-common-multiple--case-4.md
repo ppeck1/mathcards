@@ -1,0 +1,538 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:least-common-multiple:case-4", "id": "math:example:least-common-multiple:case-4", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:least-common-multiple", "example_id": "math:example:least-common-multiple:case-4", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "0cafc145e05804d81ea1890b1efad9c3dc60e57743be287ee7dd2dce92b5f69c"}, "purpose": "When will two repeating workshop signals sound together again?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "0cafc145e05804d81ea1890b1efad9c3dc60e57743be287ee7dd2dce92b5f69c", "status": "draft", "title": "Matching periods", "topics": ["mathematics", "numbers-number-theory", "discrete-mathematics", "least common multiple"], "type": "reference", "updated": "2026-11-05T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Matching periods
+
+Parent card: math:concept:least-common-multiple; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:least-common-multiple; revision 0.1.0-draft. Setting: Two workshop signals sound together at minute zero. Signal A repeats every a minutes and signal B every b minutes. Choose whole-minute periods and follow their marks along the same timeline. The first shared mark after zero is the next reunion; the cycle counts show how many repetitions each signal completes to get there. Expression: $d=\operatorname{gcd}(a,b),\quad L=\operatorname{lcm}(a,b)=\frac{ab}{d},\quad c_A=\frac{L}{a},\quad c_B=\frac{L}{b}.$. Conditions required for a defined value (a case may test their violation): Both periods are whole numbers from 1 to 8 minutes, measured from the same starting instant. The displayed timeline includes zero and every event through minute 60. Scope: The intervals are exact positive whole-minute periods. Starting phases and imperfect clocks are outside this construction. Zero is a shared starting mark, while L is the first strictly positive reunion. Period edits remain discrete; the answer is not interpolated between whole-number choices.
+
+Case unit math:example:least-common-multiple:case-4. Setting: Two workshop signals sound together at minute zero. Signal A repeats every a minutes and signal B every b minutes. Choose whole-minute periods and follow their marks along the same timeline. The first shared mark after zero is the next reunion; the cycle counts show how many repetitions each signal completes to get there. Inputs: {"first": 6, "second": 6}. Result: {"exact": "6"}. Limits: The intervals are exact positive whole-minute periods. Starting phases and imperfect clocks are outside this construction. Zero is a shared starting mark, while L is the first strictly positive reunion. Period edits remain discrete; the answer is not interpolated between whole-number choices.
+
+## Complete worked case
+
+- id: math:example:least-common-multiple:case-4
+- title: Matching periods
+- role: applied_model
+- question: When will two repeating workshop signals sound together again?
+- setting: Two workshop signals sound together at minute zero. Signal A repeats every a minutes and signal B every b minutes. Choose whole-minute periods and follow their marks along the same timeline. The first shared mark after zero is the next reunion; the cycle counts show how many repetitions each signal completes to get there.
+- assumptions:
+  - Both periods are whole numbers from 1 to 8 minutes, measured from the same starting instant. The displayed timeline includes zero and every event through minute 60.
+- inputs:
+  - first: 6
+  - second: 6
+- steps:
+  - Item:
+    - index: 1
+    - expression: a = 6; b = 6
+    - reason: Place the selected inputs in the stated construction.
+  - Item:
+    - index: 2
+    - expression: d=\operatorname{gcd}(a,b),\quad L=\operatorname{lcm}(a,b)=\frac{ab}{d},\quad c_A=\frac{L}{a},\quad c_B=\frac{L}{b}.
+    - reason: For positive integers a and b, the least common multiple L is the smallest positive integer divisible by both. If two signals begin together and repeat every a and b minutes, L is their first positive reunion time. Divide ab by their greatest common divisor d to avoid counting the shared factor twice.
+  - Item:
+    - index: 3
+    - expression: L = 6 min
+    - reason: Matching periods reunite after one cycle each, at minute 6. Their product 36 is a later shared time, not the least one.
+- result:
+  - exact: 6
+- interpretation: Matching periods reunite after one cycle each, at minute 6. Their product 36 is a later shared time, not the least one.
+- independent check:
+  - method: Independently scan positive minute marks until both period remainders are zero; count cycles by repeated addition.
+  - expected: 6.0
+- limits: The intervals are exact positive whole-minute periods. Starting phases and imperfect clocks are outside this construction. Zero is a shared starting mark, while L is the first strictly positive reunion. Period edits remain discrete; the answer is not interpolated between whole-number choices.
+- preset:
+  - first: 6
+  - second: 6
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Both periods are whole numbers from 1 to 8 minutes, measured from the same starting instant. The displayed timeline includes zero and every event through minute 60.
+
+## Written exploration recipe
+
+- component id: component:least-common-multiple
+- renderer id: least-common-multiple-visual-model
+- renderer version: 1
+- model id: least-common-multiple-visual-model
+- model revision: 1
+- expression id: ast:least-common-multiple:expression
+- interaction status: implemented
+- description: For positive integers a and b, the least common multiple L is the smallest positive integer divisible by both. If two signals begin together and repeat every a and b minutes, L is their first positive reunion time. Divide ab by their greatest common divisor d to avoid counting the shared factor twice.
+- controls:
+  - Item:
+    - id: first
+    - type: number
+    - default: 4
+    - min: 1
+    - max: 8
+    - step: 1
+  - Item:
+    - id: second
+    - type: number
+    - default: 6
+    - min: 1
+    - max: 8
+    - step: 1
+- expected cases:
+  - Item:
+    - input:
+      - first: 1
+      - second: 1
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - first: 1
+      - second: 2
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - first: 1
+      - second: 3
+    - status: valid
+    - output: 3.0
+  - Item:
+    - input:
+      - first: 1
+      - second: 4
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - first: 1
+      - second: 5
+    - status: valid
+    - output: 5.0
+  - Item:
+    - input:
+      - first: 1
+      - second: 6
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - first: 1
+      - second: 7
+    - status: valid
+    - output: 7.0
+  - Item:
+    - input:
+      - first: 1
+      - second: 8
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - first: 2
+      - second: 1
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - first: 2
+      - second: 2
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - first: 2
+      - second: 3
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - first: 2
+      - second: 4
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - first: 2
+      - second: 5
+    - status: valid
+    - output: 10.0
+  - Item:
+    - input:
+      - first: 2
+      - second: 6
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - first: 2
+      - second: 7
+    - status: valid
+    - output: 14.0
+  - Item:
+    - input:
+      - first: 2
+      - second: 8
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - first: 3
+      - second: 1
+    - status: valid
+    - output: 3.0
+  - Item:
+    - input:
+      - first: 3
+      - second: 2
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - first: 3
+      - second: 3
+    - status: valid
+    - output: 3.0
+  - Item:
+    - input:
+      - first: 3
+      - second: 4
+    - status: valid
+    - output: 12.0
+  - Item:
+    - input:
+      - first: 3
+      - second: 5
+    - status: valid
+    - output: 15.0
+  - Item:
+    - input:
+      - first: 3
+      - second: 6
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - first: 3
+      - second: 7
+    - status: valid
+    - output: 21.0
+  - Item:
+    - input:
+      - first: 3
+      - second: 8
+    - status: valid
+    - output: 24.0
+  - Item:
+    - input:
+      - first: 4
+      - second: 1
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - first: 4
+      - second: 2
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - first: 4
+      - second: 3
+    - status: valid
+    - output: 12.0
+  - Item:
+    - input:
+      - first: 4
+      - second: 4
+    - status: valid
+    - output: 4.0
+  - Item:
+    - input:
+      - first: 4
+      - second: 5
+    - status: valid
+    - output: 20.0
+  - Item:
+    - input:
+      - first: 4
+      - second: 6
+    - status: valid
+    - output: 12.0
+  - Item:
+    - input:
+      - first: 4
+      - second: 7
+    - status: valid
+    - output: 28.0
+  - Item:
+    - input:
+      - first: 4
+      - second: 8
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - first: 5
+      - second: 1
+    - status: valid
+    - output: 5.0
+  - Item:
+    - input:
+      - first: 5
+      - second: 2
+    - status: valid
+    - output: 10.0
+  - Item:
+    - input:
+      - first: 5
+      - second: 3
+    - status: valid
+    - output: 15.0
+  - Item:
+    - input:
+      - first: 5
+      - second: 4
+    - status: valid
+    - output: 20.0
+  - Item:
+    - input:
+      - first: 5
+      - second: 5
+    - status: valid
+    - output: 5.0
+  - Item:
+    - input:
+      - first: 5
+      - second: 6
+    - status: valid
+    - output: 30.0
+  - Item:
+    - input:
+      - first: 5
+      - second: 7
+    - status: valid
+    - output: 35.0
+  - Item:
+    - input:
+      - first: 5
+      - second: 8
+    - status: valid
+    - output: 40.0
+  - Item:
+    - input:
+      - first: 6
+      - second: 1
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - first: 6
+      - second: 2
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - first: 6
+      - second: 3
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - first: 6
+      - second: 4
+    - status: valid
+    - output: 12.0
+  - Item:
+    - input:
+      - first: 6
+      - second: 5
+    - status: valid
+    - output: 30.0
+  - Item:
+    - input:
+      - first: 6
+      - second: 6
+    - status: valid
+    - output: 6.0
+  - Item:
+    - input:
+      - first: 6
+      - second: 7
+    - status: valid
+    - output: 42.0
+  - Item:
+    - input:
+      - first: 6
+      - second: 8
+    - status: valid
+    - output: 24.0
+  - Item:
+    - input:
+      - first: 7
+      - second: 1
+    - status: valid
+    - output: 7.0
+  - Item:
+    - input:
+      - first: 7
+      - second: 2
+    - status: valid
+    - output: 14.0
+  - Item:
+    - input:
+      - first: 7
+      - second: 3
+    - status: valid
+    - output: 21.0
+  - Item:
+    - input:
+      - first: 7
+      - second: 4
+    - status: valid
+    - output: 28.0
+  - Item:
+    - input:
+      - first: 7
+      - second: 5
+    - status: valid
+    - output: 35.0
+  - Item:
+    - input:
+      - first: 7
+      - second: 6
+    - status: valid
+    - output: 42.0
+  - Item:
+    - input:
+      - first: 7
+      - second: 7
+    - status: valid
+    - output: 7.0
+  - Item:
+    - input:
+      - first: 7
+      - second: 8
+    - status: valid
+    - output: 56.0
+  - Item:
+    - input:
+      - first: 8
+      - second: 1
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - first: 8
+      - second: 2
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - first: 8
+      - second: 3
+    - status: valid
+    - output: 24.0
+  - Item:
+    - input:
+      - first: 8
+      - second: 4
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - first: 8
+      - second: 5
+    - status: valid
+    - output: 40.0
+  - Item:
+    - input:
+      - first: 8
+      - second: 6
+    - status: valid
+    - output: 24.0
+  - Item:
+    - input:
+      - first: 8
+      - second: 7
+    - status: valid
+    - output: 56.0
+  - Item:
+    - input:
+      - first: 8
+      - second: 8
+    - status: valid
+    - output: 8.0
+  - Item:
+    - input:
+      - first: 0
+      - second: 6
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - first: 9
+      - second: 6
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - first: 1.5
+      - second: 6
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - first: true
+      - second: 6
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - first: 4
+      - second: 6
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - first: 4
+      - second: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - first: 4
+      - second: 9
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - first: 4
+      - second: 2.5
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - first: 4
+      - second: null
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - first: 4
+      - second: false
+    - status: invalid_parameters
+- compute: d=\operatorname{gcd}(a,b),\quad L=\operatorname{lcm}(a,b)=\frac{ab}{d},\quad c_A=\frac{L}{a},\quad c_B=\frac{L}{b}.
+- numeric tolerance: 5e-11
+- invariants:
+  - Both periods are whole numbers from 1 to 8 minutes, measured from the same starting instant. The displayed timeline includes zero and every event through minute 60.
+  - Story, calculation, Geometry and Graph use the same evaluated state.
+  - Whole-number counts change at exact integer choices; physical radii can vary continuously.
+- limits:
+  - The intervals are exact positive whole-minute periods. Starting phases and imperfect clocks are outside this construction. Zero is a shared starting mark, while L is the first strictly positive reunion. Period edits remain discrete; the answer is not interpolated between whole-number choices.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:number-extensions:least-common-multiple. [Wolfram MathWorld · Least Common Multiple](https://mathworld.wolfram.com/LeastCommonMultiple.html). Locator: Definition of the least positive common multiple; equation (13), lcm(a,b)=ab/gcd(a,b) for positive integers. The repeating workshop signals and finite timeline are original constructions.. Verification: Definition-level page inspected 2026-11-05. Independent mathematical and pedagogical review and exact-edition book-page verification remain pending.. Rights: Originally authored timing scenario, explanations and finite calculations. No source exercise, illustration or data reproduced.

@@ -1,0 +1,705 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:linear-programming",
+  "slug": "linear-programming",
+  "type": "concept",
+  "title": "Linear programming and feasible choices",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "linear programming and feasible choices"
+  ],
+  "branches": [
+    "algebra",
+    "optimization"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Which paint mixture gives the largest contribution within the available material?",
+  "meaning": "Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible.",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:quadratic-optimization",
+      "math:concept:gradient-descent"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A paint workshop can make at most four litres of a first blend and three litres of a second. Both use one litre of base per litre made. The available base material moves one boundary of the feasible polygon. Contribution rates may be positive or negative, so leaving material unused can be best.",
+    "formal_latex": "\\max V=px+qy,\\quad 0\\le x\\le4,\\quad0\\le y\\le3,\\quad x+y\\le B.",
+    "signature": {
+      "B": "Available base material",
+      "p": "Contribution per litre of the first blend",
+      "q": "Contribution per litre of the second blend",
+      "x": "Litres of the first blend at one maximizing corner",
+      "y": "Litres of the second blend at one maximizing corner",
+      "V": "Maximum contribution"
+    },
+    "conditions": [
+      "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+    ],
+    "domain_notes": "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.",
+    "proof_status": "Definition-level sources and original bounded calculations; independent review pending.",
+    "source_refs": [
+      "source:algebra-extension:lp"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Linear programming and feasible choices",
+    "expression_latex": "\\max V=px+qy,\\quad 0\\le x\\le4,\\quad0\\le y\\le3,\\quad x+y\\le B.",
+    "formation_rule": "Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible.",
+    "precedence": "Evaluate the declared component operations before the final quantity; preserve the stated variable domains.",
+    "symbols": [
+      {
+        "token": "B",
+        "role": "Available base material",
+        "type": "Declared input or evaluated quantity"
+      },
+      {
+        "token": "p",
+        "role": "Contribution per litre of the first blend",
+        "type": "Declared input or evaluated quantity"
+      },
+      {
+        "token": "q",
+        "role": "Contribution per litre of the second blend",
+        "type": "Declared input or evaluated quantity"
+      },
+      {
+        "token": "x",
+        "role": "Litres of the first blend at one maximizing corner",
+        "type": "Declared input or evaluated quantity"
+      },
+      {
+        "token": "y",
+        "role": "Litres of the second blend at one maximizing corner",
+        "type": "Declared input or evaluated quantity"
+      },
+      {
+        "token": "V",
+        "role": "Maximum contribution",
+        "type": "Declared input or evaluated quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:linear-programming:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:budget",
+          "kind": "variable",
+          "type": "Real input in the declared finite range",
+          "symbol": "B",
+          "scope_ref": "scope:linear-programming"
+        },
+        {
+          "id": "n:rateX",
+          "kind": "variable",
+          "type": "Real input in the declared finite range",
+          "symbol": "p",
+          "scope_ref": "scope:linear-programming"
+        },
+        {
+          "id": "n:rateY",
+          "kind": "variable",
+          "type": "Real input in the declared finite range",
+          "symbol": "q",
+          "scope_ref": "scope:linear-programming"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded algebra rule",
+          "ref": "Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible."
+        },
+        {
+          "id": "n:bound-budget",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:budget"
+        },
+        {
+          "id": "n:bound-rateX",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-budget",
+          "argument": "n:rateX"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:bound-rateX",
+          "argument": "n:rateY"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:linear-programming",
+          "kind": "modelExpression",
+          "free_variables": [
+            "B",
+            "p",
+            "q"
+          ],
+          "domain_condition": "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "An undeclared or out-of-range input",
+        "status": "unsupported parameter",
+        "reason": "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+      }
+    ],
+    "ast_coverage": "Typed application outline for a bounded family; not a general expression parser.",
+    "output_symbol_bindings": {
+      "B": "budget",
+      "p": "rateX",
+      "q": "rateY",
+      "x": "bestX",
+      "y": "bestY",
+      "V": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "A maximum is attained at a feasible vertex in this bounded family.",
+      "conditions": "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.",
+      "derivation": "Every feasible point is a convex combination of the polygon vertices. Its linear contribution is the same combination of their contributions, so it cannot exceed the largest vertex contribution. Equal best endpoints make their whole edge optimal.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:linear-programming:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Check historical and notation development before adding priority claims.",
+      "Verify exact-edition book mappings independently."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The workshop stories and examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:quadratic-optimization",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Linear programming and feasible choices supplies a bounded preparation for quadratic optimization.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:gradient-descent",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Linear programming and feasible choices supplies a bounded preparation for gradient descent.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:linear-model",
+      "type": "supports",
+      "conditions": "Use each connected lesson under its own stated conditions.",
+      "reason": "Linear programming and feasible choices supplies a bounded preparation for linear model.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:linear-programming:case-1",
+      "title": "A five-litre production plan",
+      "role": "applied_model",
+      "question": "Which paint mixture gives the largest contribution within the available material?",
+      "setting": "A paint workshop can make at most four litres of a first blend and three litres of a second. Both use one litre of base per litre made. The available base material moves one boundary of the feasible polygon. Contribution rates may be positive or negative, so leaving material unused can be best.",
+      "assumptions": [
+        "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+      ],
+      "inputs": {
+        "budget": 5,
+        "rateX": 3,
+        "rateY": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "B = 5; p = 3; q = 2",
+          "reason": "Declare the bounded inputs and preserve their units."
+        },
+        {
+          "index": 2,
+          "expression": "maximize V = px + qy; x + y ≤ B; result ≈ 14.0",
+          "reason": "Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible."
+        }
+      ],
+      "result": {
+        "approximate": "14.0 credits"
+      },
+      "interpretation": "Four litres of the first blend and one of the second contribute fourteen credits.",
+      "independent_check": {
+        "method": "Enumerate intersections of every pair of constraint lines with exact rational arithmetic; retain feasible intersections and compare their objective values.",
+        "expected": "14.0"
+      },
+      "limits": "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.",
+      "preset": {
+        "budget": 5,
+        "rateX": 3,
+        "rateY": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+      ]
+    },
+    {
+      "id": "math:example:linear-programming:case-2",
+      "title": "Prefer the second blend",
+      "role": "applied_model",
+      "question": "Which paint mixture gives the largest contribution within the available material?",
+      "setting": "A paint workshop can make at most four litres of a first blend and three litres of a second. Both use one litre of base per litre made. The available base material moves one boundary of the feasible polygon. Contribution rates may be positive or negative, so leaving material unused can be best.",
+      "assumptions": [
+        "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+      ],
+      "inputs": {
+        "budget": 5,
+        "rateX": 1,
+        "rateY": 4
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "B = 5; p = 1; q = 4",
+          "reason": "Declare the bounded inputs and preserve their units."
+        },
+        {
+          "index": 2,
+          "expression": "maximize V = px + qy; x + y ≤ B; result ≈ 14.0",
+          "reason": "Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible."
+        }
+      ],
+      "result": {
+        "approximate": "14.0 credits"
+      },
+      "interpretation": "Three litres of the second blend and two of the first contribute fourteen credits.",
+      "independent_check": {
+        "method": "Enumerate intersections of every pair of constraint lines with exact rational arithmetic; retain feasible intersections and compare their objective values.",
+        "expected": "14.0"
+      },
+      "limits": "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.",
+      "preset": {
+        "budget": 5,
+        "rateX": 1,
+        "rateY": 4
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+      ]
+    },
+    {
+      "id": "math:example:linear-programming:case-3",
+      "title": "Equal contributions",
+      "role": "applied_model",
+      "question": "Which paint mixture gives the largest contribution within the available material?",
+      "setting": "A paint workshop can make at most four litres of a first blend and three litres of a second. Both use one litre of base per litre made. The available base material moves one boundary of the feasible polygon. Contribution rates may be positive or negative, so leaving material unused can be best.",
+      "assumptions": [
+        "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+      ],
+      "inputs": {
+        "budget": 5,
+        "rateX": 2,
+        "rateY": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "B = 5; p = 2; q = 2",
+          "reason": "Declare the bounded inputs and preserve their units."
+        },
+        {
+          "index": 2,
+          "expression": "maximize V = px + qy; x + y ≤ B; result ≈ 10.0",
+          "reason": "Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible."
+        }
+      ],
+      "result": {
+        "approximate": "10.0 credits"
+      },
+      "interpretation": "Every feasible point on the full-material edge gives ten credits.",
+      "independent_check": {
+        "method": "Enumerate intersections of every pair of constraint lines with exact rational arithmetic; retain feasible intersections and compare their objective values.",
+        "expected": "10.0"
+      },
+      "limits": "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.",
+      "preset": {
+        "budget": 5,
+        "rateX": 2,
+        "rateY": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+      ]
+    },
+    {
+      "id": "math:example:linear-programming:case-4",
+      "title": "No production is best",
+      "role": "applied_model",
+      "question": "Which paint mixture gives the largest contribution within the available material?",
+      "setting": "A paint workshop can make at most four litres of a first blend and three litres of a second. Both use one litre of base per litre made. The available base material moves one boundary of the feasible polygon. Contribution rates may be positive or negative, so leaving material unused can be best.",
+      "assumptions": [
+        "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+      ],
+      "inputs": {
+        "budget": 5,
+        "rateX": -1,
+        "rateY": -2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "B = 5; p = -1; q = -2",
+          "reason": "Declare the bounded inputs and preserve their units."
+        },
+        {
+          "index": 2,
+          "expression": "maximize V = px + qy; x + y ≤ B; result ≈ 0.0",
+          "reason": "Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible."
+        }
+      ],
+      "result": {
+        "approximate": "0.0 credits"
+      },
+      "interpretation": "The origin gives zero; either production direction would reduce contribution.",
+      "independent_check": {
+        "method": "Enumerate intersections of every pair of constraint lines with exact rational arithmetic; retain feasible intersections and compare their objective values.",
+        "expected": "0.0"
+      },
+      "limits": "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.",
+      "preset": {
+        "budget": 5,
+        "rateX": -1,
+        "rateY": -2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+      ]
+    },
+    {
+      "id": "math:example:linear-programming:case-5",
+      "title": "A flat objective",
+      "role": "applied_model",
+      "question": "Which paint mixture gives the largest contribution within the available material?",
+      "setting": "A paint workshop can make at most four litres of a first blend and three litres of a second. Both use one litre of base per litre made. The available base material moves one boundary of the feasible polygon. Contribution rates may be positive or negative, so leaving material unused can be best.",
+      "assumptions": [
+        "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+      ],
+      "inputs": {
+        "budget": 5,
+        "rateX": 0,
+        "rateY": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "B = 5; p = 0; q = 0",
+          "reason": "Declare the bounded inputs and preserve their units."
+        },
+        {
+          "index": 2,
+          "expression": "maximize V = px + qy; x + y ≤ B; result ≈ 0.0",
+          "reason": "Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible."
+        }
+      ],
+      "result": {
+        "approximate": "0.0 credits"
+      },
+      "interpretation": "Every feasible mixture gives zero, not just the corners.",
+      "independent_check": {
+        "method": "Enumerate intersections of every pair of constraint lines with exact rational arithmetic; retain feasible intersections and compare their objective values.",
+        "expected": "0.0"
+      },
+      "limits": "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.",
+      "preset": {
+        "budget": 5,
+        "rateX": 0,
+        "rateY": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:linear-programming",
+    "renderer_id": "linear-programming-visual-model",
+    "renderer_version": "1",
+    "model_id": "linear-programming-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:linear-programming:expression",
+    "interaction_status": "implemented",
+    "description": "A paint workshop can make at most four litres of a first blend and three litres of a second. Both use one litre of base per litre made. The available base material moves one boundary of the feasible polygon. Contribution rates may be positive or negative, so leaving material unused can be best.",
+    "controls": [
+      {
+        "id": "budget",
+        "type": "number",
+        "default": 5,
+        "min": 0,
+        "max": 7,
+        "step": 0.05
+      },
+      {
+        "id": "rateX",
+        "type": "number",
+        "default": 3,
+        "min": -3,
+        "max": 5,
+        "step": 0.05
+      },
+      {
+        "id": "rateY",
+        "type": "number",
+        "default": 2,
+        "min": -3,
+        "max": 5,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "budget": 5,
+          "rateX": 3,
+          "rateY": 2
+        },
+        "status": "valid",
+        "output": 14.0
+      },
+      {
+        "input": {
+          "budget": 5,
+          "rateX": 1,
+          "rateY": 4
+        },
+        "status": "valid",
+        "output": 14.0
+      },
+      {
+        "input": {
+          "budget": 5,
+          "rateX": 2,
+          "rateY": 2
+        },
+        "status": "valid",
+        "output": 10.0
+      },
+      {
+        "input": {
+          "budget": 5,
+          "rateX": -1,
+          "rateY": -2
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "budget": 5,
+          "rateX": 0,
+          "rateY": 0
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "budget": 0,
+          "rateX": 3,
+          "rateY": 2
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "budget": 7,
+          "rateX": 3,
+          "rateY": 2
+        },
+        "status": "valid",
+        "output": 18.0
+      },
+      {
+        "input": {
+          "budget": 3,
+          "rateX": 2,
+          "rateY": 2
+        },
+        "status": "valid",
+        "output": 6.0
+      },
+      {
+        "input": {
+          "budget": 4,
+          "rateX": 2.0000000000000004,
+          "rateY": 2
+        },
+        "status": "valid",
+        "output": 8.000000000000002
+      },
+      {
+        "input": {
+          "budget": 4,
+          "rateX": 1.9999999999999998,
+          "rateY": 2
+        },
+        "status": "valid",
+        "output": 8.0
+      },
+      {
+        "input": {
+          "budget": 5e-324,
+          "rateX": 1,
+          "rateY": 0
+        },
+        "status": "valid",
+        "output": 5e-324
+      },
+      {
+        "input": {
+          "budget": 5e-324,
+          "rateX": 5e-324,
+          "rateY": 0
+        },
+        "status": "numeric_precision"
+      },
+      {
+        "input": {
+          "budget": -1,
+          "rateX": 3,
+          "rateY": 2
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "budget": 5,
+          "rateX": 3,
+          "rateY": null
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.",
+      "Story, controls, calculations and both views use one evaluated state."
+    ],
+    "limits": [
+      "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+    ],
+    "fallback": "Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Which paint mixture gives the largest contribution within the available material?",
+      "answer": "Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible."
+    },
+    {
+      "prompt": "Which assumptions make this picture valid?",
+      "answer": "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "A paint workshop can make at most four litres of a first blend and three litres of a second. Both use one litre of base per litre made. The available base material moves one boundary of the feasible polygon. Contribution rates may be positive or negative, so leaving material unused can be best."
+    },
+    {
+      "kind": "graph",
+      "description": "Hold the other inputs fixed and graph the declared primary result against Base material B. Real-root counts are isolated evaluated dots, never fractional counts."
+    },
+    {
+      "kind": "substitution",
+      "description": "Intersect nonnegative production choices with the two fixed capacities and the total-material half-plane. Evaluate the linear contribution at every resulting vertex and retain all maximizing vertices. A shared optimal edge or a flat objective remains visible."
+    }
+  ],
+  "applications": [
+    {
+      "context": "A five-litre production plan",
+      "mapping": "Four litres of the first blend and one of the second contribute fourteen credits.",
+      "limitations": "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:linear-programming:case-1"
+    },
+    {
+      "context": "Prefer the second blend",
+      "mapping": "Three litres of the second blend and two of the first contribute fourteen credits.",
+      "limitations": "The quantities are continuous litres, not indivisible cans. The fixed capacities are four and three litres; total base ranges from zero to seven litres. Rates range from −3 to 5 credits per litre. The feasible set always contains the origin and is bounded. This two-variable family does not implement arbitrary constraints, integer programming, infeasibility or unboundedness.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:linear-programming:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:algebra-extension:lp"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded family is an introduction, not completion of a broad subject."
+  ],
+  "change_log": [
+    "Added a bounded algebra family with original story, independent reference, matching preview and distinct Geometry/Graph."
+  ]
+}

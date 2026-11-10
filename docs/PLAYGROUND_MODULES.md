@@ -12,7 +12,9 @@ the common host lives in [src/playground.js](../src/playground.js). This first
 pass adapts the existing mathematical models, renderers, and stories rather than
 requiring their replacement.
 
-The installed application contains forty-five topic adapters. The separate
+The installed application adapts every canonical executable lesson. Current
+counts are recorded in `dist/build-manifest.json`; the registry and catalog are
+checked for parity. The separate
 [module sandbox](../examples/module-sandbox.html), **One module. Two independent
 places to play.**, loads an additional module from
 [growth-frame-module.js](../examples/growth-frame-module.js). It renders
@@ -65,13 +67,13 @@ than replacing a running module.
 | `defaultView` | The ID of one of the declared views |
 
 Each declared view must be a distinct representation of the same module state.
-The forty-five installed topics supply Geometry and Graph. Composition,
+Installed topics supply Geometry and Graph. Composition,
 logarithm, derivative, partial derivatives, gradient, directional derivative and
-tangent plane also supply genuine 3D space, for 97 views: 45 Geometry, 45 Graph
-and seven Spatial. Do not offer another tab that
+tangent plane also supply genuine 3D space. Registered view lists determine
+representation totals, recorded in the release validation. Do not offer another tab that
 silently returns identical geometry. `src/plot-view.js` supplies the pure
-coordinate-plot renderer; `src/module-graphs.js` describes the twelve newer
-topics' axes, curves, current points, units, and approximation limits. The four
+coordinate-plot renderer; `src/module-graphs.js` describes topic axes, curves,
+current points, units, and approximation limits. The four
 foundation modules supply their own distinct graphs through `src/foundations.js`;
 `src/model-registry.js` routes those implementations through the same host.
 The four linear algebra modules similarly provide their pure Geometry and Graph
@@ -535,3 +537,71 @@ The application has 38 canonical topic adapters. The separate square-area
 sandbox registers a 39th example module without adding a canonical card. All
 existing identities/revisions remain unchanged. One new pure provider does not
 change the page lifecycle or create a new animation engine.
+
+
+## Original-family provider consolidation
+
+Composition, real logarithm and derivative at a point use
+`src/legacy-models.js` through `src/model-registry.js`, like newer providers.
+`src/models.js` remains the stable evaluation facade. Its classic-script entry
+requires the provider scripts to load first; the source page, standalone build
+and sandbox declare that order explicitly.
+
+The extraction keeps the original mathematical implementations, public slugs,
+model revision 1, exact-result strings and invalid-domain states. Legacy views
+resolve their existing Geometry/Graph or Spatial adapter on demand after those
+adapters have loaded. No renderer is loaded for a numeric calculation, and no
+new animation clock or private storage is introduced. Specialized story scenes
+keep their original physical settings instead of being replaced by a generic
+provider scene. The provider's control ranges remain viewing affordances;
+invalid-logarithm presets retain the ability to show the actual domain failure.
+
+## Continuation families (0.34.0)
+
+`number-foundations.js`, `spatial-foundations.js` and `dynamics-extensions.js`
+are separate trusted providers. Each has its own narrative, preview, reference
+and independent Python-oracle files. The common host supplies controls, paced
+numbers, comparisons, saved states and Geometry/Graph views. Fixed projections
+are labeled as projections; they do not create an extra Spatial tab.
+
+Their explicit integration records in `content/planning/` declare installed
+slugs, all grammar bindings and numeric quantity ports. The build validates and
+freezes these into `continuation-metadata.js`; runtime code never executes JSON
+as mathematics or loads code from a declared URL. Add another trusted family to
+the build allowlist deliberately rather than scanning arbitrary files.
+
+A provider may declare `meta.canInterpolate(a,b)`. The adapter combines that
+guard with endpoint validity and the existing discrete-control checks. Circle
+charts use it to prevent a transition across the selected chart's omitted pole;
+the point remains defined when its coordinates in that chart are unavailable.
+Changing chart poles is a discrete transition. Integer counts and hysteresis
+steps retain their whole-state semantics. Continuous gradient flow uses an
+exact solution, while hysteresis explicitly uses a quasi-static branch rule.
+
+## Algebra, algorithm and distribution gaps (0.34.0)
+
+Three further providers use the same family metadata and host contracts:
+`algebra-extensions.js`, `algorithm-extensions.js` and
+`distribution-extensions.js`. Their stories, previews, terms and Python
+references stay in separate files. They introduce no clock or UI lifecycle.
+
+Quadratic classification and linear-objective ties use exact arithmetic on
+represented binary inputs; displayed coordinates and objective magnitudes
+remain numerical. Unrepresentable values report precision failures. Geometry
+has a genuine compact layout; Graph samples each remembered quadratic family
+at its own critical offset. Whole optimal edges and a flat objective remain
+distinct from a single winning vertex.
+
+Search traces publish comparisons performed as their output and keep the cost
+of a completed run separate. Integer controls do not interpolate. Binary search
+requires the declared sorted list; its cost excludes sorting. Minimum spanning
+trees connect all stations by total cable cost, unlike shortest routes. Station
+and edge labels have actual grammar declarations, quantities and shape marks,
+so shared glyphs retain both graph and matrix meanings in the reference.
+
+Continuous laws distinguish density height, full cumulative probability and
+the mass within a finite drawing window. Remembered input lines and remembered
+probability ticks encode different quantities. Random waiting time `T` marks
+the whole law; a threshold `t` marks one position. A paired sign test retains
+exact zero ties and conditional null counts; its provider guard prevents
+invented intermediate sign configurations.

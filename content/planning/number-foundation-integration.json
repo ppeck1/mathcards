@@ -1,0 +1,426 @@
+{
+  "slugs": [
+    "modular-arithmetic",
+    "greatest-common-divisor",
+    "prime-factorization",
+    "rational-number",
+    "numeral-system",
+    "permutation-count",
+    "binomial-coefficient"
+  ],
+  "global": "AtlasNumberFoundations",
+  "storyGlobal": "AtlasNumberFoundationStories",
+  "termsGlobal": "AtlasNumberFoundationTerms",
+  "previewsGlobal": "AtlasNumberFoundationPreviews",
+  "sources": [
+    {
+      "id": "source:number-foundations:integer",
+      "title": "James Aspnes · Number Theory",
+      "url": "https://www.cs.yale.edu/homes/aspnes/pinewiki/NumberTheory.html",
+      "kind": "lecture_notes",
+      "locator": "Sections 1, 2.1 and 4: nonnegative remainders, common divisors and the Euclidean recurrence. The archive warns that some formulas are broken; only the inspected definitions and algorithm are used.",
+      "verification": "Definition-level source inspected 2026-11-02. The bounded model and original examples remain author-derived; independent review and exact-edition book checks are pending.",
+      "rights": "Original workshop scenarios, explanations, diagrams and worked examples; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:number-foundations:prime",
+      "title": "OpenStax · Prime and Composite Numbers",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/3-1-prime-and-composite-numbers",
+      "kind": "textbook",
+      "locator": "Prime/composite definitions and prime factorization. No cryptographic timing or historical priority claims are used.",
+      "verification": "Definition-level source inspected 2026-11-02. The bounded model and original examples remain author-derived; independent review and exact-edition book checks are pending.",
+      "rights": "Original workshop scenarios, explanations, diagrams and worked examples; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:number-foundations:fraction",
+      "title": "OpenStax · Rational Numbers",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/3-4-rational-numbers",
+      "kind": "textbook",
+      "locator": "Rational numbers, equivalent fractions and simplification.",
+      "verification": "Definition-level source inspected 2026-11-02. The bounded model and original examples remain author-derived; independent review and exact-edition book checks are pending.",
+      "rights": "Original workshop scenarios, explanations, diagrams and worked examples; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:number-foundations:numeral",
+      "title": "Carl Burch · More About Binary Numbers",
+      "url": "https://www.cs.cmu.edu/~cburch/pgss97/binary.html",
+      "kind": "lecture_notes",
+      "locator": "Binary positional weights and conversion to/from base ten; the ordinary-base generalization is author-derived.",
+      "verification": "Definition-level source inspected 2026-11-02. The bounded model and original examples remain author-derived; independent review and exact-edition book checks are pending.",
+      "rights": "Original workshop scenarios, explanations, diagrams and worked examples; no source exercise or illustration reproduced."
+    },
+    {
+      "id": "source:number-foundations:counting",
+      "title": "OpenStax · Counting Principles",
+      "url": "https://openstax.org/books/algebra-and-trigonometry/pages/13-5-counting-principles",
+      "kind": "textbook",
+      "locator": "Multiplication principle, ordered selections, factorials and unordered combinations.",
+      "verification": "Definition-level source inspected 2026-11-02. The bounded model and original examples remain author-derived; independent review and exact-edition book checks are pending.",
+      "rights": "Original workshop scenarios, explanations, diagrams and worked examples; no source exercise or illustration reproduced."
+    }
+  ],
+  "bindings": {
+    "modular-arithmetic": {
+      "n": [
+        "total"
+      ],
+      "m": [
+        "modulus"
+      ],
+      "q": [
+        "quotient"
+      ],
+      "r": [
+        "remainder"
+      ]
+    },
+    "greatest-common-divisor": {
+      "a": [
+        "first"
+      ],
+      "b": [
+        "second"
+      ],
+      "d": [
+        "gcd"
+      ],
+      "gcd(a,b)": [
+        "output"
+      ]
+    },
+    "prime-factorization": {
+      "n": [
+        "number"
+      ],
+      "s": [
+        "output"
+      ],
+      "pⱼ": [
+        "factors"
+      ]
+    },
+    "rational-number": {
+      "a": [
+        "numerator"
+      ],
+      "b": [
+        "denominator"
+      ],
+      "p": [
+        "reducedNumerator"
+      ],
+      "q": [
+        "reducedDenominator"
+      ],
+      "d": [
+        "gcd"
+      ]
+    },
+    "numeral-system": {
+      "n": [
+        "value"
+      ],
+      "b": [
+        "base"
+      ],
+      "dⱼ": [
+        "places"
+      ],
+      "s": [
+        "digitCount"
+      ],
+      "j": [
+        "places"
+      ]
+    },
+    "permutation-count": {
+      "n": [
+        "available"
+      ],
+      "r": [
+        "slots"
+      ],
+      "P(n,r)": [
+        "output"
+      ]
+    },
+    "binomial-coefficient": {
+      "n": [
+        "available"
+      ],
+      "k": [
+        "chosen"
+      ],
+      "C(n,k)": [
+        "output"
+      ],
+      "k!": [
+        "ordersPerTeam"
+      ]
+    }
+  },
+  "ports": {
+    "modular-arithmetic": [
+      {
+        "id": "input:total",
+        "direction": "input",
+        "key": "total",
+        "label": "Counters n",
+        "type": "integer-count",
+        "unit": "item",
+        "description": "Total counters before packing. This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+      },
+      {
+        "id": "input:modulus",
+        "direction": "input",
+        "key": "modulus",
+        "label": "Counters per tray m",
+        "type": "integer-count",
+        "unit": "item",
+        "description": "Positive number of counters in a full tray. This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Remainder r",
+        "type": "integer-count",
+        "unit": "item",
+        "description": "Divide the nonnegative total by the positive tray capacity. The integer quotient counts full trays and the remainder counts leftovers. This executable family uses nonnegative whole counts and positive tray sizes. Congruence compares remainder classes; the tray picture is not a proof about every integer."
+      }
+    ],
+    "greatest-common-divisor": [
+      {
+        "id": "input:first",
+        "direction": "input",
+        "key": "first",
+        "label": "First ribbon a",
+        "type": "length",
+        "unit": "cm",
+        "description": "Length of the first ribbon in centimetres. Both lengths are positive integers from 1 to 60 cm. The gcd is the longest common whole-centimetre length, not the largest number of pieces or a measurement of arbitrary real lengths."
+      },
+      {
+        "id": "input:second",
+        "direction": "input",
+        "key": "second",
+        "label": "Second ribbon b",
+        "type": "length",
+        "unit": "cm",
+        "description": "Length of the second ribbon in centimetres. Both lengths are positive integers from 1 to 60 cm. The gcd is the longest common whole-centimetre length, not the largest number of pieces or a measurement of arbitrary real lengths."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Longest common piece",
+        "type": "length",
+        "unit": "cm",
+        "description": "Repeat division with remainder until the remainder is zero. The final nonzero divisor is the greatest common divisor of the two positive lengths. Both lengths are positive integers from 1 to 60 cm. The gcd is the longest common whole-centimetre length, not the largest number of pieces or a measurement of arbitrary real lengths."
+      }
+    ],
+    "prime-factorization": [
+      {
+        "id": "input:number",
+        "direction": "input",
+        "key": "number",
+        "label": "Item count n",
+        "type": "integer-count",
+        "unit": "item",
+        "description": "Original positive item count. The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Prime factors with repetition",
+        "type": "prime-factor-count",
+        "unit": "factor",
+        "description": "Repeatedly divide by the smallest available divisor and retain every prime factor, including repetitions. Their product reconstructs the positive item count. The model factors integers from 1 to 120. One has an empty prime-factor list and empty product 1; it is not a prime. The displayed calculations do not prove unique factorization for every integer."
+      }
+    ],
+    "rational-number": [
+      {
+        "id": "input:numerator",
+        "direction": "input",
+        "key": "numerator",
+        "label": "Signed pieces a",
+        "type": "signed-piece-count",
+        "unit": "piece",
+        "description": "Signed count of ribbon pieces held or owed. The numerator is an integer from −12 to 12 and the denominator is a positive integer from 1 to 12. Exact fraction strings remain distinct from their rounded decimal displays."
+      },
+      {
+        "id": "input:denominator",
+        "direction": "input",
+        "key": "denominator",
+        "label": "Parts per metre b",
+        "type": "partition-count",
+        "unit": "1",
+        "description": "Positive number of equal pieces making one metre. The numerator is an integer from −12 to 12 and the denominator is a positive integer from 1 to 12. Exact fraction strings remain distinct from their rounded decimal displays."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Signed ribbon balance",
+        "type": "length",
+        "unit": "m",
+        "description": "Divide numerator and positive denominator by their greatest common divisor. The reduced fraction has the same value, including zero and negative balances. The numerator is an integer from −12 to 12 and the denominator is a positive integer from 1 to 12. Exact fraction strings remain distinct from their rounded decimal displays."
+      }
+    ],
+    "numeral-system": [
+      {
+        "id": "input:value",
+        "direction": "input",
+        "key": "value",
+        "label": "Item count n",
+        "type": "integer-count",
+        "unit": "item",
+        "description": "Nonnegative represented item count. Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+      },
+      {
+        "id": "input:base",
+        "direction": "input",
+        "key": "base",
+        "label": "Representation base b",
+        "type": "numeral-base",
+        "unit": "1",
+        "description": "Integer base of the positional representation. Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Same quantity in base ten",
+        "type": "integer-count",
+        "unit": "item",
+        "description": "Use digits from zero through one less than the base, multiply each digit by its positional power of the base, and add the contributions. Only ordinary nonnegative integer positional notation is implemented. Digits are 0 through b−1. The app does not implement negative bases, fractional digits or a history of numeral systems."
+      }
+    ],
+    "permutation-count": [
+      {
+        "id": "input:available",
+        "direction": "input",
+        "key": "available",
+        "label": "Available volunteers n",
+        "type": "person-count",
+        "unit": "person",
+        "description": "Number of distinct volunteers available. Whole counts satisfy 0 ≤ r ≤ n ≤ 8. Zero roles have one empty assignment. No repetition, ties, circular equivalence or probability model is included."
+      },
+      {
+        "id": "input:slots",
+        "direction": "input",
+        "key": "slots",
+        "label": "Different roles r",
+        "type": "role-count",
+        "unit": "role",
+        "description": "Number of different labeled roles to fill. Whole counts satisfy 0 ≤ r ≤ n ≤ 8. Zero roles have one empty assignment. No repetition, ties, circular equivalence or probability model is included."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Ordered role assignments",
+        "type": "ordered-assignment-count",
+        "unit": "arrangement",
+        "description": "Multiply the available choices for successive labeled roles: n, then n−1, continuing for r factors. The empty product for zero roles is one. Whole counts satisfy 0 ≤ r ≤ n ≤ 8. Zero roles have one empty assignment. No repetition, ties, circular equivalence or probability model is included."
+      }
+    ],
+    "binomial-coefficient": [
+      {
+        "id": "input:available",
+        "direction": "input",
+        "key": "available",
+        "label": "Available volunteers n",
+        "type": "person-count",
+        "unit": "person",
+        "description": "Number of distinct volunteers available. Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+      },
+      {
+        "id": "input:chosen",
+        "direction": "input",
+        "key": "chosen",
+        "label": "People selected k",
+        "type": "person-count",
+        "unit": "person",
+        "description": "Number of people in a team. Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+      },
+      {
+        "id": "output:output",
+        "direction": "output",
+        "key": "output",
+        "label": "Unordered teams",
+        "type": "subset-count",
+        "unit": "selection",
+        "description": "Count each unordered team once. Every team has k! ordered listings, so divide ordered selections by this common multiplicity; Pascal recurrence provides the runtime count. Whole counts satisfy 0 ≤ k ≤ n ≤ 10. Zero chosen people and choosing everybody each give one selection. A displayed prefix of teams is labeled and is never substituted for the full count."
+      }
+    ]
+  },
+  "atlas": {
+    "modular-arithmetic": [
+      "numbers:real-numbers",
+      "computation:algorithms"
+    ],
+    "greatest-common-divisor": [
+      "numbers:real-numbers",
+      "computation:algorithms"
+    ],
+    "prime-factorization": [
+      "numbers:real-numbers"
+    ],
+    "rational-number": [
+      "numbers:real-numbers"
+    ],
+    "numeral-system": [
+      "numbers:real-numbers",
+      "computation:algorithms"
+    ],
+    "permutation-count": [
+      "foundations:sets-and-proof",
+      "uncertainty:probability"
+    ],
+    "binomial-coefficient": [
+      "foundations:sets-and-proof",
+      "uncertainty:probability"
+    ]
+  },
+  "learningAfter": {
+    "modular-arithmetic": "rational-number",
+    "greatest-common-divisor": "modular-arithmetic",
+    "prime-factorization": "greatest-common-divisor",
+    "rational-number": "function",
+    "numeral-system": "exponentiation",
+    "permutation-count": "set",
+    "binomial-coefficient": "permutation-count"
+  },
+  "notation": {
+    "named": {
+      "gcd": [
+        "greatest-common-divisor"
+      ],
+      "P": [
+        "permutation-count"
+      ],
+      "C": [
+        "binomial-coefficient"
+      ]
+    },
+    "commands": {
+      "bmod": [
+        "modulo"
+      ],
+      "prod": [
+        "product-notation"
+      ]
+    },
+    "units": [
+      "items",
+      "factors",
+      "pieces",
+      "parts",
+      "people",
+      "roles",
+      "arrangements",
+      "selections"
+    ]
+  }
+}

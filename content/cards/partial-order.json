@@ -1,0 +1,646 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:partial-order",
+  "slug": "partial-order",
+  "type": "concept",
+  "title": "Partial orders",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "partial orders"
+  ],
+  "branches": [
+    "logic"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Can two tool kits always be ranked?",
+  "meaning": "Compare element membership, not the integer encoding of the kit.",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:set",
+      "math:concept:meet-join",
+      "math:concept:relation"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "Two volunteers each carry some of three tools: a lamp, a ruler and a brush. One kit is below another when every tool in the first is also in the second. Choose two kits. Sometimes neither contains the other, even when they have the same number of tools.",
+    "formal_latex": "A\\preceq B\\ \\Longleftrightarrow\\ A\\subseteq B.",
+    "signature": {
+      "A": "First collection A; a collection choice",
+      "B": "Second collection B; a collection choice",
+      "result": "The primary reported quantity in truth value."
+    },
+    "conditions": [
+      "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation.",
+      "Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views.",
+      "This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified."
+    ],
+    "domain_notes": "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation.",
+    "proof_status": "Author-derived for the bounded family; independent mathematical review pending.",
+    "source_refs": [
+      "source:systems:order"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Partial orders",
+    "expression_latex": "A\\preceq B\\ \\Longleftrightarrow\\ A\\subseteq B.",
+    "formation_rule": "Compare element membership, not the integer encoding of the kit.",
+    "precedence": "Apply the stated grouping and units before rounding the displayed result.",
+    "symbols": [
+      {
+        "token": "A",
+        "role": "First collection A; a collection choice",
+        "type": "Declared input or result"
+      },
+      {
+        "token": "B",
+        "role": "Second collection B; a collection choice",
+        "type": "Declared input or result"
+      },
+      {
+        "token": "result",
+        "role": "The primary reported quantity in truth value.",
+        "type": "Declared input or result"
+      }
+    ],
+    "ast": {
+      "id": "ast:partial-order:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:a",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "A",
+          "scope_ref": "scope:partial-order"
+        },
+        {
+          "id": "n:b",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "B",
+          "scope_ref": "scope:partial-order"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried evaluator for the stated family",
+          "ref": "Compare element membership, not the integer encoding of the kit."
+        },
+        {
+          "id": "n:bound-a",
+          "kind": "apply",
+          "type": "Declared result",
+          "function": "n:rule",
+          "argument": "n:a"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared result",
+          "function": "n:bound-a",
+          "argument": "n:b"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:partial-order",
+          "kind": "modelExpression",
+          "free_variables": [
+            "A",
+            "B"
+          ],
+          "domain_condition": "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use a value outside the declared range",
+        "status": "unsupported parameter",
+        "reason": "The executable family is deliberately bounded; its limits are part of its meaning."
+      }
+    ],
+    "ast_coverage": "A typed application outline of the bounded family; no arbitrary expression parser is claimed.",
+    "output_symbol_bindings": {
+      "A": "a",
+      "B": "b",
+      "result": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Compare element membership, not the integer encoding of the kit.",
+      "conditions": "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation.",
+      "derivation": "The diagram contains every subset. Edges add exactly one tool, so upward paths represent inclusion.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:partial-order:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:set",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared assumptions.",
+      "reason": "Partial orders supplies a bounded connection to set.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:meet-join",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared assumptions.",
+      "reason": "Partial orders supplies a bounded connection to meet join.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:relation",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared assumptions.",
+      "reason": "Partial orders supplies a bounded connection to relation.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:partial-order:case-1",
+      "title": "Begin with the stated scenario",
+      "role": "applied_model",
+      "question": "Can two tool kits always be ranked?",
+      "setting": "Two volunteers each carry some of three tools: a lamp, a ruler and a brush. One kit is below another when every tool in the first is also in the second. Choose two kits. Sometimes neither contains the other, even when they have the same number of tools.",
+      "assumptions": [
+        "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation."
+      ],
+      "inputs": {
+        "a": 3,
+        "b": 5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "A = {lamp, ruler}; B = {lamp, brush}",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "A ≤ B exactly when A ⊆ B",
+          "reason": "Compare element membership, not the integer encoding of the kit."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 0 truth value",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "False: A is not included in B"
+      },
+      "interpretation": "The diagram contains every subset. Edges add exactly one tool, so upward paths represent inclusion.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "0"
+      },
+      "limits": "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation.",
+      "preset": {
+        "a": 3,
+        "b": 5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation."
+      ]
+    },
+    {
+      "id": "math:example:partial-order:case-2",
+      "title": "Choose A = {}",
+      "role": "applied_model",
+      "question": "Can two tool kits always be ranked?",
+      "setting": "Two volunteers each carry some of three tools: a lamp, a ruler and a brush. One kit is below another when every tool in the first is also in the second. Choose two kits. Sometimes neither contains the other, even when they have the same number of tools.",
+      "assumptions": [
+        "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation."
+      ],
+      "inputs": {
+        "a": 0,
+        "b": 5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "A = {}; B = {lamp, brush}",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "A ≤ B exactly when A ⊆ B",
+          "reason": "Compare element membership, not the integer encoding of the kit."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 1 truth value",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "True: A is included in B"
+      },
+      "interpretation": "The diagram contains every subset. Edges add exactly one tool, so upward paths represent inclusion.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "1"
+      },
+      "limits": "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation.",
+      "preset": {
+        "a": 0,
+        "b": 5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation."
+      ]
+    },
+    {
+      "id": "math:example:partial-order:case-3",
+      "title": "Choose A = {lamp, ruler, brush}",
+      "role": "applied_model",
+      "question": "Can two tool kits always be ranked?",
+      "setting": "Two volunteers each carry some of three tools: a lamp, a ruler and a brush. One kit is below another when every tool in the first is also in the second. Choose two kits. Sometimes neither contains the other, even when they have the same number of tools.",
+      "assumptions": [
+        "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation."
+      ],
+      "inputs": {
+        "a": 7,
+        "b": 5
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "A = {lamp, ruler, brush}; B = {lamp, brush}",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "A ≤ B exactly when A ⊆ B",
+          "reason": "Compare element membership, not the integer encoding of the kit."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 0 truth value",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "False: A is not included in B"
+      },
+      "interpretation": "The diagram contains every subset. Edges add exactly one tool, so upward paths represent inclusion.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "0"
+      },
+      "limits": "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation.",
+      "preset": {
+        "a": 7,
+        "b": 5
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation."
+      ]
+    },
+    {
+      "id": "math:example:partial-order:case-4",
+      "title": "Choose B = {}",
+      "role": "applied_model",
+      "question": "Can two tool kits always be ranked?",
+      "setting": "Two volunteers each carry some of three tools: a lamp, a ruler and a brush. One kit is below another when every tool in the first is also in the second. Choose two kits. Sometimes neither contains the other, even when they have the same number of tools.",
+      "assumptions": [
+        "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation."
+      ],
+      "inputs": {
+        "a": 3,
+        "b": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "A = {lamp, ruler}; B = {}",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "A ≤ B exactly when A ⊆ B",
+          "reason": "Compare element membership, not the integer encoding of the kit."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 0 truth value",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "False: A is not included in B"
+      },
+      "interpretation": "The diagram contains every subset. Edges add exactly one tool, so upward paths represent inclusion.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "0"
+      },
+      "limits": "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation.",
+      "preset": {
+        "a": 3,
+        "b": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation."
+      ]
+    },
+    {
+      "id": "math:example:partial-order:case-5",
+      "title": "Choose B = {lamp, ruler, brush}",
+      "role": "applied_model",
+      "question": "Can two tool kits always be ranked?",
+      "setting": "Two volunteers each carry some of three tools: a lamp, a ruler and a brush. One kit is below another when every tool in the first is also in the second. Choose two kits. Sometimes neither contains the other, even when they have the same number of tools.",
+      "assumptions": [
+        "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation."
+      ],
+      "inputs": {
+        "a": 3,
+        "b": 7
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "A = {lamp, ruler}; B = {lamp, ruler, brush}",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "A ≤ B exactly when A ⊆ B",
+          "reason": "Compare element membership, not the integer encoding of the kit."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 1 truth value",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "True: A is included in B"
+      },
+      "interpretation": "The diagram contains every subset. Edges add exactly one tool, so upward paths represent inclusion.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "1"
+      },
+      "limits": "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation.",
+      "preset": {
+        "a": 3,
+        "b": 7
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:partial-order",
+    "renderer_id": "partial-order-visual-model",
+    "renderer_version": "1",
+    "model_id": "partial-order-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:partial-order:expression",
+    "interaction_status": "implemented",
+    "description": "The diagram contains every subset. Edges add exactly one tool, so upward paths represent inclusion.",
+    "controls": [
+      {
+        "id": "a",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 7,
+        "step": 1,
+        "value_labels": {
+          "0": "{}",
+          "1": "{lamp}",
+          "2": "{ruler}",
+          "3": "{lamp, ruler}",
+          "4": "{brush}",
+          "5": "{lamp, brush}",
+          "6": "{ruler, brush}",
+          "7": "{lamp, ruler, brush}"
+        }
+      },
+      {
+        "id": "b",
+        "type": "number",
+        "default": 5,
+        "min": 0,
+        "max": 7,
+        "step": 1,
+        "value_labels": {
+          "0": "{}",
+          "1": "{lamp}",
+          "2": "{ruler}",
+          "3": "{lamp, ruler}",
+          "4": "{brush}",
+          "5": "{lamp, brush}",
+          "6": "{ruler, brush}",
+          "7": "{lamp, ruler, brush}"
+        }
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "a": 3,
+          "b": 5
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "a": 0,
+          "b": 5
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "a": 7,
+          "b": 5
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "a": 3,
+          "b": 0
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "a": 3,
+          "b": 7
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "a": 2,
+          "b": 5
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "a": 5,
+          "b": 5
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "a": 8,
+          "b": 5
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "a": 0.5,
+          "b": 5
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Compare element membership, not the integer encoding of the kit.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation.",
+      "Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views.",
+      "This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified."
+    ],
+    "limits": [
+      "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Can two tool kits always be ranked?",
+      "answer": "Compare element membership, not the integer encoding of the kit."
+    },
+    {
+      "prompt": "What does this construction leave out?",
+      "answer": "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "The diagram contains every subset. Edges add exactly one tool, so upward paths represent inclusion."
+    },
+    {
+      "kind": "graph",
+      "description": "Hold other inputs fixed and plot the declared primary result against First collection A. Discrete results use separate dots."
+    },
+    {
+      "kind": "substitution",
+      "description": "Compare element membership, not the integer encoding of the kit."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Originally authored teaching scenario",
+      "mapping": "Can two tool kits always be ranked?",
+      "limitations": "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:partial-order:case-1"
+    },
+    {
+      "context": "Boundary comparison",
+      "mapping": "Compare element membership, not the integer encoding of the kit.",
+      "limitations": "All eight subsets of a fixed three-tool collection, ordered by inclusion. Incomparable sets are possible; a drawn vertical ordering is not an additional relation.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:partial-order:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:systems:order"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0: Added bounded model, connected story, Geometry/Graph, original examples and reference coverage."
+  ]
+}

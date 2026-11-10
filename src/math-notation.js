@@ -12,20 +12,27 @@
   const formatting=new Set(['begin','end','left','right','middle','quad','qquad','enspace','thinspace','medspace','thickspace','hspace','vspace','operatorname','mathbb','mathcal','mathbf','mathrm','mathit','mathsf','mathtt','boldsymbol','text','textrm','displaystyle','textstyle','scriptstyle','scriptscriptstyle','limits','nolimits','underbrace','overbrace']);
   const named={sin:['sine'],cos:['cosine'],tan:['tangent-function'],sec:['secant-function'],csc:['cosecant-function'],cot:['cotangent-function'],arcsin:['arcsine'],arccos:['arccosine'],arctan:['arctangent'],ln:['logarithm'],log:['logarithm'],Log:['logarithm'],exp:['exponential-function'],sqrt:['square-root'],abs:['absolute-value'],norm:['magnitude'],hypot:['hypot'],atan2:['atan2'],floor:['floor'],ceil:['ceiling'],frac:['fractional-part'],det:['determinant'],rank:['rank'],dim:['vector-space-dimension'],min:['minimum'],max:['maximum'],argmin:['argmin'],argmax:['argmax'],arg:['complex-argument'],Re:['real-part'],Im:['imaginary-part'],Var:['variance'],Binomial:['binomial-distribution'],Apply:['function-notation'],AB:['matrix-product'],BA:['matrix-product'],T_A:['linear-map','function-notation'],dom:['domain'],codom:['codomain'],sign:['sign-function'],sgn:['sign-function'],proj:['projection','scalar-projection'],lim:['limit'],mod:['modulo'],bmod:['modulo'],pmod:['modulo']};
   const texFunctions=new Set(['sin','cos','tan','sec','csc','cot','arcsin','arccos','arctan','ln','log','exp','det','dim','min','max','lim','arg','Re','Im','bmod','pmod']);
-  Object.assign(named,{Pr:['probability'],span:['span'],tr:['matrix-trace'],ker:['kernel'],im:['image-of-map'],comp:['scalar-projection'],comp_u:['scalar-projection'],SD:['standard-deviation'],sd:['standard-deviation'],Bin:['binomial-distribution']});
+  Object.assign(named,{Pr:['probability'],span:['span'],tr:['matrix-trace'],ker:['kernel'],im:['image-of-map'],comp:['scalar-projection'],comp_u:['scalar-projection'],SD:['standard-deviation'],sd:['standard-deviation'],Bin:['binomial-distribution'],Poisson:['poisson-distribution'],SE:['standard-error'],SSE:['residual-sum-squares']});
   Object.assign(named,{D_uF:['directional-derivative'],R_h:['binary-relation'],p_X:['probability-mass-function'],p_Y:['marginal-distribution']});
   const informationCards=['joint-distribution','conditional-entropy','mutual-information'];
   Object.assign(macros,{setminus:'∖',smallsetminus:'∖',land:'∧',wedge:'∧',lor:'∨',vee:'∨',neg:'¬',lnot:'¬',leftrightarrow:'↔',top:'⊤',bot:'⊥',odot:'⊙',otimes:'⊗',models:'⊨',vdash:'⊢',square:'□',Box:'□'});
   const glyphs={'+':['addition'],'-':['subtraction'],'−':['subtraction'],'×':['multiplication'],'·':['multiplication'],'⋅':['multiplication'],'*':['multiplication'],'÷':['division'],'/':['division'],'=':['equality'],'≠':['not-equal'],'<':['less-than'],'>':['greater-than'],'≤':['less-or-equal'],'≥':['greater-or-equal'],'≈':['approximately-equal'],'±':['plus-minus'],'%':['percent'],'√':['square-root'],'∞':['infinity'],'ℕ':['natural-number'],'ℤ':['integer'],'ℚ':['rational-number'],'ℝ':['real-number'],'ℂ':['complex-number'],'∈':['element'],'∉':['element'],'∀':['for-all'],'∃':['there-exists'],'⇒':['implication','logical-conditional'],'⇔':['if-and-only-if'],'∘':['composition'],'∑':['summation'],'∫':['integral','indefinite-integral'],'∬':['multiple-integral'],'∭':['multiple-integral'],'∮':['contour-integral'],'∂':['partial-derivative'],'∇':['gradient'],'⊥':['orthogonal'],'≡':['identity'],'∼':['distribution-notation'],'…':['ellipses'],'⋯':['ellipses'],'|':['vertical-bar'],'‖':['magnitude'],'′':['prime-mark'],'″':['higher-derivative','prime-mark'],'^':['superscript','exponent'],'_':['subscript'],'(':['grouping-parentheses'],')':['grouping-parentheses'],'[':['square-brackets'],']':['square-brackets'],'{':['curly-braces'],'}':['curly-braces'],'→':['right-arrow'],'↦':['maps-to'],'⌊':['floor'],'⌋':['floor'],'⌈':['ceiling'],'⌉':['ceiling'],'!':['factorial']};
   const vulgar={'½':'1/2','¼':'1/4','¾':'3/4','⅓':'1/3','⅔':'2/3','⅛':'1/8','⅜':'3/8','⅝':'5/8','⅞':'7/8'};
   Object.assign(glyphs,{'∖':['set-difference'],'~':['distribution-notation'],'∩':['set-intersection'],'∪':['set-union'],'∧':['logical-and'],'∨':['logical-or'],'¬':['logical-not'],'↔':['if-and-only-if'],'⊤':['truth-constants'],'⊥':['orthogonal','truth-constants'],'⊙':['normal-direction-glyphs'],'⊗':['normal-direction-glyphs'],'⊨':['semantic-entailment'],'ℵ':['aleph-null'],'⊢':['derivability'],'□':['tape-blank']});
-  Object.assign(macros,{aleph:'ℵ',subseteq:'⊆',cap:'∩',cup:'∪',setminus:'∖',emptyset:'∅'});
+  Object.assign(macros,{aleph:'ℵ',subseteq:'⊆',nsubseteq:'⊈',Longleftrightarrow:'⇔',cap:'∩',cup:'∪',setminus:'∖',emptyset:'∅'});
+  Object.assign(glyphs,{'⊈':['not-subset']});
   const mathLetter=c=>/[\u0370-\u03ff\u2100-\u214f]/u.test(c)||/\p{Script=Greek}/u.test(c)||(c.codePointAt(0)>=0x1d400&&c.codePointAt(0)<=0x1d7ff);
+  const vectorArgument=String.raw`\\vec\b\s*(?:\{(?:[A-Za-zα-ωΑ-Ω]|\\[A-Za-z]+)\}|[A-Za-zα-ωΑ-Ω])`;
+  const texVectorArgument=new RegExp('^'+vectorArgument);
+  const texCrossProduct=new RegExp('^('+vectorArgument+')\\s*\\\\times\\s*('+vectorArgument+')');
+  const texDotProduct=new RegExp('^('+vectorArgument+')\\s*\\\\cdot\\s*('+vectorArgument+')');
+  const texTripleProduct=new RegExp('^('+vectorArgument+')\\s*\\\\cdot\\s*\\(\\s*('+vectorArgument+')\\s*\\\\times\\s*('+vectorArgument+')\\s*\\)');
+  const spatialVectorCards=new Set(['spatial-cross-product','scalar-triple-product','vector-projection']);
   function scriptRuns(value,characters,map,marker){let result='';for(let i=0;i<value.length;){const c=String.fromCodePoint(value.codePointAt(i));if(!characters.has(c)){result+=c;i+=c.length;continue;}let run='';while(i<value.length){const next=String.fromCodePoint(value.codePointAt(i));if(!characters.has(next))break;run+=map[next];i+=next.length;}result+=marker+(run.length===1?run:'{'+run+'}');}return result;}
   function normalize(query){
     if(typeof query!=='string')return'';let value=query.normalize('NFC').trim().replace(/[−–]/g,'-').replace(/ϵ/g,'ε').replace(/ϕ/g,'φ').replace(/ϑ/g,'θ').replace(/ϰ/g,'κ').replace(/ς/g,'σ');
-    value=value.replace(/\\vec\s*\{([^{}]+)\}/g,(_,name)=>name+'⃗');
-    value=value.replace(/\\(?:bar|overline)\s*\{([xz])\}/g,(_,letter)=>letter+'̅').replace(/([xz])[̄̅]/g,(_,letter)=>letter+'̅').replace(/\\mathcal\{O\}/g,'O');
+    value=value.replace(/\\vec\b\s*(?:\{([^{}]+)\}|([A-Za-zα-ωΑ-Ω]))/g,(_,braced,bare)=>(braced||bare)+'⃗');
+    value=value.replace(/\\(?:bar|overline)\s*(?:\{([xyXzd])\}|([xyXzd])(?![A-Za-z]))/g,(_,braced,bare)=>(braced||bare)+'̅').replace(/([xyXzd])[̄̅]/g,(_,letter)=>letter+'̅').replace(/\\mathcal\{O\}/g,'O');
     if(value==='xbar')value='x̅';value=value.replace(/^Theta\(/,'Θ(');
     if(/^['’]+$/.test(value))value=value.replace(/['’]/g,'′');
     value=value.replace(/\b([A-Za-z])(['’]+)(?=\s*(?:\(|$))/g,(_,letter,marks)=>letter+'′'.repeat(marks.length)).replace(/″/g,'′′').replace(/‴/g,'′′′');
@@ -41,10 +48,23 @@
     value=value.replace(/([A-Z])\\([A-Z])\b/g,'$1∖$2').replace(/~/g,'∼').replace(/^m[·⋅*]s\^(?:\{-1\}|-1)$/,'m/s').replace(/^m[·⋅*]s\^(?:\{-2\}|-2)$/,'m/s^2');
     return value;
   }
+  Object.assign(macros,{preceq:'≼'});Object.assign(glyphs,{'≼':['partial-order']});
+  Object.assign(macros,{prod:'∏'});Object.assign(glyphs,{'∏':['product-notation']});
+  Object.assign(named,{gcd:['greatest-common-divisor-function']});
+  Object.assign(named,{lcm:['least-common-multiple-function']});
+  Object.assign(named,{N_G:['graph-coloring-output-4']});
+  texFunctions.add('gcd');
   function classify(query,options={}){
     if(typeof query!=='string'||!query.trim())return[];if(options.kind==='unit')return unitIds(query,options);const raw=query.trim(),q=normalize(raw),result=[];const add=(...ids)=>result.push(...ids);
+    if(q==='rank'&&['wilcoxon-signed-rank','mann-whitney'].includes(options.slug))return['comparison-data-rank'];
+    if(['least-common-multiple','reference:number-signal-labels'].includes(options.slug)&&['A','B'].includes(q))return['number-signal-labels'];
+    if(['least-common-multiple','perfect-number','reference:divisibility'].includes(options.slug)&&['|','∣','d|n','d∣n'].includes(q))return['divisibility'];
+    if(['channel-capacity','reference:bridge-binary-entropy-function'].includes(options.slug)&&/^H_2(?:\([\s\S]*\))?$/.test(q))return['bridge-binary-entropy-function'];
     if(Object.hasOwn(vulgar,raw)||/^[-+]?\d+\/\d+$/.test(q))add('fraction');
     if(q==='∃!')add('unique-exists');
+    if((!options.slug||options.slug==='circle-manifold'||options.slug==='reference:unit-circle')&&q==='S^1')return['unit-circle','superscript'];
+    if((!options.slug||options.slug==='sphere-manifold'||options.slug==='reference:unit-sphere')&&q==='S^2')return['unit-sphere','superscript'];
+    if(q==='\\vec'||/^[A-Za-zα-ωΑ-Ω]⃗$/.test(q))add('vector-arrow-notation');
     if(q==='ℵ_0'||q==='ℵ')add('aleph-null');
     if(/^X(?:⟂|⊥)Y$/.test(q))add('random-variable-independence');
     if(informationCards.includes(options.slug)){
@@ -105,9 +125,10 @@
       if(q==='φ_h(x)')add('open-formula');if(q==='φ_h(x_p)')add('probe-coordinate');
       if(q==='A_h'||q==='B_h')add('quantifier-order');
     }
-    if(/^(?:[uv]×[uv]|r×F|r⃗×F⃗)$/.test(q))add('cross-product');
-    if(q==='r⃗')add('position-vector');if(q==='F⃗')add('force');if(q==='τ⃗')add('torque');
-    if(q==='x̅')add('sample-mean');if(q==='z̅')add('complex-conjugate');
+    if(/^(?:[uv]×[uv]|r×F|r⃗×F⃗)$/.test(q)||/^[A-Za-zα-ωΑ-Ω]⃗×[A-Za-zα-ωΑ-Ω]⃗$/.test(q)||(spatialVectorCards.has(options.slug)&&/^[uvw]×[uvw]$/.test(q)))add('cross-product');
+    if((spatialVectorCards.has(options.slug)&&/^[uvrw]·[uvrw]$/.test(q))||/^[A-Za-zα-ωΑ-Ω]⃗·[A-Za-zα-ωΑ-Ω]⃗$/.test(q))add('dot-product');
+    if(q==='r⃗')add(options.slug==='vector-projection'?'orthogonal-residual':'position-vector');if(q==='F⃗')add('force');if(q==='τ⃗')add('torque');
+    if(q==='x̅'||q==='y̅'||q==='X̅')add('sample-mean');if(q==='z̅')add('complex-conjugate');
     if(q==='σ^2')add('population-variance');
     if(/^v_(?:[nk]|[0-9]+|\{[nk][+-]1\})$/.test(q))add('sequence');
     if(/^d_(?:i|[1-4])$/.test(q))add('deviation');
@@ -117,7 +138,7 @@
     if(/^lim_?\{?[\s\S]*→/.test(q))add('limit-arrow');
     if(/^[-+]?(?:\d+(?:\.\d*)?|\.\d+)[eE][-+]?\d+$/.test(q))add('scientific-notation');
     if(/^E(?:\[[\s\S]+\]|\([\s\S]+\))$/.test(q))add('expected-value');
-    if(/^P\([\s\S]+\)$/.test(q)){if(['quantifier','relation'].includes(options.slug))add('predicate');else {add(q.includes('|')?'conditional-probability':'probability');if(q==='P(x)'||/^P\([-+]?\d+(?:\.\d+)?\)$/.test(q))add('predicate');}}
+    if(/^P\([\s\S]+\)$/.test(q)){if(options.slug==='permutation-count'&&/^P\([^,()]+,[^,()]+\)$/.test(q))add('permutation-count');else if(['quantifier','relation'].includes(options.slug))add('predicate');else {add(q.includes('|')?'conditional-probability':'probability');if(q==='P(x)'||/^P\([-+]?\d+(?:\.\d+)?\)$/.test(q))add('predicate');}}
     if(/^R(?:_h)?\(x,y\)$/.test(q)&&options.slug!=='quantifier-scope')add('binary-relation');
     if(q==='D×D')add('cartesian-product');
     if(/^P_h\(x\)$/.test(q))add('predicate');
@@ -148,14 +169,57 @@
     if(/^(?:cm|mm|kg|ms)$/.test(q))add('measurement-unit-symbols');
     if(/^\\mathcal\{B\}$/.test(q))add('basis');
     const command=/^\\([A-Za-z]+)$/.exec(raw);if(command&&texFunctions.has(command[1]))add(...named[command[1]]);
+    if(command?.[1]==='hat'||q==='ŷ')add('estimate-hat');if(command?.[1]==='dot'||q==='ẋ')add('time-derivative-dot');
     if(Object.hasOwn(named,q))add(...named[q]);
     const call=/^([A-Za-z][A-Za-z0-9_]*)\([\s\S]*\)$/.exec(q);if(call){if(Object.hasOwn(named,call[1]))add(...(call[1]==='R_h'&&options.slug==='quantifier-scope'?['station-relation']:named[call[1]]));else if(/^[fghWVARdSvLTw]$/.test(call[1])&&!(options.slug==='relation'&&call[1]==='R'))add('function-notation');}
-    if(Object.hasOwn(glyphs,q)&&!(q==='⊥'&&informationCards.includes(options.slug)))add(...glyphs[q]);if(q==='⟂')add('random-variable-independence');if(Object.hasOwn(greekIds,q))add(greekIds[q]);
+    if((q==='∧'||q==='∨')&&['meet-join','lattice-distributivity'].includes(options.slug))add(q==='∧'?'lattice-meet':'lattice-join');else if(Object.hasOwn(glyphs,q)&&!(q==='⊥'&&informationCards.includes(options.slug)))add(...glyphs[q]);if(q==='⟂')add('random-variable-independence');if(Object.hasOwn(greekIds,q))add(greekIds[q]);
     if(subChars.has(raw))add('subscript');if(supChars.has(raw))add('superscript','exponent');
     return unique(result);
   }
   function unitIds(query,{slug}={}){
     const q=normalize(query),unit=String(query).trim().toLowerCase();
+    if(unit==='bit/use'&&['channel-capacity','reference:bridge-information-rate-unit'].includes(slug))return['bridge-information-rate-unit'];
+    if(unit==='position'&&['hamming-code','reference:bridge-code-position-unit'].includes(slug))return['bridge-code-position-unit'];
+    if(unit==='word choice'&&['hamming-code','reference:bridge-data-word-unit'].includes(slug))return['bridge-data-word-unit'];
+    if(q==='nm'&&['photon-energy','reference:physics-nanometre-unit'].includes(slug))return['physics-nanometre-unit'];
+    if(q==='Hz'&&['photon-energy','reference:physics-hertz-unit'].includes(slug))return['physics-hertz-unit'];
+    if(q==='eV'&&['photon-energy','reference:physics-electronvolt-unit'].includes(slug))return['physics-electronvolt-unit'];
+    if(/^J[·⋅.*]?s$/.test(q)&&['photon-energy','reference:physics-action-unit'].includes(slug))return['physics-action-unit'];
+    if(q==='J/eV'&&['photon-energy','reference:physics-energy-conversion-unit'].includes(slug))return['physics-energy-conversion-unit'];
+    if(['container','containers'].includes(unit)&&['floor-ceiling','reference:number-container-count-unit'].includes(slug))return['number-container-count-unit'];
+    if(['choice','index'].includes(unit)&&['irrational-square-root','golden-ratio','reference:number-approximation-index-unit'].includes(slug))return['number-approximation-index-unit'];
+    if(unit==='choice'&&['platonic-solids','tessellation','perspective-projection','sphere-packing','reference:spatial-choice-unit'].includes(slug))return['spatial-choice-unit'];
+    if(['faces','vertices','edges','corners','sides','spheres'].includes(unit)&&['platonic-solids','tessellation','perspective-projection','sphere-packing','reference:spatial-count-unit'].includes(slug))return['spatial-count-unit'];
+    if(unit==='fraction'&&['sphere-packing','reference:spatial-volume-fraction'].includes(slug))return['spatial-volume-fraction'];
+    if(q==='min^2'&&['least-common-multiple','reference:number-period-product-unit'].includes(slug))return['number-period-product-unit'];
+    if(['tile','tiles','strip','strips','side','sides','cycle','cycles'].includes(unit)&&['least-common-multiple','perfect-number','regular-polygon','reference:number-count-unit'].includes(slug))return['number-count-unit'];
+    if(q==='mm^4'&&['covariance-matrix','reference:comparison-covariance-determinant-unit'].includes(slug))return['comparison-covariance-determinant-unit'];
+    if(q==='mm^2'&&slug==='covariance-matrix')return['design-variance-unit'];
+    if(['sign pattern','sign patterns'].includes(unit)&&['wilcoxon-signed-rank','reference:comparison-sign-pattern-unit'].includes(slug))return['comparison-sign-pattern-unit'];
+    if(['point','points'].includes(unit)&&slug==='mann-whitney')return['sampling-task-point-unit'];
+    if(['allocation','allocations'].includes(unit)&&slug==='mann-whitney')return['sampling-allocation-count-unit'];
+    if(['m·min','m.min','m min'].includes(unit)&&['covariance','reference:design-covariance-product-unit'].includes(slug))return['design-covariance-product-unit'];
+    if(unit==='min/m'&&['covariance','reference:design-time-per-length-unit'].includes(slug))return['design-time-per-length-unit'];
+    if(q==='mm^2'&&['normal-variance-interval','reference:design-variance-unit'].includes(slug))return['design-variance-unit'];
+    if(['reading','readings','readings per group'].includes(unit)&&['normal-variance-interval','normal-test-power'].includes(slug))return['sampling-reading-count-unit'];
+    if(['point','points'].includes(unit)&&(!slug||['randomization-distribution','reference:sampling-task-point-unit'].includes(slug)))return['sampling-task-point-unit'];
+    if(['allocation','allocations'].includes(unit)&&(!slug||['randomization-distribution','reference:sampling-allocation-count-unit'].includes(slug)))return['sampling-allocation-count-unit'];
+    if(['reading','readings'].includes(unit)&&['student-mean-interval','reference:sampling-reading-count-unit'].includes(slug))return['sampling-reading-count-unit'];
+    if(['people','person'].includes(unit)&&['inclusion-exclusion','reference:discrete-person-count-unit'].includes(slug))return['discrete-person-count-unit'];
+    if(['slots','slot'].includes(unit)&&(!slug||['graph-coloring','reference:discrete-time-slot-count-unit'].includes(slug)))return['discrete-time-slot-count-unit'];
+    if(['assignments','assignment'].includes(unit)&&(!slug||['graph-coloring','reference:discrete-assignment-count-unit'].includes(slug)))return['discrete-assignment-count-unit'];
+    if(unit==='commands'&&(!slug||['geometric-series','reference:analysis-command-count'].includes(slug)))return['analysis-command-count'];
+    if(['reading','readings'].includes(unit)&&(!slug||['normal-mean-interval','reference:estimation-reading-count-unit'].includes(slug)))return['estimation-reading-count-unit'];
+    if(['per min','1/min','min⁻¹'].includes(unit))return['inverse-minute-unit','compound-unit'];
+    if(['credits','credits/l'].includes(unit))return['algebra-contribution-units'];
+    if(unit==='roots')return['algebra-real-root-count-units'];
+    if(unit==='rad/s')return['angular-velocity-unit','compound-unit'];if(/^kg[·⋅.*]m\/s$/.test(unit))return['momentum-unit','compound-unit'];
+    if(unit==='chart units')return['chart-coordinate-unit'];if(unit==='time units')return['model-time-unit'];if(unit==='per time unit')return['model-return-rate-unit'];if(unit==='cost units')return['model-cost-unit'];
+    if(['item','factor','factors','piece','pieces','part','parts','people','person','role','roles','arrangement','arrangements','selection','selections','place','places'].includes(unit))return['number-count-unit'];
+    if(q==='K')return['kelvin'];if(q==='Pa'||q==='kPa')return['pascal'];if(q==='mol')return['mole'];if(q==='J/K')return['entropy-unit'];
+    if(unit==='reader'||unit==='readers')return['reader-count-unit'];if(unit==='packet'||unit==='packets')return['packet-count-unit'];if(unit==='draw'||unit==='draws')return['draw-count-unit'];if(unit==='arrivals/minute')return['arrival-rate-unit'];
+    if(unit==='cm/day')return['compound-unit'];if(unit==='minutes'||unit==='days')return['measurement-unit-symbols'];
+    if(['position units','units per time','equilibria','stationary points','tools','activation','weight units'].includes(unit))return['declared-unit'];
     if(q==='N')return['newton'];if(q==='J')return['joule'];
     if(['pair','pairs','ordered pairs'].includes(unit))return['declared-unit'];
     if(/^N[·.*]?m$/.test(q))return['compound-unit',...(!slug||slug==='torque'?['torque-unit']:[])];
@@ -220,13 +284,17 @@
       const probabilisticIndependence=/^X\s*(?:⟂|⊥|\\perp)\s*Y(?![A-Za-z0-9_])/.exec(rest);
       if(probabilisticIndependence){emit(probabilisticIndependence[0],i,'structured',{entryIds:['random-variable-independence']});i+=probabilisticIndependence[0].length;continue;}
 
-      const meanBar=/^[xz][̄̅]/u.exec(rest);if(meanBar){emit(meanBar[0],i,'structured');i+=meanBar[0].length;continue;}
-      const texVectorProduct=/^(\\vec\s*\{r\})\s*\\times\s*(\\vec\s*\{F\})/.exec(rest);if(texVectorProduct){emit(texVectorProduct[0],i,'structured',{entryIds:['cross-product']});emit(texVectorProduct[1],i,'structured',{entryIds:['position-vector']});emit(texVectorProduct[2],i+texVectorProduct[0].lastIndexOf(texVectorProduct[2]),'structured',{entryIds:['force']});i+=texVectorProduct[0].length;continue;}
-      const texVector=/^\\vec\s*\{(?:[A-Za-zα-ωΑ-Ω]|\\[A-Za-z]+)\}/.exec(rest);if(texVector){emit(texVector[0],i,'structured');i+=texVector[0].length;continue;}
+      const meanBar=/^[xyXzd][̄̅]/u.exec(rest);if(meanBar){emit(meanBar[0],i,'structured');i+=meanBar[0].length;continue;}
+      const primedLetter=/^[A-Za-z]['’′″]+(?![A-Za-z0-9_])/.exec(rest);if(primedLetter&&!/^\s*[([]/.test(rest.slice(primedLetter[0].length))){emit(primedLetter[0],i,'structured');i+=primedLetter[0].length;continue;}
+      if(c==='ŷ'||c==='ẋ'){emit(c,i,'structured');i+=c.length;continue;}
+      // Consume vector products before scalar operators, while retaining every argument's reader.
+      const vectorTriple=texTripleProduct.exec(rest);if(vectorTriple){emit(vectorTriple[0],i,'structured',{entryIds:['scalar-triple-product','dot-product']});const crossStart=vectorTriple[0].indexOf(vectorTriple[2]);emit(vectorTriple[0].slice(crossStart,vectorTriple[0].lastIndexOf(')')).trim(),i+crossStart,'structured',{entryIds:['cross-product']});delimiters(i+vectorTriple[0].indexOf('('),i+vectorTriple[0].lastIndexOf(')'));for(let part=1;part<=3;part++){const offset=part===1?0:vectorTriple[0].indexOf(vectorTriple[part],part===2?crossStart:crossStart+vectorTriple[2].length);emit(vectorTriple[part],i+offset,'structured');}i+=vectorTriple[0].length;continue;}
+      const vectorOperation=texCrossProduct.exec(rest)||texDotProduct.exec(rest);if(vectorOperation){emit(vectorOperation[0],i,'structured',{entryIds:[vectorOperation[0].includes('\\times')?'cross-product':'dot-product']});emit(vectorOperation[1],i,'structured');emit(vectorOperation[2],i+vectorOperation[0].lastIndexOf(vectorOperation[2]),'structured');i+=vectorOperation[0].length;continue;}
+      const texVector=texVectorArgument.exec(rest);if(texVector){emit(texVector[0],i,'structured');i+=texVector[0].length;continue;}
       const nativeVector=/^[A-Za-zα-ωΑ-Ω]⃗/.exec(rest);
-      const arrowProduct=/^r⃗\s*×\s*F⃗/.exec(rest);if(arrowProduct){emit(arrowProduct[0],i,'structured',{entryIds:['cross-product']});i+=arrowProduct[0].length;continue;}
+      const arrowProduct=/^([A-Za-zα-ωΑ-Ω]⃗)\s*([×·])\s*([A-Za-zα-ωΑ-Ω]⃗)/.exec(rest);if(arrowProduct){emit(arrowProduct[0],i,'structured',{entryIds:[arrowProduct[2]==='×'?'cross-product':'dot-product']});emit(arrowProduct[1],i,'structured');emit(arrowProduct[3],i+arrowProduct[0].lastIndexOf(arrowProduct[3]),'structured');i+=arrowProduct[0].length;continue;}
       if(nativeVector){emit(nativeVector[0],i,'structured');i+=nativeVector[0].length;continue;}
-      const texBar=/^\\(?:bar|overline)\s*\{([xz])\}/.exec(rest);if(texBar){emit(texBar[0],i,'structured');i+=texBar[0].length;continue;}
+      const texBar=/^\\(?:bar|overline)\s*(?:\{([xyXzd])\}|([xyXzd])(?![A-Za-z]))/.exec(rest);if(texBar){emit(texBar[0],i,'structured');i+=texBar[0].length;continue;}
       const thetaCall=/^\\Theta\s*\(/.exec(rest);if(thetaCall){const start=i+thetaCall[0].length-1,end=balanced(text,start,'(',')');if(end){emit(text.slice(i,end),i,'structured');delimiters(start,end-1);children(start+1,end-1);i=end;continue;}}
       const nativeDifference=kind!=='tex'&&/^[A-Z]\\[A-Z]\b/.exec(rest);if(nativeDifference){emit(nativeDifference[0],i,'structured',{entryIds:['set-difference']});i+=nativeDifference[0].length;continue;}
       if(c==='~'&&kind==='tex'){emit(c,i,'formatting',{reason:'TeX nonbreaking space'});i++;continue;}
@@ -257,7 +325,9 @@
       const fraction=/^[+−-]?\d+\/\d+(?!\d)/.exec(rest);if(fraction){emit(fraction[0],i,'structured');const slash=i+fraction[0].indexOf('/');emit('/',slash,'operator');i+=fraction[0].length;continue;}
       if(rest.startsWith('D×D')){emit('D×D',i,'structured',{entryIds:['cartesian-product']});i+=3;continue;}
       if(rest.startsWith('∃!')){emit('∃!',i,'structured');i+=2;continue;}
-      const vectorProduct=/^(?:[uv]\s*×\s*[uv]|r\s*×\s*F)(?![A-Za-z0-9_])/.exec(rest);if(vectorProduct){emit(vectorProduct[0],i,'structured',{entryIds:['cross-product']});i+=vectorProduct[0].length;continue;}
+      const nativeTriple=spatialVectorCards.has(slug)&&/^([uvw])\s*·\s*\(\s*([uvw])\s*×\s*([uvw])\s*\)/.exec(rest);if(nativeTriple){emit(nativeTriple[0],i,'structured',{entryIds:['scalar-triple-product','dot-product']});const crossStart=nativeTriple[0].indexOf(nativeTriple[2],nativeTriple[0].indexOf('('));emit(nativeTriple[0].slice(crossStart,nativeTriple[0].lastIndexOf(')')).trim(),i+crossStart,'structured',{entryIds:['cross-product']});delimiters(i+nativeTriple[0].indexOf('('),i+nativeTriple[0].lastIndexOf(')'));i+=nativeTriple[0].length;continue;}
+      const vectorProduct=(spatialVectorCards.has(slug)?/^[uvw]\s*×\s*[uvw](?![A-Za-z0-9_])/:/^(?:[uv]\s*×\s*[uv]|r\s*×\s*F)(?![A-Za-z0-9_])/).exec(rest);if(vectorProduct){emit(vectorProduct[0],i,'structured',{entryIds:['cross-product']});i+=vectorProduct[0].length;continue;}
+      const nativeDot=spatialVectorCards.has(slug)&&/^[uvrw]\s*·\s*[uvrw](?![A-Za-z0-9_])/.exec(rest);if(nativeDot){emit(nativeDot[0],i,'structured',{entryIds:['dot-product']});i+=nativeDot[0].length;continue;}
       if(rest.startsWith('||')||c==='‖'){
         const delimiter=c==='‖'?'‖':'||',end=text.indexOf(delimiter,i+delimiter.length);if(end>=0){const token=text.slice(i,end+delimiter.length);emit(token,i,'structured');children(i+delimiter.length,end);i+=token.length;continue;}
       }
@@ -268,6 +338,11 @@
       const predicateStart=/^(?:[PR](?:_h|_\{h\}|ₕ)|φ(?:_h|_\{h\}|ₕ)|B(?:ε|_ε|_\{ε\})|δ)\s*\(/.exec(rest);
       const nativeStart=/^([A-Za-z][A-Za-z0-9_]*)\s*[([]/.exec(rest),recognizedStart=predicateStart||functionStart||(['probability-distribution','expected-value','entropy',...informationCards].includes(slug)&&/^(?:H|I|p_X|p_Y)\s*[([]/.exec(rest))||(nativeStart&&Object.hasOwn(named,nativeStart[1])?nativeStart:null);
       if(recognizedStart){const open=rest[recognizedStart[0].length-1],start=i+recognizedStart[0].length-1,end=balanced(text,start,open,open==='('?')':']');if(end){const token=text.slice(i,end),ids=classify(token,{slug});if(ids.length){emit(token,i,'structured',{entryIds:ids});delimiters(start,end-1);children(start+1,end-1);i=end;continue;}}}
+      // Scoped physical powers must precede generic decorated identifiers.
+      const periodProductUnit=['least-common-multiple','reference:number-period-product-unit'].includes(slug)&&/^min(?:²|\^(?:2|\{2\}))(?![\p{L}\p{N}_/])/u.exec(rest);
+      if(periodProductUnit){emit(periodProductUnit[0],i,'unit',{entryIds:unitIds(periodProductUnit[0],{slug})});i+=periodProductUnit[0].length;continue;}
+      const covarianceUnit=['covariance-matrix','reference:comparison-covariance-determinant-unit'].includes(slug)&&/^mm(?:⁴|\^(?:4|\{4\}))(?![\p{L}\p{N}_/])/u.exec(rest);
+      if(covarianceUnit){emit(covarianceUnit[0],i,'unit',{entryIds:unitIds(covarianceUnit[0],{slug})});i+=covarianceUnit[0].length;continue;}
       const decorated=/^[A-Za-zα-ωΑ-Ωℵℕ][A-Za-z0-9α-ωΑ-Ω]*(?:_[A-Za-z0-9]|_\{[^{}]+\}|\^[A-Za-z0-9+-]|\^\{[^{}]+\}|[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]+)(?:[₀-₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᵀ]*)/.exec(rest);
       if(decorated&&!/[A-Za-z_]/.test(rest[decorated[0].length]||'')){emit(decorated[0],i,'structured');for(const match of decorated[0].matchAll(/\{([^{}]*)\}/g)){const start=i+match.index;delimiters(start,start+match[0].length-1);children(start+1,start+match[0].length-1);}i+=decorated[0].length;continue;}
       const compound=/^(?:N(?:[·.]|\s+)m|m\/s(?:²|\^2)?|ms\/item|L\/min|km\/h|(?:cm|mm|m)[²³]|px)(?![\p{L}\p{N}_/])/u.exec(rest);if(compound){emit(compound[0],i,'unit',{entryIds:unitIds(compound[0],{slug})});if(/^N/.test(compound[0])){emit('N',i,'unit',{entryIds:['newton']});emit('m',i+compound[0].lastIndexOf('m'),'unit',{entryIds:['measurement-unit-symbols']});}i+=compound[0].length;continue;}
@@ -289,7 +364,7 @@
     // A glyph resolving somewhere in the index must not hide a wrong role.
     const sumContexts=new Set(['probability','reference:riemann-sum']);
     for(const field of allFields)if(field.kind!=='unit'&&sumContexts.has(String(field.slug||'')))for(const match of field.text.matchAll(/Σ|\\Sigma\b/g))review.push({slug:String(field.slug||''),location:field.location||'Declared runtime notation',token:match[0],offset:match.index,reason:'This context declares summation. Use the operator ∑ or \\sum, not the Greek letter Σ.'});
-    for(const field of allFields)if(field.kind!=='unit')for(const match of field.text.matchAll(/(?<![\\\w])([A-Za-z][A-Za-z0-9_]*)\(/g)){const name=match[1];if(name.length>1&&!Object.hasOwn(named,name)&&!/^log_(?:[A-Za-z0-9]*|\{[^{}]+\})$/.test(name)&&!/^log\d+$/.test(name)&&name!=='rx_n')review.push({slug:String(field.slug||''),location:field.location||'Declared runtime notation',token:name,offset:match.index,reason:'Adjacent plain callable needs an explicit mathematical reader or a reviewed prose exclusion.'});}
+    for(const field of allFields)if(field.kind!=='unit')for(const match of field.text.matchAll(/(?<![\\\w])([A-Za-z][A-Za-z0-9_]*)\(/g)){const name=match[1],localBinaryEntropy=name==='H_2'&&classify(name,{slug:field.slug}).includes('bridge-binary-entropy-function');if(name.length>1&&!Object.hasOwn(named,name)&&!localBinaryEntropy&&!/^log_(?:[A-Za-z0-9]*|\{[^{}]+\})$/.test(name)&&!/^log\d+$/.test(name)&&name!=='rx_n')review.push({slug:String(field.slug||''),location:field.location||'Declared runtime notation',token:name,offset:match.index,reason:'Adjacent plain callable needs an explicit mathematical reader or a reviewed prose exclusion.'});}
     for(const field of allFields)for(const occurrence of extract(field.text,{kind:field.kind,slug:field.slug})){
       const reference=field.reference===true||String(field.slug||'').startsWith('reference:');
       const record={slug:String(field.slug||''),location:field.location||'Declared runtime notation',text:field.text,...(reference?{reference:true}:{}),...(field.ownerEntryId?{ownerEntryId:field.ownerEntryId}:{}),...occurrence};
@@ -300,6 +375,7 @@
       const resolved=candidates.filter(id=>{
         const entry=byId.get(id);if(!entry)return false;
         if(!reference&&Array.isArray(entry.formulaCards)&&!entry.formulaCards.includes(record.slug))return false;
+        if(!reference&&entry.excludedFormulaCards?.includes(record.slug))return false;
         if(!reference&&record.kind==='identifier'&&Array.isArray(entry.grammarCards)&&!entry.grammarCards.includes(record.slug))return false;
         return true;
       });

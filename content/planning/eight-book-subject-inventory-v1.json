@@ -1,0 +1,6001 @@
+{
+  "schema_version": "1.0.0",
+  "title": "Math Cards — eight-book subject inventory",
+  "created_date": "2026-11-02",
+  "purpose": "Reusable planning inventory for expansion of Math Cards. This file does not modify or audit the existing portfolio project.",
+  "completeness": {
+    "status": "comprehensive_subject_inventory_with_explicit_verification_gaps",
+    "exhaustive_page_audit": false,
+    "reason": "Uploaded images show covers or publication pages, not complete contents/indexes. Accessible matching sources were checked; unavailable detail remains provisional.",
+    "finalization_needed": [
+      "Devore 1987 contents and index",
+      "Solomon complete original contents and index",
+      "Grätzer original contents and index",
+      "Detailed Information chapter/index checks",
+      "Page-level anchors for all authored cards"
+    ]
+  },
+  "evidence_statuses": {
+    "confirmed_scope": "Supported by photographed text, matching book contents, original chapter text, or publisher/preview terminology. Does not certify depth or all subordinate claims.",
+    "provisional_book_mapping": "Candidate subject-to-book association requiring an original-page or exact-edition check. Not verified book coverage.",
+    "proposed_bridge": "Editorial relationship or implementation suggestion, not asserted source coverage."
+  },
+  "source_policy": {
+    "checked_date": "2026-11-02",
+    "page_numbers": "Not invented; add exact page anchors when inspecting original books.",
+    "depth": "Keep historical mention, introductory explanation, textbook treatment, and application distinct.",
+    "historical_status": "Recheck the present status of conjectures, scientific claims, and methods before authoring current explanatory cards.",
+    "rights": "Use original explanations and diagrams; owning these books does not grant reuse rights for their scans or illustrations."
+  },
+  "books": [
+    {
+      "id": "B01",
+      "title": "Principles and Procedures of Statistics: A Biometrical Approach",
+      "authors": [
+        "Robert G. D. Steel",
+        "James H. Torrie"
+      ],
+      "edition": "2nd, 1980",
+      "isbn10": "0070609268",
+      "photo_number": 1,
+      "role": "Statistical inference and experimental design",
+      "verification": "Matching edition identity and chapter-level coverage confirmed."
+    },
+    {
+      "id": "B02",
+      "title": "The Computational Brain",
+      "authors": [
+        "Patricia S. Churchland",
+        "Terrence J. Sejnowski"
+      ],
+      "edition": "Original work 1992; photographed paperback ISBN published 1994",
+      "isbn10": "0262531208",
+      "photo_number": 2,
+      "role": "Mathematics of neural computation and biological models",
+      "verification": "Matching ISBN, original chapter text, original contents, and publisher description checked. Historical research context retained."
+    },
+    {
+      "id": "B03",
+      "title": "Probability and Statistics for Engineering and the Sciences",
+      "authors": [
+        "Jay L. Devore"
+      ],
+      "edition": "2nd, 1987",
+      "isbn10": "0534068286",
+      "photo_number": 3,
+      "role": "Probability foundations and applied statistical methods",
+      "verification": "Edition identity confirmed. Detailed 1987 contents were not accessible; candidate topic mappings require edition check. Later editions are not treated as proof of 1987 coverage."
+    },
+    {
+      "id": "B04",
+      "title": "The Language of Mathematics: The Stories behind the Symbols",
+      "authors": [
+        "Raúl Rojas"
+      ],
+      "translator": "Eduardo Aparicio",
+      "edition": "First English edition, 2025",
+      "isbn13": "9780691201887",
+      "photo_number": 4,
+      "role": "Meaning, notation, history, and cultural context",
+      "verification": "Matching ISBN and publisher-distributed detailed contents checked. Coverage is often historical introduction rather than technical mastery."
+    },
+    {
+      "id": "B05",
+      "title": "The Little Book of Mathematical Principles, Theories & Things",
+      "authors": [
+        "Robert Solomon"
+      ],
+      "edition": "IMM Lifestyle Books, 2016",
+      "isbn13": "9781504800532",
+      "photo_number": 5,
+      "role": "Chronological discovery survey across mathematical subjects",
+      "verification": "Matching publisher description and same-work Google preview checked. Additional candidate subjects remain explicitly provisional; the advertised 120-plus entries are not represented as fully page-audited."
+    },
+    {
+      "id": "B06",
+      "title": "Lattice Theory: First Concepts and Distributive Lattices",
+      "authors": [
+        "George Grätzer"
+      ],
+      "edition": "Dover 2009 reprint of 1971 work",
+      "isbn13": "9780486471730",
+      "photo_number": 6,
+      "role": "Order, algebraic structure, and distributive lattices",
+      "verification": "Photo and matching-ISBN transcribed contents checked. Original contents PDF fetch failed. Detailed mappings remain provisional pending original pages. Do not substitute General Lattice Theory or Lattice Theory: Foundation; eight-appendix wording on the photographed back cover is not reliable evidence of those contents."
+    },
+    {
+      "id": "B07",
+      "title": "Thermodynamics",
+      "authors": [
+        "Gilbert Newton Lewis",
+        "Merle Randall"
+      ],
+      "revised_by": [
+        "Kenneth S. Pitzer",
+        "Leo Brewer"
+      ],
+      "edition": "Dover 2020 reprint of 1961 2nd edition",
+      "isbn13": "9780486842745",
+      "photo_number": 7,
+      "role": "Physical and chemical applications of mathematical models",
+      "verification": "Matching ISBN and detailed contents checked. Original 1923 title is not used as a substitute for the revised edition."
+    },
+    {
+      "id": "B08",
+      "title": "The Information: A History, a Theory, a Flood",
+      "authors": [
+        "James Gleick"
+      ],
+      "edition": "2011 hardcover",
+      "isbn13": "9780375423727",
+      "photo_number": 8,
+      "role": "Information, communication, computation, and intellectual history",
+      "verification": "Photo, matching-work contents, and publisher description checked. Technical subtopics inferred from broad headings remain provisional. Jacket praise for Chaos, Genius, and Isaac Newton does not identify additional photographed books."
+    }
+  ],
+  "domains": [
+    {
+      "id": "notation",
+      "label": "Mathematical language and notation"
+    },
+    {
+      "id": "numbers",
+      "label": "Numbers and number theory"
+    },
+    {
+      "id": "algebra",
+      "label": "Algebra and functions"
+    },
+    {
+      "id": "geometry",
+      "label": "Geometry and spatial reasoning"
+    },
+    {
+      "id": "analysis",
+      "label": "Calculus and analysis"
+    },
+    {
+      "id": "discrete",
+      "label": "Discrete mathematics and combinatorics"
+    },
+    {
+      "id": "logic",
+      "label": "Logic, foundations, and proof"
+    },
+    {
+      "id": "order",
+      "label": "Order and lattice theory"
+    },
+    {
+      "id": "probability",
+      "label": "Probability and randomness"
+    },
+    {
+      "id": "statistics",
+      "label": "Statistics and inference"
+    },
+    {
+      "id": "design",
+      "label": "Experimental design and statistical modeling"
+    },
+    {
+      "id": "information",
+      "label": "Information and communication"
+    },
+    {
+      "id": "computation",
+      "label": "Computation and algorithms"
+    },
+    {
+      "id": "dynamics",
+      "label": "Dynamics and complex systems"
+    },
+    {
+      "id": "neuroscience",
+      "label": "Computational neuroscience"
+    },
+    {
+      "id": "thermodynamics",
+      "label": "Thermodynamics and physical chemistry"
+    },
+    {
+      "id": "history",
+      "label": "History and philosophy of mathematical ideas"
+    },
+    {
+      "id": "physics",
+      "label": "Mathematical physics"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "observations",
+      "label": "Observations",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "mean",
+      "label": "Mean",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "standard-deviation",
+      "label": "Standard deviation",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "normal-sampling",
+      "label": "Normal sampling",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "two-sample-comparisons",
+      "label": "Two-sample comparisons",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "confidence-intervals",
+      "label": "Confidence intervals",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        },
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Candidate coverage; the 1987 contents were not inspected."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "hypothesis-tests",
+      "label": "Hypothesis tests",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        },
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Candidate coverage; the 1987 contents were not inspected."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "degrees-of-freedom",
+      "label": "Degrees of freedom",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "chi-square-methods",
+      "label": "Chi-square methods",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "categorical-data",
+      "label": "Categorical data",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "contingency-tables",
+      "label": "Contingency tables",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "nonparametric-statistics",
+      "label": "Nonparametric statistics",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        },
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Candidate coverage; the 1987 contents were not inspected."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "finite-population-sampling",
+      "label": "Finite-population sampling",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "probability",
+      "label": "Probability",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        },
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "normal-distribution",
+      "label": "Normal distribution",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        },
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "discrete-distributions",
+      "label": "Discrete distributions",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "binomial-distribution",
+      "label": "Binomial distribution",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook"
+        },
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        },
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "experimental-design",
+      "label": "Experimental design",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "randomization",
+      "label": "Randomization",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "replication",
+      "label": "Replication",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "blocking",
+      "label": "Blocking",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "analysis-of-variance",
+      "label": "Analysis of variance",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        },
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "multiple-comparisons",
+      "label": "Multiple comparisons",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "multiway-classification",
+      "label": "Multiway classification",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "factorial-experiments",
+      "label": "Factorial experiments",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "interactions",
+      "label": "Interactions",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "split-plot-designs",
+      "label": "Split-plot designs",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "covariance-analysis",
+      "label": "Covariance analysis",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "unbalanced-designs",
+      "label": "Unbalanced designs",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "linear-regression",
+      "label": "Linear regression",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        },
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "correlation",
+      "label": "Correlation",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        },
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "multiple-regression",
+      "label": "Multiple regression",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        },
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "partial-correlation",
+      "label": "Partial correlation",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "curve-fitting",
+      "label": "Curve fitting",
+      "domain_ids": [
+        "design",
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        },
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S03"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "residuals",
+      "label": "Residuals",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        },
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "orthogonal-comparisons",
+      "label": "Orthogonal comparisons",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "latin-square-designs",
+      "label": "Latin-square designs",
+      "domain_ids": [
+        "design"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Some items are supported by indexed terminology rather than inspected subsection pages."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "matrix-notation",
+      "label": "Matrix notation",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "applied"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "matrix-regression",
+      "label": "Matrix regression",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B01",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S01"
+          ],
+          "coverage_depth": "applied"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "computable-functions",
+      "label": "Computable functions",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S03"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "linear-associators",
+      "label": "Linear associators",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S03"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "hopfield-networks",
+      "label": "Hopfield networks",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S03"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "boltzmann-machines",
+      "label": "Boltzmann machines",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S03"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "network-learning",
+      "label": "Network learning",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S03"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "competitive-learning",
+      "label": "Competitive learning",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S03"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "recurrent-networks",
+      "label": "Recurrent networks",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S03"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "optimization",
+      "label": "Optimization",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S03"
+          ],
+          "coverage_depth": "modeling"
+        },
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "neurons",
+      "label": "Neurons",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "synapses",
+      "label": "Synapses",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "membrane-potentials",
+      "label": "Membrane potentials",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "excitation-and-inhibition",
+      "label": "Excitation and inhibition",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "neural-circuits",
+      "label": "Neural circuits",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "distributed-representation",
+      "label": "Distributed representation",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "visual-perception",
+      "label": "Visual perception",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "stereo-vision",
+      "label": "Stereo vision",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "receptive-fields",
+      "label": "Receptive fields",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "vector-coding",
+      "label": "Vector coding",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "learning-and-memory",
+      "label": "Learning and memory",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "synaptic-plasticity",
+      "label": "Synaptic plasticity",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "hippocampus",
+      "label": "Hippocampus",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "sensorimotor-integration",
+      "label": "Sensorimotor integration",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "vestibulo-ocular-reflex",
+      "label": "Vestibulo-ocular reflex",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "neural-oscillators",
+      "label": "Neural oscillators",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "neuron-models",
+      "label": "Neuron models",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "neurobiological-measurement",
+      "label": "Neurobiological measurement",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "levels-of-organization",
+      "label": "Levels of organization",
+      "domain_ids": [
+        "neuroscience"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B02",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S02",
+            "S04"
+          ],
+          "coverage_depth": "modeling"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "descriptive-statistics",
+      "label": "Descriptive statistics",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Candidate coverage; the 1987 contents were not inspected."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "populations-and-samples",
+      "label": "Populations and samples",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Candidate coverage; the 1987 contents were not inspected."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "sampling-distributions",
+      "label": "Sampling distributions",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Candidate coverage; the 1987 contents were not inspected."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "point-estimation",
+      "label": "Point estimation",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Candidate coverage; the 1987 contents were not inspected."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "paired-comparisons",
+      "label": "Paired comparisons",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Candidate coverage; the 1987 contents were not inspected."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "variance-inference",
+      "label": "Variance inference",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Candidate coverage; the 1987 contents were not inspected."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "statistical-quality-control",
+      "label": "Statistical quality control",
+      "domain_ids": [
+        "statistics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Candidate coverage; the 1987 contents were not inspected."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "sample-spaces",
+      "label": "Sample spaces",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "events",
+      "label": "Events",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "counting-methods",
+      "label": "Counting methods",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "conditional-probability",
+      "label": "Conditional probability",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "independence",
+      "label": "Independence",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "random-variables",
+      "label": "Random variables",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "probability-distributions",
+      "label": "Probability distributions",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "expected-value",
+      "label": "Expected value",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "variance",
+      "label": "Variance",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "joint-distributions",
+      "label": "Joint distributions",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "covariance",
+      "label": "Covariance",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "poisson-distribution",
+      "label": "Poisson distribution",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "exponential-distribution",
+      "label": "Exponential distribution",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "central-limit-theorem",
+      "label": "Central limit theorem",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B03",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S05",
+            "S06"
+          ],
+          "coverage_depth": "edition_check_required",
+          "note": "Conventional candidate topics for this work; verify in the photographed edition."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "symbol-history",
+      "label": "Symbol history",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "numerals",
+      "label": "Numerals",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "greek-letters",
+      "label": "Greek letters",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "variables",
+      "label": "Variables",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "absolute-value",
+      "label": "Absolute value",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "powers-and-subscripts",
+      "label": "Powers and subscripts",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "decimal-notation",
+      "label": "Decimal notation",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "arithmetic-operators",
+      "label": "Arithmetic operators",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "equality",
+      "label": "Equality",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "inequalities",
+      "label": "Inequalities",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "grouping-symbols",
+      "label": "Grouping symbols",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "function-notation",
+      "label": "Function notation",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "differential-notation",
+      "label": "Differential notation",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "integral-notation",
+      "label": "Integral notation",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "partial-derivative-notation",
+      "label": "Partial-derivative notation",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "nabla",
+      "label": "Nabla",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "delta-notation",
+      "label": "Delta notation",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "limit-notation",
+      "label": "Limit notation",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "quantifiers",
+      "label": "Quantifiers",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "membership",
+      "label": "Membership",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "union-and-intersection",
+      "label": "Union and intersection",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "infinity-notation",
+      "label": "Infinity notation",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "factorial-notation",
+      "label": "Factorial notation",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "summation-notation",
+      "label": "Summation notation",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "floor-and-ceiling",
+      "label": "Floor and ceiling",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "binomial-notation",
+      "label": "Binomial notation",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "einstein-summation",
+      "label": "Einstein summation",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "proof-completion-notation",
+      "label": "Proof-completion notation",
+      "domain_ids": [
+        "notation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "zero",
+      "label": "Zero",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        },
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey",
+          "note": "Confirmed at publisher/preview-keyword level; not a claim of full textbook treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "negative-numbers",
+      "label": "Negative numbers",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        },
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey",
+          "note": "Confirmed at publisher/preview-keyword level; not a claim of full textbook treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "rational-numbers",
+      "label": "Rational numbers",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "real-numbers",
+      "label": "Real numbers",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        },
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey",
+          "note": "Confirmed at publisher/preview-keyword level; not a claim of full textbook treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "imaginary-unit",
+      "label": "Imaginary unit",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "pi",
+      "label": "Pi",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "euler-number",
+      "label": "Euler number",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "algebraic-symbolism",
+      "label": "Algebraic symbolism",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "functions",
+      "label": "Functions",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "matrices",
+      "label": "Matrices",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "roots",
+      "label": "Roots",
+      "domain_ids": [
+        "analysis"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "derivatives",
+      "label": "Derivatives",
+      "domain_ids": [
+        "analysis"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "partial-derivatives",
+      "label": "Partial derivatives",
+      "domain_ids": [
+        "analysis"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "vector-calculus",
+      "label": "Vector calculus",
+      "domain_ids": [
+        "analysis"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "limits",
+      "label": "Limits",
+      "domain_ids": [
+        "analysis"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "exponential-growth",
+      "label": "Exponential growth",
+      "domain_ids": [
+        "analysis"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "empty-set",
+      "label": "Empty set",
+      "domain_ids": [
+        "logic"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "cardinality",
+      "label": "Cardinality",
+      "domain_ids": [
+        "logic"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "infinite-sets",
+      "label": "Infinite sets",
+      "domain_ids": [
+        "logic"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "factorials",
+      "label": "Factorials",
+      "domain_ids": [
+        "discrete"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "binomial-coefficients",
+      "label": "Binomial coefficients",
+      "domain_ids": [
+        "discrete"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "modular-arithmetic",
+      "label": "Modular arithmetic",
+      "domain_ids": [
+        "discrete"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "trigonometry",
+      "label": "Trigonometry",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "planck-constant",
+      "label": "Planck constant",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "speed-of-light",
+      "label": "Speed of light",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "scientific-publishing",
+      "label": "Scientific publishing",
+      "domain_ids": [
+        "history"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "notation-development",
+      "label": "Notation development",
+      "domain_ids": [
+        "history"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B04",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S07"
+          ],
+          "coverage_depth": "historical_introduction"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "numeral-systems",
+      "label": "Numeral systems",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey",
+          "note": "Confirmed at publisher/preview-keyword level; not a claim of full textbook treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "fractions",
+      "label": "Fractions",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey",
+          "note": "Confirmed at publisher/preview-keyword level; not a claim of full textbook treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "irrational-numbers",
+      "label": "Irrational numbers",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey",
+          "note": "Confirmed at publisher/preview-keyword level; not a claim of full textbook treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "perfect-numbers",
+      "label": "Perfect numbers",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey",
+          "note": "Confirmed at publisher/preview-keyword level; not a claim of full textbook treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "prime-numbers",
+      "label": "Prime numbers",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey",
+          "note": "Confirmed at publisher/preview-keyword level; not a claim of full textbook treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "complex-numbers",
+      "label": "Complex numbers",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey",
+          "note": "Confirmed at publisher/preview-keyword level; not a claim of full textbook treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "quadratic-equations",
+      "label": "Quadratic equations",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "cubic-equations",
+      "label": "Cubic equations",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "quartic-equations",
+      "label": "Quartic equations",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "quintic-equations",
+      "label": "Quintic equations",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "galois-theory",
+      "label": "Galois theory",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "logarithms",
+      "label": "Logarithms",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "euclidean-geometry",
+      "label": "Euclidean geometry",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "parallel-postulate",
+      "label": "Parallel postulate",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "regular-polygons",
+      "label": "Regular polygons",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "platonic-solids",
+      "label": "Platonic solids",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "golden-ratio",
+      "label": "Golden ratio",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "classical-constructions",
+      "label": "Classical constructions",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "sphere-measurement",
+      "label": "Sphere measurement",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "tessellations",
+      "label": "Tessellations",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "space-filling-curves",
+      "label": "Space-filling curves",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "mathematical-paradoxes",
+      "label": "Mathematical paradoxes",
+      "domain_ids": [
+        "logic"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "countability",
+      "label": "Countability",
+      "domain_ids": [
+        "logic"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "mathematical-proof",
+      "label": "Mathematical proof",
+      "domain_ids": [
+        "logic"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08",
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "chaos",
+      "label": "Chaos",
+      "domain_ids": [
+        "dynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "game-of-life",
+      "label": "Game of Life",
+      "domain_ids": [
+        "dynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S08"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "turing-machines",
+      "label": "Turing machines",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "mechanical-computation",
+      "label": "Mechanical computation",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "electronic-computation",
+      "label": "Electronic computation",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "historical-cryptography",
+      "label": "Historical cryptography",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "mathematical-platonism",
+      "label": "Mathematical Platonism",
+      "domain_ids": [
+        "history"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "history-of-mathematics",
+      "label": "History of mathematics",
+      "domain_ids": [
+        "history"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "prime-conjectures",
+      "label": "Prime conjectures",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; original contents/index pages still needed."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "transcendence",
+      "label": "Transcendence",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; original contents/index pages still needed."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "fermat-problems",
+      "label": "Fermat problems",
+      "domain_ids": [
+        "numbers"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S09"
+          ],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; original contents/index pages still needed."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "calculus",
+      "label": "Calculus",
+      "domain_ids": [
+        "analysis"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "series",
+      "label": "Series",
+      "domain_ids": [
+        "analysis"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "fourier-analysis",
+      "label": "Fourier analysis",
+      "domain_ids": [
+        "analysis"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "graph-theory",
+      "label": "Graph theory",
+      "domain_ids": [
+        "discrete"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "polyhedra",
+      "label": "Polyhedra",
+      "domain_ids": [
+        "discrete"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "graph-coloring",
+      "label": "Graph coloring",
+      "domain_ids": [
+        "discrete"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "combinatorial-designs",
+      "label": "Combinatorial designs",
+      "domain_ids": [
+        "discrete"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "conic-sections",
+      "label": "Conic sections",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "perspective",
+      "label": "Perspective",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "analytic-geometry",
+      "label": "Analytic geometry",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "non-euclidean-geometry",
+      "label": "Non-Euclidean geometry",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "topology",
+      "label": "Topology",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "sphere-packing",
+      "label": "Sphere packing",
+      "domain_ids": [
+        "geometry"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "set-theoretic-foundations",
+      "label": "Set-theoretic foundations",
+      "domain_ids": [
+        "logic"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "incompleteness",
+      "label": "Incompleteness",
+      "domain_ids": [
+        "logic"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "intuitionism",
+      "label": "Intuitionism",
+      "domain_ids": [
+        "logic"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "game-theory",
+      "label": "Game theory",
+      "domain_ids": [
+        "dynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "fractals",
+      "label": "Fractals",
+      "domain_ids": [
+        "dynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "logistic-dynamics",
+      "label": "Logistic dynamics",
+      "domain_ids": [
+        "dynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "catastrophe-theory",
+      "label": "Catastrophe theory",
+      "domain_ids": [
+        "dynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "complexity",
+      "label": "Complexity",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "public-key-cryptography",
+      "label": "Public-key cryptography",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "mechanics",
+      "label": "Mechanics",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "electromagnetism",
+      "label": "Electromagnetism",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "relativity",
+      "label": "Relativity",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "quantum-theory",
+      "label": "Quantum theory",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B05",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [],
+          "coverage_depth": "survey",
+          "note": "Candidate expansion cluster; not verified book coverage."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "lattice-theory",
+      "label": "Lattice theory",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [],
+          "coverage_depth": "textbook",
+          "note": "Confirmed directly by photographed cover."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "distributive-lattices",
+      "label": "Distributive lattices",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [],
+          "coverage_depth": "textbook",
+          "note": "Confirmed directly by photographed cover."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "free-lattices",
+      "label": "Free lattices",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [],
+          "coverage_depth": "textbook",
+          "note": "Confirmed directly by photographed cover."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "partially-ordered-sets",
+      "label": "Partially ordered sets",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "order-diagrams",
+      "label": "Order diagrams",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "meet-and-join",
+      "label": "Meet and join",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "bounds",
+      "label": "Bounds",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "duality",
+      "label": "Duality",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "sublattices",
+      "label": "Sublattices",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "ideals-and-filters",
+      "label": "Ideals and filters",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "lattice-homomorphisms",
+      "label": "Lattice homomorphisms",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "congruences",
+      "label": "Congruences",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "lattice-identities",
+      "label": "Lattice identities",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "representation-theorems",
+      "label": "Representation theorems",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "free-distributive-products",
+      "label": "Free distributive products",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "pseudocomplements",
+      "label": "Pseudocomplements",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "stone-algebras",
+      "label": "Stone algebras",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "injective-algebras",
+      "label": "Injective algebras",
+      "domain_ids": [
+        "order"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook",
+          "note": "Matching-ISBN contents support the scope; original pages required to finalize detailed terminology."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "boolean-algebras",
+      "label": "Boolean algebras",
+      "domain_ids": [
+        "logic"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "algebraic-structures",
+      "label": "Algebraic structures",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "categorical-concepts",
+      "label": "Categorical concepts",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "topological-representation",
+      "label": "Topological representation",
+      "domain_ids": [
+        "algebra"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B06",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S11"
+          ],
+          "coverage_depth": "textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "equilibrium",
+      "label": "Equilibrium",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "state-functions",
+      "label": "State functions",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "first-law",
+      "label": "First law",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "heat-and-work",
+      "label": "Heat and work",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "heat-capacity",
+      "label": "Heat capacity",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "reaction-heat",
+      "label": "Reaction heat",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "second-law",
+      "label": "Second law",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "thermodynamic-entropy",
+      "label": "Thermodynamic entropy",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "third-law",
+      "label": "Third law",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "free-energy",
+      "label": "Free energy",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "chemical-potential",
+      "label": "Chemical potential",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "fugacity",
+      "label": "Fugacity",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "equilibrium-constants",
+      "label": "Equilibrium constants",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "real-gases",
+      "label": "Real gases",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "solutions",
+      "label": "Solutions",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "ideal-solutions",
+      "label": "Ideal solutions",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "dilute-solutions",
+      "label": "Dilute solutions",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "activity",
+      "label": "Activity",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "activity-coefficients",
+      "label": "Activity coefficients",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "nonelectrolytes",
+      "label": "Nonelectrolytes",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "electrolytes",
+      "label": "Electrolytes",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "electrode-potentials",
+      "label": "Electrode potentials",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "galvanic-cells",
+      "label": "Galvanic cells",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "solution-thermal-properties",
+      "label": "Solution thermal properties",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "solid-liquid-equilibria",
+      "label": "Solid-liquid equilibria",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "molecular-thermodynamics",
+      "label": "Molecular thermodynamics",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "near-equilibrium-irreversibility",
+      "label": "Near-equilibrium irreversibility",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "steady-states",
+      "label": "Steady states",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "surface-effects",
+      "label": "Surface effects",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "external-fields",
+      "label": "External fields",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "vaporization",
+      "label": "Vaporization",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "multicomponent-systems",
+      "label": "Multicomponent systems",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "low-temperature-substances",
+      "label": "Low-temperature substances",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "fluid-properties",
+      "label": "Fluid properties",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "debye-functions",
+      "label": "Debye functions",
+      "domain_ids": [
+        "thermodynamics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "entropy-and-probability",
+      "label": "Entropy and probability",
+      "domain_ids": [
+        "probability"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "physical_application"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "statistical-mechanics",
+      "label": "Statistical mechanics",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "heat-engines",
+      "label": "Heat engines",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "heat-pumps",
+      "label": "Heat pumps",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "thermodynamic-cycles",
+      "label": "Thermodynamic cycles",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "flow-processes",
+      "label": "Flow processes",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "gravitational-fields",
+      "label": "Gravitational fields",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "centrifugal-fields",
+      "label": "Centrifugal fields",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "electric-and-magnetic-fields",
+      "label": "Electric and magnetic fields",
+      "domain_ids": [
+        "physics"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B07",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S12"
+          ],
+          "coverage_depth": "advanced_textbook"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "communication-history",
+      "label": "Communication history",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "oral-communication",
+      "label": "Oral communication",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "writing-systems",
+      "label": "Writing systems",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "dictionaries",
+      "label": "Dictionaries",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "telegraphy",
+      "label": "Telegraphy",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "information-theory",
+      "label": "Information theory",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "information-and-entropy",
+      "label": "Information and entropy",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "biological-information",
+      "label": "Biological information",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "memes",
+      "label": "Memes",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "randomness",
+      "label": "Randomness",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "physical-information",
+      "label": "Physical information",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "information-overload",
+      "label": "Information overload",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "knowledge-organization",
+      "label": "Knowledge organization",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "computing-history",
+      "label": "Computing history",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "symbolic-logic",
+      "label": "Symbolic logic",
+      "domain_ids": [
+        "computation"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "confirmed_scope",
+          "source_ids": [
+            "S13",
+            "S14"
+          ],
+          "coverage_depth": "historical_survey"
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "bits",
+      "label": "Bits",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S14"
+          ],
+          "coverage_depth": "historical_survey",
+          "note": "Plausible technical subtopics; broad contents alone do not verify detailed treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "shannon-entropy",
+      "label": "Shannon entropy",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S14"
+          ],
+          "coverage_depth": "historical_survey",
+          "note": "Plausible technical subtopics; broad contents alone do not verify detailed treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "coding",
+      "label": "Coding",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S14"
+          ],
+          "coverage_depth": "historical_survey",
+          "note": "Plausible technical subtopics; broad contents alone do not verify detailed treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "compression",
+      "label": "Compression",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S14"
+          ],
+          "coverage_depth": "historical_survey",
+          "note": "Plausible technical subtopics; broad contents alone do not verify detailed treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "noise",
+      "label": "Noise",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S14"
+          ],
+          "coverage_depth": "historical_survey",
+          "note": "Plausible technical subtopics; broad contents alone do not verify detailed treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "channel-capacity",
+      "label": "Channel capacity",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S14"
+          ],
+          "coverage_depth": "historical_survey",
+          "note": "Plausible technical subtopics; broad contents alone do not verify detailed treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "error-correction",
+      "label": "Error correction",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S14"
+          ],
+          "coverage_depth": "historical_survey",
+          "note": "Plausible technical subtopics; broad contents alone do not verify detailed treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "algorithmic-information",
+      "label": "Algorithmic information",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S14"
+          ],
+          "coverage_depth": "historical_survey",
+          "note": "Plausible technical subtopics; broad contents alone do not verify detailed treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "maxwell-demon",
+      "label": "Maxwell demon",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S14"
+          ],
+          "coverage_depth": "historical_survey",
+          "note": "Plausible technical subtopics; broad contents alone do not verify detailed treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "landauer-principle",
+      "label": "Landauer principle",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S14"
+          ],
+          "coverage_depth": "historical_survey",
+          "note": "Plausible technical subtopics; broad contents alone do not verify detailed treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    },
+    {
+      "id": "genetic-code",
+      "label": "Genetic code",
+      "domain_ids": [
+        "information"
+      ],
+      "book_evidence": [
+        {
+          "book_id": "B08",
+          "evidence_status": "provisional_book_mapping",
+          "source_ids": [
+            "S14"
+          ],
+          "coverage_depth": "historical_survey",
+          "note": "Plausible technical subtopics; broad contents alone do not verify detailed treatment."
+        }
+      ],
+      "card_state": "not_authored"
+    }
+  ],
+  "proposed_cross_domain_bridges": [
+    {
+      "from": "probability",
+      "to": "information",
+      "relationship": "quantifies_uncertainty",
+      "boundary": "Probability models feed information measures; information is not identical to meaning."
+    },
+    {
+      "from": "information",
+      "to": "thermodynamics",
+      "relationship": "related_entropy_formalisms",
+      "boundary": "Shannon entropy and thermodynamic entropy have different definitions, units, and interpretation; physical assumptions must be stated."
+    },
+    {
+      "from": "algebra",
+      "to": "neuroscience",
+      "relationship": "supplies_representation_tools",
+      "boundary": "Matrix operations can model network computation; model behavior alone does not establish biological mechanism."
+    },
+    {
+      "from": "order",
+      "to": "logic",
+      "relationship": "supports_algebraic_semantics",
+      "boundary": "A lattice is a specific ordered structure, not a synonym for every network or hierarchy."
+    },
+    {
+      "from": "statistics",
+      "to": "design",
+      "relationship": "supports_inference_from_experiments",
+      "boundary": "Correlation and model fit do not by themselves establish causation."
+    },
+    {
+      "from": "dynamics",
+      "to": "probability",
+      "relationship": "contrasts_determinism_and_randomness",
+      "boundary": "Chaotic deterministic behavior must remain distinct from stochastic sampling."
+    },
+    {
+      "from": "notation",
+      "to": "history",
+      "relationship": "records_conceptual_development",
+      "boundary": "First use, later popularization, and modern standardization may involve different people and dates."
+    }
+  ],
+  "proposed_visual_modules": [
+    {
+      "concept_cluster": "Notation and history",
+      "interaction": "Select a symbol to reveal meaning, pronunciation, alternate uses, and a dated source trail."
+    },
+    {
+      "concept_cluster": "Order and lattices",
+      "interaction": "Drag nodes in an order diagram and inspect meet, join, and counterexamples."
+    },
+    {
+      "concept_cluster": "Sampling and inference",
+      "interaction": "Repeat samples and watch estimates, sampling distributions, and interval coverage change."
+    },
+    {
+      "concept_cluster": "Regression and design",
+      "interaction": "Move observations or treatment assignments and inspect residuals and confounding."
+    },
+    {
+      "concept_cluster": "Information",
+      "interaction": "Change symbol frequencies and channel noise to compare uncertainty and recoverability."
+    },
+    {
+      "concept_cluster": "Thermodynamics",
+      "interaction": "Change state variables and compare paths, energy balances, and equilibrium."
+    },
+    {
+      "concept_cluster": "Neural computation",
+      "interaction": "Adjust connections in a small network and inspect activation and learning."
+    },
+    {
+      "concept_cluster": "Dynamics",
+      "interaction": "Compare nearby initial conditions and distinguish numerical error, chaos, and random noise."
+    }
+  ],
+  "recommended_card_fields": [
+    "id",
+    "label",
+    "aliases",
+    "domain_ids",
+    "symbols_by_context",
+    "plain_language_meaning",
+    "formal_definition",
+    "assumptions",
+    "examples",
+    "counterexamples",
+    "prerequisite_ids",
+    "relationship_edges",
+    "visual_module",
+    "history_and_people",
+    "applications",
+    "source_book_id",
+    "edition",
+    "page_or_section",
+    "evidence_status",
+    "coverage_depth",
+    "review_state"
+  ],
+  "implementation_notes": [
+    "Use stable concept identifiers independent of book chapters.",
+    "Preserve distinct senses of overloaded terms such as normal, field, lattice, information, and entropy.",
+    "A subject inventory entry is a candidate for cards, not a completed learning object.",
+    "Keep prerequisites and editorial bridges separate from claims about what a book contains.",
+    "No repository or live website was inspected or changed."
+  ],
+  "counts": {
+    "books": 8,
+    "domains": 18,
+    "distinct_concept_labels": 295,
+    "book_topic_mappings": 312,
+    "concepts_with_confirmed_scope": 215,
+    "provisional_only_concepts": 80
+  },
+  "sources": [
+    {
+      "id": "S01",
+      "url": "https://books.google.com/books/about/Principles_and_Procedures_of_Statistics.html?id=YegsAQAAMAAJ",
+      "kind": "matching_edition_book_record_and_contents",
+      "book_id": "B01"
+    },
+    {
+      "id": "S02",
+      "url": "https://mitpress.mit.edu/9780262031882/the-computational-brain/",
+      "kind": "publisher",
+      "book_id": "B02"
+    },
+    {
+      "id": "S03",
+      "url": "https://www.cs.cmu.edu/afs/cs/academic/class/15883-f21/readings/churchland-1992-ch3.pdf",
+      "kind": "original_book_chapter",
+      "book_id": "B02"
+    },
+    {
+      "id": "S04",
+      "url": "https://books.google.com/books/about/The_Computational_Brain.html?id=wVll6u0tzXoC",
+      "kind": "matching_isbn_book_contents",
+      "book_id": "B02"
+    },
+    {
+      "id": "S05",
+      "url": "https://openlibrary.org/books/OL2726900M/Probability_and_statistics_for_engineering_and_the_sciences",
+      "kind": "edition_identity_only",
+      "book_id": "B03"
+    },
+    {
+      "id": "S06",
+      "url": "https://www.cengage.com/c/probability-and-statistics-for-engineering-and-the-sciences-9e-devore/9781305251809",
+      "kind": "later_edition_publisher_not_1987_verification",
+      "book_id": "B03"
+    },
+    {
+      "id": "S07",
+      "url": "https://www.degruyterbrill.com/document/doi/10.1515/9780691263687-fm/html",
+      "kind": "publisher_distributed_original_contents",
+      "book_id": "B04"
+    },
+    {
+      "id": "S08",
+      "url": "https://foxchapelpublishing.com/products/the-little-book-of-mathematical-principles-theories-things",
+      "kind": "publisher",
+      "book_id": "B05"
+    },
+    {
+      "id": "S09",
+      "url": "https://books.google.com/books?id=8ZMAEAAAQBAJ",
+      "kind": "matching_work_preview_and_index_keywords",
+      "book_id": "B05"
+    },
+    {
+      "id": "S10",
+      "url": "https://www.gbv.de/dms/hebis-darmstadt/toc/180886614.pdf",
+      "kind": "matching_book_toc_search_index_only_fetch_failed",
+      "book_id": "B06"
+    },
+    {
+      "id": "S11",
+      "url": "https://miamioh.ecampus.com/lattice-theory-first-concepts/bk/9780486471730",
+      "kind": "matching_isbn_transcribed_contents_requires_page_check",
+      "book_id": "B06"
+    },
+    {
+      "id": "S12",
+      "url": "https://books.google.com/books?id=CK7qDwAAQBAJ",
+      "kind": "matching_isbn_book_contents",
+      "book_id": "B07"
+    },
+    {
+      "id": "S13",
+      "url": "https://www.penguinrandomhouse.com/books/60765/the-information-by-james-gleick/",
+      "kind": "publisher_other_binding_same_work",
+      "book_id": "B08"
+    },
+    {
+      "id": "S14",
+      "url": "https://books.google.com/books/about/The_Information.html?id=617JSFW0D2kC",
+      "kind": "matching_work_book_contents",
+      "book_id": "B08"
+    }
+  ]
+}

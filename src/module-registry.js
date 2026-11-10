@@ -30,28 +30,64 @@
 
   // Metadata is data plus trusted local function references. Copying it must
   // neither evaluate accessors nor turn authored formula strings into code.
-  function copy(value, active = new Set()) {
+  function copy(value, active = new Set(), retained = null) {
     if (value === null || typeof value !== 'object') return value;
     if (!Array.isArray(value) && !record(value)) fail('Module data must contain plain objects and arrays.');
     if (active.has(value)) fail('Module data cannot contain cycles.');
     active.add(value);
-    const result = Array.isArray(value) ? [] : {};
+    const array = Array.isArray(value);
+    let reusable = !!retained && Object.getPrototypeOf(value) === (array ? Array.prototype : Object.prototype) && !Object.isExtensible(value);
+    const entries = !array || reusable ? [] : null, result = array && !entries ? [] : null;
+    let allEnumerable = true, declaredLength = 0, copiedLength = 0;
     for (const key of Reflect.ownKeys(value)) {
-      if (Array.isArray(value) && key === 'length') continue;
+      if (array && key === 'length') {
+        if (entries) {
+          const descriptor = Object.getOwnPropertyDescriptor(value, key);
+          declaredLength = descriptor.value;
+          reusable = reusable && descriptor.writable === false && descriptor.configurable === false;
+        }
+        continue;
+      }
       if (!keyOK(key)) fail('Unsafe module data key.');
       const descriptor = Object.getOwnPropertyDescriptor(value, key);
       if (!own(descriptor, 'value')) fail('Module data cannot contain accessors.');
-      Object.defineProperty(result, key, {
-        value: copy(descriptor.value, active), enumerable: descriptor.enumerable,
-        writable: true, configurable: true
-      });
+      // Hidden children were copied without a later freeze traversal; preserve
+      // that behavior rather than sharing an authored frozen hidden object.
+      const child = copy(descriptor.value, active, descriptor.enumerable ? retained : null);
+      reusable = reusable && descriptor.writable === false && descriptor.configurable === false && child === descriptor.value && typeof child !== 'function';
+      if (array && !entries) {
+        Object.defineProperty(result, key, {
+          value: child, enumerable: descriptor.enumerable,
+          writable: true, configurable: true
+        });
+      } else {
+        entries.push([key, child, descriptor.enumerable]);
+        allEnumerable = allEnumerable && descriptor.enumerable;
+        if (array && String(key >>> 0) === key && key !== '4294967295') copiedLength = Math.max(copiedLength, (key >>> 0) + 1);
+      }
     }
     active.delete(value);
-    return result;
+    // Only registration may retain a branch, after every own descriptor and
+    // child has passed the same checks as a copy. Parameters always copy.
+    if (reusable && (!array || copiedLength === declaredLength)) {
+      retained.add(value);
+      return value;
+    }
+    if (array && !entries) return result;
+    // Native own-property creation does not invoke inherited setters. Every
+    // descriptor and child was still checked above; frozen input is not trusted.
+    if (!array && allEnumerable) return Object.fromEntries(entries);
+    const object = array ? [] : {};
+    for (const [key, child, enumerable] of entries) {
+      Object.defineProperty(object, key, {
+        value: child, enumerable, writable: true, configurable: true
+      });
+    }
+    return object;
   }
-  function freeze(value) {
-    if (value && typeof value === 'object') {
-      for (const child of Object.values(value)) freeze(child);
+  function freeze(value, retained = null) {
+    if (value && typeof value === 'object' && !retained?.has(value)) {
+      for (const child of Object.values(value)) freeze(child, retained);
       Object.freeze(value);
     }
     return value;
@@ -87,7 +123,7 @@
 
     function register(input) {
       if (!record(input)) fail('A module definition must be a plain object.');
-      const definition = copy(input);
+      const retained = new WeakSet(), definition = copy(input, new Set(), retained);
       if (!idOK(definition.id)) fail('A module id must be a safe lower-case slug.');
       if (modules.has(definition.id)) throw new RangeError('Module already registered: ' + definition.id);
       if (!text(definition.version) || !text(definition.title)) fail('A module needs a version and title.');
@@ -147,7 +183,7 @@
         views.add(view.id);
       }
       if (!views.has(definition.defaultView)) fail('The default view must be registered by the module.');
-      freeze(definition);
+      freeze(definition, retained);
       modules.set(definition.id, { definition, keys });
       return definition;
     }

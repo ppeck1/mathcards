@@ -1,0 +1,191 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:sphere-manifold:case-4", "id": "math:example:sphere-manifold:case-4", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:sphere-manifold", "example_id": "math:example:sphere-manifold:case-4", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "b6dc8007cb12680ef467f90c859ad6cfc9a626c67da6fffa9e44339ce57eb00b"}, "purpose": "How can a curved sphere have two local coordinates?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "b6dc8007cb12680ef467f90c859ad6cfc9a626c67da6fffa9e44339ce57eb00b", "status": "draft", "title": "Cover the pole from the south", "topics": ["mathematics", "geometry-topology", "local coordinates on a sphere"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Cover the pole from the south
+
+Parent card: math:concept:sphere-manifold; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:sphere-manifold; revision 0.1.0-draft. Setting: Place a marker on a globe and choose a projection pole. A line through that pole maps the marker to a coordinate plane. Change latitude, longitude or the projection pole. The globe point and its two plane coordinates are shown separately, so a missing coordinate at a pole is not mistaken for a defect in the globe. Expression: $S^2=\{(x,y,z):x^2+y^2+z^2=1\},\quad (u_N,v_N)=\frac{(x,y)}{1-z},\quad (u_S,v_S)=\frac{(x,y)}{1+z}.$. Conditions required for a defined value (a case may test their violation): Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab. The displayed calculation, coordinates and marks are evaluated from the same declared input state. The scenario is a constructed teaching model; source book and historical coverage are separate editorial questions. Scope: Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.
+
+Case unit math:example:sphere-manifold:case-4. Setting: Place a marker on a globe and choose a projection pole. A line through that pole maps the marker to a coordinate plane. Change latitude, longitude or the projection pole. The globe point and its two plane coordinates are shown separately, so a missing coordinate at a pole is not mistaken for a defect in the globe. Inputs: {"latitude": 90, "longitude": 35, "pole": "south"}. Result: {"approximate": "0.0 chart units"}. Limits: Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.
+
+## Complete worked case
+
+- id: math:example:sphere-manifold:case-4
+- title: Cover the pole from the south
+- role: applied_model
+- question: How can a curved sphere have two local coordinates?
+- setting: Place a marker on a globe and choose a projection pole. A line through that pole maps the marker to a coordinate plane. Change latitude, longitude or the projection pole. The globe point and its two plane coordinates are shown separately, so a missing coordinate at a pole is not mistaken for a defect in the globe.
+- assumptions:
+  - Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.
+- inputs:
+  - latitude: 90
+  - longitude: 35
+  - pole: south
+- steps:
+  - Item:
+    - index: 1
+    - expression: φ = 90 degrees; λ = 35 degrees; P = South pole
+    - reason: These conditions select the declared family, coordinate chart or whole history step.
+  - Item:
+    - index: 2
+    - expression: (u,v) = (x,y)/(1−z) or (x,y)/(1+z)
+    - reason: Locate the unit-sphere point from latitude and longitude, then apply the selected stereographic chart. The primary result is the plane-coordinate radius; it is different from the fixed sphere radius one.
+  - Item:
+    - index: 3
+    - expression: 0.0 chart units
+    - reason: Read the evaluated quantity, retaining its domain and units.
+- result:
+  - approximate: 0.0 chart units
+- interpretation: How can a curved sphere have two local coordinates? Locate the unit-sphere point from latitude and longitude, then apply the selected stereographic chart. The primary result is the plane-coordinate radius; it is different from the fixed sphere radius one.
+- independent check:
+  - method: Separate Python implementation using bisection, reciprocal tangent or independent analytic identities.
+  - expected: 0.0
+- limits: Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.
+- preset:
+  - latitude: 90
+  - longitude: 35
+  - pole: south
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.
+
+## Written exploration recipe
+
+- component id: component:sphere-manifold
+- renderer id: sphere-manifold-visual-model
+- renderer version: 1
+- model id: sphere-manifold-visual-model
+- model revision: 1
+- expression id: ast:sphere-manifold:expression
+- interaction status: implemented
+- description: Local coordinates on a sphere. Locate the unit-sphere point from latitude and longitude, then apply the selected stereographic chart. The primary result is the plane-coordinate radius; it is different from the fixed sphere radius one.
+- controls:
+  - Item:
+    - id: latitude
+    - type: number
+    - default: 20
+    - min: -90
+    - max: 90
+    - step: 1
+  - Item:
+    - id: longitude
+    - type: number
+    - default: 35
+    - min: -180
+    - max: 180
+    - step: 1
+  - Item:
+    - id: pole
+    - type: enum
+    - default: north
+    - values:
+      - north
+      - south
+    - value labels:
+      - north: North pole
+      - south: South pole
+- expected cases:
+  - Item:
+    - input:
+      - latitude: 0
+      - longitude: 0
+      - pole: north
+    - status: valid
+    - output: 1.0000000000000002
+  - Item:
+    - input:
+      - latitude: 30
+      - longitude: 90
+      - pole: north
+    - status: valid
+    - output: 1.7320508075688774
+  - Item:
+    - input:
+      - latitude: 90
+      - longitude: 35
+      - pole: north
+    - status: outside_chart
+  - Item:
+    - input:
+      - latitude: 90
+      - longitude: 35
+      - pole: south
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - latitude: -30
+      - longitude: 180
+      - pole: north
+    - status: valid
+    - output: 0.577350269189626
+  - Item:
+    - input:
+      - latitude: 20
+      - longitude: 35
+      - pole: north
+    - status: valid
+    - output: 1.4281480067421146
+  - Item:
+    - input:
+      - latitude: -90
+      - longitude: 35
+      - pole: north
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - latitude: 20
+      - longitude: -180
+      - pole: north
+    - status: valid
+    - output: 1.4281480067421146
+  - Item:
+    - input:
+      - latitude: 20
+      - longitude: 180
+      - pole: north
+    - status: valid
+    - output: 1.4281480067421146
+  - Item:
+    - input:
+      - latitude: 20
+      - longitude: 35
+      - pole: south
+    - status: valid
+    - output: 0.7002075382097097
+  - Item:
+    - input:
+      - latitude: 91
+      - longitude: 35
+      - pole: north
+    - status: invalid_parameters
+- compute: Locate the unit-sphere point from latitude and longitude, then apply the selected stereographic chart. The primary result is the plane-coordinate radius; it is different from the fixed sphere radius one.
+- numeric tolerance: 1e-10
+- invariants:
+  - Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.
+  - The displayed calculation, coordinates and marks are evaluated from the same declared input state.
+  - The scenario is a constructed teaching model; source book and historical coverage are separate editorial questions.
+- limits:
+  - Two stereographic charts cover the unit sphere. The north chart excludes only the north pole, and the south chart excludes only the south pole. Longitude is not unique at a pole, but the point and the other chart remain well defined. Geometry uses a labeled fixed 3D projection, not a separate Spatial tab.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:dynamics-extension:charts. [Peter Petersen · Manifolds, Transversality, and de Rham Cohomology](https://www.math.ucla.edu/~petersen/manifolds.pdf). Locator: §1.2.1 Spheres: stereographic charts from a pole to its orthogonal plane; §1.1 chart definition. Unit circle and sphere formulas derived directly here.. Verification: Primary definition or model context inspected 2026-11-02; independently reviewed teaching status remains pending.. Rights: Original explanations, scenarios, figures and examples. No source exercises or scans reproduced.

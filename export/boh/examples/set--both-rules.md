@@ -1,5 +1,5 @@
 ---
-boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:set:both-rules", "id": "math:example:set:both-rules", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:set", "example_id": "math:example:set:both-rules", "exporter_version": "0.2.0", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "2e8dd2217d2daab51c2f597db74498ca7e2c21c769dde4c95891aafc8dc847e8", "source_revision": "0.1.0-draft", "upstream_content_sha256": "3ba3f1ed6948c6bc1f33d70090dff2b2c192b361fc5c9182baabb53868778944"}, "purpose": "Choose membership rules and see exactly which objects remain in a set.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "3ba3f1ed6948c6bc1f33d70090dff2b2c192b361fc5c9182baabb53868778944", "status": "draft", "title": "Find pegs that meet both display rules", "topics": ["mathematics", "logic", "discrete-mathematics", "geometry", "finite set", "set operations", "membership rules"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:set:both-rules", "id": "math:example:set:both-rules", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:set", "example_id": "math:example:set:both-rules", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "3ba3f1ed6948c6bc1f33d70090dff2b2c192b361fc5c9182baabb53868778944"}, "purpose": "Choose membership rules and see exactly which objects remain in a set.", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "3ba3f1ed6948c6bc1f33d70090dff2b2c192b361fc5c9182baabb53868778944", "status": "draft", "title": "Find pegs that meet both display rules", "topics": ["mathematics", "logic", "discrete-mathematics", "geometry", "finite set", "set operations", "membership rules"], "type": "reference", "updated": "2026-10-26T00:00:00Z", "version": "0.1.0-draft"}
 ---
 
 # Find pegs that meet both display rules
@@ -54,6 +54,7 @@ Case unit math:example:set:both-rules. Setting: Original constructed teaching sc
   - kind: original worked derivation
   - mathematical review: author-derived; independent review pending
   - external source refs:
+    []
 - conditions to check:
   - The candidate pegs are the distinct heights 1 through 12 cm.
   - The two limits are inclusive and use the same centimetre scale.

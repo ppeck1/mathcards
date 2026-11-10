@@ -1,0 +1,197 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:coordinate-transformation:case-2", "id": "math:example:coordinate-transformation:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:coordinate-transformation", "example_id": "math:example:coordinate-transformation:case-2", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "cd9df47ddd1c1350eb832e1b0aa6235027f20e3aa4bc2e8b2c6d47c775f123c0"}, "purpose": "How can the same displacement have different coordinates?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "cd9df47ddd1c1350eb832e1b0aa6235027f20e3aa4bc2e8b2c6d47c775f123c0", "status": "draft", "title": "Align the two frames", "topics": ["mathematics", "linear-algebra", "geometry", "changing an orthonormal frame"], "type": "reference", "updated": "2026-11-02T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Align the two frames
+
+Parent card: math:concept:coordinate-transformation; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:coordinate-transformation; revision 0.1.0-draft. Setting: A floor marker has a fixed world displacement. Turn the measuring frame counterclockwise while leaving the marker and physical vector fixed. Expression: $\begin{pmatrix}x^{\prime}\\y^{\prime}\end{pmatrix}=\begin{pmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix},\quad (x^{\prime})^2+(y^{\prime})^2=x^2+y^2.$. Conditions required for a defined value (a case may test their violation): A floor marker has a fixed world displacement. Turn the measuring frame counterclockwise while leaving the marker and physical vector fixed. This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry. All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure. Scope: This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry.
+
+Case unit math:example:coordinate-transformation:case-2. Setting: A surveyor marks one fixed displacement on the floor. A second surveyor turns the measuring frame, rather than moving the marker. Follow the gold arrow while the cyan and violet basis directions turn; the coordinate readings change even though the physical displacement stays put. Inputs: {"angle": 0, "x": 2, "y": 1}. Result: {"approximate": "2.0 m"}. Limits: This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry.
+
+## Complete worked case
+
+- id: math:example:coordinate-transformation:case-2
+- title: Align the two frames
+- role: applied_model
+- question: How can the same displacement have different coordinates?
+- setting: A surveyor marks one fixed displacement on the floor. A second surveyor turns the measuring frame, rather than moving the marker. Follow the gold arrow while the cyan and violet basis directions turn; the coordinate readings change even though the physical displacement stays put.
+- assumptions:
+  - A floor marker has a fixed world displacement. Turn the measuring frame counterclockwise while leaving the marker and physical vector fixed.
+  - This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry.
+- inputs:
+  - x: 2
+  - y: 1
+  - angle: 0
+- steps:
+  - Item:
+    - index: 1
+    - expression: x = 2; y = 1; θ = 0
+    - reason: Set these original constructed inputs in the declared frame.
+  - Item:
+    - index: 2
+    - expression: x′ = x cosθ + y sinθ; y′ = −x sinθ + y cosθ
+    - reason: Resolve the fixed world vector onto the two rotated unit directions. The coordinate pair uses the inverse, or transpose, of the orthonormal frame rotation.
+  - Item:
+    - index: 3
+    - expression: 2.0 m
+    - reason: Evaluate the bounded family before rounding its displayed values.
+- result:
+  - approximate: 2.0 m
+- interpretation: Aligned frames give the original pair (2,1) m.
+- independent check:
+  - method: Separate Python rational determinants, complex rotation or high-precision norm, tools/spatial_foundation_reference.py.
+  - expected: {"status": "valid", "output": 2.0}
+- limits: This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry.
+- preset:
+  - x: 2
+  - y: 1
+  - angle: 0
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - A floor marker has a fixed world displacement. Turn the measuring frame counterclockwise while leaving the marker and physical vector fixed.
+  - This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry.
+
+## Written exploration recipe
+
+- component id: component:coordinate-transformation
+- renderer id: coordinate-transformation-visual-model
+- renderer version: 1
+- model id: coordinate-transformation-visual-model
+- model revision: 1
+- expression id: ast:coordinate-transformation:expression
+- interaction status: implemented
+- description: A surveyor marks one fixed displacement on the floor. A second surveyor turns the measuring frame, rather than moving the marker. Follow the gold arrow while the cyan and violet basis directions turn; the coordinate readings change even though the physical displacement stays put.
+- controls:
+  - Item:
+    - id: x
+    - type: number
+    - default: 2
+    - min: -3
+    - max: 3
+    - step: 0.05
+  - Item:
+    - id: y
+    - type: number
+    - default: 1
+    - min: -3
+    - max: 3
+    - step: 0.05
+  - Item:
+    - id: angle
+    - type: number
+    - default: 30
+    - min: -180
+    - max: 180
+    - step: 1
+- expected cases:
+  - Item:
+    - input:
+      - x: 2
+      - y: 1
+      - angle: 30
+    - status: valid
+    - output: 2.232050807568877
+  - Item:
+    - input:
+      - x: 2
+      - y: 1
+      - angle: 0
+    - status: valid
+    - output: 2.0
+  - Item:
+    - input:
+      - x: 2
+      - y: 1
+      - angle: 90
+    - status: valid
+    - output: 1.0000000000000002
+  - Item:
+    - input:
+      - x: 2
+      - y: 1
+      - angle: 180
+    - status: valid
+    - output: -1.9999999999999998
+  - Item:
+    - input:
+      - x: 0
+      - y: 0
+      - angle: 30
+    - status: valid
+    - output: 0.0
+  - Item:
+    - input:
+      - x: -3
+      - y: 1
+      - angle: 30
+    - status: valid
+    - output: -2.098076211353316
+  - Item:
+    - input:
+      - x: 3
+      - y: 1
+      - angle: 30
+    - status: valid
+    - output: 3.098076211353316
+  - Item:
+    - input:
+      - x: 2
+      - y: -3
+      - angle: 30
+    - status: valid
+    - output: 0.23205080756887764
+  - Item:
+    - input:
+      - x: 2
+      - y: 3
+      - angle: 30
+    - status: valid
+    - output: 3.232050807568877
+  - Item:
+    - input:
+      - x: 2
+      - y: 1
+      - angle: -180
+    - status: valid
+    - output: -2.0
+  - Item:
+    - input:
+      - x: 2
+      - y: 1
+      - angle: 181
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - x: 2
+      - y: 1
+      - angle: 30
+    - status: invalid_parameters
+- compute: Resolve the fixed world vector onto the two rotated unit directions. The coordinate pair uses the inverse, or transpose, of the orthonormal frame rotation.
+- numeric tolerance: 1e-10
+- invariants:
+  - A floor marker has a fixed world displacement. Turn the measuring frame counterclockwise while leaving the marker and physical vector fixed.
+  - This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry.
+  - All values use the declared frame and units. Numerical positions and magnitudes are floating-point evaluations; an underflowed nonzero product is reported as a precision failure.
+- limits:
+  - This is a passive coordinate change between orthonormal frames. Coordinates transform by the transpose of the frame rotation; the vector itself does not rotate. Angle controls use degrees, converted to radians for trigonometry.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:spatial-foundations:frames. [University of Illinois Dynamics · Vectors and bases](https://dynref.engr.illinois.edu/rvv.html). Locator: Orthonormal bases, components and passive planar frame rotation; same vector expressed in two bases.. Verification: Definition-level primary page inspected 2026-11-02. Original bounded family and examples; independent review pending. Exact-edition book mapping is not asserted.. Rights: Facts and equations support original explanations, stories and diagrams; no source exercises, images or scans reproduced.

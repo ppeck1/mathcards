@@ -1,0 +1,543 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:chi-square-association",
+  "slug": "chi-square-association",
+  "type": "concept",
+  "title": "Observed versus expected counts",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "chi square",
+    "chi-square",
+    "contingency table",
+    "expected count",
+    "Pearson chi square"
+  ],
+  "branches": [
+    "statistics",
+    "probability"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Move counts while preserving table margins and follow their discrepancies into one statistic.",
+  "meaning": "The Pearson chi-square statistic adds squared observed-minus-expected discrepancies divided by expected counts. Independence expected counts use row total times column total divided by grand total. This lesson computes a statistic without an unqualified significance claim.",
+  "prerequisites": {
+    "required": [
+      "math:concept:joint-distribution",
+      "math:concept:hypothesis-test"
+    ],
+    "helpful": [],
+    "depth": []
+  },
+  "definition": {
+    "setting": "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+    "formal_latex": "O=\\begin{pmatrix}d&20-d\\\\20-d&d\\end{pmatrix},\\quad E_{ij}=\\frac{R_iC_j}{N}=10,\\quad\\chi^2=\\sum_{i,j}\\frac{(O_{ij}-E_{ij})^2}{E_{ij}}=\\frac{4(d-10)^2}{10}.",
+    "signature": {
+      "d": "Two matching diagonal counts in a fixed-margin table.",
+      "χ²": "Pearson chi-square discrepancy statistic."
+    },
+    "conditions": [
+      "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+      "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10.",
+      "Original constructed teaching examples. Exact-edition book coverage and independent mathematical review remain open."
+    ],
+    "domain_notes": "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10.",
+    "proof_status": "Definition-level sources and original calculations; independent review pending.",
+    "source_refs": [
+      "source:inference:association"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Observed versus expected counts",
+    "expression_latex": "O=\\begin{pmatrix}d&20-d\\\\20-d&d\\end{pmatrix},\\quad E_{ij}=\\frac{R_iC_j}{N}=10,\\quad\\chi^2=\\sum_{i,j}\\frac{(O_{ij}-E_{ij})^2}{E_{ij}}=\\frac{4(d-10)^2}{10}.",
+    "formation_rule": "The Pearson chi-square statistic adds squared observed-minus-expected discrepancies divided by expected counts. Independence expected counts use row total times column total divided by grand total. This lesson computes a statistic without an unqualified significance claim.",
+    "precedence": "Evaluate declared inputs before the statistic. Retain sampling and domain conditions.",
+    "symbols": [
+      {
+        "token": "d",
+        "role": "Two matching diagonal counts in a fixed-margin table.",
+        "type": "Declared mathematical quantity"
+      },
+      {
+        "token": "χ²",
+        "role": "Pearson chi-square discrepancy statistic.",
+        "type": "Declared mathematical quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:chi-square-association:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:diagonal",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "d",
+          "scope_ref": "scope:chi-square-association:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded numerical model",
+          "ref": "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10. χ² = ∑ (Oᵢⱼ−Eᵢⱼ)²/Eᵢⱼ"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:diagonal"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:chi-square-association:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "d"
+          ],
+          "domain_condition": "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "The demonstration proves this model is true of collected data.",
+        "status": "interpretation error",
+        "reason": "The data are constructed. Empirical use needs validation of assumptions."
+      }
+    ],
+    "ast_coverage": "Typed application outline of a bounded family; not a parser for arbitrary statistical expressions.",
+    "output_symbol_bindings": {
+      "d": "diagonal",
+      "χ²": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "The Pearson chi-square statistic adds squared observed-minus-expected discrepancies divided by expected counts. Independence expected counts use row total times column total divided by grand total. This lesson computes a statistic without an unqualified significance claim.",
+      "conditions": "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+      "derivation": "All observed counts equal 10, giving χ²=0.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "example_ref": "math:example:chi-square-association:matching-expectation"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:joint-distribution",
+      "type": "supports",
+      "conditions": "Each concept retains its declared setting.",
+      "reason": "This lesson uses joint distribution.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:hypothesis-test",
+      "type": "supports",
+      "conditions": "Each concept retains its declared setting.",
+      "reason": "This lesson uses hypothesis test.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:chi-square-association:matching-expectation",
+      "title": "Match independence counts",
+      "role": "applied_model",
+      "question": "Match independence counts under the stated inputs?",
+      "setting": "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+      "assumptions": [
+        "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+        "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10."
+      ],
+      "inputs": {
+        "diagonal": 10
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "diagonal=10",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "All observed counts equal 10, giving χ²=0.",
+          "reason": "The Pearson chi-square statistic adds squared observed-minus-expected discrepancies divided by expected counts. Independence expected counts use row total times column total divided by grand total. This lesson computes a statistic without an unqualified significance claim."
+        }
+      ],
+      "result": {
+        "exact": "All observed counts equal 10, giving χ²=0."
+      },
+      "interpretation": "All observed counts equal 10, giving χ²=0.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 0.0}"
+      },
+      "limits": "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10.",
+      "preset": {
+        "diagonal": 10
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+        "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10."
+      ]
+    },
+    {
+      "id": "math:example:chi-square-association:moderate-association",
+      "title": "Four departures of four readers",
+      "role": "applied_model",
+      "question": "Four departures of four readers under the stated inputs?",
+      "setting": "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+      "assumptions": [
+        "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+        "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10."
+      ],
+      "inputs": {
+        "diagonal": 14
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "diagonal=14",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "Four contributions 16/10 give χ²=6.4.",
+          "reason": "The Pearson chi-square statistic adds squared observed-minus-expected discrepancies divided by expected counts. Independence expected counts use row total times column total divided by grand total. This lesson computes a statistic without an unqualified significance claim."
+        }
+      ],
+      "result": {
+        "exact": "Four contributions 16/10 give χ²=6.4."
+      },
+      "interpretation": "Four contributions 16/10 give χ²=6.4.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 6.4}"
+      },
+      "limits": "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10.",
+      "preset": {
+        "diagonal": 14
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+        "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10."
+      ]
+    },
+    {
+      "id": "math:example:chi-square-association:opposite-pattern",
+      "title": "Reverse the same association",
+      "role": "applied_model",
+      "question": "Reverse the same association under the stated inputs?",
+      "setting": "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+      "assumptions": [
+        "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+        "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10."
+      ],
+      "inputs": {
+        "diagonal": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "diagonal=6",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "Squared departures are unchanged: χ²=6.4.",
+          "reason": "The Pearson chi-square statistic adds squared observed-minus-expected discrepancies divided by expected counts. Independence expected counts use row total times column total divided by grand total. This lesson computes a statistic without an unqualified significance claim."
+        }
+      ],
+      "result": {
+        "exact": "Squared departures are unchanged: χ²=6.4."
+      },
+      "interpretation": "Squared departures are unchanged: χ²=6.4.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 6.4}"
+      },
+      "limits": "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10.",
+      "preset": {
+        "diagonal": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+        "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10."
+      ]
+    },
+    {
+      "id": "math:example:chi-square-association:complete-diagonal",
+      "title": "Concentrate on the diagonal",
+      "role": "applied_model",
+      "question": "Concentrate on the diagonal under the stated inputs?",
+      "setting": "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+      "assumptions": [
+        "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+        "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10."
+      ],
+      "inputs": {
+        "diagonal": 20
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "diagonal=20",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "Four contributions 100/10 give χ²=40.",
+          "reason": "The Pearson chi-square statistic adds squared observed-minus-expected discrepancies divided by expected counts. Independence expected counts use row total times column total divided by grand total. This lesson computes a statistic without an unqualified significance claim."
+        }
+      ],
+      "result": {
+        "exact": "Four contributions 100/10 give χ²=40."
+      },
+      "interpretation": "Four contributions 100/10 give χ²=40.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 40.0}"
+      },
+      "limits": "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10.",
+      "preset": {
+        "diagonal": 20
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+        "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10."
+      ]
+    },
+    {
+      "id": "math:example:chi-square-association:complete-off-diagonal",
+      "title": "Concentrate off the diagonal",
+      "role": "applied_model",
+      "question": "Concentrate off the diagonal under the stated inputs?",
+      "setting": "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+      "assumptions": [
+        "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+        "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10."
+      ],
+      "inputs": {
+        "diagonal": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "diagonal=0",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "The reversed extreme also has χ²=40.",
+          "reason": "The Pearson chi-square statistic adds squared observed-minus-expected discrepancies divided by expected counts. Independence expected counts use row total times column total divided by grand total. This lesson computes a statistic without an unqualified significance claim."
+        }
+      ],
+      "result": {
+        "exact": "The reversed extreme also has χ²=40."
+      },
+      "interpretation": "The reversed extreme also has χ²=40.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 40.0}"
+      },
+      "limits": "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10.",
+      "preset": {
+        "diagonal": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+        "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:chi-square-association",
+    "renderer_id": "chi-square-association-visual-model",
+    "renderer_version": "1",
+    "model_id": "chi-square-association-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:chi-square-association:expression",
+    "interaction_status": "implemented",
+    "description": "Move counts while preserving table margins and follow their discrepancies into one statistic.",
+    "controls": [
+      {
+        "id": "diagonal",
+        "type": "number",
+        "default": 14,
+        "min": 0,
+        "max": 20,
+        "step": 1
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "diagonal": 10
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "diagonal": 14
+        },
+        "status": "valid",
+        "output": 6.4
+      },
+      {
+        "input": {
+          "diagonal": 6
+        },
+        "status": "valid",
+        "output": 6.4
+      },
+      {
+        "input": {
+          "diagonal": 20
+        },
+        "status": "valid",
+        "output": 40.0
+      },
+      {
+        "input": {
+          "diagonal": 0
+        },
+        "status": "valid",
+        "output": 40.0
+      },
+      {
+        "input": {
+          "diagonal": -1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "diagonal": "14"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10. χ² = ∑ (Oᵢⱼ−Eᵢⱼ)²/Eᵢⱼ",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "Forty constructed readers are classified by desk (A/B) and preference (paper/digital). The 2×2 table is [[d,20−d],[20−d,d]]. Both row and column totals are fixed at 20, making every expected independence count 10.",
+      "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10.",
+      "Original constructed teaching examples. Exact-edition book coverage and independent mathematical review remain open."
+    ],
+    "limits": [
+      "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10."
+    ],
+    "fallback": "Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "At d=14, how much observed-versus-expected discrepancy is there?",
+      "answer": "Observed counts are 14,6,6,14; every expected count is 10. Each contribution is 16/10, so χ²=6.4. The statistic detects departure in either direction, without establishing causality."
+    },
+    {
+      "prompt": "What is outside this demonstration?",
+      "answer": "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Move counts while preserving table margins and follow their discrepancies into one statistic."
+    },
+    {
+      "kind": "graph",
+      "description": "The statistic is evaluated at whole counts d=0,…,20. Symmetry around ten follows squared departures."
+    },
+    {
+      "kind": "substitution",
+      "description": "Follow the same inputs through story, formula and result."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Are desk and reading preference associated?",
+      "mapping": "Move counts while preserving table margins and follow their discrepancies into one statistic.",
+      "limitations": "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:chi-square-association:matching-expectation"
+    },
+    {
+      "context": "Four departures of four readers",
+      "mapping": "Four contributions 16/10 give χ²=6.4.",
+      "limitations": "The statistic describes discrepancy from independence for this fixed-margin table. No p-value or causal conclusion is computed. A chi-square reference approximation requires independent observations and adequate expected counts; expected counts here are 10.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:chi-square-association:moderate-association"
+    }
+  ],
+  "source_refs": [
+    "source:inference:association"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 branch: Bounded inference model, connected story, Geometry/Graph, five original examples and numeric fixtures."
+  ]
+}

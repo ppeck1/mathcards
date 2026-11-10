@@ -1,0 +1,1301 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:concept:normal-test-power", "id": "math:concept:normal-test-power", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:normal-test-power", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "511275606bed4576b9d9ad709eba63565c70489e625644d33d80678c52f66572"}, "purpose": "How does collecting more independent readings per jig change the chance of detecting a declared mean shift?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "511275606bed4576b9d9ad709eba63565c70489e625644d33d80678c52f66572", "status": "draft", "title": "Replication and normal-test power", "topics": ["mathematics", "statistics", "probability", "replication and normal-test power"], "type": "reference", "updated": "2026-11-03T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Replication and normal-test power
+
+Draft teaching specimen. A registered interactive renderer is available in the accompanying application; retained source fields describe the original specimen and its pending review.
+
+Definition unit math:concept:normal-test-power; revision 0.1.0-draft. Setting: A workshop plans a comparison of current and proposed calibration jigs. It will collect n independent cutting-error readings from each jig. Before collection, enter an assumed true increase δ in mean error and a known common reading standard deviation σ. Follow n into the standard error, then read the null and assumed-shift exceedance curves at the same rejection cutoff c. A positive increase is a direction to detect, not automatically an improvement. Expression: $N=2n,\quad \mathrm{SE}=\sigma\sqrt{\frac{2}{n}},\quad c=z_{0.95}\,\mathrm{SE},\quad 1-\beta=\Phi\!\left(\frac{\delta-c}{\mathrm{SE}}\right),\quad \alpha=0.05.$. Conditions required for a defined value (a case may test their violation): The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures. Scope: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+
+## Schema Version
+
+0.1.0
+
+## Id
+
+math:concept:normal-test-power
+
+## Slug
+
+normal-test-power
+
+## Type
+
+concept
+
+## Title
+
+Replication and normal-test power
+
+## Revision
+
+0.1.0-draft
+
+## Publication Status
+
+draft
+
+## Updated
+
+2026-11-03T00:00:00Z
+
+## Review
+
+- mathematics: author-derived for stated conditions; independent mathematical review pending
+- history: source gap; no origin or priority assertions
+- interaction: implemented; numeric fixtures are not independent review
+
+## Source Policy
+
+Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.
+
+## Aliases
+
+- replication and normal-test power
+
+## Branches
+
+- statistics
+- probability
+
+## Expressive Job
+
+- evaluate
+- visualize
+- compare
+
+## Purpose
+
+How does collecting more independent readings per jig change the chance of detecting a declared mean shift?
+
+## Meaning
+
+Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+
+## Prerequisites
+
+- required:
+  - math:concept:hypothesis-test
+- helpful:
+  - math:concept:normal-mean-interval
+  - math:concept:normal-distribution
+  - math:concept:randomized-block-design
+- depth:
+  []
+
+## Definition
+
+- setting: A workshop plans a comparison of current and proposed calibration jigs. It will collect n independent cutting-error readings from each jig. Before collection, enter an assumed true increase δ in mean error and a known common reading standard deviation σ. Follow n into the standard error, then read the null and assumed-shift exceedance curves at the same rejection cutoff c. A positive increase is a direction to detect, not automatically an improvement.
+- formal latex: N=2n,\quad \mathrm{SE}=\sigma\sqrt{\frac{2}{n}},\quad c=z_{0.95}\,\mathrm{SE},\quad 1-\beta=\Phi\!\left(\frac{\delta-c}{\mathrm{SE}}\right),\quad \alpha=0.05.
+- signature:
+  - n: Whole number of independent readings per group
+  - N: Total number of readings across the two equal groups
+  - δ: Assumed true increase in population mean error, in millimetres
+  - σ: Known common reading standard deviation, in millimetres
+  - SE: Standard error of the two-group mean difference, in millimetres
+  - z₀.₉₅: Numerical standard-normal 0.95 quantile
+  - c: Predeclared positive-direction rejection cutoff, in millimetres
+  - α: Maximum null rejection probability, fixed at 0.05
+  - β: Non-rejection probability at the entered true difference
+  - 1−β: Rejection probability at the entered true difference
+- conditions:
+  - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+- domain notes: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+- proof status: Definition-level primary references and original bounded derivation; independent mathematical review pending.
+- source refs:
+  - source:design-extensions:power
+
+## Grammar
+
+- pronunciation: Replication and normal-test power
+- expression latex: N=2n,\quad \mathrm{SE}=\sigma\sqrt{\frac{2}{n}},\quad c=z_{0.95}\,\mathrm{SE},\quad 1-\beta=\Phi\!\left(\frac{\delta-c}{\mathrm{SE}}\right),\quad \alpha=0.05.
+- formation rule: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+- precedence: Center and multiply before combining paired products; calculate degrees of freedom or standard error before the declared uncertainty result.
+- symbols:
+  - Item:
+    - token: n
+    - role: Whole number of independent readings per group
+    - type: Declared statistical quantity
+  - Item:
+    - token: N
+    - role: Total number of readings across the two equal groups
+    - type: Declared statistical quantity
+  - Item:
+    - token: δ
+    - role: Assumed true increase in population mean error, in millimetres
+    - type: Declared statistical quantity
+  - Item:
+    - token: σ
+    - role: Known common reading standard deviation, in millimetres
+    - type: Declared statistical quantity
+  - Item:
+    - token: SE
+    - role: Standard error of the two-group mean difference, in millimetres
+    - type: Declared statistical quantity
+  - Item:
+    - token: z₀.₉₅
+    - role: Numerical standard-normal 0.95 quantile
+    - type: Declared statistical quantity
+  - Item:
+    - token: c
+    - role: Predeclared positive-direction rejection cutoff, in millimetres
+    - type: Declared statistical quantity
+  - Item:
+    - token: α
+    - role: Maximum null rejection probability, fixed at 0.05
+    - type: Declared statistical quantity
+  - Item:
+    - token: β
+    - role: Non-rejection probability at the entered true difference
+    - type: Declared statistical quantity
+  - Item:
+    - token: 1−β
+    - role: Rejection probability at the entered true difference
+    - type: Declared statistical quantity
+- ast:
+  - id: ast:normal-test-power:expression
+  - root: n:output
+  - nodes:
+    - Item:
+      - id: n:perGroup
+      - kind: variable
+      - type: Declared numerical input or whole reading count
+      - symbol: n
+      - scope ref: scope:normal-test-power
+    - Item:
+      - id: n:effect
+      - kind: variable
+      - type: Declared numerical input or whole reading count
+      - symbol: δ
+      - scope ref: scope:normal-test-power
+    - Item:
+      - id: n:sigma
+      - kind: variable
+      - type: Declared numerical input or whole reading count
+      - symbol: σ
+      - scope ref: scope:normal-test-power
+    - Item:
+      - id: n:rule
+      - kind: functionRef
+      - type: Declared bounded statistic or uncertainty rule
+      - ref: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+    - Item:
+      - id: n:partial-0
+      - kind: apply
+      - type: Partial application or bounded numerical result
+      - function: n:rule
+      - argument: n:perGroup
+    - Item:
+      - id: n:partial-1
+      - kind: apply
+      - type: Partial application or bounded numerical result
+      - function: n:partial-0
+      - argument: n:effect
+    - Item:
+      - id: n:output
+      - kind: apply
+      - type: Partial application or bounded numerical result
+      - function: n:partial-1
+      - argument: n:sigma
+  - scopes:
+    - Item:
+      - id: scope:normal-test-power
+      - kind: modelExpression
+      - free variables:
+        - n
+        - δ
+        - σ
+      - external parameters:
+        - Predeclared one-sided test and known-spread normal model
+      - domain condition: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+- parse errors:
+  - Item:
+    - input: Use an incompatible observation or sampling model without changing the formula
+    - status: model mismatch
+    - reason: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+- ast coverage: Typed application outline for the declared bounded statistic, not an arbitrary-data or general statistical model engine.
+- output symbol bindings:
+  - n: perGroup
+  - N: totalCount
+  - δ: effect
+  - σ: sigma
+  - SE: standardError
+  - z₀.₉₅: criticalValue
+  - c: threshold
+  - α: alpha
+  - β: beta
+  - 1−β: output
+
+## Properties
+
+- Item:
+  - claim: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+  - conditions: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - derivation: Each group mean has variance σ²/n. Independence makes the mean-difference variance add to 2σ²/n, giving the stated standard error. Under a true difference δ, the standardized mean difference is normal. The standard normal CDF Φ converts a standardized cutoff into a cumulative probability. The upper-tail rejection probability above c equals Φ((δ−c)/SE) by normal symmetry. Replication reduces standard error by a square-root factor, while changing δ changes the planning alternative. Type II error refers to non-rejection only for a positive alternative; a failure to reject never proves the null.
+  - status: author-derived under stated conditions; independent review pending
+  - example ref: math:example:normal-test-power:case-1
+
+## History
+
+- status: source_gap
+- claims:
+  []
+- research tasks:
+  - Research concept and notation development before adding historical priority claims.
+  - Check exact-edition book coverage independently before treating the supplied planning matrix as verified.
+- reader text: Historical development has not been researched for this draft. The scenarios and worked examples are original constructions.
+
+## Connections
+
+- Item:
+  - target: math:concept:hypothesis-test
+  - type: supports
+  - conditions: Retain each card’s own sampling assumptions, measurement units and mathematical scope.
+  - reason: Power evaluates a predeclared rejection rule under a specified true difference.
+  - target status: available
+  - evidence status: editorial mathematical connection; author derivation
+  - source refs:
+    []
+- Item:
+  - target: math:concept:normal-mean-interval
+  - type: supports
+  - conditions: Retain each card’s own sampling assumptions, measurement units and mathematical scope.
+  - reason: The known reading spread determines a standard error, with a two-group factor here.
+  - target status: available
+  - evidence status: editorial mathematical connection; author derivation
+  - source refs:
+    []
+- Item:
+  - target: math:concept:normal-distribution
+  - type: supports
+  - conditions: Retain each card’s own sampling assumptions, measurement units and mathematical scope.
+  - reason: Normal tail probabilities supply this model’s rejection probabilities.
+  - target status: available
+  - evidence status: editorial mathematical connection; author derivation
+  - source refs:
+    []
+- Item:
+  - target: math:concept:randomized-block-design
+  - type: supports
+  - conditions: Retain each card’s own sampling assumptions, measurement units and mathematical scope.
+  - reason: Both design stories distinguish independent units and comparisons; pairing or blocking requires its own variance model.
+  - target status: available
+  - evidence status: editorial mathematical connection; author derivation
+  - source refs:
+    []
+
+## Examples
+
+- Item:
+  - id: math:example:normal-test-power:case-1
+  - title: Plan sixteen readings for each jig
+  - role: applied_model
+  - question: How does collecting more independent readings per jig change the chance of detecting a declared mean shift?
+  - setting: A workshop plans a comparison of current and proposed calibration jigs. It will collect n independent cutting-error readings from each jig. Before collection, enter an assumed true increase δ in mean error and a known common reading standard deviation σ. Follow n into the standard error, then read the null and assumed-shift exceedance curves at the same rejection cutoff c. A positive increase is a direction to detect, not automatically an improvement.
+  - assumptions:
+    - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - inputs:
+    - perGroup: 16
+    - effect: 0.5
+    - sigma: 1
+  - steps:
+    - Item:
+      - index: 1
+      - expression: n = 16; δ = 0.5; σ = 1
+      - reason: Identify the actual constructed inputs or predeclared planning assumptions.
+    - Item:
+      - index: 2
+      - expression: N=2n,\quad \mathrm{SE}=\sigma\sqrt{\frac{2}{n}},\quad c=z_{0.95}\,\mathrm{SE},\quad 1-\beta=\Phi\!\left(\frac{\delta-c}{\mathrm{SE}}\right),\quad \alpha=0.05.
+      - reason: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+    - Item:
+      - index: 3
+      - expression: 0.40879721979387085
+      - reason: The plan has 32 total readings. The assumed half-millimetre mean difference is compared with the cutoff determined by the two-group standard error.
+  - result:
+    - approximate: 0.40879721979387085
+  - interpretation: The plan has 32 total readings. The assumed half-millimetre mean difference is compared with the cutoff determined by the two-group standard error.
+  - independent check:
+    - method: Independent Python NormalDist quantile and CDF calculation for the stated equal-group normal test, including the zero-effect significance boundary.
+    - expected: 0.40879721979387085
+  - limits: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - preset:
+    - perGroup: 16
+    - effect: 0.5
+    - sigma: 1
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+      []
+  - conditions to check:
+    - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+- Item:
+  - id: math:example:normal-test-power:case-2
+  - title: Use four times as many readings per group
+  - role: applied_model
+  - question: How does collecting more independent readings per jig change the chance of detecting a declared mean shift?
+  - setting: A workshop plans a comparison of current and proposed calibration jigs. It will collect n independent cutting-error readings from each jig. Before collection, enter an assumed true increase δ in mean error and a known common reading standard deviation σ. Follow n into the standard error, then read the null and assumed-shift exceedance curves at the same rejection cutoff c. A positive increase is a direction to detect, not automatically an improvement.
+  - assumptions:
+    - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - inputs:
+    - perGroup: 64
+    - effect: 0.5
+    - sigma: 1
+  - steps:
+    - Item:
+      - index: 1
+      - expression: n = 64; δ = 0.5; σ = 1
+      - reason: Identify the actual constructed inputs or predeclared planning assumptions.
+    - Item:
+      - index: 2
+      - expression: N=2n,\quad \mathrm{SE}=\sigma\sqrt{\frac{2}{n}},\quad c=z_{0.95}\,\mathrm{SE},\quad 1-\beta=\Phi\!\left(\frac{\delta-c}{\mathrm{SE}}\right),\quad \alpha=0.05.
+      - reason: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+    - Item:
+      - index: 3
+      - expression: 0.8817090317783469
+      - reason: Increasing each group from 16 to 64 halves the standard error. The same assumed shift is easier for the predeclared positive-direction test to detect.
+  - result:
+    - approximate: 0.8817090317783469
+  - interpretation: Increasing each group from 16 to 64 halves the standard error. The same assumed shift is easier for the predeclared positive-direction test to detect.
+  - independent check:
+    - method: Independent Python NormalDist quantile and CDF calculation for the stated equal-group normal test, including the zero-effect significance boundary.
+    - expected: 0.8817090317783469
+  - limits: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - preset:
+    - perGroup: 64
+    - effect: 0.5
+    - sigma: 1
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+      []
+  - conditions to check:
+    - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+- Item:
+  - id: math:example:normal-test-power:case-3
+  - title: A smaller assumed shift
+  - role: applied_model
+  - question: How does collecting more independent readings per jig change the chance of detecting a declared mean shift?
+  - setting: A workshop plans a comparison of current and proposed calibration jigs. It will collect n independent cutting-error readings from each jig. Before collection, enter an assumed true increase δ in mean error and a known common reading standard deviation σ. Follow n into the standard error, then read the null and assumed-shift exceedance curves at the same rejection cutoff c. A positive increase is a direction to detect, not automatically an improvement.
+  - assumptions:
+    - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - inputs:
+    - perGroup: 16
+    - effect: 0.25
+    - sigma: 1
+  - steps:
+    - Item:
+      - index: 1
+      - expression: n = 16; δ = 0.25; σ = 1
+      - reason: Identify the actual constructed inputs or predeclared planning assumptions.
+    - Item:
+      - index: 2
+      - expression: N=2n,\quad \mathrm{SE}=\sigma\sqrt{\frac{2}{n}},\quad c=z_{0.95}\,\mathrm{SE},\quad 1-\beta=\Phi\!\left(\frac{\delta-c}{\mathrm{SE}}\right),\quad \alpha=0.05.
+      - reason: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+    - Item:
+      - index: 3
+      - expression: 0.17418726161793235
+      - reason: A quarter-millimetre planning shift lies nearer the null curve than a half-millimetre shift. Its rejection probability is lower at the same reading count and spread.
+  - result:
+    - approximate: 0.17418726161793235
+  - interpretation: A quarter-millimetre planning shift lies nearer the null curve than a half-millimetre shift. Its rejection probability is lower at the same reading count and spread.
+  - independent check:
+    - method: Independent Python NormalDist quantile and CDF calculation for the stated equal-group normal test, including the zero-effect significance boundary.
+    - expected: 0.17418726161793235
+  - limits: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - preset:
+    - perGroup: 16
+    - effect: 0.25
+    - sigma: 1
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+      []
+  - conditions to check:
+    - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+- Item:
+  - id: math:example:normal-test-power:case-4
+  - title: No true shift at the null boundary
+  - role: applied_model
+  - question: How does collecting more independent readings per jig change the chance of detecting a declared mean shift?
+  - setting: A workshop plans a comparison of current and proposed calibration jigs. It will collect n independent cutting-error readings from each jig. Before collection, enter an assumed true increase δ in mean error and a known common reading standard deviation σ. Follow n into the standard error, then read the null and assumed-shift exceedance curves at the same rejection cutoff c. A positive increase is a direction to detect, not automatically an improvement.
+  - assumptions:
+    - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - inputs:
+    - perGroup: 16
+    - effect: 0
+    - sigma: 1
+  - steps:
+    - Item:
+      - index: 1
+      - expression: n = 16; δ = 0; σ = 1
+      - reason: Identify the actual constructed inputs or predeclared planning assumptions.
+    - Item:
+      - index: 2
+      - expression: N=2n,\quad \mathrm{SE}=\sigma\sqrt{\frac{2}{n}},\quad c=z_{0.95}\,\mathrm{SE},\quad 1-\beta=\Phi\!\left(\frac{\delta-c}{\mathrm{SE}}\right),\quad \alpha=0.05.
+      - reason: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+    - Item:
+      - index: 3
+      - expression: 0.050000000000000155
+      - reason: The alternative curve coincides with the null curve. The rejection probability equals 0.05; its 0.95 complement is null non-rejection, not a Type II error.
+  - result:
+    - approximate: 0.050000000000000155
+  - interpretation: The alternative curve coincides with the null curve. The rejection probability equals 0.05; its 0.95 complement is null non-rejection, not a Type II error.
+  - independent check:
+    - method: Independent Python NormalDist quantile and CDF calculation for the stated equal-group normal test, including the zero-effect significance boundary.
+    - expected: 0.050000000000000155
+  - limits: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - preset:
+    - perGroup: 16
+    - effect: 0
+    - sigma: 1
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+      []
+  - conditions to check:
+    - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+- Item:
+  - id: math:example:normal-test-power:case-5
+  - title: Less variable individual readings
+  - role: applied_model
+  - question: How does collecting more independent readings per jig change the chance of detecting a declared mean shift?
+  - setting: A workshop plans a comparison of current and proposed calibration jigs. It will collect n independent cutting-error readings from each jig. Before collection, enter an assumed true increase δ in mean error and a known common reading standard deviation σ. Follow n into the standard error, then read the null and assumed-shift exceedance curves at the same rejection cutoff c. A positive increase is a direction to detect, not automatically an improvement.
+  - assumptions:
+    - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - inputs:
+    - perGroup: 16
+    - effect: 0.5
+    - sigma: 0.5
+  - steps:
+    - Item:
+      - index: 1
+      - expression: n = 16; δ = 0.5; σ = 0.5
+      - reason: Identify the actual constructed inputs or predeclared planning assumptions.
+    - Item:
+      - index: 2
+      - expression: N=2n,\quad \mathrm{SE}=\sigma\sqrt{\frac{2}{n}},\quad c=z_{0.95}\,\mathrm{SE},\quad 1-\beta=\Phi\!\left(\frac{\delta-c}{\mathrm{SE}}\right),\quad \alpha=0.05.
+      - reason: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+    - Item:
+      - index: 3
+      - expression: 0.8817090317783469
+      - reason: Halving the known reading spread halves the standard error and raises rejection probability for the same assumed positive shift. This is a declared planning comparison, not a measurement of improved equipment.
+  - result:
+    - approximate: 0.8817090317783469
+  - interpretation: Halving the known reading spread halves the standard error and raises rejection probability for the same assumed positive shift. This is a declared planning comparison, not a measurement of improved equipment.
+  - independent check:
+    - method: Independent Python NormalDist quantile and CDF calculation for the stated equal-group normal test, including the zero-effect significance boundary.
+    - expected: 0.8817090317783469
+  - limits: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - preset:
+    - perGroup: 16
+    - effect: 0.5
+    - sigma: 0.5
+  - provenance:
+    - kind: original worked derivation
+    - mathematical review: author-derived; independent review pending
+    - external source refs:
+      []
+  - conditions to check:
+    - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+
+## Interactive
+
+- component id: component:normal-test-power
+- renderer id: normal-test-power-visual-model
+- renderer version: 1
+- model id: normal-test-power-visual-model
+- model revision: 1
+- expression id: ast:normal-test-power:expression
+- interaction status: implemented
+- description: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+- controls:
+  - Item:
+    - id: perGroup
+    - type: number
+    - default: 16
+    - min: 2
+    - max: 64
+    - step: 1
+  - Item:
+    - id: effect
+    - type: number
+    - default: 0.5
+    - min: 0
+    - max: 2
+    - step: 0.05
+  - Item:
+    - id: sigma
+    - type: number
+    - default: 1
+    - min: 0.25
+    - max: 2
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0
+      - sigma: 2
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0.25
+      - sigma: 0.25
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0.25
+      - sigma: 1
+    - status: valid
+    - output: 0.08152999177511838
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0.25
+      - sigma: 2
+    - status: valid
+    - output: 0.06427388378120485
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0.5
+      - sigma: 0.25
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0.5
+      - sigma: 1
+    - status: valid
+    - output: 0.1261348981934305
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0.5
+      - sigma: 2
+    - status: valid
+    - output: 0.08152999177511838
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 1
+      - sigma: 0.25
+    - status: valid
+    - output: 0.9907422946265046
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 1
+      - sigma: 1
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 1
+      - sigma: 2
+    - status: valid
+    - output: 0.1261348981934305
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 2
+      - sigma: 0.25
+    - status: valid
+    - output: 0.999999999895886
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 2
+      - sigma: 1
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0
+      - sigma: 2
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0.25
+      - sigma: 0.25
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0.25
+      - sigma: 1
+    - status: valid
+    - output: 0.09829979435798719
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0.25
+      - sigma: 2
+    - status: valid
+    - output: 0.07104166345495633
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0.5
+      - sigma: 0.25
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0.5
+      - sigma: 1
+    - status: valid
+    - output: 0.17418726161793235
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0.5
+      - sigma: 2
+    - status: valid
+    - output: 0.09829979435798719
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 1
+      - sigma: 0.25
+    - status: valid
+    - output: 0.9999698968293542
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 1
+      - sigma: 1
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 1
+      - sigma: 2
+    - status: valid
+    - output: 0.17418726161793235
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 2
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 2
+      - sigma: 1
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0
+      - sigma: 2
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0.25
+      - sigma: 0.25
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0.25
+      - sigma: 1
+    - status: valid
+    - output: 0.1261348981934305
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0.25
+      - sigma: 2
+    - status: valid
+    - output: 0.08152999177511838
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0.5
+      - sigma: 0.25
+    - status: valid
+    - output: 0.9907422946265046
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0.5
+      - sigma: 1
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0.5
+      - sigma: 2
+    - status: valid
+    - output: 0.1261348981934305
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 1
+      - sigma: 0.25
+    - status: valid
+    - output: 0.999999999895886
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 1
+      - sigma: 1
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 1
+      - sigma: 2
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 2
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 2
+      - sigma: 1
+    - status: valid
+    - output: 0.9907422946265046
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0
+      - sigma: 2
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.25
+      - sigma: 0.25
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.25
+      - sigma: 1
+    - status: valid
+    - output: 0.17418726161793235
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.25
+      - sigma: 2
+    - status: valid
+    - output: 0.09829979435798719
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.5
+      - sigma: 0.25
+    - status: valid
+    - output: 0.9999698968293542
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.5
+      - sigma: 1
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.5
+      - sigma: 2
+    - status: valid
+    - output: 0.17418726161793235
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 1
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 1
+      - sigma: 1
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 1
+      - sigma: 2
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 2
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 2
+      - sigma: 1
+    - status: valid
+    - output: 0.9999698968293542
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0
+      - sigma: 2
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0.25
+      - sigma: 0.25
+    - status: valid
+    - output: 0.9907422946265046
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0.25
+      - sigma: 1
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0.25
+      - sigma: 2
+    - status: valid
+    - output: 0.1261348981934305
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0.5
+      - sigma: 0.25
+    - status: valid
+    - output: 0.999999999895886
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0.5
+      - sigma: 1
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0.5
+      - sigma: 2
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 1
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 1
+      - sigma: 1
+    - status: valid
+    - output: 0.9907422946265046
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 1
+      - sigma: 2
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 2
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 2
+      - sigma: 1
+    - status: valid
+    - output: 0.999999999895886
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.9907422946265046
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0
+      - sigma: 2
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0.25
+      - sigma: 0.25
+    - status: valid
+    - output: 0.9999698968293542
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0.25
+      - sigma: 1
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0.25
+      - sigma: 2
+    - status: valid
+    - output: 0.17418726161793235
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0.5
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0.5
+      - sigma: 1
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0.5
+      - sigma: 2
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 1
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 1
+      - sigma: 1
+    - status: valid
+    - output: 0.9999698968293542
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 1
+      - sigma: 2
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 2
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 2
+      - sigma: 1
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.9999698968293542
+  - Item:
+    - input:
+      - perGroup: 1
+      - effect: 0.5
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 65
+      - effect: 0.5
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 2.5
+      - effect: 0.5
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: true
+      - effect: 0.5
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: -1
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 3
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: null
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.5
+      - sigma: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.5
+      - sigma: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.5
+      - sigma: 1
+    - status: invalid_parameters
+- compute: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+- numeric tolerance: 5e-11
+- invariants:
+  - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - Story, calculation, geometry and graph share the same actual declared quantities.
+  - Whole reading counts remain discrete; numerical quantiles and probability displays remain approximations.
+- limits:
+  - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Prompts
+
+- Item:
+  - prompt: How does collecting more independent readings per jig change the chance of detecting a declared mean shift?
+  - answer: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+- Item:
+  - prompt: What does this construction assume?
+  - answer: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+
+## Representations
+
+- Item:
+  - kind: geometry
+  - description: Null and assumed-shift exceedance curves share a fixed millimetre cutoff axis and a 0–1 probability axis. Their heights at the same cutoff are α and the rejection probability.
+- Item:
+  - kind: graph
+  - description: Rejection probability versus whole readings per group, with known spread and assumed effect held fixed on a 0–1 probability axis.
+- Item:
+  - kind: substitution
+  - description: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+
+## Applications
+
+- Item:
+  - context: Originally authored workshop construction
+  - mapping: A workshop plans a comparison of current and proposed calibration jigs. It will collect n independent cutting-error readings from each jig. Before collection, enter an assumed true increase δ in mean error and a known common reading standard deviation σ. Follow n into the standard error, then read the null and assumed-shift exceedance curves at the same rejection cutoff c. A positive increase is a direction to detect, not automatically an improvement.
+  - limitations: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - evidence kind: constructed_example
+  - example ref: math:example:normal-test-power:case-1
+- Item:
+  - context: Use four times as many readings per group
+  - mapping: Increasing each group from 16 to 64 halves the standard error. The same assumed shift is easier for the predeclared positive-direction test to detect.
+  - limitations: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - evidence kind: constructed_example
+  - example ref: math:example:normal-test-power:case-2
+
+## Source Refs
+
+- source:design-extensions:power
+
+## Review Gaps
+
+- Independent mathematical, unit and pedagogical review is pending.
+- Historical development and exact-edition book coverage have not been independently researched.
+- The bounded executable family does not replace the broader concept.
+
+## Change Log
+
+- 0.34.0 continuation: added this bounded covariance, variance or planning lesson through the shared modular host.
+
+## Referenced source registry
+
+- Source ID: source:design-extensions:power. [NIST/SEMATECH · Sample Sizes Required](https://www.itl.nist.gov/div898/handbook/prc/section2/prc222.htm). Locator: §7.2.2.2: predeclared alpha, beta, assumed effect and known spread in normal-test planning. This source states the one-sample planning equation. The equal-size two-group standard error and rejection-probability formula are derived here, using independence; they are not attributed as a quoted NIST two-group equation. The two-process setup in prc31.htm was inspected separately.. Verification: Definition-level primary sources inspected 2026-11-03; original two-group normal derivation and independent numerical check, with independent mathematical/pedagogical and exact-edition book review pending.. Rights: Original two-jig planning scenario, examples and figures; no source example, data or illustration reproduced.

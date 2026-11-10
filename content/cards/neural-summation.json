@@ -1,0 +1,742 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:neural-summation",
+  "slug": "neural-summation",
+  "type": "concept",
+  "title": "Excitation and inhibition: a signed sum",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-10T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "Excitation and inhibition: a signed sum",
+    "neural summation"
+  ],
+  "branches": [
+    "computational-neuroscience",
+    "linear-algebra",
+    "modeling"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "How can one channel add drive while another subtracts it?",
+  "meaning": "A linear artificial unit combines signed weighted inputs. Here the approach input e has a fixed positive gain a=2 and the braking input i has a fixed subtractive gain b=1. Their nonnegative drive magnitudes are E=ae and I=bi, and the signed net drive is y=E−I. Equal raw inputs do not cancel because their gains differ.",
+  "prerequisites": {
+    "required": [
+      "math:concept:linear-combination"
+    ],
+    "helpful": [
+      "math:concept:inner-product"
+    ],
+    "depth": [
+      "math:concept:artificial-neuron"
+    ]
+  },
+  "definition": {
+    "setting": "A workshop robot demonstrator combines an approach signal e with a braking signal i. Both readings use a zero-to-one scale. The approach channel counts twice, while the braking channel subtracts once. Change either signal and follow its colored contribution into the same net drive. This is a constructed artificial-unit demonstration.",
+    "formal_latex": "a=2,\\quad b=1,\\quad E=ae,\\quad I=bi,\\quad y=E-I.",
+    "signature": {
+      "e": "Dimensionless approach-channel input",
+      "i": "Dimensionless braking-channel input",
+      "a": "Fixed positive approach gain, equal to two",
+      "b": "Fixed positive braking magnitude gain, equal to one",
+      "E": "Nonnegative weighted approach drive",
+      "I": "Nonnegative weighted braking magnitude, subtracted from E",
+      "y": "Signed net drive of the artificial unit"
+    },
+    "conditions": [
+      "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1."
+    ],
+    "domain_notes": "This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations.",
+    "proof_status": "Definition-level primary author source and originally derived bounded model; independent review pending.",
+    "source_refs": [
+      "source:neural-bridge:neural-summation"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Excitation and inhibition: a signed sum",
+    "expression_latex": "a=2,\\quad b=1,\\quad E=ae,\\quad I=bi,\\quad y=E-I.",
+    "formation_rule": "A linear artificial unit combines signed weighted inputs. Here the approach input e has a fixed positive gain a=2 and the braking input i has a fixed subtractive gain b=1. Their nonnegative drive magnitudes are E=ae and I=bi, and the signed net drive is y=E−I. Equal raw inputs do not cancel because their gains differ.",
+    "precedence": "Multiply each input by its stated weight, preserve its sign, then add the signed contributions.",
+    "symbols": [
+      {
+        "token": "e",
+        "role": "Dimensionless approach-channel input",
+        "type": "Locally declared dimensionless quantity or vector"
+      },
+      {
+        "token": "i",
+        "role": "Dimensionless braking-channel input",
+        "type": "Locally declared dimensionless quantity or vector"
+      },
+      {
+        "token": "a",
+        "role": "Fixed positive approach gain, equal to two",
+        "type": "Locally declared dimensionless quantity or vector"
+      },
+      {
+        "token": "b",
+        "role": "Fixed positive braking magnitude gain, equal to one",
+        "type": "Locally declared dimensionless quantity or vector"
+      },
+      {
+        "token": "E",
+        "role": "Nonnegative weighted approach drive",
+        "type": "Locally declared dimensionless quantity or vector"
+      },
+      {
+        "token": "I",
+        "role": "Nonnegative weighted braking magnitude, subtracted from E",
+        "type": "Locally declared dimensionless quantity or vector"
+      },
+      {
+        "token": "y",
+        "role": "Signed net drive of the artificial unit",
+        "type": "Locally declared dimensionless quantity or vector"
+      }
+    ],
+    "ast": {
+      "id": "ast:neural-summation:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:excitation",
+          "kind": "variable",
+          "type": "Declared dimensionless input",
+          "symbol": "e",
+          "scope_ref": "scope:neural-summation"
+        },
+        {
+          "id": "n:inhibition",
+          "kind": "variable",
+          "type": "Declared dimensionless input",
+          "symbol": "i",
+          "scope_ref": "scope:neural-summation"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Declared signed linear filter",
+          "ref": "a=2,\\quad b=1,\\quad E=ae,\\quad I=bi,\\quad y=E-I."
+        },
+        {
+          "id": "n:partial-0",
+          "kind": "apply",
+          "type": "Signed dimensionless model value",
+          "function": "n:rule",
+          "argument": "n:excitation"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Signed dimensionless model value",
+          "function": "n:partial-0",
+          "argument": "n:inhibition"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:neural-summation",
+          "kind": "modelExpression",
+          "free_variables": [
+            "e",
+            "i"
+          ],
+          "external_parameters": [
+            "The stated fixed spatial sites and signed gains"
+          ],
+          "domain_condition": "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Drop a negative weight or interpret signed drive as a firing rate",
+        "status": "model mismatch",
+        "reason": "This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations."
+      }
+    ],
+    "ast_coverage": "Typed application outline; the formal expression declares the complete bounded rule.",
+    "output_symbol_bindings": {
+      "e": "excitation",
+      "i": "inhibition",
+      "a": "gainExcitation",
+      "b": "gainInhibition",
+      "E": "excitatoryDrive",
+      "I": "inhibitoryDrive",
+      "y": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "A linear artificial unit combines signed weighted inputs. Here the approach input e has a fixed positive gain a=2 and the braking input i has a fixed subtractive gain b=1. Their nonnegative drive magnitudes are E=ae and I=bi, and the signed net drive is y=E−I. Equal raw inputs do not cancel because their gains differ.",
+      "conditions": "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1.",
+      "derivation": "Use the two-component input vector with weights two and minus one. Its inner product is 2e−i. Increasing e by a change d raises y by 2d; increasing i by d lowers y by d. The output is zero exactly when i=2e. If e=i, the net drive equals e, so equal positive inputs do not cancel.",
+      "status": "original mathematical derivation; independent review pending",
+      "example_ref": "math:example:neural-summation:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:linear-combination",
+      "type": "supports",
+      "conditions": "Retain each receiving lesson’s domain, units and interpretation.",
+      "reason": "Both lessons combine signed weighted inputs; the spatial filter specifies which site receives each weight.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; original explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:artificial-neuron",
+      "type": "supports",
+      "conditions": "Retain each receiving lesson’s domain, units and interpretation.",
+      "reason": "Both lessons combine signed weighted inputs; the spatial filter specifies which site receives each weight.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; original explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:receptive-field",
+      "type": "supports",
+      "conditions": "Retain each receiving lesson’s domain, units and interpretation.",
+      "reason": "Both lessons combine signed weighted inputs; the spatial filter specifies which site receives each weight.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; original explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:neural-summation:case-1",
+      "title": "The approach channel counts twice",
+      "role": "applied_model",
+      "question": "How can one channel add drive while another subtracts it?",
+      "setting": "A workshop robot demonstrator combines an approach signal e with a braking signal i. Both readings use a zero-to-one scale. The approach channel counts twice, while the braking channel subtracts once. Change either signal and follow its colored contribution into the same net drive. This is a constructed artificial-unit demonstration.",
+      "assumptions": [
+        "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1."
+      ],
+      "inputs": {
+        "excitation": 0.6,
+        "inhibition": 0.4
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "e = 0.6; i = 0.4",
+          "reason": "Choose the dimensionless channel signals and read the fixed gains from the model."
+        },
+        {
+          "index": 2,
+          "expression": "a=2,\\quad b=1,\\quad E=ae,\\quad I=bi,\\quad y=E-I.",
+          "reason": "Use the two-component input vector with weights two and minus one. Its inner product is 2e−i. Increasing e by a change d raises y by 2d; increasing i by d lowers y by d. The output is zero exactly when i=2e. If e=i, the net drive equals e, so equal positive inputs do not cancel."
+        },
+        {
+          "index": 3,
+          "expression": "y ≈ 0.8",
+          "reason": "The adding contribution is about 1.2 and the subtracted magnitude is 0.4. Their net drive is about 0.8."
+        }
+      ],
+      "result": {
+        "approximate": "0.8"
+      },
+      "interpretation": "The adding contribution is about 1.2 and the subtracted magnitude is 0.4. Their net drive is about 0.8.",
+      "independent_check": {
+        "method": "An independent Python reference forms exact rational signed products from the entered decimal values, then sums them before converting to a numerical reading.",
+        "expected": "0.8"
+      },
+      "limits": "This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations.",
+      "preset": {
+        "excitation": 0.6,
+        "inhibition": 0.4
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1."
+      ]
+    },
+    {
+      "id": "math:example:neural-summation:case-2",
+      "title": "Exact balance with unequal signals",
+      "role": "applied_model",
+      "question": "How can one channel add drive while another subtracts it?",
+      "setting": "A workshop robot demonstrator combines an approach signal e with a braking signal i. Both readings use a zero-to-one scale. The approach channel counts twice, while the braking channel subtracts once. Change either signal and follow its colored contribution into the same net drive. This is a constructed artificial-unit demonstration.",
+      "assumptions": [
+        "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1."
+      ],
+      "inputs": {
+        "excitation": 0.5,
+        "inhibition": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "e = 0.5; i = 1",
+          "reason": "Choose the dimensionless channel signals and read the fixed gains from the model."
+        },
+        {
+          "index": 2,
+          "expression": "a=2,\\quad b=1,\\quad E=ae,\\quad I=bi,\\quad y=E-I.",
+          "reason": "Use the two-component input vector with weights two and minus one. Its inner product is 2e−i. Increasing e by a change d raises y by 2d; increasing i by d lowers y by d. The output is zero exactly when i=2e. If e=i, the net drive equals e, so equal positive inputs do not cancel."
+        },
+        {
+          "index": 3,
+          "expression": "y ≈ 0.0",
+          "reason": "Half an approach signal becomes one after its gain. A braking signal of one cancels it, giving zero net drive."
+        }
+      ],
+      "result": {
+        "approximate": "0.0"
+      },
+      "interpretation": "Half an approach signal becomes one after its gain. A braking signal of one cancels it, giving zero net drive.",
+      "independent_check": {
+        "method": "An independent Python reference forms exact rational signed products from the entered decimal values, then sums them before converting to a numerical reading.",
+        "expected": "0.0"
+      },
+      "limits": "This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations.",
+      "preset": {
+        "excitation": 0.5,
+        "inhibition": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1."
+      ]
+    },
+    {
+      "id": "math:example:neural-summation:case-3",
+      "title": "Equal raw readings do not cancel",
+      "role": "applied_model",
+      "question": "How can one channel add drive while another subtracts it?",
+      "setting": "A workshop robot demonstrator combines an approach signal e with a braking signal i. Both readings use a zero-to-one scale. The approach channel counts twice, while the braking channel subtracts once. Change either signal and follow its colored contribution into the same net drive. This is a constructed artificial-unit demonstration.",
+      "assumptions": [
+        "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1."
+      ],
+      "inputs": {
+        "excitation": 1,
+        "inhibition": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "e = 1; i = 1",
+          "reason": "Choose the dimensionless channel signals and read the fixed gains from the model."
+        },
+        {
+          "index": 2,
+          "expression": "a=2,\\quad b=1,\\quad E=ae,\\quad I=bi,\\quad y=E-I.",
+          "reason": "Use the two-component input vector with weights two and minus one. Its inner product is 2e−i. Increasing e by a change d raises y by 2d; increasing i by d lowers y by d. The output is zero exactly when i=2e. If e=i, the net drive equals e, so equal positive inputs do not cancel."
+        },
+        {
+          "index": 3,
+          "expression": "y ≈ 1.0",
+          "reason": "The two raw readings are equal, but their gains are not. The net drive is two minus one, equal to one."
+        }
+      ],
+      "result": {
+        "approximate": "1.0"
+      },
+      "interpretation": "The two raw readings are equal, but their gains are not. The net drive is two minus one, equal to one.",
+      "independent_check": {
+        "method": "An independent Python reference forms exact rational signed products from the entered decimal values, then sums them before converting to a numerical reading.",
+        "expected": "1.0"
+      },
+      "limits": "This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations.",
+      "preset": {
+        "excitation": 1,
+        "inhibition": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1."
+      ]
+    },
+    {
+      "id": "math:example:neural-summation:case-4",
+      "title": "A braking-only input",
+      "role": "applied_model",
+      "question": "How can one channel add drive while another subtracts it?",
+      "setting": "A workshop robot demonstrator combines an approach signal e with a braking signal i. Both readings use a zero-to-one scale. The approach channel counts twice, while the braking channel subtracts once. Change either signal and follow its colored contribution into the same net drive. This is a constructed artificial-unit demonstration.",
+      "assumptions": [
+        "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1."
+      ],
+      "inputs": {
+        "excitation": 0,
+        "inhibition": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "e = 0; i = 1",
+          "reason": "Choose the dimensionless channel signals and read the fixed gains from the model."
+        },
+        {
+          "index": 2,
+          "expression": "a=2,\\quad b=1,\\quad E=ae,\\quad I=bi,\\quad y=E-I.",
+          "reason": "Use the two-component input vector with weights two and minus one. Its inner product is 2e−i. Increasing e by a change d raises y by 2d; increasing i by d lowers y by d. The output is zero exactly when i=2e. If e=i, the net drive equals e, so equal positive inputs do not cancel."
+        },
+        {
+          "index": 3,
+          "expression": "y ≈ -1.0",
+          "reason": "With no approach input the only contribution is negative. The signed result is minus one."
+        }
+      ],
+      "result": {
+        "approximate": "-1.0"
+      },
+      "interpretation": "With no approach input the only contribution is negative. The signed result is minus one.",
+      "independent_check": {
+        "method": "An independent Python reference forms exact rational signed products from the entered decimal values, then sums them before converting to a numerical reading.",
+        "expected": "-1.0"
+      },
+      "limits": "This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations.",
+      "preset": {
+        "excitation": 0,
+        "inhibition": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1."
+      ]
+    },
+    {
+      "id": "math:example:neural-summation:case-5",
+      "title": "An approach-only input",
+      "role": "applied_model",
+      "question": "How can one channel add drive while another subtracts it?",
+      "setting": "A workshop robot demonstrator combines an approach signal e with a braking signal i. Both readings use a zero-to-one scale. The approach channel counts twice, while the braking channel subtracts once. Change either signal and follow its colored contribution into the same net drive. This is a constructed artificial-unit demonstration.",
+      "assumptions": [
+        "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1."
+      ],
+      "inputs": {
+        "excitation": 1,
+        "inhibition": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "e = 1; i = 0",
+          "reason": "Choose the dimensionless channel signals and read the fixed gains from the model."
+        },
+        {
+          "index": 2,
+          "expression": "a=2,\\quad b=1,\\quad E=ae,\\quad I=bi,\\quad y=E-I.",
+          "reason": "Use the two-component input vector with weights two and minus one. Its inner product is 2e−i. Increasing e by a change d raises y by 2d; increasing i by d lowers y by d. The output is zero exactly when i=2e. If e=i, the net drive equals e, so equal positive inputs do not cancel."
+        },
+        {
+          "index": 3,
+          "expression": "y ≈ 2.0",
+          "reason": "The largest approach signal and no braking give the maximum drive, equal to two."
+        }
+      ],
+      "result": {
+        "approximate": "2.0"
+      },
+      "interpretation": "The largest approach signal and no braking give the maximum drive, equal to two.",
+      "independent_check": {
+        "method": "An independent Python reference forms exact rational signed products from the entered decimal values, then sums them before converting to a numerical reading.",
+        "expected": "2.0"
+      },
+      "limits": "This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations.",
+      "preset": {
+        "excitation": 1,
+        "inhibition": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:neural-summation",
+    "renderer_id": "neural-summation-visual-model",
+    "renderer_version": "1",
+    "model_id": "neural-summation-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:neural-summation:expression",
+    "interaction_status": "implemented",
+    "description": "A linear artificial unit combines signed weighted inputs. Here the approach input e has a fixed positive gain a=2 and the braking input i has a fixed subtractive gain b=1. Their nonnegative drive magnitudes are E=ae and I=bi, and the signed net drive is y=E−I. Equal raw inputs do not cancel because their gains differ.",
+    "controls": [
+      {
+        "id": "excitation",
+        "type": "number",
+        "default": 0.6,
+        "min": 0,
+        "max": 1,
+        "step": 0.025
+      },
+      {
+        "id": "inhibition",
+        "type": "number",
+        "default": 0.4,
+        "min": 0,
+        "max": 1,
+        "step": 0.025
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "excitation": 0.6,
+          "inhibition": 0.4
+        },
+        "status": "valid",
+        "output": 0.8
+      },
+      {
+        "input": {
+          "excitation": 0,
+          "inhibition": 0
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "excitation": 1,
+          "inhibition": 0
+        },
+        "status": "valid",
+        "output": 2.0
+      },
+      {
+        "input": {
+          "excitation": 0,
+          "inhibition": 1
+        },
+        "status": "valid",
+        "output": -1.0
+      },
+      {
+        "input": {
+          "excitation": 1,
+          "inhibition": 1
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "excitation": 0.5,
+          "inhibition": 1
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "excitation": 0.25,
+          "inhibition": 0.5
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "excitation": 0.8,
+          "inhibition": 0.2
+        },
+        "status": "valid",
+        "output": 1.4
+      },
+      {
+        "input": {
+          "excitation": 0.2,
+          "inhibition": 0.8
+        },
+        "status": "valid",
+        "output": -0.4
+      },
+      {
+        "input": {
+          "excitation": 0,
+          "inhibition": 0.4
+        },
+        "status": "valid",
+        "output": -0.4
+      },
+      {
+        "input": {
+          "excitation": 0.6,
+          "inhibition": 0
+        },
+        "status": "valid",
+        "output": 1.2
+      },
+      {
+        "input": {
+          "excitation": 0.1,
+          "inhibition": 0.2
+        },
+        "status": "valid",
+        "output": 0.0
+      },
+      {
+        "input": {
+          "excitation": -0.01,
+          "inhibition": 0.4
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "excitation": 1.01,
+          "inhibition": 0.4
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "excitation": true,
+          "inhibition": 0.4
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "excitation": null,
+          "inhibition": 0.4
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "excitation": 0.6,
+          "inhibition": -0.01
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "excitation": 0.6,
+          "inhibition": 1.01
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "excitation": 0.6,
+          "inhibition": true
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "excitation": 0.6,
+          "inhibition": null
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "a=2,\\quad b=1,\\quad E=ae,\\quad I=bi,\\quad y=E-I.",
+    "numeric_tolerance": 5e-11,
+    "invariants": [
+      "Use dimensionless approach and braking signals from zero to one. The adding gain is fixed at a=2 and the subtractive gain at b=1.",
+      "Story, calculation, Geometry and Graph evaluate the same parameters.",
+      "A fixed signed scale preserves positive and negative contributions."
+    ],
+    "limits": [
+      "This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "How can one channel add drive while another subtracts it?",
+      "answer": "Multiply each input by its fixed gain, retain the inhibitory contribution’s minus sign, and combine both contributions. Balance requires i=2e, not equal raw inputs."
+    },
+    {
+      "prompt": "What does a negative result mean?",
+      "answer": "A negative signed drive in this particular mathematical model. It is not a negative spike count or a measured biological rate."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Inputs become signed weighted bars on fixed quantitative scales."
+    },
+    {
+      "kind": "graph",
+      "description": "The primary signed response versus the first input, holding other inputs fixed."
+    },
+    {
+      "kind": "substitution",
+      "description": "Multiply each input by its fixed gain, retain the inhibitory contribution’s minus sign, and combine both contributions. Balance requires i=2e, not equal raw inputs."
+    }
+  ],
+  "applications": [
+    {
+      "context": "The approach channel counts twice",
+      "mapping": "The adding contribution is about 1.2 and the subtracted magnitude is 0.4. Their net drive is about 0.8.",
+      "limitations": "This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:neural-summation:case-1"
+    },
+    {
+      "context": "Exact balance with unequal signals",
+      "mapping": "Half an approach signal becomes one after its gain. A braking signal of one cancels it, giving zero net drive.",
+      "limitations": "This is one static linear artificial unit with zero bias. It has no activation function, learning, noise, integration through time or spike generation. Signed drive is neither a firing rate nor a measured membrane voltage. The original robot demonstration is not a control or safety specification. Derived decimal readings are numerical approximations.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:neural-summation:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:neural-bridge:neural-summation"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 continuation: bounded neural-computation bridge with connected story, signed quantitative views and searchable readers."
+  ]
+}

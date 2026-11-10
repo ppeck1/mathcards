@@ -1,0 +1,803 @@
+---
+boh: {"authority_state": "non_authoritative", "canonical_layer": "supporting", "document_class": "reference", "document_id": "math:example:normal-test-power:case-2", "id": "math:example:normal-test-power:case-2", "project": "Mathematical Expression Atlas", "provenance": {"card_id": "math:concept:normal-test-power", "example_id": "math:example:normal-test-power:case-2", "exporter_version": "0.2.1", "hash_scope": "sorted compact Unicode card JSON; not generated Markdown bytes", "mode": "math_atlas_projection_v0_1", "source_registry_sha256": "53c2d5f2b1d7645e40e24664aa25b12721ecd4a237e6d049234b822f081cd6c6", "source_revision": "0.1.0-draft", "upstream_content_sha256": "511275606bed4576b9d9ad709eba63565c70489e625644d33d80678c52f66572"}, "purpose": "How does collecting more independent readings per jig change the chance of detecting a declared mean shift?", "review_state": "none", "rubrix": {"operator_intent": "capture", "operator_state": "observe"}, "source_hash": "511275606bed4576b9d9ad709eba63565c70489e625644d33d80678c52f66572", "status": "draft", "title": "Use four times as many readings per group", "topics": ["mathematics", "statistics", "probability", "replication and normal-test power"], "type": "reference", "updated": "2026-11-03T00:00:00Z", "version": "0.1.0-draft"}
+---
+
+# Use four times as many readings per group
+
+Parent card: math:concept:normal-test-power; revision 0.1.0-draft. Original worked draft; independent review pending.
+
+Definition unit math:concept:normal-test-power; revision 0.1.0-draft. Setting: A workshop plans a comparison of current and proposed calibration jigs. It will collect n independent cutting-error readings from each jig. Before collection, enter an assumed true increase δ in mean error and a known common reading standard deviation σ. Follow n into the standard error, then read the null and assumed-shift exceedance curves at the same rejection cutoff c. A positive increase is a direction to detect, not automatically an improvement. Expression: $N=2n,\quad \mathrm{SE}=\sigma\sqrt{\frac{2}{n}},\quad c=z_{0.95}\,\mathrm{SE},\quad 1-\beta=\Phi\!\left(\frac{\delta-c}{\mathrm{SE}}\right),\quad \alpha=0.05.$. Conditions required for a defined value (a case may test their violation): The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures. Scope: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+
+Case unit math:example:normal-test-power:case-2. Setting: A workshop plans a comparison of current and proposed calibration jigs. It will collect n independent cutting-error readings from each jig. Before collection, enter an assumed true increase δ in mean error and a known common reading standard deviation σ. Follow n into the standard error, then read the null and assumed-shift exceedance curves at the same rejection cutoff c. A positive increase is a direction to detect, not automatically an improvement. Inputs: {"effect": 0.5, "perGroup": 64, "sigma": 1}. Result: {"approximate": "0.8817090317783469"}. Limits: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+
+## Complete worked case
+
+- id: math:example:normal-test-power:case-2
+- title: Use four times as many readings per group
+- role: applied_model
+- question: How does collecting more independent readings per jig change the chance of detecting a declared mean shift?
+- setting: A workshop plans a comparison of current and proposed calibration jigs. It will collect n independent cutting-error readings from each jig. Before collection, enter an assumed true increase δ in mean error and a known common reading standard deviation σ. Follow n into the standard error, then read the null and assumed-shift exceedance curves at the same rejection cutoff c. A positive increase is a direction to detect, not automatically an improvement.
+- assumptions:
+  - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+- inputs:
+  - perGroup: 64
+  - effect: 0.5
+  - sigma: 1
+- steps:
+  - Item:
+    - index: 1
+    - expression: n = 64; δ = 0.5; σ = 1
+    - reason: Identify the actual constructed inputs or predeclared planning assumptions.
+  - Item:
+    - index: 2
+    - expression: N=2n,\quad \mathrm{SE}=\sigma\sqrt{\frac{2}{n}},\quad c=z_{0.95}\,\mathrm{SE},\quad 1-\beta=\Phi\!\left(\frac{\delta-c}{\mathrm{SE}}\right),\quad \alpha=0.05.
+    - reason: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+  - Item:
+    - index: 3
+    - expression: 0.8817090317783469
+    - reason: Increasing each group from 16 to 64 halves the standard error. The same assumed shift is easier for the predeclared positive-direction test to detect.
+- result:
+  - approximate: 0.8817090317783469
+- interpretation: Increasing each group from 16 to 64 halves the standard error. The same assumed shift is easier for the predeclared positive-direction test to detect.
+- independent check:
+  - method: Independent Python NormalDist quantile and CDF calculation for the stated equal-group normal test, including the zero-effect significance boundary.
+  - expected: 0.8817090317783469
+- limits: The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+- preset:
+  - perGroup: 64
+  - effect: 0.5
+  - sigma: 1
+- provenance:
+  - kind: original worked derivation
+  - mathematical review: author-derived; independent review pending
+  - external source refs:
+    []
+- conditions to check:
+  - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+
+## Written exploration recipe
+
+- component id: component:normal-test-power
+- renderer id: normal-test-power-visual-model
+- renderer version: 1
+- model id: normal-test-power-visual-model
+- model revision: 1
+- expression id: ast:normal-test-power:expression
+- interaction status: implemented
+- description: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+- controls:
+  - Item:
+    - id: perGroup
+    - type: number
+    - default: 16
+    - min: 2
+    - max: 64
+    - step: 1
+  - Item:
+    - id: effect
+    - type: number
+    - default: 0.5
+    - min: 0
+    - max: 2
+    - step: 0.05
+  - Item:
+    - id: sigma
+    - type: number
+    - default: 1
+    - min: 0.25
+    - max: 2
+    - step: 0.05
+- expected cases:
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0
+      - sigma: 2
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0.25
+      - sigma: 0.25
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0.25
+      - sigma: 1
+    - status: valid
+    - output: 0.08152999177511838
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0.25
+      - sigma: 2
+    - status: valid
+    - output: 0.06427388378120485
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0.5
+      - sigma: 0.25
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0.5
+      - sigma: 1
+    - status: valid
+    - output: 0.1261348981934305
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 0.5
+      - sigma: 2
+    - status: valid
+    - output: 0.08152999177511838
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 1
+      - sigma: 0.25
+    - status: valid
+    - output: 0.9907422946265046
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 1
+      - sigma: 1
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 1
+      - sigma: 2
+    - status: valid
+    - output: 0.1261348981934305
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 2
+      - sigma: 0.25
+    - status: valid
+    - output: 0.999999999895886
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 2
+      - sigma: 1
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 2
+      - effect: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0
+      - sigma: 2
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0.25
+      - sigma: 0.25
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0.25
+      - sigma: 1
+    - status: valid
+    - output: 0.09829979435798719
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0.25
+      - sigma: 2
+    - status: valid
+    - output: 0.07104166345495633
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0.5
+      - sigma: 0.25
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0.5
+      - sigma: 1
+    - status: valid
+    - output: 0.17418726161793235
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 0.5
+      - sigma: 2
+    - status: valid
+    - output: 0.09829979435798719
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 1
+      - sigma: 0.25
+    - status: valid
+    - output: 0.9999698968293542
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 1
+      - sigma: 1
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 1
+      - sigma: 2
+    - status: valid
+    - output: 0.17418726161793235
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 2
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 2
+      - sigma: 1
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 4
+      - effect: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0
+      - sigma: 2
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0.25
+      - sigma: 0.25
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0.25
+      - sigma: 1
+    - status: valid
+    - output: 0.1261348981934305
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0.25
+      - sigma: 2
+    - status: valid
+    - output: 0.08152999177511838
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0.5
+      - sigma: 0.25
+    - status: valid
+    - output: 0.9907422946265046
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0.5
+      - sigma: 1
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 0.5
+      - sigma: 2
+    - status: valid
+    - output: 0.1261348981934305
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 1
+      - sigma: 0.25
+    - status: valid
+    - output: 0.999999999895886
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 1
+      - sigma: 1
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 1
+      - sigma: 2
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 2
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 2
+      - sigma: 1
+    - status: valid
+    - output: 0.9907422946265046
+  - Item:
+    - input:
+      - perGroup: 8
+      - effect: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0
+      - sigma: 2
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.25
+      - sigma: 0.25
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.25
+      - sigma: 1
+    - status: valid
+    - output: 0.17418726161793235
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.25
+      - sigma: 2
+    - status: valid
+    - output: 0.09829979435798719
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.5
+      - sigma: 0.25
+    - status: valid
+    - output: 0.9999698968293542
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.5
+      - sigma: 1
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.5
+      - sigma: 2
+    - status: valid
+    - output: 0.17418726161793235
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 1
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 1
+      - sigma: 1
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 1
+      - sigma: 2
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 2
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 2
+      - sigma: 1
+    - status: valid
+    - output: 0.9999698968293542
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0
+      - sigma: 2
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0.25
+      - sigma: 0.25
+    - status: valid
+    - output: 0.9907422946265046
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0.25
+      - sigma: 1
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0.25
+      - sigma: 2
+    - status: valid
+    - output: 0.1261348981934305
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0.5
+      - sigma: 0.25
+    - status: valid
+    - output: 0.999999999895886
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0.5
+      - sigma: 1
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 0.5
+      - sigma: 2
+    - status: valid
+    - output: 0.25951102284144445
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 1
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 1
+      - sigma: 1
+    - status: valid
+    - output: 0.9907422946265046
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 1
+      - sigma: 2
+    - status: valid
+    - output: 0.6387600313123355
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 2
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 2
+      - sigma: 1
+    - status: valid
+    - output: 0.999999999895886
+  - Item:
+    - input:
+      - perGroup: 32
+      - effect: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.9907422946265046
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0
+      - sigma: 0.25
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0
+      - sigma: 1
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0
+      - sigma: 2
+    - status: valid
+    - output: 0.050000000000000155
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0.25
+      - sigma: 0.25
+    - status: valid
+    - output: 0.9999698968293542
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0.25
+      - sigma: 1
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0.25
+      - sigma: 2
+    - status: valid
+    - output: 0.17418726161793235
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0.5
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0.5
+      - sigma: 1
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 0.5
+      - sigma: 2
+    - status: valid
+    - output: 0.40879721979387085
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 1
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 1
+      - sigma: 1
+    - status: valid
+    - output: 0.9999698968293542
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 1
+      - sigma: 2
+    - status: valid
+    - output: 0.8817090317783469
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 2
+      - sigma: 0.25
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 2
+      - sigma: 1
+    - status: valid
+    - output: 1.0
+  - Item:
+    - input:
+      - perGroup: 64
+      - effect: 2
+      - sigma: 2
+    - status: valid
+    - output: 0.9999698968293542
+  - Item:
+    - input:
+      - perGroup: 1
+      - effect: 0.5
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 65
+      - effect: 0.5
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 2.5
+      - effect: 0.5
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: true
+      - effect: 0.5
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: -1
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 3
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: null
+      - sigma: 1
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.5
+      - sigma: 0
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.5
+      - sigma: 3
+    - status: invalid_parameters
+  - Item:
+    - input:
+      - perGroup: 16
+      - effect: 0.5
+      - sigma: 1
+    - status: invalid_parameters
+- compute: Declare a positive-direction mean shift and a known common reading spread before collecting data. Independent readings per group determine the standard error of the mean difference; a fixed one-sided cutoff then separates rejection from non-rejection under the assumed shift.
+- numeric tolerance: 5e-11
+- invariants:
+  - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+  - Story, calculation, geometry and graph share the same actual declared quantities.
+  - Whole reading counts remain discrete; numerical quantiles and probability displays remain approximations.
+- limits:
+  - The two groups are independent; readings within each group are independent and normally distributed, with known common positive standard deviation σ. The predeclared one-sided test rejects when the future mean difference exceeds c, testing a nonpositive true difference against a positive one at significance level α=0.05. The assumed effect δ is a planning input rather than an estimate from observed data. Use whole n from 2 to 64 readings per group, δ from 0 to 2 mm and σ from 0.25 to 2 mm. There are 2n readings in total. At δ=0 the rejection probability is α and the complement β is null non-rejection; β is a Type II error probability only when δ>0. Normal tails and the critical quantile are numerical approximations. No observations, random allocations, empirical power estimate or causal guarantee are generated. Estimated rather than known spread, unequal groups, paired readings and two-sided testing require different procedures.
+- fallback: Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.
+- snapshot fields:
+  - card_id
+  - card_revision
+  - component_id
+  - model_revision
+  - renderer_version
+  - parameters
+  - result_status
+  - result
+  - note
+
+## Parent-card sources (case derivation provenance is listed above)
+
+- Source ID: source:design-extensions:power. [NIST/SEMATECH · Sample Sizes Required](https://www.itl.nist.gov/div898/handbook/prc/section2/prc222.htm). Locator: §7.2.2.2: predeclared alpha, beta, assumed effect and known spread in normal-test planning. This source states the one-sample planning equation. The equal-size two-group standard error and rejection-probability formula are derived here, using independence; they are not attributed as a quoted NIST two-group equation. The two-process setup in prc31.htm was inspected separately.. Verification: Definition-level primary sources inspected 2026-11-03; original two-group normal derivation and independent numerical check, with independent mathematical/pedagogical and exact-edition book review pending.. Rights: Original two-jig planning scenario, examples and figures; no source example, data or illustration reproduced.

@@ -1,0 +1,554 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:fold-bifurcation",
+  "slug": "fold-bifurcation",
+  "type": "concept",
+  "title": "Fold bifurcations",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "fold bifurcations"
+  ],
+  "branches": [
+    "dynamics"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "When do two balance points disappear?",
+  "meaning": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root.",
+  "prerequisites": {
+    "required": [],
+    "helpful": [
+      "math:concept:stability",
+      "math:concept:basin-attraction"
+    ],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A control dial changes a toy actuator’s velocity rule. For positive dial values, one balance point attracts nearby positions and the other repels them. Lower the dial through zero: the pair meets, then no real balance point remains. Read balance points from zeros of velocity rather than from the height of an arbitrary mountain.",
+    "formal_latex": "\\dot x=\\mu-x^2,\\quad x_*^2=\\mu,\\quad f\\prime(x_*)=-2x_*.",
+    "signature": {
+      "μ": "Control parameter μ; the declared input",
+      "result": "The primary reported quantity in equilibria."
+    },
+    "conditions": [
+      "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.",
+      "Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views.",
+      "This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified."
+    ],
+    "domain_notes": "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.",
+    "proof_status": "Author-derived for the bounded family; independent mathematical review pending.",
+    "source_refs": [
+      "source:systems:fold"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "Fold bifurcations",
+    "expression_latex": "\\dot x=\\mu-x^2,\\quad x_*^2=\\mu,\\quad f\\prime(x_*)=-2x_*.",
+    "formation_rule": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root.",
+    "precedence": "Apply the stated grouping and units before rounding the displayed result.",
+    "symbols": [
+      {
+        "token": "μ",
+        "role": "Control parameter μ; the declared input",
+        "type": "Declared input or result"
+      },
+      {
+        "token": "result",
+        "role": "The primary reported quantity in equilibria.",
+        "type": "Declared input or result"
+      }
+    ],
+    "ast": {
+      "id": "ast:fold-bifurcation:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:mu",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "μ",
+          "scope_ref": "scope:fold-bifurcation"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried evaluator for the stated family",
+          "ref": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root."
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared result",
+          "function": "n:rule",
+          "argument": "n:mu"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:fold-bifurcation",
+          "kind": "modelExpression",
+          "free_variables": [
+            "μ"
+          ],
+          "domain_condition": "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "Use a value outside the declared range",
+        "status": "unsupported parameter",
+        "reason": "The executable family is deliberately bounded; its limits are part of its meaning."
+      }
+    ],
+    "ast_coverage": "A typed application outline of the bounded family; no arbitrary expression parser is claimed.",
+    "output_symbol_bindings": {
+      "μ": "mu",
+      "result": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root.",
+      "conditions": "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.",
+      "derivation": "The cyan velocity curve changes with the dial. Gold dots mark its actual zeros.",
+      "status": "author-derived for stated conditions; independent mathematical review pending",
+      "example_ref": "math:example:fold-bifurcation:case-1"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:stability",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared assumptions.",
+      "reason": "Fold bifurcations supplies a bounded connection to stability.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    },
+    {
+      "target": "math:concept:basin-attraction",
+      "type": "supports",
+      "conditions": "Use each lesson under its own declared assumptions.",
+      "reason": "Fold bifurcations supplies a bounded connection to basin attraction.",
+      "target_status": "available",
+      "evidence_status": "editorial mathematical connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:fold-bifurcation:case-1",
+      "title": "Begin with the stated scenario",
+      "role": "applied_model",
+      "question": "When do two balance points disappear?",
+      "setting": "A control dial changes a toy actuator’s velocity rule. For positive dial values, one balance point attracts nearby positions and the other repels them. Lower the dial through zero: the pair meets, then no real balance point remains. Read balance points from zeros of velocity rather than from the height of an arbitrary mountain.",
+      "assumptions": [
+        "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood."
+      ],
+      "inputs": {
+        "mu": 1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "μ = 1",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "dx/dt = μ − x²",
+          "reason": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 2 equilibria",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "2 equilibria"
+      },
+      "interpretation": "The cyan velocity curve changes with the dial. Gold dots mark its actual zeros.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "2"
+      },
+      "limits": "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.",
+      "preset": {
+        "mu": 1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood."
+      ]
+    },
+    {
+      "id": "math:example:fold-bifurcation:case-2",
+      "title": "Change Control parameter μ to -1",
+      "role": "applied_model",
+      "question": "When do two balance points disappear?",
+      "setting": "A control dial changes a toy actuator’s velocity rule. For positive dial values, one balance point attracts nearby positions and the other repels them. Lower the dial through zero: the pair meets, then no real balance point remains. Read balance points from zeros of velocity rather than from the height of an arbitrary mountain.",
+      "assumptions": [
+        "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood."
+      ],
+      "inputs": {
+        "mu": -1
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "μ = -1",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "dx/dt = μ − x²",
+          "reason": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 0 equilibria",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "0 equilibria"
+      },
+      "interpretation": "The cyan velocity curve changes with the dial. Gold dots mark its actual zeros.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "0"
+      },
+      "limits": "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.",
+      "preset": {
+        "mu": -1
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood."
+      ]
+    },
+    {
+      "id": "math:example:fold-bifurcation:case-3",
+      "title": "Meet at the fold: μ = 0",
+      "role": "applied_model",
+      "question": "When do two balance points disappear?",
+      "setting": "A control dial changes a toy actuator’s velocity rule. For positive dial values, one balance point attracts nearby positions and the other repels them. Lower the dial through zero: the pair meets, then no real balance point remains. Read balance points from zeros of velocity rather than from the height of an arbitrary mountain.",
+      "assumptions": [
+        "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood."
+      ],
+      "inputs": {
+        "mu": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "μ = 0",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "dx/dt = μ − x²",
+          "reason": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 1 equilibria",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "1 equilibria"
+      },
+      "interpretation": "The cyan velocity curve changes with the dial. Gold dots mark its actual zeros.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "1"
+      },
+      "limits": "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.",
+      "preset": {
+        "mu": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood."
+      ]
+    },
+    {
+      "id": "math:example:fold-bifurcation:case-4",
+      "title": "Change Control parameter μ to 2",
+      "role": "applied_model",
+      "question": "When do two balance points disappear?",
+      "setting": "A control dial changes a toy actuator’s velocity rule. For positive dial values, one balance point attracts nearby positions and the other repels them. Lower the dial through zero: the pair meets, then no real balance point remains. Read balance points from zeros of velocity rather than from the height of an arbitrary mountain.",
+      "assumptions": [
+        "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood."
+      ],
+      "inputs": {
+        "mu": 2
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "μ = 2",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "dx/dt = μ − x²",
+          "reason": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 2 equilibria",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "2 equilibria"
+      },
+      "interpretation": "The cyan velocity curve changes with the dial. Gold dots mark its actual zeros.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "2"
+      },
+      "limits": "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.",
+      "preset": {
+        "mu": 2
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood."
+      ]
+    },
+    {
+      "id": "math:example:fold-bifurcation:case-5",
+      "title": "Change Control parameter μ to -0.25",
+      "role": "applied_model",
+      "question": "When do two balance points disappear?",
+      "setting": "A control dial changes a toy actuator’s velocity rule. For positive dial values, one balance point attracts nearby positions and the other repels them. Lower the dial through zero: the pair meets, then no real balance point remains. Read balance points from zeros of velocity rather than from the height of an arbitrary mountain.",
+      "assumptions": [
+        "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood."
+      ],
+      "inputs": {
+        "mu": -0.25
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "μ = -0.25",
+          "reason": "These are the stipulated inputs for this case."
+        },
+        {
+          "index": 2,
+          "expression": "dx/dt = μ − x²",
+          "reason": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root."
+        },
+        {
+          "index": 3,
+          "expression": "Result ≈ 0 equilibria",
+          "reason": "Evaluate the stated rule before rounding the display."
+        }
+      ],
+      "result": {
+        "exact": "0 equilibria"
+      },
+      "interpretation": "The cyan velocity curve changes with the dial. Gold dots mark its actual zeros.",
+      "independent_check": {
+        "method": "Independent Python reference using sets, algebra or alternate analytic identities.",
+        "expected": "0"
+      },
+      "limits": "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.",
+      "preset": {
+        "mu": -0.25
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:fold-bifurcation",
+    "renderer_id": "fold-bifurcation-visual-model",
+    "renderer_version": "1",
+    "model_id": "fold-bifurcation-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:fold-bifurcation:expression",
+    "interaction_status": "implemented",
+    "description": "The cyan velocity curve changes with the dial. Gold dots mark its actual zeros.",
+    "controls": [
+      {
+        "id": "mu",
+        "type": "number",
+        "default": 1,
+        "min": -1,
+        "max": 2,
+        "step": 0.05
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "mu": 1
+        },
+        "status": "valid",
+        "output": 2
+      },
+      {
+        "input": {
+          "mu": -1
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "mu": 0
+        },
+        "status": "valid",
+        "output": 1
+      },
+      {
+        "input": {
+          "mu": 2
+        },
+        "status": "valid",
+        "output": 2
+      },
+      {
+        "input": {
+          "mu": -0.25
+        },
+        "status": "valid",
+        "output": 0
+      },
+      {
+        "input": {
+          "mu": 1.25
+        },
+        "status": "valid",
+        "output": 2
+      },
+      {
+        "input": {
+          "mu": 3
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root.",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.",
+      "Inputs stay inside the declared control ranges. Each result uses the same parameter state in the story, formula and both views.",
+      "This is an originally authored constructed example; no empirical dataset or exact-edition book page has been verified."
+    ],
+    "limits": [
+      "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood."
+    ],
+    "fallback": "Pause to read the quantities. Worked steps, the graph, model-data table and searchable definitions provide text and numeric alternatives.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "When do two balance points disappear?",
+      "answer": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root."
+    },
+    {
+      "prompt": "What does this construction leave out?",
+      "answer": "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "The cyan velocity curve changes with the dial. Gold dots mark its actual zeros."
+    },
+    {
+      "kind": "graph",
+      "description": "Hold other inputs fixed and plot the declared primary result against Control parameter μ. Discrete results use separate dots."
+    },
+    {
+      "kind": "substitution",
+      "description": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Originally authored teaching scenario",
+      "mapping": "When do two balance points disappear?",
+      "limitations": "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:fold-bifurcation:case-1"
+    },
+    {
+      "context": "Boundary comparison",
+      "mapping": "Solve the zero-velocity equation and inspect the sign of its derivative at each simple root.",
+      "limitations": "A local normal-form family. Positive μ gives a stable positive and unstable negative equilibrium; zero is a one-sided attracting double root, not an asymptotically stable equilibrium on a full neighborhood.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:fold-bifurcation:case-2"
+    }
+  ],
+  "source_refs": [
+    "source:systems:fold"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0: Added bounded model, connected story, Geometry/Graph, original examples and reference coverage."
+  ]
+}

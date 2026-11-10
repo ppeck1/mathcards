@@ -1,0 +1,536 @@
+{
+  "schema_version": "0.1.0",
+  "id": "math:concept:hypothesis-test",
+  "slug": "hypothesis-test",
+  "type": "concept",
+  "title": "An exact one-sided hypothesis test",
+  "revision": "0.1.0-draft",
+  "publication_status": "draft",
+  "updated": "2026-11-02T00:00:00Z",
+  "review": {
+    "mathematics": "author-derived for stated conditions; independent mathematical review pending",
+    "history": "source gap; no origin or priority assertions",
+    "interaction": "implemented; numeric fixtures are not independent review"
+  },
+  "source_policy": "Primary references support definitions and stated conditions. Scenarios and worked derivations are originally authored constructions. The supplied book matrix guides sequencing; it is not independent verification of exact-edition book coverage.",
+  "aliases": [
+    "hypothesis test",
+    "p value",
+    "p-value",
+    "null hypothesis",
+    "significance level",
+    "one sided test"
+  ],
+  "branches": [
+    "statistics",
+    "probability"
+  ],
+  "expressive_job": [
+    "evaluate",
+    "visualize",
+    "compare"
+  ],
+  "purpose": "Make a p-value visible as a complete probability tail, then compare it with a threshold declared in advance.",
+  "meaning": "A p-value is the probability, under a specified null model, of a result at least as extreme as the observation in the prespecified direction. Here extremeness is a larger count in twelve Bernoulli trials, so the exact p-value is an upper binomial tail.",
+  "prerequisites": {
+    "required": [
+      "math:concept:binomial-distribution"
+    ],
+    "helpful": [],
+    "depth": []
+  },
+  "definition": {
+    "setting": "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+    "formal_latex": "H_0:p=\\tfrac12,\\quad H_1:p>\\tfrac12,\\quad K\\sim\\operatorname{Bin}(12,\\tfrac12).\\quad p\\text{-value}=P_{H_0}(K\\ge k)=\\sum_{j=k}^{12}\\binom{12}{j}2^{-12}.",
+    "signature": {
+      "k": "Observed count out of twelve.",
+      "p-value": "Probability of this count or a larger count under p₀=1/2."
+    },
+    "conditions": [
+      "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+      "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.",
+      "Original constructed teaching examples. Exact-edition book coverage and independent mathematical review remain open."
+    ],
+    "domain_notes": "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.",
+    "proof_status": "Definition-level sources and original calculations; independent review pending.",
+    "source_refs": [
+      "source:inference:binomial",
+      "source:inference:interval"
+    ]
+  },
+  "grammar": {
+    "pronunciation": "An exact one-sided hypothesis test",
+    "expression_latex": "H_0:p=\\tfrac12,\\quad H_1:p>\\tfrac12,\\quad K\\sim\\operatorname{Bin}(12,\\tfrac12).\\quad p\\text{-value}=P_{H_0}(K\\ge k)=\\sum_{j=k}^{12}\\binom{12}{j}2^{-12}.",
+    "formation_rule": "A p-value is the probability, under a specified null model, of a result at least as extreme as the observation in the prespecified direction. Here extremeness is a larger count in twelve Bernoulli trials, so the exact p-value is an upper binomial tail.",
+    "precedence": "Evaluate declared inputs before the statistic. Retain sampling and domain conditions.",
+    "symbols": [
+      {
+        "token": "k",
+        "role": "Observed count out of twelve.",
+        "type": "Declared mathematical quantity"
+      },
+      {
+        "token": "p-value",
+        "role": "Probability of this count or a larger count under p₀=1/2.",
+        "type": "Declared mathematical quantity"
+      }
+    ],
+    "ast": {
+      "id": "ast:hypothesis-test:expression",
+      "root": "n:output",
+      "nodes": [
+        {
+          "id": "n:observed",
+          "kind": "variable",
+          "type": "Declared model input",
+          "symbol": "k",
+          "scope_ref": "scope:hypothesis-test:expression"
+        },
+        {
+          "id": "n:rule",
+          "kind": "functionRef",
+          "type": "Curried bounded numerical model",
+          "ref": "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k. p-value = Pₚ₀(K ≥ k)"
+        },
+        {
+          "id": "n:output",
+          "kind": "apply",
+          "type": "Declared primary result",
+          "function": "n:rule",
+          "argument": "n:observed"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "scope:hypothesis-test:expression",
+          "kind": "modelExpression",
+          "free_variables": [
+            "k"
+          ],
+          "domain_condition": "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k."
+        }
+      ]
+    },
+    "parse_errors": [
+      {
+        "input": "The demonstration proves this model is true of collected data.",
+        "status": "interpretation error",
+        "reason": "The data are constructed. Empirical use needs validation of assumptions."
+      }
+    ],
+    "ast_coverage": "Typed application outline of a bounded family; not a parser for arbitrary statistical expressions.",
+    "output_symbol_bindings": {
+      "k": "observed",
+      "p-value": "output"
+    }
+  },
+  "properties": [
+    {
+      "claim": "A p-value is the probability, under a specified null model, of a result at least as extreme as the observation in the prespecified direction. Here extremeness is a larger count in twelve Bernoulli trials, so the exact p-value is an upper binomial tail.",
+      "conditions": "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+      "derivation": "The tail probability is (66+12+1)/4096=79/4096, below 0.05.",
+      "status": "author-derived for stated conditions; independent review pending",
+      "example_ref": "math:example:hypothesis-test:ten-stickers"
+    }
+  ],
+  "history": {
+    "status": "source_gap",
+    "claims": [],
+    "research_tasks": [
+      "Research concept and notation development before adding historical priority claims.",
+      "Check exact-edition book coverage independently before treating the supplied planning matrix as verified."
+    ],
+    "reader_text": "Historical development has not been researched for this draft. The scenarios and worked examples are original constructions."
+  },
+  "connections": [
+    {
+      "target": "math:concept:binomial-distribution",
+      "type": "supports",
+      "conditions": "Each concept retains its declared setting.",
+      "reason": "This lesson uses binomial distribution.",
+      "target_status": "available",
+      "evidence_status": "definition-level connection; author explanation",
+      "source_refs": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "math:example:hypothesis-test:ten-stickers",
+      "title": "Cross the chosen threshold",
+      "role": "applied_model",
+      "question": "Cross the chosen threshold under the stated inputs?",
+      "setting": "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+      "assumptions": [
+        "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+        "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier."
+      ],
+      "inputs": {
+        "observed": 10
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "observed=10",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "The tail probability is (66+12+1)/4096=79/4096, below 0.05.",
+          "reason": "A p-value is the probability, under a specified null model, of a result at least as extreme as the observation in the prespecified direction. Here extremeness is a larger count in twelve Bernoulli trials, so the exact p-value is an upper binomial tail."
+        }
+      ],
+      "result": {
+        "exact": "The tail probability is (66+12+1)/4096=79/4096, below 0.05."
+      },
+      "interpretation": "The tail probability is (66+12+1)/4096=79/4096, below 0.05.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 0.019287109375}"
+      },
+      "limits": "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.",
+      "preset": {
+        "observed": 10
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+        "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier."
+      ]
+    },
+    {
+      "id": "math:example:hypothesis-test:nine-stickers",
+      "title": "Stay above the threshold",
+      "role": "applied_model",
+      "question": "Stay above the threshold under the stated inputs?",
+      "setting": "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+      "assumptions": [
+        "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+        "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier."
+      ],
+      "inputs": {
+        "observed": 9
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "observed=9",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "The tail probability is (220+66+12+1)/4096=299/4096, above 0.05.",
+          "reason": "A p-value is the probability, under a specified null model, of a result at least as extreme as the observation in the prespecified direction. Here extremeness is a larger count in twelve Bernoulli trials, so the exact p-value is an upper binomial tail."
+        }
+      ],
+      "result": {
+        "exact": "The tail probability is (220+66+12+1)/4096=299/4096, above 0.05."
+      },
+      "interpretation": "The tail probability is (220+66+12+1)/4096=299/4096, above 0.05.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 0.072998046875}"
+      },
+      "limits": "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.",
+      "preset": {
+        "observed": 9
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+        "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier."
+      ]
+    },
+    {
+      "id": "math:example:hypothesis-test:all-stickers",
+      "title": "Only the largest count",
+      "role": "applied_model",
+      "question": "Only the largest count under the stated inputs?",
+      "setting": "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+      "assumptions": [
+        "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+        "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier."
+      ],
+      "inputs": {
+        "observed": 12
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "observed=12",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "The tail has one mass: 1/4096.",
+          "reason": "A p-value is the probability, under a specified null model, of a result at least as extreme as the observation in the prespecified direction. Here extremeness is a larger count in twelve Bernoulli trials, so the exact p-value is an upper binomial tail."
+        }
+      ],
+      "result": {
+        "exact": "The tail has one mass: 1/4096."
+      },
+      "interpretation": "The tail has one mass: 1/4096.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 0.000244140625}"
+      },
+      "limits": "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.",
+      "preset": {
+        "observed": 12
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+        "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier."
+      ]
+    },
+    {
+      "id": "math:example:hypothesis-test:no-stickers",
+      "title": "A result in the other direction",
+      "role": "applied_model",
+      "question": "A result in the other direction under the stated inputs?",
+      "setting": "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+      "assumptions": [
+        "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+        "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier."
+      ],
+      "inputs": {
+        "observed": 0
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "observed=0",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "Every count is at least zero, so this one-sided p-value is one.",
+          "reason": "A p-value is the probability, under a specified null model, of a result at least as extreme as the observation in the prespecified direction. Here extremeness is a larger count in twelve Bernoulli trials, so the exact p-value is an upper binomial tail."
+        }
+      ],
+      "result": {
+        "exact": "Every count is at least zero, so this one-sided p-value is one."
+      },
+      "interpretation": "Every count is at least zero, so this one-sided p-value is one.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 1.0}"
+      },
+      "limits": "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.",
+      "preset": {
+        "observed": 0
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+        "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier."
+      ]
+    },
+    {
+      "id": "math:example:hypothesis-test:half-stickers",
+      "title": "Read a central count",
+      "role": "applied_model",
+      "question": "Read a central count under the stated inputs?",
+      "setting": "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+      "assumptions": [
+        "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+        "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier."
+      ],
+      "inputs": {
+        "observed": 6
+      },
+      "steps": [
+        {
+          "index": 1,
+          "expression": "observed=6",
+          "reason": "Set declared inputs without changing the family."
+        },
+        {
+          "index": 2,
+          "expression": "The upper tail includes the central mass at six and all larger counts; its value is 2510/4096.",
+          "reason": "A p-value is the probability, under a specified null model, of a result at least as extreme as the observation in the prespecified direction. Here extremeness is a larger count in twelve Bernoulli trials, so the exact p-value is an upper binomial tail."
+        }
+      ],
+      "result": {
+        "exact": "The upper tail includes the central mass at six and all larger counts; its value is 2510/4096."
+      },
+      "interpretation": "The upper tail includes the central mass at six and all larger counts; its value is 2510/4096.",
+      "independent_check": {
+        "method": "Separate Python combinatorics, enumeration or algebraic identity; tools/inference_reference.py.",
+        "expected": "{\"status\": \"valid\", \"output\": 0.61279296875}"
+      },
+      "limits": "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.",
+      "preset": {
+        "observed": 6
+      },
+      "provenance": {
+        "kind": "original worked derivation",
+        "mathematical_review": "author-derived; independent review pending",
+        "external_source_refs": []
+      },
+      "conditions_to_check": [
+        "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+        "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier."
+      ]
+    }
+  ],
+  "interactive": {
+    "component_id": "component:hypothesis-test",
+    "renderer_id": "hypothesis-test-visual-model",
+    "renderer_version": "1",
+    "model_id": "hypothesis-test-visual-model",
+    "model_revision": "1",
+    "expression_id": "ast:hypothesis-test:expression",
+    "interaction_status": "implemented",
+    "description": "Make a p-value visible as a complete probability tail, then compare it with a threshold declared in advance.",
+    "controls": [
+      {
+        "id": "observed",
+        "type": "number",
+        "default": 9,
+        "min": 0,
+        "max": 12,
+        "step": 1
+      }
+    ],
+    "expected_cases": [
+      {
+        "input": {
+          "observed": 10
+        },
+        "status": "valid",
+        "output": 0.019287109375
+      },
+      {
+        "input": {
+          "observed": 9
+        },
+        "status": "valid",
+        "output": 0.072998046875
+      },
+      {
+        "input": {
+          "observed": 12
+        },
+        "status": "valid",
+        "output": 0.000244140625
+      },
+      {
+        "input": {
+          "observed": 0
+        },
+        "status": "valid",
+        "output": 1.0
+      },
+      {
+        "input": {
+          "observed": 6
+        },
+        "status": "valid",
+        "output": 0.61279296875
+      },
+      {
+        "input": {
+          "observed": -1
+        },
+        "status": "invalid_parameters"
+      },
+      {
+        "input": {
+          "observed": "9"
+        },
+        "status": "invalid_parameters"
+      }
+    ],
+    "compute": "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k. p-value = Pₚ₀(K ≥ k)",
+    "numeric_tolerance": 1e-10,
+    "invariants": [
+      "A sticker supplier claims p₀=1/2. Inspect 12 independent packets and test the prespecified alternative p>1/2 using the upper binomial tail at the observed count k.",
+      "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.",
+      "Original constructed teaching examples. Exact-edition book coverage and independent mathematical review remain open."
+    ],
+    "limits": [
+      "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier."
+    ],
+    "fallback": "Pause to read story and calculation. Geometry, Graph, worked examples and the model-data table share inputs.",
+    "snapshot_fields": [
+      "card_id",
+      "card_revision",
+      "component_id",
+      "model_revision",
+      "renderer_version",
+      "parameters",
+      "result_status",
+      "result",
+      "note"
+    ]
+  },
+  "prompts": [
+    {
+      "prompt": "Does ten stickers out of twelve cross the declared 0.05 threshold?",
+      "answer": "At k=10 the tail contains counts 10,11,12 and has probability (66+12+1)/4096=79/4096≈0.01929. This rejects the null at α=0.05 within this test; it is not the probability that the null is true."
+    },
+    {
+      "prompt": "What is outside this demonstration?",
+      "answer": "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier."
+    }
+  ],
+  "representations": [
+    {
+      "kind": "geometry",
+      "description": "Make a p-value visible as a complete probability tail, then compare it with a threshold declared in advance."
+    },
+    {
+      "kind": "graph",
+      "description": "Exact p-values appear only at thirteen possible counts, with a separate α=0.05 reference line."
+    },
+    {
+      "kind": "substitution",
+      "description": "Follow the same inputs through story, formula and result."
+    }
+  ],
+  "applications": [
+    {
+      "context": "Which counts challenge a half-chance claim?",
+      "mapping": "Make a p-value visible as a complete probability tail, then compare it with a threshold declared in advance.",
+      "limitations": "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:hypothesis-test:ten-stickers"
+    },
+    {
+      "context": "Stay above the threshold",
+      "mapping": "The tail probability is (220+66+12+1)/4096=299/4096, above 0.05.",
+      "limitations": "The p-value assumes the null model and the fixed one-sided alternative; it is not the probability that the null hypothesis is true. The decision threshold is α=0.05, set before seeing the count. These constructed data do not validate a supplier.",
+      "evidence_kind": "constructed_example",
+      "example_ref": "math:example:hypothesis-test:nine-stickers"
+    }
+  ],
+  "source_refs": [
+    "source:inference:binomial",
+    "source:inference:interval"
+  ],
+  "review_gaps": [
+    "Independent mathematical, unit and pedagogical review is pending.",
+    "Historical development and exact-edition book coverage have not been independently researched.",
+    "The bounded executable family does not replace the broader concept."
+  ],
+  "change_log": [
+    "0.34.0 branch: Bounded inference model, connected story, Geometry/Graph, five original examples and numeric fixtures."
+  ]
+}
